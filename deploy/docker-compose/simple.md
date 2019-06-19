@@ -11,6 +11,6 @@ Copy example [config file](simple/.env) and [docker-compose](simple/docker-compo
 inspect comments, make modifications and start services.
 
 # Deployment checklist
- 1. Follow the [reverse proxy checklist](nginx-proxy.md)
+ 1. Follow the [reverse proxy checklist](proxy.md)
  1. Follow the [general deployment checklist](checklist.md)
  1. Run Corteza services.

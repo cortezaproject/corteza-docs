@@ -9,10 +9,8 @@ This setup consists of 5 containers (+ 2 for reverse nginx proxy):
  - `webapp`
  - `db`
 
-Copy example [config file](advanced/.env) and [docker-compose](advanced/docker-compose.yml) to your server,
-inspect comments, make modifications and start services.
-
-# Deployment checklist
- 1. Follow the [reverse proxy checklist](proxy.md)
+# Instructions
+ 1. Copy example [config file](advanced/.env) and [docker-compose](advanced/docker-compose.yml) to your server or local environment
+ 1. Follow the instructions for [reverse proxy setup](proxy.md)
  1. Follow the [general deployment checklist](checklist.md)
  1. Run Corteza services.

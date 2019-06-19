@@ -9,8 +9,8 @@ services:
       MYSQL_USER:          corteza
       MYSQL_PASSWORD:      change-me
       MYSQL_ROOT_PASSWORD: change-me-too
-    #    volumes: [ ./data/db:/var/lib/mysql ] # use local fs
-    #    volumes: [ db:/var/lib/mysql ]        # use internal docker volume
+#    volumes: [ "./data/db:/var/lib/mysql" ] # use local fs
+#    volumes: [ "db:/var/lib/mysql" ]        # use internal docker volume
     restart: on-failure
 
   server-system:
@@ -21,8 +21,8 @@ services:
     environment:
       VIRTUAL_HOST:     system.api.${DOMAIN}
       LETSENCRYPT_HOST: system.api.${DOMAIN}
-    #    volumes: [ ./data/server-system:/crust/var/store ] # use local fs
-    #    volumes: [ server:/crust/var/store ]               # use internal docker volume
+#    volumes: [ "./data/server-system:/data" ] # use local fs
+#    volumes: [ "server-data:/data" ]               # use internal docker volume
     restart: on-failure
 
 
@@ -34,8 +34,8 @@ services:
     environment:
       VIRTUAL_HOST:     messaging.api.${DOMAIN}
       LETSENCRYPT_HOST: messaging.api.${DOMAIN}
-    #    volumes: [ ./data/server-messaging:/crust/var/store ] # use local fs
-    #    volumes: [ server:/crust/var/store ]                  # use internal docker volume
+#    volumes: [ "./data/server-messaging:/data" ] # use local fs
+#    volumes: [ "server-data:/data" ]                  # use internal docker volume
     restart: on-failure
 
   server-compose:
@@ -46,8 +46,8 @@ services:
     environment:
       VIRTUAL_HOST:     compose.api.${DOMAIN}
       LETSENCRYPT_HOST: compose.api.${DOMAIN}
-    #    volumes: [ ./data/server-compose:/crust/var/store ] # use local fs
-    #    volumes: [ server:/crust/var/store ]                # use internal docker volume
+#    volumes: [ "./data/server-compose:/data" ] # use local fs
+#    volumes: [ "server-data:/data" ]                # use internal docker volume
     restart: on-failure
 
   webapp:
@@ -60,4 +60,4 @@ services:
 
 networks: { internal: {}, proxy: { name: proxy } }
 
-#volumes: { db: {}, server: {} }
+#volumes: { db: {}, server-data: {} }

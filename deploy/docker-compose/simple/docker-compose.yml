@@ -9,8 +9,8 @@ services:
       MYSQL_USER:          corteza
       MYSQL_PASSWORD:      change-me
       MYSQL_ROOT_PASSWORD: change-me-too
-#    volumes: [ ./data/db:/var/lib/mysql ] # use local fs
-#    volumes: [ db:/var/lib/mysql ]        # use internal docker volume
+#    volumes: [ "./data/db:/var/lib/mysql" ] # use local fs
+#    volumes: [ "db:/var/lib/mysql" ]        # use internal docker volume
     restart: on-failure
 
   server:
@@ -21,8 +21,8 @@ services:
     environment:
       VIRTUAL_HOST:     api.${DOMAIN}
       LETSENCRYPT_HOST: api.${DOMAIN}
-#    volumes: [ ./data/server:/crust/var/store ] # use local fs
-#    volumes: [ server:/crust/var/store ]        # use internal docker volume
+#    volumes: [ "./data/server:/data" ] # use local fs
+#    volumes: [ "server-data:/data" ]        # use internal docker volume
     restart: on-failure
 
   webapp:
@@ -36,4 +36,4 @@ services:
 
 networks: { internal: {}, proxy: { name: proxy } }
 
-#volumes: { db: {}, server: {} }
+volumes: { db: {}, server-data: {} }

@@ -1,0 +1,39 @@
+version: '3.5'
+
+services:
+  db:
+    image: percona:8.0
+    networks: [ internal ]
+    environment:
+      MYSQL_DATABASE:      corteza
+      MYSQL_USER:          corteza
+      MYSQL_PASSWORD:      change-me
+      MYSQL_ROOT_PASSWORD: change-me-too
+#    volumes: [ ./data/db:/var/lib/mysql ] # use local fs
+#    volumes: [ db:/var/lib/mysql ]        # use internal docker volume
+    restart: on-failure
+
+  server:
+    image: cortezaproject/corteza-server:${VERSION}
+    env_file: [ .env ]
+    depends_on: [ db ]
+    networks: [ proxy, internal ]
+    environment:
+      VIRTUAL_HOST:     api.${DOMAIN}
+      LETSENCRYPT_HOST: api.${DOMAIN}
+#    volumes: [ ./data/server:/crust/var/store ] # use local fs
+#    volumes: [ server:/crust/var/store ]        # use internal docker volume
+    restart: on-failure
+
+  webapp:
+    image: cortezaproject/corteza-webapp:${VERSION}
+    networks: [ proxy ]
+    environment:
+      MONOLITH_API:     "true"
+      VIRTUAL_HOST:     ${DOMAIN}
+      LETSENCRYPT_HOST: ${DOMAIN}
+    restart: on-failure
+
+networks: { internal: {}, proxy: { name: proxy } }
+
+#volumes: { db: {}, server: {} }

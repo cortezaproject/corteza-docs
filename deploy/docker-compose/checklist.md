@@ -9,7 +9,7 @@
     - Is there anything missing? 
       Check `.env.example` in 
       [corteza-server](https://github.com/cortezaproject/corteza-server) repository.
-    - 
+      
  1. `docker-compose.yml`
     - If you ar not familiar with Docker Compose, its config file, visit:
       - https://docs.docker.com/compose/overview/

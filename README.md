@@ -19,7 +19,7 @@ is still in testing mode.
 
 ### Simple
 
-Deployment with minimum set of containers (database + backend + frontend) 
+Deployment with a minimum set of containers (database + backend + frontend) 
 
 [Instructions](deploy/docker-compose/simple.md) for simple deployment.
 
@@ -32,7 +32,7 @@ Deployment with multiple backend containers (microservice) and a frontend contai
 
 ### Local (development mode)
 
-You can check out all backend and frontend repositories and follow instructions how to start
+You can check out all backend and frontend repositories and follow instructions on how to start
 development servers in each one.
 
 Golang and/or JavaScript/Vue.js experience is required.

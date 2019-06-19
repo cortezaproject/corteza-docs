@@ -1,9 +1,11 @@
 # Nginx Proxy (jwilder/nginx-proxy)
 
+In the following instructions we assume you don't have anything similar set up on your current environment.
+
 If you are using an alternative (eg: nativelly running Nginx, H2o proxy, Træfik) and 
 can provide instructions and examples, please let us know or make a pull request for the documentation.
 
-----
+You need to copy [docker-compose](nginx-proxy/docker-compose.yml) file to a different folder on your server or local environment and start services. The file is ready to run so you shouldn't have to modify anything in it.
 
 ## Why do we need this?
 
@@ -23,9 +25,3 @@ Corteza containers do not serve requests over TLS (HTTPS). This means less compl
 for Corteza and a bit more work for you if you do not have any existing infrastructure.
 
 This is the responsibility of `nginx-letsencrypt` service (via `jrcs/letsencrypt-nginx-proxy-companion` image).
-
-----
-
-Copy [docker-compose](nginx-proxy/docker-compose.yml) file to your server, inspect comments, 
-make modifications and start services.
-

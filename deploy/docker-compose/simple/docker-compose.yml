@@ -5,6 +5,8 @@ services:
     image: percona:8.0
     networks: [ internal ]
     environment:
+      # To be picked up by percona image when creating the database
+      # Must match with DB_DSN settings inside .env
       MYSQL_DATABASE:      corteza
       MYSQL_USER:          corteza
       MYSQL_PASSWORD:      change-me

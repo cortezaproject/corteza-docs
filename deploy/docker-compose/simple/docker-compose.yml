@@ -1,4 +1,4 @@
-version: '3.5'
+version: '2.0'
 
 services:
   db:
@@ -36,6 +36,6 @@ services:
       LETSENCRYPT_HOST: ${DOMAIN}
     restart: on-failure
 
-networks: { internal: {}, proxy: { name: proxy } }
+networks: { internal: {}, proxy: { external: true } }
 
-volumes: { db: {}, server-data: {} }
+#volumes: { db: {}, server-data: {} }

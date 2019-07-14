@@ -37,10 +37,24 @@ go run cmd/system/*.go [commands and flags]
 Docker images are built with handy presets for 
 `ENTRYPOINT` and `CMD`. By default, `CMD` is set to `serve-api`.
 
-See docker manual for more info.  
+See docker manual for more info about ENTRYPOINT and CMD. 
 
+You can access Corteza's CLI environment through docker exec or run.
+Corteza's binary is deployed into /bin directory inside the container and it varies for each build flavour:
+
+ - `/bin/corteza-server-system` for system build
+ - `/bin/corteza-server-messaging` for messaging build
+ - `/bin/corteza-server-compose` for compose build
+ - `/bin/corteza-server` for all-in-one monolith build
+
+Running CLI for messaging build:
 ```sh
-docker exec -it -rm corteza-server-system [commands and flags]
+docker-compose exec server /bin/corteza-server-messaging --help
+```
+
+Running CLI for monolith build:
+```sh
+docker-compose exec server /bin/corteza-server --help
 ```
 
 ## Base commands:

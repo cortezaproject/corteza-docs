@@ -86,13 +86,22 @@ Name used for sending auth emails (password reset, email confirmation)
 
 
 
+## `auth.internal.signup`
+Is internal auth enabled. Enable this to allow users to use all (enabled)
+internal features (sign-up, login....)
+
+### Provision: 
+ - Variable: `PROVISION_SETTINGS_AUTH_INTERNAL_ENABLED`
+ - Default: `true`
+
+
 ## `auth.internal.signup.enabled`
 Is internal sign-up enabled. Enable this to allow users to register if you do 
 not have external authentication providers.
 
 ### Provision: 
  - Variable: `PROVISION_SETTINGS_AUTH_INTERNAL_SIGNUP_ENABLED`
- - Default: `false`
+ - Default: `true`
 
 
 ## `auth.internal.signup-email-confirmation-required`

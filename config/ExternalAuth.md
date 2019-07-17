@@ -21,7 +21,6 @@ auth.external.enabled	true
 auth.external.providers.facebook.enabled	true
 auth.external.providers.facebook.key	"24226007270326"
 auth.external.providers.facebook.secret	"7vtfXx213cfc125804a226afcae777fe47"
-auth.external.providers.gplus	true
 auth.external.providers.gplus.enabled	true
 auth.external.providers.gplus.key	"10629818561-7a8vr0avs47dqic43h2lkrurhr.apps.googleusercontent.com"
 auth.external.providers.gplus.secret	"bkHmIFdk2YvtfXx"

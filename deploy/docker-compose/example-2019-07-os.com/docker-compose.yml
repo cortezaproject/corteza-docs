@@ -1,0 +1,44 @@
+version: '2.0'
+
+services:
+  db:
+    image: percona:8.0
+    environment:
+      MYSQL_DATABASE:      corteza
+      MYSQL_USER:          corteza
+      MYSQL_PASSWORD:      oscom-tutorial
+      MYSQL_ROOT_PASSWORD: supertopsecret
+
+  server:
+    image: cortezaproject/corteza-server:latest
+
+    # Map internal 80 port (where Corteza API is listening)
+    # to external port 10080. If you change this, make sure you change API_BASEURL setting below
+    ports: [ "10080:80" ]
+
+    environment:
+      # Tell corteza-server where can it be reached from the outside
+      VIRTUAL_HOST: localhost:10080
+
+      # Serving the app from the localhost port 20080 is not very usual setup,
+      # this will override settings auto-discovery procedure (provision) and
+      # use custom values for frontend URL base
+      PROVISION_SETTINGS_AUTH_FRONTEND_URL_BASE: http://localhost:20080
+
+      # Database connection, make sure username, password, and database matches values in the db service
+      DB_DSN: corteza:oscom-tutorial@tcp(db:3306)/corteza?collation=utf8mb4_general_ci
+
+  webapp:
+    image: cortezaproject/corteza-webapp:latest
+
+    # Map internal 80 port (where we serve the web application)
+    # to external port 20080.
+    ports: [ "20080:80" ]
+
+    environment:
+      # Where API can be found
+      API_BASEURL: localhost:10080
+
+      # We're using one service for the API
+      MONOLITH_API: 1
+

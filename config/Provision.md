@@ -24,5 +24,22 @@ Runs various auto-setup procedures:
 ## `PROVISION_OIDC_PROVIDER` (string, default: '')
 
 Registers all given providers on start.
-Provide a list of space delimited provider pairs ("<name> <provider-url>" or 
-"<name> <provider-url> <name-2> <provider-url-2>"). It skips registered providers (match by name).
+Provide a list of space delimited provider pairs (`<name> <provider-url>` or 
+`<name> <provider-url> <name-2> <provider-url-2>`). 
+
+Provider is auto-disocvered only only if it does not exists (match by name).
+
+Also, make sure that your redirect URL (`auth.external.redirect-url`) is properly. See [Provision.md](Provision.md) 
+and `PROVISION_SETTINGS_AUTH_EXTERNAL_REDIRECT_URL`.
+
+## `PROVISION_SETTINGS_AUTH_EXTERNAL_` (string, default: '')
+
+Recognized keys:
+
+ - `PROVISION_SETTINGS_AUTH_EXTERNAL_GITHUB`
+ - `PROVISION_SETTINGS_AUTH_EXTERNAL_FACEBOOK`
+ - `PROVISION_SETTINGS_AUTH_EXTERNAL_GPLUS`
+ - `PROVISION_SETTINGS_AUTH_EXTERNAL_LINKEDIN`
+ - `PROVISION_SETTINGS_AUTH_EXTERNAL_OIDC`
+
+Value format is `<key> <secret>` and for OIDC `<name> <issuer> <key> <secret>`.

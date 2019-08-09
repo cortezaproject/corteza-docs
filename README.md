@@ -45,7 +45,7 @@ Golang and/or JavaScript/Vue.js experience is required.
 To allow users to access Corteza web applications and services you need to 
 route web traffic to the containers.
 
-## Setup, confguration and administration details
+## Setup, configuration and administration details
 
 You can find additional help about how to configure and manage Corteza server inside 
 [cortezaproject/corteza-server](https://github.com/cortezaproject/corteza-server/tree/master/docs) repository.

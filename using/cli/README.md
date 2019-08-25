@@ -9,18 +9,17 @@ You can choose from one of the four (4) app/service CLI entrypoints:
  - compose (`corteza-server-compose`)
  - all-in-one monolith (`corteza-server`)
 
-When system is build into a all-in-one binary or image,
+When the system is built into an all-in-one binary or image,
 app-specific commands can be accessed under a sub-command with the 
 same name as the app.
 
 ## Config
-Command and application behaviour can be adjusted using environmental
-variables. Defaults that are pre-set internally are optimized for production mode.
+Command and application behavior can be adjusted using environmental
+variables. Defaults that are preset internally are optimized for production mode.
 
 Make sure you read `/.env.example` for all the available options.
 
-Note that defaults shown under `--help` are overridden by value from the accompanying 
-environmental variable.
+Note that defaults shown under `--help` are overridden by values from the accompanying environmental variable.
 
 ## How to run:
 
@@ -70,9 +69,7 @@ Command `provision` Wraps 2 sub-commands:
  - `migrate-database`
    Run database migration scripts
 
-Both these commands are automatically executed when you run `serve-api` command,
-after database is connected and before initialization. This behaviour can
-be changed with env variables.
+Both these commands are automatically executed when you run `serve-api` command after the database is connected and before initialization. This behavior can be changed with env variables.
 
 You can prevent auto-provision on startup with `PROVISION_AUTO_SETUP=false`.
 
@@ -82,7 +79,7 @@ You can prevent auto-provision on startup with `PROVISION_AUTO_SETUP=false`.
 | --- | --- | --- |
 | auth      | auto-discovery     | Auto discovers new OIDC client
 | auth      | jwt                | Generates new JWT for a user
-| auth      | test-notifications | Sends samples of all authentication notification to receipient
+| auth      | test-notifications | Sends samples of all authentication notification to recipient
 | roles     | useradd            | Add user to role
 | settings  | delete             | Set value (raw JSON) for a specific key
 | settings  | get                | Get value (raw JSON) for a specific key
@@ -94,3 +91,18 @@ You can prevent auto-provision on startup with `PROVISION_AUTO_SETUP=false`.
 | users     | password           | Change user's password
 
 See help (`--help`) under each (sub) command for details about additional flags and arguments.
+# Simple deployment
+
+Simplest setup with all backend services bundled into one monolith service.
+
+This setup consists of 3 containers (+ 2 for reverse nginx proxy):
+ - `server`
+ - `webapp`
+ - `db`
+ 
+# Instructions
+ 
+ 1. Copy example [config file](simple/.env) and [docker-compose](simple/docker-compose.yml) to your server or local environment
+ 1. Follow the instructions for [reverse proxy setup](proxy.md)
+ 1. Follow the [general deployment checklist](checklist.md)
+ 1. Run Corteza services.

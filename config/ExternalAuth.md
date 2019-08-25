@@ -1,10 +1,8 @@
 # Authentication
 
-If you are not already familiar with it, please read documentation about [Corteza Command Line Interface](CLI.md).
+If you are not already familiar with it, please read the documentation about [Corteza Command Line Interface](CLI.md).
 
-Corteza support a fixed set of standard OAuth 2 authentication providers 
-(facebook, gplus, github and linkedin) and a arbitrary number of custom
-issuers (over OpenID Connect).
+Corteza supports a fixed set of standard OAuth 2 authentication providers (Facebook, gplus, GitHub and LinkedIn) and an arbitrary number of custom issuers (over OpenID Connect).
 
 # Available settings 
 
@@ -16,33 +14,31 @@ Prop is one of: `key`, `secret`, `enabled`. OIDC settings also have `issuer` pro
 
 Example settings (`settings list --prefix=auth.external`):
 ```
-auth.external.callback-endpoint	"https://your-corteza-system-api-backend/auth/external/%s/callback"
-auth.external.enabled	true
-auth.external.providers.facebook.enabled	true
-auth.external.providers.facebook.key	"24226007270326"
-auth.external.providers.facebook.secret	"7vtfXx213cfc125804a226afcae777fe47"
-auth.external.providers.gplus.enabled	true
-auth.external.providers.gplus.key	"10629818561-7a8vr0avs47dqic43h2lkrurhr.apps.googleusercontent.com"
-auth.external.providers.gplus.secret	"bkHmIFdk2YvtfXx"
-auth.external.providers.github.enabled	false
-auth.external.providers.github.key	null
-auth.external.providers.github.secret	null
-auth.external.providers.linkedin.enabled	false
-auth.external.providers.linkedin.key	null
-auth.external.providers.linkedin.secret	null
-auth.external.providers.openid-connect.corteza-iam.enabled	true
-auth.external.providers.openid-connect.corteza-iam.key	"tXM2ouiovowzGabk"
+auth.external.callback-endpoint    "https://your-corteza-system-api-backend/auth/external/%s/callback"
+auth.external.enabled    true
+auth.external.providers.facebook.enabled    true
+auth.external.providers.facebook.key    "24226007270326"
+auth.external.providers.facebook.secret    "7vtfXx213cfc125804a226afcae777fe47"
+auth.external.providers.gplus.enabled    true
+auth.external.providers.gplus.key    "10629818561-7a8vr0avs47dqic43h2lkrurhr.apps.googleusercontent.com"
+auth.external.providers.gplus.secret    "bkHmIFdk2YvtfXx"
+auth.external.providers.github.enabled    false
+auth.external.providers.github.key    null
+auth.external.providers.github.secret    null
+auth.external.providers.linkedin.enabled    false
+auth.external.providers.linkedin.key    null
+auth.external.providers.linkedin.secret    null
+auth.external.providers.openid-connect.corteza-iam.enabled    true
+auth.external.providers.openid-connect.corteza-iam.key    "tXM2ouiovowzGabk"
 auth.external.providers.openid-connect.corteza-iam.issuer "https://satosa.didmos.latest.crust.tech"
-auth.external.providers.openid-connect.corteza-iam.secret	"e1d68bfd7718468ba8fd36131f5176b1"
-auth.external.redirect-url	"http://system.api.local.crust.tech:3002/auth/external/%s/callback"
-auth.external.session-store-secret	"fCVFSRWjVEcoYuhXSf3f6zVWO1p38XEWz2yS8WH7wKDbvpxFrZq7zlEuiUTvk4QF"
+auth.external.providers.openid-connect.corteza-iam.secret    "e1d68bfd7718468ba8fd36131f5176b1"
+auth.external.redirect-url    "http://system.api.local.crust.tech:3002/auth/external/%s/callback"
+auth.external.session-store-secret    "fCVFSRWjVEcoYuhXSf3f6zVWO1p38XEWz2yS8WH7wKDbvpxFrZq7zlEuiUTvk4QF"
 ```
 
 # Changing settings
 
-Authentication settings can be changed in the administration (via the API) and with cli 
-command (`system settings set <key> <value>`). Please bare in mind that values passed 
-to CLI tool must always be in raw JSON format.
+Authentication settings can be changed in the administration (via the API) and with CLI command (`system settings set <key> <value>`). Please bear in mind that values passed to CLI tool must always be in raw JSON format.
 
 Changing values requires system service restart.
 
@@ -55,7 +51,7 @@ external authentication provider "openid-connect.corteza-iam" added
 ```
 
 
-# OIDC Auto discovery/configuration
+# OIDC Auto-discovery/configuration
 
 Corteza CLI comes with auto-discovery tool:
 ```bash
@@ -66,8 +62,8 @@ external-auth auto-discovery name url
 external-auth auto-discovery corteza-iam https://satosa.didmos.crust.example.tld --enable
 ```
 
-This will autodiscover and auto-configure new OIDC provider. 
-If entry with this name already exists it will override it.
+This will auto-discover and auto-configure new OIDC provider. 
+If an entry with this name already exists it will override it.
 
 Using `--enable` will enable the new provider and external authentication feature.
 

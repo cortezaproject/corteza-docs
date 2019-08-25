@@ -10,7 +10,7 @@ You can choose from one of the four (4) app/service CLI entrypoints:
  - all-in-one monolith (`corteza-server`)
 
 When the system is built into an all-in-one binary or image,
-app-specific commands can be accessed under a sub-command with the 
+app-specific commands can be accessed under a sub-command with the
 same name as the app.
 
 ## Config
@@ -33,10 +33,10 @@ go run cmd/system/*.go [commands and flags]
 
 ### Docker or Docker Compose
 
-Docker images are built with handy presets for 
+Docker images are built with handy presets for
 `ENTRYPOINT` and `CMD`. By default, `CMD` is set to `serve-api`.
 
-See docker manual for more info about ENTRYPOINT and CMD. 
+See docker manual for more info about ENTRYPOINT and CMD.
 
 You can access Corteza's CLI environment through docker exec or run.
 Corteza's binary is deployed into /bin directory inside the container and it varies for each build flavour:
@@ -58,12 +58,12 @@ docker-compose exec server /bin/corteza-server --help
 
 ## Base commands:
 
-These commands are accessible from the base level (never 
+These commands are accessible from the base level (never
 wrapped under an app-sub-command) and always affect all apps.
 
 ### `provision`
 
-Command `provision` Wraps 2 sub-commands: 
+Command `provision` Wraps 2 sub-commands:
  - `access-control-rules`
    Reset access control rules for Everyone and Administrator roles.
  - `migrate-database`
@@ -91,18 +91,3 @@ You can prevent auto-provision on startup with `PROVISION_AUTO_SETUP=false`.
 | users     | password           | Change user's password
 
 See help (`--help`) under each (sub) command for details about additional flags and arguments.
-# Simple deployment
-
-Simplest setup with all backend services bundled into one monolith service.
-
-This setup consists of 3 containers (+ 2 for reverse nginx proxy):
- - `server`
- - `webapp`
- - `db`
- 
-# Instructions
- 
- 1. Copy example [config file](simple/.env) and [docker-compose](simple/docker-compose.yml) to your server or local environment
- 1. Follow the instructions for [reverse proxy setup](proxy.md)
- 1. Follow the [general deployment checklist](checklist.md)
- 1. Run Corteza services.

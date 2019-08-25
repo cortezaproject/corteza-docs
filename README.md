@@ -23,7 +23,6 @@ Deployment with a minimum set of containers (database + backend + frontend)
 
 [Instructions](deploy/docker-compose/simple.md) for simple deployment.
 
-
 ### Advanced
 
 Deployment with multiple backend containers (microservice) and a frontend container.
@@ -42,10 +41,8 @@ Golang and/or JavaScript/Vue.js experience is required.
 
 (Discouraged for local/dev deployments)
 
-To allow users to access Corteza web applications and services you need to 
-route web traffic to the containers.
+To allow users to access Corteza web applications and services, you need to route web traffic to the containers.
 
-## Setup, confguration and administration details
+## Setup, configuration and administration details
 
-You can find additional help about how to configure and manage Corteza server inside 
-[cortezaproject/corteza-server](https://github.com/cortezaproject/corteza-server/tree/master/docs) repository.
+You can find additional help about how to configure and manage Corteza server in the [cortezaproject/corteza-server](https://github.com/cortezaproject/corteza-server/tree/master/docs) repository.

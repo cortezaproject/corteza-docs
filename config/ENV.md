@@ -1,7 +1,7 @@
 # Delaying API execution, waiting for external services and URLs
 ## `WAIT_FOR` (duration, default: 0)
 
-Delays API startup for amount of time specified (10s, 2m...).
+Delays API startup for the amount of time specified (10s, 2m...).
 This delay happens BEFORE service probing.
 
 ## `WAIT_FOR_STATUS_PAGE` (bool, default: true)

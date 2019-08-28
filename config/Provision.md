@@ -1,18 +1,16 @@
 # Provisioning 
 
-Corteza allows you to setup provisioning rules for your instance using environmental variables.
+Corteza allows you to set up provisioning rules for your instance using environmental variables.
 You can also store all these settings into `.env` file and place it next to the server binary. 
 
-Auto-provisioning is executed before `serve-api` is ran. This can be controlled (prevented) by 
-setting `PROVISION_MIGRATE_DATABASE` and/or `PROVISION_AUTO_SETUP` to false
+Auto-provisioning is executed before `serve-api` is run. This can be controlled (prevented) by setting `PROVISION_MIGRATE_DATABASE` and/or `PROVISION_AUTO_SETUP` to false
 
 Database migration can also be done manually through `provision migrate-database`.
 
 ## Variables
 
 ### `PROVISION_MIGRATE_DATABASE` (boolean, default: true)
-Controls if database migration (creation of tables, changes of schema between versions) should be done before API is 
-started.
+Controls if database migration (creation of tables, changes of schema between versions) should be done before API is started.
 
 ### `PROVISION_AUTO_SETUP` (boolean, default: true)
 
@@ -27,7 +25,7 @@ Registers all given providers on start.
 Provide a list of space delimited provider pairs (`<name> <provider-url>` or 
 `<name> <provider-url> <name-2> <provider-url-2>`). 
 
-Provider is auto-disocvered only only if it does not exists (match by name).
+The provider is auto-discovered only if it does not exist (match by name).
 
 Also, make sure that your redirect URL (`auth.external.redirect-url`) is properly. See [Provision.md](Provision.md) 
 and `PROVISION_SETTINGS_AUTH_EXTERNAL_REDIRECT_URL`.

@@ -9,18 +9,17 @@ You can choose from one of the four (4) app/service CLI entrypoints:
  - compose (`corteza-server-compose`)
  - all-in-one monolith (`corteza-server`)
 
-When system is build into a all-in-one binary or image,
-app-specific commands can be accessed under a sub-command with the 
+When the system is built into an all-in-one binary or image,
+app-specific commands can be accessed under a sub-command with the
 same name as the app.
 
 ## Config
-Command and application behaviour can be adjusted using environmental
-variables. Defaults that are pre-set internally are optimized for production mode.
+Command and application behavior can be adjusted using environmental
+variables. Defaults that are preset internally are optimized for production mode.
 
 Make sure you read `/.env.example` for all the available options.
 
-Note that defaults shown under `--help` are overridden by value from the accompanying 
-environmental variable.
+Note that defaults shown under `--help` are overridden by values from the accompanying environmental variable.
 
 ## How to run:
 
@@ -34,10 +33,10 @@ go run cmd/system/*.go [commands and flags]
 
 ### Docker or Docker Compose
 
-Docker images are built with handy presets for 
+Docker images are built with handy presets for
 `ENTRYPOINT` and `CMD`. By default, `CMD` is set to `serve-api`.
 
-See docker manual for more info about ENTRYPOINT and CMD. 
+See docker manual for more info about ENTRYPOINT and CMD.
 
 You can access Corteza's CLI environment through docker exec or run.
 Corteza's binary is deployed into /bin directory inside the container and it varies for each build flavour:
@@ -59,20 +58,18 @@ docker-compose exec server /bin/corteza-server --help
 
 ## Base commands:
 
-These commands are accessible from the base level (never 
+These commands are accessible from the base level (never
 wrapped under an app-sub-command) and always affect all apps.
 
 ### `provision`
 
-Command `provision` Wraps 2 sub-commands: 
+Command `provision` Wraps 2 sub-commands:
  - `access-control-rules`
    Reset access control rules for Everyone and Administrator roles.
  - `migrate-database`
    Run database migration scripts
 
-Both these commands are automatically executed when you run `serve-api` command,
-after database is connected and before initialization. This behaviour can
-be changed with env variables.
+Both these commands are automatically executed when you run `serve-api` command after the database is connected and before initialization. This behavior can be changed with env variables.
 
 You can prevent auto-provision on startup with `PROVISION_AUTO_SETUP=false`.
 
@@ -82,7 +79,7 @@ You can prevent auto-provision on startup with `PROVISION_AUTO_SETUP=false`.
 | --- | --- | --- |
 | auth      | auto-discovery     | Auto discovers new OIDC client
 | auth      | jwt                | Generates new JWT for a user
-| auth      | test-notifications | Sends samples of all authentication notification to receipient
+| auth      | test-notifications | Sends samples of all authentication notification to recipient
 | roles     | useradd            | Add user to role
 | settings  | delete             | Set value (raw JSON) for a specific key
 | settings  | get                | Get value (raw JSON) for a specific key

@@ -13,7 +13,7 @@ OAuth2 flow redirection URL.
  - Variable: `PROVISION_SETTINGS_AUTH_EXTERNAL_REDIRECT_URL`
  - Default: `""`
  - Auto-discovery: searches env-variables (`DOMAIN`, `LETSENCRYPT_HOST`, `VIRTUAL_HOST`, `HOSTNAME`, `HOST`)
-   and uses additional info (monolith, api-base-url) to calcualte the value
+   and uses additional info (monolith, api-base-url) to calculate the value
 
 
 ## `auth.external.session-store-secret` 
@@ -40,7 +40,7 @@ Where the frontend SPA is located. Serves as base for generating other `auth.fro
  - Default: `""`
 
 ## `auth.frontend.url.password-reset`
-Where the frontend SPA is located, password reset form.
+Where the frontend SPA is located, the password reset form.
 
 ### Provision: 
  - Variable: `PROVISION_SETTINGS_AUTH_FRONTEND_URL_PASSWORD_RESET`
@@ -87,8 +87,8 @@ Name used for sending auth emails (password reset, email confirmation)
 
 
 ## `auth.internal.signup`
-Is internal auth enabled. Enable this to allow users to use all (enabled)
-internal features (sign-up, login....)
+Is internal auth enabled? Enable this to allow users to use all (enabled)
+internal features (sign-up, log in....)
 
 ### Provision: 
  - Variable: `PROVISION_SETTINGS_AUTH_INTERNAL_ENABLED`
@@ -96,8 +96,7 @@ internal features (sign-up, login....)
 
 
 ## `auth.internal.signup.enabled`
-Is internal sign-up enabled. Enable this to allow users to register if you do 
-not have external authentication providers.
+Is internal sign-up enabled? Enable this to allow users to register if you do not have external authentication providers.
 
 ### Provision: 
  - Variable: `PROVISION_SETTINGS_AUTH_INTERNAL_SIGNUP_ENABLED`

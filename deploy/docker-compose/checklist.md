@@ -11,12 +11,12 @@
       [corteza-server](https://github.com/cortezaproject/corteza-server) repository.
       
  1. `docker-compose.yml`
-    - If you ar not familiar with Docker Compose, its config file, visit:
+    - If you are not familiar with Docker Compose, its config file, visit:
       - https://docs.docker.com/compose/overview/
     - Change `MYSQL_ROOT_PASSWORD` and `MYSQL_PASSWORD`.
-      You can use random string generator from the helper link below.
+      You can use a random string generator from the helper link below.
     - Check all `VIRTUAL_HOST` and `LETSENCRYPT_HOST` environment variables in your `docker-compose.yml
-      See chapter about [Environmental variables in Docker Compose](https://docs.docker.com/compose/environment-variables/)
+      See the chapter about [Environmental variables in Docker Compose](https://docs.docker.com/compose/environment-variables/)
       to learn how this works
     - Verify `networks` section. 
       If you are using [Automated Nginx proxy for Docker containers](https://github.com/jwilder/nginx-proxy),

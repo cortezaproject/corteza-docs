@@ -1,4 +1,4 @@
-version: '2.0'
+version: '2.1'
 
 services:
   db:
@@ -13,12 +13,13 @@ services:
       MYSQL_ROOT_PASSWORD: change-me-too
 #    volumes: [ "./data/db:/var/lib/mysql" ] # use local fs
 #    volumes: [ "db:/var/lib/mysql" ]        # use internal docker volume
+    healthcheck: { test: ["CMD", "mysqladmin" ,"ping", "-h", "localhost"], timeout: 20s, retries: 10 }
     restart: on-failure
 
   server:
     image: cortezaproject/corteza-server:${VERSION}
     env_file: [ .env ]
-    depends_on: [ db ]
+    depends_on: { db: {condition: service_healthy}}
     networks: [ proxy, internal ]
     environment:
       VIRTUAL_HOST:     api.${DOMAIN}

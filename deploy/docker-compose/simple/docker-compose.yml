@@ -19,7 +19,7 @@ services:
   server:
     image: cortezaproject/corteza-server:${VERSION}
     env_file: [ .env ]
-    depends_on: { db: {condition: service_healthy}}
+    depends_on: { db: { condition: service_healthy } }
     networks: [ proxy, internal ]
     environment:
       VIRTUAL_HOST:     api.${DOMAIN}

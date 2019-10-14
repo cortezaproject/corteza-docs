@@ -24,6 +24,7 @@
       file) as you use in the config file.
     - If you want to preserve volume data enable (uncomment) `volumes` section in services 
       and root `volumes` section.
+    - Add [Corredor service](corredor.md) if you want to use backend automation scripting
 
  1. Verify final settings with `docker-compose config`.
 

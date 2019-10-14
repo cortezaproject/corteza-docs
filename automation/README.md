@@ -16,8 +16,8 @@ Scenarios:
  - when record is created, changed or deleted, triggers can be placed before or after this event
  - when user executes manual script for record automation
  - when Corteza's sink API receives data (email, webhook)
- - [planned] on configured interval
- - [planned] on specific date and time
+ - on configured interval
+ - on specific date and time
  - [planned] when namespace, module or chart is created
  - [planned] when user logs-in, signs-up, recovers password, confirms-email
  - [planned] when user profile is changed

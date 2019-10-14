@@ -64,14 +64,14 @@ wrapped under an app-sub-command) and always affect all apps.
 ### `provision`
 
 Command `provision` Wraps 2 sub-commands:
- - `access-control-rules`
-   Reset access control rules for Everyone and Administrator roles.
+ - `configuration`
+   Creates roles, channels, namespaces, 
  - `migrate-database`
    Run database migration scripts
 
 Both these commands are automatically executed when you run `serve-api` command after the database is connected and before initialization. This behavior can be changed with env variables.
 
-You can prevent auto-provision on startup with `PROVISION_AUTO_SETUP=false`.
+You can prevent auto-provision on startup with `PROVISION_CONFIGURATION=false`.
 
 ## System specific commands & sub-commands
 

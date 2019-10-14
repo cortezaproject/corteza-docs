@@ -18,8 +18,8 @@ Add virtual alias to `/etc/postfix/virtual_alias`:
 
 Update virtual-alias map/db file and restart postfix 
 ```shell script
-postmap pcre:/etc/postfix/virtual_alias
-postfix restart
+postmap /etc/postfix/virtual_alias
+postfix reload
 ```
 
 Add entry to `/etc/aliases`. This forwards mail for specific mailbox a curl command.

@@ -29,13 +29,23 @@ Deployment with multiple backend containers (microservice) and a frontend contai
 
 [Instructions](deploy/docker-compose/advanced.md) for advanced deployment.
 
+
+## Supporting services
+
+ - [Corredor](deploy/docker-compose/corredor.md) 
+ 
+   Backend automation script executor
+   
+ - [MinIO](deploy/docker-compose/storage.md)
+ 
+   MinIO is a cloud storage server compatible with Amazon S3, released under Apache License v2. As an object store, MinIO can store unstructured data such as photos, videos, log files, backups and container images. The maximum size of an object is 5TB.
+
 ### Local (development mode)
 
 You can check out all backend and frontend repositories and follow instructions on how to start
 development servers in each one.
 
 Golang and/or JavaScript/Vue.js experience is required.
-
 
 ## Getting Corteza online
 

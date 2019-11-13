@@ -114,7 +114,6 @@ configure it to work in their environment? How do they test or verify that it is
 #### Environmental variables
 #### Provision
 #### Settings
-#### Channels
 
 ### Corredor
 #### Overview
@@ -159,5 +158,52 @@ How does the customer fix common problems they may encounter?
 
 # User's Guide
 
+## Corteza One
+### Overview
+### The basics
+
 ## Messaging
-## Compose
+### Overview
+### The basics
+
+## CRM
+### Overview
+### Home
+### Leads
+### Accounts
+### Opportunities
+### Quotes
+### Products
+### Price books
+### Cases
+### Campaigns
+### Tasks
+### Events
+### Dashboards
+### Settings
+
+## Service Cloud
+### Overview
+### Cases
+### Accounts
+#### Contacts
+#### Entitlements
+### Products
+#### Entitlement templates 
+### Knowledge base
+### Departments
+### Dashboards
+### Settings
+#### Email templates 
+
+## Low-code
+### Overview
+### Namespaces
+#### Create a new namespace
+#### Modify a namespace
+### Modules
+### Pages
+#### Main menu
+### Charts
+### Automation
+### Permissions

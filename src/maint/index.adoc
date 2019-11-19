@@ -1,0 +1,12 @@
+= index ⛏
+:toc: left
+
+:leveloffset: +1
+
+include::plan.adoc[]
+
+include::install/index.adoc[]
+
+include::setup/index.adoc[]
+
+:leveloffset: -1

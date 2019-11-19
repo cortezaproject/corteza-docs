@@ -1,0 +1,3 @@
+:APP_NAME_SHELL: One
+:APP_NAME_COMPOSE: Low Code
+:PRODUCT_NAME: Corteza

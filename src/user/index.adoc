@@ -1,0 +1,17 @@
+= index ⛏
+:toc: left
+:toclevels: 2
+
+:leveloffset: +1
+
+include::shell/index.adoc[]
+
+include::compose/index.adoc[]
+
+include::messaging/index.adoc[]
+
+include::crm/index.adoc[]
+
+include::service-cloud/index.adoc[]
+
+:leveloffset: -1

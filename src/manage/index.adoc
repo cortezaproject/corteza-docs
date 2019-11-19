@@ -1,0 +1,11 @@
+= index ⛏
+
+:leveloffset: +1
+
+include::cli.adoc[]
+
+include::troubleshooting.adoc[]
+
+include::upgrade.adoc[]
+
+:leveloffset: -1

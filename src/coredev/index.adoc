@@ -1,0 +1,16 @@
+= index ⛏
+:doctype: book
+:toc: left
+:toclevels: 3
+
+:leveloffset: +1
+
+include::getting-started.adoc[]
+
+include::versions.adoc[]
+
+include::git/index.adoc[]
+
+include::parts/index.adoc[]
+
+:leveloffset: -1

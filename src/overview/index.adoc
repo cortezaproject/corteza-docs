@@ -1,0 +1,19 @@
+= index ⛏
+
+:leveloffset: +1
+
+include::product.adoc[]
+
+include::security.adoc[]
+
+include::architecture.adoc[]
+
+include::core-development.adoc[]
+
+include::deployment.adoc[]
+
+include::customization.adoc[]
+
+include::roles.adoc[]
+
+:leveloffset: -1

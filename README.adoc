@@ -1,13 +1,13 @@
 Corteza technical and user documentation
 ========================================
 
-- <<src/overview/index.adoc,Overview>>
-- <<src/releases/index.adoc,Releases>>
-- <<src/user/index.adoc,User manual>>
-- <<src/extdev/index.adoc,Extending and customization>>
-- <<src/maint/index.adoc,Maintainer's manual>>
-- <<src/coredev/index.adoc,Core developer's documentation>>
-- <<src/manage/index.adoc,System management>>
+- link:src/overview/index.adoc[Overview]
+- link:src/releases/index.adoc[Releases]
+- link:src/user/index.adoc[User manual]
+- link:src/extdev/index.adoc[Extending and customization]
+- link:src/maint/index.adoc[Maintainer's manual]
+- link:src/coredev/index.adoc[Core developer's documentation]
+- link:src/manage/index.adoc[System management]
 
 
 == Authoring

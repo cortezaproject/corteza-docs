@@ -1,2 +1,24 @@
 include::../../variables.adoc[]
-= Sink API Endoint ⛏
+= {PRODUCT_NAME} Sink API Endpoint ⛏
+
+Sink endpoint is a special URL on {PRODUCT_NAME} API that can take any input.
+It is intended to use for handling inbound webhooks and any other kind of incoming data.
+When new request is received, it performs any initial payload parsing (if required by content-type).
+
+.Supported content types:
+ * <<Email>>
+
+_Other content types will be supported in the future_
+
+== Email
+
+.Content-types:
+ * `message/rfc822`
+ * `rfc822`
+ * `email`
+ * `mail`
+
+Payload is processed as email. {PRODUCT_NAME} service extracts all standard headers and parts (body, html, plain, attachments).
+Structured email is then used in automation script context.
+
+

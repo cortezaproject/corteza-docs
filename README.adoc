@@ -41,17 +41,19 @@ This repository contains a handy shell script, a wrapper around https://github.c
 There is also a Makefile with shortcuts for building individual major chapters as HTML.
 
 .Get *asciidoctor* command line tool help through provided docker image/container:
-```sh
+[source]
+----
 ./asciidoctor.sh asciidoctor -h
-```
+----
 
 .Build all chapters as HTML (and put them under `dist/` folder)
-```sh
+[source]
+----
 make html
-```
+----
 
 .Build user manual chapter as HTML (and put it under `dist/user` folder)
-```sh
+[source]
+----
 make html.user
-```
-
+----

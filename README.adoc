@@ -1,0 +1,57 @@
+Corteza technical and user documentation
+========================================
+
+- <<src/overview/index.adoc,Overview>>
+- <<src/releases/index.adoc,Releases>>
+- <<src/user/index.adoc,User manual>>
+- <<src/extdev/index.adoc,Extending and customization>>
+- <<src/maint/index.adoc,Maintainer's manual>>
+- <<src/coredev/index.adoc,Core developer's documentation>>
+- <<src/manage/index.adoc,System management>>
+
+
+== Authoring
+
+Documentatio n is written in https://asciidoctor.org/docs/what-is-asciidoc/[AsciiDoc] format and processed with https://asciidoctor.org/[AsciiDoctor]
+
+Before you start, be sure you are familiar with https://asciidoctor.org/docs/asciidoc-writers-guide/[syntax and formatting] rules of AsciiDoc format.
+
+.https://asciidoctor.org/docs/asciidoc-recommended-practices/[Rules to follow]:
+* One sentance per line.
+* Atx-style section titles
+
+_and other recomended practices from the linked page_
+
+
+=== Structure
+
+Documentation is divided into 6 major chapters:
+
+ * overview
+ * releases
+ * user manual
+ * extending
+ * maintainer
+ * core developer
+ * system management
+
+=== Building manually
+
+This repository contains a handy shell script, a wrapper around https://github.com/asciidoctor/docker-asciidoctor[asciidoctor docker container].
+There is also a Makefile with shortcuts for building individual major chapters as HTML.
+
+.Get *asciidoctor* command line tool help through provided docker image/container:
+```sh
+./asciidoctor.sh asciidoctor -h
+```
+
+.Build all chapters as HTML (and put them under `dist/` folder)
+```sh
+make html
+```
+
+.Build user manual chapter as HTML (and put it under `dist/user` folder)
+```sh
+make html.user
+```
+

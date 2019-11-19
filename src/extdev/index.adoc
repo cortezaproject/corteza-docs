@@ -1,1 +1,12 @@
-= index ⛏
+include::../variables.adoc[]
+= Extending and Customizing ⛏
+:toc: left
+:toclevels: 2
+
+:leveloffset: +1
+
+include::api/index.adoc[]
+
+include::scripting/index.adoc[]
+
+:leveloffset: -1

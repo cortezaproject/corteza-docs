@@ -1,1 +1,51 @@
-= index ⛏
+include::../../variables.adoc[]
+= Scripting ⛏
+
+With automation scripts and triggers you can handle different kinds of events that happen internally.
+Events can be triggered by user action or from external sources.
+When event is triggered it executes one or more configured automation scripts.
+
+== Triggers
+
+When an event is fired it triggers automation script that receives a context.
+Context is a set of information about the event and parameters needed for automation script.
+
+.Supported scenarios:
+ * when record is created, changed or deleted, triggers can be placed before or after this event
+ * when user executes manual script for record automation
+ * when {PRODUCT_NAME}'s sink API receives data (email, webhook)
+ * on configured interval
+ * on specific date and time
+
+_Additional scenarios, triggers and events will be supported in the future._
+
+== Scripts
+
+When automation script is executed can perform any action on internal resources and data or communicate to any external systems and 3rd party API.
+Scripts are executed in a separated, contained environment.
+A great deal of caution is still required.
+These automation scripts have full access (within the permissions of the users who is running the script, see <<Security>>).
+
+{PRODUCT_NAME} comes with set of handy helpers and examples that allow rapid script development.
+You can read more about Compose automation in
+https://github.com/cortezaproject/corteza-webapp-common/tree/master/manual/automation-scripts[github.com/cortezaproject/corteza-webapp-common]
+repository
+
+=== Security
+
+Each script can be configured to run with privileges of a specific user, or when triggered directly by user, with
+privileges of that user.
+
+.Scenarios:
+ * User creates a Client record in Compose. This triggers a script that create a new user.
+   User creation is only allowed to administrators and script can be ran with privileges of an administrator
+ * Email is received and processed.
+   Script runner is set to a specific admin user
+
+=== Runners
+
+Automation scripts code is executed in an isolated environment outside primary {PRODUCT_NAME} services.
+
+Default script runner is Corredor - an external Node.js server that can execute automation scripts written in JavaScript.
+
+_Additional languages for automation scripts will be supported in the future._

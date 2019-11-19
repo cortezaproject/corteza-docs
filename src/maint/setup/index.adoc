@@ -8,5 +8,7 @@ include::corredor-server.adoc[]
 
 include::web-apps.adoc[]
 
+include::email-automation.adoc[]
+
 
 :leveloffset: -1

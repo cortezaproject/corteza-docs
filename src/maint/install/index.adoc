@@ -19,6 +19,8 @@ include::aux-forwarding-proxy.adoc[]
 
 include::aux-mta.adoc[]
 
+include::aux-inbound-email-postfix.adoc[]
+
 include::aux-logs.adoc[]
 
 include::aux-error-tracking.adoc[]

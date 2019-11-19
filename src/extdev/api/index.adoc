@@ -1,1 +1,18 @@
-= index ⛏
+include::../../variables.adoc[]
+= {PRODUCT_NAME} API ⛏
+:toc: left
+:toclevels: 2
+
+:leveloffset: +1
+
+include::authentication.adoc[]
+
+include::clients.adoc[]
+
+include::clients-javascript.adoc[]
+
+include::reference.adoc[]
+
+include::sink.adoc[]
+
+:leveloffset: -1

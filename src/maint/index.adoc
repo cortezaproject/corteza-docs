@@ -1,5 +1,6 @@
 = index ⛏
 :toc: left
+:toclevels: 3
 
 :leveloffset: +1
 

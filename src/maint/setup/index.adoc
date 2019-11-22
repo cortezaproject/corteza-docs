@@ -2,6 +2,8 @@
 
 :leveloffset: +1
 
+include::cli.adoc[]
+
 include::api-server.adoc[]
 
 include::corredor-server.adoc[]

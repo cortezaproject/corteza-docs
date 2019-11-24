@@ -1,0 +1,29 @@
+serve-api
+provision
+provision configuration
+provision migrate-database
+system auth
+system auth auto-discovery
+system auth test-notifications
+system auth jwt
+system export
+system import
+system roles
+system roles useradd
+system settings
+system settings delete
+system settings export
+system settings get
+system settings import
+system settings list
+system settings set
+system sink
+system sink signature
+system users
+system users add
+system users list
+system users password
+compose export
+compose import
+messaging export
+messaging import

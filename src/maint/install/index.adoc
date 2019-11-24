@@ -1,28 +1,15 @@
-= index ⛏
+include::../../variables.adoc[]
+= Installing {PRODUCT_NAME} ⛏
+
+== Installing on Docker-compatible operating system
+
+ - https://docs.docker.com/install/#server[Docker installation guide]
+ - https://docs.docker.com/compose/install/[Docker Compose installation guide]
+
+
 
 :leveloffset: +1
 
-
-include::deploy.adoc[]
-
-include::deploy-docker.adoc[]
-
-include::deploy-docker-compose.adoc[]
-
-include::aux.adoc[]
-
-include::aux-database.adoc[]
-
-include::aux-object-storage.adoc[]
-
-include::aux-forwarding-proxy.adoc[]
-
-include::aux-mta.adoc[]
-
 include::aux-inbound-email-postfix.adoc[]
-
-include::aux-logs.adoc[]
-
-include::aux-error-tracking.adoc[]
 
 :leveloffset: -1

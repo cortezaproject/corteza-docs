@@ -46,7 +46,7 @@ This signature should be kept secret as it is effectively same as password that 
 |===
 
 .Validation
-[source,shell script,subs=attributes]
+[source,shell,subs=attributes]
 ----
 echo "
 From: <sender@cortezaproject.org>

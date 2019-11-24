@@ -1,10 +1,32 @@
-= index ⛏
+include::../variables.adoc[]
+= {PRODUCT_NAME} Management and Maintanence ⛏
 :toc: left
 :toclevels: 3
 
+== {PRODUCT_NAME} Architecture overview ⛏
+
+.Mayor component or services in {PRODUCT_NAME}
+ - frontend applications (WebApps)
+ - backend API (Server)
+ - automation script execution engine (Corredor)
+
+.Auxiliary services
+ - log storage
+ - error tracking
+ - mta
+ - object storage
+ - database
+
+.Frontend applications
+ - {GIT_REPO_LINK_PREFIX}[Auth] handles authentication flows, sign-up, login, password recovery, ...
+ - {GIT_REPO_LINK_PREFIX}[Admin] is used for instance administration, settings, user overview, general permission management
+ - {GIT_REPO_LINK_PREFIX}[Compose] is a https://en.wikipedia.org/wiki/Low-code_development_platform[low-code development platform] and allows creation of record-absed business applications
+ - {GIT_REPO_LINK_PREFIX}[Messaging] collaboration platform that allows teams to collaborate more efficiently and communicate safely with other organizations or customers
+ - {GIT_REPO_LINK_PREFIX}[Unify] is a unified workspace to access and run third-party web and Corteza applications. Centralized access management from a single console enables administrative control over who can see or access applications
+
 :leveloffset: +1
 
-include::plan.adoc[]
+include::requirements.adoc[]
 
 include::install/index.adoc[]
 

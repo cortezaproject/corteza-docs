@@ -1,0 +1,46 @@
+include::../../variables.adoc[]
+= Basic setup for local demo
+
+.`.env`
+[source,dotenv]
+----
+include::examples/basic/.env[]
+----
+
+.`docker-compose.yaml`
+[source,yaml]
+----
+include::examples/basic/docker-compose.yaml[]
+----
+
+NOTE: Some of the configuration lines in the provided YAML examples and files are written in a single line for brevity and simpler enabling/disabling (commenting-out)
+
+Create an empty directory, with `.env` and `docker-compose.yaml` files and copy contents from the examples above.
+Some operating systems do not like files that start with a dot so make sure `.env` file is properly named.
+
+.Start all services (database, server, webapp)
+[source,shell]
+----
+docker-compose up -d
+----
+
+Direct your browser to `http://localhost:8080` (use another port if you changed value for `LOCAL_DEMO_SPA_PORT`).
+On first visit, you should be redirected to `/auth` where you can login, sign up, etc.
+
+Create your account through the sign-up form.
+{PRODUCT_NAME} detects if the database is empty and auto-promotes first user to administration role.
+
+.Stopping and removing containers and date. Do not ask for confirmation, stop containers if running and remove volumes
+[source,shell]
+----
+docker-compose rm --force --stop -v <1>
+----
+
+Other useful docker-compose commands:
+
+.View container output (logs) and follow output and output 20 lines from each service
+[source,shell]
+----
+docker-compose logs --follow --tail 20 <1>
+----
+

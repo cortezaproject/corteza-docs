@@ -1,9 +1,9 @@
 include::../variables.adoc[]
-= {PRODUCT_NAME} Management and Maintanence ⛏
+= {PRODUCT_NAME} Management and Maintanence
 :toc: left
 :toclevels: 3
 
-== {PRODUCT_NAME} Architecture overview ⛏
+== {PRODUCT_NAME} Architecture overview
 
 .Mayor component or services in {PRODUCT_NAME}
  - frontend applications (WebApps)
@@ -13,7 +13,7 @@ include::../variables.adoc[]
 .Auxiliary services
  - log storage
  - error tracking
- - mta
+ - email sending
  - object storage
  - database
 

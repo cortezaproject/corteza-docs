@@ -1,14 +1,11 @@
 include::../../variables.adoc[]
 = Installing {PRODUCT_NAME} ⛏
 
-== Installing on Docker-compatible operating system
-
- - https://docs.docker.com/install/#server[Docker installation guide]
- - https://docs.docker.com/compose/install/[Docker Compose installation guide]
-
-
-
 :leveloffset: +1
+
+include::docker-compose.adoc[]
+
+include::basic.adoc[]
 
 include::aux-inbound-email-postfix.adoc[]
 

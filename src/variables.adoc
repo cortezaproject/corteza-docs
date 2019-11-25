@@ -17,3 +17,5 @@
 :GIT_REPO_GROUP:        cortezaproject
 :GIT_REPO_PREFIX:       corteza
 :GIT_REPO_LINK_PREFIX:  https://github.com/{GIT_REPO_GROUP}/{GIT_REPO_PREFIX}
+
+:LOCAL_HOSTNAME:        local.cortezaproject.org

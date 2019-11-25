@@ -1,0 +1,20 @@
+kind: pipeline
+name: docs
+
+type: docker
+
+steps:
+  - name: dry-run
+    image: asciidoctor/docker-asciidoctor:latest
+    commands: [ make native..html ]
+
+  - name: build doc image
+    image: plugins/docker
+    commands: []
+    settings:
+      repo: cortezaproject/corteza-docs
+      auto_tag: true # generate tag names automatically based on git branch and git tag
+      username: { from_secret: docker_hub_username }
+      password: { from_secret: docker_hub_password }
+    when:
+      event:  { include: [ tag ] }

@@ -37,23 +37,17 @@ Documentation is divided into 6 major chapters:
 
 === Building manually
 
-This repository contains a handy shell script, a wrapper around https://github.com/asciidoctor/docker-asciidoctor[asciidoctor docker container].
-There is also a Makefile with shortcuts for building individual major chapters as HTML.
+Use provided Makefile with task for building individual major chapters as HTML.
 
-.Get *asciidoctor* command line tool help through provided docker image/container:
-[source]
-----
-./asciidoctor.sh asciidoctor -h
-----
-
-.Build all chapters as HTML (and put them under `dist/` folder)
+.Build all chapters as HTML (and put them under `dist/html/` folder)
 [source]
 ----
 make html
 ----
 
-.Build user manual chapter as HTML (and put it under `dist/user` folder)
+.Build user manual chapter as HTML (and put it under `dist/html/user` folder)
 [source]
 ----
 make html.user
 ----
+

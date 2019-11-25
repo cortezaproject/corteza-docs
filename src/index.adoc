@@ -1,0 +1,8 @@
+include::variables.adoc[]
+= {PRODUCT_NAME} manuals
+
+. link:overview/index.html[Overview]
+. link:user/index.html[User Manual]
+. link:maint/index.html[Management and Maintenance]
+. link:coredev/index.html[Core Developer's Manual]
+. link:extdev/index.html[Extending and Customizing]

@@ -1,0 +1,114 @@
+include::../variables.adoc[]
+= Server
+
+== Software
+
+=== Server Operating System
+Any Docker-compatible operating system (Linux-based OS is recommended, preferably Ubuntu LTS)
+
+=== HTTP server
+Web application and API should be placed behind a firewall and/or a HTTP reverse proxy.
+The responsibility of this proxy is to forward traffic to {PRODUCT_NAME} services and do https://en.wikipedia.org/wiki/TLS_termination_proxy[SSL termination].
+Most of the https://en.wikipedia.org/wiki/TLS_termination_proxy[popular HTTP servers] have this capability.
+
+{PRODUCT_NAME} provides configuration guide for https://github.com/jwilder/nginx-proxy[Nginx Reverse Proxy] and for https://github.com/JrCs/docker-letsencrypt-nginx-proxy-companion[LetsEncrypt companion container for nginx-prox].
+
+Nginx is not required, you can use HTTP server you are familiar with.
+Use provided examples for Nginx as a reference on how to configure it.
+
+=== Docker
+Minimum version for Docker Engine is 1.12.x
+
+=== Database Software
+Percona Server for MySQL 8.x (on host, managed or provided by {PRODUCT_NAME} through Docker image)
+
+{PRODUCT_NAME} supports Docker and Docker Compose based setup and deployment.
+You should familiarize yourself with both https://docs.docker.com/engine/docker-overview/[Docker] and https://docs.docker.com/compose/[Docker Compose].
+
+
+== Hardware
+|===
+| Number of Users | Processor      | Memory
+|    1 - 500      |  1 vCPU/cores  |  2 GB RAM
+|  500 - 1000     |  2 vCPU/cores  |  4 GB RAM
+| 1000 - 2000     |  4 vCPU/cores  |  8 GB RAM
+| 2000 - 5000     |  8 vCPU/cores  | 16 GB RAM
+| 5000+           | 16 vCPU/cores  | 32 GB RAM
+|===
+
+== Storage
+
+.Estimated storage per user per month
+|===
+||Description|Recommended Storage
+|Low volume
+|
+Messaging: sending text messages and links (without file upload)
+
+Compose: creating plain text records (without file upload)
+|5 MB/user/month
+
+|Medium volume
+|
+Messaging: sending text messages, links and occasionally sending documents and images
+
+Compose: attaching documents and images to records
+
+|25 MB/user/month
+
+| High volume
+|Messaging: uploading large files on a daily basis
+
+Compose: attaching a high number of documents and images to records on a daily basis
+|100 MB/user/month
+|===
+
+.Annual storage calculation
+- Base storage (operating system) = 10 GB
+- Recommended storage per user per month based on the matrix above (multiplied by 12 to get yearly amount)
+- Average number of users in a year
+- Safety factor of 2.0 is recommended
+
+.Formula
+----
+total = (nr. of users * recommended storage * 12 * safety factor) + base storage
+----
+
+.Example calculation for 30 medium usage users:
+----
+Recommended storage = (30 * 25 MB * 12 * 2) + 10 GB = 28 GB / year
+----
+
+
+== Network
+
+{PRODUCT_NAME} does need some access to outside services, depending on configuration and customization of the deployment.
+
+SMTP servers should be configured and accessible if deployment uses email address confirmation on sign-in, password recovery or other kinds of email notifications.
+
+HTTP traffic should be allowed if there OAuth2 or OIDC sign-up is enabled or there are custom scripts that access external URLs.
+
+== Domain, hostname(s)
+
+Setup with 2 domains (api + app) is the most common one:
+
+- hostname for Web application
+- hostname for API server
+
+If you already own a domain, you can add two or more hosts and use them to access your {PRODUCT_NAME} instance.
+
+=== Testing locally
+
+Alternatively, when doing local-only demo/test deployment, you can use our `127.0.0.1` wildcard alias `*.{LOCAL_HOSTNAME}`.
+Wildcard alias provides a simple way to get any domain under `{LOCAL_HOSTNAME}` (`api.{LOCAL_HOSTNAME}` for example) to point to https://en.wikipedia.org/wiki/Localhost[localhost].
+
+WARNING: You can not use {LOCAL_HOSTNAME} for public {PRODUCT_NAME} deployments.
+It will always point to your local machine.
+
+== HTTPS/SSL Certificates
+
+{PRODUCT_NAME} supports any kind of SSL certificate from all certificate authorities (CA).
+You can use any existing or new SSL certificate from any commercial SSL certificate provider, self-signed or provided by service like https://en.wikipedia.org/wiki/Let's_Encrypt[Let's Encrypt].
+
+If you do not use any other HTTP server, we highly recommend setup with https://github.com/jwilder/nginx-proxy[Nginx Reverse Proxy] and https://github.com/JrCs/docker-letsencrypt-nginx-proxy-companion[LetsEncrypt companion container for nginx-prox].
+It provides fully automated and simplest way to secure {PRODUCT_NAME} or any other web application you host.

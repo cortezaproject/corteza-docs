@@ -1,71 +1,26 @@
 include::../variables.adoc[]
 = Technical Requirements
 
+{PRODUCT_NAME} is a server application that can be accessed through a browser on a workstation, laptop or mobile device.
 
-== Software
+For testing and exploring {PRODUCT_NAME} you do not need an external, externally accessible software.
+{PRODUCT_NAME} can deploy on a local machine.
 
-.Server Operating System
-Any Docker-compatible operating system (Linux-based OS is recommended, preferably Ubuntu LTS)
 
-.Docker
-Minimum version for Docker Engine is 1.12.x
+== Client software
 
-.Database Software
-Percona Server for MySQL 8.x (on host, managed or provided through Docker image)
-
-{PRODUCT_NAME} supports Docker and Docker Compose based setup and deployment.
-You should familiarize yourself with both https://docs.docker.com/engine/docker-overview/[Docker] and https://docs.docker.com/compose/[Docker Compose].
-
-=== Hardware
+.Supported web browsers and versions
 |===
-| Number of Users | Processor      | Memory
-|    1 - 500      |  1 vCPU/cores  |  2 GB RAM
-|  500 - 1000     |  2 vCPU/cores  |  4 GB RAM
-| 1000 - 2000     |  4 vCPU/cores  |  8 GB RAM
-| 2000 - 5000     |  8 vCPU/cores  | 16 GB RAM
-| 5000+           | 16 vCPU/cores  | 32 GB RAM
+|Chrome|  v78+
+|Firefox| v68+
+|Safari|  v12+
+|Edge|	  v44+
+|iOS|     iPhone 5s devices and later with iOS 12+
+|Android| Android 7+
 |===
 
-=== Storage
+:leveloffset: +1
 
-.Estimated storage per user per month
-|===
-||Description|Recommended Storage
-|Low volume
-|
-Messaging: sending text messages and links (without file upload)
+include::req-server.adoc[]
 
-Compose: creating plain text records (without file upload)
-|5 MB/user/month
-
-|Medium volume
-|
-Messaging: sending text messages, links and occasionally sending documents and images
-
-Compose: attaching documents and images to records
-
-|25 MB/user/month
-
-| High volume
-|Messaging: uploading large files on a daily basis
-
-Compose: attaching a high number of documents and images to records on a daily basis
-|100 MB/user/month
-|===
-
-.Annual storage calculation
-- Base storage (operating system) = 10 GB
-- Recommended storage per user per month based on the matrix above (multiplied by 12 to get yearly amount)
-- Average number of users in a year
-- Safety factor of 2.0 is recommended
-
-.Formula
-----
-total = (nr. of users * recommended storage * 12 * safety factor) + base storage
-----
-
-.Example calculation for 30 medium usage users:
-----
-Recommended storage = (30 * 25 MB * 12 * 2) + 10 GB = 28 GB / year
-----
-
+:leveloffset: -1

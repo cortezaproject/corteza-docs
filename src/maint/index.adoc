@@ -1,5 +1,5 @@
 include::../variables.adoc[]
-= {PRODUCT_NAME} Management and Maintanence
+= {PRODUCT_NAME} Management and Maintenance
 :toc: left
 :toclevels: 3
 

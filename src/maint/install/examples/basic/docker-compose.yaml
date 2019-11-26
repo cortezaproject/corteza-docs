@@ -17,9 +17,19 @@ services:
     image: cortezaproject/corteza-server:${VERSION}
     restart: on-failure
     env_file: [ .env ]
+    environment:
+      # Informing Corredor where it he contact us
+      CORREDOR_API_BASE_URL_SYSTEM:    "http://127.0.0.1:${LOCAL_DEMO_API_PORT}/system"
+      CORREDOR_API_BASE_URL_MESSAGING: "http://127.0.0.1:${LOCAL_DEMO_API_PORT}/messaging"
+      CORREDOR_API_BASE_URL_COMPOSE:   "http://127.0.0.1:${LOCAL_DEMO_API_PORT}/compose"
     depends_on: { db: { condition: service_healthy } }
     # Binds internal port 80 to port LOCAL_DEMO_API_PORT on localhost
     ports: [ "127.0.0.1:${LOCAL_DEMO_API_PORT}:80" ]
+
+  corredor:
+    image: cortezaproject/corteza-server-corredor:${VERSION}
+    restart: on-failure
+    env_file: [ .env ]
 
   webapp:
     image: cortezaproject/corteza-webapp:${VERSION}

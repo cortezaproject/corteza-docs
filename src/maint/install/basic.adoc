@@ -24,6 +24,14 @@ Some operating systems do not like files that start with a dot so make sure `.en
 docker-compose up -d
 ----
 
+.Running `docker-compose ps` should produce something like:
+[source,shell]
+----
+include::examples/basic/output-ps.txt[]
+----
+
+You can see 4 services up and running. 2 of them are accessible on localhost (ports 8080 and 8081).
+
 Direct your browser to `http://localhost:8080` (use another port if you changed value for `LOCAL_DEMO_SPA_PORT`).
 On first visit, you should be redirected to `/auth` where you can login, sign up, etc.
 

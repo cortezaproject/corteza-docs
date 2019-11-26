@@ -1,0 +1,41 @@
+include::../variables.adoc[]
+
+= Including outside libraries & modules
+
+In Corredor (non-browser) automation scripts we allow a predefined list of libraries you can use:
+
+.axios
+> A JavaScript utility library delivering consistency, modularity, performance, & extras.
+
+This is the library used by Corteza API clients.
+
+Visit https://github.com/axios/axios for more info
+
+[source,javascript]
+----
+const axios = require('axios')
+
+// ...
+----
+
+.request
+> Request is designed to be the simplest way possible to make http calls. It supports HTTPS and follows redirects by default.
+
+Visit https://github.com/request/request for more info
+
+[source,javascript]
+----
+const request = require('request')
+
+// ...
+----
+
+.lodash
+> A JavaScript utility library delivering consistency, modularity, performance, & extras.
+
+[source,javascript]
+----
+const _ = require('lodash')
+
+// ...
+----

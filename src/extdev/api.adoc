@@ -28,8 +28,8 @@ Some limitations:
 
 === Syntax
 
-SQL syntax should be used for filtering (`WHERE <filter>`) and sorting (`ORDER BY <sort>`). API supports simple
-arithmetics (`+`, `-`, `*`, `/`), boolean (`AND`, `OR`, `NOT`) and comparison operators (<, >, =, <=, >=)
+SQL syntax should be used for filtering (`WHERE <filter>`) and sorting (`ORDER BY <sort>`).
+API supports simple arithmetics (`+`, `-`, `*`, `/`), boolean (`AND`, `OR`, `NOT`) and comparison operators (<, >, =, <=, >=)
 
 
 === Sorting

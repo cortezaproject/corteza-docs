@@ -2,11 +2,9 @@ include::../variables.adoc[]
 
 = Automation Scripts
 
-As with any system, automation scripts can cause unwanted complications if misused or left open for
-modification by users who may do harm, willingly or otherwise.
+As with any system, automation scripts can cause unwanted complications if misused or left open for modification by users who may do harm, willingly or otherwise.
 
-You (or whoever will configure this system) is responsible for making sure scripts are written
-in a way that do not cause problems to users or the underlying system running them.
+You (or whoever will configure this system) is responsible for making sure scripts are written in a way that do not cause problems to users or the underlying system running them.
 
 == Triggers
 
@@ -14,10 +12,10 @@ When an event is fired it triggers automation script that receives a context.
 Context is a set of information about the event and parameters needed for automation script.
 
 .Supported scenarios:
-* when record is created, changed or deleted, triggers can be placed before or after this event
-* when user executes manual script for record automation
-* on configured interval
-* on specific date and time
+- when record is created, changed or deleted, triggers can be placed before or after this event
+- when user executes manual script for record automation
+- on configured interval
+- on specific date and time
 
 {APP_NAME_COMPOSE} administrator assign one or more scripts that will be executed on a specific event.
 
@@ -32,8 +30,7 @@ Script can read and change given record from the context and access, modify or d
 
 == Security
 
-Script can be configured to be execured with security context of the user triggering the event
-or with security context of a predefined user.
+Script can be configured to be execured with security context of the user triggering the event or with security context of a predefined user.
 
 .Example scenario:
 * User creates a Client record in Compose. This triggers a script that create a new user.

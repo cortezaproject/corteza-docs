@@ -18,7 +18,7 @@ NOTE: Some of the configuration lines in the provided YAML examples and files ar
 Create an empty directory, with `.env` and `docker-compose.yaml` files and copy contents from the examples above.
 Some operating systems do not like files that start with a dot so make sure `.env` file is properly named.
 
-.Start all services (database, server, webapp)
+.Start all services (database, server, corredor, webapp)
 [source,shell]
 ----
 docker-compose up -d

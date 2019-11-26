@@ -1,5 +1,5 @@
 include::../../variables.adoc[]
-= Relaying inbound email to {PRODUCT_NAME} with Postfix ⛏
+= Relaying inbound email to {PRODUCT_NAME} with Postfix
 
 This quick how-to show what and where to modify in Postfix' configuration files to enable forwarding emails to Corteza.
 
@@ -40,7 +40,7 @@ See link:../setup/email-automation.adoc[email automation setup] for in informati
 newaliases
 ----
 
-== Test changes
+*Test changes*
 
 You can verify if configuration changes have desired effect by sending an email to the configured address or
 with a simple command line:

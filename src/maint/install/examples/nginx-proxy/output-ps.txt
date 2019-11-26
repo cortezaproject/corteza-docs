@@ -1,0 +1,4 @@
+      Name                     Command               State                    Ports
+-----------------------------------------------------------------------------------------------------
+nginx-letsencrypt   /bin/bash /app/entrypoint. ...   Up
+nginx-proxy         /app/docker-entrypoint.sh  ...   Up      0.0.0.0:443->443/tcp, 0.0.0.0:80->80/tcp

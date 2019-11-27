@@ -13,7 +13,7 @@ They provide a simple and readable syntax and error handling via .catch().
 You will find examples with await prefix.
 You can not use this on the global scope of the script, it will result in "await is only valid in async function syntax error".
 
-You can, however wrap your code with `(async () => { ... }())` and place your await calls there.</p>
+You can, however wrap your code with `(async () => { ... }())` and place your await calls there.
 
 == The arrow function expression (=>)
 MDN article https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions[about arrow functions]

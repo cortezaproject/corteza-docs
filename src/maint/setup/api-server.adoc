@@ -1,9 +1,11 @@
 include::../../variables.adoc[]
-= API Server ⛏
+= API Server
 
 :leveloffset: +1
 
 include::provision.adoc[]
+
+include::options.adoc[]
 
 include::wait-for.adoc[]
 

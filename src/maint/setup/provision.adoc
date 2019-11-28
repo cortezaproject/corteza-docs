@@ -1,5 +1,5 @@
 include::../../variables.adoc[]
-= Provisioning ⛏
+= Provisioning
 
 Provisioning is step after server is started and API becomes available.
 It allows you to directly influence how a fresh {PRODUCT_NAME} instance is configured on first run.

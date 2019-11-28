@@ -1,5 +1,5 @@
 include::../../variables.adoc[]
-= {PRODUCT_NAME} Command Line Interface (CLI) ⛏
+= {PRODUCT_NAME} Command Line Interface (CLI)
 
 {PRODUCT_NAME} comes with command line interface tool. With it, you can manually or automatically change applications settings,
 add users, roles, and run the API. You are using the same binary that can start the backend service and the API.

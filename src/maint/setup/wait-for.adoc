@@ -1,5 +1,5 @@
 include::../../variables.adoc[]
-= Delaying API execution ⛏
+= Delaying API execution
 
 With `WAIT_FOR*` Delaying API execution, waiting for external (HTTP) services.
 

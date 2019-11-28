@@ -1,5 +1,5 @@
 include::../../variables.adoc[]
-= Email automation: processing inbound email ⛏
+= Email automation: processing inbound email
 
 {PRODUCT_NAME} supports email automation and processing of incoming email messages.
 This can be achieved through local email service like <<postfix>> or 3rd party provider that forward received emails through webhooks.

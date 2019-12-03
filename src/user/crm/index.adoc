@@ -2,6 +2,8 @@
 
 :leveloffset: +1
 
+include::what-is-the-crm.adoc[]
+
 include::home.adoc[]
 
 include::leads.adoc[]

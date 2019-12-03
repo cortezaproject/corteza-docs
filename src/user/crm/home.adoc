@@ -1,1 +1,31 @@
-= home ⛏
+include::../../variables.adoc[]
+
+= Home
+
+On the default home page by default a calendar block is shown, in which all your events and tasks are shown. You can zoom in to see a week and a day view.
+
+Other blocks are several charts and two lists: new leads and open opportunities.
+
+== Main menu
+
+The menu in the CRM is showing all the list pages a logged in person has access to.
+
+== List pages
+
+List pages have two functions. They can show filtered and/or ordered list of records (such as a list of leads) or they can act as dashboards. Record lists of records are sortable and searchable, allowing you to quickly find the record you need. To enter a record, you can click a row. To edit the record directly, hit the edit button.
+
+== Record pages
+
+A record page is the detailed view of one single record, such as a single lead or account. By default these pages open in “viewing mode”, allowing you to see the “record data” like first name, last name etc.
+
+Other blocks on record pages include “social media” blocks (for example, all tweets for the account linked to the record), “automation” blocks (with automation buttons such as “Convert the lead” or “Create Quote”) and “related records” blocks (all contacts or opportunities in a account).
+
+The record page allows to add a related record directly from a “related records” block, by selecting the “+ Add a record” at the beginning of the list. Like this you can add events and tasks to leads, contacts to accounts, etc. There are some blocks where this option is deactivated, such as with the “Create new opportunity” in an account, because this is done via a automation rule.
+
+At the bottom of the record page is a set of buttons that let you:
+
+* Go back (return to the last page)
+* Delete the record (this deletes the current record)
+* Add a new record
+* Edit the record (this opens the exact same page, but in field editing mode)
+

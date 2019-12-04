@@ -10,7 +10,7 @@ GEN_HTML5_BOOK  ?= $(ASCIIDOCTOR) --doctype book --backend html5
 GEN_PDF_BOOK    ?= $(ASCIIDOCTOR_PDF)
 DOCKER_WRAP     ?= docker run -it --rm --workdir $(WORKDIR) --volume `pwd`:$(WORKDIR) $(DOCKER_IMAGE)
 
-MAJOR_CHAPTERS  ?= overview user maint coredev extdev index
+MAJOR_CHAPTERS  ?= overview admin user maint coredev extdev index
 
 DOCKER_IMAGE_TAG ?= cortezaproject/corteza-docs:preview
 

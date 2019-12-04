@@ -1,0 +1,2 @@
+include::../../../variables.adoc[]
+= Messaging Settings ⛏

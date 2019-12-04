@@ -1,0 +1,10 @@
+include::../../variables.adoc[]
+= Basics  ⛏
+
+{PRODUCT_NAME}
+povej da lahko samo admini dostopajo
+You must have Administrator access to add new user accounts and edit access settings. Regular users have access to their own user account details and can edit address details, set preferences, set up personal email and change their password.
+
+To access admin panel click on blablabla
+
+dodaj direkten link do admina

@@ -1,19 +1,19 @@
 include::../variables.adoc[]
 = Product
 
-=== Secure, Sovereign and Private Cloud Productivity
+== Secure, Sovereign and Private Cloud Productivity
 
 {PRODUCT_NAME} is a self-hosted cloud platform for your work.
 The core of {PRODUCT_NAME}  consists of a low code environment (like Salesforce Lightning) for rapidly and securely delivering records-based management solutions.
 In particular, {PRODUCT_NAME}  has already delivered feature complete alternatives to Salesforce CRM and Salesforce Service Cloud.
 The {PRODUCT_NAME} platform also includes Enterprise Messaging (like Slack) and a Unified Workspace for building and accessing your software ecosystem.
 
-=== Free Forever, Modern and Developed with all Organisations in Mind
+== Free Forever, Modern and Developed with all Organisations in Mind
 
 {PRODUCT_NAME}  is and will always be free and open source software, developed in a Foundation context.
 Built predominantly in Golang (backend) and Vue.js (frontend)m delivered as a cloud-friendly architecture and inspired by market-leading UX, {PRODUCT_NAME}  is for any organisation that values control of their critical software infrastructure and data.
 
-=== Compatible with your Favourite Services
+== Compatible with your Favourite Services
 
 {PRODUCT_NAME}  is outward looking, supporting mass adopted protocols and standards.
 It embraces market leading and popular technology and delivers a secure platform from which to engage with it.

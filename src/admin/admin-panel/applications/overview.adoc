@@ -1,0 +1,7 @@
+include::../../../variables.adoc[]
+= Overview
+
+**A role** allow you to define groups of users with particular access rights.
+Role-Based Access Control (RBAC) is used for all applications across {PRODUCT_NAME} system.
+
+The role is assigned to an individual user.

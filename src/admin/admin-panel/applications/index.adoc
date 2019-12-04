@@ -1,0 +1,10 @@
+include::../../../variables.adoc[]
+= Applications
+
+:leveloffset: +1
+
+include::overview.adoc[]
+
+include::manage-applications.adoc[]
+
+:leveloffset: -1

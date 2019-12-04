@@ -1,0 +1,2 @@
+include::../../../variables.adoc[]
+= {APP_NAME_COMPOSE} Settings ⛏

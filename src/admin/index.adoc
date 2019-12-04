@@ -1,0 +1,12 @@
+include::../variables.adoc[]
+= {PRODUCT_NAME} Admin Manual
+:toc: left
+:toclevels: 3
+
+:leveloffset: +1
+
+include::admin-panel/index.adoc[]
+
+include::compose/index.adoc[]
+
+:leveloffset: -1

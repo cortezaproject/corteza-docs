@@ -1,0 +1,14 @@
+include::../../../variables.adoc[]
+= Settings ⛏
+
+:leveloffset: +1
+
+include::overview.adoc[]
+
+include::system.adoc[]
+
+include::compose.adoc[]
+
+include::messaging.adoc[]
+
+:leveloffset: -1

@@ -1,0 +1,20 @@
+include::../../variables.adoc[]
+= {PRODUCT_NAME} Admin Panel ⛏
+
+:leveloffset: +1
+
+include::basics.adoc[]
+
+include::dashboard.adoc[]
+
+include::users/index.adoc[]
+
+include::roles/index.adoc[]
+
+include::applications/index.adoc[]
+
+include::settings/index.adoc[]
+
+include::permissions/index.adoc[]
+
+:leveloffset: -1

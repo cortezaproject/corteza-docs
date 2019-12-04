@@ -3,6 +3,7 @@ include::variables.adoc[]
 
 . link:overview/index.html[Overview]
 . link:user/index.html[User Manual]
+. link:admin/index.html[Admin Manual]
 . link:maint/index.html[Management and Maintenance]
 . link:coredev/index.html[Core Developer's Manual]
 . link:extdev/index.html[Extending and Customizing]

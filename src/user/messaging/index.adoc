@@ -1,7 +1,15 @@
-= Messaging ⛏
+= Messaging
 
 :leveloffset: +1
 
 include::basics.adoc[]
+
+include::channels.adoc[]
+
+include::channel-controls.adoc[]
+
+include::messages.adoc[]
+
+include::video-conference.adoc[]
 
 :leveloffset: -1

@@ -1,4 +1,4 @@
-= CRM ⛏
+= CRM
 
 :leveloffset: +1
 

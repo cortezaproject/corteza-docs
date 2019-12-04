@@ -21,10 +21,10 @@ When the sales person has made contact with the lead, and there is a sales oppor
 There are two automation buttons on the top right.
 One will convert the lead in to an account + contact, and the other one, if there is already more info about the potential opportunity, will create an account + contact + opportunity.
 
-=== My Leads
+== My Leads
 
 My Leads is a sub page of leads, showing only the leads owned by you.
 
-=== All New Leads
+== All New Leads
 
 All New Leads is a sub page of leads, showing all leads with the status “New”.

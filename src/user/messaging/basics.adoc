@@ -1,1 +1,17 @@
-= basics ⛏
+include::../../variables.adoc[]
+= Basics
+
+{PRODUCT_NAME} Messaging is a modern, private, secure messaging system which integrates seamlessly with {PRODUCT_NAME} {APP_NAME_SHELL}, {PRODUCT_NAME} CRM and {PRODUCT_NAME} {APP_NAME_COMPOSE}.
+Its design is inspired by Slack, a popular cloud service.
+
+.Some of the major benefits of using {PRODUCT_NAME} Messaging include:
+- Public or Private Channels for Team-based chat
+- Keep project communications in one place
+- Direct Messages to anyone in your team
+- File sharing in any channel
+- Reduce confusing clutter caused by long email chains
+
+.The basic structure of the messaging app:
+- Left sidebar showing list of available channels
+- Main middle screen for list of messages and uploaded files in the channel
+- Right sidebar for messaging threads and channel specific actions

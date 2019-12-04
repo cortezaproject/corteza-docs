@@ -1,0 +1,87 @@
+include::../../variables.adoc[]
+= Messages
+
+{PRODUCT_NAME} makes Messaging your colleagues intuitive and user friendly.
+
+== Dealing with Messages
+
+.How to send a message:
+. Enter a message into the message bar at the very bottom of the screen
+. Hit "Enter"
+
+.How to edit a message:
+. Hover over the message with the cursor and click on the plus (“+”) sign that appears at the end of the message.
+. Select “edit message”.
+This method works for all your messages
+. Alternatively, while you're in the message bar, hit the Page Up key and edit a message.
+This method only works for your most recent inputted message.
+
+.How to delete a message:
+. Hover over the message with the cursor and click on the plus (“+”) sign that appears at the end of the message.
+. Select “delete message”.
+
+.How to reply to a individual message:
+. Hover over the message with the cursor and click on the speech bubble icon that appears at the end of the message.
+
+Replying to a message opens a side bar on the right of the screen called a message “Thread”.
+The unread message count in a thread appear in red underneath the original message.
+
+=== Reactions
+.How to add an emoticon reaction:
+. Hover over the message with the cursor and click on the emoticon (smiley) icon that appears at the end of the message.
+. Click on the sign and choose from the emoticon menu presented.
+
+=== User Mentions
+.How to mention another user:
+. Type the “@” sign and a user list will appear.
+. Continue typing the first letters of the name of that person beside the “@” sign (with no spaces) and the list will reduce alphabetically to the name of the individual you wish to mention.
+. Hit ENTER when you wish to select the user.
+
+The mentioned user gets sent a notification from you when they are mentioned.
+
+== Unread Messages
+
+The number of unread messages in a channel appears beside the channel name in the left sidebar.
+
+Bubble icon instead of number indicates you have unread messages in one of the threads inside the channel.
+
+To mark messages as read click on "Mark as read" button on the bottom right corner.
+
+== Bookmarks and Pins
+
+.How to bookmark a message:
+- Hover over the message with the cursor and click on the bookmark icon that appears at the end of the message.
+
+Bookmarked messages are visible only to you.
+
+.How to overview bookmarked messages:
+- To view your bookmarked messages in any channel, select the channel controls in the top right hand corner (three vertical dots) and select “Bookmarked Messages”.
+
+Bookmarked messages are highlighted with a green vertical bar on the right of the message in any channel.
+
+.How to pin a message:
+- Hover over the message with the cursor and click on the pin icon that appears at the end of the message.
+
+Pinned messages are visible in the right sidebar to _every member_ of the channel.
+
+.How to overview pinned messages:
+- To view your pinned messages in any channel, select the channel controls in the top right hand corner (three vertical dots) and select “Pinned Messages”.
+
+Pinned messages are highlighted with a yellow vertical bar on the right of the message in any channel.
+
+== File Upload
+You can upload files and share them with other members of the channel.
+To upload the file click on the plus icon (+) in the left corner of the messaging input and select the file or simply drag and drop the file to the channel.
+
+Maximum file size can be set in the Admin panel.
+
+== Markdown Support
+
+For rich message formatting, {PRODUCT_NAME} supports Markdown inputs.
+A Markdown cheat sheet can be found https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet[here].
+
+== Emoji Support
+
+To add emoji to your message, click on the smiley face icon in the bottom right corner to open the emoji menu.
+Use the icons at the top to browse categories, or start typing to search.
+Click on the chosen emoji to add it to your message.

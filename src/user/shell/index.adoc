@@ -5,4 +5,12 @@ include::../../variables.adoc[]
 
 include::basics.adoc[]
 
+include::tabs.adoc[]
+
+include::application-menu.adoc[]
+
+include::panels.adoc[]
+
+include::profile.adoc[]
+
 :leveloffset: -1

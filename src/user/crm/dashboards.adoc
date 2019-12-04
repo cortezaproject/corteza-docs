@@ -2,4 +2,4 @@ include::../../variables.adoc[]
 
 = Dashboards
 
-Dashboards help you to visually understand changing business conditions so you can make decisions based on the real-time data of your CRM. Different type of charts are supported, and you can insert other rich element, such as twitter feeds or filtered lists of records.
+Dashboards help you to visually understand changing business conditions so you can make decisions based on the real-time data of your CRM. Different type of charts are supported, and you can insert other rich element, such as Twitter feeds or filtered lists of records.

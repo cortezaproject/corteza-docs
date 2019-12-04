@@ -1,1 +1,20 @@
-= security ⛏
+include::../variables.adoc[]
+= Security
+
+=== 100% Trustworthy
+
+{PRODUCT_NAME} aims to be indisputably trustworthy in its motivations and in its approach to design, development and maintenance of the platform.
+Organisations should feel that their chosen digital work platform is always under their control, always protected and always developed in their best interests.
+
+=== Authentication
+
+Authentication makes heavy use of the OpenID Connect Protocol (OIDC). “Login with Google” and “Login with Github” are enabled by default. However, the backend support for OIDC is extensive.
+For more information, see (reference)
+
+Authentication can also be extended to include support for the https://daasi.de/en/federated-identity-and-access-management/iam-solutions/didmos/[DAASI Didmos Suite], which includes support for the https://www.privacyidea.org[PrivacyIDEA] suite of Multi-factor Authentication protocols.
+
+=== Access Control
+
+{PRODUCT_NAME} includes a fine-grained RBAC (Role-Based Access Control) system.
+Role creation is unlimited with users being able to inhabit multiple roles simultaneously, if required.
+Permissions can be set for across the full spectrum ranging from general access to field level read and update activities for individual fields.

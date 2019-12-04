@@ -24,6 +24,15 @@ html:
 html.%:
 	@$(DOCKER_WRAP) make native..html.$*
 
+# Build specific doc section inside a docker container as PDF
+pdf.%:
+	@$(DOCKER_WRAP) make native..pdf.$*
+
+# Build specific doc section AS PDF
+native..pdf.%:
+	$(GEN_PDF_BOOK) --destination-dir dist/ src/$*/index.adoc
+	mv dist/index.pdf dist/$*.pdf
+
 # Build index doc
 native..html.index:
 	$(GEN_HTML5_BOOK) --destination-dir dist/html/ src/index.adoc

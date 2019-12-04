@@ -45,21 +45,21 @@ You should familiarize yourself with both https://docs.docker.com/engine/docker-
 |
 Messaging: sending text messages and links (without file upload)
 
-Compose: creating plain text records (without file upload)
+{APP_NAME_COMPOSE}: creating plain text records (without file upload)
 |5 MB/user/month
 
 |Medium volume
 |
 Messaging: sending text messages, links and occasionally sending documents and images
 
-Compose: attaching documents and images to records
+{APP_NAME_COMPOSE}: attaching documents and images to records
 
 |25 MB/user/month
 
 | High volume
 |Messaging: uploading large files on a daily basis
 
-Compose: attaching a high number of documents and images to records on a daily basis
+{APP_NAME_COMPOSE}: attaching a high number of documents and images to records on a daily basis
 |100 MB/user/month
 |===
 

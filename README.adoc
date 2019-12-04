@@ -12,15 +12,15 @@ Corteza technical and user documentation
 
 == Authoring
 
-Documentatio n is written in https://asciidoctor.org/docs/what-is-asciidoc/[AsciiDoc] format and processed with https://asciidoctor.org/[AsciiDoctor]
+Documentation is written in https://asciidoctor.org/docs/what-is-asciidoc/[AsciiDoc] format and processed with https://asciidoctor.org/[AsciiDoctor]
 
 Before you start, be sure you are familiar with https://asciidoctor.org/docs/asciidoc-writers-guide/[syntax and formatting] rules of AsciiDoc format.
 
 .https://asciidoctor.org/docs/asciidoc-recommended-practices/[Rules to follow]:
-* One sentance per line.
+* One sentence per line.
 * Atx-style section titles
 
-_and other recomended practices from the linked page_
+_and other recommended practices from the linked page_
 
 
 === Structure

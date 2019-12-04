@@ -2,7 +2,8 @@ include::../../variables.adoc[]
 
 = Settings
 
-This special module only has one record. Here you can set:
+This special module only has one record.
+Here you can set:
 
 .Opportunity settings
 * The days for an opportunity to close

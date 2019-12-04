@@ -1,5 +1,5 @@
 include::../variables.adoc[]
-= Extending and Customizing ⛏
+= {PRODUCT_NAME} Extending and Customizing ⛏
 :toc: left
 :toclevels: 2
 

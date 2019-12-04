@@ -1,8 +1,12 @@
-= index ⛏
+include::../variables.adoc[]
+= {PRODUCT_NAME} User Manual
+
 :toc: left
 :toclevels: 2
 
 :leveloffset: +1
+
+include::admin-panel/index.adoc[]
 
 include::shell/index.adoc[]
 

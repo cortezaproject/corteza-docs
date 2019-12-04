@@ -1,4 +1,5 @@
-= index ⛏
+include::../variables.adoc[]
+= {PRODUCT_NAME} Core Developer’s Manual ⛏
 :doctype: book
 :toc: left
 :toclevels: 3

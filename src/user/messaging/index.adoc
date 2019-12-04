@@ -1,4 +1,5 @@
-= Messaging
+include::../../variables.adoc[]
+= {PRODUCT_NAME} Messaging
 
 :leveloffset: +1
 

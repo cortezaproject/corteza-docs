@@ -1,4 +1,5 @@
-= index ⛏
+include::../variables.adoc[]
+= {PRODUCT_NAME} Overview ⛏
 
 :leveloffset: +1
 

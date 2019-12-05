@@ -1,2 +1,19 @@
 include::../../../variables.adoc[]
-= Messaging Settings ⛏
+= Messaging Settings
+
+== User Interface
+
+In this section you can select:
+
+- To allow users to use emoji
+- To enable messaging notifications
+- If notifications are enabled you can set a template for notification header (default `${user} in ${channel}`) and what is the maximum number of characters visible in the notification (default is 200)
+
+== Attachments
+
+In this section you can select:
+
+- If you allow users to upload attachments
+- If users can upload images from gallery or from camera
+- What is a maximum file upload size (default is 10 MB)
+- Which file types are whitelisted

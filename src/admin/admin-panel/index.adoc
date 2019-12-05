@@ -1,5 +1,5 @@
 include::../../variables.adoc[]
-= {PRODUCT_NAME} Admin Panel ⛏
+= {PRODUCT_NAME} Admin Panel
 
 :leveloffset: +1
 

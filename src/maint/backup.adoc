@@ -1,0 +1,69 @@
+include::../variables.adoc[]
+= Backup and restore
+
+We recommend doing regular backups of database and uploaded files.
+Also, it is highly recommended to do a database backup before you upgrade to newer version if {PRODUCT_NAME}
+
+== Database
+
+We recommend use of `mysqldump` tool to backup your {PRODUCT_NAME} database.
+Tool can be found inside `db` container (`percona:8.0` image).
+
+[WARNING]
+====
+Do not try to copy raw database files to perform backup.
+It might lead to corrupted backup data.
+====
+
+.Database dump command:
+[source,shell]
+----
+docker-compose exec -T \
+    --env MYSQL_PWD=your-password db \
+    mysqldump your-db-name --add-drop-database -u your-username > dump.sql
+----
+
+This will dump entire database and place it in `dump.sql` file.
+If you want to use a different tool to create your backup you will need to connect to the container or publish mysql ports.
+
+[TIP]
+====
+You can backup your data without shutting down {PRODUCT_NAME} server.
+====
+
+== Database restore
+
+.Database restore command:
+[source,shell]
+----
+docker-compose exec -T \
+    --env MYSQL_PWD=your-password db \
+    mysql your-db-name -u your-username < dump.sql
+----
+
+[IMPORTANT]
+====
+We recommend that {PRODUCT_NAME} server is shut-down until restore procedure is done.
+====
+
+
+== Uploaded files
+
+Without object storage service like Min.io (see <<Object storage with Minio>>), uploaded files are stored directly on the file-system.
+{PRODUCT_NAME} server is storing data to `/data` directory (if not configured diffrently with `*_STORAGE_PATH` environmental variables).
+
+You can use anyone of the standard file management tools to make backup copy of the files
+
+.Compressing files with tar command:
+[source,shell]
+----
+tar -cjf foo.tar.bz2 data/server/
+----
+
+== Restoring files
+
+.Uncompromising files from archive with tar command:
+[source,shell]
+----
+tar -xjf foo.tar.bz2
+----

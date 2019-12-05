@@ -32,4 +32,6 @@ include::install/index.adoc[]
 
 include::setup/index.adoc[]
 
+include::backup.adoc[]
+
 :leveloffset: -1

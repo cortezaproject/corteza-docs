@@ -1,5 +1,5 @@
 include::../variables.adoc[]
-= {PRODUCT_NAME} Overview ⛏
+= {PRODUCT_NAME} Overview
 
 :leveloffset: +1
 
@@ -14,7 +14,5 @@ include::core-development.adoc[]
 include::deployment.adoc[]
 
 include::customization.adoc[]
-
-include::roles.adoc[]
 
 :leveloffset: -1

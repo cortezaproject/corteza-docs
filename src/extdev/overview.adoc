@@ -30,7 +30,7 @@ Script can read and change given record from the context and access, modify or d
 
 == Security
 
-Script can be configured to be execured with security context of the user triggering the event or with security context of a predefined user.
+Script can be configured to be executed with security context of the user triggering the event or with security context of a predefined user.
 
 .Example scenario:
 * User creates a Client record in Compose. This triggers a script that create a new user.

@@ -1,1 +1,8 @@
-= customization ⛏
+include::../variables.adoc[]
+= Customization
+
+{PRODUCT_NAME} can be customized in three ways:
+
+* Building new configurations or changing existing ones in the Low Code feature.
+* Adding new business logic via the Automations feature.
+* Adding entirely new backend or frontend features via the https://github.com/{GIT_REPO_GROUP}[public repository]

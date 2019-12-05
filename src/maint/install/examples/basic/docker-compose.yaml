@@ -19,7 +19,7 @@ services:
     env_file: [ .env ]
     environment:
       # Informing Corredor where it he contact us
-      CORREDOR_API_BASE_URL_SYSTEM:    "http://127.0.0.1:${LOCAL_DEMO_API_PORT}/system"
+      CORREDOR_API_BASE_URL_SYSTEM:    "http://127.0.0.1:${LOCAL_DEMO_API_PORT}/system-settings"
       CORREDOR_API_BASE_URL_MESSAGING: "http://127.0.0.1:${LOCAL_DEMO_API_PORT}/messaging"
       CORREDOR_API_BASE_URL_COMPOSE:   "http://127.0.0.1:${LOCAL_DEMO_API_PORT}/compose"
     depends_on: { db: { condition: service_healthy } }

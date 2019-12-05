@@ -15,8 +15,7 @@ To edit a user click on an "Edit" icon on the right side of the users list.
 
 In this screen you can:
 
-- Change User's basic information (email, full name, handle)
-- Delete a user
-- Suspend a user
+- Change user's basic information (email, full name, handle)
+- Delete or suspend a user
 - Set a user a new password
 - Add a user to a certain role

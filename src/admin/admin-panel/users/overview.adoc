@@ -10,7 +10,6 @@ In the list of users an admin can also see the timestamp when user was created a
 In the list of users an admin is allowed to:
 
 - Filter users by name or email using search input on the top
-- Filter deleted users
-- Filter suspended users
-- Edit users
+- Filter deleted and suspended users
+- Edit existing users
 - Create new users

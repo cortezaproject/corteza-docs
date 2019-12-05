@@ -1,1 +1,12 @@
-= architecture ⛏
+include::../variables.adoc[]
+= Architecture
+
+{PRODUCT_NAME} is server based software, consisting of a range core services including the various {PRODUCT_NAME} web applications.
+For more information see link:../maint/index.html[Architecture Overview].
+
+Currently, {PRODUCT_NAME} supports MySQL by default.
+MySQL will continue to be supported, but will be replaced as the default databased by PostgreSQL during 2020.
+
+https://min.io/[Min.io] is supported for high performance object storage.
+
+https://www.elastic.co/what-is/elk-stack[ELK from Elastic] is supported for log storage.

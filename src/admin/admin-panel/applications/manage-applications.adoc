@@ -1,4 +1,4 @@
 include::../../../variables.adoc[]
-= Manage Applications ⛏
+= Applications Management ⛏
 
 

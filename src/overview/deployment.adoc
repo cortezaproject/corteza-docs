@@ -1,1 +1,4 @@
-= deployment ⛏
+= Deployment
+
+By default, {PRODUCT_NAME} deploys as a monolithic package and is based on Docker.
+However, individual services can be split out for purposes of delivering a highly scalable platform, if required.

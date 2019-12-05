@@ -1,0 +1,54 @@
+= Email Settings
+
+In this section you can control the header and the footer template which are wrapped around all emails sent from the system.
+
+.Email Header HTML Template
+----
+<div style="width:100%;min-height:100%;margin:0;padding:0;color:#3a393c;font-size:12px;line-height:18px;font-family:Verdana,Arial,sans-serif">
+  <table width="100%" align="center" style="width:100%;height:100%;border-collapse:collapse;border:0;padding:60px" border="0" cellspacing="0" cellpadding="0" summary="">
+    <tbody>
+      <tr>
+        <td valign="top" align="center" style="padding: 20px 0;">
+          <table width="800" cellspacing="0" cellpadding="0" border="0">
+            <tbody>
+              <tr>
+                <td width="800" bgcolor="#ffffff" style="color:#3a393c;font-size:14px;line-height:20px;font-family:Helvetica Neue,Helvetica,Arial,sans-serif;text-align:left">
+                  <table width="800" cellspacing="0" cellpadding="0" border="0">
+                    <tbody>
+                      <tr style="background-color:#ffffff;height:50px;">
+                        <td style="border-bottom:2px solid #1397CB;">
+                          <a href="{{ .BaseURL }}" style="text-decoration:none" target="_blank">
+                            <img src="{{ .Logo }}" style="display: block;margin: 0 auto;padding: 10px;">
+                          </a>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td width="800" style="padding:40px 30px">
+----
+.Email Footer HTML Template
+----
+</td>
+                      </tr>
+                      <tr>
+                        <td style="padding:30px;border-top: 1px solid #F3F3F5">
+                          <p>If you have any questions, please contact <a href="mailto:{{ .SignatureEmail }}" style="color:#1397CB;">{{ .SignatureEmail }}</a>.</p>
+                          <p>We hope you enjoy using Corteza!</p>
+                          <p>Best regards, <br>
+                          {{ .SignatureName }}</p>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+----
+
+We recommend using https://codepen.io/[Codepen] or similar browser-based tools to preview the layout of the template before changing the template.
+Pay attention to variables used in the default template(i.e. `{{.BaseURL}}`, `{{.SignatureEmail}}`, ...)

@@ -3,11 +3,6 @@ include::../../variables.adoc[]
 
 In the dashboard section you can overview some basic statistics of the usage of the {PRODUCT_NAME} system:
 
-- Number of total active users
-- Number of suspended users
-- Number of deleted users
-- Number of total active roles
-- Number of archived roles
-- Number of deleted roles
-- Number of total active applications
-- Number of deleted applications
+- Number of total active, suspended and deleted users
+- Number of total active, archived and deleted roles
+- Number of total active and deleted applications

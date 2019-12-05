@@ -13,6 +13,8 @@ include::roles/index.adoc[]
 
 include::applications/index.adoc[]
 
+include::system-settings/index.adoc[]
+
 include::settings/index.adoc[]
 
 include::permissions/index.adoc[]

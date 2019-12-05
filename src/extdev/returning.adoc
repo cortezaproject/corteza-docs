@@ -11,7 +11,7 @@ This can be used in beforeCreate and beforeUpdate triggers to save modified vers
 == Modifying current $record and returning from automation script
 
 .Rules:
-- Critical scripts have to be executed sucessfully and return [truthy](https://developer.mozilla.org/en-US/docs/Glossary/Truthy) value.
+- Critical scripts have to be executed successfully and return [truthy](https://developer.mozilla.org/en-US/docs/Glossary/Truthy) value.
 - If automation scripts returns Record system will update current $record (if Module then $module, etc...)
 - Modifications of $record (and other $*) and return values of async scripts are ignored
 - Modifications of $record (and other $*) and return values of after* triggers are ignored

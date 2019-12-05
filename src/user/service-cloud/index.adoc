@@ -1,4 +1,4 @@
-= Service Cloud ⛏
+= Service Cloud
 
 :leveloffset: +1
 

@@ -1,1 +1,28 @@
-= departments ⛏
+include::../../variables.adoc[]
+
+= Departments
+
+Companies have different departments and different departments have different costs.
+One hour support by the serice department is simply not the same as one hour support by R&D.
+To manage this, Service Cloud has a department module, where you can set the hourly price.
+
+The hourly price is applied to a case update, and the total price of the case is calculated on the sum of case updates.
+This allows multiple departments to be involved in a single case.
+
+When you enter the page with the lists of departments, you are presented with an overview of all total time spent and total costs, with additional charts on the right.
+This allows you to quickly detect what department has the heaviest load, and which department has the most impact with regard to costs.
+
+Entering a department record you can see, and edit, the department name, the price per hour and the list of employees.
+Employees are users in {PRODUCT_NAME}.
+Other fields, such as total time and total cost, are calculated automatically.
+
+== Case updates related to the department
+
+On the bottom is a list of case updates related to the department.
+It gives a good overview af all work done.
+The list is ordered by date, and you can order and filter to see for example the updates that took most time or costed the most.
+You can enter the case update by clicking on the row, or you can enter the case directly by clicking on the case title at the beginning.
+
+Note: if you change the hourly cost of an department all new case updates will use that hourly rate.
+Previously created case updates won't de recalculated, unless they are edited.
+

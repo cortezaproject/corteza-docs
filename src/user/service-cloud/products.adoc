@@ -1,1 +1,34 @@
-= products ⛏
+include::../../variables.adoc[]
+
+= Products
+
+In Service Cloud you can link a case to a product.
+This enables you to have a complete overview of how much service is provided for a certain product or product family.
+A product can be a phisical product or a service.
+
+Default fields in this module are the product code, name, category and description.
+You can set the entitlement template, allowing you to easily set entitlements for clients.
+Optionally, you can set a product photo and attachs files (suchs as manuals).
+
+== Total time and cost
+
+An important block is "Cases Totals".
+Here are calculated values that show how much support have been given to the product.
+The first value is time: how many hours.
+The second value is cost: how much money.
+This allows you to easily detect products that are requiring to much support, and you can act on it accordingly.
+
+== Entitlements related to the product
+
+The "Entitlements for this product" block shows all customers that are entitled to support for this product.
+More info about entitlements can be found in the "Entitlements" and "Entitlement templates" chapters.
+
+== Cases related to the product
+
+The product page shows a list of all cases where the product was selected.
+It allows you to quickly access any related case, and it gives a good overview of the status of the cases related to the product.
+
+== Knowledge Base items related to this product
+
+This block is perfect for service agents to quickly find information about the product.
+It's a filtered list of only items that are related.

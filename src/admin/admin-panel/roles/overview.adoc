@@ -5,3 +5,10 @@ include::../../../variables.adoc[]
 Role-Based Access Control (RBAC) is used for all applications across {PRODUCT_NAME} system.
 
 The role is assigned to an individual user.
+
+In the list of roles an admin is allowed to:
+
+- Filter roles by name using search input on the top
+- Filter deleted and suspended roles
+- Edit existing roles
+- Create new roles

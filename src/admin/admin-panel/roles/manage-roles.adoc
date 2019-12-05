@@ -1,4 +1,19 @@
 include::../../../variables.adoc[]
-= Roles Management ⛏
+= Roles Management
 
+== Create a new role
 
+To create a new role click on "New" button on top right corner above the Roles list.
+
+Fulfill the Basic information and hit submit.
+Once a role is created, you can start assigning members to it.
+
+== Edit a role
+
+To edit a role click on an "Edit" icon on the right side of the roles list.
+
+In this screen you can:
+
+- Change role's name and handle
+- Delete or archive a role
+- Add users to a selected role

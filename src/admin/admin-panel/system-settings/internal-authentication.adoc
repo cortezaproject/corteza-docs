@@ -37,8 +37,9 @@ Email templates used for authentication purposes are the following:
 
 We recommend using https://codepen.io/[Codepen] or similar browser-based tools to preview the layout of the template before changing the template.
 
-.Notes:
+[IMPORTANT]
+====
 - `{{.EmailHeaderEn}}` has to be at the beginning of each template
 - `{{.EmailFooterEn}}` has to be at the end of each template
 - `{{ .URL }}` is used as a href parameter for the confirmation link.
-
+====

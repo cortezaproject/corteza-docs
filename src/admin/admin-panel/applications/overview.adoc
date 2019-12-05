@@ -1,7 +1,20 @@
 include::../../../variables.adoc[]
 = Overview
 
-**A role** allow you to define groups of users with particular access rights.
-Role-Based Access Control (RBAC) is used for all applications across {PRODUCT_NAME} system.
+You can create and manage applications inside {PRODUCT_NAME} {APP_NAME_SHELL}.
 
-The role is assigned to an individual user.
+By default the following applications are included in the system:
+
+- Messaging
+- {APP_NAME_COMPOSE}
+- CRM
+- Jitsi Video
+- {PRODUCT_NAME} Admin Area
+- Google Maps
+
+In the list of applications an admin is allowed to:
+
+- Filter applications by name using search input on the top
+- Filter deleted applications
+- Edit existing applications
+- Create new applications

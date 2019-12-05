@@ -1,4 +1,27 @@
 include::../../../variables.adoc[]
-= Applications Management ⛏
+= Applications Management
+
+== Create a new application
+
+To create a new role click on "New" button on top right corner above the Applications list.
+
+Set an application name and mark it as enabled so it becomes visible in the list of applications.
+In the next step you can add an URL to the favicon and logo and assign application URL.
+
+You can add any Namespace as a separated application.
+Additionally, you can add as an application all external websites and web applications that don't have iFrame access denied.
+
+== Edit an application
+
+To edit an application click on an "Edit" icon on the right side of the applications list.
+
+In this screen you can:
+
+- Change application's name
+- Control application's visibility in the list of applications
+- Delete an application
+- Update logo and favicon URLs
+- Change the application URL
+
 
 

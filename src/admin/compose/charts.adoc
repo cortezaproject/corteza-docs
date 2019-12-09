@@ -1,1 +1,30 @@
-= charts ⛏
+include::../../variables.adoc[]
+
+= Charts
+
+{PRODUCT_NAME} {APP_NAME_COMPOSE} comes with a chart builder that allows you to build line, bar, pie, and donut charts.
+
+== Create a new chart
+
+To create a new chart, use the Create a new chart field.
+
+Inside the chart builder, you will find the following fields:
+
+* *Name*: Enter a name for the chart; e.g., Donations.
+* *Module*: This is the module that provides the data to the chart.
+* *Filters*: You can select one of the predefined filters, such as Records created this year, or add any custom filter (such as status = "Active").
+* *Dimensions*: These can be Datetime and Select fields.
+Datetime fields allow grouping (e.g., by day, by week, by month).
+The Skip missing values option is handy to remove values that would return null (e.g., records with incomplete data), and Calculate how many labels can be shown can avoid overlapping labels (which is useful for charts with many dates on the X-axis).
+* *Metrics*: Metrics are numeric fields and have a predefined count option.
+You can add multiple metric blocks and give each a different label, field (source), function (COUNTD, SUM, MAX, MIN, AVG, or STD, if possible), output (line or bar), and color.
+
+== Add a chart to a page
+
+The final step is to add a chart to a page. To add this chart to the follow the steps below:
+
+* Enter Pages in the admin menu.
+* Click on the Page builder link of the page where you want to add the chart.
+* Add a page block of the type Chart, add a block title, and select the chart.
+* Resize and reposition the block (or blocks) to make the layout look nice.
+

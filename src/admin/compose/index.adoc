@@ -3,6 +3,8 @@ include::../../variables.adoc[]
 
 :leveloffset: +1
 
+include::basics.adoc[]
+
 include::namespaces.adoc[]
 
 include::namespace-create.adoc[]

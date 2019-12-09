@@ -1,1 +1,22 @@
-= automation ⛏
+include::../../variables.adoc[]
+
+= Automation
+
+Automation can make your {PRODUCT_NAME} {APP_NAME_COMPOSE} application more efficient.
+With the Automation tool, you can create business logic that evaluates records automatically when they are created, updated, or deleted, or you can execute a rule manually.
+
+Triggers are written in JavaScript, one of the most used programming languages in the world, enabling you to write simple code that can evaluate, calculate, and transform data (such as numbers, strings, or dates).
+{PRODUCT_NAME} {APP_NAME_COMPOSE} comes with extra functions that allow you to access, create, save, or delete records; find users; send notifications via email; use {PRODUCT_NAME} Messaging; and more.
+
+{PRODUCT_NAME} CRM has an extensive set of automation rules that can be used as examples. Some of them are:
+
+* *Account*: Create new case
+* *Account*: Create new opportunity
+* *Case*: Insert case number
+* *Contract*: Send contract to custom email
+* *Lead*: Convert a lead into an account and opportunity
+* *Opportunity*: Apply price book
+* *Opportunity*: Generate new quote
+* *Quote*: Submit quote for approval
+
+A complete manual on how to use the automation module, together with code examples, is in development.

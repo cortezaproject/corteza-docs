@@ -1,1 +1,34 @@
-= namespaces ⛏
+include::../../variables.adoc[]
+
+= Namespaces
+
+A namespace is an records-based application. 
+
+Creating an application with Corteza Low Code takes only a handful of steps.
+First, you create modules with fields, followed by pages to visualize the modules.
+This creates the basic data model of your application, after which you can add charts, automation and workflow rules, and role-based permissions.
+
+== What can you build?
+
+You can build any namespace (application) with {PRODUCT_NAME} {APP_NAME_COMPOSE}, such as:
+
+* Customer Relationship Management
+* Enterprise Resource Planning
+* Case management
+* Expense management
+* Event management
+* Support desk
+* Knowledge base
+* Logistics management
+* Employee onboarding
+* Leave tracker
+* Volunteer portal
+* Donor management
+* Franchise management
+* Hotel management
+* Construction management
+* Restaurant management
+* Travel management
+* Fleet hub
+* Inventory management
+* And a lot more

@@ -1,1 +1,8 @@
-= namespace-modify ⛏
+include::../../variables.adoc[]
+
+= Modify a namespace
+
+To edit the main data of a namespace you need to click on the edit icon that appears when you over over the namespace in the namespace menu.
+
+To edit modules, fields, pages, etc inside a namespace, you need to enter the namespace first.
+Detailed information of how to edit each area can be found in the next chapters.

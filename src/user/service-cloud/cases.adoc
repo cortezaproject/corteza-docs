@@ -6,7 +6,7 @@ The main module of Service Cloud is cases: the place where the customer's issues
 Each case has an automatically generated case number, which starts with "ticket#" followed by the date-time.
 An example case number is: ticket#20191025094353420 (the date can be read as: 2019-10-25 09:43:53:420).
 
-The case subject is used in list throughout the application, so it needs to be short and clear. 
+The case subject is used in list throughout the application, so it needs to be short and clear.
 
 On the left, the block "Case Description" contains the status, category, a long description, the priority, related product and, if closed, the solition and close date.
 On the right, the block "Case Details" contain data about who owns the case, the source and the total time and cost.
@@ -23,5 +23,5 @@ Actions such as calls or emails can be inserted by clicking on the "Add update t
 4. The sales agent inserts the subject, description and priority, and optionally selects the category (which is "Problem" by default), related product and contact. Other fields, such as the case number and status, are inserted automatically.
 + The case owner is, by default, the person that creates the case.
 + If this needs to be someone else, the case creator can simple select the correct agent there.
-5. After that, the agent that has the case assigned can work on the case, contact the client, insert updates, etcetera.
+5. After that, the agent that has the case assigned can work on the case, contact the client, insert updates, etc.
 

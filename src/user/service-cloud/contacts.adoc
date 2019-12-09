@@ -17,7 +17,7 @@ The sales agent has to check if an contact has opted out for calls and emails be
 == Related cases
 
 The "Cases related to this Contact" block shows all cases where the contact is selected in the "Case Details" block.
-The list shows a summay of each case (case number, status, priority, subject, time, cost and creation date) and it's ordered by date. 
+The list shows a summary of each case (case number, status, priority, subject, time, cost and creation date) and it's ordered by date.
 The list is searchable and filterable, and allows adding new case records.
 
 When using the "+Add new record" button to create a new case for this contact, the contact field in the "Case Details" block is automatically populated.

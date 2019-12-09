@@ -4,11 +4,11 @@ include::../../variables.adoc[]
 
 In Service Cloud you can link a case to a product.
 This enables you to have a complete overview of how much service is provided for a certain product or product family.
-A product can be a phisical product or a service.
+A product can be a physical product or a service.
 
 Default fields in this module are the product code, name, category and description.
 You can set the entitlement template, allowing you to easily set entitlements for clients.
-Optionally, you can set a product photo and attachs files (suchs as manuals).
+Optionally, you can set a product photo and attach files (such as manuals).
 
 == Total time and cost
 

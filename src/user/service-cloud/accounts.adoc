@@ -2,7 +2,8 @@ include::../../variables.adoc[]
 
 = Accounts
 
-In Service Cloud accounts give a 360 degree overview of companies you are doing business with. It shows the following related data:
+In Service Cloud accounts give a 360 degree overview of companies you are doing business with.
+It shows the following related data:
 
 * Cases
 + A list of all cases related to the account, ordered by creation date
@@ -11,4 +12,5 @@ In Service Cloud accounts give a 360 degree overview of companies you are doing 
 * Contacts
 + All contacts related to the account
 
-The most important action in an account is creating cases. This can be done easily with the "add new record” button on top of the cases list.
+The most important action in an account is creating cases.
+This can be done easily with the "add new record” button on top of the cases list.

@@ -21,7 +21,9 @@ Actions such as calls or emails can be inserted by clicking on the "Add update t
 2. The service agent checks the account of the client and sees in the entitlements if the client is entitled to support
 3. If the client is entitled to support, a new case is created, directly from the account page.
 4. The sales agent inserts the subject, description and priority, and optionally selects the category (which is "Problem" by default), related product and contact. Other fields, such as the case number and status, are inserted automatically.
-+ The case owner is, by default, the person that creates the case.
-+ If this needs to be someone else, the case creator can simple select the correct agent there.
++
+The case owner is, by default, the person that creates the case.
++
+If this needs to be someone else, the case creator can simple select the correct agent there.
 5. After that, the agent that has the case assigned can work on the case, contact the client, insert updates, etc.
 

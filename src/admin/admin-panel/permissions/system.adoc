@@ -1,2 +1,4 @@
 include::../../../variables.adoc[]
 = System Permissions ⛏
+
+To access System Permissions, go to Admin Panel and click on "Permissions in the "System" section.

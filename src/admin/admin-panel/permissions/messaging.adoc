@@ -1,2 +1,27 @@
 include::../../../variables.adoc[]
-= Messaging Permissions ⛏
+= Messaging Permissions
+
+To access System Permissions, go to Admin Panel and click on "Permissions" in the "Messaging" section.
+
+== Messaging Service
+
+In this section, you can control who can access messaging app, manage messaging settings and who can create public/private/direct channels.
+
+We recommend this permissions to be allowed to Administrators and Messaging Admins only.
+
+== Channels
+
+In this section, you have full control over which role can to the following:
+
+- Update/View/Join/Leave any channel
+- Delete/un-delete/archive/un-archive any channel
+- Manage members and attachments of any channel
+- Send/Embed messages, Reply in threads
+- Send attachments to channels (if they're enabled in the Messaging settings)
+- Update/delete own/all messages
+
+[NOTE]
+If no explicit "Allow" or "Deny" rules are set, we use a set of business logic rules as well.
+
+.Example:
+If a user doesn't have explicit allowance to delete _any_ channel, but they can create a public channel, they we'll still be capable of deleting _this_ channel as they're the owner of it.

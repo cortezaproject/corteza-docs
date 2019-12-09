@@ -1,4 +1,30 @@
 include::../../../variables.adoc[]
-= System Permissions ⛏
+= System Permissions
 
-To access System Permissions, go to Admin Panel and click on "Permissions in the "System" section.
+To access System Permissions, go to Admin Panel and click on "Permissions" in the "System" section.
+
+== System Service
+
+In this section you control overall access settings and usage of Admin Panel.
+
+You can set permissions to:
+
+- Create new role/user/application/automation scripts
+- Allow reminder assignment
+
+== {PRODUCT_NAME} Elements
+
+* Access/update/delete any application
++
+You can set rights to access any application to everyone and explicitly forbid it per few applications in the list of applications.
+* Access/update/delete any user
++
+If a user doesn't have access to read any user, they'll see their IDs instead of a name in surname (for example in messaging application)
+* Suspend/un-suspend any user
+* Access/update/delete any role
+* Manage members for any role
+* Read/update/delete any automation script
+* Run any trigger on any automation script
+
+Any access you grant in this section can be overridden per individual element.
+

@@ -30,7 +30,7 @@ corteza_sink: "| {API_SYSTEM_BASE_URL}/system/sink?content-type=email&expires=&m
 ----
 
 This forwards mail for specific mailbox a curl command.
-Curl command then pushes that raw email to sink endpoint on Corteza API.
+Curl command then pushes that raw email to sink endpoint on {PRODUCT_NAME} API.
 
 See link:../setup/email-automation.adoc[email automation setup] for in information how to create a signed URL
 

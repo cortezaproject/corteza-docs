@@ -7,7 +7,7 @@ In Corredor (non-browser) automation scripts we allow a predefined list of libra
 .axios
 > A JavaScript utility library delivering consistency, modularity, performance, & extras.
 
-This is the library used by Corteza API clients.
+This is the library used by {PRODUCT_NAME} API clients.
 
 Visit https://github.com/axios/axios for more info
 

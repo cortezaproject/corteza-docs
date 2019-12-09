@@ -1,2 +1,40 @@
 include::../../../variables.adoc[]
-= {APP_NAME_COMPOSE} Permissions ⛏
+= {APP_NAME_COMPOSE} Permissions
+
+To access System Permissions, go to Admin Panel and click on "Permissions" in the "{APP_NAME_COMPOSE}" section.
+
+== {APP_NAME_COMPOSE} Service
+
+In this section you can control who can access {APP_NAME_COMPOSE}, who can manage settings and who can create namespaces.
+
+Please note that permissions are fine-grained, meaning if you allow users to access namespaces, they still need explicit allowance to read pages, modules and fields.
+
+== Namespaces
+
+In this section you can control which role can:
+
+- Have read access to any namespaces
+- Update/delete/manage any namespace
+- Create modules/charts/pages/automation scripts
+
+Any access you grant in this section can be overridden per individual namespace.
+
+== Modules
+
+In this section you define which roles can:
+
+- Read/update/delete modules
+- Create/read/update/delete records under any modules
+- Manage any automation trigger
+
+Any access you grant in this section can be overridden per individual module.
+
+== {APP_NAME_COMPOSE} Elements
+
+Here you can control permissions for main {APP_NAME_COMPOSE} elements:
+
+- Read/update/delete charts
+- Read/update/delete pages
+- Read/update/delete automation scripts
+
+Any access you grant in this section can be overridden per individual element.

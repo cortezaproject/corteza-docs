@@ -8,5 +8,5 @@ include::../../variables.adoc[]
 It provides an environment where you can create your own applications with mostly graphical interfaces instead of code.
 Its main benefits are that it reduces development time and you don't need advanced programming knowledge to use it.
 
-The Corteza Low Code development platform is web-based and specifically built for records-based business applications.
+The {PRODUCT_NAME} {APP_NAME_COMPOSE} development platform is web-based and specifically built for records-based business applications.
 In fact, {PRODUCT_NAME} CRM is built with it.

@@ -21,7 +21,8 @@ In the main namespaces menu you can set the following permissions for all namesp
 
 == Single namespace
 
-When you enter the edit page of a namespace (via the namespaces menu), you can click on the "lock" icon to set the permissions of a single namespace. These settings overwrite the ones set in "All namespaces".
+When you enter the edit page of a namespace (via the namespaces menu), you can click on the "lock" icon to set the permissions of a single namespace.
+These settings overwrite the ones set in "All namespaces".
 
 * Read namespace "(namespace name)"
 * Update namespace "(namespace name)"
@@ -34,7 +35,7 @@ When you enter the edit page of a namespace (via the namespaces menu), you can c
 
 == Permissions inside a namespace
 
-After setting permission to an entire namespace, you can further define permissiones inside a namespace.
+After setting permission to an entire namespace, you can further define permissions inside a namespace.
 You can define it for:
 * Modules
 ** Fields
@@ -78,7 +79,7 @@ You can define per role the following:
 ===== Fields inside a module
 
 If you enter a module, you can define the following permissions per field.
-Like this you can create a role that has access to a certain module, but doen not have access to see and/or edit certain fields.
+Like this you can create a role that has access to a certain module, but don't not have access to see and/or edit certain fields.
 
 * Read "(field name)" record fields
 * Update "(field name)" record fields

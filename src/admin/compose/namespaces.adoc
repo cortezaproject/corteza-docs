@@ -2,9 +2,9 @@ include::../../variables.adoc[]
 
 = Namespaces
 
-A namespace is an records-based application. 
+A namespace is an records-based application.
 
-Creating an application with Corteza Low Code takes only a handful of steps.
+Creating an application with {PRODUCT_NAME} {APP_NAME_COMPOSE} takes only a handful of steps.
 First, you create modules with fields, followed by pages to visualize the modules.
 This creates the basic data model of your application, after which you can add charts, automation and workflow rules, and role-based permissions.
 

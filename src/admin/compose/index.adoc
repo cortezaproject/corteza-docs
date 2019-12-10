@@ -1,5 +1,5 @@
 include::../../variables.adoc[]
-= {PRODUCT_NAME} {APP_NAME_COMPOSE} ⛏
+= {PRODUCT_NAME} {APP_NAME_COMPOSE}
 
 :leveloffset: +1
 

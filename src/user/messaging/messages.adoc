@@ -1,7 +1,7 @@
 include::../../variables.adoc[]
 = Messages
 
-{PRODUCT_NAME} makes Messaging your colleagues intuitive and user friendly.
+{PRODUCT_NAME} makes {APP_NAME_MESSAGING} your colleagues intuitive and user friendly.
 
 == Dealing with Messages
 
@@ -71,7 +71,7 @@ Pinned messages are highlighted with a yellow vertical bar on the right of the m
 
 == File Upload
 You can upload files and share them with other members of the channel.
-To upload the file click on the plus icon (+) in the left corner of the messaging input and select the file or simply drag and drop the file to the channel.
+To upload the file click on the plus icon (+) in the left corner of the {APP_NAME_MESSAGING} input and select the file or simply drag and drop the file to the channel.
 
 Maximum file size can be set in the Admin panel.
 

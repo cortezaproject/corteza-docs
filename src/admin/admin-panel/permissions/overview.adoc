@@ -11,12 +11,12 @@ Permissions setting is fine-grained, meaning the system administrator can contro
 - which role can edit the data
 - which role can access admin area, etc.
 
-By default, a user is assigned to "Everyone" role which is very limited due to security (in case someone uninvited registers to your system, they won't see any data, messaging channels, list of applications, etc.).
+By default, a user is assigned to "Everyone" role which is very limited due to security (in case someone uninvited registers to your system, they won't see any data, {APP_NAME_MESSAGING} channels, list of applications, etc.).
 The first registered user is granted admin rights by default.
 
 == Working with permissions in Admin Panel
 
-Each user can be a member of multiple roles. We suggest having "modular" approach, so creating multiple smaller roles (i.e. messaging admin, CRM admin) and then stacking them to cover all the parts of the system where a user needs access.
+Each user can be a member of multiple roles. We suggest having "modular" approach, so creating multiple smaller roles (i.e. {APP_NAME_MESSAGING} admin, CRM admin) and then stacking them to cover all the parts of the system where a user needs access.
 
 Admin can create unlimited amount of roles. Permissions system in the Admin Panel is a playground, where you bring each role on the table, adjust the permissions and save it. More details in the following chapters.
 

@@ -4,4 +4,4 @@ include::../../variables.adoc[]
 A Tab is your point of access to any application in the application menu.
 Tabs in {APP_NAME_SHELL} work just like browser tabs.
 To open a new Tab, click on the plus sign (+) at the end of open Tabs.
-At least two Tabs (Messaging and CRM applications) are open by default when you first log into {PRODUCT_NAME} {APP_NAME_SHELL}.
+At least two Tabs ({APP_NAME_MESSAGING} and CRM applications) are open by default when you first log into {PRODUCT_NAME} {APP_NAME_SHELL}.

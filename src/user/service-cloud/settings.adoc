@@ -26,7 +26,7 @@ This is used in cases
 . Optional: insert a support channel id.
 +
 In this channel case updates will be inserted.
-.. Go to Messaging
+.. Go to {APP_NAME_MESSAGING}
 .. If you don’t have a channel yet where you want to show Service Cloud updates, create the channel with the (+) button.
 .. Get the id of the channel.
 +

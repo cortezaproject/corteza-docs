@@ -351,7 +351,7 @@ Flags:
       --namespace string   Import into namespace (by ID or string)
 ----
 
-.Export messaging resources
+.Export {APP_NAME_MESSAGING} resources
 [source,shell]
 ----
 

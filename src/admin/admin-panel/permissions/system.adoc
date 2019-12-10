@@ -19,7 +19,7 @@ You can set permissions to:
 You can set rights to access any application to everyone and explicitly forbid it per few applications in the list of applications.
 * Access/update/delete any user
 +
-If a user doesn't have access to read any user, they'll see their IDs instead of a name in surname (for example in messaging application)
+If a user doesn't have access to read any user, they'll see their IDs instead of a name in surname (for example in {APP_NAME_MESSAGING} application)
 * Suspend/un-suspend any user
 * Access/update/delete any role
 * Manage members for any role

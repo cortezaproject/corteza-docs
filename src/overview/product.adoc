@@ -6,7 +6,7 @@ include::../variables.adoc[]
 {PRODUCT_NAME} is a self-hosted cloud platform for your work.
 The core of {PRODUCT_NAME}  consists of a low code environment (like Salesforce Lightning) for rapidly and securely delivering records-based management solutions.
 In particular, {PRODUCT_NAME}  has already delivered feature complete alternatives to Salesforce CRM and Salesforce Service Cloud.
-The {PRODUCT_NAME} platform also includes Enterprise Messaging (like Slack) and a Unified Workspace for building and accessing your software ecosystem.
+The {PRODUCT_NAME} platform also includes Enterprise {APP_NAME_MESSAGING} (like Slack) and a Unified Workspace for building and accessing your software ecosystem.
 
 == Free Forever, Modern and Developed with all Organisations in Mind
 

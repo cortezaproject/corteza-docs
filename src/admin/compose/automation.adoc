@@ -9,14 +9,20 @@ Automation consists of automation scripts and automation triggers.
 == Automation script
 
 Automation scripts are written in JavaScript, one of the most used programming languages in the world, enabling you to write simple code that can evaluate, calculate, and transform data (such as numbers, strings, or dates).
-{PRODUCT_NAME} provides some extra functions that help you to access, create, save, or delete records; find users; send notifications via email; use {PRODUCT_NAME} Messaging; and more.
+{PRODUCT_NAME} provides some extra functions that help you to access, create, save, or delete records, find users, send notifications via email, use {PRODUCT_NAME} Messaging, and more.
 These functions can be accessed via `<ServiceName>.<functionName>` from inside automation scripts.
 
 .Available helpers:
-* *`Compose.<functionName>`*: Provides helper functions to work with {PRODUCT_NAME} {APP_NAME_COMPOSE}, such as accessing, creating and deleting records
-* *`ComposeUI.<functionName>`*: Provides helper functions to work with user interface for {PRODUCT_NAME} {APP_NAME_COMPOSE}, such as opening record pages and showing notifications
-* *`Messaging.<functionName>`*: Provides helper functions to work with {PRODUCT_NAME} {APP_NAME_MESSAGING}, such as finding channels, creating channels and creating messages
-* *`System.<functionName>`*: Provides helper functions to work with {PRODUCT_NAME} core system, such as finding and creating users and managing role membership
+* *`Compose.<functionName>`*:
++
+Provides helper functions to work with {PRODUCT_NAME} {APP_NAME_COMPOSE}, such as accessing, creating and deleting records.
+* *`ComposeUI.<functionName>`*:
++
+Provides helper functions to work with user interface for {PRODUCT_NAME} {APP_NAME_COMPOSE}, such as opening record pages and showing notifications.
+* *`Messaging.<functionName>`*: Provides helper functions to work with {PRODUCT_NAME} {APP_NAME_MESSAGING}, such as finding channels, creating channels and creating messages.
+* *`System.<functionName>`*:
++
+Provides helper functions to work with {PRODUCT_NAME} core system, such as finding and creating users and managing role membership.
 
 [IMPORTANT]
 ====
@@ -24,17 +30,30 @@ Scripts that interact with the user interface (page redirects, success/error mes
 You can find this setting under automation script's Settings tab - Run in browser.
 ====
 
-To make automation scripts as flexible as possible, we provide settings for extra configuration. These settings can be found under automation's script's Settings tab.
+To make automation scripts as flexible as possible, we provide settings for extra configuration.
+These settings can be found under automation's script's Settings tab.
 
 .Supported settings:
-* *Enabled*: If this automation script should be executed
-* *Critical script*: Critical scripts must be executed entirely and without any errors.
-If an error occurs, it's execution is canceled and all upcoming automation scripts are ignored
-* *Run this script asynchronously*: Asynchronous scripts are ran in the background and their results are ignored
-* *Run in browser*: Executes this script inside the client's browser (user-agent).
+* *Enabled*:
++
+If this automation script should be executed.
+* *Critical script*:
++
+Critical scripts must be executed entirely and without any errors.
+If an error occurs, it's execution is canceled and all upcoming automation scripts are ignored.
+* *Run this script asynchronously*:
++
+Asynchronous scripts are ran in the background and their results are ignored.
+* *Run in browser*:
++
+Executes this script inside the client's browser (user-agent).
 This should only be used for scripts that require user interaction, since this form of execution is not reliable.
-* *Script execution timeout*: Specifies the duration in milliseconds, an automation script can execute for before aborting it's execution
-* *Security*: Specifies what user will be used when the script is executed; defaults to current user
+* *Script execution timeout*:
++
+Specifies the duration in milliseconds, an automation script can execute for before aborting it's execution.
+* *Security*:
++
+Specifies what user will be used when the script is executed; defaults to current user
 
 [TIP]
 ====
@@ -52,13 +71,27 @@ Record triggers can be created on any module that is available for this namespac
 You can find record triggers under automation script's Record triggers tab.
 
 .Currently supported events:
-* *Before create*: Before a record is created; you can use this trigger to do some validation, generate values, ...
-* *After create*: After a record is created; you can use this trigger to send notifications, update related records, ...
-* *Before update*: Before a record is updated; you can use this trigger to do some validation, generate values, ...
-* *After update*: After a record is updated; you can use this trigger to send notifications, update related records, ...
-* *Before delete*: Before a record is deleted; you can use this trigger to do some validation, remove related records, ...
-* *After delete*: After a record is deleted; you can use this trigger to remove related records, notify users, ...
-* *Manual*: Trigger requires user interaction (a button press) in order to execute; you can use this trigger to convert a lead to a client, remove stale leads, ...
+* *Before create*:
++
+Before a record is created; you can use this trigger to do some validation, generate values, ...
+* *After create*:
++
+After a record is created; you can use this trigger to send notifications, update related records, ...
+* *Before update*:
++
+Before a record is updated; you can use this trigger to do some validation, generate values, ...
+* *After update*:
++
+After a record is updated; you can use this trigger to send notifications, update related records, ...
+* *Before delete*:
++
+Before a record is deleted; you can use this trigger to do some validation, remove related records, ...
+* *After delete*:
++
+After a record is deleted; you can use this trigger to remove related records, notify users, ...
+* *Manual*:
++
+Trigger requires user interaction (a button press) in order to execute; you can use this trigger to convert a lead to a client, remove stale leads, ...
 
 [TIP]
 ====

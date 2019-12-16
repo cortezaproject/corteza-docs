@@ -9,6 +9,8 @@ include::basic.adoc[]
 
 include::nginx-proxy.adoc[]
 
+include::production.adoc[]
+
 include::aux-inbound-email-postfix.adoc[]
 
 include::aux-logging-elk.adoc[]

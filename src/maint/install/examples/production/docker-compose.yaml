@@ -1,0 +1,52 @@
+version: '3.5'
+
+services:
+  db:
+    image: percona:8.0
+    restart: on-failure
+    environment:
+      # To be picked up by percona image when creating the database
+      # Must match with DB_DSN settings inside .env
+      MYSQL_DATABASE:      corteza
+      MYSQL_USER:          corteza
+      MYSQL_PASSWORD:      change-me
+      MYSQL_ROOT_PASSWORD: change-me-too
+    healthcheck: { test: ["CMD", "mysqladmin" ,"ping", "-h", "localhost"], timeout: 20s, retries: 10 }
+    networks: [ internal ]
+    # Uncomment to use local fs for data persistence
+    # volumes: [ "./data/db:/var/lib/mysql" ]
+
+  server:
+    image: cortezaproject/corteza-server:${VERSION}
+    restart: on-failure
+    env_file: [ .env ]
+    depends_on: [ db, corredor ]
+    networks: [ proxy, internal ]
+    environment:
+      VIRTUAL_HOST:     api.${DOMAIN}
+      LETSENCRYPT_HOST: api.${DOMAIN}
+      CORREDOR_API_BASE_URL_COMPOSE:   https://api.${DOMAIN}/compose
+      CORREDOR_API_BASE_URL_MESSAGING: https://api.${DOMAIN}/messaging
+      CORREDOR_API_BASE_URL_SYSTEM:    https://api.${DOMAIN}/system
+    # Uncomment to use local fs for data persistence
+    # volumes: [ "./data/server:/data" ]
+
+  corredor:
+    image: cortezaproject/corteza-server-corredor:${VERSION}
+    networks: [ internal ]
+    restart: on-failure
+    env_file: [ .env ]
+
+  webapp:
+    image: cortezaproject/corteza-webapp:${VERSION}
+    restart: on-failure
+    depends_on: [ server ]
+    networks: [ proxy ]
+    environment:
+      MONOLITH_API:     "true"
+      VIRTUAL_HOST:     ${DOMAIN}
+      LETSENCRYPT_HOST: ${DOMAIN}
+
+networks:
+  internal: {}
+  proxy: { external: true }

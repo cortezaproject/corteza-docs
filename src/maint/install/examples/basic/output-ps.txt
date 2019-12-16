@@ -1,6 +1,6 @@
       Name                    Command                  State               Ports
 -----------------------------------------------------------------------------------------
-basic_corredor_1   docker-entrypoint.sh node  ...   Up             80/tcp
+basic_corredor_1   docker-entrypoint.sh node  ...   Up             127.0.0.1:8082->50051/tcp, 80/tcp
 basic_db_1         /docker-entrypoint.sh mysqld     Up (healthy)   3306/tcp, 33060/tcp
 basic_server_1     /bin/corteza-server serve-api    Up             127.0.0.1:8081->80/tcp
 basic_webapp_1     /entrypoint.sh                   Up             127.0.0.1:8080->80/tcp

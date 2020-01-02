@@ -1,0 +1,37 @@
+include::../../variables.adoc[]
+
+# 2020.3
+
+## After upgrade
+
+### Migrate your Corredor scripts
+
+With 2020.3 we're introducing a different way how automation scripts are stored, handled and executed.
+Code, scripts and triggers are no longer stored in the {PRODUCT_NAME}'s database.
+They are stored on filesystem where they can be accessed directly by Corredor.
+
+All pre-installed scripts for CRM and ServiceCloud are already migrated and ready to use.
+If you have any custom scripts, they should be migrated manually.
+
+There are 2 available `script-migrator` commands, one for system other one for {APP_NAME_COMPOSE} service:
+
+[source,subs="attributes"]
+----
+{CLI_CMD_SYSTEM} script-migrator --dst <base-location>
+{CLI_CMD_COMPOSE} script-migrator --dst <base-location>
+----
+
+These two commands will create a simple structure under `<base-location>/<service>/custom`
+(`system/custom/` and `compose/custom/`) containing scripts from both services.
+
+WARNING: Script migrator tool directly exports script's source code and triggers without any checks or tests. Make sure you test each script and trigger after migration.
+
+Point script-migrator tool (base-location) to Corredor's `usr/server` directory.
+This will create script source files (javascript) directly to the recommended location.
+
+Script files names are created from the script names (with suffixing script ID in case of any duplicated)
+Migrator skips all deleted scripts, deleted triggers, scripts with "test" name or without scripts any code.
+
+NOTE: If possible, module handle is used where module is referenced (in Compose scripts).
+
+

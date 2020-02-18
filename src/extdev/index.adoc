@@ -1,5 +1,5 @@
 include::../variables.adoc[]
-= {PRODUCT_NAME} Extending and Customizing ⛏
+= Extending and Customizing {PRODUCT_NAME}
 :toc: left
 :toclevels: 2
 
@@ -10,11 +10,7 @@ include::overview.adoc[]
 
 include::javascript.adoc[]
 
-include::context.adoc[]
-
-include::external.adoc[]
-
-include::returning.adoc[]
+include::anatomy.adoc[]
 
 include::api.adoc[]
 

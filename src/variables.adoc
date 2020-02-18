@@ -1,6 +1,7 @@
 :APP_NAME_SHELL: One
 :APP_NAME_COMPOSE: Low Code
 :APP_NAME_MESSAGING: Messaging
+:APP_AUTOMATION: Corredor
 :PRODUCT_NAME: Corteza
 
 :CLI_CMD_VIA_DOCKER: docker-compose exec server

@@ -1,18 +1,17 @@
 include::../variables.adoc[]
 
-= Interacting with the outside world
+= Interacting with the {PRODUCT_NAME} API
 
-== {PRODUCT_NAME} API client and other helpers
+== API client and other helpers
 
-:libs: https://github.com/cortezaproject/corteza-webapp-common/tree/master/src/lib
+:repo: https://github.com/cortezaproject/corteza-js
+:src: {repo}/tree/master/src
 
-.Links to https://github.com/cortezaproject/corteza-webapp-common[github.com/cortezaproject/corteza-webapp-common] source
-- {libs}/corteza-server/rest-api-client[{PRODUCT_NAME} API client]
-- {libs}/automation-scripts/context/compose-ui.js[{APP_NAME_COMPOSE} UI helpers]
-- {libs}/automation-scripts/context/compose.js[{APP_NAME_COMPOSE} helpers]
-- {libs}/automation-scripts/context/messaging.js[Messaging helpers]
-- {libs}/automation-scripts/context/system.js[System helpers]
-- {libs}/automation-scripts/context/errors.js[error helpers]
+- {src}/api-clients[{PRODUCT_NAME} API clients]
+- {src}/corredor/helpers/compose-ui.ts[{APP_NAME_COMPOSE} UI helpers]
+- {src}/corredor/helpers/compose.ts[{APP_NAME_COMPOSE} helpers]
+- {src}/corredor/helpers/messaging.ts[{APP_NAME_MESSAGING} helpers]
+- {src}/corredor/helpers/system.ts[System helpers]
 
 
 == List filtering & sorting

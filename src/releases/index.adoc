@@ -1,8 +1,72 @@
-= index ⛏
+include::../variables.adoc[]
+= Release notes ⛏
 
-:leveloffset: +1
+== 2020.3
 
-include::history.adoc[]
+=== {PRODUCT_NAME} Server
 
+.Contributors:
+. Denis Arh
+. Tomaž Jerman
 
-:leveloffset: -1
+.Changes
+ - Refactored how application (server, cli tools) is started to allow more modular service initialization
+ - Improved security when using {PRODUCT_NAME} CLI
+ - Improved input handling when managing settings from CLI
+ - Improved automation script triggering with eventbus package
+ - Improved scheduled & deferred automation with scheduler package
+ - Upgraded all internal automation logic
+ - Added code generator for events
+ - Implemented event triggering (through eventbus) on, before and after all core points (resource creation, update, delete, login etc)
+ - More robust automation script triggering through REST API endpoints
+ - Cleanup, refactor application options
+ - Added tools that allow exporting of old automation scripts
+ - Added ability to serve frontend code bundles
+ - Routed sink & mail events via new eventbus
+ - Added client/server certificates for gRPC (experimental)
+ - Allowed automation scripts to return full response objects (body, headers) on sink requests
+ - Supported bulk record removal
+ - Used `cortezaproject/corteza-ext` instead of `cortezaproject/corteza-config` for initial provisioning
+ - Full implementation of record value sanitization and filtering for all field types
+ - Enabled (previously experimental) private data (user's email & name) masking
+
+=== {PRODUCT_NAME} {APP_AUTOMATION} Automation Server
+
+.Contributors:
+. Denis Arh
+. Peter Grlica
+. Tomaž Jerman
+
+.Changes
+ - Ported to TypeScript
+ - Added ability to bundle (via webpack) frontend scripts on the fly
+ - Scripts (code) is no longer transferd over the wire but stored on filesystem accessible by {PRODUCT_NAME}
+ - Restructured scripts (wraped in a method) to allow (unit) testing
+ - Added ability to install dependencies (through yarn) on the fly
+ - Improved ability to capture log output from scripts
+ - Added ability to load (3rd party) scripts as extensions and overload them if needed
+ - Improved input/output data encode/decode procedures
+
+=== {PRODUCT_NAME} Web applications (clients)
+
+.Contributors:
+. Denis Arh
+. Tomaž Jerman
+. Jože Fortun
+. Peter Grlica
+. Mia Arh
+
+.General changes
+ - Split `corteza-webapp-common` to `corteza-vue` and `corteza-js` and port most of the code to TypeScript
+ - Various minor UI improvements on all frontend clients
+ - Added support for new automation scripts on clients
+ - Added support for UI hooks (placeholders for buttons, generated from manual automation scripts)
+
+.{APP_NAME_COMPOSE} changes
+ - Added ability to clone records
+ - Refactored page blocks & module field components
+ - Improved page grid rendering and UI
+ - Improved client-side record value validation
+ - Improved record-list block, add support for (multi) selection
+ - Improve page-block selector on page builder
+ - Mayor performance improvements (through Object.freeze)

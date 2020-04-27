@@ -1,0 +1,26 @@
+include::../../variables.adoc[]
+= Extension Development
+:toc: left
+:toclevels: 2
+
+
+:leveloffset: +1
+
+include::client-scripts.adoc[]
+
+include::helpers.adoc[]
+
+include::iterator-anatomy.adoc[]
+
+include::naming-conv.adoc[]
+
+include::resources-events.adoc[]
+
+include::script-anatomy.adoc[]
+
+include::server-scripts.adoc[]
+
+include::trigger-anatomy.adoc[]
+
+
+:leveloffset: -1

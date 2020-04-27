@@ -1,0 +1,24 @@
+include::../../variables.adoc[]
+= Extension Facility
+:toc: left
+:toclevels: 2
+
+
+:leveloffset: +1
+
+include::client-scripts.adoc[]
+
+include::corredor.adoc[]
+
+include::iterators.adoc[]
+
+include::security.adoc[]
+
+include::server-scripts.adoc[]
+
+include::triggers.adoc[]
+
+include::ua.adoc[]
+
+
+:leveloffset: -1

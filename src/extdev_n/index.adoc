@@ -1,0 +1,26 @@
+include::../variables.adoc[]
+= Extending and Customizing {PRODUCT_NAME}
+:toc: left
+:toclevels: 2
+
+
+:leveloffset: +1
+
+include::getting-started.adoc[]
+
+include::deployment.adoc[]
+
+include::environment.adoc[]
+
+include::facility/index.adoc[]
+
+include::development/index.adoc[]
+
+include::testing/index.adoc[]
+
+include::debugging/index.adoc[]
+
+include::examples/index.adoc[]
+
+
+:leveloffset: -1

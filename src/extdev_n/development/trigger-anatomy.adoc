@@ -2,30 +2,92 @@ include::../../variables.adoc[]
 
 = Automation Trigger Anatomy
 
-Automation triggers define when and where an automation script is executed and the constraints for it's execution.
+To better understand the power of automation triggers and their definition, we define and describe the anatomy of automation triggers.
 
-Automation trigger definition is performed with the following functions:
+Automation triggers are constructed with the following methods:
 
 `t.on`::
-    @todo
+    Defines the event type, such as `'manual'`, `'request'` (see <<ext-resevt>>).
 
 `t.for`::
-    defines the resource for the execution (eg. `compose:record`),
+    Defines the resource type, such as `'compose:record'` (see <<ext-resevt>>),
 
 `t.where`::
-    defines the constraints for the execution (eg. `t.where(module, 'Lead')`),
+    Defines the constraints that must match in order for the automation script to be executed (eg. `t.where('module', 'Lead')`),
 
 `t.before`::
-    defines that the automation script is executed before a specific operation occurs,
+    Defines that the automation script is executed before a specific operation occurs,
 
 `t.after`::
-    defines that the automation script is executed after a specific operation occurs,
+    Defines that the automation script is executed after a specific operation occurs,
 
 `t.at`::
-    defines that the automation script is executed at a specific time,
+    Defines that the automation script is executed at a specific time,
 
 `t.every`::
-    defines the interval in which the automation script is executed,
+    Defines the interval in which the automation script is executed,
 
 `t.uiProp`::
-    @todo...
+    Defines the visual representation of the manual automation trigger, such as it's color and label.
+
+[IMPORTANT]
+====
+Trigger and iterator are not compatible; you can only use one or the other within the same automation script.
+====
+
+[IMPORTANT]
+====
+Evaluation of triggers is performed in an isolated context outside of the actual automation script file, meaning that you can not use any constants or other symbols defiled outside of the trigger.
+
+For example, the following trigger is considered invalid:
+
+[source,javascript]
+----
+const modName = 'Contact'
+export default {
+  triggers ({ on }) {
+    return on('manual')
+      .for(modName)
+  },
+  exec (args, ctx) {...}
+}
+----
+====
+
+[TIP]
+====
+When defining the automation script, you can use object destructuring to remove a few bits of code.
+
+[source,js]
+----
+triggers (t) {
+    return [ t.on(...)... ]
+}
+
+// can be replaced by
+
+triggers ({ on }) { // any of the above mentioned methods
+    return [ on(...)... ]
+}
+----
+
+====
+
+[TIP]
+====
+If the automation script contains just a single trigger, you can omit the array and just return the one.
+
+[source,js]
+----
+triggers ({ on }) {
+    return [ on(...)... ]
+}
+
+// can be replaced by
+
+triggers ({ on }) {
+    return on(...)...
+}
+----
+====
+

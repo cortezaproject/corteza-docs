@@ -41,7 +41,7 @@ When defined as a server script it will be invoked from the UA and executed from
 
 Implicit triggers execute as a collateral to another system event such as record creation.
 These triggers include before/after events.
-For a full list of available events refer to @todo...
+For a full list of available events refer to <<ext-resevt>>.
 
 === Deferred
 

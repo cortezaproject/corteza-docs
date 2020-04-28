@@ -2,12 +2,140 @@ include::../../variables.adoc[]
 
 = Client Scripts
 
-Client scripts are processed and bundled by {app_automation}, served to the client by the {product_name} server and executed within the client's browser (UA).
+Client scripts are automation scripts executed in the client's browser (user agent; UA).
+They are processed and bundled by {app_automation} server, served to the web application via {product_name} server and executed by the UA.
 
-Client scripts should be used when:
+== File structure
 
-* interaction with the user is required,
-* response latency is should be minimal,
-* execution consistency is not as important,
-* we are not working with sensitive information such as authentication tokens or api credentials,
-* automation script produces a light load on system resources.
+For increased consistency across different types of user agents (different browsers, such as Google Chrome, Internet Explorer, ...) all client scripts are processed and bundled.
+
+For the sake of nicer visual representation of the bundle, size optimization and consistency, we define the following file structure:
+
+[source,text]
+----
+src /
+    client-scripts / <1>
+        auth / <2>
+            .. <7>
+
+        admin / <3>
+            .. <7>
+
+        compose / <4>
+            .. <7>
+
+        messaging / <5>
+            .. <7>
+
+        shared / <6>
+            .. <7>
+----
+<1> root folder for all client scripts.
+<2> defines a bundle for {product_name} {app_name_auth}.
+<3> defines a bundle for {product_name} {app_name_admin}.
+<4> defines a bundle for {product_name} {app_name_compose}.
+<5> defines a bundle for {product_name} {app_name_messaging}.
+<6> reserved directory for any shared logic, such as custom libraries, assets, ...
+<7> undefined file structure; can be defined as needed.
+
+[#ext-facility-csdeps]
+== Dependencies
+
+Dependencies are an important part of any larger JavaScript code.
+In order to minimize bundle sizes and maximize flexibility, the system allows the use of external dependencies defined inside the standard `package.json` and `yarn.lock` files.
+
+{app_automation} server will use [@todo package manager here] to fetch any dependency defined inside `package.json` with respect to their versions defined in `yarn.lock`.
+
+[#ext-facility-csbundle]
+== Bundling
+
+All client automation scripts are bundled into multiple bundles for each available service ({app_name_auth}, {app_name_admin}, {app_name_compose}, {app_name_messaging} and {app_name_shell}).
+Bundling enables the use of external dependencies (see <<ext-facility-csdeps,dependencies>> section) and increases consistency across different user agents.
+
+Script bundling consists of the following steps:
+
+. load all valid client automation scripts grouped by available services,
+. for each service:
+.. create a boot loader
+.. use Webpack to create a bundle based on the boot loader,
+
+[NOTE]
+====
+Boot loading creates a file containing `{ name, triggers, security }` JSON objects for each automation script.
+On Webpack bundle, the boot loader file is used to create the final bundle for the given service.
+See <<ext-facility-csevtbus,event bus>> section for the trigger registration and script execution.
+====
+
+[#ext-facility-csevtbus]
+== Event bus
+
+In order to implement a powerful and flexible automation system, we have decided to base the system around an event bus.
+With the help of an event bus, we are able to trivially handle any combination of automation scripts in a unified, robust manner.
+
+Event bus consists of the following major components.
+
+[IMPORTANT]
+====
+Client side event bus and server side event bus are not the same, so both should receive equal attention when reading.
+====
+
+
+=== Client script trigger registration
+
+Firstly we need to register client scripts on the event bus, so they can listen and respond to dispatched events.
+The flow is as follows:
+
+. fetch the bundled automation scripts for the given service,
+. for each trigger of every automation script:
+.. prepare a generic execution function,
+.. register the trigger with the execution function on the event bus.
+
+=== Explicit server script trigger registration
+
+Secondly we need to register explicit server scripts (manual server scripts).
+The flow is as follows:
+
+. fetch available automation scripts, excluding non explicit and non server script entries,
+. for each trigger of every automation script:
+.. prepare an execution function that invokes the {product_name} server via API client libraries,
+.. register the trigger with the execution function on the event bus.
+
+=== Event handling and script execution
+
+Finally we discuss event dispatching, handling and script execution.
+Events are dispatched using the event buses `async Dispatch (ev: Event, script?: string): Promise<null>` method, where the event is an object conforming to the following interface:
+
+[source,ts]
+----
+interface Event {
+  resourceType: string;
+  eventType: string;
+  match?: EventMatcher;
+  args?: EventArgs;
+}
+----
+
+There is a slight difference between event validation when it comes to implicit and explicit scripts.
+
+If the script name is provided::
+    when the script name is provided, it is assumed, that we are invoking an **explicit** script.
+    In this case, the event type **must** be defined as manual (`'onManual'`),
+
+If the script name is not provided::
+    when the script name is not provided, it is assumed, that we are invoking **implicit** script(s).
+    In this case, the event type **must not** be defined as manual (`'onManual'`).
+
+Other than that, the flow is as follows:
+
+. validate the event,
+. filter triggers based on the provided event,
+. for each available trigger:
+.. prepare context and payload,
+.. execute the automation with the above generated meta,
+.. handle possible errors.
+
+[#ext-facility-csuihooks]
+== UI hooks
+
+A UI hook represents a UI component (usually a button), that is able to invoke an explicit automation script, being a client or server script.
+UI hooks solely provide component definition (script name, element type, design, labels, ...) and it's up to the user interface to render the component and dispatch the event when needed.

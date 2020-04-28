@@ -2,27 +2,38 @@ include::../variables.adoc[]
 
 = Automation
 
-{product_name} provides a core with a minimal subset of features required for functionality, reliability and security.
-The use of automations allows us to build upon core functionalities and develop new use case specific features.
-We can implement business logic, change the user intervace, task automation and much more.
+{PRODUCT_NAME} provides a core with a minimal subset of features required for functionality, reliability and security of the system.
+Automation allows us to build upon the core functionalities and develop new use case specific features, such as implementing business logic, custom user interface, task automation and much more.
 
+[IMPORTANT]
+====
 As with any system, automation scripts can cause unwanted complications if misused or left open for modification by users who might do harm, willingly or otherwise.
+See security (@todo) for details
+====
 
 == What can automations do
 
 With the help of automation scripts we are able to:
 
 Automate common/repetitive tasks::
-    such as inserting auto generated values and sending emails,
+    Automate repetitive, time consuming tasks and focus on the important bits.
+    Such tasks can be calculating values, sending emails, generating documents and much more,
 
 Implement business logic::
-    such as running a series of operations after a new client is added,
+    Implement business logic specific to your use case.
+    This can be as simple as sending emails to your clients or implementing a full blown CRM system,
 
 Data processing::
-    such as running statistic operations on recorded records,
+    Run complex statistic operations on your data to uncover how you should tackle your market,
 
 Data validation::
-    validate user input for increased security and robustness.
+    Validate user input to assure data validity and thus assuring a robust system.
+
+[NOTE]
+====
+There is a lot more that we can achieve with the automation system.
+For additional examples and ideas refer to example section (@todo link) or get in touch with us.
+====
 
 == What automations can not do
 
@@ -30,31 +41,9 @@ Data validation::
 
 == Example use cases
 
-Some of the more common use cases for automation scripts include:
+Some of the more common use cases for the automation system include:
 
 * sending a welcome email to a newly registered user,
 * inserting calculated price fields,
 * validating user input,
 * implementing external integrations such as DocVerify, D&B Hoovers, ...
-
-= Modern JavaScript
-Automation scripts are written in JavaScript and executed either inside the user's web browser or onside the specialized {app_automation} server.
-
-In order to tackle automation script development we strongly recommend becoming familiar with modern JavaScript.
-We provide a quick overview and provide additional resources for further reading.
-
-== About async/await and Promises
-If you are not familiar with Promises, we strongly recommend reading MDN article https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Using_promises[about using promises]
-
-In short: Promises solve problem of asynchronous code and remove the need for cumbersome callbacks via function parameters.
-They provide a simple and readable syntax and error handling via .catch().
-
-== About use of await/async syntactic sugar
-
-You will find examples with await and async prefix.
-The `await` keyword allows us to implement async code in a serial like fashion.
-
-It's important to note that the await keyword can only be used within `async` functions.
-
-== The arrow function expression (=>)
-MDN article https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions[about arrow functions]

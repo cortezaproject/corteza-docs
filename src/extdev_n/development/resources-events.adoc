@@ -1,5 +1,0 @@
-include::../../variables.adoc[]
-
-= Resources and Events
-
-@todo auto generate this section

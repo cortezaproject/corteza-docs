@@ -1,4 +1,5 @@
 include::../../variables.adoc[]
+[#ext-dev]
 = Extension Development
 :toc: left
 :toclevels: 2
@@ -10,20 +11,18 @@ include::about.adoc[]
 
 include::naming-conv.adoc[]
 
-include::client-scripts.adoc[]
-
 include::helpers.adoc[]
 
-include::iterator-anatomy.adoc[]
-
-
-include::resources-events.adoc[]
+include::../facility/security.adoc[]
 
 include::script-anatomy.adoc[]
 
-include::server-scripts.adoc[]
-
 include::trigger-anatomy.adoc[]
 
+include::iterator-anatomy.adoc[]
+
+include::client-scripts.adoc[]
+
+include::server-scripts.adoc[]
 
 :leveloffset: -1

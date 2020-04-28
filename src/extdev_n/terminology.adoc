@@ -6,7 +6,7 @@ Extension::
     A collection of automation scripts and corresponding libraries and assets,
 
 Script or Automation Script::
-    Combination triggers, meta data and the code it self,
+    Combination of automation triggers, meta data and the code it self,
 
 Client scripts::
     Automation scripts executed within a client's browser.
@@ -21,7 +21,7 @@ Triggers or Automation Triggers::
 
 Resource Type::
     Defines a resource that this automation will be executed for.
-    A resource type also defines the input into the automation script.
+    A resource type also defines the input and output of the automation script.
     For a full list of defined types see @todo...
 
 Event Type::
@@ -42,7 +42,7 @@ Explicitly triggered or manual scripts::
     Automation scripts that are executed explicitly, such as a button press,
 
 Implicitly triggered scripts::
-    Automation scripts that are executed implicitly as a collateral to an event, such as record creation,
+    Automation scripts that are executed implicitly as a collateral to an event, such as record creation, form submission,
 
 Deferred or scheduled scripts::
     Automation scripts that are executed at a specified time or on a configured interval,
@@ -50,6 +50,10 @@ Deferred or scheduled scripts::
 Batch or iterator scripts::
     Automation scripts that are executed over a larger set of resources.
     These can be used for batch processing,
+
+Sink scripts::
+    Automation scripts that are executed on HTTP requests.
+    These can be used for web hooks,
 
 Eventbus::
     Event handling system inside client web applications and on the server.

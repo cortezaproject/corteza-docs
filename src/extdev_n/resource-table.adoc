@@ -1,5 +1,6 @@
 include::../variables.adoc[]
 
+[#ext-resevt]
 = Resources and Events
 
-... auto generate a table of resources and it's events
+@todo auto generate this section

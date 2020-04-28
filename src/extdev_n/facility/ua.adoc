@@ -1,20 +1,21 @@
 include::../../variables.adoc[]
 
+[#facility-ua]
 = User Agent
 
 The second major part in our automation system is the user agent - UA (user's web browser).
-UA is a front-end system responsible for automation script execution.
-The system's main purpose is to provide the ability to interact with the user and implement custom user interfaces.
+UA is a front-end system responsible for client automation script execution.
+The system's purpose is to provide the ability to interact with the user from inside automation scripts.
+In the near future it will also provide the ability to customize the entire user interface.
 
-Since the automation script is executed in the user's browsers, they are considered less secure and should **not** work with any sensitive data such as authentication tokens, API credentials, ...
+[IMPORTANT]
+====
+Since client scripts are executed in the browser, they are considered less secure.
+These scripts should **not** work with any sensitive data such as authentication tokens, API credentials, personal data filtering, ...
+====
 
-== main responsibilities
-. fetch and register automation scripts provided by {product_name} server,
-. register automation triggers on the event bus,
-. execute automation scripts based on implicit/explicit events.
+== Main responsibilities
 
-== security
-
-For privacy and security reasons, UA automation scripts do not support custom security contexts, but they do support role based filtering.
-
-@todo
+. Fetching and registration of automation scripts provided by {app_automation} server via {product_name} server,
+. registration of automation triggers on the system event bus,
+. execution of automation scripts based on implicit/explicit events.

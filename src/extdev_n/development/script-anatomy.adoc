@@ -2,42 +2,55 @@ include::../../variables.adoc[]
 
 = Automation Script Anatomy
 
-Automation scripts are small JavaScript scripts that implement some functionality and are defined within `.js` files (eg. `foo.js`)
-
+To better understand the process of implementing custom functionalities with the automation system, we define and describe the anatomy of automation scripts, and establish a few rules.
 An automation script is considered valid if:
 
-* a given `.js` file exports exactly one JS object with the `export default` keyword,
-* a given JS object defines at least one trigger or iterator definition,
+* a given `.js` file exports exactly **one** JS object with the `export default` keyword,
+* a given script defines at least one **valid** trigger or iterator definition,
+* a given script defines the security context **if** the script is a deferred or sink script,
 * a given JS object defines an `exec (args, ctx)` function.
 
-Invalid automation scripts are still processed and included in the {app_automation}'s response, but define a set of errors that occurred.
+[IMPORTANT]
+====
+Invalid automation scripts are still processed by the {app_automation}, but are excluded from further operations.
+Ocurred errors are visible in the {app_automation} logs.
+This allows for easier debugging.
+====
 
 == Meta
 
-Meta properties define some additional information to the given automation script, such as it's label, description, ...
-They also define when and where to execute and the execution context.
+Meta properties define the execution context, such as the resource and event type, security context and some meta data such as a label and a description.
 
 === Parameters
 
 `name`::
-    automaton script's name, used for referencing during execution.
-    The property is optional and is generated automatically from the full file path,
+    Automaton script's name, used for referencing during execution.
+    This is automatically generated so it should be omitted,
 
 `label`::
-    automation script's label, used to provide a user friendly identification of the automation script,
+    Automation script's label, used to provide a user friendly identification of the automation script,
 
 `description`::
-    automation script's definition,
+    A more verbose automation script description,
 
 `security`::
-    defines automation script's permission context and role based filtering,
+    Defines automation script's security context and role based filtering,
+
+`security.runAs`::
+    Define security context for the automation script,
+
+`security.allow`::
+    Explicitly define what roles have access to the automation script,
+
+`security.deny`::
+    Explicitly define what roles do not have access to the automation script,
 
 `triggers`::
-    defines automation script's triggers.
+    Defines automation script's triggers.
     Not compatible with `iterator`,
 
 `iterator`::
-    defines automation script's iterator.
+    Defines automation script's iterator.
     Not compatible with `triggers`,
 
 `exportName`::
@@ -46,50 +59,56 @@ They also define when and where to execute and the execution context.
 
 == Exec function
 
-The execution (exec) function defines the actual code for the automation script.
-The function is passed two parameters:
+The execution function defines the actual code for the automation script, and conforms to the following interface:
+
+[source,ts]
+----
+interface ScriptFn {
+  (args: exec.Args, ctx?: exec.Ctx): unknown;
+}
+----
 
 === Execution arguments
 
-Execution arguments contain the arguments that the automation script should run over, such as a newly created record, updated module, deleted page, ...
-Arguments depend on the automation script's event and resource (see @todo...).
+Execution arguments (first argument) contain the arguments that the automation script can work with, such as a newly created record, updated module, deleted page, ...
+Arguments depend on the automation script's event and resource (see <<ext-resevt>>).
 
 === Execution context
 
-Execution context contains contextual information about the execution, such as helper class instances, API clients, loggers, ...
+Execution context (second argument) contains contextual information about the execution, such as security context, helper class instances, API clients, loggers, ...
 
 `ctx.console`::
     `console` object that can be used for logging.
     When running in the UA, this will be native `window.console`.
-    When running in {app_automation}, this will be a `Pino` object,
+    When running in {app_automation}, this will be a `Pino` instance,
 
 `ctx.log`::
-    shortcut for `ctx.console.log`,
+    Shortcut for `ctx.console.log`,
 
 `ctx.$authUser`::
-    user object corresponding to the security context,
+    User object corresponding to the security context,
 
 `ctx.SystemAPI`::
-    full blown API for {product_name} System interaction,
+    Full blown API for {product_name} System interaction,
 
 `ctx.ComposeAPI`::
-    full blown API for {product_name} Compose interaction,
+    Full blown API for {product_name} Compose interaction,
 
 `ctx.MessagingAPI`::
-    full blown API for {product_name} Messaging interaction,
+    Full blown API for {product_name} Messaging interaction,
 
 `ctx.System`::
-    helper class instance for the {product_name} System,
+    Helper class instance for the {product_name} System,
 
 `ctx.Compose`::
-    helper class instance for the {product_name} Compose,
+    Helper class instance for the {product_name} Compose,
 
 `ctx.ComposeUI`::
-    helper class instance for the {product_name} Compose user interface,
+    Helper class instance for the {product_name} Compose user interface,
 
 `ctx.Messaging`::
-    helper class instance for the {product_name} Messaging,
+    Helper class instance for the {product_name} Messaging,
 
 `ctx.frontendBaseURL`::
-    base URL used by front-end web applications.
+    Base URL used by front-end web applications.
     This is useful when generating URL's inside server scripts.

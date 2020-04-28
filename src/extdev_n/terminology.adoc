@@ -1,0 +1,59 @@
+include::../variables.adoc[]
+
+= Terminology
+
+Extension::
+    A collection of automation scripts and corresponding libraries and assets,
+
+Script or Automation Script::
+    Combination triggers, meta data and the code it self,
+
+Client scripts::
+    Automation scripts executed within a client's browser.
+    These scripts are more flexible in terms of user interaction and user interface modification, but lack robustness and security,
+
+Server scripts::
+    Automation scripts executed inside the {app_automation} server.
+    These scripts are considered more secure and stable,
+
+Triggers or Automation Triggers::
+    A set of rules, constraints and options to define when, where and how an automation script is executed,
+
+Resource Type::
+    Defines a resource that this automation will be executed for.
+    A resource type also defines the input into the automation script.
+    For a full list of defined types see @todo...
+
+Event Type::
+    Defines what event causes this automation script to execute.
+    For a full list of event types and availability based on the defined resource see @todo...
+
+Trigger constraints::
+    A set of constraints that must be truthy in order for the automation script to be available and executable,
+
+Trigger weight::
+    Allows us to specify the order of automation script execution for the given event.
+    If the weight is not defined or the same weight appears multiple times, they are sorted alphabetically by their full names - not name of the script file but full path,
+
+User interface properties (UIProps)::
+    Help with placement, label and look of automation button on user interface
+
+Explicitly triggered or manual scripts::
+    Automation scripts that are executed explicitly, such as a button press,
+
+Implicitly triggered scripts::
+    Automation scripts that are executed implicitly as a collateral to an event, such as record creation,
+
+Deferred or scheduled scripts::
+    Automation scripts that are executed at a specified time or on a configured interval,
+
+Batch or iterator scripts::
+    Automation scripts that are executed over a larger set of resources.
+    These can be used for batch processing,
+
+Eventbus::
+    Event handling system inside client web applications and on the server.
+
+UIHooks:: @todo...
+    Handles scripts that can be triggered explicitly (onManual) in form of buttons.
+    These buttons are then automatically placed in the various UI slots in the client app (login screen, list of users, etc...)

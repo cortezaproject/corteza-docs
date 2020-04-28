@@ -1,2 +1,72 @@
 include::../../variables.adoc[]
 
+= Server Scripts
+
+Server scripts are processed, served and executed by {app_automation} server.
+
+Server scripts should be used when:
+
+* interaction with the user is not required,
+* response latency is not as important,
+* execution consistency is important,
+* automation script produces a heavy load on system resources
+
+== Example use case
+
+* insert additional record fields based on an external data source,
+* send an email when a new user signs up,
+* run statistic operations once a month for reporting purposes.
+
+== Trigger types
+
+Server scripts support a few different trigger types; **explicit**, **implicit**, **deferred**, **iterators** and **sink**.
+
+=== Explicit
+
+Explicit triggers execute on a specific user invocation,such as a button press.
+These include:
+
+Manual::
+    manual automation triggers are defined as buttons inside the user interface.
+    They most commonly appear inside {app_name_compose} automation page blocks or inside {app_name_compose} record list toolbars.
+    They are invoked in UA and executed inside {app_automation}.
+
+[NOTE]
+====
+Manual automation triggers don't need to be defined as client scripts.
+When defined as a server script it will be invoked from the UA and executed from inside {app_automation}.
+====
+
+=== Implicit
+
+Implicit triggers execute as a collateral to another system event such as record creation.
+These triggers include before/after events.
+For a full list of available events refer to @todo...
+
+=== Deferred
+
+Deferred automation triggers are executed at a specific point in time; once or multiple times, such as a reminder.
+These include:
+
+Scheduled::
+    scheduled triggers are executed at an exact time specified by a time stamp in ISO 8601 format (`YYYY-MM-DDTHH:mm:ss.sssZ`).
+    This trigger is executed exactly once,
+
+Interval::
+    interval triggers are executed periodically in an interval defined by a cron expression (see https://godoc.org/github.com/robfig/cron for details).
+
+[IMPORTANT]
+====
+Deferred automation triggers are executed at most once every minute, so you should not define an interval or timestamp that uses higher precision (seconds or milliseconds).
+====
+
+=== Iterators
+
+Iterators are executed similarly to deferred automation triggers (by a schedule or an interval).
+The main difference is, that the automation script is executed for each resource that matches the provided filter.
+
+=== Sink
+
+Sink automation triggers are executed on a specific http request.
+They can be used to implement new routes on the API, such as a web hook to some external service.
+@todo signatures

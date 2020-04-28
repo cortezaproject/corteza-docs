@@ -8,9 +8,13 @@ include::../variables.adoc[]
 
 include::getting-started.adoc[]
 
+include::terminology.adoc[]
+
 include::deployment.adoc[]
 
 include::environment.adoc[]
+
+include::roadmap.adoc[]
 
 include::facility/index.adoc[]
 

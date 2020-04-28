@@ -1,0 +1,7 @@
+include::../../variables.adoc[]
+
+The goal of this section is to provide a detailed, low-level overview of the automation system.
+Detailed understanding is crucial for maintaining existing features and development of additional features.
+
+If you are interested solely on automation script development, feel free to skip this section.
+Any important detail from this section will be included.

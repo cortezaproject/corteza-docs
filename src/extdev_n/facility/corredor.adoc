@@ -1,2 +1,21 @@
 include::../../variables.adoc[]
 
+= {app_automation}
+
+{app_automation} is the main component responsible for {product_name} automation.
+It's a Node.js system written in TypeScript responsible for processing, compiling, serving and execution of automation scripts.
+As is, {app_automation} is unable to perform any execution without an explicit invocation from {product_name} server.
+
+{app_automation} server connects with {product_name} server via gRPC protocol with the following services (see See https://github.com/cortezaproejct/corteza-protobuf[protobuf service definition] for details. for details):
+
+. server scripts with list and exec procedures,
+. client scripts with list and bundle procedures.
+
+== Main responsibilities
+
+. Scanning configured search paths (`config.extensions.searchPaths`) for scripts and dependency definition files (`package.json`)
+. To load and inspect each found script, parse triggers, record errors and prepare a final list of valid and invalid (containing errors) scripts
+. Run dependency management tool (`yarn`) to load all extension depenencies
+. Run file change watchers that rebuild list of scripts
+. Run frontend JavaScript compiler (WebPack) that bundles all frontend scripts
+. Run gRPC server that serves list of scripts, bundles and executes server-scripts upon request.

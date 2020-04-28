@@ -1,2 +1,18 @@
 include::../../variables.adoc[]
 
+= Server Scripts
+
+Server scripts are processed, served and executed by {app_automation} server.
+
+[IMPORTANT]
+====
+{app_automation} server will never execute an automation script on it's own.
+The execution must be invoked by the {product_name} server or manually via gRPC protocol.
+====
+
+Server scripts should be used when:
+
+* interaction with the user is not required,
+* response latency is not as important,
+* execution consistency is important,
+* automation script produces a heavy load on system resources

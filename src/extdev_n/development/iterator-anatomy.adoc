@@ -1,2 +1,36 @@
 include::../../variables.adoc[]
 
+= Automation Iterator Anatomy
+
+Automation iterators define the batch operation that will be executed at a given point in time or in a specified interval.
+
+Automation iterator definition is performed with the following functions:
+
+
+### Automation iterator anatomy
+* defines resource & operation type
+* defines constraints
+
+* iterator construction functions:
+** constructor:
+*** resourceType - define what resource we will be working with
+*** action - define action type (update, delete, clone, /)
+*** filter - define the filter to use
+
+** every:
+*** defines interval to execute; eg. daily
+
+** at:
+*** defines timestamp to execute at; eg. new year eve
+
+* available event types:
+* 'onManual',
+* 'onInterval',
+* 'onTimestamp',
+
+* filter - standard corteza filter object:
+** query - SQL like query
+** sort - SQL like sort condition
+** limit - Maximum number of elements to process
+** offset - Page offset; based on limit
+

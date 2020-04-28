@@ -1,2 +1,95 @@
 include::../../variables.adoc[]
 
+= Automation Script Anatomy
+
+Automation scripts are small JavaScript scripts that implement some functionality and are defined within `.js` files (eg. `foo.js`)
+
+An automation script is considered valid if:
+
+* a given `.js` file exports exactly one JS object with the `export default` keyword,
+* a given JS object defines at least one trigger or iterator definition,
+* a given JS object defines an `exec (args, ctx)` function.
+
+Invalid automation scripts are still processed and included in the {app_automation}'s response, but define a set of errors that occurred.
+
+== Meta
+
+Meta properties define some additional information to the given automation script, such as it's label, description, ...
+They also define when and where to execute and the execution context.
+
+=== Parameters
+
+`name`::
+    automaton script's name, used for referencing during execution.
+    The property is optional and is generated automatically from the full file path,
+
+`label`::
+    automation script's label, used to provide a user friendly identification of the automation script,
+
+`description`::
+    automation script's definition,
+
+`security`::
+    defines automation script's permission context and role based filtering,
+
+`triggers`::
+    defines automation script's triggers.
+    Not compatible with `iterator`,
+
+`iterator`::
+    defines automation script's iterator.
+    Not compatible with `triggers`,
+
+`exportName`::
+    @todo...
+
+
+== Exec function
+
+The execution (exec) function defines the actual code for the automation script.
+The function is passed two parameters:
+
+=== Execution arguments
+
+Execution arguments contain the arguments that the automation script should run over, such as a newly created record, updated module, deleted page, ...
+Arguments depend on the automation script's event and resource (see @todo...).
+
+=== Execution context
+
+Execution context contains contextual information about the execution, such as helper class instances, API clients, loggers, ...
+
+`ctx.console`::
+    `console` object that can be used for logging.
+    When running in the UA, this will be native `window.console`.
+    When running in {app_automation}, this will be a `Pino` object,
+
+`ctx.log`::
+    shortcut for `ctx.console.log`,
+
+`ctx.$authUser`::
+    user object corresponding to the security context,
+
+`ctx.SystemAPI`::
+    full blown API for {product_name} System interaction,
+
+`ctx.ComposeAPI`::
+    full blown API for {product_name} Compose interaction,
+
+`ctx.MessagingAPI`::
+    full blown API for {product_name} Messaging interaction,
+
+`ctx.System`::
+    helper class instance for the {product_name} System,
+
+`ctx.Compose`::
+    helper class instance for the {product_name} Compose,
+
+`ctx.ComposeUI`::
+    helper class instance for the {product_name} Compose user interface,
+
+`ctx.Messaging`::
+    helper class instance for the {product_name} Messaging,
+
+`ctx.frontendBaseURL`::
+    base URL used by front-end web applications.
+    This is useful when generating URL's inside server scripts.

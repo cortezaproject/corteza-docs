@@ -1,0 +1,6 @@
+include::../../variables.adoc[]
+
+The goal of this section is to provide a detailed overview over the automation script development system.
+The section also provides some tips and tricks for faster, better and more secure development process.
+
+This section is designed to be standalone without the need of low-level system understanding.

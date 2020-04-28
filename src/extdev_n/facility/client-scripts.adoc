@@ -1,2 +1,13 @@
 include::../../variables.adoc[]
 
+= Client Scripts
+
+Client scripts are processed and bundled by {app_automation}, served to the client by the {product_name} server and executed within the client's browser (UA).
+
+Client scripts should be used when:
+
+* interaction with the user is required,
+* response latency is should be minimal,
+* execution consistency is not as important,
+* we are not working with sensitive information such as authentication tokens or api credentials,
+* automation script produces a light load on system resources.

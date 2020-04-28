@@ -1,24 +1,25 @@
 include::../../variables.adoc[]
-= Extension Facility
+= Automation Facility
 :toc: left
 :toclevels: 2
 
 
 :leveloffset: +1
 
-include::client-scripts.adoc[]
-
-include::corredor.adoc[]
-
-include::iterators.adoc[]
+include::about.adoc[]
 
 include::security.adoc[]
 
-include::server-scripts.adoc[]
-
-include::triggers.adoc[]
+include::corredor.adoc[]
 
 include::ua.adoc[]
 
+include::iterators.adoc[]
+
+include::triggers.adoc[]
+
+include::client-scripts.adoc[]
+
+include::server-scripts.adoc[]
 
 :leveloffset: -1

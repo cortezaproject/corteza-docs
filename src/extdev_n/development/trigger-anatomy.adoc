@@ -1,2 +1,31 @@
 include::../../variables.adoc[]
 
+= Automation Trigger Anatomy
+
+Automation triggers define when and where an automation script is executed and the constraints for it's execution.
+
+Automation trigger definition is performed with the following functions:
+
+`t.on`::
+    @todo
+
+`t.for`::
+    defines the resource for the execution (eg. `compose:record`),
+
+`t.where`::
+    defines the constraints for the execution (eg. `t.where(module, 'Lead')`),
+
+`t.before`::
+    defines that the automation script is executed before a specific operation occurs,
+
+`t.after`::
+    defines that the automation script is executed after a specific operation occurs,
+
+`t.at`::
+    defines that the automation script is executed at a specific time,
+
+`t.every`::
+    defines the interval in which the automation script is executed,
+
+`t.uiProp`::
+    @todo...

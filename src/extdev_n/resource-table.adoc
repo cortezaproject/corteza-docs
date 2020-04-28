@@ -1,0 +1,5 @@
+include::../variables.adoc[]
+
+= Resources and Events
+
+... auto generate a table of resources and it's events

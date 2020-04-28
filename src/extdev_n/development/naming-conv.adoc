@@ -1,2 +1,10 @@
 include::../../variables.adoc[]
 
+= Naming Conventions
+
+For a more consistent experience across different extensions we define the following naming conventions:
+
+@todo...
+
+conv1::
+    thing...

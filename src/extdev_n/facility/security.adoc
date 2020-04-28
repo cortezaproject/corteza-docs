@@ -1,2 +1,24 @@
 include::../../variables.adoc[]
 
+= Security
+
+Any operation performed by an automation script must pass all permission checks that the requested operation required.
+
+By default the executed script inherits permissions from the user that has invoked the operation.
+But there are scenarios where an automation script requires permissions that the invoker doesn't have.
+For such cases we can specify a custom security context that the given automation script will run in.
+In case of deferred or sink automation scripts, the security context **must** be specified since the invoker is unknown.
+
+.Example scenario:
+* when a `Client` record is created, an automation script should create a system user with a specific role.
+User creation is only allowed to administrators and script can be ran with privileges of an administrator
+
+@todo...
+
+** security
+// add details from corteza-server-corredor/src/types.ts
+// this should be in both sections; facility & development since it's quite important
+*** define script's permission scope
+**** ignored by client scripts; uses current user
+*** allow/deny for specific roles
+**** determines filtering; what automation scripts are accessable by the user

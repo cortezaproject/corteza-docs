@@ -1,2 +1,40 @@
 include::../../variables.adoc[]
 
+= Client Scripts
+
+Client scripts are processed and bundled by {app_automation}, served to the client by the {product_name} server and executed within the client's browser (UA).
+
+Client scripts should be used when:
+
+* interaction with the user is required,
+* response latency is should be minimal,
+* execution consistency is not as important,
+* we are not working with sensitive information such as authentication tokens or api credentials,
+* automation script produces a light load on system resources.
+
+== Example use cases
+
+* prompt user to confirm form submission,
+* validate or modify form's data before submission,
+* redirect the user to another page; either in {product_name} {app_name_compose} or other,
+* open an external resource inside a popup window.
+
+== Trigger types
+
+Client scripts support two types of triggers; **explicit** and **implicit**.
+
+=== Explicit
+
+Explicit triggers execute on a specific user invocation, such as a button press.
+These include:
+
+Manual::
+    manual automation triggers are defined as buttons inside the user interface.
+    They most commonly appear inside {app_name_compose} automation page blocks or inside {app_name_compose} record list toolbars.
+    They are invoked and executed inside the UA.
+
+=== Implicit
+
+Implicit triggers execute as a collateral to another system event such as form submission.
+These triggers include before/after events.
+For a full list of available events refer to @todo...

@@ -6,13 +6,16 @@ include::../../variables.adoc[]
 
 :leveloffset: +1
 
+include::about.adoc[]
+
+include::naming-conv.adoc[]
+
 include::client-scripts.adoc[]
 
 include::helpers.adoc[]
 
 include::iterator-anatomy.adoc[]
 
-include::naming-conv.adoc[]
 
 include::resources-events.adoc[]
 

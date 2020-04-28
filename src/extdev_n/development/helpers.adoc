@@ -1,2 +1,22 @@
 include::../../variables.adoc[]
 
+= Helper Classes
+
+Helper classes play an important role in the automation script development process as they allow us to perform larger operations with just a few lines of code.
+Helper classes are also context aware, meaning that if the automation script is executed for a specific resource, you are not required to specify that resource over and over again.
+
+All helper classes are available in the automation script's execution context.
+
+{product_name} comes equipped with the following helper classes:
+
+`ctx.Compose`::
+    provides functions to work with {PRODUCT_NAME} {APP_NAME_COMPOSE}, such as accessing, creating and deleting records,
+
+`ctx.ComposeUI`::
+    Provides functions to work with user interface for {PRODUCT_NAME} {APP_NAME_COMPOSE}, such as opening record pages and showing notifications,
+
+`ctx.Messaging`::
+    Provides functions to work with {PRODUCT_NAME} {APP_NAME_MESSAGING}, such as creating channels and creating messages,
+
+`ctx.System`::
+    Provides functions to work with {PRODUCT_NAME} core system, such as finding and creating users and managing role membership.

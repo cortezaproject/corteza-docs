@@ -1,0 +1,12 @@
+include::../variables.adoc[]
+
+= Roadmap
+
+* Use git repository as a source for extensions,
+* support for basic git operations,
+* automatic automation script testing,
+* secret and configuration management (key-value store),
+* bundling and serving Vue.js components,
+* bundling and serving SCSS and binary content,
+* updating files via gRPC service,
+* support TypeScript for user scripts.

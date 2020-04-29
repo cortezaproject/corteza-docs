@@ -1,0 +1,11 @@
+include::../../variables.adoc[]
+= Extension Examples
+:toc: left
+:toclevels: 2
+
+
+:leveloffset: +1
+
+
+
+:leveloffset: -1

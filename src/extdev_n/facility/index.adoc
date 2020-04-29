@@ -1,0 +1,26 @@
+include::../../variables.adoc[]
+[#ext-facility]
+= Automation Facility
+:toc: left
+:toclevels: 2
+
+
+:leveloffset: +1
+
+include::about.adoc[]
+
+include::security.adoc[]
+
+include::corredor.adoc[]
+
+include::ua.adoc[]
+
+include::iterators.adoc[]
+
+include::triggers.adoc[]
+
+include::client-scripts.adoc[]
+
+include::server-scripts.adoc[]
+
+:leveloffset: -1

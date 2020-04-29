@@ -1,0 +1,32 @@
+include::../../variables.adoc[]
+
+= {app_automation}
+
+{app_automation} is the main component in the entire automation system.
+It's a Node.js system written in TypeScript responsible for processing, compiling, serving and executing automation scripts.
+
+[NOTE]
+====
+Execution can also be performed inside the client's UA (see <<facility-ua,UA>>).
+====
+
+For the sake of security and consistency, {app_automation} is unable to perform any execution without an explicit invocation from the {product_name} server.
+{app_automation} and {product_name} servers are connected and communicate via a gRPC protocol with the following services (see https://github.com/cortezaproejct/corteza-protobuf[protobuf service definition] for details. for details):
+
+* server scripts with list and exec procedures,
+* client scripts with list and bundle procedures.
+
+== Main responsibilities
+
+. Scanning configured search paths (`config.extensions.searchPaths`) for scripts and dependency definition files (`package.json`),
+. loading, inspecting found scripts; parsing triggers, recording compile errors and preparing a final list of valid and invalid automation scripts,
+. running dependency management with `yarn` to load extension's dependencies,
+. run file change watchers and rebuild the list of scripts,
+. bundle all front-end scripts with WebPack,
+. run gRPC server and expose the above listed services for script execution and listing.
+
+[NOTE]
+====
+Invalid automation scripts (invalid or missing trigger, syntax/logic errors, ...) are included in the full list with additional errors.
+This allows easier debugging.
+====

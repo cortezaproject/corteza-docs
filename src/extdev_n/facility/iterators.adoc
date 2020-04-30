@@ -1,2 +1,56 @@
 include::../../variables.adoc[]
 
+= Iterators
+
+Automation iterators determine when, the execution context; the input and output of the automation script.
+
+Iterators consist of 4 components:
+
+Event type::
+    Defines the event that the trigger responds to.
+    See <<ext-resevt>> for available event types.
+
+Resource type::
+  Defines the resource that the automation script will operate on.
+  This also defines the execution context, input and output of the automation script.
+  See <<ext-resevt>> for available resource types and their meta,
+
+action::
+  Defines the action that the automation script would like to perform,
+
+filter::
+  Defines the filter that determines the resources that should be processed by the automation script,
+
+== Constraints
+
+Iterators allow a more fine-grained approach for defining constraints.
+It closely resembles {product_name}'s filter object and conforms to the following interface:
+
+[source,typescript]
+----
+interface {
+  query: string; <1>
+  sort: string; <2>
+  limit: number | string; <3>
+  offset: number | string; <4>
+  [_: string]: number | string; <5>
+}
+----
+<1> SQL like query filter to use.
+<2> SQL like sort to use.
+<3> Pagination, maximum number of resource.
+<4> Pagination, page offset.
+<5> additional non-standard resource specific parameters.
+
+== Iterator processing
+
+Automation script iterators are processed and evaluated at script parse time.
+
+== Iterator registration and execution
+
+Iterator registration and execution depends on it's definition.
+
+* **deferred event type**:
+registered on the {product_name} server event bus and executed by the {product_name} server at the given time or in the given interval,
+* **manual event type**:
+registered on the front-end event bus, invoked by UI hooks and executed either on the {app_automation} server.

@@ -15,9 +15,11 @@ include::corredor.adoc[]
 
 include::ua.adoc[]
 
-include::iterators.adoc[]
+include::script-parsing.adoc[]
 
 include::triggers.adoc[]
+
+include::iterators.adoc[]
 
 include::client-scripts.adoc[]
 

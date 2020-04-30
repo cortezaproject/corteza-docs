@@ -38,6 +38,7 @@ In order to maximize flexibility, the system allows the use of external dependen
 
 {app_automation} server will use [@todo package manager here] to fetch any dependency defined inside `package.json` with respect to their versions defined in `yarn.lock`.
 
+[#ext-facility-ssevtbus]
 == Event bus
 
 In order to implement a powerful and flexible automation system, we have decided to base the system around an event bus.

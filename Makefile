@@ -6,8 +6,8 @@ ASCIIDOCTOR     ?= /usr/bin/asciidoctor
 ASCIIDOCTOR_PDF ?= /usr/bin/asciidoctor-pdf
 DOCKER_IMAGE    ?= asciidoctor/docker-asciidoctor:latest
 
-GEN_HTML5_BOOK  ?= $(ASCIIDOCTOR) --doctype book --backend html5
-GEN_PDF_BOOK    ?= $(ASCIIDOCTOR_PDF)
+GEN_HTML5_BOOK  ?= $(ASCIIDOCTOR) -r asciidoctor-diagram --doctype book --backend html5
+GEN_PDF_BOOK    ?= $(ASCIIDOCTOR_PDF) -r asciidoctor-diagram
 DOCKER_WRAP     ?= docker run -it --rm --workdir $(WORKDIR) --volume `pwd`:$(WORKDIR) $(DOCKER_IMAGE)
 
 MAJOR_CHAPTERS  ?= overview admin user maint coredev extdev index

@@ -1,0 +1,20 @@
+////
+Base configuration for PlantUML diagrams
+This should be included before each diagram.
+
+.test diagram here :)
+[plantuml, diagram-components, png,align="center"]
+....
+include::../diagram-cfg.adoc[]
+
+[First component]
+[Another component] as Comp2
+component Comp3
+component [Last\ncomponent] as Comp4
+....
+
+////
+
+skinparam monochrome true
+skinparam shadowing false
+skinparam sequenceMessageAlign center

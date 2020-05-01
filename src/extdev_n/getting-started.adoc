@@ -47,3 +47,16 @@ Some of the more common use cases for the automation system include:
 * inserting calculated price fields,
 * validating user input,
 * implementing external integrations such as DocVerify, D&B Hoovers, ...
+
+== Automation system diagram
+
+[NOTE]
+====
+This will probably become a UML diagram; this one is for development (faster updates).
+@todo add some annotations and explanations on the diagram.
+====
+
+.Abstract representation of the automation system.
+image::assets/automation-system-dig.png[Sunset]
+
+

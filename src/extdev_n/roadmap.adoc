@@ -20,5 +20,11 @@ Custom UI components and style assets::
 File upload via gRPC service::
     Upgrade enables us to handle files directly from the automation scripts,
 
-SUpport TypeScript for automation scripts::
+Support TypeScript for automation scripts::
     Upgrade enables us to use the more robust TypeScript as a language for automation scripts.
+
+Integrated Development Environment::
+    To allow developers to setup local {APP_AUTOMATION} environment with editor, overview and diagnostics and debug tools.
+
+Monitoring::
+    Performance metrics to allow developers improve performance of their scripts

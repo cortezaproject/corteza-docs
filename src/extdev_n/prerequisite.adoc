@@ -7,7 +7,7 @@ Automation scripts are written in JavaScript and executed either inside the user
 
 == Installation and setup
 
-In order for the automation system to function properly, you are required to firstly setup {PRODUCT_NAME} server and all relevant front-end web applications.
+In order for Corteza system and automation scripts to function properly, you are required to firstly setup {PRODUCT_NAME} server and all relevant front-end web applications.
 After that you have to setup the {APP_AUTOMATION} server.
 Refer to <<maint-index>> for details on the detailed setup process.
 

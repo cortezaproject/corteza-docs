@@ -7,16 +7,15 @@ Automation scripts are written in JavaScript and executed either inside the user
 
 == Installation and setup
 
-In order for the automation system to function properly, you are required to firstly setup {PRODUCT_NAME} server and all relevant front end web applications.
-After that you have to setup {APP_AUTOMATION} server.
-
-@todo; link to readmes?
+In order for the automation system to function properly, you are required to firstly setup {PRODUCT_NAME} server and all relevant front-end web applications.
+After that you have to setup the {APP_AUTOMATION} server.
+Refer to <<maint-index>> for details on the detailed setup process.
 
 == Modern JavaScript
 
 In order to tackle automation script development we strongly recommend becoming familiar with modern JavaScript, since all following examples heavily rely on it.
-If your knowledge of JavaScript is up to date, you can safely skip this section.
-The rest of the sub section provides a quick overview of the important bits, and points you to external resources for further reading.
+If your knowledge of JavaScript is up to date, you can safely skip this subsection.
+The rest of the subsection provides a quick overview of the important bits, and points you to other resources for further reading.
 
 === About async/await and Promises
 

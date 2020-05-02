@@ -9,8 +9,6 @@ include::../../variables.adoc[]
 
 include::about.adoc[]
 
-include::security.adoc[]
-
 include::corredor.adoc[]
 
 include::ua.adoc[]

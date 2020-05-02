@@ -1,4 +1,6 @@
 include::../../variables.adoc[]
+
+[#ext-examples]
 = Extension Examples
 :toc: left
 :toclevels: 2

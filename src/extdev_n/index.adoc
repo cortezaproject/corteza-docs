@@ -12,6 +12,10 @@ include::prerequisite.adoc[]
 
 include::terminology.adoc[]
 
+include::system-overview.adoc[]
+
+include::security.adoc[]
+
 include::resource-table.adoc[]
 
 // include::deployment.adoc[]

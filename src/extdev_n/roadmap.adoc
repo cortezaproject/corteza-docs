@@ -2,11 +2,23 @@ include::../variables.adoc[]
 
 = Roadmap
 
-* Use git repository as a source for extensions,
-* support for basic git operations,
-* automatic automation script testing,
-* secret and configuration management (key-value store),
-* bundling and serving Vue.js components,
-* bundling and serving SCSS and binary content,
-* updating files via gRPC service,
-* support TypeScript for user scripts.
+Git repository as an extension source::
+    Upgrade allows easier extension management by using various git repositories,
+
+Support basic git operations::
+    Upgrade allows easier extension management, such as changing extension version,
+
+Automatic automation script testing::
+    Upgrade enables easier and faster development, since local testing environment is no longer required,
+
+Secret vault::
+    Upgrade enables consistent and secure storage for sensitive data such as API credentials,
+
+Custom UI components and style assets::
+    Upgrade enables the customization of the entire user interface from the ground up,
+
+File upload via gRPC service::
+    Upgrade enables us to handle files directly from the automation scripts,
+
+SUpport TypeScript for automation scripts::
+    Upgrade enables us to use the more robust TypeScript as a language for automation scripts.

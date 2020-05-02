@@ -13,8 +13,6 @@ include::naming-conv.adoc[]
 
 include::helpers.adoc[]
 
-include::../facility/security.adoc[]
-
 include::script-anatomy.adoc[]
 
 include::trigger-anatomy.adoc[]

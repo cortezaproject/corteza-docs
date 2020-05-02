@@ -28,7 +28,7 @@ image::assets/automation-system-dig.png[Sunset]
 .When {PRODUCT_NAME} server starts, it
 . connects to {APP_AUTOMATION} server and loads all server and client scripts,
 . creates event handlers from server script triggers and registers them in the event bus,
-. configures scheduler to trigger both `onTimestamp` and `onInterval` events once per minute at the minute.
+. configures the scheduler system to trigger both `onTimestamp` and `onInterval` events once per minute at the minute.
 
 .When scheduling system on {PRODUCT_NAME} server ticks (once per minute), it
 . dispatches event through the event bus,

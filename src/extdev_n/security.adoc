@@ -9,22 +9,20 @@ You (or whoever is responsible for the system) is responsible for making sure th
 
 == Automation script execution
 
-Automation script execution **is not** jailed or virtualized and it is ran in the same context as the main system; either {APP_AUTOMATION} in the case of server scripts or any front-end application in case of client scripts.
+Automation script execution **is not** jailed or virtualized and it is ran in the same context as the automation system; either {APP_AUTOMATION} in the case of server scripts or any front-end application in case of client scripts.
 
 It is recommended to make use of security context feature described in the following subsection, and limit the permissions each automation script can use.
 
 == Security context
 
-Automation scripts are no exception to {PRODUCT_NAME} permission system, meaning that any operation performed by an automation script (such as record creation) must pass all permission checks required by the resource.
-By default any manual and implicit automation triggers use the current user's permission scope for the automation scripts security context.
+Automation scripts are no exception to {PRODUCT_NAME} permission system; any operation performed by an automation script (such as record creation) must pass all permission checks required by the resource.
+When not defined otherwise, manual and implicit automation triggers use the current user's permission scope for the automation scripts security context.
 
-But there are cases where this is not sufficient and the execution requires permissions that the invoker does not have.
-For such cases we can specify a custom security context that the automation script will run in.
+But there are cases where this is not sufficient, and the execution requires permissions that the invoker does not have. For such cases we can specify a custom security context that the automation script will run in.
 
 [EXAMPLE]
 ====
-An automation script requires system user creation, which requires elevated privileges.
-Instead of giving our users elevated privileges, we can define the security context of the automation script.
+An automation script requires system user creation, which requires a specific set of  privileges that user, running the script might not have. Instead of giving our users elevated privileges, we can define the security context of the automation script.
 ====
 
 The same also applies to deferred, interval and sink automation scripts, since they are executed by the system without any user interaction (at least we can't be sure who exactly executed it).

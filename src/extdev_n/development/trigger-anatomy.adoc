@@ -13,7 +13,8 @@ Automation triggers are constructed with the following methods:
     Defines the resource type, such as `'compose:record'` (see <<ext-resevt>>),
 
 `t.where`::
-    Defines the constraints that must match in order for the automation script to be executed (eg. `t.where('module', 'Lead')`),
+    Defines the constraints that must match in order for the automation script to be executed (eg. `t.where('module', 'Lead')`).
+    Refer to <<ext-dev-triggerAnatomy>> for details,
 
 `t.before`::
     Defines that the automation script is executed before a specific operation occurs,
@@ -90,4 +91,67 @@ triggers ({ on }) {
 }
 ----
 ====
+
+[#ext-dev-triggerAnatomy]
+== Constraints
+
+A constraint consists of 3 components:
+
+. resource attribute name,
+. operation,
+. value.
+
+[NOTE]
+====
+(DEV NOTE) I'd like to provide a table of resource and available attributes for these operations...
+Can we generate this?
+====
+
+=== Constraint operations
+
+* Equal: check for equality between the two values.
+Available operators:
+** `N/A`
+** `eq`
+** `=`
+** `==`
+** `===`
+
+[NOTE]
+====
+`N/A` represents an empty `''` or missing value (`undefined` or omitted).
+====
+
+* Not equal: negated check for equality between the two values.
+Available operators:
+** `not eq`
+** `ne`
+** `!=`
+** `!==`
+
+* Like: check for string equality, with support for wildcards.
+Available operators:
+** `like`
+
+* Not like: negated check for string equality, with support for wildcards.
+Available operators:
+** `not like`
+
+[NOTE]
+====
+Available wildcards:
+
+* **one or more characters**:
+`%`, `*`,
+* **one character**:
+`_`, `?`.
+====
+
+* Match: check for string equality, defined as a regular expression.
+Available operators:
+** `~`
+
+* Not match: negated check for string equality, defined as a regular expression.
+Available operators:
+** `!~`
 

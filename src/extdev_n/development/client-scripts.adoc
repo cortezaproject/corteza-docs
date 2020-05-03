@@ -28,9 +28,15 @@ Explicit triggers execute on a specific user invocation, such as a button press.
 These include:
 
 Manual::
-    manual automation triggers are defined as buttons inside the user interface.
+    Manual automation triggers are defined as buttons inside the user interface.
     They most commonly appear inside {app_name_compose} automation page blocks or inside {app_name_compose} record list toolbars.
-    They are invoked and executed inside the UA.
+    They are invoked and executed inside the web application.
+
+[TIP]
+====
+Manual automation triggers don't need to be defined as client scripts.
+When defined as a server script it will be invoked from the UA and executed from inside {app_automation}.
+====
 
 === Implicit
 

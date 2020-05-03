@@ -8,8 +8,7 @@ Automation iterator are constructed with the following methods:
 
 `i`::
     Defines the resource, action and the filter used for resource fetching.
-
-Passed object must conform to the interface:
+    Passed object must conform to the interface:
 
 [source,typescript]
 ----
@@ -23,7 +22,7 @@ interface {
 <1> define the resource type; see <<ext-resevt>> for details.
 <2> define the event type; see <<ext-resevt>> for details.
 <3> define what action the script performs; see <<ext-dev-iteract>> for details,
-<4> define the filter to use; standard {product_name} filter object.
+<4> define the filter to use; see <<ext-dev-iteratorConstraints>> for details.
 
 `i.at`::
     Defines that the automation script is executed at a specific time,
@@ -56,3 +55,25 @@ N/A indicates that the value is omitted or an empty string is provided.
 ====
 Iterator and trigger are not compatible; you can only use one or the other within the same automation script.
 ====
+
+[#ext-dev-iteratorConstraints]
+== Constraints
+
+Iterators allow a more fine-grained approach for defining constraints.
+It closely resembles {PRODUCT_NAME}'s filter object and conforms to the following interface:
+
+[source,typescript]
+----
+interface {
+  query: string; <1>
+  sort: string; <2>
+  limit: number | string; <3>
+  offset: number | string; <4>
+  [_: string]: number | string; <5>
+}
+----
+<1> SQL like query filter to use.
+<2> SQL like sort to use.
+<3> Pagination, maximum number of resource.
+<4> Pagination, page offset.
+<5> additional non-standard resource specific parameters.

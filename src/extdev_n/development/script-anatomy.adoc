@@ -23,10 +23,6 @@ Meta properties define the execution context, such as the resource and event typ
 
 === Parameters
 
-`name`::
-    Automaton script's name, used for referencing during execution.
-    This is automatically generated so it should be omitted,
-
 `label`::
     Automation script's label, used to provide a user friendly identification of the automation script,
 
@@ -55,7 +51,6 @@ Meta properties define the execution context, such as the resource and event typ
 
 `exportName`::
     @todo...
-
 
 == Exec function
 
@@ -112,3 +107,27 @@ Execution context (second argument) contains contextual information about the ex
 `ctx.frontendBaseURL`::
     Base URL used by front-end web applications.
     This is useful when generating URL's inside server scripts.
+
+== Automation script execution result
+
+When the script's execution is complete, it should provide one of the following results:
+
+Unknown Error::
+    An error aborts the script's execution chain (the current script and all following scripts).
+
+Aborted Error::
+    An error with the value of `'Aborted'` stops the execution of the **current** automation script.
+    Any further scripts down the chain are executed as usual.
+
+`false`::
+    A return value of `false` stops the execution of the **current** automation script.
+    Any further scripts down the chain are executed as usual.
+
+unknown::
+    Any other return value specifies that the execution was successful and the following script (if any) can execute.
+
+[IMPORTANT]
+====
+If the resource defines a before event variant, the return value will be used as the updated version of that resource.
+For example: if the automation script is defined with the resource type of `compose:record` and returns the updated version of the `args.$record` value, the the existing version is replaced by the updated version.
+====

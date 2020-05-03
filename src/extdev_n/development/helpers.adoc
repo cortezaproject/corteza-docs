@@ -2,12 +2,12 @@ include::../../variables.adoc[]
 
 = Helper Classes
 
-Helper classes consist of functions that greatly reduce the needed effort and the amount of code to perform a specific operation, so it's recommended to use them as much as possible.
-These classes are also context aware, meaning that if the automation script is executed for a specific resource, you are not required to specify that resource over and over again.
+Helper classes consist of methods that greatly reduce the needed effort and the amount of required code to perform a specific operation, so it's recommended to use them as much as possible.
+These classes are also context aware, meaning that the classes are able to determine some base parameters on their own, such as the current module, record and namespace.
 
 [EXAMPLE]
 ====
-Example of creating a new record with the help of `Compose` helper class:
+Example of creating a new record with the help of `Compose` helper class (note how we don't need to specify the namespace):
 
 [source,js]
 ----

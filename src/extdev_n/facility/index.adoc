@@ -1,6 +1,6 @@
 include::../../variables.adoc[]
 [#ext-facility]
-= Automation Facility
+= Automation System Facility
 :toc: left
 :toclevels: 2
 
@@ -11,9 +11,9 @@ include::about.adoc[]
 
 include::corredor.adoc[]
 
-include::ua.adoc[]
+include::server.adoc[]
 
-include::script-parsing.adoc[]
+include::web-app.adoc[]
 
 include::triggers.adoc[]
 

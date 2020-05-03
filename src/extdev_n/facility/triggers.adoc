@@ -2,97 +2,22 @@ include::../../variables.adoc[]
 
 = Triggers
 
-Automation scripts determine when, where, execution context; input and output of the automation script.
+Automation script triggers determine when, where, execution context; input and output of the automation script.
 
 Triggers consist of 4 components:
 
 Event type::
-    Defines the event that the trigger responds to.
+    Defines the event that should invoke the script's execution.
     See <<ext-resevt>> for available event types.
 
 Resource type::
-    Defines the resource that the automation script will operate on.
+    Defines the resource that the automation script is compatible with.
     This also defines the execution context, input and output of the automation script.
     See <<ext-resevt>> for available resource types and their meta,
 
 Constraints::
-    Defines a set of constraints that must be truthly in order for this trigger to respond,
+    Defines a set of constraints that must be truthly in order for this script to be available.
+    Refer to <<ext-dev-triggerAnatomy>> for details,
 
-Ui props:: (only for manual triggers)
+Ui props (only for manual triggers)::
     Defines a set of parameters that define how the UI hook component should be rendered.
-
-== Constraints
-
-A constraint consists of 3 components:
-. resource attribute name
-. operation
-. value
-
-[NOTE]
-====
-I'd like to provide a table of resource and available attributes for these operations...
-Can we generate this?
-====
-
-=== Constraint operations
-
-* Equal: check for equality between the two values.
-Available operators:
-** `N/A`,
-** `eq`,
-** `=`,
-** `==`,
-** `===`.
-
-[NOTE]
-====
-`N/A` represents an empty `''` or missing value (`undefined` or not omitted).
-====
-
-* Not equal: negated check for equality between the two values.
-Available operators:
-** `not eq`,
-** `ne`,
-** `!=`,
-** `!==`.
-
-* Like: check for string equality, with support for wildcards.
-Available operators:
-** `like`.
-
-* Not like: negated check for string equality, with support for wildcards.
-Available operators:
-** `not like`.
-
-[NOTE]
-====
-Available wildcards:
-
-* **one or more characters**:
-`%`, `*`,
-* **one character**:
-`_`, `?`.
-====
-
-* Match: check for string equality, defined as a regular expression.
-Available operators:
-** `~`.
-
-* Not match: negated check for string equality, defined as a regular expression.
-Available operators:
-** `!~`.
-
-== Trigger processing
-
-Automation script triggers are processed and evaluated at script parse time.
-
-== Trigger registration and execution
-
-Trigger registration and execution depends on it's definition.
-
-* **server scripts**:
-registered on the {product_name} server event bus and executed by the {product_name} server,
-* **client scripts**:
-registered on the front-end event bus and executed on the front-end,
-* **manual client and server scripts**:
-registered on the front-end event bus, invoked by UI hooks and executed either in the UA (in case of client scripts) or on the {app_automation} server (in case of server scripts).

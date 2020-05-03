@@ -6,6 +6,6 @@ It's also a plus when performing complex debugging.
 
 [NOTE]
 ====
-If you are interested solely on automation script development, feel free to the <<ext-dev, extension development>> section.
-Any important detail from this section will be included in the following @todo ref.
+If you are interested solely in automation script development, feel free to skip to the <<ext-dev>> section.
+Any important bit from this section will be included in the following sections.
 ====

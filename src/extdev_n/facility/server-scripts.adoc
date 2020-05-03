@@ -2,77 +2,16 @@ include::../../variables.adoc[]
 
 = Server Scripts
 
-Server scripts are automation scripts that are processed and executed on the {app_automation} server.
-
-[IMPORTANT]
-====
-{app_automation} server will never execute an automation script on it's own.
-The execution must be invoked by the {product_name} server or manually via gRPC protocol.
-====
-
-[IMPORTANT]
-====
-Due to some limitations, server scripts are **not** bundled.
-This will be resolved at some later point in time.
-====
-
 == File structure
 
-Since server scripts are executed in the background on a capable machine, there is no need (at least not yet) for any smart grouping, so there is no need for any complicated file structuring.
+Since server scripts are executed in the background on a capable machine, there is no need (at least not yet) for any inelegant grouping, so there is no need for any complicated file structuring.
 We define the following file structure:
 
 [source,text]
 ----
 src /
     server-scripts / <1>
-        .. <2>
+        ... <2>
 ----
-<1> root folder for all server scripts.
-<2> undefined file structure; can be defined as needed.
-
-[#ext-facility-ssdeps]
-== Dependencies
-
-Dependencies are an important part of any larger JavaScript code.
-In order to maximize flexibility, the system allows the use of external dependencies defined inside the standard `package.json` and `yarn.lock` files.
-
-{app_automation} server will use [@todo package manager here] to fetch any dependency defined inside `package.json` with respect to their versions defined in `yarn.lock`.
-
-[#ext-facility-ssevtbus]
-== Event bus
-
-In order to implement a powerful and flexible automation system, we have decided to base the system around an event bus.
-With the help of an event bus, we are able to trivially handle any combination of automation scripts in a unified, robust manner.
-
-Event bus consists of the following major components.
-
-[IMPORTANT]
-====
-Server side event bus and client side event bus are not the same, so both should receive equal attention when reading.
-====
-
-=== Server script trigger registration
-
-Firstly we need to register server scripts on the event bus, so they can listen and respond to dispatched events.
-
-There is a slight difference between iterator automation scripts and other types of automation scripts when it comes to the handler function.
-Iterator scripts are technically explicit or deferred scripts with the difference that the script is executed for each resource in the matched set.
-
-If the script is an iterator::
-    when an iterator script is provided, the handler function invokes the automation script for each resource in the given set,
-
-If the script is any other::
-    when any other script is provided, the handler function is a generic function that executes for the given event on the given resource.
-
-Other than that, the flow is as follows:
-
-. fetch available automation scripts from {app_automation} server,
-. for each trigger of every valid automation script:
-.. prepare a handler function with respect to the above comment,
-.. register the trigger with the handler function on the event bus.
-
-=== Event handling and script execution
-
-Finally we discuss event dispatching, handling and script execution.
-Events are dispatched using the event buses `WaitFor(ctx context.Context, ev Event) error` or the `Dispatch(ctx context.Context, ev Event)`.
-The difference is that the first is synchronous and the later is asynchronous.
+<1> Root folder for all server scripts.
+<2> Undefined file structure; can be defined as needed.

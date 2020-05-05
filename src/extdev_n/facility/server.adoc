@@ -83,5 +83,11 @@ System's flow:
 . intercept any HTTP request on the `/sink` endpoint,
 . basic request validation (provided required parameters),
 . validate request against the sink's signature,
-. process request based on `Content-Type`,
+. process request based on:
+ - `Content-Type` or any other HTTP header,
+ - remote address (IP),
+ - request method and path,
+ - username and password (HTTP basic auth)
+ - GET (query string) parameters
+ - POST parameters
 . dispatch the event via event bus.

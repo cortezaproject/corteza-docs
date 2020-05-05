@@ -27,8 +27,7 @@ Execution can also be performed inside the client web application (see <<facilit
 
 [NOTE]
 ====
-Invalid automation scripts (invalid or missing trigger, syntax/logic errors, ...) are included in the full list with additional errors.
-This allows easier debugging.
+Invalid automation scripts (invalid or missing trigger, syntax/logic errors, ...) are included in the full list including all discovered errors.
 ====
 
 == Script Parsing
@@ -128,10 +127,7 @@ If we create a file under `/opt/extensions/crm/server-scripts/crm/Contact/SetLab
 
 [IMPORTANT]
 ====
-The order of search paths is important.
-If our definition does not appear **after** the original definition; the original definition will be preferred.
-
-@todo fact-check
+The order of search paths is important. Corredor will scan defined search paths in defined order.
 ====
 
 [#ext-facility-corredorDeps]

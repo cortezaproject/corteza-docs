@@ -13,12 +13,12 @@ Event type::
 Resource type::
     Defines the resource that the automation script is compatible with.
     This also defines the execution context, input and output of the automation script.
-    See <<ext-resevt>> for available resource types and their meta,
+    See <<ext-resevt>> for available resource types and their meta.
 
-action::
-    Defines the action that the automation script would like to perform,
+Action::
+    Defines the action that the automation script would like to perform.
 
-filter::
+Filter::
     Defines the filter that determines the resources that should be processed by the automation script.
     Refer to <<ext-dev-iteratorConstraints>> for details.
 

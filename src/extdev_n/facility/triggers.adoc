@@ -19,5 +19,6 @@ Constraints::
     Defines a set of constraints that must be truthly in order for this script to be available.
     Refer to <<ext-dev-triggerAnatomy>> for details,
 
-Ui props (only for manual triggers)::
-    Defines a set of parameters that define how the UI hook component should be rendered.
+user interface properties (uiProps)::
+    Used only for manual triggers.
+    Defines a set of parameters that define where and how the UI hook component will be rendered.

@@ -38,9 +38,10 @@ Trigger and iterator are not compatible; you can only use one or the other withi
 
 [IMPORTANT]
 ====
-Evaluation of triggers is performed in an isolated context outside of the actual automation script file, meaning that you can not use any constants or other symbols defiled outside of the trigger.
+Triggers will be evaluated in an isolated context outside of the actual automation script file.
+This prevents use of any constants or other symbols defiled outside of the trigger.
 
-For example, the following trigger is considered invalid:
+For example, the following trigger will cause cause:
 
 [source,javascript]
 ----
@@ -111,7 +112,6 @@ Can we generate this?
 
 * Equal: check for equality between the two values.
 Available operators:
-** `N/A`
 ** `eq`
 ** `=`
 ** `==`
@@ -119,7 +119,8 @@ Available operators:
 
 [NOTE]
 ====
-`N/A` represents an empty `''` or missing value (`undefined` or omitted).
+Equality check is default operator.
+When using only 2 parameters for constraint, "equal" operator is used
 ====
 
 * Not equal: negated check for equality between the two values.

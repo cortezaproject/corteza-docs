@@ -5,6 +5,7 @@ include::../../variables.adoc[]
 To better understand the process of implementing custom functionalities with the automation system, we define and describe the anatomy of automation scripts, and establish a few rules.
 An automation script is considered valid if:
 
+* a given `.js` file is structured under `client-scripts` or `server-scripts` directory,
 * a given `.js` file exports exactly **one** JS object with the `export default` keyword,
 * a given script defines at least one **valid** trigger or iterator definition,
 * a given script defines the security context **if** the script is a deferred or sink script,
@@ -13,24 +14,41 @@ An automation script is considered valid if:
 [IMPORTANT]
 ====
 Invalid automation scripts are still processed by the {app_automation}, but are excluded from further operations.
-Ocurred errors are visible in the {app_automation} logs.
+Detected errors are visible in the {app_automation} logs.
 This allows for easier debugging.
 ====
 
-== Meta
-
-Meta properties define the execution context, such as the resource and event type, security context and some meta data such as a label and a description.
-
-=== Parameters
+== Overview of script object properties and function
 
 `label`::
-    Automation script's label, used to provide a user friendly identification of the automation script,
+    Automation script's label, used to provide a user-friendly identification of the automation script,
 
 `description`::
     A more verbose automation script description,
 
 `security`::
     Defines automation script's security context and role based filtering,
+
+`triggers`::
+    Defines automation script's triggers as propery or method.
+    Not compatible with `iterator`,
+
+`iterator`::
+    Defines automation script's iterator as property or method
+    Not compatible with `triggers`,
+
+`exec`::
+    Function with script's logic
+
+
+
+== Security
+
+Script's `security` property allows definition of user who's credentials will be used when executing the script.
+It also allows access control by defining list of allowed and denied roles that can execute it.
+
+Security parameter is only valid for server scripts.
+
 
 `security.runAs`::
     Define security context for the automation script,
@@ -41,16 +59,7 @@ Meta properties define the execution context, such as the resource and event typ
 `security.deny`::
     Explicitly define what roles do not have access to the automation script,
 
-`triggers`::
-    Defines automation script's triggers.
-    Not compatible with `iterator`,
 
-`iterator`::
-    Defines automation script's iterator.
-    Not compatible with `triggers`,
-
-`exportName`::
-    @todo...
 
 == Exec function
 

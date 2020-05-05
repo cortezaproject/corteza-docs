@@ -57,9 +57,9 @@ Iterator and trigger are not compatible; you can only use one or the other withi
 ====
 
 [#ext-dev-iteratorConstraints]
-== Constraints
+== Filter
 
-Iterators allow a more fine-grained approach for defining constraints.
+Iterator filter provides ability to write query (conditions), sorting, limit and offset rules
 It closely resembles {PRODUCT_NAME}'s filter object and conforms to the following interface:
 
 [source,typescript]
@@ -72,8 +72,8 @@ interface {
   [_: string]: number | string; <5>
 }
 ----
-<1> SQL like query filter to use.
-<2> SQL like sort to use.
-<3> Pagination, maximum number of resource.
-<4> Pagination, page offset.
+<1> SQL like query filter to use `WHERE <query>`.
+<2> SQL like sort to use (`ORDER BY <sort>`.
+<3> Maximum number of resource.
+<4> Offset from first record.
 <5> additional non-standard resource specific parameters.

@@ -9,9 +9,14 @@ We define the following file structure:
 
 [source,text]
 ----
-src /
-    server-scripts / <1>
-        ... <2>
+/server-scripts <1>
+    /... <2>
 ----
-<1> Root folder for all server scripts.
+<1> Root folder for all server scripts (under each search path).
 <2> Undefined file structure; can be defined as needed.
+
+.Server-script path structure
+[source]
+----
+<search-path>/server-scripts/<path-to-script>/*.js
+----

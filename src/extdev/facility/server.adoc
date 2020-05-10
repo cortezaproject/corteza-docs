@@ -1,0 +1,93 @@
+include::../../variables.adoc[]
+
+= {PRODUCT_NAME} Server
+
+The second important bit of the automation system is the {product_name} server.
+On it's own, {app_automation} server is unable to perform any script execution without an explicit invocation (either by the {product_name} server or manually via BloomRPC or similar).
+
+== Main responsibilities
+
+. Load and register automation scripts on the event bus,
+. run scheduler for deferred automation script execution,
+. setup http handler for **sink routes**,
+. setup http handler for **explicit server script invocation**,
+. setup http handler for **automation script listing**,
+. setup http handler for **automation script bundles**,
+. request script execution based on the provided event.
+
+[#ext-facility-serverEventBus]
+== Event bus
+
+In order to implement a powerful and flexible automation system, we have decided to base it around an event bus.
+With the help of an event bus, we are able to trivially handle any combination of automation scripts in a unified, robust manner.
+
+[IMPORTANT]
+====
+Server side event bus and client side event bus **are not** the same, so both should receive equal attention when reading.
+====
+
+[#ext-facility-serverTriggerRegistration]
+=== Server script trigger registration
+
+Firstly we need to register **implicit**, **deferred**, **sink** and **iterator** server scripts on the event bus, so they can listen and respond to dispatched events.
+
+There is a slight difference between iterator automation scripts and other types of automation scripts (excluding explicit scripts) when it comes to their execution.
+Iterator scripts are executed for each resource in the matched set, so their handler functions differ.
+
+If the script is an iterator::
+    When an iterator script is provided, the handler function invokes the automation script **for each** resource in the given set,
+
+If the script is any other (except explicit scripts)::
+    When any other script is provided (excluding explicit scripts), the handler function is a generic function that executes for the given event on the given resource.
+
+Other than that, the flow is as follows:
+
+. fetch available automation scripts from {app_automation} server,
+. for each trigger of every valid automation script (excluding explicit scripts):
+.. prepare a handler function with respect to the above comment,
+.. register the trigger with the handler function on the event bus.
+
+=== Event handling and script execution
+
+Finally we discuss event dispatching, handling and script execution.
+Events are dispatched over the event bus either synchronously or asynchronously.
+When an event is dispatched, the following happens:
+
+. find all scripts that can be executed for the given event,
+. execute every automation script in the filtered set,
+. if an error is thrown (other then `'Aborted'`), stop the execution.
+
+[#ext-facility-serverSchedule]
+== Scheduler
+
+The scheduler system is responsible for deferred automation script execution.
+The system ticks every minute, at the minute, and dispatches events via the event bus.
+
+[IMPORTANT]
+====
+There is no mechanism in place that would prevent the automation scripts to overlap.
+Either simplify/optimize the script or in the case of complex operations, move to batch processing.
+
+.For example:
+* Script A runs every minute and the execution takes 1.5min,
+* on first tick, script A is executed,
+* on second tick, script A is executed again along side the old instance.
+====
+
+[#ext-facility-serverSink]
+== Sink
+
+The sink system allows us to implement custom endpoints on the {PRODUCT_NAME} server.
+System's flow:
+
+. intercept any HTTP request on the `/sink` endpoint,
+. basic request validation (provided required parameters),
+. validate request against the sink's signature,
+. process request based on:
+ - `Content-Type` or any other HTTP header,
+ - remote address (IP),
+ - request method and path,
+ - username and password (HTTP basic auth)
+ - GET (query string) parameters
+ - POST parameters
+. dispatch the event via event bus.

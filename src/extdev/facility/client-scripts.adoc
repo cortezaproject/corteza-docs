@@ -1,0 +1,41 @@
+include::../../variables.adoc[]
+
+= Client Scripts
+
+== File structure
+
+For increased consistency across different types of user agents (different browsers, such as Google Chrome, Internet Explorer, ...) all client scripts are processed and bundled.
+
+For a more intuitive bundle definition, size optimization and consistency, we define the following file structure:
+
+[source,text]
+----
+/client-scripts <1>
+    /auth <2>
+        /... <7>
+
+    /admin <3>
+        /... <7>
+
+    /compose <4>
+        /... <7>
+
+    /messaging <5>
+        /... <7>
+
+    /shared <6>
+        /... <7>
+----
+<1> Root folder for all client scripts (under each search path).
+<2> Defines a bundle for {product_name} {app_name_auth}.
+<3> Defines a bundle for {product_name} {app_name_admin}.
+<4> Defines a bundle for {product_name} {app_name_compose}.
+<5> Defines a bundle for {product_name} {app_name_messaging}.
+<6> Reserved directory for any shared logic, such as custom libraries, assets, ...
+<7> Undefined file structure; can be defined as needed.
+
+.Client-script path structure
+[source]
+----
+<search-path>/client-scripts/<bundle>/<path-to-script>/*.js
+----

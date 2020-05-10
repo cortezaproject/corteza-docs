@@ -1,0 +1,22 @@
+include::../../variables.adoc[]
+
+= Server Scripts
+
+== File structure
+
+Since server scripts are executed in the background on a capable machine, there is no need (at least not yet) for any inelegant grouping, so there is no need for any complicated file structuring.
+We define the following file structure:
+
+[source,text]
+----
+/server-scripts <1>
+    /... <2>
+----
+<1> Root folder for all server scripts (under each search path).
+<2> Undefined file structure; can be defined as needed.
+
+.Server-script path structure
+[source]
+----
+<search-path>/server-scripts/<path-to-script>/*.js
+----

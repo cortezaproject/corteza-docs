@@ -43,12 +43,9 @@ delete::
 clone::
     The result of the automation script will be used to create a new resource with updated values; original resource is left un changed,
 
-N/A::
-    The result of the automation script is ignored.
-
 [IMPORTANT]
 ====
-N/A indicates that the value is omitted or an empty string is provided.
+Iterator script doesn't perform any operation on the resource except if explicitly specified by the `action` property.
 ====
 
 [IMPORTANT]
@@ -72,8 +69,8 @@ interface {
   [_: string]: number | string; <5>
 }
 ----
-<1> SQL like query filter to use `WHERE <query>`.
-<2> SQL like sort to use (`ORDER BY <sort>`.
+<1> SQL like query filter to use (`WHERE <query>`).
+<2> SQL like sort to use (`ORDER BY <sort>`).
 <3> Maximum number of resource.
 <4> Offset from first record.
 <5> additional non-standard resource specific parameters.

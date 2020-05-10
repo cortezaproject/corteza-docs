@@ -38,17 +38,12 @@ This allows for easier debugging.
     Not compatible with `triggers`,
 
 `exec`::
-    Function with script's logic
-
-
+    Execution function that is invoked when the automation script is triggered.
 
 == Security
 
 Script's `security` property allows definition of user who's credentials will be used when executing the script.
 It also allows access control by defining list of allowed and denied roles that can execute it.
-
-Security parameter is only valid for server scripts.
-
 
 `security.runAs`::
     Define security context for the automation script,
@@ -59,7 +54,10 @@ Security parameter is only valid for server scripts.
 `security.deny`::
     Explicitly define what roles do not have access to the automation script,
 
-
+[IMPORTANT]
+====
+`security.runAs` parameter is only valid for server scripts.
+====
 
 == Exec function
 

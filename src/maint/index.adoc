@@ -1,4 +1,6 @@
 include::../variables.adoc[]
+
+[#maint-index]
 = {PRODUCT_NAME} Management and Maintenance
 :toc: left
 :toclevels: 3

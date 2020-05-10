@@ -1,0 +1,39 @@
+include::../variables.adoc[]
+
+= Prerequisite
+
+Before we can dive into the fun bits, we need to cover some basics and setup the system.
+Automation scripts are written in JavaScript and executed either inside the user's web browser or inside the specialized {APP_AUTOMATION} server.
+
+== Installation and setup
+
+In order for Corteza system and automation scripts to function properly, you are required to firstly setup {PRODUCT_NAME} server and all relevant front-end web applications.
+After that you have to setup the {APP_AUTOMATION} server.
+Refer to <<maint-index>> for details on the detailed setup process.
+
+== Modern JavaScript
+
+In order to tackle automation script development we strongly recommend becoming familiar with modern JavaScript, since all following examples heavily rely on it.
+If your knowledge of JavaScript is up to date, you can safely skip this subsection.
+The rest of the subsection provides a quick overview of the important bits, and points you to other resources for further reading.
+
+=== About async/await and Promises
+
+In short: Promises solve problem of asynchronous code and remove the need for cumbersome callbacks via function parameters.
+They provide a simple and readable syntax and error handling via `.catch()`.
+
+This MDN article goes into more details: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Using_promises[about using promises].
+
+=== About use of await/async syntactic sugar
+
+The `await` keyword allows us to implement async code in a iterative like fashion by blocking execution until the promise resolves.
+It's important to note that the await keyword can only be used within `async` functions.
+
+This MDN article goes into more details: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/await[about await].
+
+=== The arrow function expression (=>)
+
+Arrow functions are used as a compact alternative to a regular function expression.
+Most of the times, they can easily be used inside `.then()`, `.catch()` and `.finally()`.
+
+This MDN article goes into more details and exposes some limitations and why they can not completely replace regular functions: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions[about arrow functions]

@@ -127,7 +127,7 @@ If we create a file under `/opt/extensions/crm/server-scripts/crm/Contact/SetLab
 
 [IMPORTANT]
 ====
-The order of search paths is important. Corredor will scan defined search paths in defined order.
+{APP_AUTOMATION} will load resources from the provided list of search paths in the order they were defined.
 ====
 
 [#ext-facility-corredorDeps]

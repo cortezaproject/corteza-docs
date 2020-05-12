@@ -98,15 +98,9 @@ triggers ({ on }) {
 
 A constraint consists of 3 components:
 
-. resource attribute name,
+. resource attribute name (see <<ext-constraintResources>>),
 . operation,
 . value.
-
-[NOTE]
-====
-(DEV NOTE) I'd like to provide a table of resource and available attributes for these operations...
-Can we generate this?
-====
 
 === Constraint operations
 

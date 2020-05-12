@@ -1,0 +1,22 @@
+| mail.header.subject
+| Constraint checks the value against the email's subject.
+
+| mail.header.from
+| Constraint checks the value against the email's from.
+This will be truthy if **any** value matches.
+
+| mail.header.to
+| Constraint checks the value against the email's to.
+This will be truthy if **any** value matches.
+
+| mail.header.replyTo
+| Constraint checks the value against the email's reply to.
+This will be truthy if **any** value matches.
+
+| mail.header.cc
+| Constraint checks the value against the email's cc.
+This will be truthy if **any** value matches.
+
+| mail.header.bcc
+| Constraint checks the value against the email's bcc.
+This will be truthy if **any** value matches.

@@ -1,0 +1,8 @@
+| role
+| Constraint checks the value against the role's handle.
+
+| role.handle
+| Constraint checks the value against the role's handle.
+
+| role.name
+| Constraint checks the value against the role's name.

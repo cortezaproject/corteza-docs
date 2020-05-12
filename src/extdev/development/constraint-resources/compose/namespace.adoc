@@ -1,0 +1,8 @@
+| namespace
+| Constraint checks the value against the namespaces slug.
+
+| namespace.slug
+| Constraint checks the value against the namespaces slug.
+
+| namespace.name
+| Constraint checks the value against the namespaces name.

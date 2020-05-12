@@ -1,0 +1,8 @@
+| page
+| Constraint checks the value against the page's handle.
+
+| page.handle
+| Constraint checks the value against the page's handle.
+
+| page.title
+| Constraint checks the value against the page's title.

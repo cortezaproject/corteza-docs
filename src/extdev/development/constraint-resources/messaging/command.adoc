@@ -1,0 +1,7 @@
+| command
+| Constraint checks the value against the command's name.
+The name does not include the leading `/`, for example `'shrug'`.
+
+| command.name
+| Constraint checks the value against the command's name.
+The name does not include the leading `/`, for example `'shrug'`.

@@ -1,0 +1,8 @@
+| module
+| Constraint checks the value against the module handle.
+
+| module.handle
+| Constraint checks the value against the module handle.
+
+| module.name
+| Constraint checks the value against the module name.

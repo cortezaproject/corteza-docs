@@ -30,6 +30,13 @@ Execution can also be performed inside the client web application (see <<facilit
 Invalid automation scripts (invalid or missing trigger, syntax/logic errors, ...) are included in the full list including all discovered errors.
 ====
 
+[IMPORTANT]
+====
+When the {APP_AUTOMATION} server is ran in production mode, it does not perform any file watching and reloading.
+This can be changed by either running it in development mode or setting environment variables.
+Refer to the https://github.com/cortezaproject/corteza-server-corredor[readme] for details.
+====
+
 == Script Parsing
 
 Script parsing is an important bit of the system and it introduces a few gotchas that you should be aware of.

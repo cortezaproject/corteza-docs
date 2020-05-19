@@ -350,7 +350,7 @@
 |record_id| bigint(20) NOT NULL||
 |name| varchar(64) NOT NULL||
 |value| longtext||
-|ref| bigint(20) unsigned NOT NULL |'0'|
+|ref| bigint(20) unsigned NOT NULL |'0'|Field is used for quicker lookups when it comes to values that represent a reference, such as recordID, userID and attachmentID.
 |deleted_at| datetime |NULL|
 |place| int(10) unsigned NOT NULL |'0'|
 |===

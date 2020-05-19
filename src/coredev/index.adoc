@@ -12,6 +12,8 @@ include::versions.adoc[]
 
 include::git/index.adoc[]
 
+include::db/index.adoc[]
+
 include::parts/index.adoc[]
 
 :leveloffset: -1

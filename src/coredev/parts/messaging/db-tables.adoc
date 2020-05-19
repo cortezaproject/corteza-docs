@@ -1,0 +1,128 @@
+.messaging_attachment
+|===
+|Column|Type|Default|Description
+
+|id| bigint(20) unsigned NOT NULL||
+|rel_user| bigint(20) unsigned NOT NULL||
+|url| varchar(512) |NULL|
+|preview_url| varchar(512) |NULL|
+|size| int(10) unsigned |NULL|
+|mimetype| varchar(255) |NULL|
+|name| text||
+|meta| json |NULL|
+|created_at| datetime NOT NULL |CURRENT_TIMESTAMP|
+|updated_at| datetime |NULL|
+|deleted_at| datetime |NULL|
+|===
+
+.messaging_channel
+|===
+|Column|Type|Default|Description
+
+|id| bigint(20) unsigned NOT NULL||
+|name| text NOT NULL||
+|topic| text NOT NULL||
+|meta| json NOT NULL||
+|type| enum('private', 'public', 'group') |NULL|
+|membership_policy| enum('featured','forced','') NOT NULL |''|
+|rel_organisation| bigint(20) unsigned NOT NULL||
+|rel_creator| bigint(20) unsigned NOT NULL||
+|created_at| datetime NOT NULL |CURRENT_TIMESTAMP|
+|updated_at| datetime |NULL|
+|archived_at| datetime |NULL|
+|deleted_at| datetime |NULL|
+|rel_last_message| bigint(20) unsigned NOT NULL |'0'|
+|===
+
+.messaging_channel_member
+|===
+|Column|Type|Default|Description
+
+|rel_channel| bigint(20) unsigned NOT NULL||
+|rel_user| bigint(20) unsigned NOT NULL||
+|type| enum('owner','member','invitee') |NULL|
+|flag| enum('pinned','hidden','ignored','') NOT NULL |''|
+|created_at| datetime NOT NULL |CURRENT_TIMESTAMP|
+|updated_at| datetime |NULL|
+|===
+
+.messaging_mention
+|===
+|Column|Type|Default|Description
+
+|id| bigint(20) unsigned NOT NULL||
+|rel_channel| bigint(20) unsigned NOT NULL||
+|rel_message| bigint(20) unsigned NOT NULL||
+|rel_user| bigint(20) unsigned NOT NULL||
+|rel_mentioned_by| bigint(20) unsigned NOT NULL||
+|created_at| datetime NOT NULL |CURRENT_TIMESTAMP|
+|===
+
+.messaging_message
+|===
+|Column|Type|Default|Description
+
+|id| bigint(20) unsigned NOT NULL||
+|type| mediumtext CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci|
+|message| mediumtext CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL||
+|meta| json |NULL|
+|rel_user| bigint(20) unsigned NOT NULL||
+|rel_channel| bigint(20) unsigned NOT NULL||
+|reply_to| bigint(20) unsigned NOT NULL |'0'|
+|created_at| datetime NOT NULL |CURRENT_TIMESTAMP|
+|updated_at| datetime |NULL|
+|deleted_at| datetime |NULL|
+|replies| int(10) unsigned NOT NULL |'0'|
+|===
+
+.messaging_message_attachment
+|===
+|Column|Type|Default|Description
+
+|rel_message| bigint(20) unsigned NOT NULL||
+|rel_attachment| bigint(20) unsigned NOT NULL||
+|===
+
+.messaging_message_flag
+|===
+|Column|Type|Default|Description
+
+|id| bigint(20) unsigned NOT NULL||
+|rel_channel| bigint(20) unsigned NOT NULL||
+|rel_message| bigint(20) unsigned NOT NULL||
+|rel_user| bigint(20) unsigned NOT NULL||
+|flag| text|
+|created_at| datetime NOT NULL |CURRENT_TIMESTAMP|
+|===
+
+.messaging_permission_rules
+|===
+|Column|Type|Default|Description
+
+|rel_role| bigint(20) unsigned NOT NULL||
+|resource| varchar(128) NOT NULL||
+|operation| varchar(128) NOT NULL||
+|access| tinyint(1) NOT NULL||
+|===
+
+.messaging_settings
+|===
+|Column|Type|Default|Description
+
+|rel_owner| bigint(20) unsigned NOT NULL |'0' |Value owner| 0 for global settings
+|name| varchar(200) NOT NULL |Unique set of setting keys
+|value| json |NULL |Setting value
+|updated_at| datetime NOT NULL |CURRENT_TIMESTAMP |When was the value updated
+|updated_by| bigint(20) unsigned NOT NULL |'0' |Who created/updated the value
+|===
+
+.messaging_unread
+|===
+|Column|Type|Default|Description
+
+|rel_channel| bigint(20) unsigned NOT NULL |'0'|
+|rel_reply_to| bigint(20) unsigned NOT NULL||
+|rel_user| bigint(20) unsigned NOT NULL |'0'|
+|count| int(10) unsigned NOT NULL |'0'|
+|rel_last_message| bigint(20) unsigned NOT NULL |'0'|
+|===

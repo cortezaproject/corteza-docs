@@ -1,0 +1,10 @@
+include::../../variables.adoc[]
+
+= Technologies
+
+// @todo...
+
+= Database support
+
+At the moment, {PRODUCT_NAME} only supports the MySQL database.
+This will change in the near future with the introduction of a ORM and a better test coverage of existing feature.

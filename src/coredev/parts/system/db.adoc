@@ -1,0 +1,6 @@
+include::../../../variables.adoc[]
+
+[#coredev-system-database]
+= {PRODUCT_NAME} system database structure
+
+include::db-tables.adoc[]

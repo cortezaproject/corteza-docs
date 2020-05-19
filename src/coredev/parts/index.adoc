@@ -2,7 +2,11 @@
 
 :leveloffset: +1
 
-include::db.adoc[]
+include::system/index.adoc[]
+
+include::compose/index.adoc[]
+
+include::messaging/index.adoc[]
 
 include::api-server.adoc[]
 

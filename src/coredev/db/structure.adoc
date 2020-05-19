@@ -1,0 +1,23 @@
+include::../../variables.adoc[]
+
+= {PRODUCT_NAME} database structure
+
+This section provides an overview of the entire database structure.
+You can use the following links to refer to:
+
+* <<coredev-system-database>>,
+* <<coredev-compose-database>>,
+* <<coredev-messaging-database>>.
+
+== {PRODUCT_NAME} system database structure
+
+include::../parts/system/db-tables.adoc[]
+
+== {PRODUCT_NAME} {APP_NAME_COMPOSE} database structure
+
+include::../parts/compose/db-tables.adoc[]
+
+== {PRODUCT_NAME} {APP_NAME_MESSAGING} database structure
+
+include::../parts/messaging/db-tables.adoc[]
+

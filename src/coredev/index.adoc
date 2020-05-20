@@ -16,4 +16,6 @@ include::db/index.adoc[]
 
 include::parts/index.adoc[]
 
+include::build/index.adoc[]
+
 :leveloffset: -1

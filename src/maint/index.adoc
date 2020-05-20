@@ -26,6 +26,9 @@ include::../variables.adoc[]
  - {GIT_REPO_LINK_PREFIX}[Messaging] collaboration platform that allows teams to collaborate more efficiently and communicate safely with other organizations or customers
  - {GIT_REPO_LINK_PREFIX}[{APP_NAME_SHELL}] is a unified workspace to access and run third-party web and {PRODUCT_NAME} applications. Centralized access management from a single console enables administrative control over who can see or access applications
 
+image::assets/arch-overview.png[{PRODUCT_NAME} architectural overview]
+
+
 :leveloffset: +1
 
 include::requirements.adoc[]

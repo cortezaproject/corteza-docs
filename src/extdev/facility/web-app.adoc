@@ -75,6 +75,10 @@ Other than that, the flow is as follows:
 .. execute the automation with the above generated meta,
 .. handle possible errors.
 
+When it comes to automation script execution, there is a small deviation between {APP_AUTOMATION} server and web application.
+When the automation script is executed inside the web application, it's resources are provided by reference and therefore any changes made to the resource is reflected through the rest of the pipeline without the need of explicit return statements.
+For some resources, such as records, the changes are also reflected on the UI.
+
 [#ext-facility-csuihooks]
 == UI hooks
 

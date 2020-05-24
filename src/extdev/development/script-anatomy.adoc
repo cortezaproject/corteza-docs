@@ -138,3 +138,45 @@ unknown::
 If the resource defines a before event variant, the return value will be used as the updated version of that resource.
 For example: if the automation script is defined with the resource type of `compose:record` and returns the updated version of the `args.$record` value, the the existing version is replaced by the updated version.
 ====
+
+=== Server script vs. client script
+
+There is a small deviation when it comes to client and server script executions.
+One of the differences is that, when it comes to client scripts, the arguments are provided as a reference, meaning that any changes to the resource are reflected to the original object.
+Because of that the resource does not need to be returned in order for the changes to take effect.
+
+For example, running the following code in the client script's exec function will reflect the values without the need of returning the updated record.
+
+[source,js]
+----
+{
+  ...
+  async exec ({ $record }) {
+    $record.values.Field1 = 'value1'
+    $record.values.Field2 = 10
+  },
+}
+----
+
+If your script should be able to revert the the changes, in case of an error, you should use an intermediate object for the new values.
+For example:
+
+[source,js]
+----
+{
+  ...
+  async exec ({ $record }) {
+    const v = { ...$record.values }
+    v.Field1 = 'value1'
+    v.Field2 = 10
+
+    try {
+      await apiOperation($record)
+    } catch (e) {
+      throw new Error(e)
+    }
+
+    $record.setValues(v)
+  },
+}
+----

@@ -6,4 +6,6 @@ include::../../../variables.adoc[]
 
 include::db.adoc[]
 
+include::record-validation.adoc[]
+
 :leveloffset: -1

@@ -1,0 +1,32 @@
+include::../../../variables.adoc[]
+
+[#coredev-compose-recordValidation]
+= {PRODUCT_NAME} {APP_NAME_COMPOSE} Record Validation
+
+{PRODUCT_NAME} {APP_NAME_COMPOSE} provides a powerful, flexible system for record validation that can be used for simple operations such as checking if the field is empty or complex operations that require API access.
+
+All validator errors are instances of `validator.ValidatorError` class, with the interface of:
+
+[source,ts]
+----
+interface ValidatorError {
+  kind: string;<1>
+  message: string;<2>
+  meta: { [key: string]: unknown };<3>
+}
+----
+<1> The kind of the error; for now, this can be an arbitrary string that describes the error.
+<2> The optional message with a more verbose error description.
+Defaults to `err.kind`.
+<3> A loosely defined object that stores any additional metadata, such as field name, recordID, ...
+
+== The validation flow
+
+. Dispatch `beforeFormSubmit` event,
+** if any automation script returns a `validator.ValidatorError`, stop the execution and show the errors,
+. run the `validator.RecordValidator` system,
+.. on `validator.ValidatorError`, dispatch the `onFormSubmitError` event that can be used to fix the validation errors,
+.. run the `validator.RecordValidator` system,
+*** if errors persist, stop the execution and show the errors,
+. request record create/update on the API,
+** if the API returns a `validator.ValidatorError`, stop the execution and show the errors.

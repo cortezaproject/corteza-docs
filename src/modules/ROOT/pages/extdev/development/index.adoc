@@ -23,4 +23,6 @@ include::client-scripts.adoc[]
 
 include::server-scripts.adoc[]
 
+include::record-validation.adoc[]
+
 :leveloffset: -1

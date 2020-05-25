@@ -14,7 +14,7 @@ services:
     healthcheck: { test: ["CMD", "mysqladmin" ,"ping", "-h", "localhost"], timeout: 20s, retries: 10 }
 
   server:
-    image: cortezaproject/corteza-server:${VERSION}
+    image: cortezaproject/corteza-server-monolith:${VERSION}
     restart: on-failure
     env_file: [ .env ]
     environment:

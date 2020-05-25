@@ -17,7 +17,7 @@ services:
     # volumes: [ "./data/db:/var/lib/mysql" ]
 
   server:
-    image: cortezaproject/corteza-server:${VERSION}
+    image: cortezaproject/corteza-server-monolith:${VERSION}
     restart: on-failure
     env_file: [ .env ]
     depends_on: [ db, corredor ]

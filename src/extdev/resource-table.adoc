@@ -3,4 +3,7 @@ include::../variables.adoc[]
 [#ext-resevt]
 = Resources and Events
 
-@todo auto generate this section
+include::development/events/system/index.adoc[]
+include::development/events/compose/index.adoc[]
+include::development/events/messaging/index.adoc[]
+=

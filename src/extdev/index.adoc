@@ -1,4 +1,6 @@
 include::../variables.adoc[]
+
+[#extdev-index]
 = Extending and Customizing {PRODUCT_NAME}
 :toc: left
 :toclevels: 2

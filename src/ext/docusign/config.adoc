@@ -1,0 +1,84 @@
+include::../../variables.adoc[]
+
+= Configuration
+
+To get this extension up and running, the following conditions must be met:
+
+== Configuring a sink route
+
+DocuSign works with OAuth protocol, and this requires us to define a callback endpoint.
+
+Define a sink signature with `--method GET` and `--signature-in-path` as the parameters.
+
+Take note of the generated signature.
+We will refer to it as `$SS` in the following sub sections.
+
+[#ext-docusign-config-obtainCredentials]
+== Obtained credentials
+
+1. Under https://admin.docusign.com/api-integrator-key[administration] or https://admindemo.docusign.com/api-integrator-key[demo administration], in the case of testing credentials, add a new application,
+2. specify a descriptive name,
+3. under "Authentication", select "Authorization Code Grant",
+4. under "Authentication", select "+ ADD SECRET KEY" -- take note of the value; we will need it later and it will **not** be visible later on,
+5. under "Additional settings" > "Redirect URIs", select "+ ADD URI".
+Enter the URI in the form of `{{$BASE_URL}}/system/sink/ext_oauth/callback/__sign={{$SS}}` (see below example),
+6. optionally include link to Privacy Policy and Terms of Use in the following two boxes.
+
+[EXAMPLE]
+====
+An example redirect URL:
+
+```
+https://www.my-crm.com/system/sink/ext_oauth/callback/__sign=d6df0f3...RydWV9
+```
+====
+
+== Configured {PRODUCT_NAME} {APP_NAME_COMPOSE} Data Model
+
+[NOTE]
+====
+For now, this must be performed manually.
+This will change in the near future.
+====
+
+Following the `.yaml` files provided in the extension, create:
+
+* required modules,
+* required pages,
+* configure automation blocks.
+
+== Configured {PRODUCT_NAME} {APP_NAME_COMPOSE}
+
+Lastly, we use the parts obtained in the previous step to configure our extension.
+
+Create a single record in the `ext_docusign_configuration` module, and populate the following:
+
+In Production?::
+    The field determines if this credentials are used in production.
+    It's important to note, that your implementation must be approved by DocuSign,
+
+Redirect URL::
+    The field determines the same redirect URL that was used in the above <<ext-docusign-config-obtainCredentials>> section.
+    The URL's **must** match,
+
+Account ID::
+    Under https://admin.docusign.com/api-integrator-key[administration] or https://admindemo.docusign.com/api-integrator-key[demo administration], in the case of testing credentials, take note of the "API Account ID" value,
+
+Integration Key::
+    Under https://admin.docusign.com/api-integrator-key[administration] or https://admindemo.docusign.com/api-integrator-key[demo administration], in the case of testing credentials, select the application you wish to use, and take note of the "Integration Key" value,
+
+Integration Secret::
+    Insert the "secret key" value, that was generated in the above <<#ext-docusign-config-obtainCredentials>> section.
+
+== Obtaining Tokens
+
+To obtain an access and a refresh token, you must complete the OAuth flow.
+Simply invoke the `/client-scripts/compose/docusign/RequestConsent.js:default` automation script with the help of a button, and the system takes care of the rest.
+
+[IMPORTANT]
+====
+Access token expires after 8h, and will be refreshed every 6h in order to assure no downtime.
+
+Refresh tokens expire after approximately 30days, but this can change at any time.
+When the refresh token expires, you are required to repeat the OAuth flow.
+====

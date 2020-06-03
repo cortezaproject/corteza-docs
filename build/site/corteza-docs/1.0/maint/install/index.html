@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Installing Corteza :: Corteza Docs</title>
+    <meta name="generator" content="Antora 2.3.3">
+    <link rel="stylesheet" href="../../../../_/css/site.css">
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="../../../..">Corteza Docs</a>
+      <button class="navbar-burger" data-target="topbar-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+        <a class="navbar-item" href="#">Home</a>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Products</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="#">Product A</a>
+            <a class="navbar-item" href="#">Product B</a>
+            <a class="navbar-item" href="#">Product C</a>
+          </div>
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Services</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="#">Service A</a>
+            <a class="navbar-item" href="#">Service B</a>
+            <a class="navbar-item" href="#">Service C</a>
+          </div>
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Resources</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="#">Resource A</a>
+            <a class="navbar-item" href="#">Resource B</a>
+            <a class="navbar-item" href="#">Resource C</a>
+          </div>
+        </div>
+        <div class="navbar-item">
+          <span class="control">
+            <a class="button is-primary" href="#">Download</a>
+          </span>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="corteza-docs" data-version="1.0">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="../../index.html">Corteza technical and user documentation</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../overview/index.html">Overview</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../overview/index.html#product">Product</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../overview/index.html#security">Security</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../overview/index.html#architecture">Architecture</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../overview/index.html#core-development">Core development</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../overview/index.html#deployment">Deployment</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../overview/index.html#customization">Customization</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../user/index.html">User Manual</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../user/index.html#shell">Corteza one</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../user/index.html#messaging">Corteza Messaging</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../user/index.html#crm">CRM</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../user/index.html#service-cloud">Service cloud</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../admin/index.html">Admin Manual</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../admin/index.html#admin-panel">Corteza Admin Panel</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../admin/index.html#compose">Corteza Low Code</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../index.html">Management and Maintenance</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../index.html#requirements">Technical Requirements</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../index.html#install">Installing Corteza</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../index.html#setup">Setup</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../index.html#backup">Backup and restore</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../extdev/index.html">Extending and Customizing</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../extdev/index.html#getting-started">Getting started</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../extdev/index.html#prerequisite">Prerequisite</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../extdev/index.html#terminology">Terminology</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../extdev/index.html#system-overview">Automation System Overview</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../extdev/index.html#security">Security</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../extdev/index.html#resource-table">Resources and Events</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../extdev/index.html#roadmap">Roadmap</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../extdev/index.html#facility">Automation System Facility</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../extdev/index.html#development">Extension Development</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../extdev/index.html#testing">Extension Testing</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../extdev/index.html#debugging">Extension Debugging</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../extdev/index.html#examples">Extension Examples</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../ext/index.html">Extensions</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ext/index.html#about">About</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ext/index.html#docusign">Docusign</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Corteza technical and user documentation</span>
+    <span class="version">v1.0</span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <span class="title">Corteza technical and user documentation</span>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="../../index.html">v1.0</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../../index.html">Corteza technical and user documentation</a></li>
+    <li><a href="index.html">Installing Corteza</a></li>
+  </ul>
+</nav>
+  <div class="edit-this-page"><a href="https://github.com/cortezaproject/corteza-docs/edit/feature-antora/modules/ROOT/pages/maint/install/index.adoc">Edit this Page</a></div>
+  </div>
+  <div class="content">
+<article class="doc">
+<h1 class="page">Installing Corteza</h1>
+<div class="sect1">
+<h2 id="_corteza_with_docker_compose"><a class="anchor" href="#_corteza_with_docker_compose"></a>Corteza with Docker Compose</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_set_up_docker"><a class="anchor" href="#_set_up_docker"></a>Set up Docker</h3>
+<div class="paragraph">
+<p>If Docker is already set up on the machine where you want to use Corteza, you can skip this section.
+If you are using a Docker version below 18.0, I strongly encourage you to update.</p>
+</div>
+<div class="listingblock">
+<div class="title">If you&#8217;re not sure whether you have Docker, open your console or terminal and enter:</div>
+<div class="content">
+<pre>docker -v</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>If the response is "command not found," download and install a Docker community edition for <a href="https://www.docker.com/products/docker-desktop">desktop</a> or <a href="https://hub.docker.com/search?offering=community&amp;type=edition">server or cloud</a> that fits your environment.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://docs.docker.com/install/#server">Docker installation guide</a></p>
+</li>
+<li>
+<p><a href="https://docs.docker.com/compose/install/">Docker Compose installation guide</a></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_configuration_files"><a class="anchor" href="#_configuration_files"></a>Configuration files</h3>
+<div class="paragraph">
+<p>Very base Corteza service configuration for Docker Compose consists of one or two files:
+obligatory <code>docker-compose.yaml</code> and <code>.env</code> file.</p>
+</div>
+<div class="sect3">
+<h4 id="_environment_file_env"><a class="anchor" href="#_environment_file_env"></a>Environment file (.env)</h4>
+<div class="paragraph">
+<p>The format for environment files is simple and clean with one <code>KEY=VALUE</code> per line.
+File usually has the name <code>.env</code> and is placed in the same directory as an application.
+In Docker Compose context it is placed in the same directory as <code>docker-compose.yaml</code> configuration file.</p>
+</div>
+<div class="olist arabic">
+<div class="title">Environment file is used on three levels:</div>
+<ol class="arabic">
+<li>
+<p>Configuring Docker Compose itself.
+Implicit, as <code>.env</code> file in the same directory as <code>docker-compose.yaml</code>)</p>
+</li>
+<li>
+<p>Utilize values for docker-compose configuration.
+Implicit, as <code>.env</code> file in the same directory as <code>docker-compose.yaml</code>)</p>
+</li>
+<li>
+<p>Passed to configured services.
+Environment file(s) must be explicitly referenced by each service (<code>env_file: [ .env ]</code>)
+You can use <code>.env</code> or one or more environment files.
+See <a href="#Delaying API execution">[Delaying API execution]</a>.</p>
+</li>
+</ol>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-dotenv hljs" data-lang="dotenv"># Docker images version <i class="conum" data-value="1"></i><b>(1)</b>
+VERSION=latest <i class="conum" data-value="2"></i><b>(2)</b></code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>Comment line</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>Key and value</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_docker_compose_yaml_file"><a class="anchor" href="#_docker_compose_yaml_file"></a>docker-compose.yaml file</h4>
+<div class="paragraph">
+<p>This file describes service, network and storage configuration in a human and machine readable format.</p>
+</div>
+<div class="paragraph">
+<p>Full Docker Compose file reference documentation is available on <a href="https://docs.docker.com/compose/compose-file/">docs.docker.com</a>.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>YAML (a recursive acronym for "YAML Ain&#8217;t Markup Language") is a human-readable data-serialization language.
+It is commonly used for configuration files and in applications where data is being stored or transmitted.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Environmental variables from <code>.env</code> can be utilized to make <code>docker-compose.yaml</code> file more compact, modular and simpler to change.
+You can define a variable (like <code>VERSION</code>) and then use it inside yaml file (as ${VERSION}`).</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_basic_setup_for_local_demo"><a class="anchor" href="#_basic_setup_for_local_demo"></a>Basic setup for local demo</h2>
+<div class="sectionbody">
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Provided configuration files for demo a few extra settings that enable it to run on a local environment.
+All services are on the same network, ports binded to host&#8217;s network, etc.</p>
+</div>
+<div class="paragraph">
+<p>This is not optimal setup for production environment.
+See <a href="#_nginx_proxy">Nginx Proxy</a> and <a href="#_production_deployment">Production deployment</a> below configuration examples that are more suited for production deployment.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="listingblock">
+<div class="title"><code>.env</code></div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-dotenv hljs" data-lang="dotenv">Unresolved include directive in modules/ROOT/pages/maint/install/basic.adoc - include::examples/basic/.env[]</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title"><code>docker-compose.yaml</code></div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">Unresolved include directive in modules/ROOT/pages/maint/install/basic.adoc - include::examples/basic/docker-compose.yaml[]</code></pre>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Some of the configuration lines in the provided YAML examples and files are written in a single line for brevity and simpler enabling/disabling (commenting-out).</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Create an empty directory, with <code>.env</code> and <code>docker-compose.yaml</code> files and copy contents from the examples above.
+Some operating systems do not like files that start with a dot so make sure <code>.env</code> file is properly named.</p>
+</div>
+<div class="listingblock">
+<div class="title">Start all services (database, server, corredor, webapp)</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">docker-compose up -d</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">Running <code>docker-compose ps</code> should produce something like:</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">Unresolved include directive in modules/ROOT/pages/maint/install/basic.adoc - include::examples/basic/output-ps.txt[]</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>You can see 4 services up and running.
+Two of them are accessible on localhost (ports 8080 and 8081).</p>
+</div>
+<div class="paragraph">
+<p>Direct your browser to <code><a href="http://localhost:8080" class="bare">http://localhost:8080</a></code> (use another port if you changed value for <code>LOCAL_DEMO_SPA_PORT</code>).
+On first visit, you should be redirected to <code>/auth</code> where you can login, sign up, etc.</p>
+</div>
+<div class="paragraph">
+<p>Create your account through the sign-up form.
+Corteza detects if the database is empty and auto-promotes first user to administration role.</p>
+</div>
+<div class="listingblock">
+<div class="title">Stopping and removing containers and date (do not ask for confirmation, stop containers if running and remove volumes)</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">docker-compose rm --force --stop -v</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Other useful docker-compose commands:</p>
+</div>
+<div class="listingblock">
+<div class="title">View container output (logs) and follow output and output 20 lines from each service</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">docker-compose logs --follow --tail 20</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_nginx_proxy"><a class="anchor" href="#_nginx_proxy"></a>Nginx Proxy</h2>
+<div class="sectionbody">
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Nginx Proxy setup is not needed for local testing.
+Instructions from <a href="#_basic_setup_for_local_demo">Basic setup for local demo</a> are enough to get local demo up &amp; running.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p><a href="https://github.com/jwilder/nginx-proxy">Nginx Proxy</a> (docker image <code>jwilder/nginx-proxy</code>) is auto-configurable reverse-proxy that routes traffic from your public IP to containers on the host
+<a href="https://github.com/JrCs/docker-letsencrypt-nginx-proxy-companion">LetsEncrypt Nginx Proxy Companion</a> (docker image <code>jrcs/letsencrypt-nginx-proxy-companion</code>) handles the automated creation, renewal and use of Let&#8217;s Encrypt certificates for proxyed Docker containers.</p>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+In the following instructions, we assume you don&#8217;t have anything similar set up on your current environment. If you have other means to provide traffic forwarding and/or SSL certificate handling, proceed with caution!
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Please see <a href="https://github.com/jwilder/nginx-proxy">Nginx Proxy</a> and <a href="https://github.com/JrCs/docker-letsencrypt-nginx-proxy-companion">LetsEncrypt Nginx Proxy Companion</a> Github pages to</p>
+</div>
+<div class="olist arabic">
+<div class="title">How it works &amp; benefits</div>
+<ol class="arabic">
+<li>
+<p>Both images mount /var/run/docker.sock (read-only) and listen to docker events (when containers start or stop)</p>
+</li>
+<li>
+<p>Containers (like Corteza server, and fronted application) that are exposed publicly no longer have to publish their ports on public IP</p>
+</li>
+<li>
+<p>No complicated firewall or network forwarding rules are needed</p>
+</li>
+<li>
+<p>Containers MUST (also) be on the same network as <code>nginx-proxy</code> (in the examples we&#8217;re using network named <code>proxy</code>)</p>
+</li>
+<li>
+<p>Nginx Proxy detects <code>VIRTUAL_HOST</code> on each container that comes online.
+Then it auto-generates configuration, reloads itself and starts forwarding HTTP traffic to that container</p>
+</li>
+<li>
+<p>LetsEncrypt companion detects <code>LETSENCRYPT_HOST</code> and starts certificate creation process with LE.
+It also reconfigures nginx-proxy, adds certificates and enables redirection from HTTP to HTTPS</p>
+</li>
+</ol>
+</div>
+<div class="listingblock">
+<div class="title"><code>docker-compose.yaml</code></div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">Unresolved include directive in modules/ROOT/pages/maint/install/nginx-proxy.adoc - include::examples/nginx-proxy/docker-compose.yaml[]</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">Add <code>custom.conf</code> Nginx configuration file next to <code>docker-compose.yaml</code></div>
+<div class="content">
+<pre class="highlightjs highlight"><code>Unresolved include directive in modules/ROOT/pages/maint/install/nginx-proxy.adoc - include::examples/nginx-proxy/custom.conf[]</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">Start both services</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">docker-compose up -d</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">Running <code>docker-compose ps</code> should produce something like:</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">Unresolved include directive in modules/ROOT/pages/maint/install/nginx-proxy.adoc - include::examples/nginx-proxy/output-ps.txt[]</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_production_deployment"><a class="anchor" href="#_production_deployment"></a>Production deployment</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>This example describes production-ready deployment.
+It depends on running nginx-proxy service (see <a href="#_nginx_proxy">Nginx Proxy</a>)</p>
+</div>
+<div class="paragraph">
+<p>This demo uses 2 example domains: <code>your-demo.example.tld</code> and <code>api.your-demo.example.tld</code>.
+You should configure your DNS, add 2 hosts and point them to the IP address (A record) or hostname (CNAME record) of the server you&#8217;re using for Corteza deployment.</p>
+</div>
+<div class="listingblock">
+<div class="title"><code>.env</code></div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-dotenv hljs" data-lang="dotenv">Unresolved include directive in modules/ROOT/pages/maint/install/production.adoc - include::examples/production/.env[]</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title"><code>docker-compose.yaml</code></div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">Unresolved include directive in modules/ROOT/pages/maint/install/production.adoc - include::examples/production/docker-compose.yaml[]</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Create an empty directory, with <code>.env</code> and <code>docker-compose.yaml</code> files and copy contents from the examples above.
+Some operating systems do not like files that start with a dot so make sure <code>.env</code> file is properly named.</p>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>We advise against merging/mixing Corteza and <code>nginx-proxy</code> in the same directory.</p>
+</div>
+<div class="paragraph">
+<p>It can be done but requires some experience with Docker Compose.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Make sure your nginx-proxy service is running before running.
+If nginx-proxy service is not started or you changed your configuration somehow, you might get error like:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>ERROR: Network proxy declared as external, but could not be found. Please create the network manually using `docker network create proxy` and try again.</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Inspect your configuration files and compare them with ones provied in this documentation.</p>
+</div>
+<div class="listingblock">
+<div class="title">Start all services (database, server, corredor, webapp)</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">docker-compose up -d</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">Running <code>docker-compose ps</code> should produce something like:</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">Unresolved include directive in modules/ROOT/pages/maint/install/production.adoc - include::examples/production/output-ps.txt[]</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>You can see 4 services up and running.
+Your services should soon (under a couple of minutes) be available on the configured domains.</p>
+</div>
+<div class="paragraph">
+<p>Direct your browser to <code><a href="http://your-demo.example.tld" class="bare">http://your-demo.example.tld</a></code>.
+On first visit, you should be redirected to <code>/auth</code> where you can login, sign up, etc.</p>
+</div>
+<div class="paragraph">
+<p>Create your account through the sign-up form.
+Corteza detects if the database is empty and auto-promotes first user to administration role.</p>
+</div>
+<div class="listingblock">
+<div class="title">Stopping and removing containers and date (do not ask for confirmation, stop containers if running and remove volumes)</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">docker-compose rm --force --stop -v</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Other useful docker-compose commands:</p>
+</div>
+<div class="listingblock">
+<div class="title">View container output (logs) and follow output and output 20 lines from each service</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">docker-compose logs --follow --tail 20</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_relaying_inbound_email_to_corteza_with_postfix"><a class="anchor" href="#_relaying_inbound_email_to_corteza_with_postfix"></a>Relaying inbound email to Corteza with Postfix</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>This quick how-to show what and where to modify in Postfix' configuration files to enable forwarding emails to Corteza.</p>
+</div>
+<div class="listingblock">
+<div class="title">Change <code>/etc/postfix/main.cf</code>:</div>
+<div class="content">
+<pre class="highlightjs highlight"><code>virtual_alias_maps = pcre:/etc/postfix/virtual_alias</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">Add virtual alias to <code>/etc/postfix/virtual_alias</code>:</div>
+<div class="content">
+<pre class="highlightjs highlight"><code># Catch-all for corteza.domain.tld and redirect it to corteza_sink mailbox
+/.+@corteza\.domain\.tld$/ corteza_sink</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">Update virtual-alias map/db file and restart postfix</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell script hljs" data-lang="shell script">postmap /etc/postfix/virtual_alias
+postfix reload</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">Add entry to <code>/etc/aliases</code></div>
+<div class="content">
+<pre class="highlightjs highlight"><code>corteza_sink: "| https://api.your-corteza-instance.tld/system/system/sink?content-type=email&expires=&method=POST&origin=postfix&sign=6280d530ae74f1f9c55e4dd362c9ef2094221287'"</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This forwards mail for specific mailbox a curl command.
+Curl command then pushes that raw email to sink endpoint on Corteza API.</p>
+</div>
+<div class="paragraph">
+<p>See <a href="../setup/email-automation.adoc">email automation setup</a> for in information how to create a signed URL</p>
+</div>
+<div class="listingblock">
+<div class="title">Update aliases</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell script hljs" data-lang="shell script">newaliases</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p><strong>Test changes</strong></p>
+</div>
+<div class="paragraph">
+<p>You can verify if configuration changes have desired effect by sending an email to the configured address or
+with a simple command line:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell script hljs" data-lang="shell script">echo "hello corteza"|mail -s 'hello' test@corteza.domain.tld</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p><em>It&#8217;s best if you try this from a different machine than the one running postfix</em></p>
+</div>
+<div class="paragraph">
+<p>This should produce a new entry in your mail log (usually `/var/log/mail.log) where you can see information about
+received email</p>
+</div>
+<div class="listingblock">
+<div class="title">Log example:</div>
+<div class="content">
+<pre class="highlightjs highlight"><code>postfix/smtpd[23155]: connect from some-host.tld[xxx.xxx.xxx.xxx]
+postfix/smtpd[23155]: 277AF5C1B78: client=some-host.tld[xxx.xxx.xxx.xxx]
+postfix/cleanup[23159]: 277AF5C1B78: message-id=&lt;b808218e-ce41-6cbf-cb4f-be2b4cf8f776@crust.tech&gt;
+postfix/qmgr[14490]: 277AF5C1B78: from=&lt;sender@some-host.tld&gt;, size=1476, nrcpt=1 (queue active)
+postfix/smtpd[23155]: disconnect from some-host.tld[xxx.xxx.xxx.xxx] ehlo=2 starttls=1 mail=1 rcpt=1 data=1 quit=1 commands=7
+postfix/local[23160]: 277AF5C1B78: to=&lt;corteza_sink@my-server&gt;, orig_to=&lt;demo@corteza.domain.tld&gt;, relay=local, delay=0.67, delays=0.03/0.01/0/0.62, dsn=2.0.0, status=sent (delivered to command:  curl --data-binary @- 'https://api.your-corteza-instance.tld/system/sink?content-type=email&amp;expires=&amp;method=POST&amp;origin=postfix&amp;sign=6280d530ae74f1f9c55e4dd362c9ef2094221287'')
+postfix/qmgr[14490]: 277AF5C1B78: removed</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_forward_logs_to_elk"><a class="anchor" href="#_forward_logs_to_elk"></a>Forward logs to ELK</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Corteza server can log requests, responses, errors and other events as JSON.
+By default, this logs are outputted to Docker container console.
+You can configure your (docker-compose) services to forward these logs to an external service.</p>
+</div>
+<div class="paragraph">
+<p>We&#8217;ve prepared <code>cortezaproject/elk</code> docker image with the necessary setup that can consume and</p>
+</div>
+<div class="sect2">
+<h3 id="_using_gelf_docker_logging_driver_and_gelf_elk_server"><a class="anchor" href="#_using_gelf_docker_logging_driver_and_gelf_elk_server"></a>Using GELF docker logging driver and GELF ELK server</h3>
+<div class="paragraph">
+<p>The following example assumes you&#8217;ve taken configuration from <a href="https://github.com/cortezaproject/elk">cortezaproject/elk</a> without any changes.
+You should also extend defined services in your <code>docker-compose.yml</code> with <code>networks</code> and <code>logging</code> section:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml"># ...
+    networks: [ elk ] # or add elk to networks you already have
+    logging:
+      driver: gelf
+      options:
+        gelf-address: "tcp://elk:12201"
+# ...</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</article>
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <p>This page was built using the Antora default UI.</p>
+  <p>The source code for this UI is licensed under the terms of the MPL-2.0 license.</p>
+</footer>
+<script src="../../../../_/js/site.js"></script>
+<script async src="../../../../_/js/vendor/highlight.js"></script>
+  </body>
+</html>

@@ -1,0 +1,3742 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Extending and Customizing Corteza :: Corteza Docs</title>
+    <meta name="generator" content="Antora 2.3.3">
+    <link rel="stylesheet" href="../../../_/css/site.css">
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="../../..">Corteza Docs</a>
+      <button class="navbar-burger" data-target="topbar-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+        <a class="navbar-item" href="#">Home</a>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Products</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="#">Product A</a>
+            <a class="navbar-item" href="#">Product B</a>
+            <a class="navbar-item" href="#">Product C</a>
+          </div>
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Services</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="#">Service A</a>
+            <a class="navbar-item" href="#">Service B</a>
+            <a class="navbar-item" href="#">Service C</a>
+          </div>
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Resources</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="#">Resource A</a>
+            <a class="navbar-item" href="#">Resource B</a>
+            <a class="navbar-item" href="#">Resource C</a>
+          </div>
+        </div>
+        <div class="navbar-item">
+          <span class="control">
+            <a class="button is-primary" href="#">Download</a>
+          </span>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="corteza-docs" data-version="1.0">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="../index.html">Corteza technical and user documentation</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../overview/index.html">Overview</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../overview/index.html#product">Product</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../overview/index.html#security">Security</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../overview/index.html#architecture">Architecture</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../overview/index.html#core-development">Core development</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../overview/index.html#deployment">Deployment</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../overview/index.html#customization">Customization</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../user/index.html">User Manual</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../user/index.html#shell">Corteza one</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../user/index.html#messaging">Corteza Messaging</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../user/index.html#crm">CRM</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../user/index.html#service-cloud">Service cloud</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../admin/index.html">Admin Manual</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../admin/index.html#admin-panel">Corteza Admin Panel</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../admin/index.html#compose">Corteza Low Code</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../maint/index.html">Management and Maintenance</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../maint/index.html#requirements">Technical Requirements</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../maint/index.html#install">Installing Corteza</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../maint/index.html#setup">Setup</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../maint/index.html#backup">Backup and restore</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item is-current-page" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="index.html">Extending and Customizing</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#getting-started">Getting started</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#prerequisite">Prerequisite</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#terminology">Terminology</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#system-overview">Automation System Overview</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#security">Security</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#resource-table">Resources and Events</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#roadmap">Roadmap</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#facility">Automation System Facility</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#development">Extension Development</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#testing">Extension Testing</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#debugging">Extension Debugging</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#examples">Extension Examples</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../ext/index.html">Extensions</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../ext/index.html#about">About</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../ext/index.html#docusign">Docusign</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Corteza technical and user documentation</span>
+    <span class="version">v1.0</span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <span class="title">Corteza technical and user documentation</span>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="../index.html">v1.0</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../index.html">Corteza technical and user documentation</a></li>
+    <li><a href="index.html">Extending and Customizing</a></li>
+  </ul>
+</nav>
+  <div class="edit-this-page"><a href="https://github.com/cortezaproject/corteza-docs/edit/feature-antora/modules/ROOT/pages/extdev/index.adoc">Edit this Page</a></div>
+  </div>
+  <div class="content">
+<article class="doc">
+<h1 class="page">Extending and Customizing Corteza</h1>
+<div class="sect1">
+<h2 id="getting-started"><a class="anchor" href="#getting-started"></a>Automation</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Corteza provides a core with a minimal set of features required for functionality, reliability and security of the system.
+Automation system allows us to build upon the core functionalities and develop new use case specific features, such as implementing business logic, custom user interface, task automation and much more.</p>
+</div>
+<div class="sect2">
+<h3 id="_what_can_automations_do"><a class="anchor" href="#_what_can_automations_do"></a>What can automations do</h3>
+<div class="paragraph">
+<p>With the help of the automation system we are able to:</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">Automate common/repetitive tasks</dt>
+<dd>
+<p>Automate repetitive, time consuming tasks and focus on the important bits.
+Such tasks can be calculating values, sending emails and generating documents,</p>
+</dd>
+<dt class="hdlist1">Implement business logic</dt>
+<dd>
+<p>Implement business logic specific to your use case.
+This can be as simple as sending emails to your clients or implementing a full blown CRM system,</p>
+</dd>
+<dt class="hdlist1">Data processing</dt>
+<dd>
+<p>Run complex statistic operations on your data to uncover how you should tackle your market,</p>
+</dd>
+<dt class="hdlist1">Data validation</dt>
+<dd>
+<p>Validate user input to assure data validity and thus assuring a robust system.</p>
+</dd>
+</dl>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>There is a lot more that we can achieve with the automation system.
+For additional examples and ideas refer to the <a href="#ext-examples">Extension Examples</a> section or get in touch with us.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_example_use_cases"><a class="anchor" href="#_example_use_cases"></a>Example use cases</h3>
+<div class="paragraph">
+<p>Some of the more common use cases include:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>sending a welcome email to a newly registered user,</p>
+</li>
+<li>
+<p>inserting calculated price fields,</p>
+</li>
+<li>
+<p>validating user input,</p>
+</li>
+<li>
+<p>performing additional data processing before saving data,</p>
+</li>
+<li>
+<p>implementing external integrations such as DocVerify and Twilio.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="prerequisite"><a class="anchor" href="#prerequisite"></a>Prerequisite</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Before we can dive into the fun bits, we need to cover some basics and setup the system.
+Automation scripts are written in JavaScript and executed either inside the user&#8217;s web browser or inside the specialized Corredor server.</p>
+</div>
+<div class="sect2">
+<h3 id="_installation_and_setup"><a class="anchor" href="#_installation_and_setup"></a>Installation and setup</h3>
+<div class="paragraph">
+<p>In order for Corteza system and automation scripts to function properly, you are required to firstly setup Corteza server and all relevant front-end web applications.
+After that you have to setup the Corredor server.
+Refer to <a href="#maint-index">[maint-index]</a> for details on the detailed setup process.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_modern_javascript"><a class="anchor" href="#_modern_javascript"></a>Modern JavaScript</h3>
+<div class="paragraph">
+<p>In order to tackle automation script development we strongly recommend becoming familiar with modern JavaScript, since all following examples heavily rely on it.
+If your knowledge of JavaScript is up to date, you can safely skip this subsection.
+The rest of the subsection provides a quick overview of the important bits, and points you to other resources for further reading.</p>
+</div>
+<div class="sect3">
+<h4 id="_about_asyncawait_and_promises"><a class="anchor" href="#_about_asyncawait_and_promises"></a>About async/await and Promises</h4>
+<div class="paragraph">
+<p>In short: Promises solve problem of asynchronous code and remove the need for cumbersome callbacks via function parameters.
+They provide a simple and readable syntax and error handling via <code>.catch()</code>.</p>
+</div>
+<div class="paragraph">
+<p>This MDN article goes into more details: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Using_promises">about using promises</a>.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_about_use_of_awaitasync_syntactic_sugar"><a class="anchor" href="#_about_use_of_awaitasync_syntactic_sugar"></a>About use of await/async syntactic sugar</h4>
+<div class="paragraph">
+<p>The <code>await</code> keyword allows us to implement async code in a iterative like fashion by blocking execution until the promise resolves.
+It&#8217;s important to note that the await keyword can only be used within <code>async</code> functions.</p>
+</div>
+<div class="paragraph">
+<p>This MDN article goes into more details: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/await">about await</a>.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_the_arrow_function_expression"><a class="anchor" href="#_the_arrow_function_expression"></a>The arrow function expression (&#8658;)</h4>
+<div class="paragraph">
+<p>Arrow functions are used as a compact alternative to a regular function expression.
+Most of the times, they can easily be used inside <code>.then()</code>, <code>.catch()</code> and <code>.finally()</code>.</p>
+</div>
+<div class="paragraph">
+<p>This MDN article goes into more details and exposes some limitations and why they can not completely replace regular functions: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions">about arrow functions</a></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="terminology"><a class="anchor" href="#terminology"></a>Terminology</h2>
+<div class="sectionbody">
+<div class="dlist">
+<dl>
+<dt class="hdlist1">Extension</dt>
+<dd>
+<p>A collection of automation scripts, corresponding libraries and other assets,</p>
+</dd>
+<dt class="hdlist1">Script or Automation Script</dt>
+<dd>
+<p>Combination of automation triggers, meta data and the code it self,</p>
+</dd>
+<dt class="hdlist1">Client scripts</dt>
+<dd>
+<p>Automation scripts executed within a client&#8217;s browser,</p>
+</dd>
+<dt class="hdlist1">Server scripts</dt>
+<dd>
+<p>Automation scripts executed inside the Corredor server,</p>
+</dd>
+<dt class="hdlist1">Triggers or Automation Triggers</dt>
+<dd>
+<p>A set of rules, constraints and options to define when, where and how an automation script is executed,</p>
+</dd>
+<dt class="hdlist1">Resource Type</dt>
+<dd>
+<p>Defines the resource that this automation script is compatible with.
+It also defines the input and output of the automation script,</p>
+</dd>
+<dt class="hdlist1">Event Type</dt>
+<dd>
+<p>Defines what event causes this automation script to execute.
+For a full list of event types and availability based on the defined resource see @todo&#8230;&#8203;</p>
+</dd>
+<dt class="hdlist1">Trigger constraints</dt>
+<dd>
+<p>A set of constraints that must be truthy in order for the automation script to be available and executable,</p>
+</dd>
+<dt class="hdlist1">Trigger weight</dt>
+<dd>
+<p>Allows us to specify the order of automation script execution for the given event,</p>
+</dd>
+<dt class="hdlist1">User interface properties or UIProps</dt>
+<dd>
+<p>Determine front-end aspects of the automation script invocation component; such as placement, label and color (see UIHooks),</p>
+</dd>
+<dt class="hdlist1">Explicitly triggered or manual scripts</dt>
+<dd>
+<p>Automation scripts that are executed explicitly, such as a button press or an API endpoint call,</p>
+</dd>
+<dt class="hdlist1">Implicitly triggered scripts</dt>
+<dd>
+<p>Automation scripts that are executed implicitly as a collateral to an event, such as record creation and form submission,</p>
+</dd>
+<dt class="hdlist1">Deferred or scheduled scripts</dt>
+<dd>
+<p>Automation scripts that are executed at a specified time or on a configured interval,</p>
+</dd>
+<dt class="hdlist1">Batch or iterator scripts</dt>
+<dd>
+<p>Automation scripts that are executed over a larger set of resources at the same time (used for batch processing).</p>
+</dd>
+<dt class="hdlist1">Sink scripts</dt>
+<dd>
+<p>Automation scripts that are executed on HTTP requests and allow implementation of new endpoints,</p>
+</dd>
+<dt class="hdlist1">Event bus</dt>
+<dd>
+<p>Event handling system inside client web applications and on the server,</p>
+</dd>
+<dt class="hdlist1">UIHooks</dt>
+<dd>
+<p>Define a front-end components that is used to execute explicit (manual) automation scripts (see UIProps).</p>
+</dd>
+</dl>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="system-overview"><a class="anchor" href="#system-overview"></a>Automation System Overview</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_automation_system_diagram"><a class="anchor" href="#_automation_system_diagram"></a>Automation system diagram</h3>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>This will probably become a UML diagram; this one is for development (faster updates).
+@todo add some annotations and explanations on the diagram.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../_images/assets/automation-system-dig.png" alt="Sunset">
+</div>
+<div class="title">Figure 1. Abstract representation of the automation system.</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_automation_system_components"><a class="anchor" href="#_automation_system_components"></a>Automation system components</h3>
+<div class="sect3">
+<h4 id="_corredor_server"><a class="anchor" href="#_corredor_server"></a>Corredor server</h4>
+<div class="olist arabic">
+<div class="title">When Corredor server starts, it</div>
+<ol class="arabic">
+<li>
+<p>scans all search paths from configuration (<code>.env</code>) and load all scripts,</p>
+</li>
+<li>
+<p>scans all <code>package.json</code> files in all search paths, and install additional packages,</p>
+</li>
+<li>
+<p>runs file-change watchers for automation script reloading,</p>
+</li>
+<li>
+<p>runs file-change watchers for <code>package.json</code> files for dependency reloading.</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_corteza_server"><a class="anchor" href="#_corteza_server"></a>Corteza server</h4>
+<div class="olist arabic">
+<div class="title">When Corteza server starts, it</div>
+<ol class="arabic">
+<li>
+<p>connects to Corredor server and loads all server and client scripts,</p>
+</li>
+<li>
+<p>creates event handlers from server script triggers and registers them in the event bus,</p>
+</li>
+<li>
+<p>configures the scheduler system to trigger both <code>onTimestamp</code> and <code>onInterval</code> events once per minute at the minute.</p>
+</li>
+</ol>
+</div>
+<div class="olist arabic">
+<div class="title">When scheduling system on Corteza server ticks (once per minute), it</div>
+<ol class="arabic">
+<li>
+<p>dispatches event through the event bus,</p>
+</li>
+<li>
+<p>checks for registered events with compatible constraints,</p>
+</li>
+<li>
+<p>requests Corredor server to execute the relevant scripts.</p>
+</li>
+</ol>
+</div>
+<div class="olist arabic">
+<div class="title">When user indirectly runs automation script via some action on the <strong>server</strong> (implicitly triggered <strong>server</strong> scripts)</div>
+<ol class="arabic">
+<li>
+<p>raises a specific event (<code>onSomething</code>, <code>beforeSomethingElse</code>, <code>afterSomethingElse</code>) and dispatches it through the event bus,</p>
+</li>
+<li>
+<p>checks for registered events with compatible constraints,</p>
+</li>
+<li>
+<p>requests Corredor server to execute the relevant scripts.</p>
+</li>
+</ol>
+</div>
+<div class="olist arabic">
+<div class="title">When request is sent to <code>/sink</code> endpoint</div>
+<ol class="arabic">
+<li>
+<p>raises a <code>onRequest</code> event and dispatches it through the event bus,</p>
+</li>
+<li>
+<p>checks for registered events with compatible constraints,</p>
+</li>
+<li>
+<p>requests Corredor server to execute the relevant scripts.</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_corteza_web_application"><a class="anchor" href="#_corteza_web_application"></a>Corteza web application</h4>
+<div class="olist arabic">
+<div class="title">When Corteza web application loads in a browser, it</div>
+<ol class="arabic">
+<li>
+<p>fetches appropriate automation scripts from the Corteza server in the form of a bundle,</p>
+</li>
+<li>
+<p>registers client scripts from the bundle in the event bus and the ui hooks.</p>
+</li>
+</ol>
+</div>
+<div class="olist arabic">
+<div class="title">When user clicks on an automation button (explicitly triggered <strong>client</strong> script), it</div>
+<ol class="arabic">
+<li>
+<p>raises an event from the given configuration and the invocation context (related resource, user, custom arguments, &#8230;&#8203;),</p>
+</li>
+<li>
+<p>checks for registered events with compatible constraints,</p>
+</li>
+<li>
+<p>requests the script&#8217;s execution inside the browser context (client-side execution).</p>
+</li>
+</ol>
+</div>
+<div class="olist arabic">
+<div class="title">When user clicks on an automation button (explicitly triggered <strong>server</strong> script), it</div>
+<ol class="arabic">
+<li>
+<p>raises an event from the given configuration and the invocation context (related resource, user, custom arguments, &#8230;&#8203;),</p>
+</li>
+<li>
+<p>checks for registered events with compatible constraints,</p>
+</li>
+<li>
+<p>requests Corredor server to execute the relevant scripts via the Corteza server.</p>
+</li>
+</ol>
+</div>
+<div class="olist arabic">
+<div class="title">When user indirectly runs automation script via some action in the <strong>client</strong> app (implicitly triggered <strong>client</strong> scripts), it</div>
+<ol class="arabic">
+<li>
+<p>raises a specific event (<code>onSomething</code>, <code>beforeSomethingElse</code>, <code>afterSomethingElse</code>) and dispatches it through the event bus,</p>
+</li>
+<li>
+<p>checks for registered events with compatible constraints,</p>
+</li>
+<li>
+<p>requests the script&#8217;s execution inside the browser context (client-side execution).</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="ext-security"><a class="anchor" href="#ext-security"></a>Security</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>As with any system, automation scripts can cause unwanted complications if misused or left open for modification by users who might do harm, willingly or otherwise.</p>
+</div>
+<div class="paragraph">
+<p>You (or whoever is responsible for the system) is responsible for making sure that the automation scripts are audited and written in a way that they are not harmful to the system or the data.</p>
+</div>
+<div class="sect2">
+<h3 id="_automation_script_execution"><a class="anchor" href="#_automation_script_execution"></a>Automation script execution</h3>
+<div class="paragraph">
+<p>Automation script execution <strong>is not</strong> jailed or virtualized and it is ran in the same context as the automation system; either Corredor in the case of server scripts or any front-end application in case of client scripts.</p>
+</div>
+<div class="paragraph">
+<p>It is recommended to make use of security context feature described in the following subsection, and limit the permissions each automation script can use.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_security_context"><a class="anchor" href="#_security_context"></a>Security context</h3>
+<div class="paragraph">
+<p>Automation scripts are no exception to Corteza permission system; any operation performed by an automation script (such as record creation) must pass all permission checks required by the resource.
+When not defined otherwise, manual and implicit automation triggers use the current user&#8217;s permission scope for the automation scripts security context.</p>
+</div>
+<div class="paragraph">
+<p>But there are cases where this is not sufficient, and the execution requires permissions that the invoker does not have. For such cases we can specify a custom security context that the automation script will run in.</p>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="paragraph">
+<p>An automation script requires system user creation, which requires a specific set of  privileges that user, running the script might not have. Instead of giving our users elevated privileges, we can define the security context of the automation script.</p>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>The same also applies to deferred, interval and sink automation scripts, since they are executed by the system without any user interaction (at least we can&#8217;t be sure who exactly executed it).
+In this case, the security context is <strong>required</strong>.</p>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Due to privacy and security concerns, security context definition is <strong>not</strong> available for client side scripts.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>When using custom permission context, we strongly recommend using a system user with the minimal required set of permissions to execute the required operations.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_role_based_access_control"><a class="anchor" href="#_role_based_access_control"></a>Role-based access control</h3>
+<div class="paragraph">
+<p>Role-based access control allows us to define what user can access what automation scripts based on their permissions.</p>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>This only applies to explicit and client side automation scripts; server side scripts (except explicit scripts) ignore this check.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="ext-resevt"><a class="anchor" href="#ext-resevt"></a>Resources and Events</h2>
+<div class="sectionbody">
+
+</div>
+</div>
+<div class="sect1">
+<h2 id="_compose_events"><a class="anchor" href="#_compose_events"></a>Compose events</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_system"><a class="anchor" href="#_system"></a>system</h3>
+<div class="ulist">
+<div class="title">List of events on <code>system</code></div>
+<ul>
+<li>
+<p><code>onManual</code></p>
+</li>
+<li>
+<p><code>onInterval</code></p>
+</li>
+<li>
+<p><code>onTimestamp</code></p>
+</li>
+</ul>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<caption class="title">Table 1. Event arguments for <code>system</code></caption>
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Name</th>
+<th class="tableblock halign-left valign-top">Type</th>
+<th class="tableblock halign-left valign-top">Immutable</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>invoker</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>auth.Identifiable</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_systemsink"><a class="anchor" href="#_systemsink"></a>system:sink</h3>
+<div class="ulist">
+<div class="title">List of events on <code>system:sink</code></div>
+<ul>
+<li>
+<p><code>onRequest</code></p>
+</li>
+</ul>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<caption class="title">Table 2. Event arguments for <code>system:sink</code></caption>
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Name</th>
+<th class="tableblock halign-left valign-top">Type</th>
+<th class="tableblock halign-left valign-top">Immutable</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>response</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>*types.SinkResponse</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>request</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>*types.SinkRequest</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">true</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>invoker</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>auth.Identifiable</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_systemauth"><a class="anchor" href="#_systemauth"></a>system:auth</h3>
+<div class="ulist">
+<div class="title">List of events on <code>system:auth</code></div>
+<ul>
+<li>
+<p><code>beforeLogin</code></p>
+</li>
+<li>
+<p><code>beforeSignup</code></p>
+</li>
+<li>
+<p><code>afterLogin</code></p>
+</li>
+<li>
+<p><code>afterSignup</code></p>
+</li>
+</ul>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<caption class="title">Table 3. Event arguments for <code>system:auth</code></caption>
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Name</th>
+<th class="tableblock halign-left valign-top">Type</th>
+<th class="tableblock halign-left valign-top">Immutable</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>user</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>*types.User</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>provider</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>*types.AuthProvider</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>invoker</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>auth.Identifiable</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_systemuser"><a class="anchor" href="#_systemuser"></a>system:user</h3>
+<div class="ulist">
+<div class="title">List of events on <code>system:user</code></div>
+<ul>
+<li>
+<p><code>onManual</code></p>
+</li>
+<li>
+<p><code>beforeCreate</code></p>
+</li>
+<li>
+<p><code>beforeUpdate</code></p>
+</li>
+<li>
+<p><code>beforeDelete</code></p>
+</li>
+<li>
+<p><code>afterCreate</code></p>
+</li>
+<li>
+<p><code>afterUpdate</code></p>
+</li>
+<li>
+<p><code>afterDelete</code></p>
+</li>
+</ul>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<caption class="title">Table 4. Event arguments for <code>system:user</code></caption>
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Name</th>
+<th class="tableblock halign-left valign-top">Type</th>
+<th class="tableblock halign-left valign-top">Immutable</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>user</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>*types.User</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>oldUser</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>*types.User</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">true</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>invoker</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>auth.Identifiable</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_systemrole"><a class="anchor" href="#_systemrole"></a>system:role</h3>
+<div class="ulist">
+<div class="title">List of events on <code>system:role</code></div>
+<ul>
+<li>
+<p><code>onManual</code></p>
+</li>
+<li>
+<p><code>beforeCreate</code></p>
+</li>
+<li>
+<p><code>beforeUpdate</code></p>
+</li>
+<li>
+<p><code>beforeDelete</code></p>
+</li>
+<li>
+<p><code>afterCreate</code></p>
+</li>
+<li>
+<p><code>afterUpdate</code></p>
+</li>
+<li>
+<p><code>afterDelete</code></p>
+</li>
+</ul>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<caption class="title">Table 5. Event arguments for <code>system:role</code></caption>
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Name</th>
+<th class="tableblock halign-left valign-top">Type</th>
+<th class="tableblock halign-left valign-top">Immutable</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>role</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>*types.Role</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>oldRole</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>*types.Role</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">true</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>invoker</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>auth.Identifiable</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_systemrolemember"><a class="anchor" href="#_systemrolemember"></a>system:role:member</h3>
+<div class="ulist">
+<div class="title">List of events on <code>system:role:member</code></div>
+<ul>
+<li>
+<p><code>beforeAdd</code></p>
+</li>
+<li>
+<p><code>beforeRemove</code></p>
+</li>
+<li>
+<p><code>afterAdd</code></p>
+</li>
+<li>
+<p><code>afterRemove</code></p>
+</li>
+</ul>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<caption class="title">Table 6. Event arguments for <code>system:role:member</code></caption>
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Name</th>
+<th class="tableblock halign-left valign-top">Type</th>
+<th class="tableblock halign-left valign-top">Immutable</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>user</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>*types.User</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>role</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>*types.Role</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>invoker</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>auth.Identifiable</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_systemapplication"><a class="anchor" href="#_systemapplication"></a>system:application</h3>
+<div class="ulist">
+<div class="title">List of events on <code>system:application</code></div>
+<ul>
+<li>
+<p><code>onManual</code></p>
+</li>
+<li>
+<p><code>beforeCreate</code></p>
+</li>
+<li>
+<p><code>beforeUpdate</code></p>
+</li>
+<li>
+<p><code>beforeDelete</code></p>
+</li>
+<li>
+<p><code>afterCreate</code></p>
+</li>
+<li>
+<p><code>afterUpdate</code></p>
+</li>
+<li>
+<p><code>afterDelete</code></p>
+</li>
+</ul>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<caption class="title">Table 7. Event arguments for <code>system:application</code></caption>
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Name</th>
+<th class="tableblock halign-left valign-top">Type</th>
+<th class="tableblock halign-left valign-top">Immutable</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>application</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>*types.Application</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>oldApplication</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>*types.Application</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">true</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>invoker</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>auth.Identifiable</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_compose_events_2"><a class="anchor" href="#_compose_events_2"></a>Compose events</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_compose"><a class="anchor" href="#_compose"></a>compose</h3>
+<div class="ulist">
+<div class="title">List of events on <code>compose</code></div>
+<ul>
+<li>
+<p><code>onManual</code></p>
+</li>
+<li>
+<p><code>onInterval</code></p>
+</li>
+<li>
+<p><code>onTimestamp</code></p>
+</li>
+</ul>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<caption class="title">Table 8. Event arguments for <code>compose</code></caption>
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Name</th>
+<th class="tableblock halign-left valign-top">Type</th>
+<th class="tableblock halign-left valign-top">Immutable</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>invoker</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>auth.Identifiable</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_composenamespace"><a class="anchor" href="#_composenamespace"></a>compose:namespace</h3>
+<div class="ulist">
+<div class="title">List of events on <code>compose:namespace</code></div>
+<ul>
+<li>
+<p><code>onManual</code></p>
+</li>
+<li>
+<p><code>beforeCreate</code></p>
+</li>
+<li>
+<p><code>beforeUpdate</code></p>
+</li>
+<li>
+<p><code>beforeDelete</code></p>
+</li>
+<li>
+<p><code>afterCreate</code></p>
+</li>
+<li>
+<p><code>afterUpdate</code></p>
+</li>
+<li>
+<p><code>afterDelete</code></p>
+</li>
+</ul>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<caption class="title">Table 9. Event arguments for <code>compose:namespace</code></caption>
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Name</th>
+<th class="tableblock halign-left valign-top">Type</th>
+<th class="tableblock halign-left valign-top">Immutable</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>namespace</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>*types.Namespace</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>oldNamespace</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>*types.Namespace</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">true</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>invoker</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>auth.Identifiable</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_composepage"><a class="anchor" href="#_composepage"></a>compose:page</h3>
+<div class="ulist">
+<div class="title">List of events on <code>compose:page</code></div>
+<ul>
+<li>
+<p><code>onManual</code></p>
+</li>
+<li>
+<p><code>beforeCreate</code></p>
+</li>
+<li>
+<p><code>beforeUpdate</code></p>
+</li>
+<li>
+<p><code>beforeDelete</code></p>
+</li>
+<li>
+<p><code>afterCreate</code></p>
+</li>
+<li>
+<p><code>afterUpdate</code></p>
+</li>
+<li>
+<p><code>afterDelete</code></p>
+</li>
+</ul>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<caption class="title">Table 10. Event arguments for <code>compose:page</code></caption>
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Name</th>
+<th class="tableblock halign-left valign-top">Type</th>
+<th class="tableblock halign-left valign-top">Immutable</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>page</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>*types.Page</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>oldPage</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>*types.Page</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">true</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>namespace</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>*types.Namespace</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">true</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>invoker</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>auth.Identifiable</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_composemodule"><a class="anchor" href="#_composemodule"></a>compose:module</h3>
+<div class="ulist">
+<div class="title">List of events on <code>compose:module</code></div>
+<ul>
+<li>
+<p><code>onManual</code></p>
+</li>
+<li>
+<p><code>beforeCreate</code></p>
+</li>
+<li>
+<p><code>beforeUpdate</code></p>
+</li>
+<li>
+<p><code>beforeDelete</code></p>
+</li>
+<li>
+<p><code>afterCreate</code></p>
+</li>
+<li>
+<p><code>afterUpdate</code></p>
+</li>
+<li>
+<p><code>afterDelete</code></p>
+</li>
+</ul>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<caption class="title">Table 11. Event arguments for <code>compose:module</code></caption>
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Name</th>
+<th class="tableblock halign-left valign-top">Type</th>
+<th class="tableblock halign-left valign-top">Immutable</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>module</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>*types.Module</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>oldModule</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>*types.Module</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">true</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>namespace</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>*types.Namespace</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">true</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>invoker</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>auth.Identifiable</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_composerecord"><a class="anchor" href="#_composerecord"></a>compose:record</h3>
+<div class="ulist">
+<div class="title">List of events on <code>compose:record</code></div>
+<ul>
+<li>
+<p><code>onManual</code></p>
+</li>
+<li>
+<p><code>onIteration</code></p>
+</li>
+<li>
+<p><code>beforeCreate</code></p>
+</li>
+<li>
+<p><code>beforeUpdate</code></p>
+</li>
+<li>
+<p><code>beforeDelete</code></p>
+</li>
+<li>
+<p><code>afterCreate</code></p>
+</li>
+<li>
+<p><code>afterUpdate</code></p>
+</li>
+<li>
+<p><code>afterDelete</code></p>
+</li>
+</ul>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<caption class="title">Table 12. Event arguments for <code>compose:record</code></caption>
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Name</th>
+<th class="tableblock halign-left valign-top">Type</th>
+<th class="tableblock halign-left valign-top">Immutable</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>record</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>*types.Record</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>oldRecord</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>*types.Record</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">true</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>module</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>*types.Module</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">true</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>namespace</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>*types.Namespace</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">true</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>recordValueErrors</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>*types.RecordValueErrorSet</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>invoker</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>auth.Identifiable</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_compose_events_3"><a class="anchor" href="#_compose_events_3"></a>Compose events</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_messaging"><a class="anchor" href="#_messaging"></a>messaging</h3>
+<div class="ulist">
+<div class="title">List of events on <code>messaging</code></div>
+<ul>
+<li>
+<p><code>onManual</code></p>
+</li>
+<li>
+<p><code>onInterval</code></p>
+</li>
+<li>
+<p><code>onTimestamp</code></p>
+</li>
+</ul>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<caption class="title">Table 13. Event arguments for <code>messaging</code></caption>
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Name</th>
+<th class="tableblock halign-left valign-top">Type</th>
+<th class="tableblock halign-left valign-top">Immutable</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>invoker</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>auth.Identifiable</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_messagingmessage"><a class="anchor" href="#_messagingmessage"></a>messaging:message</h3>
+<div class="ulist">
+<div class="title">List of events on <code>messaging:message</code></div>
+<ul>
+<li>
+<p><code>onManual</code></p>
+</li>
+<li>
+<p><code>beforeCreate</code></p>
+</li>
+<li>
+<p><code>beforeUpdate</code></p>
+</li>
+<li>
+<p><code>beforeDelete</code></p>
+</li>
+<li>
+<p><code>afterCreate</code></p>
+</li>
+<li>
+<p><code>afterUpdate</code></p>
+</li>
+<li>
+<p><code>afterDelete</code></p>
+</li>
+</ul>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<caption class="title">Table 14. Event arguments for <code>messaging:message</code></caption>
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Name</th>
+<th class="tableblock halign-left valign-top">Type</th>
+<th class="tableblock halign-left valign-top">Immutable</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>message</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>*types.Message</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>oldMessage</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>*types.Message</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">true</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>channel</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>*types.Channel</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>invoker</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>auth.Identifiable</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_messagingcommand"><a class="anchor" href="#_messagingcommand"></a>messaging:command</h3>
+<div class="ulist">
+<div class="title">List of events on <code>messaging:command</code></div>
+<ul>
+<li>
+<p><code>onInvoke</code></p>
+</li>
+</ul>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<caption class="title">Table 15. Event arguments for <code>messaging:command</code></caption>
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Name</th>
+<th class="tableblock halign-left valign-top">Type</th>
+<th class="tableblock halign-left valign-top">Immutable</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>command</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>*types.Command</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">true</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>channel</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>*types.Channel</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">true</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>invoker</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>auth.Identifiable</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_messagingchannel"><a class="anchor" href="#_messagingchannel"></a>messaging:channel</h3>
+<div class="ulist">
+<div class="title">List of events on <code>messaging:channel</code></div>
+<ul>
+<li>
+<p><code>onManual</code></p>
+</li>
+<li>
+<p><code>beforeCreate</code></p>
+</li>
+<li>
+<p><code>beforeUpdate</code></p>
+</li>
+<li>
+<p><code>beforeDelete</code></p>
+</li>
+<li>
+<p><code>afterCreate</code></p>
+</li>
+<li>
+<p><code>afterUpdate</code></p>
+</li>
+<li>
+<p><code>afterDelete</code></p>
+</li>
+</ul>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<caption class="title">Table 16. Event arguments for <code>messaging:channel</code></caption>
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Name</th>
+<th class="tableblock halign-left valign-top">Type</th>
+<th class="tableblock halign-left valign-top">Immutable</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>channel</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>*types.Channel</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>oldChannel</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>*types.Channel</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">true</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>invoker</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>auth.Identifiable</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_messagingchannelmember"><a class="anchor" href="#_messagingchannelmember"></a>messaging:channel:member</h3>
+<div class="ulist">
+<div class="title">List of events on <code>messaging:channel:member</code></div>
+<ul>
+<li>
+<p><code>beforeJoin</code></p>
+</li>
+<li>
+<p><code>beforePart</code></p>
+</li>
+<li>
+<p><code>beforeAdd</code></p>
+</li>
+<li>
+<p><code>beforeRemove</code></p>
+</li>
+<li>
+<p><code>afterJoin</code></p>
+</li>
+<li>
+<p><code>afterPart</code></p>
+</li>
+<li>
+<p><code>afterAdd</code></p>
+</li>
+<li>
+<p><code>afterRemove</code></p>
+</li>
+</ul>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<caption class="title">Table 17. Event arguments for <code>messaging:channel:member</code></caption>
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Name</th>
+<th class="tableblock halign-left valign-top">Type</th>
+<th class="tableblock halign-left valign-top">Immutable</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>member</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>*types.ChannelMember</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>channel</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>*types.Channel</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>invoker</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>auth.Identifiable</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>=</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="roadmap"><a class="anchor" href="#roadmap"></a>Roadmap</h2>
+<div class="sectionbody">
+<div class="dlist">
+<dl>
+<dt class="hdlist1">Git repository as an extension source</dt>
+<dd>
+<p>Upgrade allows easier extension management by using various git repositories,</p>
+</dd>
+<dt class="hdlist1">Support basic git operations</dt>
+<dd>
+<p>Upgrade allows easier extension management, such as changing extension version,</p>
+</dd>
+<dt class="hdlist1">Automatic automation script testing</dt>
+<dd>
+<p>Upgrade enables easier and faster development, since local testing environment is no longer required,</p>
+</dd>
+<dt class="hdlist1">Secret vault</dt>
+<dd>
+<p>Upgrade enables consistent and secure storage for sensitive data such as API credentials,</p>
+</dd>
+<dt class="hdlist1">Custom UI components and style assets</dt>
+<dd>
+<p>Upgrade enables the customization of the entire user interface from the ground up,</p>
+</dd>
+<dt class="hdlist1">File upload via gRPC service</dt>
+<dd>
+<p>Upgrade enables us to handle files directly from the automation scripts,</p>
+</dd>
+<dt class="hdlist1">Support TypeScript for automation scripts</dt>
+<dd>
+<p>Upgrade enables us to use the more robust TypeScript as a language for automation scripts.</p>
+</dd>
+<dt class="hdlist1">Integrated Development Environment</dt>
+<dd>
+<p>To allow developers to setup local Corredor environment with editor, overview and diagnostics and debug tools.</p>
+</dd>
+<dt class="hdlist1">Monitoring</dt>
+<dd>
+<p>Performance metrics to allow developers improve performance of their scripts</p>
+</dd>
+</dl>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="ext-facility"><a class="anchor" href="#ext-facility"></a>Automation System Facility</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The goal of this section is to provide a detailed, low-level overview of the automation system.
+Detailed understanding is crucial for maintaining existing features and development of additional features.
+It&#8217;s also a plus when performing complex debugging.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>If you are interested solely in automation script development, feel free to skip to the <a href="#ext-dev">Extension Development</a> section.
+Any important bit from this section will be included in the following sections.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_corredor"><a class="anchor" href="#_corredor"></a>Corredor</h3>
+<div class="paragraph">
+<p>Corredor is the main component in the entire automation system.
+It&#8217;s a Node.js system written in TypeScript responsible for parsing, serving and executing automation scripts.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Execution can also be performed inside the client web application (see <a href="#facility-webApp">Web Application</a>).</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Corredor is unable to perform any execution without an explicit invocation from the Corteza server.
+Corredor and Corteza servers are connected and communicate via the gRPC protocol with the following services (see <a href="https://github.com/cortezaproejct/corteza-protobuf">protobuf service definition</a> for details):</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>server scripts with list and exec procedures,</p>
+</li>
+<li>
+<p>client scripts with list and bundle procedures.</p>
+</li>
+</ul>
+</div>
+<div class="sect3">
+<h4 id="_main_responsibilities"><a class="anchor" href="#_main_responsibilities"></a>Main responsibilities</h4>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Scanning configured search paths for scripts and dependency definition files,</p>
+</li>
+<li>
+<p>loading, inspecting found scripts; parsing triggers, recording compile errors and preparing a final list of automation scripts,</p>
+</li>
+<li>
+<p>running dependency management to load extension&#8217;s dependencies,</p>
+</li>
+<li>
+<p>running file change watcher to rebuild the automation scripts and reload dependencies,</p>
+</li>
+<li>
+<p>bundling all front-end scripts with WebPack,</p>
+</li>
+<li>
+<p>running gRPC server and exposing the above listed services for script listing and execution.</p>
+</li>
+</ol>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Invalid automation scripts (invalid or missing trigger, syntax/logic errors, &#8230;&#8203;) are included in the full list including all discovered errors.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>When the Corredor server is ran in production mode, it does not perform any file watching and reloading.
+This can be changed by either running it in development mode or setting environment variables.
+Refer to the <a href="https://github.com/cortezaproject/corteza-server-corredor">readme</a> for details.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_script_parsing"><a class="anchor" href="#_script_parsing"></a>Script Parsing</h4>
+<div class="paragraph">
+<p>Script parsing is an important bit of the system and it introduces a few gotchas that you should be aware of.
+The flow for automation script processing is as follows:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>determine available source files and present them in a light-weight <code>File</code> interface (referred to as <code>file</code>) (see <a href="#ext-facility-getScriptSources">Determining script sources</a>),</p>
+</li>
+<li>
+<p>for each file:</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>determine script name (see <a href="#ext-facility-getScriptName">Determining script name</a>),</p>
+</li>
+<li>
+<p>convert the source to an AST tree,</p>
+</li>
+<li>
+<p>find and parse the default exported object.
+If it&#8217;s not found or invalid, the parsing for this file is aborted with a descriptive error,</p>
+</li>
+<li>
+<p>parse the exported object into the <code>Script</code> object:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>determine meta data (label, description); if provided,</p>
+</li>
+<li>
+<p>evaluate security context; if provided,</p>
+</li>
+<li>
+<p>evaluate triggers; if provided,</p>
+</li>
+<li>
+<p>evaluate iterators; if provided,</p>
+</li>
+<li>
+<p>determine exec function.</p>
+</li>
+</ul>
+</div>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Triggers and iterators can <strong>not</strong> be used in the same script.
+If both are provided, the iterator is given priority.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>The core of the automation script is evaluated outside of the source file, meaning any imports and other symbols defined outside of the exported object are ignored.
+This prevents the use of imports, constants, functions and other bits defined outside of the exported object inside the script&#8217;s meta definition (trigger, iterator, label, &#8230;&#8203;).
+They can however still be used inside the automation script at runtime.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="sect4">
+<h5 id="ext-facility-getScriptSources"><a class="anchor" href="#ext-facility-getScriptSources"></a>Determining script sources</h5>
+<div class="paragraph">
+<p>Automation system supports multiple extensions and so we need a way to configure multiple sources (search paths).</p>
+</div>
+<div class="paragraph">
+<p>These are defined by the Corredor&#8217;s <code>CORREDOR_EXT_SEARCH_PATHS</code> <code>.env</code> variable.
+The value must conform to the pattern of:
+<code>CORREDOR_EXT_SEARCH_PATHS=ABS_PATH_1:ABS_PATH_2:&#8230;&#8203;:ABS_PATH_N</code></p>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="paragraph">
+<p>Example search path for multiple extensions:</p>
+</div>
+<div class="paragraph">
+<p><code>CORREDOR_EXT_SEARCH_PATHS=/opt/extension/crm:/opt/extension/brm</code></p>
+</div>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>For more details and additional configuration refer to <a href="https://github.com/cortezaproject/corteza-server-corredor">the README</a>.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect4">
+<h5 id="ext-facility-getScriptName"><a class="anchor" href="#ext-facility-getScriptName"></a>Determining script name</h5>
+<div class="paragraph">
+<p>Script names provide a unique identification that can be used to reference scripts through the entire system.
+Script name is defined as:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-plaintext hljs" data-lang="plaintext">/${path to script}/${file name}:${export name}<i class="conum" data-value="1"></i><b>(1)</b><i class="conum" data-value="2"></i><b>(2)</b><i class="conum" data-value="3"></i><b>(3)</b></code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>Path to the script file, <strong>excluding</strong> the search path.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>The script&#8217;s file name.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="3"></i><b>3</b></td>
+<td>Used export name; this will normally be <code>default</code>.</td>
+</tr>
+</table>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="paragraph">
+<p>Example automation script name:</p>
+</div>
+<div class="paragraph">
+<p><code>/client-scripts/compose/crm/UpdateLeadSource:default</code></p>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>As stated above, the base path (the search path defined in the <code>.env</code>) is excluded from the automation script name.
+This assures that the name can be used over multiple systems (eg. development, staging and production).
+This also allows us to overwrite different automation scripts with our own <a href="#ext-facility-overwriteScript">Overwriting automation scripts</a>.</p>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>The ability to overwrite scripts opens the possibility of unwanted behavior, such as name collisions.
+To avoid this, we recommend that the name of the extension is repeated in the path under scripts (note how the <code>crm</code> is repeated in the below example).</p>
+</div>
+<div class="listingblock">
+<div class="title">Example:</div>
+<div class="content">
+<pre class="highlightjs highlight"><code>/opt/extension/crm/server-scripts/crm/Case/SetLabel.js
+/opt/extension/crm/client-scripts/compose/crm/Account/SetAddress.js</code></pre>
+</div>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect4">
+<h5 id="ext-facility-overwriteScript"><a class="anchor" href="#ext-facility-overwriteScript"></a>Overwriting automation scripts</h5>
+<div class="paragraph">
+<p>The ability to overwrite automation scripts can come in handy, when we want to modify or all together replace a specific automation script.
+For example, we would like to replace the <code>/crm/Contact/SetLabel:default</code> automation script.
+If we create a file under <code>/opt/extensions/crm/server-scripts/crm/Contact/SetLabel.js</code>, Corredor would prefer our definition instead of the default definition.</p>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Corredor will load resources from the provided list of search paths in the order they were defined.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="ext-facility-corredorDeps"><a class="anchor" href="#ext-facility-corredorDeps"></a>Dependencies</h4>
+<div class="paragraph">
+<p>Dependencies are an important part of any larger JavaScript code and so the system allows the use of external dependencies defined inside the standard <code>package.json</code> and <code>yarn.lock</code> files.</p>
+</div>
+<div class="paragraph">
+<p>The dependencies are loaded for each extension and are scoped to it alone; meaning that if two extensions use the same package, both should define it in their own <code>package.json</code>.
+The dependencies can then be used as elsewhere.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="ext-facility-corredorBundling"><a class="anchor" href="#ext-facility-corredorBundling"></a>Bundling</h4>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Due to some limitations, server scripts are <strong>not</strong> bundled.
+This will be resolved at some later point in time.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="sect4">
+<h5 id="_client_scripts"><a class="anchor" href="#_client_scripts"></a>Client scripts</h5>
+<div class="paragraph">
+<p>All client automation scripts are bundled into multiple bundles for each available service (Auth, Admin, Low Code, Messaging and One).
+Bundling enables the use of external dependencies (see <a href="#ext-facility-csdeps">[ext-facility-csdeps]</a> section) and increases consistency across different web browsers.</p>
+</div>
+<div class="paragraph">
+<p>Script bundling consists of the following steps:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>load all valid client automation scripts grouped by available services,</p>
+</li>
+<li>
+<p>for each service:</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>create a boot loader</p>
+</li>
+<li>
+<p>use Webpack to create a bundle based on the boot loader,</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Boot loading creates a file containing <code>{ name, triggers, security }</code> JSON objects for each automation script.
+On Webpack bundle, the boot loader file is used to create the final bundle for the given service.
+See web-app <a href="#ext-facility-webEventBus">Event bus</a> section for details on trigger registration and script execution.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_corteza_server_2"><a class="anchor" href="#_corteza_server_2"></a>Corteza Server</h3>
+<div class="paragraph">
+<p>The second important bit of the automation system is the Corteza server.
+On it&#8217;s own, Corredor server is unable to perform any script execution without an explicit invocation (either by the Corteza server or manually via BloomRPC or similar).</p>
+</div>
+<div class="sect3">
+<h4 id="_main_responsibilities_2"><a class="anchor" href="#_main_responsibilities_2"></a>Main responsibilities</h4>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Load and register automation scripts on the event bus,</p>
+</li>
+<li>
+<p>run scheduler for deferred automation script execution,</p>
+</li>
+<li>
+<p>setup http handler for <strong>sink routes</strong>,</p>
+</li>
+<li>
+<p>setup http handler for <strong>explicit server script invocation</strong>,</p>
+</li>
+<li>
+<p>setup http handler for <strong>automation script listing</strong>,</p>
+</li>
+<li>
+<p>setup http handler for <strong>automation script bundles</strong>,</p>
+</li>
+<li>
+<p>request script execution based on the provided event.</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect3">
+<h4 id="ext-facility-serverEventBus"><a class="anchor" href="#ext-facility-serverEventBus"></a>Event bus</h4>
+<div class="paragraph">
+<p>In order to implement a powerful and flexible automation system, we have decided to base it around an event bus.
+With the help of an event bus, we are able to trivially handle any combination of automation scripts in a unified, robust manner.</p>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Server side event bus and client side event bus <strong>are not</strong> the same, so both should receive equal attention when reading.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="sect4">
+<h5 id="ext-facility-serverTriggerRegistration"><a class="anchor" href="#ext-facility-serverTriggerRegistration"></a>Server script trigger registration</h5>
+<div class="paragraph">
+<p>Firstly we need to register <strong>implicit</strong>, <strong>deferred</strong>, <strong>sink</strong> and <strong>iterator</strong> server scripts on the event bus, so they can listen and respond to dispatched events.</p>
+</div>
+<div class="paragraph">
+<p>There is a slight difference between iterator automation scripts and other types of automation scripts (excluding explicit scripts) when it comes to their execution.
+Iterator scripts are executed for each resource in the matched set, so their handler functions differ.</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">If the script is an iterator</dt>
+<dd>
+<p>When an iterator script is provided, the handler function invokes the automation script <strong>for each</strong> resource in the given set,</p>
+</dd>
+<dt class="hdlist1">If the script is any other (except explicit scripts)</dt>
+<dd>
+<p>When any other script is provided (excluding explicit scripts), the handler function is a generic function that executes for the given event on the given resource.</p>
+</dd>
+</dl>
+</div>
+<div class="paragraph">
+<p>Other than that, the flow is as follows:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>fetch available automation scripts from Corredor server,</p>
+</li>
+<li>
+<p>for each trigger of every valid automation script (excluding explicit scripts):</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>prepare a handler function with respect to the above comment,</p>
+</li>
+<li>
+<p>register the trigger with the handler function on the event bus.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_event_handling_and_script_execution"><a class="anchor" href="#_event_handling_and_script_execution"></a>Event handling and script execution</h5>
+<div class="paragraph">
+<p>Finally we discuss event dispatching, handling and script execution.
+Events are dispatched over the event bus either synchronously or asynchronously.
+When an event is dispatched, the following happens:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>find all scripts that can be executed for the given event,</p>
+</li>
+<li>
+<p>execute every automation script in the filtered set,</p>
+</li>
+<li>
+<p>if an error is thrown (other then <code>'Aborted'</code>), stop the execution.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="ext-facility-serverSchedule"><a class="anchor" href="#ext-facility-serverSchedule"></a>Scheduler</h4>
+<div class="paragraph">
+<p>The scheduler system is responsible for deferred automation script execution.
+The system ticks every minute, at the minute, and dispatches events via the event bus.</p>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>There is no mechanism in place that would prevent the automation scripts to overlap.
+Either simplify/optimize the script or in the case of complex operations, move to batch processing.</p>
+</div>
+<div class="ulist">
+<div class="title">For example:</div>
+<ul>
+<li>
+<p>Script A runs every minute and the execution takes 1.5min,</p>
+</li>
+<li>
+<p>on first tick, script A is executed,</p>
+</li>
+<li>
+<p>on second tick, script A is executed again along side the old instance.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect3">
+<h4 id="ext-facility-serverSink"><a class="anchor" href="#ext-facility-serverSink"></a>Sink</h4>
+<div class="paragraph">
+<p>The sink system allows us to implement custom endpoints on the Corteza server.
+System&#8217;s flow:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>intercept any HTTP request on the <code>/sink</code> endpoint,</p>
+</li>
+<li>
+<p>basic request validation (provided required parameters),</p>
+</li>
+<li>
+<p>validate request against the sink&#8217;s signature,</p>
+</li>
+<li>
+<p>process request based on:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Content-Type</code> or any other HTTP header,</p>
+</li>
+<li>
+<p>remote address (IP),</p>
+</li>
+<li>
+<p>request method and path,</p>
+</li>
+<li>
+<p>username and password (HTTP basic auth)</p>
+</li>
+<li>
+<p>GET (query string) parameters</p>
+</li>
+<li>
+<p>POST parameters</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>dispatch the event via event bus.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="facility-webApp"><a class="anchor" href="#facility-webApp"></a>Web Application</h3>
+<div class="paragraph">
+<p>The last important bit of the automation system is the web application.
+The web application implements a small subset of Corteza server&#8217;s automation system features that allow script listing and their execution.
+The main purpose of this system is to provide the ability to interact with the user from inside automation scripts.</p>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Since client scripts are executed in the browser, they are considered less secure.
+These scripts should <strong>not</strong> work with any sensitive data such as authentication tokens, API credentials, personal data filtering, &#8230;&#8203;</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_main_responsibilities_3"><a class="anchor" href="#_main_responsibilities_3"></a>Main responsibilities</h4>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Fetching and registration of automation scripts provided by Corredor server via Corteza server,</p>
+</li>
+<li>
+<p>registration of automation triggers on the system event bus,</p>
+</li>
+<li>
+<p>execution of automation scripts based on implicit/explicit events.</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect3">
+<h4 id="ext-facility-webEventBus"><a class="anchor" href="#ext-facility-webEventBus"></a>Event bus</h4>
+<div class="paragraph">
+<p>In order to implement a powerful and flexible automation system, we have decided to base it around an event bus.
+With the help of an event bus, we are able to trivially handle any combination of automation scripts in a unified, robust manner.</p>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Client side event bus and server side event bus <strong>are not</strong> the same, so both should receive equal attention when reading.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="sect4">
+<h5 id="_client_script_trigger_registration"><a class="anchor" href="#_client_script_trigger_registration"></a>Client script trigger registration</h5>
+<div class="paragraph">
+<p>Firstly we need to register client scripts on the event bus, so they can listen and respond to dispatched events.
+The flow is as follows:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>fetch the bundled automation scripts for the given service,</p>
+</li>
+<li>
+<p>for each trigger of every automation script:</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>prepare a generic execution function,</p>
+</li>
+<li>
+<p>register the trigger with the execution function on the event bus.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_explicit_server_script_trigger_registration"><a class="anchor" href="#_explicit_server_script_trigger_registration"></a>Explicit server script trigger registration</h5>
+<div class="paragraph">
+<p>Secondly we need to register explicit server scripts (manual server scripts).
+The flow is as follows:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>fetch available automation scripts, excluding non explicit and non server script entries,</p>
+</li>
+<li>
+<p>for each trigger of every automation script:</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>prepare an execution function that invokes the Corteza server via API client libraries,</p>
+</li>
+<li>
+<p>register the trigger with the execution function on the event bus.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_event_handling_and_script_execution_2"><a class="anchor" href="#_event_handling_and_script_execution_2"></a>Event handling and script execution</h5>
+<div class="paragraph">
+<p>Finally we discuss event dispatching, handling and script execution.
+Events are dispatched over the event bus and executed synchronously.</p>
+</div>
+<div class="paragraph">
+<p>There is a slight difference between event validation when it comes to implicit and explicit scripts.</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">If the script name is provided</dt>
+<dd>
+<p>when the script name is provided, it is assumed, that we are invoking an <strong>explicit</strong> script.
+In this case, the event type <strong>must</strong> be defined as manual (<code>'onManual'</code>),</p>
+</dd>
+<dt class="hdlist1">If the script name is not provided</dt>
+<dd>
+<p>when the script name is not provided, it is assumed, that we are invoking <strong>implicit</strong> script(s).
+In this case, the event type <strong>must not</strong> be defined as manual (<code>'onManual'</code>).</p>
+</dd>
+</dl>
+</div>
+<div class="paragraph">
+<p>Other than that, the flow is as follows:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>validate the event,</p>
+</li>
+<li>
+<p>filter triggers based on the provided event,</p>
+</li>
+<li>
+<p>for each available trigger:</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>prepare context and payload,</p>
+</li>
+<li>
+<p>execute the automation with the above generated meta,</p>
+</li>
+<li>
+<p>handle possible errors.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>When it comes to automation script execution, there is a small deviation between Corredor server and web application.
+When the automation script is executed inside the web application, it&#8217;s resources are provided by reference and therefore any changes made to the resource is reflected through the rest of the pipeline without the need of explicit return statements.
+For some resources, such as records, the changes are also reflected on the UI.</p>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="ext-facility-csuihooks"><a class="anchor" href="#ext-facility-csuihooks"></a>UI hooks</h4>
+<div class="paragraph">
+<p>A UI hook represents a UI component (usually a button), that is able to invoke an explicit automation script, being a client or server script.
+UI hooks solely provide component definition (script name, element type, design, labels, &#8230;&#8203;) and it&#8217;s up to the user interface to render the component and dispatch the event when needed.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_triggers"><a class="anchor" href="#_triggers"></a>Triggers</h3>
+<div class="paragraph">
+<p>Automation script triggers determine when, where, execution context; input and output of the automation script.</p>
+</div>
+<div class="paragraph">
+<p>Triggers consist of 4 components:</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">Event type</dt>
+<dd>
+<p>Defines the event that should invoke the script&#8217;s execution.
+See <a href="#ext-resevt">Resources and Events</a> for available event types.</p>
+</dd>
+<dt class="hdlist1">Resource type</dt>
+<dd>
+<p>Defines the resource that the automation script is compatible with.
+This also defines the execution context, input and output of the automation script.
+See <a href="#ext-resevt">Resources and Events</a> for available resource types and their meta,</p>
+</dd>
+<dt class="hdlist1">Constraints</dt>
+<dd>
+<p>Defines a set of constraints that must be truthly in order for this script to be available.
+Refer to <a href="#ext-dev-triggerAnatomy">Constraints</a> for details,</p>
+</dd>
+<dt class="hdlist1">user interface properties (uiProps)</dt>
+<dd>
+<p>Used only for manual triggers.
+Defines a set of parameters that define where and how the UI hook component will be rendered.</p>
+</dd>
+</dl>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_iterators"><a class="anchor" href="#_iterators"></a>Iterators</h3>
+<div class="paragraph">
+<p>Automation script iterators determine when, the execution context; the input and output of the automation script.</p>
+</div>
+<div class="paragraph">
+<p>Iterators consist of 4 components:</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">Event type</dt>
+<dd>
+<p>Defines the event that should invoke the script&#8217;s execution.
+See <a href="#ext-resevt">Resources and Events</a> for available event types.</p>
+</dd>
+<dt class="hdlist1">Resource type</dt>
+<dd>
+<p>Defines the resource that the automation script is compatible with.
+This also defines the execution context, input and output of the automation script.
+See <a href="#ext-resevt">Resources and Events</a> for available resource types and their meta.</p>
+</dd>
+<dt class="hdlist1">Action</dt>
+<dd>
+<p>Defines the action that the automation script would like to perform.</p>
+</dd>
+<dt class="hdlist1">Filter</dt>
+<dd>
+<p>Defines the filter that determines the resources that should be processed by the automation script.
+Refer to <a href="#ext-dev-iteratorConstraints">Filter</a> for details.</p>
+</dd>
+</dl>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_client_scripts_2"><a class="anchor" href="#_client_scripts_2"></a>Client Scripts</h3>
+<div class="sect3">
+<h4 id="_file_structure"><a class="anchor" href="#_file_structure"></a>File structure</h4>
+<div class="paragraph">
+<p>For increased consistency across different types of user agents (different browsers, such as Google Chrome, Internet Explorer, &#8230;&#8203;) all client scripts are processed and bundled.</p>
+</div>
+<div class="paragraph">
+<p>For a more intuitive bundle definition, size optimization and consistency, we define the following file structure:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-text hljs" data-lang="text">/client-scripts <i class="conum" data-value="1"></i><b>(1)</b>
+    /auth <i class="conum" data-value="2"></i><b>(2)</b>
+        /... <i class="conum" data-value="7"></i><b>(7)</b>
+
+    /admin <i class="conum" data-value="3"></i><b>(3)</b>
+        /... <i class="conum" data-value="7"></i><b>(7)</b>
+
+    /compose <i class="conum" data-value="4"></i><b>(4)</b>
+        /... <i class="conum" data-value="7"></i><b>(7)</b>
+
+    /messaging <i class="conum" data-value="5"></i><b>(5)</b>
+        /... <i class="conum" data-value="7"></i><b>(7)</b>
+
+    /shared <i class="conum" data-value="6"></i><b>(6)</b>
+        /... <i class="conum" data-value="7"></i><b>(7)</b></code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>Root folder for all client scripts (under each search path).</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>Defines a bundle for Corteza Auth.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="3"></i><b>3</b></td>
+<td>Defines a bundle for Corteza Admin.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="4"></i><b>4</b></td>
+<td>Defines a bundle for Corteza Low Code.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="5"></i><b>5</b></td>
+<td>Defines a bundle for Corteza Messaging.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="6"></i><b>6</b></td>
+<td>Reserved directory for any shared logic, such as custom libraries, assets, &#8230;&#8203;</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="7"></i><b>7</b></td>
+<td>Undefined file structure; can be defined as needed.</td>
+</tr>
+</table>
+</div>
+<div class="listingblock">
+<div class="title">Client-script path structure</div>
+<div class="content">
+<pre class="highlightjs highlight"><code>&lt;search-path&gt;/client-scripts/&lt;bundle&gt;/&lt;path-to-script&gt;/*.js</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_server_scripts"><a class="anchor" href="#_server_scripts"></a>Server Scripts</h3>
+<div class="sect3">
+<h4 id="_file_structure_2"><a class="anchor" href="#_file_structure_2"></a>File structure</h4>
+<div class="paragraph">
+<p>Since server scripts are executed in the background on a capable machine, there is no need (at least not yet) for any inelegant grouping, so there is no need for any complicated file structuring.
+We define the following file structure:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-text hljs" data-lang="text">/server-scripts <i class="conum" data-value="1"></i><b>(1)</b>
+    /... <i class="conum" data-value="2"></i><b>(2)</b></code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>Root folder for all server scripts (under each search path).</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>Undefined file structure; can be defined as needed.</td>
+</tr>
+</table>
+</div>
+<div class="listingblock">
+<div class="title">Server-script path structure</div>
+<div class="content">
+<pre class="highlightjs highlight"><code>&lt;search-path&gt;/server-scripts/&lt;path-to-script&gt;/*.js</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="ext-dev"><a class="anchor" href="#ext-dev"></a>Extension Development</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The goal of this section is to provide a detailed overview over the automation script development process, while omitting low-level details about the system itself.</p>
+</div>
+<div class="paragraph">
+<p>The section also provides some tips and tricks for faster, better and more secure development process.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>This section is stand alone, meaning it&#8217;s independent of the previous section <a href="#ext-facility">Automation System Facility</a>.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_naming_conventions"><a class="anchor" href="#_naming_conventions"></a>Naming Conventions</h3>
+<div class="paragraph">
+<p>We define the following set of naming conventions for a more consistent experience across different extensions:</p>
+</div>
+<div class="paragraph">
+<p>@wip</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">File names</dt>
+<dd>
+<p>File names should be written in pascal case, ending with a <code>.js</code> extension (eg. <code>SetLabel.js</code>),</p>
+</dd>
+<dt class="hdlist1">conv1</dt>
+<dd>
+<p>thing&#8230;&#8203;</p>
+</dd>
+</dl>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_helper_classes"><a class="anchor" href="#_helper_classes"></a>Helper Classes</h3>
+<div class="paragraph">
+<p>Helper classes consist of methods that greatly reduce the needed effort and the amount of required code to perform a specific operation, so it&#8217;s recommended to use them as much as possible.
+These classes are also context aware, meaning that the classes are able to determine some base parameters on their own, such as the current module, record and namespace.</p>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="paragraph">
+<p>Example of creating a new record with the help of <code>Compose</code> helper class (note how we don&#8217;t need to specify the namespace):</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-js hljs" data-lang="js">Compose.makeRecord({ Title: 'Lead title' }, 'Lead')
+  .then(myLead =&gt; Compose.saveRecord(myLead))
+  .then(mySavedLead =&gt; {
+    mySavedLead.recordID // saved recordID
+  })</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>All helper classes are available in the automation script&#8217;s execution context:</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1"><code>ctx.Compose</code></dt>
+<dd>
+<p>Provides functions to work with Corteza Low Code, such as accessing, creating and deleting records.
+See the <a href="https://github.com/cortezaproject/corteza-js/tree/develop/src/corredor/helpers/compose.ts">definition</a> for details,</p>
+</dd>
+<dt class="hdlist1"><code>ctx.ComposeUI</code></dt>
+<dd>
+<p>Provides functions to work with user interface for Corteza Low Code, such as opening record pages and showing notifications.
+See the <a href="https://github.com/cortezaproject/corteza-vue/blob/develop/src/corredor/compose-ui.ts">definition</a> for details,</p>
+</dd>
+<dt class="hdlist1"><code>ctx.Messaging</code></dt>
+<dd>
+<p>Provides functions to work with Corteza Messaging, such as creating channels and creating messages.
+See the <a href="https://github.com/cortezaproject/corteza-js/tree/develop/src/corredor/helpers/messaging.ts">definition</a> for details,</p>
+</dd>
+<dt class="hdlist1"><code>ctx.System</code></dt>
+<dd>
+<p>Provides functions to work with Corteza core system, such as finding and creating users and managing role membership.
+See the <a href="https://github.com/cortezaproject/corteza-js/tree/develop/src/corredor/helpers/system.ts">definition</a> for details.</p>
+</dd>
+</dl>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_automation_script_anatomy"><a class="anchor" href="#_automation_script_anatomy"></a>Automation Script Anatomy</h3>
+<div class="paragraph">
+<p>To better understand the process of implementing custom functionalities with the automation system, we define and describe the anatomy of automation scripts, and establish a few rules.
+An automation script is considered valid if:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>a given <code>.js</code> file is structured under <code>client-scripts</code> or <code>server-scripts</code> directory,</p>
+</li>
+<li>
+<p>a given <code>.js</code> file exports exactly <strong>one</strong> JS object with the <code>export default</code> keyword,</p>
+</li>
+<li>
+<p>a given script defines at least one <strong>valid</strong> trigger or iterator definition,</p>
+</li>
+<li>
+<p>a given script defines the security context <strong>if</strong> the script is a deferred or sink script,</p>
+</li>
+<li>
+<p>a given JS object defines an <code>exec (args, ctx)</code> function.</p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Invalid automation scripts are still processed by the Corredor, but are excluded from further operations.
+Detected errors are visible in the Corredor logs.
+This allows for easier debugging.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_overview_of_script_object_properties_and_function"><a class="anchor" href="#_overview_of_script_object_properties_and_function"></a>Overview of script object properties and function</h4>
+<div class="dlist">
+<dl>
+<dt class="hdlist1"><code>label</code></dt>
+<dd>
+<p>Automation script&#8217;s label, used to provide a user-friendly identification of the automation script,</p>
+</dd>
+<dt class="hdlist1"><code>description</code></dt>
+<dd>
+<p>A more verbose automation script description,</p>
+</dd>
+<dt class="hdlist1"><code>security</code></dt>
+<dd>
+<p>Defines automation script&#8217;s security context and role based filtering,</p>
+</dd>
+<dt class="hdlist1"><code>triggers</code></dt>
+<dd>
+<p>Defines automation script&#8217;s triggers as propery or method.
+Not compatible with <code>iterator</code>,</p>
+</dd>
+<dt class="hdlist1"><code>iterator</code></dt>
+<dd>
+<p>Defines automation script&#8217;s iterator as property or method
+Not compatible with <code>triggers</code>,</p>
+</dd>
+<dt class="hdlist1"><code>exec</code></dt>
+<dd>
+<p>Execution function that is invoked when the automation script is triggered.</p>
+</dd>
+</dl>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_security"><a class="anchor" href="#_security"></a>Security</h4>
+<div class="paragraph">
+<p>Script&#8217;s <code>security</code> property allows definition of user who&#8217;s credentials will be used when executing the script.
+It also allows access control by defining list of allowed and denied roles that can execute it.</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1"><code>security.runAs</code></dt>
+<dd>
+<p>Define security context for the automation script,</p>
+</dd>
+<dt class="hdlist1"><code>security.allow</code></dt>
+<dd>
+<p>Explicitly define what roles have access to the automation script,</p>
+</dd>
+<dt class="hdlist1"><code>security.deny</code></dt>
+<dd>
+<p>Explicitly define what roles do not have access to the automation script,</p>
+</dd>
+</dl>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p><code>security.runAs</code> parameter is only valid for server scripts.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_exec_function"><a class="anchor" href="#_exec_function"></a>Exec function</h4>
+<div class="paragraph">
+<p>The execution function defines the actual code for the automation script, and conforms to the following interface:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-ts hljs" data-lang="ts">interface ScriptFn {
+  (args: exec.Args, ctx?: exec.Ctx): unknown;
+}</code></pre>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_execution_arguments"><a class="anchor" href="#_execution_arguments"></a>Execution arguments</h5>
+<div class="paragraph">
+<p>Execution arguments (first argument) contain the arguments that the automation script can work with, such as a newly created record, updated module, deleted page, &#8230;&#8203;
+Arguments depend on the automation script&#8217;s event and resource (see <a href="#ext-resevt">Resources and Events</a>).</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_execution_context"><a class="anchor" href="#_execution_context"></a>Execution context</h5>
+<div class="paragraph">
+<p>Execution context (second argument) contains contextual information about the execution, such as security context, helper class instances, API clients, loggers, &#8230;&#8203;</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1"><code>ctx.console</code></dt>
+<dd>
+<p><code>console</code> object that can be used for logging.
+When running in the UA, this will be native <code>window.console</code>.
+When running in Corredor, this will be a <code>Pino</code> instance,</p>
+</dd>
+<dt class="hdlist1"><code>ctx.log</code></dt>
+<dd>
+<p>Shortcut for <code>ctx.console.log</code>,</p>
+</dd>
+<dt class="hdlist1"><code>ctx.$authUser</code></dt>
+<dd>
+<p>User object corresponding to the security context,</p>
+</dd>
+<dt class="hdlist1"><code>ctx.SystemAPI</code></dt>
+<dd>
+<p>Full blown API for Corteza System interaction,</p>
+</dd>
+<dt class="hdlist1"><code>ctx.ComposeAPI</code></dt>
+<dd>
+<p>Full blown API for Corteza Compose interaction,</p>
+</dd>
+<dt class="hdlist1"><code>ctx.MessagingAPI</code></dt>
+<dd>
+<p>Full blown API for Corteza Messaging interaction,</p>
+</dd>
+<dt class="hdlist1"><code>ctx.System</code></dt>
+<dd>
+<p>Helper class instance for the Corteza System,</p>
+</dd>
+<dt class="hdlist1"><code>ctx.Compose</code></dt>
+<dd>
+<p>Helper class instance for the Corteza Compose,</p>
+</dd>
+<dt class="hdlist1"><code>ctx.ComposeUI</code></dt>
+<dd>
+<p>Helper class instance for the Corteza Compose user interface,</p>
+</dd>
+<dt class="hdlist1"><code>ctx.Messaging</code></dt>
+<dd>
+<p>Helper class instance for the Corteza Messaging,</p>
+</dd>
+<dt class="hdlist1"><code>ctx.frontendBaseURL</code></dt>
+<dd>
+<p>Base URL used by front-end web applications.
+This is useful when generating URL&#8217;s inside server scripts.</p>
+</dd>
+</dl>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_automation_script_execution_result"><a class="anchor" href="#_automation_script_execution_result"></a>Automation script execution result</h4>
+<div class="paragraph">
+<p>When the script&#8217;s execution is complete, it should provide one of the following results:</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">Unknown Error</dt>
+<dd>
+<p>An error aborts the script&#8217;s execution chain (the current script and all following scripts).</p>
+</dd>
+<dt class="hdlist1">Aborted Error</dt>
+<dd>
+<p>An error with the value of <code>'Aborted'</code> stops the execution of the <strong>current</strong> automation script.
+Any further scripts down the chain are executed as usual.</p>
+</dd>
+<dt class="hdlist1"><code>false</code></dt>
+<dd>
+<p>A return value of <code>false</code> stops the execution of the <strong>current</strong> automation script.
+Any further scripts down the chain are executed as usual.</p>
+</dd>
+<dt class="hdlist1">unknown</dt>
+<dd>
+<p>Any other return value specifies that the execution was successful and the following script (if any) can execute.</p>
+</dd>
+</dl>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>If the resource defines a before event variant, the return value will be used as the updated version of that resource.
+For example: if the automation script is defined with the resource type of <code>compose:record</code> and returns the updated version of the <code>args.$record</code> value, the the existing version is replaced by the updated version.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="sect4">
+<h5 id="_server_script_vs_client_script"><a class="anchor" href="#_server_script_vs_client_script"></a>Server script vs. client script</h5>
+<div class="paragraph">
+<p>There is a small deviation when it comes to client and server script executions.
+One of the differences is that, when it comes to client scripts, the arguments are provided as a reference, meaning that any changes to the resource are reflected to the original object.
+Because of that the resource does not need to be returned in order for the changes to take effect.</p>
+</div>
+<div class="paragraph">
+<p>For example, running the following code in the client script&#8217;s exec function will reflect the values without the need of returning the updated record.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-js hljs" data-lang="js">{
+  ...
+  async exec ({ $record }) {
+    $record.values.Field1 = 'value1'
+    $record.values.Field2 = 10
+  },
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>If your script should be able to revert the the changes, in case of an error, you should use an intermediate object for the new values.
+For example:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-js hljs" data-lang="js">{
+  ...
+  async exec ({ $record }) {
+    const v = { ...$record.values }
+    v.Field1 = 'value1'
+    v.Field2 = 10
+
+    try {
+      await apiOperation($record)
+    } catch (e) {
+      throw new Error(e)
+    }
+
+    $record.setValues(v)
+  },
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_automation_trigger_anatomy"><a class="anchor" href="#_automation_trigger_anatomy"></a>Automation Trigger Anatomy</h3>
+<div class="paragraph">
+<p>To better understand the power of automation triggers and their definition, we define and describe the anatomy of automation triggers.</p>
+</div>
+<div class="paragraph">
+<p>Automation triggers are constructed with the following methods:</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1"><code>t.on</code></dt>
+<dd>
+<p>Defines the event type, such as <code>'manual'</code>, <code>'request'</code> (see <a href="#ext-resevt">Resources and Events</a>).</p>
+</dd>
+<dt class="hdlist1"><code>t.for</code></dt>
+<dd>
+<p>Defines the resource type, such as <code>'compose:record'</code> (see <a href="#ext-resevt">Resources and Events</a>),</p>
+</dd>
+<dt class="hdlist1"><code>t.where</code></dt>
+<dd>
+<p>Defines the constraints that must match in order for the automation script to be executed (eg. <code>t.where('module', 'Lead')</code>).
+Refer to <a href="#ext-dev-triggerAnatomy">Constraints</a> for details,</p>
+</dd>
+<dt class="hdlist1"><code>t.before</code></dt>
+<dd>
+<p>Defines that the automation script is executed before a specific operation occurs,</p>
+</dd>
+<dt class="hdlist1"><code>t.after</code></dt>
+<dd>
+<p>Defines that the automation script is executed after a specific operation occurs,</p>
+</dd>
+<dt class="hdlist1"><code>t.at</code></dt>
+<dd>
+<p>Defines that the automation script is executed at a specific time,</p>
+</dd>
+<dt class="hdlist1"><code>t.every</code></dt>
+<dd>
+<p>Defines the interval in which the automation script is executed,</p>
+</dd>
+<dt class="hdlist1"><code>t.uiProp</code></dt>
+<dd>
+<p>Defines the visual representation of the manual automation trigger, such as it&#8217;s color and label.</p>
+</dd>
+</dl>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Trigger and iterator are not compatible; you can only use one or the other within the same automation script.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Triggers will be evaluated in an isolated context outside of the actual automation script file.
+This prevents use of any constants or other symbols defiled outside of the trigger.</p>
+</div>
+<div class="paragraph">
+<p>For example, the following trigger will cause cause:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-javascript hljs" data-lang="javascript">const modName = 'Contact'
+export default {
+  triggers ({ on }) {
+    return on('manual')
+      .for(modName)
+  },
+  exec (args, ctx) {...}
+}</code></pre>
+</div>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>When defining the automation script, you can use object destructuring to remove a few bits of code.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-js hljs" data-lang="js">triggers (t) {
+    return [ t.on(...)... ]
+}
+
+// can be replaced by
+
+triggers ({ on }) { // any of the above mentioned methods
+    return [ on(...)... ]
+}</code></pre>
+</div>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>If the automation script contains just a single trigger, you can omit the array and just return the one.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-js hljs" data-lang="js">triggers ({ on }) {
+    return [ on(...)... ]
+}
+
+// can be replaced by
+
+triggers ({ on }) {
+    return on(...)...
+}</code></pre>
+</div>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="sect3">
+<h4 id="ext-dev-triggerAnatomy"><a class="anchor" href="#ext-dev-triggerAnatomy"></a>Constraints</h4>
+<div class="paragraph">
+<p>A constraint consists of 3 components:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>resource attribute name (see <a href="#ext-constraintResources">[ext-constraintResources]</a>),</p>
+</li>
+<li>
+<p>operation,</p>
+</li>
+<li>
+<p>value.</p>
+</li>
+</ol>
+</div>
+<div class="sect4">
+<h5 id="_constraint_operations"><a class="anchor" href="#_constraint_operations"></a>Constraint operations</h5>
+<div class="ulist">
+<ul>
+<li>
+<p>Equal: check for equality between the two values.
+Available operators:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>eq</code></p>
+</li>
+<li>
+<p><code>=</code></p>
+</li>
+<li>
+<p><code>==</code></p>
+</li>
+<li>
+<p><code>===</code></p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Equality check is default operator.
+When using only 2 parameters for constraint, "equal" operator is used</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Not equal: negated check for equality between the two values.
+Available operators:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>not eq</code></p>
+</li>
+<li>
+<p><code>ne</code></p>
+</li>
+<li>
+<p><code>!=</code></p>
+</li>
+<li>
+<p><code>!==</code></p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Like: check for string equality, with support for wildcards.
+Available operators:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>like</code></p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Not like: negated check for string equality, with support for wildcards.
+Available operators:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>not like</code></p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Available wildcards:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>one or more characters</strong>:
+<code>%</code>, <code>*</code>,</p>
+</li>
+<li>
+<p><strong>one character</strong>:
+<code>_</code>, <code>?</code>.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Match: check for string equality, defined as a regular expression.
+Available operators:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>~</code></p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Not match: negated check for string equality, defined as a regular expression.
+Available operators:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>!~</code></p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_automation_iterator_anatomy"><a class="anchor" href="#_automation_iterator_anatomy"></a>Automation Iterator Anatomy</h3>
+<div class="paragraph">
+<p>To better understand the power of automation iterators and their definition, we define and describe their anatomy.</p>
+</div>
+<div class="paragraph">
+<p>Automation iterator are constructed with the following methods:</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1"><code>i</code></dt>
+<dd>
+<p>Defines the resource, action and the filter used for resource fetching.
+Passed object must conform to the interface:</p>
+</dd>
+</dl>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-typescript hljs" data-lang="typescript">interface {
+  resourceType: string; <i class="conum" data-value="1"></i><b>(1)</b>
+  eventType: 'onManual' | 'onInterval' | 'onTimestamp' = 'onManual'; <i class="conum" data-value="2"></i><b>(2)</b>
+  action: 'update' | 'delete' | 'clone' | '' = ''; <i class="conum" data-value="3"></i><b>(3)</b>
+  filter: IteratorFilter; <i class="conum" data-value="4"></i><b>(4)</b>
+}</code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>define the resource type; see <a href="#ext-resevt">Resources and Events</a> for details.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>define the event type; see <a href="#ext-resevt">Resources and Events</a> for details.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="3"></i><b>3</b></td>
+<td>define what action the script performs; see <a href="#ext-dev-iteract">Iterator actions</a> for details,</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="4"></i><b>4</b></td>
+<td>define the filter to use; see <a href="#ext-dev-iteratorConstraints">Filter</a> for details.
+<div class="dlist">
+<dl>
+<dt class="hdlist1"><code>i.at</code></dt>
+<dd>
+<p>Defines that the automation script is executed at a specific time,</p>
+</dd>
+<dt class="hdlist1"><code>i.every</code></dt>
+<dd>
+<p>Defines the interval in which the automation script is executed,</p>
+</dd>
+</dl>
+</div></td>
+</tr>
+</table>
+</div>
+<div class="sect3">
+<h4 id="ext-dev-iteract"><a class="anchor" href="#ext-dev-iteract"></a>Iterator actions</h4>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">update</dt>
+<dd>
+<p>The result of the automation script will be used to update the original resource,</p>
+</dd>
+<dt class="hdlist1">delete</dt>
+<dd>
+<p>The result of the automation script will be used to delete the original resource,</p>
+</dd>
+<dt class="hdlist1">clone</dt>
+<dd>
+<p>The result of the automation script will be used to create a new resource with updated values; original resource is left un changed,</p>
+</dd>
+</dl>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Iterator script doesn&#8217;t perform any operation on the resource except if explicitly specified by the <code>action</code> property.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Iterator and trigger are not compatible; you can only use one or the other within the same automation script.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect3">
+<h4 id="ext-dev-iteratorConstraints"><a class="anchor" href="#ext-dev-iteratorConstraints"></a>Filter</h4>
+<div class="paragraph">
+<p>Iterator filter provides ability to write query (conditions), sorting, limit and offset rules
+It closely resembles Corteza&#8217;s filter object and conforms to the following interface:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-typescript hljs" data-lang="typescript">interface {
+  query: string; <i class="conum" data-value="1"></i><b>(1)</b>
+  sort: string; <i class="conum" data-value="2"></i><b>(2)</b>
+  limit: number | string; <i class="conum" data-value="3"></i><b>(3)</b>
+  offset: number | string; <i class="conum" data-value="4"></i><b>(4)</b>
+  [_: string]: number | string; <i class="conum" data-value="5"></i><b>(5)</b>
+}</code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>SQL like query filter to use (<code>WHERE &lt;query&gt;</code>).</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>SQL like sort to use (<code>ORDER BY &lt;sort&gt;</code>).</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="3"></i><b>3</b></td>
+<td>Maximum number of resource.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="4"></i><b>4</b></td>
+<td>Offset from first record.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="5"></i><b>5</b></td>
+<td>additional non-standard resource specific parameters.</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_client_scripts_3"><a class="anchor" href="#_client_scripts_3"></a>Client Scripts</h3>
+<div class="paragraph">
+<p>Client scripts are automation scripts executed in the client&#8217;s browser (user agent; UA).
+Client scripts should be used when:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>interaction with the user is required,</p>
+</li>
+<li>
+<p>response latency is should be minimal,</p>
+</li>
+<li>
+<p>execution reliability is not important,</p>
+</li>
+<li>
+<p>we are not working with sensitive information such as authentication tokens or api credentials,</p>
+</li>
+<li>
+<p>automation script produces a light load on system resources.</p>
+</li>
+</ul>
+</div>
+<div class="sect3">
+<h4 id="_example_use_cases_2"><a class="anchor" href="#_example_use_cases_2"></a>Example use cases</h4>
+<div class="ulist">
+<ul>
+<li>
+<p>prompt user to confirm form submission,</p>
+</li>
+<li>
+<p>validate or modify form&#8217;s data before submission,</p>
+</li>
+<li>
+<p>redirect the user to another page; either in Corteza Low Code or other,</p>
+</li>
+<li>
+<p>open an external resource inside a popup window.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_trigger_types"><a class="anchor" href="#_trigger_types"></a>Trigger types</h4>
+<div class="paragraph">
+<p>Client scripts support two types of triggers; <strong>explicit</strong> and <strong>implicit</strong>.</p>
+</div>
+<div class="sect4">
+<h5 id="_explicit"><a class="anchor" href="#_explicit"></a>Explicit</h5>
+<div class="paragraph">
+<p>Explicit triggers execute on a specific user invocation, such as a button press.
+These include:</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">Manual</dt>
+<dd>
+<p>Manual automation triggers are defined as buttons inside the user interface.
+They most commonly appear inside Low Code automation page blocks or inside Low Code record list toolbars.
+They are invoked and executed inside the web application.</p>
+</dd>
+</dl>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Manual automation triggers don&#8217;t need to be defined as client scripts.
+When defined as a server script it will be invoked from the UA and executed from inside Corredor.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_implicit"><a class="anchor" href="#_implicit"></a>Implicit</h5>
+<div class="paragraph">
+<p>Implicit triggers execute as a collateral to another system event such as form submission.
+These triggers include before/after events.
+For a full list of available events refer to <a href="#ext-resevt">Resources and Events</a>.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_server_scripts_2"><a class="anchor" href="#_server_scripts_2"></a>Server Scripts</h3>
+<div class="paragraph">
+<p>Server scripts are processed, served and executed by Corredor server.</p>
+</div>
+<div class="paragraph">
+<p>Server scripts should be used when:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>interaction with the user is not required,</p>
+</li>
+<li>
+<p>response latency is not as important,</p>
+</li>
+<li>
+<p>execution consistency is important,</p>
+</li>
+<li>
+<p>automation script produces a heavy load on system resources</p>
+</li>
+</ul>
+</div>
+<div class="sect3">
+<h4 id="_example_use_case"><a class="anchor" href="#_example_use_case"></a>Example use case</h4>
+<div class="ulist">
+<ul>
+<li>
+<p>insert additional record fields based on an external data source,</p>
+</li>
+<li>
+<p>send an email when a new user signs up,</p>
+</li>
+<li>
+<p>run statistic operations once a month for reporting purposes.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_trigger_types_2"><a class="anchor" href="#_trigger_types_2"></a>Trigger types</h4>
+<div class="paragraph">
+<p>Server scripts support a few different trigger types; <strong>explicit</strong>, <strong>implicit</strong>, <strong>deferred</strong>, <strong>iterators</strong> and <strong>sink</strong>.</p>
+</div>
+<div class="sect4">
+<h5 id="_explicit_2"><a class="anchor" href="#_explicit_2"></a>Explicit</h5>
+<div class="paragraph">
+<p>Explicit triggers execute on a specific user invocation,such as a button press.
+These include:</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">Manual</dt>
+<dd>
+<p>Manual automation triggers are defined as buttons inside the user interface.
+They most commonly appear inside Low Code automation page blocks or inside Low Code record list toolbars.
+They are invoked in UA and executed inside Corredor.</p>
+</dd>
+</dl>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_implicit_2"><a class="anchor" href="#_implicit_2"></a>Implicit</h5>
+<div class="paragraph">
+<p>Implicit triggers execute as a collateral to another system event such as record creation.
+These triggers include before/after events.
+For a full list of available events refer to <a href="#ext-resevt">Resources and Events</a>.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_deferred"><a class="anchor" href="#_deferred"></a>Deferred</h5>
+<div class="paragraph">
+<p>Deferred automation triggers are executed at a specific point in time; once or multiple times, such as a reminder.
+These include:</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">Scheduled</dt>
+<dd>
+<p>scheduled triggers are executed at an exact time specified by a time stamp in ISO 8601 format (<code>YYYY-MM-DDTHH:mm:ss.sssZ</code>).
+This trigger is executed exactly once,</p>
+</dd>
+<dt class="hdlist1">Interval</dt>
+<dd>
+<p>interval triggers are executed periodically in an interval defined by a cron expression (see <a href="https://godoc.org/github.com/robfig/cron">robfig/cron package</a> for details).</p>
+</dd>
+</dl>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Deferred automation triggers are executed at most once every minute, so you <strong>should not</strong> define an interval or timestamp that uses higher precision (seconds or milliseconds).</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_iterators_2"><a class="anchor" href="#_iterators_2"></a>Iterators</h5>
+<div class="paragraph">
+<p>Iterators are executed similarly to deferred automation triggers (by a schedule or an interval).
+The main difference is, that the automation script is executed for each resource that matches the provided filter.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_sink"><a class="anchor" href="#_sink"></a>Sink</h5>
+<div class="paragraph">
+<p>Sink automation triggers are executed on a specific http request.
+They can be used to implement new routes on the API, such as a web hook to some external service.</p>
+</div>
+<div class="paragraph">
+<p>@todo signatures</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="testing"><a class="anchor" href="#testing"></a>Extension Testing</h2>
+<div class="sectionbody">
+
+</div>
+</div>
+<div class="sect1">
+<h2 id="debugging"><a class="anchor" href="#debugging"></a>Extension Debugging</h2>
+<div class="sectionbody">
+
+</div>
+</div>
+<div class="sect1">
+<h2 id="ext-examples"><a class="anchor" href="#ext-examples"></a>Extension Examples</h2>
+<div class="sectionbody">
+
+</div>
+</div>
+</article>
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <p>This page was built using the Antora default UI.</p>
+  <p>The source code for this UI is licensed under the terms of the MPL-2.0 license.</p>
+</footer>
+<script src="../../../_/js/site.js"></script>
+<script async src="../../../_/js/vendor/highlight.js"></script>
+  </body>
+</html>

@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Automation Script Anatomy :: Corteza Docs</title>
+    <meta name="generator" content="Antora 2.3.3">
+    <link rel="stylesheet" href="../../../../_/css/site.css">
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="../../../..">Corteza Docs</a>
+      <button class="navbar-burger" data-target="topbar-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+        <a class="navbar-item" href="#">Home</a>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Products</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="#">Product A</a>
+            <a class="navbar-item" href="#">Product B</a>
+            <a class="navbar-item" href="#">Product C</a>
+          </div>
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Services</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="#">Service A</a>
+            <a class="navbar-item" href="#">Service B</a>
+            <a class="navbar-item" href="#">Service C</a>
+          </div>
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Resources</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="#">Resource A</a>
+            <a class="navbar-item" href="#">Resource B</a>
+            <a class="navbar-item" href="#">Resource C</a>
+          </div>
+        </div>
+        <div class="navbar-item">
+          <span class="control">
+            <a class="button is-primary" href="#">Download</a>
+          </span>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="corteza-docs" data-version="1.0">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="../../index.html">Corteza technical and user documentation</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../overview/index.html">Overview</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../overview/index.html#product">Product</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../overview/index.html#security">Security</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../overview/index.html#architecture">Architecture</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../overview/index.html#core-development">Core development</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../overview/index.html#deployment">Deployment</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../overview/index.html#customization">Customization</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../user/index.html">User Manual</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../user/index.html#shell">Corteza one</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../user/index.html#messaging">Corteza Messaging</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../user/index.html#crm">CRM</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../user/index.html#service-cloud">Service cloud</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../admin/index.html">Admin Manual</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../admin/index.html#admin-panel">Corteza Admin Panel</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../admin/index.html#compose">Corteza Low Code</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../maint/index.html">Management and Maintenance</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../maint/index.html#requirements">Technical Requirements</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../maint/index.html#install">Installing Corteza</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../maint/index.html#setup">Setup</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../maint/index.html#backup">Backup and restore</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../index.html">Extending and Customizing</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../index.html#getting-started">Getting started</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../index.html#prerequisite">Prerequisite</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../index.html#terminology">Terminology</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../index.html#system-overview">Automation System Overview</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../index.html#security">Security</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../index.html#resource-table">Resources and Events</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../index.html#roadmap">Roadmap</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../index.html#facility">Automation System Facility</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../index.html#development">Extension Development</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../index.html#testing">Extension Testing</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../index.html#debugging">Extension Debugging</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../index.html#examples">Extension Examples</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../ext/index.html">Extensions</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ext/index.html#about">About</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ext/index.html#docusign">Docusign</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Corteza technical and user documentation</span>
+    <span class="version">v1.0</span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <span class="title">Corteza technical and user documentation</span>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="../../index.html">v1.0</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../../index.html">Corteza technical and user documentation</a></li>
+    <li><a href="script-anatomy.html">Automation Script Anatomy</a></li>
+  </ul>
+</nav>
+  <div class="edit-this-page"><a href="https://github.com/cortezaproject/corteza-docs/edit/feature-antora/modules/ROOT/pages/extdev/development/script-anatomy.adoc">Edit this Page</a></div>
+  </div>
+  <div class="content">
+<article class="doc">
+<h1 class="page">Automation Script Anatomy</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>To better understand the process of implementing custom functionalities with the automation system, we define and describe the anatomy of automation scripts, and establish a few rules.
+An automation script is considered valid if:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>a given <code>.js</code> file is structured under <code>client-scripts</code> or <code>server-scripts</code> directory,</p>
+</li>
+<li>
+<p>a given <code>.js</code> file exports exactly <strong>one</strong> JS object with the <code>export default</code> keyword,</p>
+</li>
+<li>
+<p>a given script defines at least one <strong>valid</strong> trigger or iterator definition,</p>
+</li>
+<li>
+<p>a given script defines the security context <strong>if</strong> the script is a deferred or sink script,</p>
+</li>
+<li>
+<p>a given JS object defines an <code>exec (args, ctx)</code> function.</p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Invalid automation scripts are still processed by the Corredor, but are excluded from further operations.
+Detected errors are visible in the Corredor logs.
+This allows for easier debugging.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_overview_of_script_object_properties_and_function"><a class="anchor" href="#_overview_of_script_object_properties_and_function"></a>Overview of script object properties and function</h2>
+<div class="sectionbody">
+<div class="dlist">
+<dl>
+<dt class="hdlist1"><code>label</code></dt>
+<dd>
+<p>Automation script&#8217;s label, used to provide a user-friendly identification of the automation script,</p>
+</dd>
+<dt class="hdlist1"><code>description</code></dt>
+<dd>
+<p>A more verbose automation script description,</p>
+</dd>
+<dt class="hdlist1"><code>security</code></dt>
+<dd>
+<p>Defines automation script&#8217;s security context and role based filtering,</p>
+</dd>
+<dt class="hdlist1"><code>triggers</code></dt>
+<dd>
+<p>Defines automation script&#8217;s triggers as propery or method.
+Not compatible with <code>iterator</code>,</p>
+</dd>
+<dt class="hdlist1"><code>iterator</code></dt>
+<dd>
+<p>Defines automation script&#8217;s iterator as property or method
+Not compatible with <code>triggers</code>,</p>
+</dd>
+<dt class="hdlist1"><code>exec</code></dt>
+<dd>
+<p>Execution function that is invoked when the automation script is triggered.</p>
+</dd>
+</dl>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_security"><a class="anchor" href="#_security"></a>Security</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Script&#8217;s <code>security</code> property allows definition of user who&#8217;s credentials will be used when executing the script.
+It also allows access control by defining list of allowed and denied roles that can execute it.</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1"><code>security.runAs</code></dt>
+<dd>
+<p>Define security context for the automation script,</p>
+</dd>
+<dt class="hdlist1"><code>security.allow</code></dt>
+<dd>
+<p>Explicitly define what roles have access to the automation script,</p>
+</dd>
+<dt class="hdlist1"><code>security.deny</code></dt>
+<dd>
+<p>Explicitly define what roles do not have access to the automation script,</p>
+</dd>
+</dl>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p><code>security.runAs</code> parameter is only valid for server scripts.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_exec_function"><a class="anchor" href="#_exec_function"></a>Exec function</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The execution function defines the actual code for the automation script, and conforms to the following interface:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-ts hljs" data-lang="ts">interface ScriptFn {
+  (args: exec.Args, ctx?: exec.Ctx): unknown;
+}</code></pre>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_execution_arguments"><a class="anchor" href="#_execution_arguments"></a>Execution arguments</h3>
+<div class="paragraph">
+<p>Execution arguments (first argument) contain the arguments that the automation script can work with, such as a newly created record, updated module, deleted page, &#8230;&#8203;
+Arguments depend on the automation script&#8217;s event and resource (see <a href="#ext-resevt">[ext-resevt]</a>).</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_execution_context"><a class="anchor" href="#_execution_context"></a>Execution context</h3>
+<div class="paragraph">
+<p>Execution context (second argument) contains contextual information about the execution, such as security context, helper class instances, API clients, loggers, &#8230;&#8203;</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1"><code>ctx.console</code></dt>
+<dd>
+<p><code>console</code> object that can be used for logging.
+When running in the UA, this will be native <code>window.console</code>.
+When running in Corredor, this will be a <code>Pino</code> instance,</p>
+</dd>
+<dt class="hdlist1"><code>ctx.log</code></dt>
+<dd>
+<p>Shortcut for <code>ctx.console.log</code>,</p>
+</dd>
+<dt class="hdlist1"><code>ctx.$authUser</code></dt>
+<dd>
+<p>User object corresponding to the security context,</p>
+</dd>
+<dt class="hdlist1"><code>ctx.SystemAPI</code></dt>
+<dd>
+<p>Full blown API for Corteza System interaction,</p>
+</dd>
+<dt class="hdlist1"><code>ctx.ComposeAPI</code></dt>
+<dd>
+<p>Full blown API for Corteza Compose interaction,</p>
+</dd>
+<dt class="hdlist1"><code>ctx.MessagingAPI</code></dt>
+<dd>
+<p>Full blown API for Corteza Messaging interaction,</p>
+</dd>
+<dt class="hdlist1"><code>ctx.System</code></dt>
+<dd>
+<p>Helper class instance for the Corteza System,</p>
+</dd>
+<dt class="hdlist1"><code>ctx.Compose</code></dt>
+<dd>
+<p>Helper class instance for the Corteza Compose,</p>
+</dd>
+<dt class="hdlist1"><code>ctx.ComposeUI</code></dt>
+<dd>
+<p>Helper class instance for the Corteza Compose user interface,</p>
+</dd>
+<dt class="hdlist1"><code>ctx.Messaging</code></dt>
+<dd>
+<p>Helper class instance for the Corteza Messaging,</p>
+</dd>
+<dt class="hdlist1"><code>ctx.frontendBaseURL</code></dt>
+<dd>
+<p>Base URL used by front-end web applications.
+This is useful when generating URL&#8217;s inside server scripts.</p>
+</dd>
+</dl>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_automation_script_execution_result"><a class="anchor" href="#_automation_script_execution_result"></a>Automation script execution result</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>When the script&#8217;s execution is complete, it should provide one of the following results:</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">Unknown Error</dt>
+<dd>
+<p>An error aborts the script&#8217;s execution chain (the current script and all following scripts).</p>
+</dd>
+<dt class="hdlist1">Aborted Error</dt>
+<dd>
+<p>An error with the value of <code>'Aborted'</code> stops the execution of the <strong>current</strong> automation script.
+Any further scripts down the chain are executed as usual.</p>
+</dd>
+<dt class="hdlist1"><code>false</code></dt>
+<dd>
+<p>A return value of <code>false</code> stops the execution of the <strong>current</strong> automation script.
+Any further scripts down the chain are executed as usual.</p>
+</dd>
+<dt class="hdlist1">unknown</dt>
+<dd>
+<p>Any other return value specifies that the execution was successful and the following script (if any) can execute.</p>
+</dd>
+</dl>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>If the resource defines a before event variant, the return value will be used as the updated version of that resource.
+For example: if the automation script is defined with the resource type of <code>compose:record</code> and returns the updated version of the <code>args.$record</code> value, the the existing version is replaced by the updated version.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_server_script_vs_client_script"><a class="anchor" href="#_server_script_vs_client_script"></a>Server script vs. client script</h3>
+<div class="paragraph">
+<p>There is a small deviation when it comes to client and server script executions.
+One of the differences is that, when it comes to client scripts, the arguments are provided as a reference, meaning that any changes to the resource are reflected to the original object.
+Because of that the resource does not need to be returned in order for the changes to take effect.</p>
+</div>
+<div class="paragraph">
+<p>For example, running the following code in the client script&#8217;s exec function will reflect the values without the need of returning the updated record.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-js hljs" data-lang="js">{
+  ...
+  async exec ({ $record }) {
+    $record.values.Field1 = 'value1'
+    $record.values.Field2 = 10
+  },
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>If your script should be able to revert the the changes, in case of an error, you should use an intermediate object for the new values.
+For example:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-js hljs" data-lang="js">{
+  ...
+  async exec ({ $record }) {
+    const v = { ...$record.values }
+    v.Field1 = 'value1'
+    v.Field2 = 10
+
+    try {
+      await apiOperation($record)
+    } catch (e) {
+      throw new Error(e)
+    }
+
+    $record.setValues(v)
+  },
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</article>
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <p>This page was built using the Antora default UI.</p>
+  <p>The source code for this UI is licensed under the terms of the MPL-2.0 license.</p>
+</footer>
+<script src="../../../../_/js/site.js"></script>
+<script async src="../../../../_/js/vendor/highlight.js"></script>
+  </body>
+</html>

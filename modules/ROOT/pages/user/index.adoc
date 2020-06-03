@@ -1,0 +1,18 @@
+include::../variables.adoc[]
+= {PRODUCT_NAME} User Manual
+
+:leveloffset: +1
+
+[#shell]
+include::shell/index.adoc[]
+
+[#messaging]
+include::messaging/index.adoc[]
+
+[#crm]
+include::crm/index.adoc[]
+
+[#service-cloud]
+include::service-cloud/index.adoc[]
+
+:leveloffset: -1

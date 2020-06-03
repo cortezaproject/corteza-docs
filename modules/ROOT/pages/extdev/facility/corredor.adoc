@@ -1,0 +1,174 @@
+include::../../variables.adoc[]
+
+= {APP_AUTOMATION}
+
+{APP_AUTOMATION} is the main component in the entire automation system.
+It's a Node.js system written in TypeScript responsible for parsing, serving and executing automation scripts.
+
+[NOTE]
+====
+Execution can also be performed inside the client web application (see <<facility-webApp>>).
+====
+
+{APP_AUTOMATION} is unable to perform any execution without an explicit invocation from the {PRODUCT_NAME} server.
+{APP_AUTOMATION} and {PRODUCT_NAME} servers are connected and communicate via the gRPC protocol with the following services (see https://github.com/cortezaproejct/corteza-protobuf[protobuf service definition] for details):
+
+* server scripts with list and exec procedures,
+* client scripts with list and bundle procedures.
+
+== Main responsibilities
+
+. Scanning configured search paths for scripts and dependency definition files,
+. loading, inspecting found scripts; parsing triggers, recording compile errors and preparing a final list of automation scripts,
+. running dependency management to load extension's dependencies,
+. running file change watcher to rebuild the automation scripts and reload dependencies,
+. bundling all front-end scripts with WebPack,
+. running gRPC server and exposing the above listed services for script listing and execution.
+
+[NOTE]
+====
+Invalid automation scripts (invalid or missing trigger, syntax/logic errors, ...) are included in the full list including all discovered errors.
+====
+
+[IMPORTANT]
+====
+When the {APP_AUTOMATION} server is ran in production mode, it does not perform any file watching and reloading.
+This can be changed by either running it in development mode or setting environment variables.
+Refer to the https://github.com/cortezaproject/corteza-server-corredor[readme] for details.
+====
+
+== Script Parsing
+
+Script parsing is an important bit of the system and it introduces a few gotchas that you should be aware of.
+The flow for automation script processing is as follows:
+
+. determine available source files and present them in a light-weight `File` interface (referred to as `file`) (see <<ext-facility-getScriptSources>>),
+. for each file:
+.. determine script name (see <<ext-facility-getScriptName>>),
+.. convert the source to an AST tree,
+.. find and parse the default exported object.
+If it's not found or invalid, the parsing for this file is aborted with a descriptive error,
+.. parse the exported object into the `Script` object:
+*** determine meta data (label, description); if provided,
+*** evaluate security context; if provided,
+*** evaluate triggers; if provided,
+*** evaluate iterators; if provided,
+*** determine exec function.
+
+[IMPORTANT]
+====
+Triggers and iterators can **not** be used in the same script.
+If both are provided, the iterator is given priority.
+====
+
+[IMPORTANT]
+====
+The core of the automation script is evaluated outside of the source file, meaning any imports and other symbols defined outside of the exported object are ignored.
+This prevents the use of imports, constants, functions and other bits defined outside of the exported object inside the script's meta definition (trigger, iterator, label, ...).
+They can however still be used inside the automation script at runtime.
+====
+
+[#ext-facility-getScriptSources]
+=== Determining script sources
+
+Automation system supports multiple extensions and so we need a way to configure multiple sources (search paths).
+
+These are defined by the {APP_AUTOMATION}'s `CORREDOR_EXT_SEARCH_PATHS` `.env` variable.
+The value must conform to the pattern of:
+`CORREDOR_EXT_SEARCH_PATHS=ABS_PATH_1:ABS_PATH_2:...:ABS_PATH_N`
+
+[example]
+====
+Example search path for multiple extensions:
+
+`CORREDOR_EXT_SEARCH_PATHS=/opt/extension/crm:/opt/extension/brm`
+====
+
+[NOTE]
+====
+For more details and additional configuration refer to https://github.com/cortezaproject/corteza-server-corredor[the README].
+====
+
+[#ext-facility-getScriptName]
+=== Determining script name
+
+Script names provide a unique identification that can be used to reference scripts through the entire system.
+Script name is defined as:
+[source,plaintext]
+----
+/${path to script}/${file name}:${export name}<1><2><3>
+----
+<1> Path to the script file, **excluding** the search path.
+<2> The script's file name.
+<3> Used export name; this will normally be `default`.
+
+[example]
+====
+Example automation script name:
+
+`/client-scripts/compose/crm/UpdateLeadSource:default`
+====
+
+As stated above, the base path (the search path defined in the `.env`) is excluded from the automation script name.
+This assures that the name can be used over multiple systems (eg. development, staging and production).
+This also allows us to overwrite different automation scripts with our own <<ext-facility-overwriteScript>>.
+
+[IMPORTANT]
+====
+The ability to overwrite scripts opens the possibility of unwanted behavior, such as name collisions.
+To avoid this, we recommend that the name of the extension is repeated in the path under scripts (note how the `crm` is repeated in the below example).
+
+.Example:
+```
+/opt/extension/crm/server-scripts/crm/Case/SetLabel.js
+/opt/extension/crm/client-scripts/compose/crm/Account/SetAddress.js
+```
+====
+
+[#ext-facility-overwriteScript]
+=== Overwriting automation scripts
+
+The ability to overwrite automation scripts can come in handy, when we want to modify or all together replace a specific automation script.
+For example, we would like to replace the `/crm/Contact/SetLabel:default` automation script.
+If we create a file under `/opt/extensions/crm/server-scripts/crm/Contact/SetLabel.js`, {APP_AUTOMATION} would prefer our definition instead of the default definition.
+
+[IMPORTANT]
+====
+{APP_AUTOMATION} will load resources from the provided list of search paths in the order they were defined.
+====
+
+[#ext-facility-corredorDeps]
+== Dependencies
+
+Dependencies are an important part of any larger JavaScript code and so the system allows the use of external dependencies defined inside the standard `package.json` and `yarn.lock` files.
+
+The dependencies are loaded for each extension and are scoped to it alone; meaning that if two extensions use the same package, both should define it in their own `package.json`.
+The dependencies can then be used as elsewhere.
+
+[#ext-facility-corredorBundling]
+== Bundling
+
+[IMPORTANT]
+====
+Due to some limitations, server scripts are **not** bundled.
+This will be resolved at some later point in time.
+====
+
+=== Client scripts
+
+All client automation scripts are bundled into multiple bundles for each available service ({app_name_auth}, {app_name_admin}, {app_name_compose}, {app_name_messaging} and {app_name_shell}).
+Bundling enables the use of external dependencies (see <<ext-facility-csdeps>> section) and increases consistency across different web browsers.
+
+Script bundling consists of the following steps:
+
+. load all valid client automation scripts grouped by available services,
+. for each service:
+.. create a boot loader
+.. use Webpack to create a bundle based on the boot loader,
+
+[NOTE]
+====
+Boot loading creates a file containing `{ name, triggers, security }` JSON objects for each automation script.
+On Webpack bundle, the boot loader file is used to create the final bundle for the given service.
+See web-app <<ext-facility-webEventBus>> section for details on trigger registration and script execution.
+====

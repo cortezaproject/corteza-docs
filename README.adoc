@@ -38,7 +38,7 @@ docker run -u $(id -u) -v $PWD:/antora:Z --rm -t antora/antora --cache-dir=./.ca
 
 [source,shell]
 ----
-docker build --rm --no-cache --squash --tag cortezaproject/corteza-docs:latest .
+make image
 ----
 
 === Todo

@@ -7,7 +7,7 @@ In this section you can select:
 
 - To allow users to use emoji
 - To enable {APP_NAME_MESSAGING} notifications
-- If notifications are enabled you can set a template for notification header (default `${user} in ${channel}`) and what is the maximum number of characters visible in the notification (default is 200)
+- If notifications are enabled you can set a template for notification header (default `$\{user} in $\{channel}`) and what is the maximum number of characters visible in the notification (default is 200)
 
 == Attachments
 

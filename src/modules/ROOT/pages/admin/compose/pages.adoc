@@ -31,8 +31,8 @@ TIP: You can drag-and-drop the fields and place them in any order you prefer.
 
 To show a list of related records you need to select the Record list block with prefilter.
 
-The Prefilter records field allows simplified SQL "Where" conditions, and variables like ${recordID}, ${ownerID}, and ${userID} are evaluated (when available).
-If you are editing a "company" record, and you want to show all the employees in that company, you would need to fill in: ${recordID} = companyId (companyId would need to be a field of the Record type inside the Employee module in this example).
+The Prefilter records field allows simplified SQL "Where" conditions, and variables like $\{recordID}, $\{ownerID}, and $\{userID} are evaluated (when available).
+If you are editing a "company" record, and you want to show all the employees in that company, you would need to fill in: $\{recordID} = companyId (companyId would need to be a field of the Record type inside the Employee module in this example).
 
 You can also Presort records field by inserting for example createdAt DESC.
 This shows the list of record by creation date.

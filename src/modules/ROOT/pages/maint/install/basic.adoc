@@ -13,13 +13,13 @@ See <<Nginx Proxy>> and <<Production deployment>> below configuration examples t
 .`.env`
 [source,dotenv]
 ----
-include::examples/basic/.env[]
+include::ROOT:example$docker-compose/basic/env.txt[]
 ----
 
 .`docker-compose.yaml`
 [source,yaml]
 ----
-include::examples/basic/docker-compose.yaml[]
+include::ROOT:example$docker-compose/basic/docker-compose.yaml[]
 ----
 
 [NOTE]
@@ -39,7 +39,7 @@ docker-compose up -d
 .Running `docker-compose ps` should produce something like:
 [source,shell]
 ----
-include::examples/basic/output-ps.txt[]
+include::ROOT:example$docker-compose/basic/output-ps.txt[]
 ----
 
 You can see 4 services up and running.

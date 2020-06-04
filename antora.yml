@@ -1,6 +1,0 @@
-name: corteza-docs
-title: Corteza technical and user documentation
-version: '1.0'
-display_version: 'v1.0'
-nav: 
-  - modules/ROOT/nav.adoc

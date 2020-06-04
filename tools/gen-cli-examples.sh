@@ -4,7 +4,7 @@ set -eu
 
 RUN="docker run --rm cortezaproject/corteza-server"
 LIST="tools/cli-commands.txt"
-ADOC="src/maint/setup/cli-commands.adoc"
+ADOC="modules/ROOT/pages/maint/setup/cli-commands.adoc"
 
 touch ${ADOC}
 echo "" > ${ADOC}

@@ -1,0 +1,6 @@
+name: corteza-docs
+title: Corteza technical and user documentation
+version: '2019.12'
+display_version: '2020.12'
+nav:
+  - nav.adoc

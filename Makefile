@@ -12,17 +12,9 @@ DOCKER_WRAP     ?= docker run -it --rm --workdir $(WORKDIR) --volume `pwd`:$(WOR
 
 MAJOR_CHAPTERS  ?= overview admin user maint coredev extdev index
 
-DOCKER_IMAGE_TAG ?= cortezaproject/corteza-docs:preview
+DOCKER_IMAGE_TAG ?= cortezaproject/corteza-docs:latest
 
 default: html
-
-# Build all doc sections inside a docker container
-html:
-	@$(DOCKER_WRAP) make native..html
-
-# Build specific doc section inside a docker container
-html.%:
-	@$(DOCKER_WRAP) make native..html.$*
 
 # Build specific doc section inside a docker container as PDF
 pdf.%:
@@ -32,18 +24,6 @@ pdf.%:
 native..pdf.%:
 	$(GEN_PDF_BOOK) --destination-dir dist/ src/$*/index.adoc
 	mv dist/index.pdf dist/$*.pdf
-
-# Build index doc
-native..html.index:
-	$(GEN_HTML5_BOOK) --destination-dir dist/html/ src/index.adoc
-
-# Build specific doc section
-native..html.%:
-	$(GEN_HTML5_BOOK) --destination-dir dist/html/$* src/$*/index.adoc
-
-# Build whole book
-native..html: $(MAJOR_CHAPTERS:%=native..html.%)
-	@echo "Done."
 
 clean:
 	rm -rf dist/*

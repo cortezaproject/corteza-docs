@@ -1,0 +1,93 @@
+include::../../variables.adoc[]
+
+= Pages
+
+Pages is the HTTP web layer of {PRODUCT_NAME} {APP_NAME_COMPOSE}.
+For comfort of design and to ensure your namespace is responsive and mobile-ready by default, Pages are built-in blocks.
+Each block can be resized and dragged wherever you desire.
+In all blocks, you can define the title, the description, and the layout.
+
+There are two types of pages: Record pages (which show data for or related to a single record) and List pages (which show a searchable list of multiple records).
+Each type is described below.
+
+== Record pages
+
+A module without a Record page cannot do anything.
+To store data inside a module, you need to create a Record page and add it to a module by selecting the appropriate Page builder button on the Modules page.
+This opens the drag-and-drop page editor.
+
+=== Record blocks
+
+The Record block is the most important block for a Record page.
+You can select the block's layout and the fields you want to show.
+For example, a Contact record page would need to show: Name, Email, Phone, and Address.
+Select those fields, hit Save and close, and the block will be added.
+
+When you view a record, the values of these fields are shown as strings, and when you add or edit a record, these fields turn into form-input fields.
+
+TIP: You can drag-and-drop the fields and place them in any order you prefer.
+
+=== Record list blocks
+
+To show a list of related records you need to select the Record list block with prefilter.
+
+The Prefilter records field allows simplified SQL "Where" conditions, and variables like $\{recordID}, $\{ownerID}, and $\{userID} are evaluated (when available).
+If you are editing a "company" record, and you want to show all the employees in that company, you would need to fill in: $\{recordID} = companyId (companyId would need to be a field of the Record type inside the Employee module in this example).
+
+You can also Presort records field by inserting for example createdAt DESC.
+This shows the list of record by creation date.
+This field supports simplified SQL Order by condition syntax.
+
+You can also select to hide or show the New record button and Search box, and you can define the number of records shown.
+A best practice is to adjust this number to the size of the block.
+
+To save the block and add it to the page, hit Save and close.
+Now the second block has been added to the page.
+
+=== Other block types
+
+Other block types are:
+
+* *Content*: This block allows you to add fixed text, which you can create with a rich text editor.
+This is ideal for "help" texts or links to resources, such as the sales handbook on an intranet.
+* *Chart*: Inserts charts that have been created with the chart builder.
+This is very useful when you are creating dashboards.
+* *Social media feed*: You can show live content from Twitter here—either a fixed Twitter feed (which is shown in all records) or from a Module field that represents a Twitter link (which enables each record to have his own feed).
+* *Automation*: In this block, you can add automation rules that have a manual trigger and that are available for the module, as well as automation rules with no primary module.
+They are shown to end users as buttons.
+You can format the automation rule buttons by inserting custom text and selecting a style, and you can change the order of them (when you have multiple buttons) with a drag-and-drop.
+* *Calendar*: This block inserts a calendar.
+The source of the calendar is a list of records from one or multiple modules. For each source, you can select which field represents the title, start date, and end date of the event.
+The calendar can be shown in the following formats:
+** Month
+** Month agenda
+** Week agenda
+** Day agenda
+** Month list
+** Week list
+** Day list
+* *File*: You can upload a file and show it on the page.
+Just like the Content block, the content of this block will be the same for all records.
+To have files that are related to a record, you need to use the File field type when creating fields in a module.
+
+=== Change the page layout
+
+After adding blocks to pages you can resize and position them to create the layout you want.
+
+{PRODUCT_NAME} Low-Code is responsive by default, so the blocks will resize and reposition automatically on devices with small screens.
+
+== List pages
+
+List pages are not related to any single record; rather, they show lists of records.
+This page type is used to create a home page, list of contacts, list of projects, dashboards, etc.
+List pages are important because you can't enter new records without viewing a list because the Add new record button is shown on lists.
+
+To create a List page, you need to go to the Pages administrative page and enter a title in the Create a new page box at the top.
+When you submit this form, it opens the Edit page form, which allows you to add a page description (for internal use; the end user will not see it), and you can set the page to Enabled so it can be accessed.
+
+You can drag-and-drop pages in the page-tree to rearange them.
+This pages makes it easier to maintain the namespace.
+It also allows you to generate the namespace menu structure because List pages (but not Record pages) are shown as menu items.
+
+Adding content to each List page is exactly the same as adding blocks to Record pages.
+The only difference is that you cannot select the Record block type (because it is related to a single record).

@@ -1,0 +1,38 @@
+include::../../variables.adoc[]
+
+= Helper Classes
+
+Helper classes consist of methods that greatly reduce the needed effort and the amount of required code to perform a specific operation, so it's recommended to use them as much as possible.
+These classes are also context aware, meaning that the classes are able to determine some base parameters on their own, such as the current module, record and namespace.
+
+[example]
+====
+Example of creating a new record with the help of `Compose` helper class (note how we don't need to specify the namespace):
+
+[source,js]
+----
+Compose.makeRecord({ Title: 'Lead title' }, 'Lead')
+  .then(myLead => Compose.saveRecord(myLead))
+  .then(mySavedLead => {
+    mySavedLead.recordID // saved recordID
+  })
+----
+====
+
+All helper classes are available in the automation script's execution context:
+
+`ctx.Compose`::
+    Provides functions to work with {PRODUCT_NAME} {APP_NAME_COMPOSE}, such as accessing, creating and deleting records.
+    See the https://github.com/cortezaproject/corteza-js/tree/develop/src/corredor/helpers/compose.ts[definition] for details,
+
+`ctx.ComposeUI`::
+    Provides functions to work with user interface for {PRODUCT_NAME} {APP_NAME_COMPOSE}, such as opening record pages and showing notifications.
+    See the https://github.com/cortezaproject/corteza-vue/blob/develop/src/corredor/compose-ui.ts[definition] for details,
+
+`ctx.Messaging`::
+    Provides functions to work with {PRODUCT_NAME} {APP_NAME_MESSAGING}, such as creating channels and creating messages.
+    See the https://github.com/cortezaproject/corteza-js/tree/develop/src/corredor/helpers/messaging.ts[definition] for details,
+
+`ctx.System`::
+    Provides functions to work with {PRODUCT_NAME} core system, such as finding and creating users and managing role membership.
+    See the https://github.com/cortezaproject/corteza-js/tree/develop/src/corredor/helpers/system.ts[definition] for details.

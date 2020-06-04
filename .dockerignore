@@ -2,4 +2,4 @@
 /dist
 /build
 /.cache
-/deploy.sh
+/src

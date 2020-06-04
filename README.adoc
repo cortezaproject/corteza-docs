@@ -1,14 +1,7 @@
 Corteza technical and user documentation
 ========================================
 
-- link:src/overview/index.adoc[Overview]
-- link:src/releases/index.adoc[Releases]
-- link:src/user/index.adoc[User manual]
-- link:src/extdev/index.adoc[Extending and customization]
-- link:src/maint/index.adoc[Maintainer's manual]
-- link:src/coredev/index.adoc[Core developer's documentation]
-- link:src/manage/index.adoc[System management]
-
+Sources (most of it) for http://docs.cortezaproject.org[docs.cortezaproject.org] website.
 
 == Authoring
 
@@ -22,7 +15,6 @@ Before you start, be sure you are familiar with https://asciidoctor.org/docs/asc
 
 _and other recommended practices from the linked page_
 
-
 === Structure
 
 Documentation is divided into 6 major chapters:
@@ -35,19 +27,20 @@ Documentation is divided into 6 major chapters:
  * core developer
  * system management
 
-=== Building manually
+=== Building files directly
 
-Use provided Makefile with task for building individual major chapters as HTML.
-
-.Build all chapters as HTML (and put them under `dist/html/` folder)
-[source]
+[source,shell]
 ----
-make html
+docker run -u $(id -u) -v $PWD:/antora:Z --rm -t antora/antora --cache-dir=./.cache/antora --stacktrace antora-playbook.yml
 ----
 
-.Build user manual chapter as HTML (and put it under `dist/html/user` folder)
-[source]
+=== Building docker image
+
+[source,shell]
 ----
-make html.user
+docker build --rm --no-cache --squash --tag cortezaproject/corteza-docs:latest .
 ----
 
+=== Todo
+
+* Apply standard Corteza build pipeline

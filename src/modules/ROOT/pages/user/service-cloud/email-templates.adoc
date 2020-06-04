@@ -6,7 +6,7 @@ Contacts of cases can be emailed directly from the Service Cloud.
 Each outgoing email is recorded in the case update list.
 To make sending out emails easier, Service Cloud allows you to create email templates with placeholders.
 
-Each email template has a name and description. 
+Each email template has a name and description.
 They are for internal use.
 The subject and the body fields are what's being sent to the contact.
 
@@ -37,21 +37,21 @@ The following placeholders can be used:
 * `{{Case.TotalCost}}`
 
 .Placeholders for getting data of the contact:
-* `{{FirstName}}`
-* `{{LastName}}`
-* `{{Title}}`
-* `{{Phone}}`
-* `{{Email}}`
-* `{{Twitter}}`
-* `{{Facebook}}`
-* `{{LinkedIn}}`
-* `{{MailingStreet}}`
-* `{{MailingCity}}`
-* `{{MailingState}}`
-* `{{MailingPostalCode}}`
-* `{{MailingCountry}}`
-* `{{DoNotCall}}`
-* `{{HasOptedOutOfEmail}}`
+* `{\{FirstName}}`
+* `{\{LastName}}`
+* `{\{Title}}`
+* `{\{Phone}}`
+* `{\{Email}}`
+* `{\{Twitter}}`
+* `{\{Facebook}}`
+* `{\{LinkedIn}}`
+* `{\{MailingStreet}}`
+* `{\{MailingCity}}`
+* `{\{MailingState}}`
+* `{\{MailingPostalCode}}`
+* `{\{MailingCountry}}`
+* `{\{DoNotCall}}`
+* `{\{HasOptedOutOfEmail}}`
 
 == Example
 

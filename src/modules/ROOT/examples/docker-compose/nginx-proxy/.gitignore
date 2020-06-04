@@ -1,0 +1,15 @@
+/certs
+/html
+/vhost.d
+/htpasswd
+
+
+
+insert into xQuery (title, content) values ( 'ponudniki z maili v komentarjih',
+'SELECT c.ID, c.title, c.title2, c.address, pc.type, dPostCode.postCode, cc.comment, c.package, c.status
+  FROM oClient AS c
+       INNER JOIN oClientComment    AS cc ON (c.ID = cc.ID_oClient)
+       INNER JOIN oClient_dPostCode AS pc ON (c.ID = pc.ID_oClient)
+       INNER JOIN dPostCode ON (pc.ID_dPostCode = dPostCode.ID)
+ WHERE cc.comment like \'%@%.%\'
+       ORDER BY c.ID;');

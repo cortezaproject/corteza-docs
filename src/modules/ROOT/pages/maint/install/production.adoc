@@ -10,13 +10,13 @@ You should configure your DNS, add 2 hosts and point them to the IP address (A r
 .`.env`
 [source,dotenv]
 ----
-include::examples/production/.env[]
+include::example$docker-compose/production/env.txt[]
 ----
 
 .`docker-compose.yaml`
 [source,yaml]
 ----
-include::examples/production/docker-compose.yaml[]
+include::example$docker-compose/production/docker-compose.yaml[]
 ----
 
 Create an empty directory, with `.env` and `docker-compose.yaml` files and copy contents from the examples above.
@@ -48,7 +48,7 @@ docker-compose up -d
 .Running `docker-compose ps` should produce something like:
 [source,shell]
 ----
-include::examples/production/output-ps.txt[]
+include::example$docker-compose/production/output-ps.txt[]
 ----
 
 You can see 4 services up and running.

@@ -24,13 +24,13 @@ Please see https://github.com/jwilder/nginx-proxy[Nginx Proxy] and https://githu
 .`docker-compose.yaml`
 [source,yaml]
 ----
-include::examples/nginx-proxy/docker-compose.yaml[]
+include::example$docker-compose/nginx-proxy/docker-compose.yaml[]
 ----
 
 .Add `custom.conf` Nginx configuration file next to `docker-compose.yaml`
 [source]
 ----
-include::examples/nginx-proxy/custom.conf[]
+include::example$docker-compose/nginx-proxy/custom.conf[]
 ----
 
 .Start both services
@@ -43,5 +43,5 @@ docker-compose up -d
 [source,shell]
 [%autofit]
 ----
-include::examples/nginx-proxy/output-ps.txt[]
+include::example$docker-compose/nginx-proxy/output-ps.txt[]
 ----

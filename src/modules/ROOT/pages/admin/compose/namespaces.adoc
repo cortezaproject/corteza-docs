@@ -2,33 +2,100 @@ include::../../variables.adoc[]
 
 = Namespaces
 
-A namespace is an records-based application.
+A namespace is a records-based application.
 
 Creating an application with {PRODUCT_NAME} {APP_NAME_COMPOSE} takes only a handful of steps.
 First, you create modules with fields, followed by pages to visualize the modules.
 This creates the basic data model of your application, after which you can add charts, automation and workflow rules, and role-based permissions.
 
+To enter {PRODUCT_NAME} {APP_NAME_COMPOSE}, first, you need to enter {PRODUCT_NAME}. Once you're inside {PRODUCT_NAME}, you have several options for opening {PRODUCT_NAME} {APP_NAME_COMPOSE}:
+
+* Open it in a new tab by clicking on the + button close to the top of the page, which opens the application menu;
+* open it in a new panel by selecting the grid icon on the top right (the icon with four squares);
+* open it in a new window by selecting open in a new window when hovering over the {APP_NAME_COMPOSE} icon in the application menu; or
+* open it in a new browser tab, by navigation to the appropriate web address.
+
+The first thing you see is the {PRODUCT_NAME} {APP_NAME_COMPOSE} Namespaces menu.
+This shows all the applications you have installed (if any) and an option to create new applications.
+
+[NOTE]
+====
+If you cannot see {PRODUCT_NAME} {APP_NAME_COMPOSE}, your existing applications, or the Create a new namespace button, you might not have the permissions you need.
+In this case, contact the administrator of your {PRODUCT_NAME} platform.
+====
+
 == What can you build?
 
-You can build any namespace (application) with {PRODUCT_NAME} {APP_NAME_COMPOSE}, such as:
+With the help of {PRODUCT_NAME} {APP_NAME_COMPOSE}, you can build applications, such as:
 
-* Customer Relationship Management
-* Enterprise Resource Planning
-* Case management
-* Expense management
-* Event management
-* Support desk
-* Knowledge base
-* Logistics management
-* Employee onboarding
-* Leave tracker
-* Volunteer portal
-* Donor management
-* Franchise management
-* Hotel management
-* Construction management
-* Restaurant management
-* Travel management
-* Fleet hub
-* Inventory management
+* Customer Relationship Management,
+* Enterprise Resource Planning,
+* Case management,
+* Expense management,
+* Event management,
+* Support desk,
+* Knowledge base,
+* Logistics management,
+* Employee onboarding,
+* Leave tracker,
+* Volunteer portal,
+* Donor management,
+* Franchise management,
+* Hotel management,
+* Construction management,
+* Restaurant management,
+* Travel management,
+* Fleet hub,
+* Inventory management,
 * And a lot more
+
+[#admin-compose-ns-createApplication]
+== Create an application
+
+Each {APP_NAME_COMPOSE} application lives in its own unique namespace.
+This feature allows you to have an unlimited number of {PRODUCT_NAME} {APP_NAME_COMPOSE} applications.
+
+To create a new application, click on the "Crate namespace" button on the bottom of the page.
+You will be presented the following fields:
+
+include::assets/namespace-properties.adoc[]
+
+Try it out by following these steps to create an example namespace to manage donations.
+
+* First, click on the Create namespace button.
+* For the donation application, fill in the following data:
+** *Full namespace name*: Donations,
+** *short name*: donation-management,
+** *Subtitle*: Donor Management for the Development Department,
+** *Namespace description*: In this Donations application, our organization tracks contributors and contributions,
+** *Enable namespace*: checked,
+* Hit Save and close. You've created an application in {PRODUCT_NAME}!
+
+[IMPORTANT]
+====
+Permissions can only be defined for existing namespaces.
+To define permissions, you must firstly create the namespace and then follow the guide described in <<admin-compose-ns-modifyApplication>>.
+====
+
+[NOTE]
+====
+For techy people, this is the regular expression used to validate the short name - `^[A-Za-z][0-9A-Za-z_\-.]*[A-Za-z0-9]$`
+====
+
+[#admin-compose-ns-modifyApplication]
+== Modify an application
+
+To edit the properties of a namespace, firstly hover over the namespace you wish to edit.
+An edit icon will appear in the top right corner of the namespace item.
+Click the icon to edit the namespace.
+
+You will be presented the following fields:
+
+[NOTE]
+====
+When editing a namespace, same rules apply as with <<admin-compose-ns-createApplication>>.
+The only difference is the permission configuration, presented at the bottom of the section.
+====
+
+include::assets/namespace-properties.adoc[]
+

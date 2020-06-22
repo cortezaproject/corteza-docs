@@ -1,0 +1,45 @@
+include::../../../variables.adoc[]
+
+[#admin-compose-charts]
+= Charts
+
+Charts provide a way of visualizing your data that allows you to define beautiful reports and dashboards.
+
+{PRODUCT_NAME} {APP_NAME_COMPOSE} implements a powerful chart building system, that allows you to build charts of arbitrary complexity.
+
+{PRODUCT_NAME} {APP_NAME_COMPOSE} supports:
+
+* Bar charts,
+* pie charts,
+* doughnut charts,
+* pie charts,
+* line charts,
+* funnel charts,
+* gauge charts
+
+== Create a new chart
+
+To create a new chart, navigate to the "Charts" administration sub page.
+Enter a chart name and press on the "Add chart", which asks you to select the chart category.
+
+Once selected, you are presented with the following:
+
+* *Name*: The module name should in PascalCase with spaces allowed, it should be short and descriptive, with no special characters except for : (colon), - (dash), _ (underscore), / (forward slash) and \ (backwards slash).
+    For example: Quote Line,
+* **Handle**: The module handle should be in snake_case, it should be short and descriptive, with no special characters.
+    A handle definition must:
+
+include::../../../../parts/slug-definition-l1.adoc[]
+
+* **Color theme**: One of the predefined color themes that should be used inside the chart,
+* *Module*: What module provides the data for the chart,
+* *Filter*: How the data should be prefiltered before a response is generated.
+The interface already provides a set of predefined filters for quicker setup.
+* *Y-axis*: Allows you to customize the y-axis to best fit your data representation,
+* *Dimensions*: Define the dimension (the x-axis) of the chart.
+Dimensions can be defined on simple or structured fields.
+* *Dimension function*: Defines how the data is aggregated before the response is generated,
+* *Metrics*: Metric define numerical values that will be displayed in the chart.
+Metrics only support Number type fields and a special "count", that provides the number of records.
+* *Metric post processing*: A post processing function allows you to take the result of a given metric and perform some additional operations, such as rounding the value, aggregating the values, etc.
+* *Metric output*: Defines how the values are represented, such as a pie, set of bars or a line.

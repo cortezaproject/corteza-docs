@@ -1,0 +1,16 @@
+include::../../../variables.adoc[]
+
+// This file contains the descriptions of each namespace properties.
+// It's moved into it's own file, because it is being referenced twice.
+
+* *Full namespace name (mandatory)*: The name of your application, which will be shown in the {APP_NAME_COMPOSE} Namespaces menu.
+This name does not have to be unique, but it's best practice to give each application a unique, short and descriptive name; for example: Donations.
+* *short name (mandatory)*: A shortened variant of the namespace name used by the system for easier and faster referencing; for example: donation-management.
+One of the places is inside the URL when entering the namespace.
+The provided value must:
+include::../../../../parts/slug-definition-l2.adoc[]
+* *Subtitle (optional)*: The subtitle is shown below the name of the application in the {APP_NAME_COMPOSE} Namespaces menu.
+For example: Donor Management for the Development Department.
+* *Namespace description (optional)*: A longer description that appears when hovering over the namespace in the {APP_NAME_COMPOSE} Namespaces menu.
+For example: In this Donations application, our organization tracks contributors and contributions.
+* *Enable namespace (optional)*: The namespace is shown in the Namespace menu regardless of the value, but you will not be able to enter the namespace unless the checkbox is checked.

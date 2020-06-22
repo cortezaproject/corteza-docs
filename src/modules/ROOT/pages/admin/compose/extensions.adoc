@@ -1,0 +1,8 @@
+include::../../variables.adoc[]
+
+= Extensions
+
+One of the main features of the {PRODUCT_NAME} {APP_NAME_COMPOSE} is it's customizability and flexibility with our extensions system.
+Extensions allow you to define business logic of arbitrary complexity, using a standard interface and a well defined API interface.
+
+Please refer to the <<extdev-index>> section for details on te development process.

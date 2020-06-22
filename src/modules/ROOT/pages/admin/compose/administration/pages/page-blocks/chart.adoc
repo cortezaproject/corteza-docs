@@ -1,0 +1,9 @@
+=== Chart
+
+Chart page block is designed to display any chart defined under the "Charts" administration page.
+
+[TIP]
+====
+Useful when defining dashboards
+====
+

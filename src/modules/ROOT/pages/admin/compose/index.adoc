@@ -1,26 +1,24 @@
 include::../../variables.adoc[]
 = {PRODUCT_NAME} {APP_NAME_COMPOSE}
 
+{PRODUCT_NAME} {APP_NAME_COMPOSE} is a low-code platform development platform.
+It's flexible and secure system design, coupled with an intuitive graphic user interface provides an environment that enables quick development without any programming knowledge.
+
+It is a web-based system created with modern technologies and built for records-based business applications.
+In fact, {PRODUCT_NAME} CRM is built with it.
+
 :leveloffset: +1
 
-include::basics.adoc[]
+include::resource-permissions.adoc[]
 
 include::namespaces.adoc[]
 
-include::namespace-create.adoc[]
+include::administration/modules.adoc[]
 
-include::namespace-modify.adoc[]
+include::administration/pages/index.adoc[]
 
-include::modules.adoc[]
+include::administration/charts.adoc[]
 
-include::pages.adoc[]
-
-include::pages-main-menu.adoc[]
-
-include::charts.adoc[]
-
-include::automation.adoc[]
-
-include::permissions.adoc[]
+include::extensions.adoc[]
 
 :leveloffset: -1

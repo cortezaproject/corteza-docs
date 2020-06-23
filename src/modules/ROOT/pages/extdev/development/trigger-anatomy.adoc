@@ -29,7 +29,7 @@ Automation triggers are constructed with the following methods:
     Defines the interval in which the automation script is executed,
 
 `t.uiProp`::
-    Defines the visual representation of the manual automation trigger, such as it's color and label.
+    Defines the visual representation of the manual automation trigger, such as its color and label.
 
 [IMPORTANT]
 ====
@@ -41,7 +41,7 @@ Trigger and iterator are not compatible; you can only use one or the other withi
 Triggers will be evaluated in an isolated context outside of the actual automation script file.
 This prevents use of any constants or other symbols defiled outside of the trigger.
 
-For example, the following trigger will cause cause:
+For example, the following trigger will cause:
 
 [source,javascript]
 ----

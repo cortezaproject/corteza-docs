@@ -6,7 +6,7 @@ Client scripts are automation scripts executed in the client's browser (user age
 Client scripts should be used when:
 
 * interaction with the user is required,
-* response latency is should be minimal,
+* response latency should be minimal,
 * execution reliability is not important,
 * we are not working with sensitive information such as authentication tokens or api credentials,
 * automation script produces a light load on system resources.

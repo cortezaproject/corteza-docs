@@ -19,7 +19,7 @@ The rest of the subsection provides a quick overview of the important bits, and 
 
 === About async/await and Promises
 
-In short: Promises solve problem of asynchronous code and remove the need for cumbersome callbacks via function parameters.
+In short: Promises solve the problem of asynchronous code and remove the need for cumbersome callbacks via function parameters.
 They provide a simple and readable syntax and error handling via `.catch()`.
 
 This MDN article goes into more details: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Using_promises[about using promises].
@@ -34,6 +34,6 @@ This MDN article goes into more details: https://developer.mozilla.org/en-US/doc
 === The arrow function expression (=>)
 
 Arrow functions are used as a compact alternative to a regular function expression.
-Most of the times, they can easily be used inside `.then()`, `.catch()` and `.finally()`.
+Most of the time, they can easily be used inside `.then()`, `.catch()` and `.finally()`.
 
 This MDN article goes into more details and exposes some limitations and why they can not completely replace regular functions: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions[about arrow functions]

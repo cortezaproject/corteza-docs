@@ -6,7 +6,7 @@ Extension::
     A collection of automation scripts, corresponding libraries and other assets,
 
 Script or Automation Script::
-    Combination of automation triggers, meta data and the code it self,
+    Combination of automation triggers, meta data and the code itself,
 
 Client scripts::
     Automation scripts executed within a client's browser,

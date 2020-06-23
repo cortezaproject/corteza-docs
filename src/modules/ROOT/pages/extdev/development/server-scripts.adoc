@@ -23,7 +23,7 @@ Server scripts support a few different trigger types; **explicit**, **implicit**
 
 === Explicit
 
-Explicit triggers execute on a specific user invocation,such as a button press.
+Explicit triggers execute on a specific user invocation, such as a button press.
 These include:
 
 Manual::

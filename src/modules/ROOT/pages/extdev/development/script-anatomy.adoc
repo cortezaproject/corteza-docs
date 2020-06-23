@@ -136,7 +136,7 @@ unknown::
 [IMPORTANT]
 ====
 If the resource defines a before event variant, the return value will be used as the updated version of that resource.
-For example: if the automation script is defined with the resource type of `compose:record` and returns the updated version of the `args.$record` value, the the existing version is replaced by the updated version.
+For example: if the automation script is defined with the resource type of `compose:record` and returns the updated version of the `args.$record` value, the existing version is replaced by the updated version.
 ====
 
 === Server script vs. client script
@@ -158,7 +158,7 @@ For example, running the following code in the client script's exec function wil
 }
 ----
 
-If your script should be able to revert the the changes, in case of an error, you should use an intermediate object for the new values.
+If your script should be able to revert the changes, in case of an error, you should use an intermediate object for the new values.
 For example:
 
 [source,js]

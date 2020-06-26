@@ -1,3 +1,0 @@
-.. start with a character,
-.. contain only characters, numbers, _ (underscore), - (dash) or . (dot),
-.. end with a character or a number.

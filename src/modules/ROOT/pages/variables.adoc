@@ -12,7 +12,7 @@
 :CLI_CMD:            {CLI_CMD_PREFIX}
 :CLI_CMD_SYSTEM:     {CLI_CMD_PREFIX} system
 :CLI_CMD_MESSAGING:  {CLI_CMD_PREFIX} messaging
-:CLI_CMD_COMOPOSE:   {CLI_CMD_PREFIX} compose
+:CLI_CMD_COMPOSE:    {CLI_CMD_PREFIX} compose
 
 :API_DOMAIN:             your-corteza-instance.tld
 :API_SYSTEM_BASE_URL:    https://api.{API_DOMAIN}/system

@@ -5,7 +5,7 @@ With prefiltering you are able to determine a more specific set of records that 
 Prefilters usually support value interpolation, which allows them to be more flexible when working with different resources.
 For example, you can show only records related to a specific record, show only records owned by the current user.
 Value interpolation can be invoked by using the JavaScript's standard template string syntax (`${...}`).
-For example `related_contact=${recordID}`.
+For example `related_contact=$\{recordID\}`.
 
 [IMPORTANT]
 ====

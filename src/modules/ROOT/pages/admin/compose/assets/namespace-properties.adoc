@@ -8,7 +8,8 @@ This name does not have to be unique, but it's best practice to give each applic
 * *short name (mandatory)*: A shortened variant of the namespace name used by the system for easier and faster referencing; for example: donation-management.
 One of the places is inside the URL when entering the namespace.
 The provided value must:
-include::../../../../parts/slug-definition-l2.adoc[]
+include::partial$handle-constraints.adoc[]
+
 * *Subtitle (optional)*: The subtitle is shown below the name of the application in the {APP_NAME_COMPOSE} Namespaces menu.
 For example: Donor Management for the Development Department.
 * *Namespace description (optional)*: A longer description that appears when hovering over the namespace in the {APP_NAME_COMPOSE} Namespaces menu.

@@ -27,9 +27,8 @@ Once selected, you are presented with the following:
 * *Name*: The module name should in PascalCase with spaces allowed, it should be short and descriptive, with no special characters except for : (colon), - (dash), _ (underscore), / (forward slash) and \ (backwards slash).
     For example: Quote Line,
 * **Handle**: The module handle should be in snake_case, it should be short and descriptive, with no special characters.
-    A handle definition must:
-
-include::../../../../parts/slug-definition-l1.adoc[]
+    If provided, it must:
+include::partial$handle-constraints.adoc[]
 
 * **Color theme**: One of the predefined color themes that should be used inside the chart,
 * *Module*: What module provides the data for the chart,

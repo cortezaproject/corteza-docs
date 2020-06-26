@@ -29,9 +29,8 @@ Module name::
 
 Module handle::
     The module handle should be in snake_case, it should be short and descriptive, with no special characters.
-    A handle definition must:
-
-include::../../../../parts/slug-definition-l1.adoc[]
+    If provided, it must:
+include::partial$handle-constraints.adoc[]
 
 == Create a new module
 
@@ -75,9 +74,8 @@ For a consistent experience across different namespaces and {PRODUCT_NAME} insta
 
 Field name::
     The module field title should be in snake_case, it should be short and descriptive, with no special characters.
-    A handle definition must:
-
-include::../../../../parts/slug-definition-l1.adoc[]
+    Name must:
+include::partial$handle-constraints.adoc[]
 
 Field title::
     The module field title doesn't define any strict restriction, as it is shown to the user.
@@ -112,7 +110,8 @@ Each field defines the following properties:
 * *Name*: This defines the internal naming convention and it must be specified and unique.
 This is not shown to the end user.
 It must:
-include::../../../../parts/slug-definition-l2.adoc[]
+include::partial$handle-constraints.adoc[]
+
 * *Title*: This is a "human-friendly" representation of the field and is shown to the end-user when they view/edit the field.
 The title field doesn't define strict restrictions, but is limited to the maximum of 64 characters,
 * *Type*: This defines what type of information this field represents.

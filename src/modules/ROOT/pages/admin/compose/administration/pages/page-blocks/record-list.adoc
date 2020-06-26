@@ -57,7 +57,7 @@ Show only records created this year::
     `YEAR(created_at) = YEAR()`,
 
 Show only records linked to the viewed record::
-    `related_contact = ${recordID}`,
+    `related_contact = $\{recordID\}`,
 
 Show only active contacts::
     `is_active = '1'`,

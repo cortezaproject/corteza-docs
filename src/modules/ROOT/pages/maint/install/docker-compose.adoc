@@ -61,4 +61,4 @@ It is commonly used for configuration files and in applications where data is be
 ====
 
 Environmental variables from `.env` can be utilized to make `docker-compose.yaml` file more compact, modular and simpler to change.
-You can define a variable (like `VERSION`) and then use it inside yaml file (as ${VERSION}`).
+You can define a variable (like `VERSION`) and then use it inside yaml file (as $\{VERSION\}`).

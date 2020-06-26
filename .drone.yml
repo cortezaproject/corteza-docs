@@ -4,10 +4,6 @@ name: docs
 type: docker
 
 steps:
-  - name: dry-run
-    image: asciidoctor/docker-asciidoctor:latest
-    commands: [ make native..html ]
-
   - name: build doc image
     image: plugins/docker
     commands: []

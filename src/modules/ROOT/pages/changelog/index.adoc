@@ -1,13 +1,9 @@
 include::../variables.adoc[]
-= Release notes ⛏
+= Changelog
 
 == 2020.6
 
 === {PRODUCT_NAME} Server
-
-.Contributors:
-. Denis Arh
-. Tomaž Jerman
 
 .Changes
  - Refactored how application (server, cli tools) is started to allow more modular service initialization
@@ -36,12 +32,12 @@ include::../variables.adoc[]
  - Support signature-in-path for sink endpoint
  - Upgrade to go 1.14
 
-=== {PRODUCT_NAME} {APP_AUTOMATION} Automation Server
-
 .Contributors:
 . Denis Arh
-. Peter Grlica
 . Tomaž Jerman
+
+
+=== {PRODUCT_NAME} {APP_AUTOMATION} Automation Server
 
 .Changes
  - Ported to TypeScript
@@ -53,14 +49,12 @@ include::../variables.adoc[]
  - Added ability to load (3rd party) scripts as extensions and overload them if needed
  - Improved input/output data encode/decode procedures
 
-=== {PRODUCT_NAME} Web applications (clients)
-
 .Contributors:
 . Denis Arh
-. Tomaž Jerman
-. Jože Fortun
 . Peter Grlica
-. Mia Arh
+. Tomaž Jerman
+
+=== {PRODUCT_NAME} Web applications (clients)
 
 .General changes
  - Split `corteza-webapp-common` to `corteza-vue` and `corteza-js` and port most of the code to TypeScript
@@ -80,3 +74,10 @@ include::../variables.adoc[]
  - More powerful record list block
  - Added Metric page block
  - Added record browser tool for admins
+
+.Contributors:
+. Denis Arh
+. Tomaž Jerman
+. Jože Fortun
+. Peter Grlica
+. Mia Arh

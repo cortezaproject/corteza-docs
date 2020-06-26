@@ -1,7 +1,7 @@
 include::../variables.adoc[]
 = Release notes ⛏
 
-== 2020.3
+== 2020.6
 
 === {PRODUCT_NAME} Server
 
@@ -29,6 +29,12 @@ include::../variables.adoc[]
  - Used `cortezaproject/corteza-ext` instead of `cortezaproject/corteza-config` for initial provisioning
  - Full implementation of record value sanitization and filtering for all field types
  - Enabled (previously experimental) private data (user's email & name) masking
+ - Record exporting now includes system fields
+ - Improve stability (db, concurrent processes)
+ - Better support for timezones
+ - Action (audit) log
+ - Support signature-in-path for sink endpoint
+ - Upgrade to go 1.14
 
 === {PRODUCT_NAME} {APP_AUTOMATION} Automation Server
 
@@ -70,3 +76,7 @@ include::../variables.adoc[]
  - Improved record-list block, add support for (multi) selection
  - Improve page-block selector on page builder
  - Mayor performance improvements (through Object.freeze)
+ - Chart improvements, support for funnel and gauge types
+ - More powerful record list block
+ - Added Metric page block
+ - Added record browser tool for admins

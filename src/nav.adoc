@@ -41,3 +41,7 @@ include::modules/ROOT/pages/variables.adoc[]
 * xref:ext/index.adoc[Extensions]
 ** xref:ext/index.adoc#about[About]
 ** xref:ext/index.adoc#docusign[Docusign]
+
+---
+
+* xref:changelog/index.adoc[Changelog]

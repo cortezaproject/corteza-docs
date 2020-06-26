@@ -15,5 +15,5 @@ Files can be then downloaded manually or automatically.
 Unofficially, released packages can be used with Vagrant box
 {GIT_REPO_LINK_PREFIX}-vagrant or installed manually on the (virtual) machine.
 
-image::../assets/build-pipelines.png[{PRODUCT_NAME} build pipelines]
+image::build-pipelines.png[{PRODUCT_NAME} build pipelines]
 

@@ -11,7 +11,7 @@ This will probably become a UML diagram; this one is for development (faster upd
 ====
 
 .Abstract representation of the automation system.
-image::assets/automation-system-dig.png[Sunset]
+image::automation-system-dig.png[Sunset]
 
 == Automation system components
 

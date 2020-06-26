@@ -13,4 +13,4 @@ steps:
       username: { from_secret: docker_hub_username }
       password: { from_secret: docker_hub_password }
     when:
-      event:  { include: [ tag ] }
+      branch: [ develop ]

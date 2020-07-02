@@ -61,6 +61,9 @@ Redirect URL::
     The field determines the same redirect URL that was used in the above <<ext-docusign-config-obtainCredentials>> section.
     The URL's **must** match,
 
+BaseURL::
+    Under https://admin.docusign.com/api-integrator-key[administration] or https://admindemo.docusign.com/api-integrator-key[demo administration], in the case of testing credentials, take note of the "Account's Base URI" value,
+
 Account ID::
     Under https://admin.docusign.com/api-integrator-key[administration] or https://admindemo.docusign.com/api-integrator-key[demo administration], in the case of testing credentials, take note of the "API Account ID" value,
 

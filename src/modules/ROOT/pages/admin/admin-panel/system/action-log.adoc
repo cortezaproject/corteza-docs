@@ -1,0 +1,38 @@
+include::../../../variables.adoc[]
+
+[#admin-adminpanel-system-actionlog]
+= Action Log
+
+The action log interface can be accessed by clicking on the "Action log" navigation item on the left navigation drawer under the system item group.
+
+The interface provides an insight into the actions registered by a system, such as accessing users, fetching records, creating modules and much more.
+
+The action log comes in handy when debugging the system as it provides a rich insight into the system without the need of low-level system understanding.
+
+The interface allows you to:
+
+* List registered actions (see <<admin-adminpanel-system-actionlog-list>>),
+* see action's details (see <<admin-adminpanel-system-actionlog-read>>).
+
+[#admin-adminpanel-system-actionlog-list]
+== Listing actions
+
+Registered actions are displayed in a table in the middle of the interface.
+The table provides a brief overview of the action:
+
+* The timestamp of when the action was registered,
+* the user that caused the action to be registered,
+* what part of the exposed system caused the action to be registered (eg. `api/rest`),
+* what resource was involved when registering the action,
+* what action was being performed,
+* some additional description to help understand the action,
+* the status of the action:
+** *info*: an informative log that something happened successfully,
+** *warning*: a warning that something did not go as expected but was not fatal, such as an invalid login attempt,
+** *error*: there was an error either in the internal system or in one of the extensions.
+
+[#admin-adminpanel-system-actionlog-read]
+== Inspecting actions
+
+To inspect an action, click on the action (table row).
+This expands the row and provides more insight into the action.

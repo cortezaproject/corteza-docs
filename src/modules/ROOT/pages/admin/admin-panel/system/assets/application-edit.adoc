@@ -1,0 +1,23 @@
+The application edit interface provides the following sections:
+
+Basic information::
+    This section allows you to edit basic information regarding the role, such as the name and it's handle,
+
+Role members::
+    This section allows you to view, add or remove the users associated with the role.
+
+The role edit interface also allows you to define permissions specific to the given role.
+It can be accessed by clicking on the "Permissions" link in the top right corner.
+You can define:
+
+Read "(role name)"::
+    Determines if the given role is allowed to access information of the given role,
+
+Update "(role name)"::
+    Determines if the given role is allowed to update the information of the given role,
+
+Delete "(role name)"::
+    Determines if the given role is allowed to delete the given role,
+
+Manage members for "(role name)"::
+    Determines if the given role is allowed to add or remove members to the given role.

@@ -1,0 +1,14 @@
+include::../../../variables.adoc[]
+
+[#admin-adminpanel-system-automation]
+= Automation
+
+The automation interface can be accessed by clicking on the "Automation" navigation item on the left navigation drawer under the system item group.
+
+The interface provides an overview of registered extensions and their automation scripts defined for a `system` resource.
+The list provides the automation scripts name and a user-friendly label.
+
+[TIP]
+====
+Use this interface to validate, that the extension was correctly registered.
+====

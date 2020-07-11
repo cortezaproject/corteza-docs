@@ -22,7 +22,7 @@ pdf.%:
 
 # Build specific doc section AS PDF
 native..pdf.%:
-	$(GEN_PDF_BOOK) --destination-dir dist/ src/$*/index.adoc
+	$(GEN_PDF_BOOK) --destination-dir dist/ src/modules/ROOT/pages/admin/admin-panel/index.adoc
 	mv dist/index.pdf dist/$*.pdf
 
 clean:

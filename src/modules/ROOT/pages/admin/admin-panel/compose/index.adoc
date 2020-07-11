@@ -1,0 +1,16 @@
+include::../../../variables.adoc[]
+
+[#admin-adminpanel-compose-compose]
+= {PRODUCT_NAME} {APP_NAME_COMPOSE}
+
+The {APP_NAME_COMPOSE} section provides the interface to manage resources related to {PRODUCT_NAME} {APP_NAME_COMPOSE}.
+
+:leveloffset: +1
+
+include::settings.adoc[]
+
+include::permissions.adoc[]
+
+include::automation.adoc[]
+
+:leveloffset: -1

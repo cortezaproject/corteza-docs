@@ -1,8 +1,7 @@
 include::../../variables.adoc[]
+
+[#admin-adminpanel-dashboard]
 = Dashboard
 
-In the dashboard section you can overview some basic statistics of the usage of the {PRODUCT_NAME} system:
-
-- Number of total active, suspended and deleted users
-- Number of total active, archived and deleted roles
-- Number of total active and deleted applications
+The dashboard section can be accessed by clicking on the "Dashboard" navigation item on the left navigation drawer.
+The interface provides an overview of some basic statistics regarding your system, such as the number of users, the number of active roles and so on.

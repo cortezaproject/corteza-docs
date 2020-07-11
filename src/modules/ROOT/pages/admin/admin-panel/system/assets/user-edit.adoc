@@ -1,0 +1,35 @@
+The user edit interface provides the following sections:
+
+Basic information::
+    This section allows you to edit basic information regarding the user, such as their email and username,
+    It also provides the options of deleting the user or temporary suspending the user.
+
+Password::
+    This section allows you to define a new password for the user,
+
+Role membership::
+    This section allows you to manage the roles of the given user.
+
+[NOTE]
+====
+Every user is a member of the dynamic role "Everyone".
+====
+
+The user edit interface also allows you to define permissions specific to the given user.
+It can be accessed by clicking on the "Permissions" link in the top right corner.
+You can define:
+
+Read "(user name)"::
+    Determines if the given role is allowed to access information of the given user,
+Update "(user name)"::
+    Determines if the given role is allowed to update the information of the given user,
+Delete "(user name)"::
+    Determines if the given role is allowed to delete the given user,
+Suspend "(user name)"::
+    Determines if the given role is allowed to suspend the given user,
+Unsuspend "(user name)"::
+    Determines if the given role is allowed to unsuspend the given user,
+Show email details for "(user name)"::
+    Determines if the given role is allowed to see the email corresponding to the given user,
+Show name details for "(user name)"::
+    Determines if the given role is allowed to see the name corresponding to the given user,

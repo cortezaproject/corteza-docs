@@ -1,0 +1,65 @@
+include::../../../variables.adoc[]
+
+[#admin-adminpanel-system-roles]
+= Roles
+
+The roles interface can be accessed by clicking on the "Roles" navigation item on the left navigation drawer under the system item group.
+
+**A role** defines a user group with a specific set of permissions on the resources.
+A role is a key part of {PRODUCT_NAME} Role-Based Access Control (RBAC).
+
+Each role has a name, a system handle and a set of permissions on resources.
+
+The interface allows you to:
+
+* Edit permissions regarding the permissions (see <<admin-adminpanel-system-roles-perms>>),
+* add new role (see <<admin-adminpanel-system-roles-add>>),
+* list roles (see <<admin-adminpanel-system-roles-list>>),
+* edit roles (see <<admin-adminpanel-system-roles-edit>>).
+
+
+[#admin-adminpanel-system-roles-perms]
+== Managing permissions
+
+To manage permissions related to the role resource, click on the "Permissions" button on the top right corner of the page.
+You can define:
+
+Read any role::
+    Determines if the given role is allowed to access information of any role,
+
+Update any role::
+    Determines if the given role is allowed to update the information of any role,
+
+Delete any role::
+    Determines if the given role is allowed to delete any role,
+
+Manage members for any role::
+    Determines if the given role is allowed to add or remove members to any role.
+
+[#admin-adminpanel-system-roles-add]
+== Adding roles
+
+To add a new role, click on the "New" button on the top right corner of the page.
+
+This opens a new interface where you can insert the basic information regarding the role.
+
+* Name,
+* handle.
+
+After saving the role, a new interface is provided where you can edit the newly created role.
+
+include::./assets/role-edit.adoc[]
+
+[#admin-adminpanel-system-roles-list]
+== Listing roles
+
+Roles can be viewed on the table in the middle of the interface.
+The system supports a powerful search engine, from partial searching, finding only active roles and so on.
+It also supports pagination and sorting.
+
+[#admin-adminpanel-system-roles-edit]
+== Editing roles
+
+Roles can be edited by pressing on the edit icon next to each row in the role list, that opens up a new interface,
+
+include::./assets/role-edit.adoc[]

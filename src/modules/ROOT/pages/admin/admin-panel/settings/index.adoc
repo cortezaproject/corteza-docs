@@ -1,9 +1,0 @@
-= Other Settings
-
-:leveloffset: +1
-
-include::compose.adoc[]
-
-include::messaging.adoc[]
-
-:leveloffset: -1

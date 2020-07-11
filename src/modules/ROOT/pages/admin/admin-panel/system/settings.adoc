@@ -1,9 +1,32 @@
 include::../../../variables.adoc[]
-= External Authentication
 
-Check the "Enable external authentication" box if you wish to allow your users to register and log in using external providers. Currently, we support Google, Facebook, Github and LinkedIn authentication.
+[#admin-adminpanel-system-settings]
+= Settings
 
-== Google
+The settings interface can be accessed by clicking on the "Settings" navigation item on the left navigation drawer under the system item group.
+
+The interface allows you to configure some system related options.
+It defines:
+
+Authentication::
+    This section allows you to customize authentication related settings such configuring email, requiring email confirmation or disabling internal authentication all together,
+
+Email::
+    This section allows you to customize the email template that will be used when sending emails from the internal system (password reset, registration confirmation, ...),
+
+External authentication::
+    This section allows you to configure external authentication providers, such as Google and Facebook.
+    See <<admin-adminpanel-system-settings-externalauth>> for configuration details.
+
+[TIP]
+====
+The ability to disable internal login can be useful when wanting to force the users to either use external authentication providers or using a different system for their authentication.
+====
+
+[#admin-adminpanel-system-settings-externalauth]
+== Configuring external providers
+
+=== Google
 
 To enable Google authentication you need to create a client ID:
 
@@ -13,7 +36,7 @@ To enable Google authentication you need to create a client ID:
 . On "Configure your OAuth client" screen select "Web browser" and paste the URL where your {PRODUCT_NAME} system is running (inlcuding https://)
 . Copy and paste both Client ID and Client Secret fields to {PRODUCT_NAME} Admin panel and hit submit
 
-== Facebook
+=== Facebook
 
 To enable Facebook authentication you need to create Facebook app to receive Client key and Secret:
 
@@ -24,14 +47,14 @@ To enable Facebook authentication you need to create Facebook app to receive Cli
 . Copy and paste "App ID" to "Client key" inside {PRODUCT_NAME} Admin panel
 . Copy and paste "App Secret" to "Secret" inside {PRODUCT_NAME} Admin panel and hit Submit
 
-== Github
+=== Github
 
 To enable Github authentication you need to register Github application to get unique Client ID and Client Secret:
 
 . Go to https://github.com/settings/applications/new[this link] and create a new OAuth application
 . Copy and paste both Client ID and Client Secret fields to {PRODUCT_NAME} Admin panel and hit submit.
 
-== LinkedIn
+=== LinkedIn
 
 To enable LinkedIn authentication you need crete a LinkedIn application:
 

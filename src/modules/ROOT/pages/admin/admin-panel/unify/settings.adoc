@@ -1,0 +1,15 @@
+include::../../../variables.adoc[]
+
+[#admin-adminpanel-unify-settings]
+= Settings
+
+The settings interface can be accessed by clicking on the "Settings" navigation item on the left navigation drawer under the Corteza one item group.
+
+The interface allows you to configure some {PRODUCT_NAME} {APP_NAME_SHELL} related options.
+It defines:
+
+Logo::
+    This section allows you to customize the interface by interpolating your own logo instead of our own,
+
+Panels::
+    This section allows you to configure the default layout, such as open panels and the open tabs.

@@ -1,0 +1,12 @@
+include::../../../variables.adoc[]
+
+[#admin-adminpanel-unify-compose]
+= {PRODUCT_NAME} {APP_NAME_SHELL}
+
+The {APP_NAME_SHELL} section provides the interface to manage resources related to {PRODUCT_NAME} {APP_NAME_SHELL}.
+
+:leveloffset: +1
+
+include::settings.adoc[]
+
+:leveloffset: -1

@@ -17,6 +17,7 @@ include::modules/ROOT/pages/variables.adoc[]
 * xref:admin/index.adoc[Admin Manual]
 ** xref:admin/index.adoc#admin-panel[Corteza Admin Panel]
 ** xref:admin/index.adoc#compose[Corteza Low Code]
+** xref:admin/index.adoc#messaging[Corteza Messaging]
 
 * xref:maint/index.adoc[Management and Maintenance]
 ** xref:maint/index.adoc#requirements[Technical Requirements]

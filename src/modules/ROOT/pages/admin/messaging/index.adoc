@@ -1,0 +1,11 @@
+include::../../variables.adoc[]
+= {PRODUCT_NAME} {APP_NAME_MESSAGING}
+
+{PRODUCT_NAME} {APP_NAME_MESSAGING} is a modern, private, secure messaging system which integrates seamlessly with {PRODUCT_NAME} {APP_NAME_SHELL}, {PRODUCT_NAME} CRM and {PRODUCT_NAME} {APP_NAME_COMPOSE}.
+Its design is inspired by Slack, a popular cloud service.
+
+:leveloffset: +1
+
+include::channels.adoc[]
+
+:leveloffset: -1

@@ -17,4 +17,7 @@ include::admin-panel/index.adoc[]
 [#compose]
 include::compose/index.adoc[]
 
+[#messaging]
+include::messaging/index.adoc[]
+
 :leveloffset: -1

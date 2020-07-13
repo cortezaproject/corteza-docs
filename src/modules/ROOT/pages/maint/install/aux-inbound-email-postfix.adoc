@@ -26,7 +26,7 @@ postfix reload
 .Add entry to `/etc/aliases`
 [source,subs="attributes"]
 ----
-corteza_sink: "| {API_SYSTEM_BASE_URL}/system/sink?content-type=email&expires=&method=POST&origin=postfix&sign=6280d530ae74f1f9c55e4dd362c9ef2094221287'"
+corteza_sink: "| curl --data-binary @- '{API_SYSTEM_BASE_URL}/system/sink?content-type=email&expires=&method=POST&origin=postfix&sign=6280d530ae74f1f9c55e4dd362c9ef2094221287'"
 ----
 
 This forwards mail for specific mailbox a curl command.

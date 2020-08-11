@@ -39,6 +39,11 @@ Hide edit record button::
 Hide view record button::
     Hides the view record button.
 
+[IMPORTANT]
+====
+When searching over the records in the record list, the system only uses the fields that are shown to the user.
+====
+
 [#admin-compose-page-block-recordlist-examples]
 ==== Examples
 

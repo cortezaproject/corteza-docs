@@ -1,0 +1,11 @@
+= Documentation
+
+:leveloffset: +1
+
+include::about.adoc[]
+
+include::rules.adoc[]
+
+include::overview.adoc[]
+
+:leveloffset: -1

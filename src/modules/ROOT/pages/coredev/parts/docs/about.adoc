@@ -1,0 +1,7 @@
+= About
+
+// @todo...
+
+- vital to any quality system
+- written in ascidoc
+- compiled with antora

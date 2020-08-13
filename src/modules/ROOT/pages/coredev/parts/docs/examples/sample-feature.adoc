@@ -1,0 +1,7 @@
+include::../../../../variables.adoc[]
+
+The sample feature implements a brand new monitoring systems for all devices connected to the core system; their availability, memory consumption, ...
+The feature defines a new api, a new database schema and a new webapp.
+
+The webapp implements a pulling system, that periodically fetches the system information, sends it over the API and stores it in the database.
+Besides storage, the API also allows fetching, updating and deleting the data.

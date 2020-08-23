@@ -1,0 +1,14 @@
+include::../../pages/variables.adoc[]
+
+[#ext-resevt]
+= Resources and Events
+
+:leveloffset: +1
+
+include::events/system/index.adoc[]
+
+include::events/compose/index.adoc[]
+
+include::events/messaging/index.adoc[]
+
+:leveloffset: -1

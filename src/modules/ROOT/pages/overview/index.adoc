@@ -21,4 +21,6 @@ include::deployment.adoc[]
 [#customization]
 include::customization.adoc[]
 
+include::requirements.adoc[]
+
 :leveloffset: -1

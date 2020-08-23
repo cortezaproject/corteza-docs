@@ -1,0 +1,90 @@
+include::../../variables.adoc[]
+
+[#admin-adminpanel-system-permissions]
+= Permissions
+
+[NOTE]
+====
+The permissions interfaces can be accessed by clicking on the "Permissions" navigation item on the left navigation drawer in each one of the available {PRODUCT_NAME} systems.
+====
+
+This interface allows you to define some of the more general permissions such as the actual access to a specific service.
+Refer to ... for a more fine-grained overview over all the possibilities.
+
+== {PRODUCT_NAME} system
+
+[#admin-adminpanel-system-permissions-sys]
+== System service permissions
+
+include::../../../partials/permissions/system-service.adoc[]
+
+[IMPORTANT]
+====
+When denying access to system settings, this also prevents their usage from inside automation scripts or any other operation that might read these settings.
+====
+
+[#admin-adminpanel-system-permissions-org]
+== Organizations
+
+include::../../../partials/permissions/system-organisations.adoc[]
+
+[#admin-adminpanel-system-permissions-application]
+== Applications
+
+include::../../../partials/permissions/system-applications.adoc[]
+
+[#admin-adminpanel-system-permissions-user]
+== Users
+
+include::../../../partials/permissions/system-users.adoc[]
+
+[NOTE]
+====
+The ability to show/hide email address/name can be useful when defining a community instance and we wish to keep some privacy.
+====
+
+[#admin-adminpanel-system-permissions-role]
+== Roles
+
+include::../../../partials/permissions/system-roles.adoc[]
+
+== {PRODUCT_NAME} {APP_NAME_COMPOSE}
+
+== Service permissions
+
+include::../../../partials/permissions/compose-service.adoc[]
+
+[IMPORTANT]
+====
+If a role doesn't have access to the {PRODUCT_NAME} {APP_NAME_COMPOSE}, they will also *not* be able to access any application defined as a {PRODUCT_NAME} {APP_NAME_COMPOSE} namespace.
+====
+
+== Namespaces permissions
+
+include::../../../partials/permissions/compose-namespaces.adoc[]
+
+== Modules permissions
+
+include::../../../partials/permissions/compose-modules.adoc[]
+
+== Module fields permissions
+
+include::../../../partials/permissions/compose-module-fields.adoc[]
+
+== Charts permissions
+
+include::../../../partials/permissions/compose-charts.adoc[]
+
+== Pages permissions
+
+include::../../../partials/permissions/compose-pages.adoc[]
+
+== {PRODUCT_NAME} {APP_NAME_MESSAGING}
+
+== Service permissions
+
+include::../../../partials/permissions/messaging-service.adoc[]
+
+== Channels permissions
+
+include::../../../partials/permissions/messaging-channels.adoc[]

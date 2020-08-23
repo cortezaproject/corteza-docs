@@ -1,0 +1,38 @@
+include::../../variables.adoc[]
+
+[#end-user-guide:admin-panel]
+= {PRODUCT_NAME} {APP_NAME_ADMIN}
+
+// @todo clean this up...
+
+{PRODUCT_NAME} Admin Panel is a platform designed for system resource management such as users, roles permissions and application.
+
+To access {PRODUCT_NAME} Admin Panel, click on a new tab and select it from the list of available applications.
+Alternatively you can navigate to the appropriate URL.
+
+[IMPORTANT]
+====
+You must have Administrator rights to access and edit this part of {PRODUCT_NAME} system.
+
+If you do not have permissions to access the admin panel, contact your system administrator.
+====
+
+:leveloffset: +1
+
+include::dashboard.adoc[]
+
+include::action-log.adoc[]
+
+include::users.adoc[]
+
+include::roles.adoc[]
+
+include::applications.adoc[]
+
+include::settings.adoc[]
+
+include::permissions.adoc[]
+
+include::automation.adoc[]
+
+:leveloffset: -1

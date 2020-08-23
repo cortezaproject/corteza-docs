@@ -1,0 +1,19 @@
+include::../../variables.adoc[]
+
+[#admin-adminpanel-compose-automation]
+= Automation
+
+[NOTE]
+====
+The automation interface can be accessed by clicking on the "Automation" navigation item on the left navigation drawer.
+====
+
+This interface provides an overview of all registered automation scripts.
+It provides a user-friendly list that defines the automation script's label, description, triggers and issues when processing the code.
+
+There are currently two different interfaces for System (shows `system` resource scripts) and {APP_NAME_COMPOSE} (shows `compose` resource scripts).
+
+[TIP]
+====
+Use this interface to validate, that the extension was correctly registered.
+====

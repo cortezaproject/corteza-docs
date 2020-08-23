@@ -1,0 +1,8 @@
+include::../../../../variables.adoc[]
+
+. Navigate to the {PRODUCT_NAME} {APP_NAME_COMPOSE} page,
+. press the lock icon in the top right corner.
+
+You can set:
+
+include::../../../../../partials/permissions/compose-namespaces.adoc[]

@@ -1,0 +1,83 @@
+include::../../variables.adoc[]
+
+= Namespaces
+
+A namespace defines the base for your record-based application and the base of your data model.
+Namespaces contain the data that is specific to a cretan application, such as a CRM, call center call log, ...
+
+[NOTE]
+====
+If you cannot access {PRODUCT_NAME} {APP_NAME_COMPOSE}, your existing applications or create a new namespace, you might not have the correct permissions.
+In this case, contact your system administrator.
+====
+
+== Create a namespace
+
+. Navigate to the {PRODUCT_NAME} {APP_NAME_COMPOSE} page,
+. click on the "Create namespace" button at the bottom of the page,
+. provide all the requested data,
+. press either "Save" or "Save and close".
+
+Available fields when defining a namespace
+
+include::partials/namespace-properties.adoc[]
+
+[IMPORTANT]
+====
+You can only define permissions for namespaces that already exist.
+Once you create the new namespace the option becomes available.
+====
+
+[#administrator-guide:compose:namespaces:edit]
+== Edit a namespace
+
+. Navigate to the {PRODUCT_NAME} {APP_NAME_COMPOSE} page,
+. hover over the namespace you wish to edit,
+. press on the edit icon,
+. update the data,
+. press either "Save" or "Save and close".
+
+Available fields when updating a namespace
+
+include::partials/namespace-properties.adoc[]
+
+[IMPORTANT]
+====
+If you can't see the edit icon, you most likely don't have enough permissions to perform this operation.
+Contact your system administrator.
+====
+
+== Delete a namespace
+
+. Navigate to the {PRODUCT_NAME} {APP_NAME_COMPOSE} page,
+. hover over the namespace you wish to edit,
+. press on the edit icon,
+. press the "Delete" button and confirm the operation.
+
+[IMPORTANT]
+====
+If you can't see the edit icon or you can't remove the namespace, you most likely don't have enough permissions to perform this operation.
+Contact your system administrator.
+====
+
+[TIP]
+====
+Not sure if the namespace could be used in the future?
+Maybe disable the namespace instead -- <<administrator-guide:compose:namespaces:edit>>
+====
+
+== Permissions
+
+[IMPORTANT]
+====
+If you can't access or manage permissions, you don't have the correct permissions.
+Contact your system administrator.
+====
+
+=== Any namespace
+
+include::partials/permissions/namespaces.adoc[]
+
+=== Specific namespace
+
+include::partials/permissions/namespace-specific.adoc[]

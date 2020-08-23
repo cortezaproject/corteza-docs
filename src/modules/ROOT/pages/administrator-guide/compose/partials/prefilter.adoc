@@ -1,0 +1,27 @@
+A prefilter is an SQL like string that allows you to filter the resources on the database level before the results are provided.
+
+With prefiltering you are able to determine a more specific set of records that will be shown in the record list, define what records should be included in a chart, and much more.
+
+Prefilters usually support value interpolation, which allows them to be more flexible when working with different resources.
+For example, you can show only records related to a specific record, show only records owned by the current user.
+Value interpolation can be invoked by using the JavaScript's standard template string syntax (`${...}`).
+For example `related_contact=$\{recordID\}`.
+
+[IMPORTANT]
+====
+Some resources may not support value interpolation when working with prefilters and will be disclosed in the documentation.
+====
+
+[NOTE]
+====
+Available interpolation values differ between resources and will be mentioned in the documentation.
+====
+
+[IMPORTANT]
+====
+When defining prefilters on boolean (check box) fields, keep in mind that the positive value is represented as `'1'` and negative value is represented as `''` **or** is not defined `IS NULL`.
+
+For example, when showing inactive contacts, you would write `(is_active='' OR is_active IS NULL)`.
+
+This will be improved upon in later releases.
+====

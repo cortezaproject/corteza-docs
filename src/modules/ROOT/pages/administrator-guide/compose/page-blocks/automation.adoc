@@ -1,0 +1,36 @@
+=== Automation
+
+An automation page block is designed to define an interface to the explicit automation scripts.
+
+[IMPORTANT]
+====
+The payload provided to the automation script differs from where the automation page block is placed.
+For example, if it's placed in a record page, then that record is included in the payload.
+====
+
+When selecting what automation the page block should show, you are able to specify a custom label and style.
+
+[TIP]
+====
+Automation script not showing?
+Make sure that:
+
+* It compiled with no errors,
+* you refreshed your page after it was included,
+* the trigger defined a `.uiProp('app', 'compose')` constraint.
+====
+
+[TIP]
+====
+You can also use server side automation scripts, as long as they define an explicit automation trigger; for example:
+
+```
+triggers ({ on }) {
+  return on('manual')
+    .for('compose:record')
+    .where('module', 'Lead')
+    .where('namespace', 'crm')
+    .uiProp('app', 'compose')
+},
+```
+====

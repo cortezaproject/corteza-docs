@@ -1,0 +1,9 @@
+=== IFrame
+
+An iframe page block is designed to embed some website or a webpage inside the namespace.
+This can be useful when wanting to embed an external system not natively supported inside the namespace.
+
+[IMPORTANT]
+====
+Our system is no exception to IFrame embedding limitations and it is up to you to assure quality experience.
+====

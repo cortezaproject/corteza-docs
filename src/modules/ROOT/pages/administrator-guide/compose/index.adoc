@@ -1,0 +1,37 @@
+include::../../variables.adoc[]
+= {PRODUCT_NAME} {APP_NAME_COMPOSE}
+
+{PRODUCT_NAME} {APP_NAME_COMPOSE} is a low-code platform development platform.
+It's flexible and secure system design, coupled with an intuitive graphic user interface provides an environment that enables quick development without any programming knowledge.
+
+It is a web-based system created with modern technologies and built for records-based business applications.
+In fact, {PRODUCT_NAME} CRM is built with it.
+
+{PRODUCT_NAME} {APP_NAME_COMPOSE} provides a specialized user interface tailored to administrators.
+The interface allows you to manage modules, pages, charts and much more.
+
+To enter the admin area of a namespace, you first need to open the namespace inside {PRODUCT_NAME} {APP_NAME_COMPOSE}.
+Once inside, you'll see an "Admin panel" link on the top-right corner.
+Click on it to enter the namespace's admin area.
+
+[NOTE]
+====
+If you cannot see the "Admin panel" link, you might not have the permissions you need.
+In this case, contact the administrator of your {PRODUCT_NAME} platform.
+====
+
+:leveloffset: +1
+
+include::permissions.adoc[]
+
+include::namespaces.adoc[]
+
+include::modules.adoc[]
+
+include::pages.adoc[]
+
+include::charts.adoc[]
+
+include::permissions.adoc[]
+
+:leveloffset: -1

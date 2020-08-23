@@ -1,0 +1,113 @@
+include::../../variables.adoc[]
+
+[#admin-compose-pages]
+= Pages
+
+{PRODUCT_NAME} {APP_NAME_COMPOSE} provide a graphic user interface to access the data contained within the given namespace.
+Each page consists of a series of page blocks that allow you to construct pages of arbitrary complexity while assuring each page is responsive and mobile friendly.
+
+Pages are available under the "Pages" sub administration page.
+Pages are represented in a tree view, that allows you to change their order and even their nesting.
+This allows unlimited flexibility when defining your namespace.
+
+== Page types
+
+[#admin-compose-page-record]
+=== Record pages
+
+A record page is designed to show information regarding a specific record, such as it's field values and other related records.
+In order for a module to be accessible to the user, it must have an associated record page.
+
+You can define a record page for the given module by pressing the "Page builder" button next to the module you wish to use.
+This will open up a new editor.
+Please refer to <<admin-compose-pages-build>> for details on the page building process.
+
+[#admin-compose-page-list]
+=== List pages
+
+List pages are not related to any specific record; rather, they are designed to show multiple record lists, charts, notes, calendars and so on and so forth.
+With list pages we can create a home page, a dashboard, a list of contacts, etc.
+
+To create a List page, you need to go to the "Pages" administrative page and enter a title in the Create a new page box at the top.
+When you submit this form, it opens the Edit page form, which allows you to add a page description (for internal use; the end user will not see it), and you can set the page to "Visible" so it can be accessed.
+
+The actual page editor can be accessed via the "Page builder" button either on the page editor or on the page tree view.
+
+[#admin-compose-page-blocks]
+== Page blocks
+
+include::./page-blocks/index.adoc[]
+
+== Create a page
+
+. Navigate to the {PRODUCT_NAME} {APP_NAME_COMPOSE} page and enter the namespace you wish to edit,
+. click on the "Admin panel" in the top right corner,
+. navigate to the "Pages" sub page,
+. enter the page name and press the "Create" button,
+. provide the page handle, a description and save the changes.
+
+// @todo record pages
+
+== Edit a page
+
+. Navigate to the {PRODUCT_NAME} {APP_NAME_COMPOSE} page and enter the namespace you wish to edit,
+. click on the "Admin panel" in the top right corner,
+. navigate to the "Pages" sub page,
+. click on the edit icon next to the page you wish to edit,
+. update the data and save the changes.
+
+[NOTE]
+====
+Page editor and page builder are not the same thing.
+Refer to the <<administrator-guide:compose:pages:page-builder>> section on details regarding the page builder.
+====
+
+== Delete a page
+
+. Navigate to the {PRODUCT_NAME} {APP_NAME_COMPOSE} page and enter the namespace you wish to edit,
+. click on the "Admin panel" in the top right corner,
+. navigate to the "Pages" sub page,
+. click on the edit icon next to the page you wish to edit,
+. Press the "Delete" button on the bottom of the page and confirm the operation.
+
+[#administrator-guide:compose:pages:page-builder]
+== Page builder
+
+. Navigate to the {PRODUCT_NAME} {APP_NAME_COMPOSE} page and enter the namespace you wish to edit,
+. click on the "Admin panel" in the top right corner,
+. navigate to the "Pages" sub page,
+. click on the "Page builder" next to the page you wish to edit *or* from the page editor screen.
+
+The page builder allows you to configure the page layout in any way you wish.
+Pages are build using page blocks (refer to <<admin-compose-page-blocks>> for details regarding page blocks) that allows you to easily design responsive pages.
+
+It defines a grid spanning over 12 columns and is not limited by height.
+Page blocks can be added using the "Add block" button on the bottom toolbar.
+This opens a modal window where you can select the page block type you wish to use (refer to <<admin-compose-page-blocks>> for details on page blocks).
+
+Once added, they can be arranged, resized and moved with an intuitive drag and drop style interface.
+Blocks can be edited by clicking on the edit icon or deleted by pressing the trash can icon on the bottom left corner of the page block.
+
+Once finished, press the "Save" or the "Save and close" button on the bottom right of the toolbar.
+To revert the changes, press the "Back (without saving changes) button".
+
+== Navigation
+
+The order and hierarchy of the pages also define the structure of the main navigation.
+To change the order or the nesting of each page, simply drag and drop the page where you want to have it.
+
+[TIP]
+====
+Nesting pages creates a dropdown menu in the main navigation.
+This is useful when grouping similar pages together.
+====
+
+== Permissions
+
+=== Any page
+
+include::partials/permissions/pages.adoc[]
+
+=== Specific page
+
+include::partials/permissions/page-specific.adoc[]

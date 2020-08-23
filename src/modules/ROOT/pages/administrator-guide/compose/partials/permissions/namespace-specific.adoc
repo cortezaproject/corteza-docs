@@ -1,0 +1,10 @@
+include::../../../../variables.adoc[]
+
+. Navigate to the {PRODUCT_NAME} {APP_NAME_COMPOSE} page,
+. hover over the namespace you wish to edit,
+. press on the edit icon,
+. press the lock icon in the top right corner.
+
+You can set:
+
+include::../../../../../partials/permissions/compose-namespace-specific.adoc[]

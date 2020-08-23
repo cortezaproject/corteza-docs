@@ -1,0 +1,13 @@
+* *Name*: This defines the internal naming convention and it must be specified and unique.
+This is not shown to the end user.
+It must:
+include::partial$handle-constraints.adoc[]
+
+* *Title*: This is a "human-friendly" representation of the field and is shown to the end-user when they view/edit the field.
+The title field doesn't define strict restrictions, but is limited to the maximum of 64 characters,
+* *Type*: This defines what type of information this field represents.
+As is, the field defaults to the basic configuration for each specific field type.
+This can be edited by clicking on the wrench icon to the right of the dropdown.
+* *Multi value*: This checkbox allows us to store multiple entries of the same field for the given record.
+* *Required*: This makes the field mandatory for the end user when creating or editing a record.
+* *Private*: This allows you to mark data that is sensitive, such as name, email, or telephone number, so your namespace is compliant with privacy regulations such as the GDPR.

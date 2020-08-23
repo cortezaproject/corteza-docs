@@ -23,4 +23,6 @@ include::customization.adoc[]
 
 include::requirements.adoc[]
 
+include::roadmap.adoc[]
+
 :leveloffset: -1

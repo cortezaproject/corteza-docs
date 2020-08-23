@@ -19,13 +19,13 @@ Ordered lists::
 ----
 
 Unordered lists::
-  Unordered lists should be defined with the `*`.
+  Unordered lists should be defined with the `-`.
   For example:
 
 [source,adoc]
 ----
-* List point 1,
-* list point 2.
+- List point 1,
+- list point 2.
 ----
 
 == Code snippets

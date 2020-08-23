@@ -18,6 +18,8 @@ If you wish to simply refresh your memory, go ahead.
 
 include::../../partials/security.adoc[]
 
+include::system-setup/index.adoc[]
+
 include::admin-panel/index.adoc[]
 
 include::compose/index.adoc[]

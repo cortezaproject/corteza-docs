@@ -1,0 +1,13 @@
+= Setup
+
+:leveloffset: +1
+
+include::cli.adoc[]
+
+include::api-server.adoc[]
+
+include::corredor-server.adoc[]
+
+include::email-automation.adoc[]
+
+:leveloffset: -1

@@ -1,0 +1,113 @@
+include::../../../variables.adoc[]
+
+= Record Validation
+
+Automation scripts provide the ability to validate records before they are created or updated.
+This helps us define a system that is more resilient to the dangers of malformed user input.
+
+[IMPORTANT]
+====
+Record validation from a script can be performed by scripts that are executed on:
+
+.server scripts:
+* `beforeCreate`,
+* `beforeUpdate`.
+
+.client scripts:
+* `beforeFormSubmit`,
+* `onFormSubmitError`.
+====
+
+When we wish to warn the user about a value error, the flow differs from client and server scripts, but the result is the same -- a set of `validator.ValidatorError` objects contained inside a `validator.Validated` object (refer to <<coredev-compose-recordValidation>> for details).
+
+[source,ts]
+----
+interface ValidatorError {
+  kind: string;
+  message: string;
+  meta: { [key: string]: unknown };
+}
+
+interface Validated {
+  set: ValidatorError[];
+}
+----
+
+== Server scripts
+
+When we wish to provide value errors from server scripts, we simply throw an instance of `validator.ValidatorError`.
+For example:
+
+[source,js]
+----
+import { validator } from '@cortezaproject/corteza-js'
+
+export default {
+  ...
+  async exec ({ $record }) {
+    if ($record.value.Field !== 'Super Specific Value') {
+      throw new validator.ValidatorError({
+        kind: 'invalidValue',
+        message: 'You didn\'t inter the super specific value',
+        meta: {
+          field: 'Field',
+          recordID: $record.recordID,
+        },
+      })
+    }
+  },
+}
+----
+
+== Client Scripts
+
+When executing client scripts, two extra parameters are present:
+
+`ctx.validator`::
+    The parameter contains the `compose.RecordValidator` object, that can be used to validate the record this script is executing for.
+
+`ctx.errors`::
+    The parameter contains the `validator.Validated` object, that contains current errors, and provides a place to store new errors.
+
+When we wish to provide value errors from inside client scripts, we either use the `ctx.validator` or construct a `validator.ValidatorError` object manually.
+The `validator.ValidatorErrors` should then be pushed into `ctx.errors`.
+For example:
+
+[source,js]
+----
+import { validator } from '@cortezaproject/corteza-js'
+
+export default {
+  ...
+  async exec ({ $record }, { errors, validator }) {
+    const errs = new validator.Validated()
+    if ($record.values.Field !== 'Super Specific Value') {
+      errs.push(new validator.ValidatorError({
+        kind: 'invalidValue',
+        message: 'You didn\'t inter the super specific value',
+        meta: {
+          field: 'Field',
+          recordID: $record.recordID,
+        },
+      }))
+    }
+
+    $record.values.FullName = `${$record.values.FirstName} ${$record.values.LastName}`
+    errs.push(...validator.run($record).set)
+    errors.push(...errs)
+  },
+}
+----
+
+[TIP]
+====
+When the validator is unable to find any errors, the returned `validator.Validated` contains an empty set.
+Since the value is always present, there is no need for if statements, such as
+
+[source,js]
+----
+if (errs && !errs.valid()) {
+  errors.push(...errs.set)
+}
+----
+====

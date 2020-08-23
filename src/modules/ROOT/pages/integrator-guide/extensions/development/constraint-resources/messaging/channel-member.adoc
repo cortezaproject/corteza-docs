@@ -1,0 +1,3 @@
+| channel-member.type
+| Constraint checks the value against the membership flag.
+The value can be `owner`, `member` or `invitee`.

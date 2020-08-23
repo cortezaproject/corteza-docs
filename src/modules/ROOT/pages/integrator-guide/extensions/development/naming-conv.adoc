@@ -1,0 +1,13 @@
+include::../../../variables.adoc[]
+
+= Naming Conventions
+
+We define the following set of naming conventions for a more consistent experience across different extensions:
+
+@wip
+
+File names::
+    File names should be written in pascal case, ending with a `.js` extension (eg. `SetLabel.js`),
+
+conv1::
+    thing...

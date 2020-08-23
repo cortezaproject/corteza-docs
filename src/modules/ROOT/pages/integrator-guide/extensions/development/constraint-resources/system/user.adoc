@@ -1,0 +1,8 @@
+| user
+| Constraint checks the value against the user's handle.
+
+| user.handle
+| Constraint checks the value against the user's handle.
+
+| user.email
+| Constraint checks the value against the user's email.

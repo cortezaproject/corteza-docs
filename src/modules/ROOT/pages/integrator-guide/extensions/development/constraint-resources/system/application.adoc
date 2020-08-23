@@ -1,0 +1,2 @@
+| application.name
+| Constraint checks the value against the application's name.

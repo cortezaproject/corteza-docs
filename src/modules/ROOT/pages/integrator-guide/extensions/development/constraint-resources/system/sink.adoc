@@ -1,0 +1,31 @@
+| request.remoteAddress
+| Constraint checks the value against the request's remote address.
+
+| request.method
+| Constraint checks the value against the request's method.
+The value can be any standard HTTP request method.
+
+| request.path
+| Constraint checks the value against the request's URL path.
+For example, `www.address.tld/some/path` would require `/some/path`.
+
+| request.username
+| Constraint checks the value against the request's basic authentication username.
+
+| request.password
+| Constraint checks the value against the request's  basic authentication password.
+
+| request.content-type
+| Constraint checks the value against the request's content type header field.
+
+
+| request.get.*
+| Constraint checks the value against the request's get query parameters.
+This will be truthy if **any** value matches in case of multiple query parameter values.
+
+| request.post.*
+| Constraint checks the value against the request's post body parameters.
+// @todo a bit more descriptive?
+
+| request.header.*
+| Constraint checks the value against the request's header parameters.

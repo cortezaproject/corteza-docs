@@ -1,8 +1,0 @@
-include::../../variables.adoc[]
-
-= Price Books
-
-In this module you can add all the price books your business may have.
-They allow you to have different pricing for the same product, divided by sector, geographical area etc.
-
-Information on how to apply price books can by found in the Opportunity chapter.

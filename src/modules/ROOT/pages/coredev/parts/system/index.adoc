@@ -1,9 +1,0 @@
-include::../../../variables.adoc[]
-
-= {PRODUCT_NAME} System
-
-:leveloffset: +1
-
-include::db.adoc[]
-
-:leveloffset: -1

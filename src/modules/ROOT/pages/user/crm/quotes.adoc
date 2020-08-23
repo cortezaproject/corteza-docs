@@ -1,6 +1,0 @@
-include::../../variables.adoc[]
-
-= Quotes
-
-This module shows the list of all quotes.
-For details on easy quote generation, please check the <<opportunities>> module documentation.

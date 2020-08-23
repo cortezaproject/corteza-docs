@@ -1,8 +1,0 @@
-include::../../variables.adoc[]
-
-= Events
-
-Events help the sales person to organise their meetings and appointments.
-They have a start and end time and a location.
-
-Events are shown in the calendar on the home page of the CRM.

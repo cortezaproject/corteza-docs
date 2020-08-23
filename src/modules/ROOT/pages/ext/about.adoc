@@ -1,6 +1,0 @@
-include::../variables.adoc[]
-= About Extensions
-
-Extensions provide a way of extending the core {PRODUCT_NAME} system by implementing additional features and business logic of any complexity.
-This section covers the extensions developed and maintained by the core team.
-For the development, please refer to <<extdev-index>>.

@@ -1,6 +1,0 @@
-include::../../variables.adoc[]
-
-= Tasks
-
-Tasks in the CRM are actions that needs to be completed by yourself or another user.
-You can use them to manage daily work tasks.

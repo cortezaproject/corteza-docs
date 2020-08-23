@@ -1,6 +1,0 @@
-| message
-| Constraint checks the value against the message's content.
-
-| message.type
-| Constraint checks the value against the message type.
-The value can be `channelEvent`, `inlineImage`, `attachment`, `illeism` or omitted.

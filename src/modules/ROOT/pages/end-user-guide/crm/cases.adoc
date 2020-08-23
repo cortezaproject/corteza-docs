@@ -1,0 +1,7 @@
+include::../../variables.adoc[]
+
+= Cases
+
+Cases is a simplified case management tool, linked to accounts, contacts, products or even other cases.
+
+You can set who is part of the case, and what role the have, in the “Case Contact Roles”, and you can track progress with the case description fields and notes, events and tasks blocks.

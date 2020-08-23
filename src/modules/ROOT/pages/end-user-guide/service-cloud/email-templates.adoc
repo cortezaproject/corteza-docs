@@ -1,0 +1,72 @@
+include::../../variables.adoc[]
+
+= Email templates
+
+Contacts of cases can be emailed directly from the Service Cloud.
+Each outgoing email is recorded in the case update list.
+To make sending out emails easier, Service Cloud allows you to create email templates with placeholders.
+
+Each email template has a name and description.
+They are for internal use.
+The subject and the body fields are what's being sent to the contact.
+
+The subject of an email template is a string.
+The body is a rich text area.
+The content can be multiple lines, and it allows basic styling, adding links and adding images.
+
+== Placeholders
+
+In both the subject and body you can use placeholders.
+This allows you to easily personalise emails.
+The following placeholders can be used:
+
+.Placeholders for getting data of the case:
+* `{{Case.Number}}`
+* `{{Case.Subject}}`
+* `{{Case.Status}}`
+* `{{Case.ContactName}}`
+* `{{Case.ContactTitle}}`
+* `{{Case.ContactEmail}}`
+* `{{Case.ContactPhone}}`
+* `{{Case.Escalated}}`
+* `{{Case.Category}}`
+* `{{Case.CloseDate}}`
+* `{{Case.Priority}}`
+* `{{Case.Description}}`
+* `{{Case.TotalTime}}`
+* `{{Case.TotalCost}}`
+
+.Placeholders for getting data of the contact:
+* `{\{FirstName}}`
+* `{\{LastName}}`
+* `{\{Title}}`
+* `{\{Phone}}`
+* `{\{Email}}`
+* `{\{Twitter}}`
+* `{\{Facebook}}`
+* `{\{LinkedIn}}`
+* `{\{MailingStreet}}`
+* `{\{MailingCity}}`
+* `{\{MailingState}}`
+* `{\{MailingPostalCode}}`
+* `{\{MailingCountry}}`
+* `{\{DoNotCall}}`
+* `{\{HasOptedOutOfEmail}}`
+
+== Example
+
+*Subject:*
+Case: [`{{Case.Number}}`] "`{{Case.Subject}}`"
+
+*Body:*
+
+Dear `{{Contact.FirstName}}`,
+
+We are contacting you with regard to the case "`{{Case.Subject}}`".
+
+ADD_REASON_FOR_CONTACT_HERE
+
+Kind regards,
+
+The service team
+

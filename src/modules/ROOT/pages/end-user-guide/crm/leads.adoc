@@ -1,0 +1,30 @@
+include::../../variables.adoc[]
+
+= Leads
+
+A lead is an individual who might become your customer, but currently isn’t.
+Another word for a lead is a prospect. Leads are usually converted to accounts, contacts and opportunities.
+
+When the leads are enters the CRM, it needs to be qualified.
+The rating field is particularly helpful to see if a lead is a potential customer or not.
+
+When a lead shows commercial interest, such a a request for pricing, and the lead’s location matches the region your business targets, this lead is should be considered a 5 star lead.
+A 3 star lead can be a lead that did an online demo and nothing more, and a 0 or 1 star lead can be a lead that contacted the company for anything but one of your products or services.
+
+The typical process is that a sales person follows up on the lead.
+The related record blocks “notes” (for any note), “events” (for example a scheduled online demo) and “tasks” (for example “send price list via email” or “call back”) are helpful here.
+
+Leads can be part of a campaign.
+More info about campaigns can be found in the <<campaigns>> chapter.
+
+When the sales person has made contact with the lead, and there is a sales opportunity here, the sales person should convert the lead.
+There are two automation buttons on the top right.
+One will convert the lead in to an account + contact, and the other one, if there is already more info about the potential opportunity, will create an account + contact + opportunity.
+
+== My Leads
+
+My Leads is a sub page of leads, showing only the leads owned by you.
+
+== All New Leads
+
+All New Leads is a sub page of leads, showing all leads with the status “New”.

@@ -1,0 +1,9 @@
+include::../../variables.adoc[]
+
+= Products
+
+In this module you manage all products (or services) your company sells.
+
+In each product you can define the main details (such as name or product code) and add pricing per price book, allowing you to have different pricing for different types of companies or regions.
+
+The details view of products also shows the related cases.

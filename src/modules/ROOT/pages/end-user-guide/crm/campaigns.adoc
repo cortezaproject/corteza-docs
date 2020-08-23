@@ -1,0 +1,9 @@
+include::../../variables.adoc[]
+
+= Campaigns
+
+A campaign is a marketing project that you want to plan, manage, and track within the CRM.
+It can be a newsletter, seminar, conference, or other type of marketing initiative.
+
+Campaign members are leads or contacts that entered the CRM via that campaign, and the opportunities related to them are generated opportunities.
+These opportunities allow you to check the ROI of the campaign, when you compare the costs to the value won in opportunities.

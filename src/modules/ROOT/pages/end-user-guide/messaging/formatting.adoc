@@ -1,0 +1,7 @@
+include::../../variables.adoc[]
+= Message Formatting
+
+For rich message formatting, {PRODUCT_NAME} supports Markdown inputs.
+A Markdown cheat sheet can be found https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet[here].
+
+// @todo provide a TL;DR of this

@@ -1,0 +1,25 @@
+include::../../variables.adoc[]
+
+= Opportunities
+
+Opportunities are associated with revenue.
+When you generate an opportunity from an account (or directly from converting a lead) this means that you uncovered a potential future sale.
+
+Every opportunity needs a name, which needs to be added manually.
+It’s important that others understand what the opportunity contains by simply looking at the name.
+So, an opportunity name like “300 licenses” is clear.
+
+By default the close date is set to one month after opportunity creation date, but this date can easily be modified.
+
+To qualify a lead it useful to figure out the following data:
+
+* Budget (Check if there is actually a budget)
+* Authority (Check if you are talking to or being able to get through to the decision makers)
+* Need (Check if there is actually a need for the product / service)
+* Timeline (Check by when the product / service needs to be delivered or implemented, and if this time line makes sense)
+* Competition (Check who you are competing with)
+
+In order to get a good idea of the stage the opportunity is in, you need to use the “stage” field.
+By default, it’s set to “Qualification”.
+Once correctly qualified, you can move it to “Proposal” (or to “Need Analysis”, if more analysis is needed.
+Following steps are “Negotiation”, followed by “Closed Won” or “Closed Lost”.

@@ -1,0 +1,27 @@
+include::../../variables.adoc[]
+
+= Dashboards
+
+Dashboards in Service Cloud give a good overview of the current status of your cases in one glimpse.
+
+.Charts:
+* New cases per month
+* Number of active entitlements
+* Knowledge base articles per type
+* Closed cases per month
+* Average time spent per case (in hours)
+* Total time spent per month (in hours)
+* Total cost per case category (in $)
+* Total cost per month (in $)
+* Case updates per type
+* Total time spent per category (in hours)
+* Cases by status
+* Total time spent per account (in hours)
+* Total costs per account (in $)
+* Time spent per product family (in hours)
+* Total costs per product family (in $)
+* Total time spent per department (in hours)
+* Total cost per department (in $)
+* KB articles created per day
+
+Service Cloud is configurable, allowing you to create new charts and new dashboards.

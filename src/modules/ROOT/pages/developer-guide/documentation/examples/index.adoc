@@ -1,0 +1,10 @@
+[#coredev-docs-examples]
+= Examples
+
+:leveloffset: +1
+
+include::getting-started.adoc[]
+
+include::no-jank.adoc[]
+
+:leveloffset: -1

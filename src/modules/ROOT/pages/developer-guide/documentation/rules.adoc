@@ -1,0 +1,58 @@
+include::../../variables.adoc[]
+
+= Contributor Rules
+
+Below is a list of rules that apply to every contributor of any {PRODUCT_NAME} repository.
+With the below points we are able to provide consistent, quality software that is easy to use or contribute to.
+
+All major modifications must be documented::
+    A modification classifies as a major modification when it causes any changes to the output of an action.
+    For example:
+
+    * Changed api response,
+    * change in the access control,
+    * addedd new permission states,
+    * changed system configuration,
+    * etc.
+
+All relevant documentations must me updated::
+    When a modification affects multiple documentations each of them needs to be taken care of.
+    For example, a new feature introduces a new application with a special API and a user interface.
+    This change would demand changes in:
+
+    * Maintainer documentation,
+    * administrator documentation,
+    * end-user documentation.
+
+Consistent style of writing::
+    Some general guidelines:
+
+    * All documentation must be written in first person past tense.
+    You are usually not the only person that worked on the feature and the reader doesn't care on who this is from.
+    For references refer to Github Contribution,
+    * try to avoid syntax errors.
+    You can use spell checkers to validate the syntax,
+    * keep it short, simple and straight to the point!
+    Try to avoid any long introductions, rewriting the same thing over and over again.
+    Keeping it simple makes it easier for the reader,
+    * keep it structured.
+    Before getting started on the documentation, outline the main bits that need to be covered and attempt to remove any overlapping in the sections.
+    modification that does not classify as a minor change, has to be documented.
+
+Try to follow the rules::
+    In the edge case where it is excusable for you to not follow the above rules (extremely tight schedule, urgent fixes that need to be released asap, ...) open up an issue that outlines your changes, provides some references to the PR/commit so someone (preferably yourself) can get to it as soon as possible.
+    No biggie as long as it's done.
+
+[IMPORTANT]
+====
+If you refuse to follow the above guidelines for any reason, any pull requests opened by you will be rejected.
+
+Any software looses all of it's quality if no one knows what is going on.
+====
+
+[NOTE]
+====
+Stuck?
+Refer to the examples section to get an idea on how to get started.
+@todo link to it
+====

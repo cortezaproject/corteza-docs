@@ -1,0 +1,80 @@
+= Getting Started
+
+== Sample Feature
+
+For an easier representation, we use the following feature specification:
+
+include::sample-feature.adoc[]
+
+- specify a set of bullets (section) that outline the important parts of the system
+
+For example:
+
+[source,adoc]
+----
+- security
+- front-end
+- backend
+- repository
+----
+
+- expend on each of the sections with additional important bits that should be mentioned
+
+For example:
+
+[source,adoc]
+----
+- security
+  - available permissions
+  - the scope of each permission
+  - guidelines
+- front-end
+  - important libraries used
+  - browser compatibility
+  - used algorithms
+  - communication with the backend
+- backend
+  - access control
+  - used algorithms
+  - limitations such as throttling
+- repository
+  - tables, fields and their types
+----
+
+- go over all the bullets from start to finish and expand those as you think best fits.
+Don't worry if the first version doesn't feel right, we will get there!
+
+For example:
+
+[source,adoc]
+----
+= Monitor
+
+This feature implements a system that monitors the clients connected to the {PRODUCT_NAME} Monitor core system.
+Reports statistics.
+
+== Security
+
+=== Available permissions
+
+Monitor log::
+    The permission allows the role to create a log entry for the Monitor system.
+    We should only grant this permission to the users that we want to know about,
+
+Monitor list::
+    The permission allows the role to access the stored Monitor data.
+    Such users can analyse the data to create reports,
+
+Monitor log delete::
+    The permission allows the role to remove a log entry from the monitor system.
+    Be careful with this one, as we don't want users to needlessly remove information.
+
+...
+
+----
+
+[NOTE]
+====
+The above example's wording is not the best and should be improved with additional iterations.
+Also note, that we've merged multiple security subsections (available permissions, scope and guidelines) into one to create a more condensed outline.
+====

@@ -1,0 +1,97 @@
+= Removing Jank
+
+== Tips
+
+// @todo...
+
+== Example
+
+For an easier representation, we use the following feature specification:
+
+include::sample-feature.adoc[]
+
+Lets now imagine the following documentation:
+
+[source,adoc]
+----
+= Monitor
+
+This section describes the {PRODUCT_NAME} Monitor feature.
+The {PRODUCT_NAME} Monitor feature monitors the clients connected to the core {PRODUCT_NAME} system.
+
+== Security
+
+The security is one of the most important areas that need to be addressed, as it allows us to restrict access to sensitive information.
+The system bases on users and roles (RBAC) that can be defined in the system administration panel.
+The rest of the subsection outlines available permissions, their context and provides some guidelines and some notes.
+
+Monitor log::
+    The permission allows the role to create a log entry for the Monitor system.
+    We should only grant this permission to the users that we want to know about,
+
+Monitor list::
+    The permission allows the role to access the stored Monitor data.
+    Such users can analyse the data to create reports,
+
+Monitor log delete::
+    The permission allows the role to remove a log entry from the monitor system.
+    Be careful with this one, as we don't want users to needlessly remove information.
+
+----
+
+Now lets analyse and clean it up a bit.
+
+[source,adoc]
+----
+This section describes the {PRODUCT_NAME} Monitor feature.
+----
+
+Yes, we know, since we can read the title of the section.
+
+[source,adoc]
+----
+he security is one of the most important areas that need to be addressed, as it allows us to restrict access to sensitive information.
+The system bases on users and roles (RBAC) that can be defined in the system administration panel.
+----
+
+We are just stalling and repeating the same thing that should be outlined in the security chapters.
+Sometimes it is a good idea to repeat important bits of information, but not in this case as it should be self intuitive from the sub-section's title.
+
+[source,adoc]
+----
+The rest of the subsection outlines available permissions, their context and provides some guidelines and some notes.
+----
+
+Again; we're just stalling and padding for longer content.
+If we wish to provide an outline of the important sections, let's just define a new section so it's visible from the navigation/table of content.
+
+
+If we take into consideration the above analysis, we can condense the documentation down to the following:
+
+[source,adoc]
+----
+= Monitor
+
+This feature implements a system that monitors the clients connected to the {PRODUCT_NAME} Monitor core system.
+Reports statistics.
+
+== Security
+
+=== Available permissions
+
+Monitor log::
+    The permission allows the role to create a log entry for the Monitor system.
+    We should only grant this permission to the users that we want to know about,
+
+Monitor list::
+    The permission allows the role to access the stored Monitor data.
+    Such users can analyse the data to create reports,
+
+Monitor log delete::
+    The permission allows the role to remove a log entry from the monitor system.
+    Be careful with this one, as we don't want users to needlessly remove information.
+
+----
+
+We can see that the content is a bit shorter and straight to the point.
+We don't want to waist the readers time with needless content, so let's just keep it short and simple.

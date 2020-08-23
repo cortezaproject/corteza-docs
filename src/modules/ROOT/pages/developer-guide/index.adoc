@@ -11,6 +11,8 @@ Instead of describing all the little functions it mainly focuses on features and
 
 :leveloffset: +1
 
+include::building.adoc[]
+
 include::documentation/index.adoc[]
 
 include::extensions/index.adoc[]

@@ -1,10 +1,23 @@
 include::variables.adoc[]
 = {PRODUCT_NAME} manuals
 
-. link:overview/index.html[Overview]
-. link:user/index.html[User Manual]
-. link:admin/index.html[Admin Manual]
-. link:maint/index.html[Management and Maintenance]
-. link:coredev/index.html[Core Developer's Manual]
-. link:extdev/index.html[Extending and Customizing]
-. link:ext/index.html[Extensions]
+Interested about using {PRODUCT_NAME}?::
+    See the link:overview/index.adoc[overview],
+
+are you an end-user that wants to know how to use different features that {PRODUCT_NAME} provides?::
+    Our link:end-user-guide/index.adoc[end-user guide] covers all the parts of the {PRODUCT_NAME} in a simple understandable manner, understandable to non-techy people,
+
+are you a system administrator that wants to know how to maintain the entire system?::
+    See the link:administrator-guide/index.adoc[administrator guide],
+
+are you an integrator that wants to develop solutions based on {PRODUCT_NAME}?::
+    See the link:integrator-guide/index.adoc[integrator guide],
+
+are you working on core {PRODUCT_NAME} features?::
+    See the link:developer-guide/index.adoc[developer guide],
+
+are you looking for official {PRODUCT_NAME} extensions?::
+    See the link:extensions/index.adoc[extensions],
+
+want to see some examples to get you started?::
+    See the link:examples/index.adoc[examples].

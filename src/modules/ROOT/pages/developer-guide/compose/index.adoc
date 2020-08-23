@@ -1,0 +1,9 @@
+include::../../variables.adoc[]
+
+= {PRODUCT_NAME} {APP_NAME_COMPOSE}
+
+:leveloffset: +1
+
+include::record-validation.adoc[]
+
+:leveloffset: -1

@@ -1,0 +1,20 @@
+include::../../variables.adoc[]
+
+= {PRODUCT_NAME} database structure
+
+* <<coredev-system-database>>,
+* <<coredev-compose-database>>,
+* <<coredev-messaging-database>>.
+
+== {PRODUCT_NAME} system database structure
+
+include::system-tables.adoc[]
+
+== {PRODUCT_NAME} {APP_NAME_COMPOSE} database structure
+
+include::compose-tables.adoc[]
+
+== {PRODUCT_NAME} {APP_NAME_MESSAGING} database structure
+
+include::messaging-tables.adoc[]
+

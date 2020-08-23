@@ -1,0 +1,11 @@
+include::../../variables.adoc[]
+
+= {PRODUCT_NAME} Database
+
+:leveloffset: +1
+
+include::about.adoc[]
+
+include::structure.adoc[]
+
+:leveloffset: -1

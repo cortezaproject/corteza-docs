@@ -1,0 +1,14 @@
+include::../variables.adoc[]
+
+[#extensions]
+= Extensions
+
+:doctype: book
+
+This guide introduces all the official {PRODUCT_NAME} extensions developed and maintained by the core team and all of our contributors.
+
+:leveloffset: +1
+
+include::docusign/index.adoc[]
+
+:leveloffset: -1

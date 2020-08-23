@@ -1,0 +1,24 @@
+include::../../../variables.adoc[]
+
+= Triggers
+
+Automation script triggers determine when, where, execution context; input and output of the automation script.
+
+Triggers consist of 4 components:
+
+Event type::
+    Defines the event that should invoke the script's execution.
+    See <<ext-resevt>> for available event types.
+
+Resource type::
+    Defines the resource that the automation script is compatible with.
+    This also defines the execution context, input and output of the automation script.
+    See <<ext-resevt>> for available resource types and their meta,
+
+Constraints::
+    Defines a set of constraints that must be truthly in order for this script to be available.
+    Refer to <<ext-dev-triggerAnatomy>> for details,
+
+user interface properties (uiProps)::
+    Used only for manual triggers.
+    Defines a set of parameters that define where and how the UI hook component will be rendered.

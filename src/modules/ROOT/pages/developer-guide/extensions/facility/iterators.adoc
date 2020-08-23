@@ -1,0 +1,24 @@
+include::../../../variables.adoc[]
+
+= Iterators
+
+Automation script iterators determine when, the execution context; the input and output of the automation script.
+
+Iterators consist of 4 components:
+
+Event type::
+    Defines the event that should invoke the script's execution.
+    See <<ext-resevt>> for available event types.
+
+Resource type::
+    Defines the resource that the automation script is compatible with.
+    This also defines the execution context, input and output of the automation script.
+    See <<ext-resevt>> for available resource types and their meta.
+
+Action::
+    Defines the action that the automation script would like to perform.
+
+Filter::
+    Defines the filter that determines the resources that should be processed by the automation script.
+    Refer to <<ext-dev-iteratorConstraints>> for details.
+

@@ -13,4 +13,6 @@ Instead of describing all the little functions it mainly focuses on features and
 
 include::documentation/index.adoc[]
 
+include::extensions/index.adoc[]
+
 :leveloffset: -1

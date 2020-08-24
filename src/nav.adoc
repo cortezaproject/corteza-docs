@@ -21,8 +21,8 @@ include::modules/ROOT/pages/variables.adoc[]
 ** xref:administrator-guide/security.adoc[Security]
 ** xref:administrator-guide/system-setup/index.adoc[System Setup]
 ** xref:administrator-guide/admin-panel/index.adoc[Admin Panel]
-** xref:administrator-guide/compose/index.adoc[{APP_NAME_COMPOSE}]
-** xref:administrator-guide/messaging/index.adoc[{APP_NAME_MESSAGING}]
+** xref:administrator-guide/compose/index.adoc[]{APP_NAME_COMPOSE}
+** xref:administrator-guide/messaging/index.adoc[]{APP_NAME_MESSAGING}
 
 * xref:integrator-guide/index.adoc[Integrator Guide]
 ** xref:integrator-guide/security.adoc[Security]
@@ -31,8 +31,8 @@ include::modules/ROOT/pages/variables.adoc[]
 * xref:developer-guide/index.adoc[Developer Guide]
 ** xref:developer-guide/building.adoc[Build Pipelines]
 ** xref:developer-guide/documentation/index.adoc[Documentation]
-** xref:developer-guide/database/index.adoc[{PRODUCT_NAME} Database]
-** xref:developer-guide/compose/index.adoc[{PRODUCT_NAME} {APP_NAME_COMPOSE}]
+** xref:developer-guide/database/index.adoc[]{PRODUCT_NAME} Database
+** xref:developer-guide/compose/index.adoc[]{PRODUCT_NAME} {APP_NAME_COMPOSE}
 ** xref:developer-guide/extensions/index.adoc[Extensions]
 
 * xref:extensions/index.adoc[Extensions]

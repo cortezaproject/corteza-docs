@@ -1,0 +1,7 @@
+include::../../variables.adoc[]
+= Threads
+
+. Hover over the message with the cursor and click on the speech bubble icon that appears at the end of the message.
+
+Replying to a message opens a side bar on the right of the screen called a message “Thread”.
+The unread message count in a thread appear in red underneath the original message.

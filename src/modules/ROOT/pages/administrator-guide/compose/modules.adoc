@@ -1,0 +1,255 @@
+include::../../variables.adoc[]
+
+[#admin-compose-modules]
+= Modules
+
+Modules provide a way of storing data inside your namespace.
+All the data is local to the namespace and is **not** accessible from other namespaces.
+Without modules, your namespace has no memory nor anything to work with, so defining them is the next step when creating a new app.
+A simple namespace typically only contains a few modules, however their number and their complexity is not limited.
+{PRODUCT_NAME} CRM, for example, has over 35 modules with hundreds of fields.
+
+For a better understanding we provide a corelation with database terminology, though no database knowledge is required to use this feature.
+* A module can be thought of as a table, as it provides some metadata, a set of attributes and a place to store related data,
+* a module field can be thought of as an attribute, as it provides a way of defining the shape of the data,
+* a record can be thought of as an entity, as it provides the actual data for the module.
+
+[TIP]
+====
+{PRODUCT_NAME} {APP_NAME_COMPOSE} supports fields with multiple value entries for the same record (see <<admin-compose-fields-edit>>), so you might not need pivot tables.
+====
+
+== Module guidelines
+
+For a consistent experience across different namespaces and {PRODUCT_NAME} instances, we define a few general guidelines regarding module definitions:
+
+Module name::
+    The module name should be in PascalCase with spaces allowed, it should be short and descriptive, with no special characters except for : (colon), - (dash), _ (underscore), / (forward slash) and \ (backwards slash).
+    For example: Quote Line,
+
+Module handle::
+    The module handle should be in snake_case, it should be short and descriptive, with no special characters.
+    If provided, it must:
+include::partial$handle-constraints.adoc[]
+
+== Module field guidelines
+
+For a consistent experience across different namespaces and {PRODUCT_NAME} instances, we define a few general guidelines regarding module field definitions:
+
+Field name::
+    The module field title should be in snake_case, it should be short and descriptive, with no special characters.
+    Name must:
+include::partial$handle-constraints.adoc[]
+
+Field title::
+    The module field title doesn't define any strict restriction, as it is shown to the user.
+    The only requirement is that it should be as short as possible (maximum length of 64 characters).
+
+Type::
+    When defining a field, a correct type should be used; for example "Email" when storing emails, "Number" when storing numbers, and so on.
+
+== Module field types
+
+For a more structured system, we provide the following set of field types for you to chose from.
+By pressing on the wrench icon, you are able to provide additional configuration for the module field.
+
+* *Checkbox (Y/N)*: This field shows a checkbox to the end user when editing a record.
+When you click on the wrench icon, you can select what checked and unchecked represent.
+For example: Yes/No, Active/Inactive, etc.
+
+* *Date and time*: Date time input field.
+You can configure:
+** **Date only** to omit the time part and only use the date,
+** **Time only** to omit the date part and only use the time,
+** **Past values only** to only allow past values,
+** **Future value only** to only allow future values,
+** **Output relative value** to show the value relative to now,
+** **Custom output format** to allow custom output date format.
+
+* *Email*: Email input field.
+Automatically performs email validation and creates a clickable link when viewing the value (can be disabled).
+This field auto-validates whether the input is an email and turns it into a clickable email link in record-viewing mode.
+You can configure:
+** **Don't turn email into a link** to keep the email as plain text
+
+* *Select / dropdown*: Dropdown value select input.
+Forces the users to use one of the specified values.
+You can configure:
+** **Options** to add as many select options as you wish.
+You must provide both the value (left input) and the label (right input).
+Value represents the data storage, and label represents the display,
+** **Multiple value input type** to determine how multiple values are selected.
+
+* *Number*: Number value input.
+Automatically performs number validation and allows only numbers to be inserted.
+You can configure:
+** **Prefix** to specify the number's prefix, such as $,
+** **suffix** to specify the number's suffix, such as USD/h,
+** **precision** to specify the precision the number is stored with,
+** **format** to specify the numbers display format.
+
+* *Record*: Provides a way of cross-linking different records to define a complex structure.
+It renders a searchable select field.
+You can configure:
+** **Module** to specify what module this field will be linked to,
+** **record label field** to specify what field should be used when showing the linked record,
+** **query fields on search** to specify the fields that should be included in the search,
+** **prefilter records** to specify the pre-filtering.
+
+* *String*: Provides a text input field.
+You can configure:
+** **Multi line** to specify that the value can span over multiple lines,
+** **use rich text editor** to use the rich text editor instead of the simple plain text editor.
+
+* *URL*: Provides an URL input field.
+Automatically performs URL validation and creates a clickable link when viewing the value (can be configured).
+You can configure:
+
+** **Trim # from the URL** to specify that the hash should be ignored,
+** **Trim ? from the URL** to specify that the query should be ignored,
+** **Only allow SSL (HTTPS) URLs** to specify that only secure URL's can be provided,
+** **Don't turn URL into a link** to keep the URL as a plain text value.
+
+* *User*: Provides a searchable dropdown select.
+This field references all users in {PRODUCT_NAME}.
+You can configure:
+** **Preset with current user** to default to the user that created/updated the record,
+** **Multiple value input type** to determine how multiple values are selected.
+
+* *File upload*: This creates a File Upload input.
+You can configure:
+** **Veiw mode** to specify how the files are presented when viewing the value.
+
+[NOTE]
+====
+See https://momentjs.com/docs/#/displaying/format/[Moment.js format] for available date time formatting.
+====
+
+[NOTE]
+====
+See https://numeraljs.com/#format[Numeral.js format] for available number formatting.
+====
+
+== Create a module
+
+. Navigate to the {PRODUCT_NAME} {APP_NAME_COMPOSE} page and enter the namespace you wish to edit,
+. click on the "Admin panel" in the top right corner,
+. navigate to the "Modules" sub page,
+. enter the module name and press the "Create" button,
+. provide the module handle and save the changes.
+
+// @todo some more insight on what additional steps are needed.
+
+== Importing modules
+
+[IMPORTANT]
+====
+The current importing system is unable to resolve relations between different modules via Record fields.
+This has to be fixed manually after the system is done with the import.
+====
+
+[NOTE]
+====
+Modules can be imported from a JSON file.
+====
+
+. Navigate to the {PRODUCT_NAME} {APP_NAME_COMPOSE} page and enter the namespace you wish to edit,
+. click on the "Admin panel" in the top right corner,
+. navigate to the "Modules" sub page,
+. find the "Import module(s)" section on the top of the page,
+. click on the "Browse" button and select the JSON file containing module definitions,
+. click on the "Import" button,
+. select on the modules you wish to import and press the "Import" button.
+
+== Editing a module
+
+. Navigate to the {PRODUCT_NAME} {APP_NAME_COMPOSE} page and enter the namespace you wish to edit,
+. click on the "Admin panel" in the top right corner,
+. navigate to the "Modules" sub page,
+. click on the edit icon next to the module you wish to edit,
+. update the data and save the changes.
+
+== Deleting a module
+
+. Navigate to the {PRODUCT_NAME} {APP_NAME_COMPOSE} page and enter the namespace you wish to edit,
+. click on the "Admin panel" in the top right corner,
+. navigate to the "Modules" sub page,
+. click on the edit icon next to the module you wish to edit,
+. click on the "Delete" button on the bottom of the page and confirm the action.
+
+== Module permissions
+
+[IMPORTANT]
+====
+If you can't access or manage permissions, you don't have the correct permissions.
+Contact your system administrator.
+====
+
+=== Any module
+
+include::partials/permissions/modules.adoc[]
+
+=== Specific module
+
+include::partials/permissions/module-specific.adoc[]
+
+== Adding module fields
+
+. Navigate to the {PRODUCT_NAME} {APP_NAME_COMPOSE} page and enter the namespace you wish to edit,
+. click on the "Admin panel" in the top right corner,
+. navigate to the "Modules" sub page,
+. click on the edit icon next to the module you wish to edit,
+. click on the "+ Add new field" button,
+. configure the field as you see fit and save changes.
+
+Each field defines the following properties:
+
+include::./partials/module-field-properties.adoc[]
+
+== Editing module fields
+
+[IMPORTANT]
+====
+If a specific module already contains some records, your module field editing interface is limited.
+If you wish to create a new field with the similar intent but with a different type, we suggest you create a new field instead of trying to edit the existing one.
+====
+
+. Navigate to the {PRODUCT_NAME} {APP_NAME_COMPOSE} page and enter the namespace you wish to edit,
+. click on the "Admin panel" in the top right corner,
+. navigate to the "Modules" sub page,
+. click on the edit icon next to the module you wish to edit,
+. configure the field as you see fit and save changes.
+
+Each field defines the following properties:
+
+include::./partials/module-field-properties.adoc[]
+
+== Deleting
+
+[IMPORTANT]
+====
+- When deleting existing fields, the change will *not* take effect unless you explicitly save the changes,
+- When deleting new fields, the changes take effect immediately.
+====
+
+. Navigate to the {PRODUCT_NAME} {APP_NAME_COMPOSE} page and enter the namespace you wish to edit,
+. click on the "Admin panel" in the top right corner,
+. navigate to the "Modules" sub page,
+. click on the edit icon next to the module you wish to edit,
+. click on the trashcan icon next to the field you wish to delete and save changes.
+
+== Module field permissions
+
+[IMPORTANT]
+====
+If you can't access or manage permissions, you don't have the correct permissions.
+Contact your system administrator.
+====
+
+=== Any field
+
+include::partials/permissions/fields.adoc[]
+
+=== Specific field
+
+include::partials/permissions/field-specific.adoc[]

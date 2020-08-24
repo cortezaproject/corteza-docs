@@ -1,7 +1,0 @@
-include::../../variables.adoc[]
-
-[#admin-adminpanel-dashboard]
-= Dashboard
-
-The dashboard section can be accessed by clicking on the "Dashboard" navigation item on the left navigation drawer.
-The interface provides an overview of some basic statistics regarding your system, such as the number of users, the number of active roles and so on.

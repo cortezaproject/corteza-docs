@@ -1,0 +1,10 @@
+include::../../pages/variables.adoc[]
+
+Read chart "(chart name)"::
+    Determines if the role is allowed to access the given chart,
+
+Update chart "(chart name)"::
+    Determines if the role is allowed to update the given chart,
+
+Delete chart "(chart name)"::
+    Determines if the role is allowed to delete the given chart.

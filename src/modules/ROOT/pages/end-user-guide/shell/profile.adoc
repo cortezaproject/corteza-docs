@@ -1,0 +1,13 @@
+include::../../variables.adoc[]
+= Profile
+
+Profile Settings can be accessed by clicking on the Person icon in the top right hand corner of the screen, directly to the left of the 4 Square icon.
+
+The {PRODUCT_NAME} Profile Settings allows users to:
+
+- View User Details (Email, Full Name, Nickname)
+- Change Password
+
+To change password, the user must enter the existing password, then enter the new password followed by one last confirmation entry of the new password.
+
+To return back to {PRODUCT_NAME} default screen, click on the {PRODUCT_NAME} logo on the top.

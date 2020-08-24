@@ -1,0 +1,3 @@
+
+[#administrator-guide:security]
+include::../../partials/security.adoc[]

@@ -1,0 +1,28 @@
+include::../variables.adoc[]
+
+[#overview:requirements]
+= Technical Requirements
+
+{PRODUCT_NAME} is a server application that can be accessed through a browser on a workstation, laptop or mobile device.
+
+For testing and exploring {PRODUCT_NAME} you do not need an external, externally accessible software.
+{PRODUCT_NAME} can deploy on a local machine.
+
+
+== Client software
+
+.Supported web browsers and versions
+|===
+|Chrome|  v78+
+|Firefox| v68+
+|Safari|  v12+
+|Edge|	  v44+
+|iOS|     iPhone 5s devices and later with iOS 12+
+|Android| Android 7+
+|===
+
+:leveloffset: +1
+
+include::req-server.adoc[]
+
+:leveloffset: -1

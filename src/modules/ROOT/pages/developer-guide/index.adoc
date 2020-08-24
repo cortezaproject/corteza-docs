@@ -1,0 +1,24 @@
+include::../variables.adoc[]
+
+[#developer-guide]
+= Developer Guide
+
+:doctype: book
+
+This guide is tailored to developers who wish to contribute to the project.
+It focuses on all the features from a low-level perspective while keeping it fairly simple.
+Instead of describing all the little functions it mainly focuses on features and what parts of the system are involved when working on the given feature.
+
+:leveloffset: +1
+
+include::building.adoc[]
+
+include::documentation/index.adoc[]
+
+include::database/index.adoc[]
+
+include::compose/index.adoc[]
+
+include::extensions/index.adoc[]
+
+:leveloffset: -1

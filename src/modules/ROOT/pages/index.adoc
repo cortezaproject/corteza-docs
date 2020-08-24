@@ -1,10 +1,31 @@
 include::variables.adoc[]
-= {PRODUCT_NAME} manuals
+= {PRODUCT_NAME} Guides
 
-. link:overview/index.html[Overview]
-. link:user/index.html[User Manual]
-. link:admin/index.html[Admin Manual]
-. link:maint/index.html[Management and Maintenance]
-. link:coredev/index.html[Core Developer's Manual]
-. link:extdev/index.html[Extending and Customizing]
-. link:ext/index.html[Extensions]
+Interested about {PRODUCT_NAME}?::
+    Check out the product's link:overview/index.adoc[overview] to get a better understanding of what it is and who it is for!
+
+Do you want to know how to use {PRODUCT_NAME}?::
+    Check out the link:end-user-guide/index.adoc[end-user guide].
+    Its designed for non-techy people so it is easily understandable!
+    It covers all the available features and shows you how to use them.
+
+Responsible for system setup and administration?::
+    Check out the link:administrator-guide/index.adoc[administrator guide].
+    It covers provides you all the important information from system deploy to maintenance and administration.
+
+Creating solutions based upon {PRODUCT_NAME}?::
+    Check out the link:integrator-guide/index.adoc[integrator guide].
+    It provides you all the knowledge to build amazing things from scratch!
+
+Want to contribute?::
+    Check out the link:developer-guide/index.adoc[developer guide].
+    It provides you enough insight into the low-level aspects of the products to help you get started.
+    If you're stuck, don't hesitate to get in touch with us!
+
+Looking for an official {PRODUCT_NAME} extension?::
+    Check out the link:extensions/index.adoc[extensions] to see if we have something to fit your needs.
+    Nothing fits?
+    Check out the link:integrator-guide/index.adoc[integrator guide] to build one yourself!
+
+Prefer to learn from examples?::
+    Check out our link:examples/index.adoc[examples] to help you get started building amazing things!

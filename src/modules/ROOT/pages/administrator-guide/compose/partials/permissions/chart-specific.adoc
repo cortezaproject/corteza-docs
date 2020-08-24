@@ -1,0 +1,14 @@
+include::../../../../variables.adoc[]
+
+. Navigate to the {PRODUCT_NAME} {APP_NAME_COMPOSE} page and enter the namespace you wish to edit,
+. click on the "Admin panel" in the top right corner,
+. navigate to the "Charts" sub page.
+
+Either:
+
+. Click on the edit icon next to the chart you wish to edit and press the lock icon in the header of the list,
+. click on the lock icon next to the chart you wish to edit.
+
+You can set:
+
+include::../../../../../partials/permissions/compose-chart-specific.adoc[]

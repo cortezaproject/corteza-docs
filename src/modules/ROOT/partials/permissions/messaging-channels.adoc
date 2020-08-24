@@ -1,0 +1,58 @@
+include::../../pages/variables.adoc[]
+
+Update any channel::
+    Determines if the role is allowed to update any {PRODUCT_NAME} {APP_NAME_MESSAGING} channel,
+
+View any channel::
+    Determines if the role is allowed to access any {PRODUCT_NAME} {APP_NAME_MESSAGING} channel,
+
+Join any channel::
+    Determines if the role is allowed to join any {PRODUCT_NAME} {APP_NAME_MESSAGING} channel,
+
+Leave any channel::
+    Determines if the role is allowed to leave any {PRODUCT_NAME} {APP_NAME_MESSAGING} channel,
+
+Delete any channel::
+    Determines if the role is allowed to delete any {PRODUCT_NAME} {APP_NAME_MESSAGING} channel,
+
+Undelete any channel::
+    Determines if the role is allowed to undelete (restore) any {PRODUCT_NAME} {APP_NAME_MESSAGING} channel,
+
+Archive any channel::
+    Determines if the role is allowed to archive any {PRODUCT_NAME} {APP_NAME_MESSAGING} channel,
+
+Unarchive any channel::
+    Determines if the role is allowed to unarchive any {PRODUCT_NAME} {APP_NAME_MESSAGING} channel,
+
+Manage members on any channel::
+    Determines if the role is allowed to add or remove any {PRODUCT_NAME} {APP_NAME_MESSAGING} channel members,
+
+Manage attachments on any channel::
+    Determines if the role is allowed to manage attachments of any {PRODUCT_NAME} {APP_NAME_MESSAGING} channel,
+
+Message sending on any channel::
+    Determines if the role is allowed to send massages to any {PRODUCT_NAME} {APP_NAME_MESSAGING} channel,
+
+Reply to messages on any channel::
+    Determines if the role is allowed to reply (create threads) to any {PRODUCT_NAME} {APP_NAME_MESSAGING} channel message,
+
+Embedding in messages on any channel::
+    Determines if the role is allowed to embed external resources to any {PRODUCT_NAME} {APP_NAME_MESSAGING} channel message,
+
+File attaching on any channel::
+    Determines if the role is allowed to upload files (attachments) to any {PRODUCT_NAME} {APP_NAME_MESSAGING} channel,
+
+Update own messages on any channel::
+    Determines if the role is allowed to update own messages of any {PRODUCT_NAME} {APP_NAME_MESSAGING} channel,
+
+Update any message on any channel::
+    Determines if the role is allowed to update any message or any {PRODUCT_NAME} {APP_NAME_MESSAGING} channel,
+
+Delete own messages on any channel::
+    Determines if the role is allowed to delete own messages of any {PRODUCT_NAME} {APP_NAME_MESSAGING} channel,
+
+Delete any message on any channel::
+    Determines if the role is allowed to delete any message of any {PRODUCT_NAME} {APP_NAME_MESSAGING} channel,
+
+React on messages on any channel::
+    Determines if the role is allowed to add reactions to any message of any {PRODUCT_NAME} {APP_NAME_MESSAGING} channel,

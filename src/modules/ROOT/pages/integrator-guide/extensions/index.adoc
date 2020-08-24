@@ -1,0 +1,32 @@
+include::../../variables.adoc[]
+
+[#integrator-guide:extensions]
+= Extending and Customizing {PRODUCT_NAME}
+
+:leveloffset: +1
+
+[#getting-started]
+include::getting-started.adoc[]
+
+[#prerequisite]
+include::prerequisite.adoc[]
+
+[#terminology]
+include::../../../partials/extensions/terminology.adoc[]
+
+[#security]
+include::../../../partials/extensions/security.adoc[]
+
+[#resource-table]
+include::../../../partials/extensions/resource-table.adoc[]
+
+[#development]
+include::development/index.adoc[]
+
+[#testing]
+include::testing/index.adoc[]
+
+[#debugging]
+include::debugging/index.adoc[]
+
+:leveloffset: -1

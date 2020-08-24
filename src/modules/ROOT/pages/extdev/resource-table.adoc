@@ -1,9 +1,0 @@
-include::../variables.adoc[]
-
-[#ext-resevt]
-= Resources and Events
-
-include::development/events/system/index.adoc[]
-include::development/events/compose/index.adoc[]
-include::development/events/messaging/index.adoc[]
-=

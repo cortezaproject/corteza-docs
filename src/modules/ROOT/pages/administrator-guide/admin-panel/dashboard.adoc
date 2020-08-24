@@ -1,0 +1,12 @@
+include::../../variables.adoc[]
+
+[#admin-adminpanel-dashboard]
+= Dashboard
+
+[NOTE]
+====
+The dashboard section can be accessed by clicking on the "Dashboard" navigation item on the left navigation drawer.
+====
+
+The dashboard provides a quick overview over the system.
+It provides an overview of system resource statistics, such as the number of users, number of active roles and applications.

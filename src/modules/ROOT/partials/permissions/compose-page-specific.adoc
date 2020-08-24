@@ -1,0 +1,10 @@
+include::../../pages/variables.adoc[]
+
+Read any page::
+    Determines if the role is allowed to access the page of the given namespace,
+
+Update any page::
+    Determines if the role is allowed to update the page of the given namespace,
+
+Delete any page::
+    Determines if the role is allowed to delete the page of the given namespace.

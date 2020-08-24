@@ -1,0 +1,11 @@
+include::../../../../variables.adoc[]
+
+. Navigate to the {PRODUCT_NAME} {APP_NAME_COMPOSE} page and enter the namespace you wish to edit,
+. click on the "Admin panel" in the top right corner,
+. navigate to the "Modules" sub page,
+. click on the edit icon next to the module you wish to edit,
+. press the lock icon in the header of the list.
+
+You can set:
+
+include::../../../../../partials/permissions/compose-module-specific.adoc[]

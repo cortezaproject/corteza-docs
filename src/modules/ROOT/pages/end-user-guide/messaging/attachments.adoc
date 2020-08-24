@@ -1,0 +1,7 @@
+include::../../variables.adoc[]
+= Attachments
+
+You can upload files and share them with other members of the channel.
+To upload the file click on the plus icon (+) in the left corner of the {APP_NAME_MESSAGING} input and select the file or simply drag and drop the file to the channel.
+
+Maximum file size can be set in the Admin panel.

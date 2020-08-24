@@ -1,0 +1,36 @@
+include::../../variables.adoc[]
+
+[#end-user-guide:messaging]
+= {PRODUCT_NAME} {APP_NAME_MESSAGING}
+
+// @todo clean this up...
+
+{PRODUCT_NAME} {APP_NAME_MESSAGING} is a modern, private, secure messaging system which integrates seamlessly with {PRODUCT_NAME} {APP_NAME_SHELL}, {PRODUCT_NAME} CRM and {PRODUCT_NAME} {APP_NAME_COMPOSE}.
+Its design is inspired by Slack, a popular cloud service.
+
+.Some of the major benefits of using {PRODUCT_NAME} {APP_NAME_MESSAGING} include:
+- Public or Private Channels for Team-based chat
+- Keep project communications in one place
+- Direct Messages to anyone in your team
+- File sharing in any channel
+- Reduce confusing clutter caused by long email chains
+
+.The basic structure of the {APP_NAME_MESSAGING} app:
+- Left sidebar showing list of available channels
+- Main middle screen for list of messages and uploaded files in the channel
+- Right sidebar for {APP_NAME_MESSAGING} threads and channel specific actions
+
+:leveloffset: +1
+
+include::channels.adoc[]
+
+include::messages.adoc[]
+
+include::threads.adoc[]
+
+include::attachments.adoc[]
+
+include::formatting.adoc[]
+
+:leveloffset: -1
+

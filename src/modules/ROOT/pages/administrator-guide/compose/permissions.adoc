@@ -1,0 +1,48 @@
+include::../../variables.adoc[]
+
+= Permissions
+
+[NOTE]
+====
+This section aggregates all of the available {APP_NAME_COMPOSE} permissions defined thought the documentation.
+====
+
+== Any namespace
+
+include::partials/permissions/namespaces.adoc[]
+
+== Specific namespace
+
+include::partials/permissions/namespace-specific.adoc[]
+
+=== Any module
+
+include::partials/permissions/modules.adoc[]
+
+=== Specific module
+
+include::partials/permissions/module-specific.adoc[]
+
+=== Any module field
+
+include::partials/permissions/fields.adoc[]
+
+=== Specific module field
+
+include::partials/permissions/field-specific.adoc[]
+
+=== Any page
+
+include::partials/permissions/pages.adoc[]
+
+=== Specific page
+
+include::partials/permissions/page-specific.adoc[]
+
+=== Any chart
+
+include::partials/permissions/charts.adoc[]
+
+=== Specific chart
+
+include::partials/permissions/chart-specific.adoc[]

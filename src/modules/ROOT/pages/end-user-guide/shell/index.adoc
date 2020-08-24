@@ -1,0 +1,29 @@
+include::../../variables.adoc[]
+
+[#end-user-guide:shell]
+= {PRODUCT_NAME} {APP_NAME_SHELL}
+
+// @todo clean this up...
+
+{APP_NAME_SHELL} is the heart of {PRODUCT_NAME}'s user interface and the point of entry to the system for every user.
+It’s a modern, web-based unified workspace which helps you to be more comfortable and productive in your daily working life.
+
+.Some of the major benefits of using {APP_NAME_SHELL} include:
+
+- A familiar, intuitive user experience for accessing your essential applications.
+- Open multiple applications side by side.
+- Open multiple pages from the same application side by side.
+- Collaborate using several applications simultaneously.
+- Resize application screens depending on their importance to the task at hand.
+- Work seamlessly between desktop and mobile devices.
+
+:leveloffset: +1
+
+include::tabs.adoc[]
+
+include::panels.adoc[]
+
+include::profile.adoc[]
+
+:leveloffset: -1
+

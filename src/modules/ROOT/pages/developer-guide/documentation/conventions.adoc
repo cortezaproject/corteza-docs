@@ -1,0 +1,59 @@
+include::../../variables.adoc[]
+
+= Conventions
+
+You can use all of the formatting and different components that AsciiDoc allows.
+We do define some exceptions for better consistency when working with more flexible components.
+The conventions listed bellow must be followed when contributing to any part of the documentation.
+
+== Lists
+
+Ordered lists::
+  Ordered lists should be defined with the `.` instead of using actual numbers.
+  For example:
+
+[source,adoc]
+----
+. List point 1,
+. list point 2.
+----
+
+Unordered lists::
+  Unordered lists should be defined with the `-`.
+  For example:
+
+[source,adoc]
+----
+* List point 1,
+* list point 2.
+----
+
+== Code snippets
+
+Short one-liners::
+    When specifying short code snippets such as a CLI command use the single backtick (```),
+
+Longer code snippets::
+    Try to avoid long code snippets as much as possible unless when working on examples.
+    Use the source code syntax `[source,{language here}]` blocked 4 dashes `----`.
+    For example:
+
+// Here, this one is an exception though
+```
+[source,adoc]
+----
+----
+```
+
+== Admonition
+
+Use the admonition block syntax when wanting to create admonitions.
+For example:
+
+[source,adoc]
+----
+[IMPORTANT]
+====
+This is *very* important!
+====
+----

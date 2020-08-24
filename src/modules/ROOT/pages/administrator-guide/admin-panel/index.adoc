@@ -1,6 +1,6 @@
 include::../../variables.adoc[]
 
-[#end-user-guide:admin-panel]
+[#administrator-guide:admin-panel]
 = {PRODUCT_NAME} {APP_NAME_ADMIN}
 
 // @todo clean this up...

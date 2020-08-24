@@ -16,7 +16,7 @@ If you wish to simply refresh your memory, go ahead.
 
 :leveloffset: +1
 
-include::../../partials/security.adoc[]
+include::security.adoc[]
 
 include::system-setup/index.adoc[]
 

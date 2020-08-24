@@ -1,24 +1,20 @@
 include::../variables.adoc[]
+
 = {PRODUCT_NAME} Overview
+:doctype: book
 
 :leveloffset: +1
 
-[#product]
 include::product.adoc[]
 
-[#security]
 include::security.adoc[]
 
-[#architecture]
 include::architecture.adoc[]
 
-[#core-development]
 include::core-development.adoc[]
 
-[#deployment]
 include::deployment.adoc[]
 
-[#customization]
 include::customization.adoc[]
 
 include::requirements.adoc[]

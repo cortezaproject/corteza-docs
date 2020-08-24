@@ -1,4 +1,6 @@
 include::../variables.adoc[]
+
+[#overview:customization]
 = Customization
 
 {PRODUCT_NAME} can be customized in three ways:

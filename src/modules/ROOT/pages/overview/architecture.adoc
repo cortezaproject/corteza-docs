@@ -1,4 +1,6 @@
 include::../variables.adoc[]
+
+[#overview:architecture]
 = Architecture
 
 {PRODUCT_NAME} is server based software, consisting of a range core services including the various {PRODUCT_NAME} web applications.

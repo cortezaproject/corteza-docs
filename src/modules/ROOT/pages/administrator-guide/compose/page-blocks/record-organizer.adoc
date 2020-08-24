@@ -8,4 +8,4 @@ Record organizer page block also supports prefiltering with value interpolation
 
 ==== Prefilters
 
-include::../../../assets/prefilter.adoc[]
+include::../partials/prefilter.adoc[]

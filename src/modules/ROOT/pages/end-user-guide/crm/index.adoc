@@ -1,3 +1,4 @@
+[#end-user-guide:crm]
 = CRM
 
 :leveloffset: +1

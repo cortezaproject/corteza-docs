@@ -1,0 +1,3 @@
+
+[#integrator-guide:security]
+include::../../partials/security.adoc[]

@@ -1,5 +1,6 @@
 include::../../variables.adoc[]
 
+[#developer-guide:extensions]
 = Extensions
 
 :leveloffset: +1

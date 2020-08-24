@@ -1,6 +1,6 @@
 include::../../variables.adoc[]
 
-[#extdev-index]
+[#integrator-guide:extensions]
 = Extending and Customizing {PRODUCT_NAME}
 
 :leveloffset: +1

@@ -15,7 +15,7 @@ This guide provides enough insight for you to be able to take on the administrat
 
 :leveloffset: +1
 
-include::../../partials/security.adoc[]
+include::security.adoc[]
 
 include::extensions/index.adoc[]
 

@@ -1,4 +1,6 @@
 include::../variables.adoc[]
+
+[#overview:core-development]
 = Core Development
 
 {PRODUCT_NAME} is developed entirely in the public domain.

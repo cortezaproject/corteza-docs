@@ -1,3 +1,4 @@
+[#end-user-guide:service-cloud]
 = Service Cloud
 
 :leveloffset: +1

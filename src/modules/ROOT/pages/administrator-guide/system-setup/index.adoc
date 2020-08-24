@@ -1,6 +1,6 @@
 include::../../variables.adoc[]
 
-[#maint-index]
+[#administrator-guide:system-setup]
 = {PRODUCT_NAME} system setup and maintenance
 
 == {PRODUCT_NAME} Architecture overview

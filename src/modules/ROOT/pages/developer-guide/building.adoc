@@ -1,5 +1,6 @@
 include::../variables.adoc[]
 
+[#developer-guide:building]
 = Build Pipelines
 
 == Testing and releasing

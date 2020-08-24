@@ -1,6 +1,5 @@
 include::../pages/variables.adoc[]
 
-[#administrator-guide:security]
 = Security
 
 // @todo clean this up...

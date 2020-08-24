@@ -16,4 +16,4 @@ Calendar event sources also enable prefiltering, but it is important to notice, 
 
 ==== Prefilters
 
-include::../../../assets/prefilter.adoc[]
+include::../partials/prefilter.adoc[]

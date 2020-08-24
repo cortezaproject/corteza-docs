@@ -11,32 +11,29 @@ All major modifications must be documented::
 
     * Changed api response,
     * change in the access control,
-    * addedd new permission states,
-    * changed system configuration,
-    * etc.
+    * additional settings, environment variables,
+    * new features; etc.
 
-All relevant documentations must me updated::
-    When a modification affects multiple documentations each of them needs to be taken care of.
+All relevant guides must me updated::
+    When a modification affects multiple guides *each* of them needs to be taken care of.
     For example, a new feature introduces a new application with a special API and a user interface.
     This change would demand changes in:
 
-    * Maintainer documentation,
-    * administrator documentation,
-    * end-user documentation.
+    * Developer guide,
+    * administrator guide,
+    * end-user guide.
 
 Consistent style of writing::
+    developer note: do a better job on this section!
     Some general guidelines:
 
-    * All documentation must be written in first person past tense.
-    You are usually not the only person that worked on the feature and the reader doesn't care on who this is from.
-    For references refer to Github Contribution,
     * try to avoid syntax errors.
     You can use spell checkers to validate the syntax,
     * keep it short, simple and straight to the point!
     Try to avoid any long introductions, rewriting the same thing over and over again.
     Keeping it simple makes it easier for the reader,
     * keep it structured.
-    Before getting started on the documentation, outline the main bits that need to be covered and attempt to remove any overlapping in the sections.
+    Before getting started on the guide, outline the main bits that need to be covered and attempt to remove any overlapping in the sections.
     modification that does not classify as a minor change, has to be documented.
 
 Try to follow the rules::
@@ -45,9 +42,11 @@ Try to follow the rules::
 
 [IMPORTANT]
 ====
-If you refuse to follow the above guidelines for any reason, any pull requests opened by you will be rejected.
+If you *refuse* to follow the above guidelines for any reason, you will *not be able* to contribute to the project.
 
-Any software looses all of it's quality if no one knows what is going on.
+We all hate it when an amazing framework or platform lacks in documentation and we have to reverse engineer every little feature.
+How good is a product if no one knows how to use or maintain it?
+Let's not make our lives harder by not wanting to share our knowledge!
 ====
 
 [NOTE]

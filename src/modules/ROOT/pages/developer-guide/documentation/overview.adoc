@@ -4,17 +4,19 @@ include::../../variables.adoc[]
 
 A few notes before we get into the fun bits:
 
-* **There is no "cookie cutter" solution**:
-When it comes to such systems, there are multiple different types of users involved.
-From the end-users who usually aren't techy people, to administrators that worry about the system's integrity, to developers that maintain existing features and implement new features.
-That is why there are multiple documentations based on different roles,
-* **tell me everything!!**:
-Let's not make our readers jump from one doc to another doc just because it's easier that way or it shortens the entire thing.
-As a reader of the "Integrator Guide" I want to have all the relevant information without the need of another section,
-* **copy paste is ok (sometimes)**:
-If different roles are interested in the same thing, for example module field types, let's not make them jump to another documentation just to read up on that and get lost in the process.
-Let's just have it in both places.
-If we are smart about it, we can define include the same content from both documentations.
+There is no "cookie cutter" solution::
+    When it comes to such systems, there are multiple different types of users involved.
+    From the end-users who usually aren't techy people, to administrators that worry about the system's integrity, to developers that maintain existing features and implement new features.
+    That is why we should create multiple documents each tailored to a specific role.
+
+Tell me everything!!::
+    Let's not make our readers jump from one doc to another just because it's easier that way or it shortens the thing.
+    As a reader of the "Integrator Guide" I want to have *all the relevant information* without the need reading up on another one.
+
+Copy paste is ok (sometimes)::
+    If different roles are interested in the same thing, for example module field types, let's not make them jump to another documentation just to read up on that and get lost in the process.
+    Let's just have it in both places.
+    If we are smart about it, we can define include the same content from both documentations.
 
 == Overview
 

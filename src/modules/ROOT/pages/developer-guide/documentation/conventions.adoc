@@ -24,8 +24,8 @@ Unordered lists::
 
 [source,adoc]
 ----
-- List point 1,
-- list point 2.
+* List point 1,
+* list point 2.
 ----
 
 == Code snippets
@@ -52,8 +52,8 @@ For example:
 
 [source,adoc]
 ----
-[{VARIANT}]
+[IMPORTANT]
 ====
-// Content goes here.
+This is *very* important!
 ====
 ----

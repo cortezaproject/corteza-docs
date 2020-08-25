@@ -1,0 +1,64 @@
+include::../../variables.adoc[]
+
+= Writing Style
+
+We outline the most important writing style rules that must be followed when you contribute to {PRODUCT_NAME} documentation.
+
+== Use active voice
+
+Active voice identifies the subject that has performed the given action; for example:
+
+> To configure external login providers go into the administration panel, authentication and configure ...
+
+This style makes the reader more involved and therefore makes it nicer and easier to read.
+It also makes it a bit shorter which is always a plus!
+
+There are some exceptions when active voice should not be used:
+
+* When we are talking about errors it would sound like we are blaming the user!
+* it makes the sentence much longer.
+
+== Use the present simple tense
+
+Users refer to the documentation to find out how something could be done.
+Lets give them the feeling like we are walking them through this process.
+This also makes it shorter and a bit easier to read then when other tenses are used.
+
+[NOTE]
+====
+When describing things like asynchronous data processing where it would not make sense to use use present simple tense, use the appropriate tense.
+====
+
+== Use second person
+
+This makes it sound more engaging as it involves more people then just you and I.
+For example:
+"I have defined this feature that can be used to ..." sounds way better as "We have defined this feature that you can use to ...".
+The use of second person also removes gender-specific things.
+
+== Follow the KISS principle!
+
+How many times have we given up on reading documentation because it was all just filler text to produce more and more pages?
+Lets get straight to the point and tell our readers exactly what they want to know without waisting their time.
+
+== Keep things structured
+
+When reading, people usually skim through the content or stop all together when we think we've found what we are looking for.
+If we don't do any separation between different parts it all becomes one big blob of text.
+If we split things too much our readers might miss an important bit.
+
+== Use admonition
+
+When we want our reader to pay extra attention to something or when we want to provide some helpful tips, don't hesitate to use admonition blocks.
+The reader is more likely to pay extra attention to something important if it is contained in a nice red box with the word "Important" next to it.
+
+== Use images... sparingly
+
+Don't go over the top with images by showing every single step of they way or even worse by just pasting a screenshot with *no* context what we are looking at.
+When including images make sure to indicate exactly what the image represents and make sure to provide an image caption that outlines what is going on in the image.
+This allows the reader to easily refresh their memory if they are already familiar with something but just want to refresh their memory.
+
+[NOTE]
+====
+For more insight refer to this great article https://docs.openstack.org/doc-contrib-guide/writing-style/general-writing-guidelines.html.
+====

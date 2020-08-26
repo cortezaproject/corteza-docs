@@ -1,0 +1,25 @@
+include::../../variables.adoc[]
+
+= User Roles
+
+== End-User
+
+An *end-user* is someone who is tasked to perform some operations on the {PRODUCT_NAME} product or any of the integrations.
+In most cases, this users are *not* field experts so we should keep that in mind.
+
+== Administrator
+
+An *administrator* is someone who is responsible to setup and maintain a {PRODUCT_NAME} instance.
+This involves everything from the actual deployment, maintenance and permission configuration.
+These users should be knowledgeable in this fields in order to perform the tasks in an effective manner.
+
+== Integrator
+
+An *integrator* is someone who is responsible to create an integration for either themselves or a client.
+An integration extends on the base {PRODUCT_NAME} features.
+These users should be field experts on designing such systems.
+
+== Developer
+
+A *developer* is someone who is responsible or would like to contribute to the core {PRODUCT_NAME} repositories.
+These users should be field experts on the subject.

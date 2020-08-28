@@ -3,8 +3,20 @@ include::../../variables.adoc[]
 [#developer-guide:extensions]
 = Extensions
 
+[NOTE]
+====
+This section covers the system behind extensions.
+If you're interested in extension's development, refer to <<integrator-guide:extenisons>>.
+====
+
 :leveloffset: +1
 
-include::facility/index.adoc[]
+include::overview.adoc[]
+
+include::corredor-server.adoc[]
+
+include::server.adoc[]
+
+include::corredor-client.adoc[]
 
 :leveloffset: -1

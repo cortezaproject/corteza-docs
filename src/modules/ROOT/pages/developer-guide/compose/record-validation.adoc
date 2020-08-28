@@ -1,11 +1,22 @@
 include::../../variables.adoc[]
 
 [#coredev-compose-recordValidation]
-= {PRODUCT_NAME} {APP_NAME_COMPOSE} Record Validation
+= Record Value Validation
 
-{PRODUCT_NAME} {APP_NAME_COMPOSE} provides a powerful, flexible system for record validation that can be used for simple operations such as checking if the field is empty or complex operations that require API access.
+Record value validation allows us to assure data integrity and avoid problems consisting of empty fields and malformed email addresses.
 
-All validator errors are instances of `validator.ValidatorError` class, with the interface of:
+[TIP]
+====
+Value validation can also perform operations that require API access, such as checking if we can send an email to the given address.
+====
+
+Value validation can be performed on 3 places:
+
+. Inside client-script on `beforeFormSubmit` event,
+. inside server-script on `before` events,
+. automatically by the corteza-server value validator.
+
+All validator errors returned by automation scripts are instances of `validator.ValidatorError` class, with the interface of:
 
 [source,ts]
 ----

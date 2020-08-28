@@ -1,8 +1,14 @@
 include::../../variables.adoc[]
 
-= Writing Style
+[#developer-guide:documentation:writing-guidelines]
+= Writing Guidelines
 
 We outline the most important writing style rules that must be followed when you contribute to {PRODUCT_NAME} documentation.
+
+[NOTE]
+====
+For more insight refer to this great article https://docs.openstack.org/doc-contrib-guide/writing-style/general-writing-guidelines.html.
+====
 
 == Use active voice
 
@@ -58,7 +64,7 @@ Don't go over the top with images by showing every single step of they way or ev
 When including images make sure to indicate exactly what the image represents and make sure to provide an image caption that outlines what is going on in the image.
 This allows the reader to easily refresh their memory if they are already familiar with something but just want to refresh their memory.
 
-[NOTE]
+[IMPORTANT]
 ====
-For more insight refer to this great article https://docs.openstack.org/doc-contrib-guide/writing-style/general-writing-guidelines.html.
+Keep in mind that UI changes will require this images to be updated.
 ====

@@ -1,44 +1,37 @@
 include::../../variables.adoc[]
 
-= Contributor Rules
+[#developer-guide:documentation:rules]
+= Contribution Rules
 
-Below is a list of rules that apply to every contributor of any {PRODUCT_NAME} repository.
+Below is a list of rules that apply to *every contributor* of any {PRODUCT_NAME} repository.
 With the below points we are able to provide consistent, quality software that is easy to use or contribute to.
 
 All major modifications must be documented::
-    A modification classifies as a major modification when it causes any changes to the output of an action.
+    A modification classifies as *major* when it causes *any changes* to an *actions output* or how the *action is performed*.
     For example:
 
     * Changed api response,
-    * change in the access control,
+    * change in the access control logic,
     * additional settings, environment variables,
+    * changed the interface for data export,
     * new features; etc.
 
 All relevant guides must me updated::
-    When a modification affects multiple guides *each* of them needs to be taken care of.
-    For example, a new feature introduces a new application with a special API and a user interface.
-    This change would demand changes in:
+    When a modification affects multiple guides, *each* of them needs to be taken care of.
+    For example, your feature introduces a new application with a special API and a user interface.
+    You should update:
 
     * Developer guide,
     * administrator guide,
     * end-user guide.
 
 Consistent style of writing::
-    developer note: do a better job on this section!
-    Some general guidelines:
-
-    * try to avoid syntax errors.
-    You can use spell checkers to validate the syntax,
-    * keep it short, simple and straight to the point!
-    Try to avoid any long introductions, rewriting the same thing over and over again.
-    Keeping it simple makes it easier for the reader,
-    * keep it structured.
-    Before getting started on the guide, outline the main bits that need to be covered and attempt to remove any overlapping in the sections.
-    modification that does not classify as a minor change, has to be documented.
+    Be consistent with other contributors as we wish to have a consistent, easy to read documentation.
+    Refer to <<developer-guide:documentation:writing-guidelines>> for more insight on this.
 
 Try to follow the rules::
     In the edge case where it is excusable for you to not follow the above rules (extremely tight schedule, urgent fixes that need to be released asap, ...) open up an issue that outlines your changes, provides some references to the PR/commit so someone (preferably yourself) can get to it as soon as possible.
-    No biggie as long as it's done.
+    No big deal, as long as it gets done before the release.
 
 [IMPORTANT]
 ====
@@ -52,6 +45,8 @@ Let's not make our lives harder by not wanting to share our knowledge!
 [NOTE]
 ====
 Stuck?
-Refer to the examples section to get an idea on how to get started.
-@todo link to it
+Refer to the <<examples>> to get an idea.
+
+Still stuck?
+Get in touch with us on https://latest.{DOMAIN} !
 ====

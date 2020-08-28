@@ -1,5 +1,6 @@
 include::../../variables.adoc[]
 
+[#developer-guide:documentation:conventions]
 = Conventions
 
 You can use all of the formatting and different components that AsciiDoc allows.
@@ -19,7 +20,7 @@ Ordered lists::
 ----
 
 Unordered lists::
-  Unordered lists should be defined with the `-`.
+  Unordered lists should be defined with the `*`.
   For example:
 
 [source,adoc]
@@ -27,6 +28,41 @@ Unordered lists::
 * List point 1,
 * list point 2.
 ----
+
+[IMPORTANT]
+====
+Use ordered/unordered lists only when the lines are relatively short.
+If the list should provide detailed description, use the multi-line description block:
+
+[source,adoc]
+----
+// Make the general outline outline the entire content of the description.
+[General outline here]::
+    [Description here].
+----
+
+For example:
+
+[source,adoc]
+----
+== Product overview documentation
+
+...
+
+Product Overview::
+    Describe what the product is and what it’s not...
+
+Security::
+    Provide a rough overview over the security system - users, roles, access control and so on...
+
+Architecture::
+    Outline all of the important components and what they are and/or could be used for...
+
+...
+
+----
+
+====
 
 == Code snippets
 
@@ -56,4 +92,31 @@ For example:
 ====
 This is *very* important!
 ====
+----
+
+== Referencing
+
+Use this template to specify an explicit ID:
+[source,adoc]
+----
+[#{{ documentation type }}:{{ nesting separated by ':' }}].
+----
+
+For example, the Conventions section defines an explicit ID of:
+[source,adoc]
+----
+[#developer-guide:documentation:conventions]
+----
+
+To reference this ID, simply use:
+[source,adoc]
+----
+<<{{ ID here }}>>
+----
+
+for example:
+
+[source,adoc]
+----
+<<developer-guide:documentation:conventions>>
 ----

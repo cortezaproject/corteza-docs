@@ -2,7 +2,6 @@ include::../variables.adoc[]
 
 [#developer-guide]
 = Developer Guide
-
 :doctype: book
 
 This guide is tailored to developers who wish to contribute to the project.

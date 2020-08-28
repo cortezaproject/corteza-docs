@@ -17,48 +17,6 @@
 |deleted_at| datetime |NULL|
 |===
 
-.compose_automation_script
-|===
-|Column|Type|Default|Description
-
-|id| bigint(20) unsigned NOT NULL||
-|rel_namespace| bigint(20) unsigned NOT NULL||
-|name| varchar(64) NOT NULL |'unnamed' |The name of the script
-|source| text | NOT NULL |Source code for the script
-|source_ref| varchar(200) NOT NULL ||Where is the script located (if remote)
-|async| tinyint(1) NOT NULL |'0' |Do we run this script asynchronously?
-|rel_runner| bigint(20) unsigned NOT NULL |'0' |Who is running the script? 0 for invoker
-|run_in_ua| tinyint(1) NOT NULL |'0' |Run this script inside user-agent environment
-|timeout| int(10) unsigned NOT NULL |'0' |Any explicit timeout set for this script (milliseconds)?
-|critical| tinyint(1) NOT NULL |'1' |Is it critical that this script is executed successfully
-|enabled| tinyint(1) NOT NULL |'1' |Is this script enabled?
-|created_by| bigint(20) unsigned NOT NULL |'0'|
-|created_at| datetime NOT NULL |CURRENT_TIMESTAMP|
-|updated_by| bigint(20) unsigned NOT NULL |'0'|
-|updated_at| datetime |NULL|
-|deleted_by| bigint(20) unsigned NOT NULL |'0'|
-|deleted_at| datetime |NULL|
-|===
-
-.compose_automation_trigger
-|===
-|Column|Type|Default|Description
-
-|id| bigint(20) unsigned NOT NULL||
-|rel_script| bigint(20) unsigned NOT NULL ||Script that is triggered
-|resource| varchar(128) NOT NULL ||Resource triggering the event
-|event| varchar(128) NOT NULL ||Event triggered
-|event_condition| text NOT NULL ||Trigger condition
-|enabled| tinyint(1) NOT NULL |'1' |Trigger enabled?
-|weight| int(11) NOT NULL |'0'|
-|created_by| bigint(20) unsigned NOT NULL |'0'|
-|created_at| datetime NOT NULL |CURRENT_TIMESTAMP|
-|updated_by| bigint(20) unsigned NOT NULL |'0'|
-|updated_at| datetime |NULL|
-|deleted_by| bigint(20) unsigned NOT NULL |'0'|
-|deleted_at| datetime |NULL|
-|===
-
 .compose_chart
 |===
 |Column|Type|Default|Description

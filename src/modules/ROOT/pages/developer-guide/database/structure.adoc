@@ -1,20 +1,16 @@
 include::../../variables.adoc[]
 
-= {PRODUCT_NAME} database structure
+= Database structure
 
-* <<coredev-system-database>>,
-* <<coredev-compose-database>>,
-* <<coredev-messaging-database>>.
-
-== {PRODUCT_NAME} system database structure
+== System
 
 include::system-tables.adoc[]
 
-== {PRODUCT_NAME} {APP_NAME_COMPOSE} database structure
+== {APP_NAME_COMPOSE}
 
 include::compose-tables.adoc[]
 
-== {PRODUCT_NAME} {APP_NAME_MESSAGING} database structure
+== {APP_NAME_MESSAGING}
 
 include::messaging-tables.adoc[]
 

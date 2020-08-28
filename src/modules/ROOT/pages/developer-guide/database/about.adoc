@@ -1,10 +1,8 @@
 include::../../variables.adoc[]
 
-= Technologies
+= Overview
 
-// @todo...
+Current {PRODUCT_NAME} version only supports MySQL databases.
+This will change in the 2020.12.0 with the rework of the storage layer.
 
-== Database support
-
-At the moment, {PRODUCT_NAME} only supports the MySQL database.
-This will change in the near future with the introduction of a ORM and a better test coverage of existing feature.
+{PRODUCT_NAME} uses the Percona Docker container for the database.

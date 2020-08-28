@@ -3,17 +3,34 @@ include::../variables.adoc[]
 [#developer-guide:building]
 = Build Pipelines
 
-== Testing and releasing
-Corteza are tested and built with Drone CI (look for `.drone.yml` files on root of each repository for details).
-Drone builds one or more binary or bundle (JavaScript, CSS, HTML files) artifacts and places them on https://release.{DOMAIN}.
+Here is a diagram to provide a nicer graphical representation of the entire pipeline.
 
-Files can be then downloaded manually or automatically.
+[NOTE]
+====
+Find additional content below the schema.
+====
+
+image::build-pipelines.png[{PRODUCT_NAME} build pipelines]
+
+== Node packages
+
+`corteza-js` and `corteza-vue` are bundled using Rollup and released to the npm repository.
+
+== Releasing
+
+All of the main {PRODUCT_NAME} applications are tested and build using Drone CI.
+The resulted binaries, bundles - in case of webapp projects - and other assets are placed on https://release.{DOMAIN}.
 
 == Packaging
 
-{PRODUCT_NAME} officially supports packaging into Docker Image files.
+At the moment we officially only support packing into Docker images.
+Built docker images are then pushed to the https://hub.docker.com/u/cortezaproject[DockerHub].
 
-Unofficially, released packages can be used with Vagrant box
-{GIT_REPO_LINK_PREFIX}-vagrant or installed manually on the (virtual) machine.
+Unofficially, you can use the released packages with a Vagrant box {GIT_REPO_LINK_PREFIX}-vagrant.
 
-image::build-pipelines.png[{PRODUCT_NAME} build pipelines]
+Alternatively you can (build and) install these packages manually, either on the virtual machine or a regular machine.
+
+[IMPORTANT]
+====
+Actual releases are done by the core team.
+====

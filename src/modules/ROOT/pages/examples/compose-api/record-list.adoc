@@ -1,0 +1,63 @@
+include::../../variables.adoc[]
+
+[#examples:compose-api:record-list]
+= Record listing
+
+[NOTE]
+====
+Record listing provides you with a list of records that conform to the given constraints.
+Use this when you wish to show some sort of list of available records, such as a record list.
+====
+
+To list records stored under a specific module, use the `GET $ComposeAPI/namespace/$NAMESPACE_ID/module/$MODULE_ID/record` endpoint.
+
+== Using filters
+
+[NOTE]
+====
+If you don't need filtering simply omit this.
+====
+
+[IMPORTANT]
+====
+When filtering over records, use module field names as `$PROPERTY_NAME` in your expressions.
+====
+
+include::filtering.adoc[]
+
+== Example request
+
+[source,bash]
+----
+curl "$ComposeAPI/namespace/$NAMESPACE_ID/module/$MODULE_ID/record?filter=$FIELD1+LIKE+'%25$VALUE1%25'+AND+$FIELD2+LIKE+'%25$VALUE2%25'&sort=$SORT_FIELD+$SORT_DIR&page=$PAGE&perPage=$PER_PAGE" \
+  -H "Authorization: Bearer $JWT";
+----
+
+== Example response
+
+[source,json]
+----
+{
+  "response": {
+    "filter": {
+      "moduleID": "$MODULE_ID",
+      "namespaceID": "$NAMESPACE_ID",
+      "query": "$FIELD1 LIKE '%$VALUE1%' AND $FIELD2 LIKE '%$VALUE2%'",
+      "sort": "$SORT_FIELD $SORT_DIR",
+      "page": $PAGE,
+      "perPage": $PER_PAGE,
+      "count": 1<1>
+    },
+    "set": [{
+      "recordID": "$RECORD_ID",
+      "moduleID": "$MODULE_ID",
+      "namespaceID": "$NAMESPACE_ID",
+      "values": [
+        { "name": "fieldName", "value": "fieldValue" }
+        ...
+      ]
+    }]
+  }
+}
+----
+<1> The total number of records that match the provided filter.

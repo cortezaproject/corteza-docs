@@ -1,0 +1,33 @@
+include::../../variables.adoc[]
+
+= System API
+
+[IMPORTANT]
+====
+Any operation doable via the front-end application is doable via the API; either a single endpoint or a combination of.
+====
+
+The system API is responsible for core system resources such as users and roles.
+It is also responsible for core operations such as authentication.
+
+[TIP]
+====
+Whenever an operation affects the system and is not specific to any of our applications, you will most likely need to use the system API
+====
+
+[IMPORTANT]
+====
+We omit most of the data returned by these endpoints.
+We replace the important data with variables, such as `$JWT` so that we can copy-paste these examples over any environment.
+====
+
+* *URL path*: `/system`,
+* *alias*: `$SystemAPI`,
+
+
+:leveloffset: +1
+
+include::user-authenticate.adoc[]
+
+:leveloffset: -1
+

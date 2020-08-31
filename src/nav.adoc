@@ -39,7 +39,8 @@ include::modules/ROOT/pages/variables.adoc[]
 ** xref:extensions/docusign/index.adoc[DocuSign]
 
 * xref:examples/index.adoc[Examples]
-** xref:examples/docusign/index.adoc[DocuSign]
+** xref:examples/system-api/index.adoc[System API]
+** xref:examples/compose-api/index.adoc[Compose API]
 
 ---
 

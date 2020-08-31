@@ -1,0 +1,16 @@
+include::../variables.adoc[]
+
+[#examples]
+= Examples
+:doctype: book
+
+This guide is tailored to readers who prefer to learn by example.
+It covers all sections of the product and provides a wide variety of examples to help you get started using the API, configuring data models, managing permissions and much more.
+
+:leveloffset: +1
+
+include::system-api/index.adoc[]
+
+include::compose-api/index.adoc[]
+
+:leveloffset: -1

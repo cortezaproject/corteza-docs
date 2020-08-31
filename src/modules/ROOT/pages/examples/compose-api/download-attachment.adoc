@@ -1,0 +1,64 @@
+include::../../variables.adoc[]
+
+= Download attachment
+
+[IMPORTANT]
+====
+Attachments are protected resources and require you to generate a signature in order to access them.
+====
+
+To download the attachment you must perform the following:
+
+== Obtain a signed download URL
+
+When fetching a specific attachment via the `GET $ComposeAPI/namespace/$NAMESPACE_ID/attachment/record/$ATTACHMENT_ID` or listing attachments via the `GET $ComposeAPI/namespace/$NAMESPACE_ID/attachment/record` you will receive the following JSON object:
+
+[source,json]
+----
+{
+  "attachmentID": "$ATTACHMENT_ID",
+  "ownerID": "$USER_ID",
+  "url": "$ATTACHMENT_ORIGINAL_URL",<1>
+  "previewUrl": "$ATTACHMENT_PREVIEW_URL",<2>
+  "name": "$FILENAME_ORIGINAL",
+  "meta": {...},
+  "namespaceID": "$NAMESPACE_ID"
+}
+----
+<1> `url` contains a signed URL *path* to the attachment.
+<2> `previewUrl` contains a signed URL *path* to the preview version of the attachment, when available.
+
+== Example request
+
+[source,bash]
+----
+curl "$ComposeAPI/namespace/$NAMESPACE_ID/attachment/record/$ATTACHMENT_ID" \
+ -H "Authorization: Bearer $JWT";
+----
+
+== Example response
+
+[source,json]
+----
+{
+  "response": {
+    "attachmentID": "$ATTACHMENT_ID",
+    "ownerID": "$USER_ID",
+    "url": "$ATTACHMENT_ORIGINAL_URL",
+    "previewUrl": "$ATTACHMENT_PREVIEW_URL",
+    "name": "$FILENAME_ORIGINAL",
+    "meta": {...},
+    "namespaceID": "$NAMESPACE_ID"
+  }
+}
+----
+
+== Download the attachment
+
+Use the attachments `response.url` property to get the path of the downloadable attachment.
+For example, `/namespace/$NAMESPACE_ID/attachment/record/$ATTACHMENT_ID/original/$ATTACHMENT_NAME.$ATTACHMENT_EXT?sign=$ATTACHMENT_SIGNATURE&userID=$SIGNATURE_OWNER`.
+
+Get the full path by joining the compose API base URL and the provided attachment path.
+For example: `$composeAPI/$ATTACHMENT_ORIGINAL_URL`.
+
+You can then use any approach you wish to either display or download the attachment, such as using the `<a href="...">...</a>` element, using Axios or any other client.

@@ -1,0 +1,54 @@
+= Authenticating users
+
+To authenticate the user with their login credentials (email - `$USER_EMAIL`; password - `$USER_PASSWORD`), we use the `POST $SystemAPI/auth/internal/login` endpoint.
+
+The response is the following JSON object:
+[source,json]
+----
+{
+  "jwt": "$JWT",
+  "user": {
+    "userID": "$USER_ID",
+    "name": "$USER_NAME",
+    "email": "$USER_EMAIL",
+    "username": "$USER_USERNAME",
+    "handle": "$USER_HANDLE"
+  }
+}
+----
+
+[IMPORTANT]
+====
+The received `$JWT` token can be used for authenticating API requests.
+====
+
+[IMPORTANT]
+====
+The `$JWT` token is bearer, so you must prefix it with `Bearer`, so for example `Bearer $JWT`.
+====
+
+== Example request
+
+[source,bash]
+----
+curl "$SystemAPI/auth/internal/login" \
+ --data-binary "{\"email\":\"$USER_EMAIL\",\"password\":\"$USER_PASSWORD\"}";
+----
+
+== Example response
+
+[source,json]
+----
+{
+  "response": {
+    "jwt": "$JWT",
+    "user": {
+      "userID": "$USER_ID",
+      "name": "$USER_NAME",
+      "email": "$USER_EMAIL",
+      "username": "$USER_USERNAME",
+      "handle": "$USER_HANDLE"
+    }
+  }
+}
+----

@@ -1,0 +1,41 @@
+include::../../variables.adoc[]
+
+= Record reading
+
+[NOTE]
+====
+Record reading provides you a single record that you wish to get the details for.
+Use this when you wish to show a specific record, for example when clicking on a specific record in a record list.
+====
+
+To get a specific record stored under a specific module, use the `GET $ComposeAPI/namespace/$NAMESPACE_ID/module/$MODULE_ID/record/$RECORD_ID` endpoint.
+
+[TIP]
+====
+If you wish to read multiple records at the same time, instead of making N requests, simply use <<examples:compose-api:record-list>> with the query of `query=recordID=$RECORD_ID_1+OR+recordID=$RECORD_ID_2+OR+...`
+====
+
+== Example request
+
+[source,bash]
+----
+curl "$ComposeAPI/namespace/$NAMESPACE_ID/module/$MODULE_ID/record/$RECORD_ID" \
+  -H "Authorization: Bearer $JWT";
+----
+
+== Example response
+
+[source,json]
+----
+{
+  "response": {
+    "recordID": "$RECORD_ID",
+    "moduleID": "$MODULE_ID",
+    "namespaceID": "$NAMESPACE_ID",
+    "values": [
+      { "name": "fieldName", "value": "fieldValue" }
+      ...
+    ]
+  }
+}
+----

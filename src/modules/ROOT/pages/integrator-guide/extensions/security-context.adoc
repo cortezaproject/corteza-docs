@@ -1,0 +1,37 @@
+include::../../variables.adoc[]
+
+= Security Context
+
+The `security` property allows you to manage security and access related things from inside the automation script.
+
+[IMPORTANT]
+====
+Deferred and sink scripts require you to specify the security context as the invoker is unknown.
+====
+
+[IMPORTANT]
+====
+Iterators require you to specify the security context as the invoker is unknown.
+====
+
+You can specify the following:
+
+`security.runAs`::
+    Specify what user credentials should be used when executing the automation script.
+    For example, if the value of `admin@corredor.crust.tech` is provided, the given user's credentials will be used *instead of* the invoking user.
+
+[IMPORTANT]
+====
+This is available only inside server-scripts.
+====
+
+`security.allow`::
+    Explicitly define what roles have access to the automation script.
+
+`security.deny`::
+    Explicitly define what roles do not have access to the automation script.
+
+[TIP]
+====
+Instead of giving users more permissions you can create a new system user with valid permissions and define the scripts security context.
+====

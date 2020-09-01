@@ -1,32 +1,26 @@
 include::../../variables.adoc[]
 
 [#integrator-guide:extensions]
-= Extending and Customizing {PRODUCT_NAME}
+= Extensions
 
 :leveloffset: +1
 
-[#getting-started]
-include::getting-started.adoc[]
+include::tl-dr.adoc[]
 
-[#prerequisite]
-include::prerequisite.adoc[]
+include::automation-triggers.adoc[]
 
-[#terminology]
-include::../../../partials/extensions/terminology.adoc[]
+include::automation-iterators.adoc[]
 
-[#security]
-include::../../../partials/extensions/security.adoc[]
+include::api-clients.adoc[]
 
-[#resource-table]
-include::../../../partials/extensions/resource-table.adoc[]
+include::corredor-helpers.adoc[]
 
-[#development]
-include::development/index.adoc[]
+include::security-context.adoc[]
 
-[#testing]
-include::testing/index.adoc[]
+include::script-execution.adoc[]
 
-[#debugging]
-include::debugging/index.adoc[]
+include::debugging.adoc[]
+
+include::testing.adoc[]
 
 :leveloffset: -1

@@ -1,0 +1,6 @@
+include::../variables.adoc[]
+
+[#integrator-guide:resources-events]
+= Resources and Events
+
+include::../../partials/extensions/resource-table.adoc[]

@@ -1,7 +1,5 @@
 include::../../pages/variables.adoc[]
 
-= Terminology
-
 Extension::
     A collection of automation scripts, corresponding libraries and other assets,
 

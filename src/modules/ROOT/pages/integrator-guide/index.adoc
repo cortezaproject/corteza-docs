@@ -8,15 +8,16 @@ include::../variables.adoc[]
 This guide is tailored to the integrators; the people that wish to build upon {PRODUCT_NAME} to build new solutions.
 This guide will give you enough insight to the entire system that you will be confident into creating an entire application from scratch!
 
-[NOTE]
-====
-This guide provides enough insight for you to be able to take on the administrator role, so you are free to skip the <<administrator-guide>>.
-====
-
 :leveloffset: +1
+
+include::terminology.adoc[]
+
+include::development-process.adoc[]
 
 include::security.adoc[]
 
 include::extensions/index.adoc[]
+
+include::resources-events.adoc[]
 
 :leveloffset: -1

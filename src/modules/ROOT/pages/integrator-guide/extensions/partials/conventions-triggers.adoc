@@ -1,0 +1,45 @@
+Use object destructuring::
+    This helps you shorten the entire thing.
+    For example:
+
+[source,js]
+----
+// Instead of using:
+triggers (t) {
+  return t.after('create')
+    .for('compose:record')
+    .where('module', 'super_secret_module')
+},
+
+// you can do:
+triggers ({ after }) {
+  return after('create')
+    .for('compose:record')
+    .where('module', 'super_secret_module')
+},
+
+// Neat, right?!
+----
+
+Make trigger constraints as strict as possible::
+    Having loose constraints can cause unwanted issues when there are multiple namespaces under the same {PRODUCT_NAME} {APP_NAME_COMPOSE}.
+    Two namespaces could easily define a module with the same handle, which would cause both of them to execute the given script.
+    For example:
+
+[source,js]
+----
+// Instead of using:
+triggers (t) {
+  return t.after('create')
+    .for('compose:record')
+    .where('module', 'super_secret_module')
+},
+
+// you can do:
+triggers ({ after }) {
+  return after('create')
+    .for('compose:record')
+    .where('module', 'super_secret_module')
+    .where('namespace', 'super_secret_namespace')
+},
+----

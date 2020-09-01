@@ -1,8 +1,5 @@
 include::../../pages/variables.adoc[]
 
-[#ext-resevt]
-= Resources and Events
-
 :leveloffset: +1
 
 include::events/system/index.adoc[]

@@ -1,6 +1,6 @@
 include::../../../../variables.adoc[]
 
-[#ext-constraintResources]
+[#integrator-guide:constraint-resources]
 = Constraint Resources
 
 // @todo fact-check resource ID's

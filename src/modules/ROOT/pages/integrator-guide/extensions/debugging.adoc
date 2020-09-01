@@ -1,0 +1,13 @@
+include::../../variables.adoc[]
+
+= Debugging
+
+== Why is this script not valid?
+
+.An automation script is valid if:
+* Defined in a `.js` file,
+* is located under `client-scripts` or `server-scripts`,
+* it defines an `export default {...}`,
+* defines at least one valid trigger *or* iterator,
+* defines a security context if it the script is a sink or deferred,
+* conforms to the <<integrator-guide:extensions:tl-dr:script-signature>>.

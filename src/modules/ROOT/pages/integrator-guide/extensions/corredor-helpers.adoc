@@ -1,0 +1,22 @@
+include::../../variables.adoc[]
+
+= Corredor helpers
+
+Corredor helpers simplify some of the more common operations that are usually performed inside automation scripts -- creating records, filtering for specific records, creating messages, ...
+These can be found in the https://github.com/cortezaproject/corteza-js/tree/develop/src/corredor/helpers[GitHub corteza-js repository] and the https://github.com/cortezaproject/corteza-vue/blob/develop/src/corredor/compose-ui.ts[GitHub corteza-vue repository].
+
+When writing automation scripts, these helpers are automatically provided via the execution context (more later in the <<integrator-guide:extensions:development:script>> section).
+
+[IMPORTANT]
+====
+These helpers greatly simplify the code so you should *always* use these instead of writing your own.
+====
+
+[TIP]
+====
+These helpers can also be used outside of automation scripts, when creating portals based on {PRODUCT_NAME}, for example.
+====
+
+Corredor helpers are context-aware, meaning that they can determine some parts of the execution context on their own.
+For example, when a script is run for a record creation.
+ComposeHelper can automatically determine what namespace was used, what module and the created record.

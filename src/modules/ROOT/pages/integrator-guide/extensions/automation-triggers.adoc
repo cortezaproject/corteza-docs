@@ -1,0 +1,224 @@
+include::../../variables.adoc[]
+
+[#integrator-guide:extensions:automation-triggers]
+= Automation triggers
+
+An automation trigger (later refereed as "trigger") specifies under what conditions an automation script should execute and part of the execution context.
+
+[IMPORTANT]
+====
+The main difference between triggers and iterators is, that an *iterator* is executed for multiple resources defined by the constraints, one after another.
+
+A *trigger* is executed for a single resource defined by the constraints.
+====
+
+Triggers are defined by the `triggers (t) {...}` method defined by the automation script.
+
+[IMPORTANT]
+====
+Triggers are evaluated in an isolated context, outside of the actual automation script.
+This prevents use of any constants or other symbols defiled outside of the trigger.
+
+For example, the following trigger will *not* work:
+
+[source,js]
+----
+const modName = 'Contact'
+export default {
+  triggers ({ on }) {
+    return on('manual')
+      .for(modName)
+  },
+  exec (args, ctx) {...}
+}
+----
+====
+
+[IMPORTANT]
+====
+Trigger and iterator are not compatible; you can only use one or the other within the same automation script.
+====
+
+== Conventions
+
+include::partials/conventions-triggers.adoc[]
+
+== Trigger interface
+
+`t.on`::
+    Defines the event type, such as `'manual'`, `'request'` (see <<integrator-guide:resources-events>>).
+
+[IMPORTANT]
+====
+Not compatible with `t.before`, `t.after`, `t.on`, `t.at`.
+====
+
+`t.before`::
+    Defines that the automation script is executed before a specific operation occurs.
+
+[TIP]
+====
+You can define multiple event types for the given resource.
+
+For example:
+`before('create', 'update', 'delete')`
+====
+
+[IMPORTANT]
+====
+Not compatible with `t.on`
+====
+
+`t.after`::
+    Defines that the automation script is executed after a specific operation occurs.
+
+[TIP]
+====
+You can define multiple event types for the given resource.
+
+For example:
+`after('create', 'update', 'delete')`
+====
+
+[IMPORTANT]
+====
+Not compatable with `t.on`
+====
+
+`t.at`::
+    Defines that the automation script is executed at a specific time, defined as a ISO 8601 timestamp.
+
+[IMPORTANT]
+====
+Not compatable with `t.on`
+====
+
+`t.every`::
+    Defines the interval in which the automation script is executed, defined as a cron expression.
+
+[IMPORTANT]
+====
+Not compatable with `t.on`
+====
+
+`t.for`::
+    Defines the resource type, such as `'compose:record'` (see <<integrator-guide:resources-events>>).
+
+`t.where`::
+    Defines the constraints that must match in order for the automation script to be executed (eg. `t.where('module', 'Lead')`).
+    Refer to <<integrator-guide:constraint-resources>> for the full list of available resources and constraint options.
+    See <<integrator-guide:extensions:development:defining-constraints>> for extra bits on this.
+
+[TIP]
+====
+You can define multiple constraints inside the same trigger.
+
+For example:
+`.where('module', 'super_secret_module').where('namespace', 'super_secret_namespace')`
+====
+
+`t.uiProp`::
+    Defines the visual representation of the manual automation trigger, such as its color and label.
+
+[IMPORTANT]
+====
+Only available for explicit scripts.
+====
+
+== Trigger types
+
+=== Explicit
+
+Explicit triggers execute on a specific user invocation, such as a button press.
+These include:
+
+Manual::
+    They most commonly appear inside {APP_NAME_COMPOSE} automation page blocks or inside {APP_NAME_COMPOSE} record list toolbars.
+
+=== Implicit
+
+Implicit triggers execute as a collateral to another system event such as record creation.
+These triggers include before/after events.
+For a full list of available events refer to <<integrator-guide:resources-events>>.
+
+=== Deferred
+
+[IMPORTANT]
+====
+Deferred automation triggers are executed at most once every minute, so you *should not* define an interval or timestamp that uses higher precision (seconds or milliseconds).
+====
+
+Deferred automation triggers are executed at a specific point in time; once or multiple times, such as a reminder.
+These include:
+
+Scheduled::
+    scheduled triggers are executed at an exact time specified by a time stamp in ISO 8601 format (This one -- `YYYY-MM-DDTHH:mm:ss.sssZ`).
+    This trigger is executed *exactly once*.
+
+Interval::
+    interval triggers are executed periodically in an interval defined by a cron expression (see https://godoc.org/github.com/robfig/cron[robfig/cron package] for details).
+
+
+=== Sink
+
+Sink automation triggers are executed on a specific http request.
+They can be used to implement new routes on the API, such as a web hook to some external service.
+
+[#integrator-guide:extensions:development:defining-constraints]
+== Trigger constraints
+
+Trigger constraints allow you to specify when the script should be executed based on the resource that would like to execute it.
+Constraints take 2 + 1 arguments:
+
+[source,js]
+----
+t.where(
+  resourceAttribute,<1>
+  comparator/value,<2>
+  [value],<3>
+)
+----
+<1> The resource attribute that the constraint should check against.
+Refer to <<integrator-guide:resources-events>> for a complete list of available things.
+<2> When 2 arguments are provided, this is the value to check against; when 3 arguments are provided, this is the comparison operator; see below.
+<3> When provided, this is the value to check against.
+
+=== Available comparison operators:
+
+Equals (default)::
+    * `eq`
+    * `=`
+    * `==`
+    * `===`
+
+Not equals::
+    * `not eq`
+    * `ne`
+    * `!=`
+    * `!==`
+
+Partial comparison::
+    * `like`
+
+[TIP]
+====
+.Supported wildcards:
+* *one or more characters*: `%`, `*`,
+* *one character*: `_`, `?`.
+====
+
+Partial comparison; negated::
+    * `not like`
+
+[TIP]
+====
+.Supported wildcards:
+* *one or more characters*: `%`, `*`,
+* *one character*: `_`, `?`.
+====
+
+Regex comparison::
+    * `~`
+
+Regex comparison; negated::
+    * `!~`

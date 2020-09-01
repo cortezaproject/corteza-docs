@@ -1,0 +1,13 @@
+include::../../variables.adoc[]
+
+= API clients
+
+API clients simplify the process of accessing information stored inside {PRODUCT_NAME} via the API.
+API clients can be found in the https://github.com/cortezaproject/corteza-js/tree/develop/src/api-clients[GitHub corteza-js repository].
+
+When writing automation scripts, these API clients are automatically provided via the execution context (more later in the <<integrator-guide:extensions:development:script>> section).
+
+[IMPORTANT]
+====
+These API clients greatly simplify the code so you should *always* use these instead of writing your own.
+====

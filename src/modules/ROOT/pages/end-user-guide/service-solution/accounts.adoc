@@ -2,7 +2,7 @@ include::../../variables.adoc[]
 
 = Accounts
 
-In Service Cloud accounts give a 360 degree overview of companies you are doing business with.
+In Service Solution accounts give a 360 degree overview of companies you are doing business with.
 It shows the following related data:
 
 * Cases

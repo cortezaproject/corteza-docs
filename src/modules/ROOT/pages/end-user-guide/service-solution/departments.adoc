@@ -4,7 +4,7 @@ include::../../variables.adoc[]
 
 Companies have different departments and different departments have different costs.
 One hour support by the service department is simply not the same as one hour support by R&D.
-To manage this, Service Cloud has a department module, where you can set the hourly price.
+To manage this, Service Solution has a department module, where you can set the hourly price.
 
 The hourly price is applied to a case update, and the total price of the case is calculated on the sum of case updates.
 This allows multiple departments to be involved in a single case.

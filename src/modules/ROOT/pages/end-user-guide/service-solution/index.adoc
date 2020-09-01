@@ -1,5 +1,5 @@
-[#end-user-guide:service-cloud]
-= Service Cloud
+[#end-user-guide:service-solution]
+= Service Solution
 
 :leveloffset: +1
 

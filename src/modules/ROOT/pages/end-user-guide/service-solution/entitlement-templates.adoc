@@ -6,6 +6,6 @@ A product or service normally comes with a entitlement to support.
 For example, a software license may allow the client to contact you by phone when they have issues or questions.
 Or, when you sell hardware, you may need to offer a period of guarantee, allowing the client to contact you when the product breaks within that period.
 
-For most products and services the entitlements will be the same, so that's why Service Cloud offers a templates module.
+For most products and services the entitlements will be the same, so that's why Service Solution offers a templates module.
 After creating an entitlement template, you can select it in a product.
 Then, when a customer acquires that product, the template will be used to prefill data such at type of entitlement and end date.

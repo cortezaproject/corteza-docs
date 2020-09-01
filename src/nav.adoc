@@ -15,7 +15,7 @@ include::modules/ROOT/pages/variables.adoc[]
 ** xref:end-user-guide/messaging/index.adoc[Messaging]
 ** xref:end-user-guide/shell/index.adoc[Shell]
 ** xref:end-user-guide/crm/index.adoc[Crm]
-** xref:end-user-guide/service-cloud/index.adoc[Service Cloud]
+** xref:end-user-guide/service-solution/index.adoc[Service Solution]
 
 * xref:administrator-guide/index.adoc[Administrator Guide]
 ** xref:administrator-guide/security.adoc[Security]

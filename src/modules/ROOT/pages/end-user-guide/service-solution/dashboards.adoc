@@ -2,7 +2,7 @@ include::../../variables.adoc[]
 
 = Dashboards
 
-Dashboards in Service Cloud give a good overview of the current status of your cases in one glimpse.
+Dashboards in Service Solution give a good overview of the current status of your cases in one glimpse.
 
 .Charts:
 * New cases per month
@@ -24,4 +24,4 @@ Dashboards in Service Cloud give a good overview of the current status of your c
 * Total cost per department (in $)
 * KB articles created per day
 
-Service Cloud is configurable, allowing you to create new charts and new dashboards.
+Service Solution is configurable, allowing you to create new charts and new dashboards.

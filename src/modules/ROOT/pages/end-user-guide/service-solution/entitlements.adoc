@@ -3,7 +3,7 @@ include::../../variables.adoc[]
 = Entitlements
 
 Entitlements are types of customer support, such as “Phone support” or “Email support”.
-You can set up entitlements in Service Cloud to help support agents determine whether a customer is eligible for support or not.
+You can set up entitlements in Service Solution to help support agents determine whether a customer is eligible for support or not.
 
 Entitlements are always related to an account and a product, and they normally have a start and end date.
 For example: company Green Global has acquired a software license and this entitles them to receive phone support for one year.

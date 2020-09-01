@@ -2,9 +2,9 @@ include::../../variables.adoc[]
 
 = Email templates
 
-Contacts of cases can be emailed directly from the Service Cloud.
+Contacts of cases can be emailed directly from the Service Solution.
 Each outgoing email is recorded in the case update list.
-To make sending out emails easier, Service Cloud allows you to create email templates with placeholders.
+To make sending out emails easier, Service Solution allows you to create email templates with placeholders.
 
 Each email template has a name and description.
 They are for internal use.

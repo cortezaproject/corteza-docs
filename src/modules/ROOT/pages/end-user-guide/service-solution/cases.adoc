@@ -2,7 +2,7 @@ include::../../variables.adoc[]
 
 = Cases
 
-The main module of Service Cloud is cases: the place where the customer's issues are captured and handled.
+The main module of Service Solution is cases: the place where the customer's issues are captured and handled.
 Each case has an automatically generated case number, which starts with "ticket#" followed by the date-time.
 An example case number is: ticket#20191025094353420 (the date can be read as: 2019-10-25 09:43:53:420).
 

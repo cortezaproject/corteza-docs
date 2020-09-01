@@ -2,7 +2,7 @@ include::../../variables.adoc[]
 
 = Products
 
-In Service Cloud you can link a case to a product.
+In Service Solution you can link a case to a product.
 This enables you to have a complete overview of how much service is provided for a certain product or product family.
 A product can be a physical product or a service.
 

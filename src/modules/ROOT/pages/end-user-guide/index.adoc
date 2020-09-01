@@ -20,6 +20,6 @@ include::./shell/index.adoc[]
 
 include::./crm/index.adoc[]
 
-include::./service-cloud/index.adoc[]
+include::./service-solution/index.adoc[]
 
 :leveloffset: -1

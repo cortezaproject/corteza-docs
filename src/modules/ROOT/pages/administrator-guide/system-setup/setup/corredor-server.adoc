@@ -32,26 +32,21 @@ _Used by Corredor and API server._
 
 _Used by API server._
 
-3+| CORREDOR_API_BASE_URL_COMPOSE
+3+| CORREDOR_EXEC_CSERVERS_API_BASEURL_TEMPLATE
+| string
+| https://api.{host}/{service}
+| Location of the Corteza server API.
+{host} is replaced with value from env variables (in this order: CORREDOR_EXEC_CSERVERS_API_HOST, DOMAIN, HOSTNAME, HOST), {service} is replaced dynamically inside Corredor with `compose`, `system` or `messaging`.
+
+_Used by Corredor server._
+
+3+| CORREDOR_EXEC_CSERVERS_API_HOST
 | string
 |
-| Location of the compose API (example: `{API_COMPOSE_BASE_URL}`)
+| Hostname used for template
 
-_Used by API server._
+_Used by Corredor server._
 
-3+| CORREDOR_API_BASE_URL_MESSAGING
-| string
-|
-| Location of the messagign API (example: `{API_MESSAGING_BASE_URL}`)
-
-_Used by API server._
-
-3+| CORREDOR_API_BASE_URL_SYSTEM
-| string
-|
-| Location of the system API (example: `{API_SYSTEM_BASE_URL}`)
-
-_Used by API server._
 
 3+| CORREDOR_LOG_ENABLED
 | boolean
@@ -61,13 +56,6 @@ _Used by API server._
 For Corredor service: where is service listening on (gRPC)
 
 For API server: where can Corredor service be accessed.
-
-_Used by Corredor and API server._
-
-3+| CORREDOR_LOG_LEVEL
-| bool
-| false
-| If set to true, API server will log communication with Corredor and Corredor will log incoming requests.
 
 _Used by Corredor and API server._
 
@@ -91,4 +79,40 @@ _Used by Corredor._
 | Corredor will log even more information
 
 _Used by Corredor._
+
+3+| CORREDOR_EXT_DEPENDENCIES_AUTO_UPDATE
+| boolean
+| true
+| Corredor will auto update script dependencies found in `package.json` files
+
+_Used by Corredor._
+
+3+| CORREDOR_EXT_SERVER_SCRIPTS_ENABLED
+| boolean
+| true
+| Server scripts are enabled
+
+_Used by Corredor._
+
+3+| CORREDOR_EXT_SERVER_SCRIPTS_WATCH
+| boolean
+| true
+| Corredor will reload server-scripts on change
+
+_Used by Corredor._
+
+3+| CORREDOR_EXT_CLIENT_SCRIPTS_ENABLED
+| boolean
+| true
+| Client scripts are enabled
+
+_Used by Corredor._
+
+3+| CORREDOR_EXT_CLIENT_SCRIPTS_WATCH
+| boolean
+| true
+| Corredor will reload client-scripts on change
+
+_Used by Corredor._
+
 |===

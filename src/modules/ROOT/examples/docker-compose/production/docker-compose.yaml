@@ -1,20 +1,21 @@
 version: '3.5'
 
 services:
-  db:
-    image: percona:8.0
+  webapp:
+    image: cortezaproject/corteza-webapp:${VERSION}
     restart: on-failure
+    depends_on: [ server ]
+    networks: [ proxy ]
     environment:
-      # To be picked up by percona image when creating the database
-      # Must match with DB_DSN settings inside .env
-      MYSQL_DATABASE:      corteza
-      MYSQL_USER:          corteza
-      MYSQL_PASSWORD:      change-me
-      MYSQL_ROOT_PASSWORD: change-me-too
-    healthcheck: { test: ["CMD", "mysqladmin" ,"ping", "-h", "localhost"], timeout: 20s, retries: 10 }
-    networks: [ internal ]
-    # Uncomment to use local fs for data persistence
-    # volumes: [ "./data/db:/var/lib/mysql" ]
+      # VIRTUAL_HOST helps NginX proxy route trafic for specific virtual host to
+      # this container
+      VIRTUAL_HOST:     ${DOMAIN}
+      # This is needed only if you are using NginX Lets-Encrypt companion
+      # (see docs.cortezaproject.org for details)
+      LETSENCRYPT_HOST: ${DOMAIN}
+      # Monolith API settings informs webapp autoconfiguration script that we're running
+      # a monolith API server.
+      MONOLITH_API: "true"
 
   server:
     image: cortezaproject/corteza-server-monolith:${VERSION}
@@ -22,30 +23,52 @@ services:
     env_file: [ .env ]
     depends_on: [ db, corredor ]
     networks: [ proxy, internal ]
-    environment:
-      VIRTUAL_HOST:     api.${DOMAIN}
-      LETSENCRYPT_HOST: api.${DOMAIN}
-      CORREDOR_API_BASE_URL_COMPOSE:   https://api.${DOMAIN}/compose
-      CORREDOR_API_BASE_URL_MESSAGING: https://api.${DOMAIN}/messaging
-      CORREDOR_API_BASE_URL_SYSTEM:    https://api.${DOMAIN}/system
     # Uncomment to use local fs for data persistence
     # volumes: [ "./data/server:/data" ]
+    environment:
+      # VIRTUAL_HOST helps NginX proxy route traffic for specific virtual host to
+      # this container
+      # This value is also picked up by initial boot auto-configuration procedure
+      # If this is changed, make sure you change settings accordingly
+      VIRTUAL_HOST: api.${DOMAIN}
+      # This is needed only if you are using NginX Lets-Encrypt companion
+      # (see docs.cortezaproject.org for details)
+      LETSENCRYPT_HOST: api.${DOMAIN}
 
   corredor:
     image: cortezaproject/corteza-server-corredor:${VERSION}
     networks: [ internal ]
     restart: on-failure
     env_file: [ .env ]
-
-  webapp:
-    image: cortezaproject/corteza-webapp:${VERSION}
-    restart: on-failure
-    depends_on: [ server ]
-    networks: [ proxy ]
     environment:
-      MONOLITH_API:     "true"
-      VIRTUAL_HOST:     ${DOMAIN}
-      LETSENCRYPT_HOST: ${DOMAIN}
+      # API host will replace {host} in 'https://api.{host}/{service}' template
+      # You can change the template with CORREDOR_EXEC_CSERVERS_API_BASEURL_TEMPLATE
+      # (best if you can set this variable inside .env)
+      CORREDOR_EXEC_CSERVERS_API_HOST: api.${DOMAIN}
+
+
+  db:
+    # MySQL Database
+    # See https://hub.docker.com/r/percona/percona-server for details
+    image: percona:8.0
+    restart: on-failure
+    # Uncomment to use local fs for data persistence
+    # volumes: [ "./data/db:/var/lib/mysql" ]
+    environment:
+      # To be picked up by percona image when creating the database
+      # Must match with DB_DSN settings inside .env
+      #
+      # Warning: these are values that are only used on 1st start
+      #          if you want to change it later, you need to do that
+      #          manually inside db container
+      MYSQL_DATABASE: dbname
+      MYSQL_USER:     dbuser
+      MYSQL_PASSWORD: dbpass
+      MYSQL_RANDOM_ROOT_PASSWORD: random # docker-compose logs db |grep "GENERATED ROOT PASSWORD"
+    healthcheck: { test: ["CMD", "mysqladmin" ,"ping", "-h", "localhost"], timeout: 20s, retries: 10 }
+    networks: [ internal ]
+
+
 
 networks:
   internal: {}

@@ -44,6 +44,9 @@ include::modules/ROOT/pages/variables.adoc[]
 ** xref:examples/system-api/index.adoc[System API]
 ** xref:examples/compose-api/index.adoc[Compose API]
 
+* xref:rfc/index.adoc[RFC]
+** xref:rfc/federation/index.adoc[Federation]
+
 ---
 
 * xref:changelog/index.adoc[Changelog]

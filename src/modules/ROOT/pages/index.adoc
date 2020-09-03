@@ -29,3 +29,6 @@ Looking for an official {PRODUCT_NAME} extension?::
 
 Prefer to learn from examples?::
     Check out our link:examples/index.adoc[examples] to help you get started building amazing things!
+
+Want to learn about new features and contribute to their development?::
+    Check out our link:rfc/index.adoc[RFC] list to get involved!

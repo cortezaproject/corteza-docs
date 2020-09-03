@@ -1,0 +1,12 @@
+include::../../variables.adoc[]
+
+= Federation
+
+// @todo
+
+:leveloffset: +1
+
+include::authentication.adoc[]
+
+:leveloffset: -1
+

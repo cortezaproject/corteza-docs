@@ -1,4 +1,4 @@
-== RFC Structure sync
+= Structure sync
 
 Structure sync starts when both of the nodes are already paired and ready to receive data.
 
@@ -12,7 +12,7 @@ Structure sync starts when both of the nodes are already paired and ready to rec
 
 image:../images/federation_structure_sync.jpg[Diagram of the structure sync action as seen from node A]
 
-=== Endpoints
+== Endpoints
 |===
 |Endpoint |Description
 |/federation/nodes|Information on federation nodes

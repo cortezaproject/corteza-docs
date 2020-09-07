@@ -45,6 +45,8 @@ image:../images/federation_structure_sync_phase2.jpg[Diagram of the structure sy
 |===
 |Column |Desc
 |id|
+|handle|Module handle
+|name|Module name
 |rel_node|node id (can be also the same server if applying for upstream)
 |rel_module_source|module id on source node
 |rel_module_dest|mapped module on destination
@@ -56,8 +58,10 @@ image:../images/federation_structure_sync_phase2.jpg[Diagram of the structure sy
 |===
 |Column |Desc
 |id|
+|name|Field name
+|label|Field label
 |rel_module|federated module id
-|rel_module_field_source|field id on source node
+|rel_module_field_source?|field id on source node - do we need it?
 |rel_module_field_dest|mapped field on destination
 |===
 
@@ -129,4 +133,3 @@ Field id: module_field_node_B_id
 
 |000022|node_A_DISTINCT_ID|000001|000011(id)|module_node_B_id|module_field_node_B_id|
 |===
-

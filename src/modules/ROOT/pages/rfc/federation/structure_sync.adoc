@@ -60,6 +60,8 @@ image:../images/federation_structure_sync_phase2.jpg[Diagram of the structure sy
 |id|
 |name|Field name
 |label|Field label
+|kind|Field kind
+|is_multi|Multiple bool
 |rel_module|federated module id
 |rel_module_field_source?|field id on source node - do we need it?
 |rel_module_field_dest|mapped field on destination

@@ -37,7 +37,7 @@ image:../images/federation_structure_sync_phase2.jpg[Diagram of the structure sy
 |/federation/data/module/{id}/records |Record list of a federated module
 |===
 
-== DB
+== DB v1
 
 
 === federation_module
@@ -135,3 +135,39 @@ Field id: module_field_node_B_id
 
 |000022|node_A_DISTINCT_ID|000001|000011(id)|module_node_B_id|module_field_node_B_id|
 |===
+
+
+== DB v2
+
+=== federation_module_upstream
+|===
+|Column |Description
+
+|id|federation module id
+|rel_node|node id (destination node id - who are we sharing to)
+|rel_module_compose|module id on source node
+|field_mapping|json field mappings
+|===
+
+=== federation_module_downstream
+|===
+|Column |Description
+
+|id|federation module id
+|handle|Module handle
+|name|Module name
+|rel_node|node id (source node id - who is sharing with us)
+|rel_module_orig|federation module id on source node (id in federation_module_upstream)
+|field_mapping|json field mappings
+|===
+
+=== federation_module_mapping
+|===
+|Column |Description
+
+|federation_module_id|id from federation_module_downstream
+|compose_module_id|existing module
+|fields|json field mappings, ex: [{ source: 'node_A_module_field_7', dest: 'node_B_module_field_2', transform: 'string' }]
+|===
+
+

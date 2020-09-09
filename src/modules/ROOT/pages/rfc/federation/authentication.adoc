@@ -1,24 +1,65 @@
 = Authentication
 
-This describes the handshake process between two federated nodes; how to establish a secure connection and how to introduce access control when accessing resources.
+This section covers all parts related to authentication and other security related concerns when working with federated nodes and their data.
 
-== Handshake
+== Pairing
 
-The handshake consists of two parts:
+In order for two nodes to establish a federated network, they need to be paired.
+The pairing process consists of two parts:
 
-Federation node identification::
-    Firstly we need to identify the two federation nodes.
+. Identification,
+. handshake.
 
-    . Node A generates a URL containing it's information, along with a OTT token T.
-    . the administrator sends the generated URL to the maintainer of the node B,
-    . node B pings node A to confirm the connection,
+Refer to the below schema for an overview over the entire flow:
 
-Secure token exchange::
-    After two nodes are identified, we need to initiate secure communication between the two nodes.
+image:rfc/federation/federation_pair.png[Diagram of the entire pairing process]
 
-    . Node A creates a system user that is responsible for serving data to node B (this allows access control),
-    . node A sends a JWT token used for authentication along with the OTT token T to node B,
-    . node B validates the token T and stores the JWT
-    . node B creates a system user that is responsible for fetching data from node A and sends the JWT to node A,
-    . node A validates the request and stores the JWT.
+=== Identification
 
+image:rfc/federation/federation_pair_identification.png[Diagram of the identification step]
+
+Firstly we need to let nodes A and B know about each others existence by following the flow of:
+
+Node A creates a new node and generates a pair URI::
+    This is a URI in the form of `corteza://<nodeID(A)>:<token>@<api-url(A)>?name=<name>` that lets node B know how to connect to node A.
+
+[NOTE]
+====
+`token` is a generated OTT token that gives us a basic way of authenticating the initial requests that are performed outside of the authentication facility.
+====
+
+Node A admin sends the URI to node B admin::
+    This step has to be done manually by the admin and they should use a secure channel in order to exchange this information.
+
+Node B admin inserts the pair URI into the UI::
+    This step registers node A on the other side.
+    Now both nodes know about each others existence but they are not yet able to communicate.
+
+=== Handshake
+
+image:rfc/federation/federation_pair_handshake.png[Diagram of the handshake step]
+
+Lastly, we need to securely exchange the credentials so the two nodes can communicate, with the following flow:
+
+Node B admin initializes the handshake process::
+    This creates a federated system user along with a role and an authentication JWT(B) token.
+
+[NOTE]
+====
+The use of system users and roles allows us to use the already existing authentication and access control facility.
+====
+
+Node B sends a handshake request to node A::
+    Since this step is performed outside the authentication facility (since node B is not yet authenticated), this step must be confirmed by the node A administrator.
+    An initial security step here is the check against the token, generated in the node pair URI.
+
+Node A administrator confirms the handshake request::
+    This creates a federated system user along with a role and an authentication JWT(A) token.
+
+[NOTE]
+====
+The use of system users and roles allows us to use the already existing authentication and access control facility.
+====
+
+Node A completes the handshake with node B::
+    Lastly, node A sends their JWT(A) token to node B, using JWT(B) as the means of authentication.

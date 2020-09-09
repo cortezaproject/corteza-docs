@@ -2,6 +2,44 @@
 
 This section covers all parts related to authentication and other security related concerns when working with federated nodes and their data.
 
+[NOTE]
+====
+The below cURL examples use the following variables
+
+[source,bash]
+----
+# API Base URL
+$API_BASE
+
+# Main JWT that can be used on both origin and destination
+$JWT_FD
+
+# Origin node domain
+$DOMAIN_FD_ORIGIN
+
+# Destination node domain
+$DOMAIN_FD_DEST
+
+# Origin node name
+$NODE_NAME_ORIGIN
+
+# Origin node URI
+$NODE_URI
+
+# NodeID on the destination
+$NODE_ID_DEST
+
+# NodeID on the origin
+$NODE_ID_ORIGIN
+
+# Destination node JWT
+$JWT_FD_DEST
+
+# Origin node JWT
+$JWT_FD_ORIGIN
+----
+====
+
 == Pairing
 
 In order for two nodes to establish a federated network, they need to be paired.
@@ -28,12 +66,36 @@ Node A creates a new node and generates a pair URI::
 `token` is a generated OTT token that gives us a basic way of authenticating the initial requests that are performed outside of the authentication facility.
 ====
 
+[source,bash]
+----
+curl -X POST "$API_BASE/federation/nodes/" \
+  -H "authorization: Bearer $JWT_FD" \
+  --header "Content-Type: application/json" \
+  --data "{
+    \"sharedDomain\": \"$DOMAIN_FD_ORIGIN\",
+    \"domain\": \"$DOMAIN_FD_DEST\",
+    \"name\": \"$NODE_NAME_ORIGIN\"
+  }";
+----
+
 Node A admin sends the URI to node B admin::
     This step has to be done manually by the admin and they should use a secure channel in order to exchange this information.
 
 Node B admin inserts the pair URI into the UI::
     This step registers node A on the other side.
     Now both nodes know about each others existence but they are not yet able to communicate.
+
+[source,bash]
+----
+curl -X POST "$API_BASE/federation/nodes/" \
+  -H "authorization: Bearer $JWT_FD" \
+  --header "Content-Type: application/json" \
+  --data "{
+    \"sharedDomain\": \"$DOMAIN_FD_DEST\",
+    \"nodeURI\": \"$NODE_URI\"
+  }";
+----
+
 
 === Handshake
 
@@ -49,9 +111,28 @@ Node B admin initializes the handshake process::
 The use of system users and roles allows us to use the already existing authentication and access control facility.
 ====
 
+[source,bash]
+----
+curl -X POST "$API_BASE/federation/nodes/$NODE_ID_DEST/pair" \
+  -H "authorization: Bearer $JWT_FD" \
+  --header "Content-Type: application/json" \
+  --data "{}";
+----
+
 Node B sends a handshake request to node A::
     Since this step is performed outside the authentication facility (since node B is not yet authenticated), this step must be confirmed by the node A administrator.
     An initial security step here is the check against the token, generated in the node pair URI.
+
+[source,bash]
+----
+curl -X POST "$API_BASE/federation/nodes/$NODE_ID_ORIGIN/handshake/" \
+  --header "Content-Type: application/json" \
+  --data "{
+    \"nodeURI\": \"$NODE_URI\",
+    \"token\": \"$JWT_FD_DEST\",
+    \"destNodeID\": \"$NODE_ID_DEST\"
+  }";
+----
 
 Node A administrator confirms the handshake request::
     This creates a federated system user along with a role and an authentication JWT(A) token.
@@ -61,5 +142,22 @@ Node A administrator confirms the handshake request::
 The use of system users and roles allows us to use the already existing authentication and access control facility.
 ====
 
+[source,bash]
+----
+curl -X POST "$API_BASE/federation/nodes/$NODE_ID_ORIGIN/handshake-confirm" \
+  -H "authorization: Bearer $JWT_FD" \
+  --header "Content-Type: application/json";
+----
+
 Node A completes the handshake with node B::
     Lastly, node A sends their JWT(A) token to node B, using JWT(B) as the means of authentication.
+
+[source,bash]
+----
+curl -X POST "$API_BASE/federation/nodes/$NODE_ID_DEST/handshake-complete" \
+  -H "authorization: Bearer $JWT_FD_DEST" \
+  --header "Content-Type: application/json" \
+  --data "{
+    \"token\": \"$JWT_FD_ORIGIN\"
+  }";
+----

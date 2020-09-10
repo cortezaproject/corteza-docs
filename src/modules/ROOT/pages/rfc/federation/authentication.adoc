@@ -8,41 +8,50 @@ The below cURL examples use the following variables
 
 [source,bash]
 ----
-# API Base URL
-$API_BASE
+# Base URL of node A api
+$API_A_BASE
 
-# Main JWT that can be used on both origin and destination
-$JWT_FD
+# Main administrator JWT for node A
+$MAIN_JWT_A
 
-# Origin node domain
-$DOMAIN_FD_ORIGIN
+# Node A domain
+$DOMAIN_A
 
-# Destination node domain
-$DOMAIN_FD_DEST
+# Node B domain
+$DOMAIN_B
 
-# Origin node name
-$NODE_NAME_ORIGIN
+# Node name
+$NODE_NAME
 
-# Origin node URI
+# Node A nodeID
+$NODE_ID_A
+
+# OTT prepared by node A for the node URI
+$OTT
+
+# Base URL of node B api
+$API_B_BASE
+
+# Main administrator JWT for node B
+$MAIN_JWT_B
+
+# Node URI
 $NODE_URI
 
-# NodeID on the destination
-$NODE_ID_DEST
+# Node B nodeID
+$NODE_ID_B
 
-# NodeID on the origin
-$NODE_ID_ORIGIN
+# Node B auth token
+$TOKEN_B
 
-# Destination node JWT
-$JWT_FD_DEST
-
-# Origin node JWT
-$JWT_FD_ORIGIN
+# Node A auth token
+$TOKEN_A
 ----
 ====
 
 == Pairing
 
-In order for two nodes to establish a federated network, they need to be paired.
+In order for the two nodes (node A and node B) to establish a federated network, they need to be paired.
 The pairing process consists of two parts:
 
 . Identification,
@@ -56,108 +65,170 @@ image:rfc/federation/federation_pair.png[Diagram of the entire pairing process]
 
 image:rfc/federation/federation_pair_identification.png[Diagram of the identification step]
 
-Firstly we need to let nodes A and B know about each others existence by following the flow of:
+Firstly we need to register node A within node B, and vice-versa.
+This step allows the two nodes to know about eac other so they can communicate.
+
+[IMPORTANT]
+====
+This step doesn't exchange any credentials that are used in the secure communication between the two nodes.
+This step only performs the identification.
+====
 
 Node A creates a new node and generates a pair URI::
-    This is a URI in the form of `corteza://<nodeID(A)>:<token>@<api-url(A)>?name=<name>` that lets node B know how to connect to node A.
+    This step lets node A know that node B exists.
+    Node URI is in the form of `corteza://<$NODE_ID_A>:<$OTT>@<$DOMAIN_A>?name=<$NAME>`.
 
 [NOTE]
 ====
-`token` is a generated OTT token that gives us a basic way of authenticating the initial requests that are performed outside of the authentication facility.
+`$OTT` is a generated OTT token that gives us a basic way of authenticating the initial requests that are performed outside of the authentication facility.
 ====
 
 [source,bash]
 ----
-curl -X POST "$API_BASE/federation/nodes/" \
-  -H "authorization: Bearer $JWT_FD" \
+# request
+curl -X POST "$API_A_BASE/federation/nodes" \
+  -H "authorization: Bearer $MAIN_JWT_A" \
   --header "Content-Type: application/json" \
   --data "{
-    \"sharedDomain\": \"$DOMAIN_FD_ORIGIN\",
-    \"domain\": \"$DOMAIN_FD_DEST\",
-    \"name\": \"$NODE_NAME_ORIGIN\"
+    \"myDomain\": \"$DOMAIN_A\",
+    \"domain\": \"$DOMAIN_B\",
+    \"name\": \"$NODE_NAME\"
   }";
+
+# response
+{
+  "response": {
+    "nodeID": "$NODE_ID_A",
+    "sharedNodeID": "0",
+    "name": "\"$NODE_NAME\"",
+    "domain": "\"$DOMAIN_B\"",
+    "status": "\"pending\"",
+    "nodeURI": "\"$NODE_URI\""
+  }
+}
 ----
 
-Node A admin sends the URI to node B admin::
-    This step has to be done manually by the admin and they should use a secure channel in order to exchange this information.
+Node A admin sends the node URI to the administrator of node B::
+    This step transports the node URI to the administrator of node B.
 
-Node B admin inserts the pair URI into the UI::
-    This step registers node A on the other side.
+[NOTE]
+====
+This step is performed by the node A administrator via some secure channel.
+====
+
+Node B admin inserts the node URI::
+    This step lets node B know that node A exists.
     Now both nodes know about each others existence but they are not yet able to communicate.
 
 [source,bash]
 ----
-curl -X POST "$API_BASE/federation/nodes/" \
-  -H "authorization: Bearer $JWT_FD" \
+# request
+curl -X POST "$API_B_BASE/federation/nodes" \
+  -H "authorization: Bearer $MAIN_JWT_B" \
   --header "Content-Type: application/json" \
   --data "{
-    \"sharedDomain\": \"$DOMAIN_FD_DEST\",
+    \"myDomain\": \"$DOMAIN_B\",
     \"nodeURI\": \"$NODE_URI\"
   }";
-----
 
+# response
+{
+  "response": {
+    "nodeID": "$NODE_ID_B",
+    "sharedNodeID": "0",
+    "name": "\"$NODE_NAME\"",
+    "domain": "\"$DOMAIN_A\"",
+    "status": "\"pending\"",
+    "nodeURI": "\"$NODE_URI\""
+  }
+}
+----
 
 === Handshake
 
 image:rfc/federation/federation_pair_handshake.png[Diagram of the handshake step]
 
-Lastly, we need to securely exchange the credentials so the two nodes can communicate, with the following flow:
+Lastly, we need to exchange the authentication tokens that node A can use to access node B, and vice-versa.
+This step allows the two nodes to perform secure data transfer.
+
+The Federation system uses the already defined and well established facility for authentication and access control.
+Each node creates a system user that is dedicated for serving the paired node.
+This allows us to use the authentication facility described above.
+
+[IMPORTANT]
+====
+`$TOKEN_A` and `$TOKEN_B` are *not* the same.
+====
+
 
 Node B admin initializes the handshake process::
-    This creates a federated system user along with a role and an authentication JWT(B) token.
-
-[NOTE]
-====
-The use of system users and roles allows us to use the already existing authentication and access control facility.
-====
+    This creates a federated system user along with a role and an authentication `$TOKEN_B`.
 
 [source,bash]
 ----
-curl -X POST "$API_BASE/federation/nodes/$NODE_ID_DEST/pair" \
-  -H "authorization: Bearer $JWT_FD" \
-  --header "Content-Type: application/json" \
-  --data "{}";
+# request
+curl -X POST "$API_B_BASE/federation/nodes/$NODE_ID_B/pair" \
+  -H "authorization: Bearer $MAIN_JWT_B" \
+  --header "Content-Type: application/json";
+
+# response
+{}
 ----
 
 Node B sends a handshake request to node A::
-    Since this step is performed outside the authentication facility (since node B is not yet authenticated), this step must be confirmed by the node A administrator.
-    An initial security step here is the check against the token, generated in the node pair URI.
+    This notifies node A administrators that node B wishes to establish a federated network.
+    This *must* be manually confirmed by the node administrator as this step only uses the exchanged node URI as the means of authentication.
 
 [source,bash]
 ----
-curl -X POST "$API_BASE/federation/nodes/$NODE_ID_ORIGIN/handshake/" \
+# request
+curl -X POST "$API_A_BASE/federation/nodes/$NODE_ID_A/handshake" \
   --header "Content-Type: application/json" \
   --data "{
     \"nodeURI\": \"$NODE_URI\",
-    \"token\": \"$JWT_FD_DEST\",
-    \"destNodeID\": \"$NODE_ID_DEST\"
+    \"token\": \"$TOKEN_B\",
+    \"nodeIDB\": \"$NODE_ID_B\"
   }";
+
+# response
+{}
 ----
 
 Node A administrator confirms the handshake request::
-    This creates a federated system user along with a role and an authentication JWT(A) token.
-
-[NOTE]
-====
-The use of system users and roles allows us to use the already existing authentication and access control facility.
-====
+    This creates a federated system user along with a role and an authentication `$TOKEN_A`.
 
 [source,bash]
 ----
-curl -X POST "$API_BASE/federation/nodes/$NODE_ID_ORIGIN/handshake-confirm" \
-  -H "authorization: Bearer $JWT_FD" \
+# request
+curl -X POST "$API_A_BASE/federation/nodes/$NODE_ID_A/handshake-confirm" \
+  -H "authorization: Bearer $MAIN_JWT_A" \
   --header "Content-Type: application/json";
+
+# response
+{}
 ----
 
 Node A completes the handshake with node B::
-    Lastly, node A sends their JWT(A) token to node B, using JWT(B) as the means of authentication.
+    Lastly, node A sends their `$TOKEN_A` to node B, using `$TOKEN_B` as the means of authentication.
 
 [source,bash]
 ----
-curl -X POST "$API_BASE/federation/nodes/$NODE_ID_DEST/handshake-complete" \
-  -H "authorization: Bearer $JWT_FD_DEST" \
+# request
+curl -X POST "$API_B_BASE/federation/nodes/$NODE_ID_B/handshake-complete" \
+  -H "authorization: Bearer $TOKEN_B" \
   --header "Content-Type: application/json" \
   --data "{
-    \"token\": \"$JWT_FD_ORIGIN\"
+    \"token\": \"$TOKEN_A\"
   }";
+
+# response
+{}
 ----
+
+== Data exchange
+
+When the two nodes wish to exchange information, they must use the authentication tokens that were obtained during the pairing process.
+If the node A wishes to access data on node B, node A uses `$TOKEN_B` to authenticate, and vice-versa for node B.
+
+In order to assure that node A *can not* access data that node B *does not* expose, both node A and node B use the already defined RBAC access control facility.
+The federated user that was created to serve node A (during the pairing) has their permissions configured in a way that the system user is not allowed to access the data that node A is not supposed to have access to.

@@ -1,0 +1,36 @@
+|===
+|Action| Endpoint |Query Parameters|Request Body
+
+|DELETE
+|/nodes/{nodeID}/modules/{moduleID}
+|/
+|/
+|===
+
+.Used variables
+[source,bash]
+----
+# base url for the federation api
+$BASE_URL
+
+# jwt of the user
+$JWT
+
+# node id of the destination node (?exposed) or the origin node (?shared)
+$NODE_ID
+
+# federation module id
+$MODULE_ID
+----
+
+.Example request
+[source,bash]
+----
+curl -X GET "${BASE_URL}/federation/nodes/${NODE_ID}/modules/${MODULE_ID}" \
+  -H "authorization: Bearer ${JWT}"
+----
+
+.Example response
+[source,bash]
+----
+----

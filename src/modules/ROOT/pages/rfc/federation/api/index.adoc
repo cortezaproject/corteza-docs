@@ -28,7 +28,17 @@ include::node_handshake_complete.adoc[]
 
 == Structure sync
 
-// @todo...
+=== Change sharing fields
+include::structure_sync__change_sharing_fields.adoc[]
+
+=== Info about shared federated module
+include::structure_sync__list_shared_module.adoc[]
+
+=== List shared modules
+include::structure_sync__list_shared_modules.adoc[]
+
+=== Remove module from federation
+include::structure_sync__remove_module_federation.adoc[]
 
 == Data sync
 

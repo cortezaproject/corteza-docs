@@ -28,30 +28,31 @@ image:../images/federation_structure_sync.jpg[Diagram of the structure sync acti
 
 image:../images/federation_structure_sync_phase2.jpg[Diagram of the structure sync action as seen from node B]
 
-== Endpoints
+// == Endpoints
 
-[cols="~,~,~"]
-|===
-|Action| Endpoint |Description
+// [cols="~,~,~"]
+// |===
+// |Action| Endpoint |Description
 
-3+|*CRUD endpoints*
-|GET     |/nodes/{nodeID}/modules?exposed               |list of federated modules that are shared to the other node
-|GET     |/nodes/{nodeID}/modules?shared                |list of federated modules that are shared by other node
-// |GET     |/nodes/{nodeID}/modules/{f-moduleID-A}        |????dodaj spec. modul v federation????
-|POST    |/nodes/{nodeID}/modules/{f-moduleID-A}        |dodaj spec. modul v federation
-|DELETE  |/nodes/{nodeID}/modules/{f-moduleID-A}        |remove federated module (from sharing)
-|GET     |/nodes/{nodeID}/modules/{f-moduleID-A}/exposed|federated module info (with fields) - sharing to the other node
-|PUT     |/nodes/{nodeID}/modules/{f-moduleID-A}/exposed|change sharing settings of a federated module (fields we share to other node)
-|GET     |/nodes/{nodeID}/modules/{f-moduleID-B}/shared |federated module info (with fields) of the shared module from other node
-|GET     |/nodes/{nodeID}/modules/{f-moduleID-B}/mapped |mapping settings for a federated modules
-|PUT     |/nodes/{nodeID}/modules/{f-moduleID-B}/mapped |set mapping for a federated module
-|DELETE  |/nodes/{nodeID}/modules/{f-moduleID-B}/mapped |revoke mapping, cancel record sync 
-3+|*Sync endpoints*
-|GET|/exposed/modules                              |get a list of federated modules (changes on the originating node)
-|GET|/exposed/modules/{f-moduleID}                 |get the shared federated module structure (with fields, per-node)
-|GET|/exposed/modules/{f-moduleID}/records         |get the records of a federated module
-|GET|/exposed/users/                               |TBD
-|===
+// 3+|*CRUD endpoints*
+// |GET     |/nodes/{nodeID}/modules?exposed               |list of federated modules that are shared to the other node
+// |GET     |/nodes/{nodeID}/modules?shared                |list of federated modules that are shared by other node
+// // |GET     |/nodes/{nodeID}/modules/{f-moduleID-A}        |????dodaj spec. modul v federation????
+// |POST    |/nodes/{nodeID}/modules/{f-moduleID-A}        |dodaj spec. modul v federation
+// |DELETE  |/nodes/{nodeID}/modules/{f-moduleID-A}        |remove federated module (from sharing)
+// |GET     |/nodes/{nodeID}/modules/{f-moduleID-A}/exposed|federated module info (with fields) - sharing to the other node
+// |PUT     |/nodes/{nodeID}/modules/{f-moduleID-A}/exposed|change sharing settings of a federated module (fields we share to other node)
+// |GET     |/nodes/{nodeID}/modules/{f-moduleID-B}/shared |federated module info (with fields) of the shared module from other node
+// |GET     |/nodes/{nodeID}/modules/{f-moduleID-B}/mapped |mapping settings for a federated modules
+// |PUT     |/nodes/{nodeID}/modules/{f-moduleID-B}/mapped |set mapping for a federated module
+// |DELETE  |/nodes/{nodeID}/modules/{f-moduleID-B}/mapped |revoke mapping, cancel record sync 
+// 3+|*Sync endpoints*
+// |GET|/exposed/modules                              |get a list of federated modules (changes on the originating node)
+// |GET|/exposed/modules/{f-moduleID}                 |get the shared federated module structure (with fields, per-node)
+// |GET|/exposed/modules/{f-moduleID}/records         |get the records of a federated module
+// |GET|/exposed/users/                               |TBD
+// |===
+
 
 == Field mapping on Destination
 

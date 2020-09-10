@@ -1,0 +1,7 @@
+.`federation_node`
+|===
+|Column |Type |Description
+
+|ID | uint64 | Node ID
+// ...
+|===

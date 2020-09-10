@@ -1,0 +1,42 @@
+Quick description for this API endpoint...
+Don't define any sections.
+
+// List here any variables that are used in the provided request/response
+.Used variables
+[source,bash]
+----
+# Quick description of what it is
+$VARIABLE
+
+# ...
+----
+
+// An example cURL should be enough to provide all the needed information such as method, path, params, ...
+.Example request
+[source,bash]
+----
+curl -X POST "$API_A_BASE/federation/nodes" \
+  -H "authorization: Bearer $MAIN_JWT_A" \
+  --header "Content-Type: application/json" \
+  --data "{
+    \"myDomain\": \"$DOMAIN_A\",
+    \"domain\": \"$DOMAIN_B\",
+    \"name\": \"$NODE_NAME\"
+  }";
+----
+
+// Do replace more important values with variables
+.Example response
+[source,bash]
+----
+{
+  "response": {
+    "nodeID": "$NODE_ID_A",
+    "sharedNodeID": "0",
+    "name": "\"$NODE_NAME\"",
+    "domain": "\"$DOMAIN_B\"",
+    "status": "\"pending\"",
+    "nodeURI": "\"$NODE_URI\""
+  }
+}
+----

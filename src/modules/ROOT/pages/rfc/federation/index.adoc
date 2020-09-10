@@ -6,8 +6,19 @@ include::../../variables.adoc[]
 
 :leveloffset: +1
 
-include::authentication.adoc[]
+include::glossary.adoc[]
+
+include::security.adoc[]
+
+include::node_pair.adoc[]
+
 include::structure_sync.adoc[]
+
+include::data_sync.adoc[]
+
+include::api/index.adoc[]
+
+include::store/index.adoc[]
 
 :leveloffset: -1
 

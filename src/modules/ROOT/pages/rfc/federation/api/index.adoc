@@ -1,0 +1,18 @@
+= API
+
+[NOTE]
+====
+See the `example.adoc`
+====
+
+== Node pair
+
+// @todo...
+
+== Structure sync
+
+// @todo...
+
+== Data sync
+
+// @todo...

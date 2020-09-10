@@ -1,17 +1,28 @@
-Quick description for this API endpoint...
-Don't define any sections.
-
-// List here any variables that are used in the provided request/response
 .Used variables
 [source,bash]
 ----
-# Quick description of what it is
-$VARIABLE
+# Base URL of node A api
+$API_A_BASE
 
-# ...
+# Main administrator JWT for node A
+$MAIN_JWT_A
+
+# Node A domain
+$DOMAIN_A
+
+# Node B domain
+$DOMAIN_B
+
+# Node name
+$NODE_NAME
+
+# Node A nodeID
+$NODE_ID_A
+
+# Node URI
+$NODE_URI
 ----
 
-// An example cURL should be enough to provide all the needed information such as method, path, params, ...
 .Example request
 [source,bash]
 ----
@@ -25,7 +36,6 @@ curl -X POST "$API_A_BASE/federation/nodes" \
   }";
 ----
 
-// Do replace more important values with variables
 .Example response
 [source,bash]
 ----

@@ -1,3 +1,18 @@
 = Security
 
-// @todo...
+Each node in a federated network defines a special type of system user that is dedicated to serve that node when any kind of data exchange occurs.
+The use of system users and roles allow us to build upon or already defined authentication and access control facility.
+
+== Data exchange
+
+When the two nodes wish to exchange any kind of data, they must use the authentication tokens that were obtained during the pairing process.
+If the node A wishes to access data on node B, node A uses `$TOKEN_B` to authenticate, and vice-versa for node B.
+
+[IMPORTANT]
+====
+`$TOKEN_A` and `$TOKEN_B` are *not* the same.
+====
+
+In order to assure that node A *can not* access data that node B *does not* expose, both node A and node B use the already defined RBAC access control facility.
+
+The federated user that was created to serve node A (during the pairing) has their permissions configured in a way that the system user is not allowed to access the data that node A is not supposed to have access to.

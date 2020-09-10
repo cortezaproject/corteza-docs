@@ -1,0 +1,51 @@
+.Used variables
+[source,bash]
+----
+# Base URL of node B api
+$API_B_BASE
+
+# Main administrator JWT for node B
+$MAIN_JWT_B
+
+# Node B domain
+$DOMAIN_B
+
+# Node A domain
+$DOMAIN_A
+
+# Node name
+$NODE_NAME
+
+# Node B nodeID
+$NODE_ID_B
+
+# Node URI
+$NODE_URI
+----
+
+.Example request
+[source,bash]
+----
+curl -X POST "$API_B_BASE/federation/nodes" \
+  -H "authorization: Bearer $MAIN_JWT_B" \
+  --header "Content-Type: application/json" \
+  --data "{
+    \"myDomain\": \"$DOMAIN_B\",
+    \"nodeURI\": \"$NODE_URI\"
+  }";
+----
+
+.Example response
+[source,bash]
+----
+{
+  "response": {
+    "nodeID": "$NODE_ID_B",
+    "sharedNodeID": "0",
+    "name": "\"$NODE_NAME\"",
+    "domain": "\"$DOMAIN_A\"",
+    "status": "\"pending\"",
+    "nodeURI": "\"$NODE_URI\""
+  }
+}
+----

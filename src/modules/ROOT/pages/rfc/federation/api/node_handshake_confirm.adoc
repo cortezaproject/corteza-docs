@@ -1,0 +1,26 @@
+.Used variables
+[source,bash]
+----
+# Base URL of node A api
+$API_A_BASE
+
+# Node A nodeID
+$NODE_ID_A
+
+# Main administrator JWT for node A
+$MAIN_JWT_A
+----
+
+.Example request
+[source,bash]
+----
+curl -X POST "$API_A_BASE/federation/nodes/$NODE_ID_A/handshake-confirm" \
+  -H "authorization: Bearer $MAIN_JWT_A" \
+  --header "Content-Type: application/json";
+----
+
+.Example response
+[source,bash]
+----
+{}
+----

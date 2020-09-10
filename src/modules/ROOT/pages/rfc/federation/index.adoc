@@ -6,7 +6,10 @@ include::../../variables.adoc[]
 
 :leveloffset: +1
 
+include::glossary.adoc[]
+
 include::authentication.adoc[]
+
 include::structure_sync.adoc[]
 
 :leveloffset: -1

@@ -29,110 +29,193 @@ image:../images/federation_structure_sync.jpg[Diagram of the structure sync acti
 image:../images/federation_structure_sync_phase2.jpg[Diagram of the structure sync action as seen from node B]
 
 == Endpoints
+
+[cols="~,~,~"]
 |===
-|Endpoint |Description
-|/federation/nodes|Information on federation nodes
-|/federation/structure |Master list of module changes
-|/federation/structure/module/{id}|Federated module with federated fields
-|/federation/data |Master sync endpoint
-|/federation/data/module/{id}/records |Record list of a federated module
+|Action| Endpoint |Description
+
+3+|*CRUD endpoints*
+|GET     |/nodes/{nodeID}/modules?exposed               |list of federated modules that are shared to the other node
+|GET     |/nodes/{nodeID}/modules?shared                |list of federated modules that are shared by other node
+// |GET     |/nodes/{nodeID}/modules/{f-moduleID-A}        |????dodaj spec. modul v federation????
+|POST    |/nodes/{nodeID}/modules/{f-moduleID-A}        |dodaj spec. modul v federation
+|DELETE  |/nodes/{nodeID}/modules/{f-moduleID-A}        |remove federated module (from sharing)
+|GET     |/nodes/{nodeID}/modules/{f-moduleID-A}/exposed|federated module info (with fields) - sharing to the other node
+|PUT     |/nodes/{nodeID}/modules/{f-moduleID-A}/exposed|change sharing settings of a federated module (fields we share to other node)
+|GET     |/nodes/{nodeID}/modules/{f-moduleID-B}/shared |federated module info (with fields) of the shared module from other node
+|GET     |/nodes/{nodeID}/modules/{f-moduleID-B}/mapped |mapping settings for a federated modules
+|PUT     |/nodes/{nodeID}/modules/{f-moduleID-B}/mapped |set mapping for a federated module
+|DELETE  |/nodes/{nodeID}/modules/{f-moduleID-B}/mapped |revoke mapping, cancel record sync 
+3+|*Sync endpoints*
+|GET|/exposed/modules                              |get a list of federated modules (changes on the originating node)
+|GET|/exposed/modules/{f-moduleID}                 |get the shared federated module structure (with fields, per-node)
+|GET|/exposed/modules/{f-moduleID}/records         |get the records of a federated module
+|GET|/exposed/users/                               |TBD
 |===
+
+== Field mapping on Destination
+
+The custom field mapping is done via a json payload in the *federation_module_mapping* and *federation_module_exposed* tables.
+
+=== Exposed payload
+
+These are the fields that are exposed on the Origin. During the sync, these fields are fetched from compose DB via name (unique) and added to the structure payload along with the module info.
+
+[source,json]
+----
+[
+    {
+        "name": "<origin_compose_module_field_name>",
+        "kind": "<origin_compose_module_field_kind>",
+        "is_multi": "<origin_compose_module_field_is_multi>"
+    }
+]
+----
+
+
+=== Mapping payload
+
+These are the fields that are synced from the Origin on the Destination and mapped via a designated UI (or not) in the DB.
+
+[source,json]
+----
+[
+    {
+        "origin": {
+            "name": "<origin_compose_module_field_name>",
+            "kind": "<origin_compose_module_field_kind>",
+            "is_multi": "<origin_compose_module_field_is_multi>"
+        },
+        "destination": {
+            "name": "<destination_compose_module_field_name>",
+            "kind": "<destination_compose_module_field_kind>",
+            "is_multi": "<destination_compose_module_field_is_multi>"
+        }
+    }
+]
+----
+
 
 == DB
 
-
-=== federation_module
-
+=== federation_module_exposed
 |===
-|Column |Desc
-|id|
+|Column |Description
+
+|id|federation module id
+|rel_node|node id (destination node id - who are we sharing to)
+|rel_compose_module|module id on source node
+|fields|list of fields
+|===
+
+=== federation_module_shared
+|===
+|Column |Description
+
+|id|federation module id
 |handle|Module handle
 |name|Module name
-|rel_node|node id (can be also the same server if applying for upstream)
-|rel_module_source|module id on source node
-|rel_module_dest|mapped module on destination
-|type|upstream/downstream
+|rel_node|node id (source node id - who is sharing with us)
+|xref_module|federation module id on source node (id in federation_module_exposed)
+|fields|list of fields
 |===
 
-=== federation_module_field
-
+=== federation_module_mapping
 |===
-|Column |Desc
-|id|
-|name|Field name
-|label|Field label
-|kind|Field kind
-|is_multi|Multiple bool
-|rel_module|federated module id
-|rel_module_field_source?|field id on source node - do we need it?
-|rel_module_field_dest|mapped field on destination
+|Column |Description
+
+|federation_module_id|id from federation_module_downstream
+|compose_module_id|existing module
+|field_mapping|json field mappings, ex: [{ source: 'node_A_module_field_7', dest: 'node_B_module_field_2', transform: 'string' }]
 |===
 
 == Examples
 
 *Module _Account_*
 
+=== Phase I - on Origin node
+
+First phase is exposing the desired modules for a specific node (to the Destination), so the structure mapping on the Destination and then the data sync can be done.
+
+*compose_module*
 |===
-|Example|id|rel_node|module_id_orig|field_id_orig|module_id_dest|field_id_dest|type
+|id|handle|name
 
-|Account module on node A (upstream)|000002|node_B_DISTINCT_ID|69199955985694737|69199955985694738|||upstream
-|Account module on node B (downstream) - not yet mapped|0000001|node_A_DISTINCT_ID|69199955985694737|69199955985694738|||downstream
-|Account module on node B (downstream) - mapped|0000003|node_A_DISTINCT_ID|69199955985694737|69199955985694738|69199955985694737|69199955985694739|downstream
-|===
-
-=== Phase 1 - node A
-
-*federation_module*
-|===
-|id|rel_node|rel_module_source|rel_module_dest|type
-
-|000001|node_A_DISTINCT_ID|module_node_A_id||upstream
+|161250629010849793|Account|Account
 |===
 
-*federation_module_field*
+*compose_module_field*
 |===
-|id|rel_node|rel_module|rel_module_field_source|rel_module_field_dest
+|id|kind|name|label|is_multi
 
-|000011|node_A_DISTINCT_ID|000001|000111||
+| 161250629061509121 | String | Phone              | Phone                |        0
+| 161250629027758081 | Url    | LinkedIn           | LinkedIn             |        0
+| 161250629044666369 | String | Description        | Description          |        0
+|===
+
+*federation_node*
+|===
+|id|name
+
+|1|Origin server
+|2|Destination server
+|===
+
+*federation_module_exposed*
+|===
+|id|rel_node|rel_compose_module|fields
+
+|11|2|161250629010849793|[{"name":"Phone","kind":"String","is_multi":0}]
 |===
 
 
-=== Phase 2 - node B
+=== Phase II - on Destination node
 
-There are 2 phases in the 2. phase. First the module info from node A is saved. After that we can do the mapping. It is only during the mapping that the modules are created.
+There are 2 phases in the phase II. First the module info from Origin is saved. After that we can do the mapping. The modules on the Destination need to be created beforehand.
+
+*compose_module*
+|===
+|id|handle|name
+
+|261250629010849755|Account_federated|Account (federated from Origin)
+|===
+
+*compose_module_field*
+|===
+|id|kind|name|label|is_multi
+
+| 161250629061509121 | String | Mobile      | Mobile               |        0
+| 161250629044666369 | String | Desc        | Description          |        0
+|===
+
+*federation_node*
+|===
+|id|name
+
+|1|Our server
+|2|Misc server
+|3|Origin server in this example (from phase I)
+|===
 
 ==== 1. Fetch and save the module info
 
-*federation_module*
-|===
-|id|rel_node|rel_module_source|rel_module_dest|type
+*federation_module_shared*
 
-|000002|node_A_DISTINCT_ID|000001||downstream
+|===
+|id|handle|name|rel_node|xref_module|fields
+
+|22|Account|Account|3|11|[{"name":"Phone","kind":"String","is_multi":0}]
 |===
 
-*federation_module_field*
-|===
-|id|rel_node|rel_module|rel_module_field_source|rel_module_field_dest
-
-|000022|node_A_DISTINCT_ID|000001|000011(id)||
-|===
 
 ==== 2. Mapping finished, modules created
 
-Non-federated module was created after the module mapping in the administration.
-Module id: module_node_B_id
-Field id: module_field_node_B_id
+The sharing of modules info from Origin is added, that is enough information for us to handle mapping from UI. We can now pick the fields from the field_mapping column that we need and store it into the mapping table.
 
-*federation_module*
+*federation_module_mapping*
+
 |===
-|id|rel_node|rel_module_source|rel_module_dest|type
+|federation_module_id|compose_module_id|field_mapping
 
-|000002|node_A_DISTINCT_ID|000001|module_node_B_id|downstream
-|===
-
-*federation_module_field*
-|===
-|id|rel_node|rel_module|rel_module_field_source|rel_module_field_dest|rel_module_field
-
-|000022|node_A_DISTINCT_ID|000001|000011(id)|module_node_B_id|module_field_node_B_id|
+|22|261250629010849755|[{"origin":{"name":"Phone","kind":"String","is_multi":0},"destination":{"name":"Mobile","kind":"String","is_multi":0}}]
 |===

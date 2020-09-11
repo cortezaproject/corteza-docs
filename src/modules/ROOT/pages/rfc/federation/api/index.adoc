@@ -1,13 +1,30 @@
 = API
 
-[NOTE]
-====
-See the `example.adoc`
-====
-
 == Node pair
 
-// @todo...
+=== Create node from params
+
+include::node_create_a.adoc[]
+
+=== Create node from node URI
+
+include::node_create_b.adoc[]
+
+=== Init handshake
+
+include::node_handshake_init.adoc[]
+
+=== Request handshake
+
+include::node_handshake_request.adoc[]
+
+=== Confirm handshake
+
+include::node_handshake_confirm.adoc[]
+
+=== Complete handshake
+
+include::node_handshake_complete.adoc[]
 
 == Structure sync
 

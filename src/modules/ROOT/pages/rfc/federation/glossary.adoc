@@ -38,3 +38,29 @@ Origin node::
 Destination node::
     The node that **receives the data** from the origin node.
     If node A requests data from node B, node A is destination as it receives the data.
+
+== Federated node
+
+Node status::
+    The current status of the federated node.
+    Can be one of the following:
+
+    * *Pairing*: the node is in the pairing process,
+    * *paired*: the node has been paired successfully,
+    * *failed*: the node failed to pair.
+
+Structure sync status::
+    The current status of the structure sync.
+    Can be one of the following:
+
+    * *Syncing*: the node is currently syncing structures from the origin node,
+    * *synced*: the node has successfully finished syncing,
+    * *failed*: there was an error while syncing.
+
+Data sync status::
+    The current status of the data sync.
+    Can be one of the following:
+
+    * *Syncing*: the node is currently syncing data from the origin node,
+    * *synced*: the node has successfully finished syncing,
+    * *failed*: there was an error while syncing.

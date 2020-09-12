@@ -1,3 +1,4 @@
+[#rfc:federation:structure-sync]
 = Structure sync
 
 == Structure sync part I - serve upstream modules on source node

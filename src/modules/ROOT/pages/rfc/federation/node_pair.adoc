@@ -1,75 +1,91 @@
-= Node Pair
+= Pairing nodes
 
-Node pairing is the process of establishing a federated network between the two nodes; node A and node B.
-The process consists of two steps (Refer to the below schema for an overview over the entire flow):
+Node pairing is the process of establishing a federated network between two nodes in order to share their information.
+The process consists of two steps:
 
-. Identification,
-. handshake.
+Node identification::
+    The step identifies the two nodes so they know where to access the information.
 
-image:rfc/federation/federation_pair.png[Diagram of the entire pairing process]
+Node handshake::
+    The step exchanges the authentication tokens so the two nodes can access protected resources from each other.
 
-== Identification
+.Outline of the entire pairing process:
+image:rfc/federation/federation_pair.png[Outline of the entire pairing process]
 
-image:rfc/federation/federation_pair_identification.png[Diagram of the identification step]
+== Node identification
 
-Firstly we need to register node A within node B, and vice-versa.
-This step allows the two nodes to know about eac other so they can communicate.
+.Outline of the node identification step:
+image:rfc/federation/federation_pair_identification.png[Outline of the node identification step]
 
 [IMPORTANT]
 ====
-This step doesn't exchange any credentials that are used in the secure communication between the two nodes.
-This step only performs the identification.
+No authentication tokens are exchanged in during the identification step.
 ====
 
-Node A creates a new node and generates a pair URI::
-    This step lets node A know that node B exists.
-    Node URI is in the form of `corteza://<$NODE_ID_A>:<$OTT>@<$DOMAIN_A>?name=<$NAME>`.
+Node A administrator registers node B and generates it's node URI::
+    This step lets node A know about node B.
+    The generated node URI identifies node A and is in the form of `corteza://$NODE_ID_A:$OTT@$DOMAIN_A?name=$NAME`.
 
 [NOTE]
 ====
-`$OTT` is a generated OTT token that gives us a basic way of authenticating the initial requests that are performed outside of the authentication facility.
+`$OTT` is a generated OTT token that allows us to perform some authentication when performing the handshake.
 ====
 
 include::api/node_create_a.adoc[]
 
-Node A admin sends the node URI to the administrator of node B::
-    This step transports the node URI to the administrator of node B.
+Node A administrator sends the node URI to the node B administrator::
+    This step transports the node URI to the node that we wish to pair with.
 
 [NOTE]
 ====
-This step is performed by the node A administrator via some secure channel.
+This step is *performed manually* by the node A administrator.
+The two administrators should use a secure channel in order to exchange this information.
 ====
 
-Node B admin inserts the node URI::
-    This step lets node B know that node A exists.
-    Now both nodes know about each others existence but they are not yet able to communicate.
+Node B administrator registers node A using the node URI::
+    This step lets node B know about node A.
+    Both nodes A and B are now identified and prepared to perform the <<rfc:federation:node-pair:node-handshake>>.
 
 include::api/node_create_b.adoc[]
 
-== Handshake
+[IMPORTANT]
+====
+In the above response, `$NODE_URI` contains the value provided by node A.
+====
 
-image:rfc/federation/federation_pair_handshake.png[Diagram of the handshake step]
+[#rfc:federation:node-pair:node-handshake]
+== Node handshake
 
-Lastly, we need to exchange the authentication tokens that node A can use to access node B, and vice-versa.
-This step allows the two nodes to perform secure data transfer.
+.Outline of the node handshake step:
+image:rfc/federation/federation_pair_handshake.png[Outline of the node handshake step]
 
-Node B admin initializes the handshake process::
-    This creates a federated system user along with a role and an authentication `$TOKEN_B`.
+Node B administrator initializes the process with node A::
+    This configures the state on node B and generates the `$TOKEN_B`; so node A will be able to access protected resources on node B.
 
 include::api/node_handshake_init.adoc[]
 
 Node B sends a handshake request to node A::
-    This notifies node A administrators that node B wishes to establish a federated network.
-    This *must* be manually confirmed by the node administrator as this step only uses the exchanged node URI as the means of authentication.
+    This notifies the node A administrator that node B wishes to establish a federated network.
+    This request *must* be manually confirmed by the node administrator.
+
+[IMPORTANT]
+====
+This request is authenticated by the before generated `$OTT` token, outside of the standard authentication facility.
+====
 
 include::api/node_handshake_request.adoc[]
 
 Node A administrator confirms the handshake request::
-    This creates a federated system user along with a role and an authentication `$TOKEN_A`.
+    This configures the state on node A and generates the `$TOKEN_A`; so node B will be able to access protected resources on node A.
 
 include::api/node_handshake_confirm.adoc[]
 
 Node A completes the handshake with node B::
-    Lastly, node A sends their `$TOKEN_A` to node B, using `$TOKEN_B` as the means of authentication.
+    This sends the `$TOKEN_A` to node B so it will be able to access protected resources on node A.
+
+[NOTE]
+====
+Notice how node A uses `$TOKEN_B` to authenticate this request.
+====
 
 include::api/node_handshake_complete.adoc[]

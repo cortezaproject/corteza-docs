@@ -2,27 +2,27 @@
 
 == Node pair
 
-=== Create node from params
+=== Create a federated node from a series of parameters
 
 include::node_create_a.adoc[]
 
-=== Create node from node URI
+=== Create a federated node from a node URI
 
 include::node_create_b.adoc[]
 
-=== Init handshake
+=== Initialize the handshake
 
 include::node_handshake_init.adoc[]
 
-=== Request handshake
+=== Request the handshake with node A
 
 include::node_handshake_request.adoc[]
 
-=== Confirm handshake
+=== Confirm the requested handshake
 
 include::node_handshake_confirm.adoc[]
 
-=== Complete handshake
+=== Complete the handshake
 
 include::node_handshake_complete.adoc[]
 

@@ -1,18 +1,35 @@
 = Security
 
-Each node in a federated network defines a special type of system user that is dedicated to serve that node when any kind of data exchange occurs.
-The use of system users and roles allow us to build upon or already defined authentication and access control facility.
+== Authentication
 
-== Data exchange
+Federated nodes leverage Corteza's already established authentication facility that *system user* and *JWT tokens* (later referred as *token*).
+During the pairing process between the two nodes, both nodes create a system user and securely exchange their authentication tokens.
 
-When the two nodes wish to exchange any kind of data, they must use the authentication tokens that were obtained during the pairing process.
-If the node A wishes to access data on node B, node A uses `$TOKEN_B` to authenticate, and vice-versa for node B.
+* Node A defines a *system user* and *token A* that allow node B to access protected resources,
+* node B defines a *system user* and *token B* that allow node A to access protected resources.
+
+Whenever node A wishes to access protected resources on *node B*, it uses *token B* for authentication; vice-versa for node B accessing protected resources on node A.
 
 [IMPORTANT]
 ====
-`$TOKEN_A` and `$TOKEN_B` are *not* the same.
+System users and authentication tokens are *unique for each node pair*.
+When a new node is added to the federated network, a new pair of system users and tokens are generated.
 ====
 
-In order to assure that node A *can not* access data that node B *does not* expose, both node A and node B use the already defined RBAC access control facility.
+[IMPORTANT]
+====
+Token A and token B *are not the same*.
+====
 
-The federated user that was created to serve node A (during the pairing) has their permissions configured in a way that the system user is not allowed to access the data that node A is not supposed to have access to.
+== Access control
+
+The feature uses Corteza's already established RBAC access control facility that operates over *user roles*, *system resources* and *operations* over given resources.
+
+Each node in a federated network has the ability to define what resources a paired node is *allowed* to access.
+This can be as simple as controlling access to records belonging to specific modules, or as detailed as controlling access to specific fields for specific modules.
+
+.When a destination node requests data from the origin node, the origin node:
+* Passes the request through the access control facility to check if we are allowed to access the resource,
+* collects the requested data, following the defined RBAC permissions.
+
+The federation service then performs some additional operations, see <<rfc:federation:structure-sync>> and <<rfc:federation:data-sync>>, and sends it over to the destination node.

@@ -19,6 +19,9 @@ $NODE_NAME
 # Node A nodeID
 $NODE_ID_A
 
+# Node B nodeID
+$NODE_ID_B
+
 # Node URI
 $NODE_URI
 ----
@@ -42,7 +45,7 @@ curl -X POST "$API_A_BASE/federation/nodes" \
 {
   "response": {
     "nodeID": "$NODE_ID_A",
-    "sharedNodeID": "0",
+    "sharedNodeID": "$NODE_ID_B",
     "name": "\"$NODE_NAME\"",
     "domain": "\"$DOMAIN_B\"",
     "status": "\"pending\"",

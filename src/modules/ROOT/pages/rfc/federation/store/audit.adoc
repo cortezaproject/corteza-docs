@@ -1,0 +1,9 @@
+.`federation_audit`
+|===
+|Column |Type |Description
+
+|ts               | datetime    | Timestamp of the action
+|status           | varchar(32) | Status of the action
+|node_origin      | varchar(32) | the destination of the action that took place in the audit table
+|node_destination | varchar(32) | the origin of the action that took place in the audit table
+|===

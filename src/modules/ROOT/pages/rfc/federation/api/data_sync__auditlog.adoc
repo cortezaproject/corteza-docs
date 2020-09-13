@@ -1,0 +1,63 @@
+|===
+|Action| Endpoint |Query Parameters|Request Body
+
+|GET
+|/federation/nodes/{nodeID}/audit
+|/
+|/
+|===
+
+.Used variables
+[source,bash]
+----
+# base url for the federation api
+$BASE_URL
+
+# jwt of the user
+$JWT
+
+# node id of the node B
+$NODE_ID
+
+# federation module id
+$MODULE_ID
+
+# the origin of the action that took place
+# in the audit table
+$NODE_ORIGIN
+
+# the destination of the action that took place
+# in the audit table
+$NODE_DESTINATION
+----
+
+.Example request
+[source,bash]
+----
+curl -X GET "${BASE_URL}/federation/nodes/{nodeID}/audit" \
+  -H "Authorization: Bearer ${TOKEN_B}"
+----
+
+.Example response
+[source,bash]
+----
+{
+    "response": {
+        "filter": {
+            "query": "status='synced'",
+            "page": 1,
+            "perPage": 20,
+            "count": 97,
+            "deleted": 0
+        },
+        "set": [
+            {
+                "ts": "2020-09-08T19:56:14Z",
+                "status": "<audit_status>",
+                "node_origin": "${NODE_ORIGIN}",
+                "node_destination": "${NODE_DESTINATION}"
+            }
+        ]
+    }
+}
+----

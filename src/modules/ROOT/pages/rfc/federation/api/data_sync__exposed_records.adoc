@@ -1,0 +1,91 @@
+|===
+|Action| Endpoint |Query Parameters|Request Body
+
+|PUT
+|/exposed/modules/{moduleID}/records
+|*after* - timestamp, filter only records after a specific time (ie - last successful sync)
+|/
+|===
+
+[NOTE]
+====
+$TOKEN_B is the token that was generated during the handshake and is used to authenticate the user on the Origin node (the one who shares the data) by the Destination node.
+====
+
+.Used variables
+[source,bash]
+----
+# base url for the federation api
+$BASE_URL
+
+# jwt of the user
+$JWT
+
+# node id of the destination node (?exposed) or the origin node (?shared)
+$NODE_ID
+
+# federation module id
+$MODULE_ID
+
+# Node B auth token
+$TOKEN_B
+----
+
+.Example request
+[source,bash]
+----
+curl -X GET "${BASE_URL}/exposed/modules/${MODULE_ID}/records" \
+  -H "Authorization: Bearer ${TOKEN_B}"
+----
+
+.Example response
+[source,bash]
+----
+{
+    "response": {
+        "filter": {
+            "moduleID": "132954639472525355",
+            "query": "",
+            "sort": "createdAt DESC",
+            "page": 1,
+            "perPage": 20,
+            "count": 97,
+            "deleted": 0
+        },
+        "set": [
+            {
+                "recordID": "161135411379307175",
+                "moduleID": "132954639472525355",
+                "values": [
+                    {
+                        "name": "name",
+                        "value": "John"
+                    },
+                    {
+                        "name": "surname",
+                        "value": "Doe"
+                    }
+                ],
+                "createdAt": "2020-09-08T19:56:14Z",
+                "updatedAt": "2020-09-09T18:05:33Z"
+            },
+            {
+                "recordID": "161134990657061543",
+                "moduleID": "132954639472525355",
+                "values": [
+                    {
+                        "name": "name",
+                        "value": "Walter"
+                    },
+                    {
+                        "name": "surname",
+                        "value": "White"
+                    }
+                ],
+                "createdAt": "2020-09-08T19:52:03Z",
+                "updatedAt": "2020-09-11T19:44:03Z"
+            }
+        ]
+    }
+}
+----

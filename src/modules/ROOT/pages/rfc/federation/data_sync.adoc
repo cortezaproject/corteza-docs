@@ -1,43 +1,84 @@
 [#rfc:federation:data-sync]
 = Data Sync
 
-The data sync occurs after the first two phases, node 
-authentication and pairing, and structure sync are successfuly done. The orchestrator for the data sync is a federation data 
-sync service that works with the compose API service and store repository methods.
-The structure of the microservice works in a way as to possibly decouple the service from the main corteza server.
+[NOTE]
+====
+The Origin and Destination nodes are referred to the point of Origin of data as in the sharer of the information, as opposed to the Destination node, the destination of the sent information. See more in <<rfc:federation:data-sync:origin, Glossary>>.
+====
 
+The data sync occurs after the first two phases, node authentication and pairing, and structure sync are successfuly done. The orchestrator for the data sync is a federation data sync service that works with the compose API service and store repository methods. The structure of the microservice works in a way as to possibly decouple the service from the main corteza server.
+
+Once the structure sync is successfuly done (before each data sync starts), the data sync commences. First, it needs to fetch the master changes list, which lists the endpoints of all the modules whose records were either deleted, updated or created during the time window since the last successful data sync.
+
+After the Federation Service fetches the master list, the data sync is started for each of the modules. More is described in the <<rfc:federation:data-sync:origin,Flow from the Origin node aspect>> and <<rfc:federation:data-sync:destination,Flow from the Destination node aspect>>.
+
+[#rfc:federation:data-sync:origin]
 == Data sync (Origin)
 
-*Schema* +
-http://www.plantuml.com/plantuml/uml/TP8nRiCm34LtdO9ZE_G27ee0IRkrGt82rg8I0R8eK4pRunUM8ITMbTNKV_-J_hkiA7gTWaaewaUVC2fyigK3PVKHrNFSpDwFb7NFKOL38DdEo98KoOdasu-qcUvvIfpfU38M5Rym4voKXRQ80ohsr6-_YKL9J1CENbxRJ0ESIM4sWITqIW8vqUYT7-UFz6oQzmNHHbyW6088ZImsWsC1lA4cjjT0ZnnQtEnHjbsuRfs3Zuw1O-LXj31XIcJ1UGescoBhPxpxL4G-ddFVUpt-_xtOWLwecexBG_WeSRgmpKyQ80ab52gGXGd1PuKVhvVrBdMPUsb_fyVYVfXQZ05KC6R7CirH2iRKOT_gfg0bSy-XKwzM1knAtNh5QkewL44zlzbHjDSf_040[link to uml schema]
-
-Diagram:
+=== Data sync diagram
 [source,uml]
 ----
 @startuml
-participant NodeDestination
-participant FRestController
-participant FederationService
-participant ComposeRS
+skinparam responseMessageBelowArrow true
+actor "Destination Node" as NodeDestination
+
+box "Origin Node" #f7f7f7
+
+participant "Federation Rest Controller" as FRestController
+participant "Federation Service" as FederationService
+participant "Compose Record Service" as ComposeRS
 database Store
-participant FDataService
-participant Exporter
-NodeDestination -> FRestController: get data (after specific date)
-FRestController -> FederationService: get all records for a specific module (after specific date)
+participant "Federation Data Service" as FDataService
+participant Encoder
+
+NodeDestination -> FRestController: get data
+note left : only the data\nthat was updated after\nlast successful sync
+activate FRestController
+
+FRestController -> FederationService: get all records for a specific module
+activate FederationService
+
 FederationService -> Store: get federation info on module and mapped fields
-Store -> FederationService: Federation mappings
-FederationService -> ComposeRS: get all records of the mapped compose Module
+
+activate Store
+Store -> FederationService: federation mappings
+deactivate Store
+
+FederationService -> ComposeRS: get filtered compose Records for Module
+
+activate ComposeRS
+ComposeRS -> Store: get filtered records
+
+activate Store
+Store -> ComposeRS: list of compose Records
+deactivate Store
+
+ComposeRS -> FederationService: list of compose Records
+deactivate ComposeRS
+
 FederationService -> FDataService: prepare the record list with specific fields
+note left : omit the fields we do not wish to share
+activate FDataService
 FDataService -> FederationService: list with specific fields
-FederationService -> Exporter: transform the list
-Exporter -> FederationService: transformed list
+deactivate FDataService
+
+FederationService -> Encoder: transform the list to specific structure
+
+activate Encoder
+Encoder -> FederationService: transformed list
+deactivate Encoder
+
 FederationService -> FRestController: transformed list of data
+deactivate FederationService
+
 FRestController -> NodeDestination: list of records
+deactivate FRestController
+
+end box
 @enduml
 ----
 
-
-.*Flow*:
+.*Sharing federated data on the Origin node*:
 1. The incoming request from Destination is parsed and the input parameters about module and 
 last update time is provided to the Federation service
 2. The federation service calls the Federation Data Service, which in turn first fetches all the federation info about the 
@@ -48,42 +89,65 @@ module and the fields mappings
 6. Alongside the list, there is also the filtering info with the paging data, so any necessary requests are made again
 to satisfy the length of the data (paging) and to ensure all the data is not fetched in one big chunk
 
+[#rfc:federation:data-sync:destination]
 == Data sync (Destination)
 
-*Schema* +
-http://www.plantuml.com/plantuml/uml/XLFDJiCm3BxtANm48LvW1pHf28aBIDiJcCOfbjguibqctfvkqz9rwSOrzlTZ-ylQ7DM7hgrwLEUQUqmE7nBeKxdXD7j-svBvHfAhj2tfl4Q159qbxKX_kAPPTIDTBqRRNHNGyGkDOEUYDATuHSSbzFi8LXy59r_m_79jPmKDEHpuuG6ZauBrL7Fa-l18ZzLL_qXHkbw1KYqQ3A8eu4JHIHXQki5Sq8pSfm5FfcAk0wSe8EdCXob0XtrF0I9J6wmwmcvucvwE84wDBMhdZQsWPNEGcCVYD9cFeXrwTMvU52qObWNpxMOxV8AuvFYYzn_D-fGRsDxJpk4gfzspVyEegz8hezDvoHboSQYzibD6kcHnSr5iA5_cKj0SVRZYAqpcjdivCNAmtrJVxIqYxuh93dUaa8SFwBWKzkdtb4TTKmf3r_u1[link to uml schema]
-
-Diagram:
+=== Data sync diagram
 [source,uml]
 ----
 @startuml
-participant NodeOrigin
-participant FRestController
-participant FederationService
-participant ComposeRS
+skinparam responseMessageBelowArrow true
+actor "Origin Node" as NodeOrigin
+
+box "Destination Node" #f7f7f7
+
+participant "Federation Service" as FederationService
+participant "Compose Record Service" as ComposeRS
 database Store
-participant FDataService
-participant Importer
-NodeOrigin -> FRestController: get data (after specific date)
-FRestController -> FederationService: records for a specific module (after specific date)
+participant "Federation Data Service" as FDataService
+participant Decoder
+
+activate FederationService
+FederationService -> NodeOrigin: get federated records for module
+activate NodeOrigin
+NodeOrigin -> FederationService: list of federated records
+deactivate NodeOrigin
+
 FederationService -> Store: get federation info on module and mapped fields
-Store -> FederationService: Federation mappings
-FederationService -> Importer: list of records in specific format
-Importer -> FederationService: list of records
+
+activate Store
+Store -> FederationService: federation mappings
+deactivate Store
+
+FederationService -> Decoder: list of records in specific format
+note right: this is the transport structure\n coming from Origin Node
+activate Decoder
+Decoder -> FederationService: list of records
+deactivate Decoder
+
 FederationService -> FDataService: records + federation mappings
+activate FDataService
 FDataService -> FederationService: list of compose Records
+deactivate FDataService
+
 FederationService -> ComposeRS: list of records with appropriate fields
+activate ComposeRS
 ComposeRS -> Store: write records to compose storage
+
+activate Store
 Store -> ComposeRS: status
+deactivate Store
+
 ComposeRS -> FederationService: status
+deactivate ComposeRS
+
 FederationService -> Store: set sync status
-FederationService -> FRestController: transformed list of data
-FRestController -> NodeOrigin: list of records
+deactivate FederationService
+end box
 @enduml
 ----
 
-
-.*Flow*:
+.*Fetching shared federated data to the Destination node*:
 1. Start the data sync after a successful structure sync is done
 2. Data sync service checks for the last successful sync date in store
 3. The latest data changes are fetched from the Origin (depending on the last sync)
@@ -94,11 +158,3 @@ FRestController -> NodeOrigin: list of records
 to accomodate the field mappings
 8. The list of records are then written to the Store via compose service
 9. After the successful data sync, the federation status is saved as successful for the future sync
-
-== Endpoints
-
-.List:
- - Origin provides data for a specific module (/records endpoint in structure sync)
- - master list of changes, depends on filtering (list of modules updated from the dropoff time)
- - info about the data sync per-module and for all (via UI)
- - add an externally requested sync (via UI)?

@@ -78,4 +78,11 @@ include::structure_sync__sync_shared_module.adoc[]
 
 == Data sync
 
-// @todo...
+=== Data master changes list
+include::data_sync__master_changes.adoc[]
+
+=== Exposed records per-module
+include::data_sync__exposed_records.adoc[]
+
+=== Auditlog preview per-node
+include::data_sync__auditlog.adoc[]

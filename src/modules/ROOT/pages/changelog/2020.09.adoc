@@ -1,0 +1,49 @@
+include::../variables.adoc[]
+
+== 2020.9
+
+=== {PRODUCT_NAME} Server
+
+.Changes
+ - Add SMTP_TSL_INSECURE and SMTP_TSL_SERVER_NAME for better SMTP TSL control
+ - Mail/smtp improvements: default sender, TSL, healthcheck)
+ - External authentication fixed (due to initialization order)
+ - Improve setting value decoding & conversion that caused crashes on startup
+ - Use gin for server reloading (dev-env, replacement for realize tool)
+ - First step in migration to OpenAPI, server API docs under /docs
+ - Improve buildtime/version information
+ - Add support for user impersonation
+ - Allow in-path signature for sink
+ - Severity on actions & errors (actionlog definitions) tweaked
+ - Various importer fixes and improvements
+ - Various record input sanitization fixes
+ - Optimize database transaction settings and use
+ - Add health check service & API endpoints
+ - Compose config importer/exporter fixed & improved (fields, charts, moduel resolving)
+ - More flexible actionlog configuration, added logging policies
+ - Fix page reordering on the root node
+ - Upgrade all provisioned config, "Service Cloud" renamed to "Service Solution"
+ - All *after events are no longer async; service waits for results
+
+.Contributors:
+. Denis Arh
+. Tomaž Jerman
+. Jože Fortun
+
+=== {PRODUCT_NAME} Web applications (clients)
+
+.{APP_NAME_COMPOSE} changes
+ - Add missing error fields
+ - File upload/preview component fixes
+ - Number field formatter fixes
+ - Pagination for user & record fields
+
+
+.{APP_NAME_ADMIN} changes
+ - Fixes for auditlog, application editor
+ - Improve automation script listing
+
+.Contributors:
+. Denis Arh
+. Tomaž Jerman
+. Jože Fortun

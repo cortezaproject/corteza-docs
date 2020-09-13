@@ -39,7 +39,7 @@ Data sync started::
     Logged when the nodes initiate in the data sync process.
 
 Data sync failed::
-    Logged when an error occurs during the structure sync process.
+    Logged when an error occurs during the data sync process.
 
 Data sync finished::
     Logged when the nodes have successfully performed the data sync process.

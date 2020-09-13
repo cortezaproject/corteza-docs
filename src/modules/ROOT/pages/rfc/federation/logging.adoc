@@ -1,0 +1,45 @@
+= Logging
+
+Corteza federation service keeps track of the important events (actions) that occurred between the two federated nodes.
+The logs are stored inside Corteza's actionlog facility; it stores:
+
+* When the action ocurred,
+* the invoking user,
+* the accessed resource,
+* the performed operation,
+* the result of the operation, ...
+
+== Logged events
+
+=== Node pairing
+
+Pairing started::
+    Logged when the nodes initiate in the pairing process.
+
+Pairing failed::
+    Logged when an error occurs during the pairing process.
+
+Pairing finished::
+    Logged when the nodes have been paired successfully.
+
+=== Structure sync
+
+Structure sync started::
+    Logged when the nodes initiate in the structure sync process.
+
+Structure sync failed::
+    Logged when an error occurs during the structure sync process.
+
+Structure sync finished::
+    Logged when the nodes have successfully performed the structure sync process.
+
+=== Data sync
+
+Data sync started::
+    Logged when the nodes initiate in the data sync process.
+
+Data sync failed::
+    Logged when an error occurs during the structure sync process.
+
+Data sync finished::
+    Logged when the nodes have successfully performed the data sync process.

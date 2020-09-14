@@ -1,2 +1,162 @@
 [#rfc:federation:data-sync]
-= Data Sync
+= Syncing data
+
+Data sync is the process of syncing data between the origin and the destination nodes.
+Data sync service operates directly on compose services and storage layers, but is designed to be decoupled and moved away from the main corteza service.
+
+[IMPORTANT]
+====
+The two nodes must be paired prior to this.
+See <<rfc:federation:node-pair>>.
+====
+
+== Syncing data
+
+After the two nodes are paired and the <<rfc:federation:structure-sync>> has finished, we can proceed with the data sync process.
+
+[IMPORTANT]
+====
+Data syncing uses already established compose services along with it's storage layer.
+This removes the need for any additional storage layer modifications.
+====
+
+.Detailed outline of the data sync process on the destination node.
+[plantuml,data-sync-destination,svg,role=sequence]
+----
+@startuml
+skinparam responseMessageBelowArrow true
+actor "Origin Node" as NodeOrigin
+
+box "Destination Node" #f7f7f7
+
+participant "Federation Service" as FederationService
+participant "Compose Record Service" as ComposeRS
+database Store
+participant "Federation Data Service" as FDataService
+participant Decoder
+
+activate FederationService
+FederationService -> NodeOrigin: get federated records for module
+activate NodeOrigin
+NodeOrigin -> FederationService: list of federated records
+deactivate NodeOrigin
+
+FederationService -> Store: get federation info on module and mapped fields
+
+activate Store
+Store -> FederationService: federation mappings
+deactivate Store
+
+FederationService -> Decoder: list of records in specific format
+note right: this is the transport structure\n coming from Origin Node
+activate Decoder
+Decoder -> FederationService: list of records
+deactivate Decoder
+
+FederationService -> FDataService: records + federation mappings
+activate FDataService
+FDataService -> FederationService: list of compose Records
+deactivate FDataService
+
+FederationService -> ComposeRS: list of records with appropriate fields
+activate ComposeRS
+ComposeRS -> Store: write records to compose storage
+
+activate Store
+Store -> ComposeRS: status
+deactivate Store
+
+ComposeRS -> FederationService: status
+deactivate ComposeRS
+
+FederationService -> Store: set sync status
+deactivate FederationService
+end box
+@enduml
+----
+
+.Detailed outline of the data sync process on the origin node.
+[plantuml,data-sync-origin,svg,role=sequence]
+----
+@startuml
+skinparam responseMessageBelowArrow true
+actor "Destination Node" as NodeDestination
+
+box "Origin Node" #f7f7f7
+
+participant "Federation Rest Controller" as FRestController
+participant "Federation Service" as FederationService
+participant "Compose Record Service" as ComposeRS
+database Store
+participant "Federation Data Service" as FDataService
+participant Encoder
+
+NodeDestination -> FRestController: get data
+note left : only the data\nthat was updated after\nlast successful sync
+activate FRestController
+
+FRestController -> FederationService: get all records for a specific module
+activate FederationService
+
+FederationService -> Store: get federation info on module and mapped fields
+
+activate Store
+Store -> FederationService: federation mappings
+deactivate Store
+
+FederationService -> ComposeRS: get filtered compose Records for Module
+
+activate ComposeRS
+ComposeRS -> Store: get filtered records
+
+activate Store
+Store -> ComposeRS: list of compose Records
+deactivate Store
+
+ComposeRS -> FederationService: list of compose Records
+deactivate ComposeRS
+
+FederationService -> FDataService: prepare the record list with specific fields
+note left : omit the fields we do not wish to share
+activate FDataService
+FDataService -> FederationService: list with specific fields
+deactivate FDataService
+
+FederationService -> Encoder: transform the list to specific structure
+
+activate Encoder
+Encoder -> FederationService: transformed list
+deactivate Encoder
+
+FederationService -> FRestController: transformed list of data
+deactivate FederationService
+
+FRestController -> NodeDestination: list of records
+deactivate FRestController
+
+end box
+@enduml
+----
+
+Destination node requests the information about any data changes::
+    Origin node provides a set of endpoints that the destination node can use to fetch newly created, updated, and deleted data.
+    The destination node provides some additional filtering parameters; such as last sync timestamp; to exclude any unchanged data.
+
+include::api/data_sync__data_changes.adoc[]
+
+Destination node requests changed data::
+    The destination node fetches the data on per-module basis from the above provided set of endpoints.
+
+include::api/data_sync__exposed_records.adoc[]
+
+Origin node provides changed data for the requested structure::
+    The origin node provides a set of changes based on base filter parameters such as timestamp, and requested structure to determine what data the destination node would like to receive.
+    The filtered data, along with federated structure definitions are then passed into internal data manipulation systems to transform the data into the desired output, such as Activity Pub, and JSON (this also removes any fields that are *not* exposed by the origin node).
+    The response also includes any additional filtering and pagination related parameters so the data can be fetched in chunks, or re-fetched if it any issues occurred.
+
+Destination node transforms the provided data into internal resource structures::
+    The destination node uses data manipulation systems, along with module mapping definitions (see <<rfc:federation:structure-sync:field-mapping>>) to transform the provided data set into internal resource structures.
+    These are then used to update the destination node's storage.
+
+Destination node updates the nodes status::
+    The node's status is updated to indicate when the last successful data sync has occurred.

@@ -1,0 +1,8 @@
+.`federation_module_shared`
+|===
+|Column |Type |Description
+
+|federation_module_id|uint64|id from federation_module_exposed
+|compose_module_id   |uint64|existing module
+|field_mapping       |json  |json field mappings, ex: [{ source: 'node_A_module_field_7', dest: 'node_B_module_field_2', transform: 'string' }]
+|===

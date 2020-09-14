@@ -1,18 +1,14 @@
 |===
 |Action| Endpoint |Query Parameters|Request Body
 
-|PUT
-|/federation/nodes/{nodeID}/modules/{moduleID}/exposed
+|GET
+|/federation/exposed/modules/{moduleID}
 |/
-|[
-    {
-        "name": "<origin_compose_module_field_name>",
-        "label": "<origin_compose_module_field_label>",
-        "kind": "<origin_compose_module_field_kind>",
-        "is_multi": "<origin_compose_module_field_is_multi>"
-    }
-]
+|/
 |===
+
+[NOTE]
+$TOKEN_B is the token that was generated during the handshake and is used to authenticate the user on the Origin node (the one who shares the data) by the Destination node.
 
 .Used variables
 [source,bash]
@@ -23,20 +19,18 @@ $BASE_URL
 # jwt of the user
 $JWT
 
-# node id of the destination node
+# node id of the origin node
 $NODE_ID
 
-# federation module id
-$MODULE_ID
+# Node B auth token
+$TOKEN_B
 ----
 
 .Example request
 [source,bash]
 ----
-curl -X PUT "${BASE_URL}/federation/nodes/${NODE_ID}/modules/${MODULE_ID}/exposed" \
-  -H "Authorization: Bearer ${JWT}"
-  -H "Content-Type: application/json" \
-  --data "[{\"name\":\"LinkedIn\",\"label\":\"LinkedIn\",\"kind\":\"Url\",\"is_multi\":1},{\"name\":\"Phone\",\"label\":\"Phone\",\"kind\":\"String\",\"is_multi\":0}]"
+curl -X GET "${BASE_URL}/federation/exposed/modules/${MODULE_ID}" \
+  -H "Authorization: Bearer ${TOKEN_B}"
 ----
 
 .Example response
@@ -54,13 +48,13 @@ curl -X PUT "${BASE_URL}/federation/nodes/${NODE_ID}/modules/${MODULE_ID}/expose
                 "kind": "Url",
                 "name": "LinkedIn",
                 "label": "LinkedIn",
-                "isMulti": 0,
+                "isMulti": false,
             },
             {
                 "kind": "String",
                 "name": "Phone",
                 "label": "Phone",
-                "isMulti": 0,
+                "isMulti": false,
             }
         ]
     }

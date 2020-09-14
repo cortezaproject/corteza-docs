@@ -4,10 +4,10 @@ List of federated modules that are shared to the other node
 |Action| Endpoint |Query Parameters|Request Body
 
 |GET
-|/nodes/{nodeID}/modules
-|exposed - show exposed modules
+|/federation/nodes/{nodeID}/modules
+|*exposed* - show exposed modules
 
-shared - show shared modules
+*shared* - show shared modules
 |/
 |===
 

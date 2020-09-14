@@ -1,17 +1,10 @@
 |===
 |Action| Endpoint |Query Parameters|Request Body
 
-|PUT
+|GET
 |/federation/nodes/{nodeID}/modules/{moduleID}/exposed
 |/
-|[
-    {
-        "name": "<origin_compose_module_field_name>",
-        "label": "<origin_compose_module_field_label>",
-        "kind": "<origin_compose_module_field_kind>",
-        "is_multi": "<origin_compose_module_field_is_multi>"
-    }
-]
+|/
 |===
 
 .Used variables
@@ -25,18 +18,13 @@ $JWT
 
 # node id of the destination node
 $NODE_ID
-
-# federation module id
-$MODULE_ID
 ----
 
 .Example request
 [source,bash]
 ----
-curl -X PUT "${BASE_URL}/federation/nodes/${NODE_ID}/modules/${MODULE_ID}/exposed" \
+curl -X GET "${BASE_URL}/federation/nodes/${NODE_ID}/modules/${MODULE_ID}/exposed" \
   -H "Authorization: Bearer ${JWT}"
-  -H "Content-Type: application/json" \
-  --data "[{\"name\":\"LinkedIn\",\"label\":\"LinkedIn\",\"kind\":\"Url\",\"is_multi\":1},{\"name\":\"Phone\",\"label\":\"Phone\",\"kind\":\"String\",\"is_multi\":0}]"
 ----
 
 .Example response
@@ -54,13 +42,13 @@ curl -X PUT "${BASE_URL}/federation/nodes/${NODE_ID}/modules/${MODULE_ID}/expose
                 "kind": "Url",
                 "name": "LinkedIn",
                 "label": "LinkedIn",
-                "isMulti": 0,
+                "isMulti": false,
             },
             {
                 "kind": "String",
                 "name": "Phone",
                 "label": "Phone",
-                "isMulti": 0,
+                "isMulti": false,
             }
         ]
     }

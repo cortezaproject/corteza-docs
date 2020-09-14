@@ -1,11 +1,77 @@
 [#rfc:federation:structure-sync]
 = Structure sync
 
-== Structure sync part I - serve upstream modules on source node
+== Structure sync (Origin)
 
 Structure sync starts when both of the nodes are already paired and ready to receive data.
 
-.Flow:
+=== Structure sync diagram
+[source,uml]
+----
+@startuml
+skinparam responseMessageBelowArrow true
+hide footbox
+
+actor "Destination Node" as NodeDestination
+
+box "Origin Node" #f7f7f7
+
+participant "Federation Rest Controller" as FRestController
+participant "Federation Service" as FederationService
+participant "Compose Module Service" as ComposeMS
+database Store
+participant "Federation Structure Service" as FStructureService
+participant Encoder
+
+NodeDestination -> FRestController: get structure
+note left : only the structure\nthat was updated after\nlast successful sync
+activate FRestController
+
+FRestController -> FederationService: get structure for all modules
+activate FederationService
+
+FederationService -> Store: get module id list
+
+activate Store
+Store -> FederationService: federated modules id list
+deactivate Store
+
+FederationService -> ComposeMS: get filtered compose Modules
+
+activate ComposeMS
+ComposeMS -> Store: get filtered list of modules
+
+activate Store
+Store -> ComposeMS: list of compose Modules
+deactivate Store
+
+ComposeMS -> FederationService: list of compose Modules
+deactivate ComposeMS
+
+FederationService -> FStructureService: module list + federated module ID list + federated field ID list
+note left : omit the fields we do not wish to share
+activate FStructureService
+FStructureService -> FederationService: module list with specific fields
+deactivate FStructureService
+
+FederationService -> Encoder: transform the list to specific structure
+
+activate Encoder
+Encoder -> FederationService: transformed list
+deactivate Encoder
+
+FederationService -> FRestController: transformed list of modules (structure)
+deactivate FederationService
+
+FRestController -> NodeDestination: list of modules
+deactivate FRestController
+
+end box
+@enduml
+----
+
+
+.Sharing structure on the Origin node:
 1. Starting with no information regarding the federated modules on node A, node B makes a request for the structure list
 2. Node A serves the list of federated module endpoints
 3. Node B parses the endpoints and starts to sync the structure data per-module by calling each of the endpoints in the master list
@@ -13,11 +79,37 @@ Structure sync starts when both of the nodes are already paired and ready to rec
 5. Once the node B fetches the list, it stores the information to the federation store
 6. Once the structure sync is done, the federation sync status is written to the store, along with the date of the action (needed by the data sync)
 
-image:../images/federation_structure_sync.jpg[Diagram of the structure sync action as seen from node A]
+== Structure sync (Destination)
 
-== Structure sync part II - fetch modules on destination node (from source node)
+=== Structure sync diagram
+[source,uml]
+----
+@startuml
+skinparam responseMessageBelowArrow true
+hide footbox
 
-.Flow:
+actor "Destination Node" as NodeOrigin
+
+box "Origin Node" #f7f7f7
+
+participant "Federation Service" as FederationService
+participant "Compose Module Service" as ComposeMS
+database Store
+
+NodeOrigin -> FederationService: get structure
+note left : list of federated Modules\nfrom phase I
+activate FederationService
+
+FederationService -> Store: write federated modules and fields info
+FederationService -> Store: structure sync OK
+
+deactivate FederationService
+
+end box
+@enduml
+----
+
+.Sharing structure on the Destination node:
 1. Destination node (node B) sends a request to node A for the structural changes (/federation/structure)
 2. Node A goes through the first phase (structure sync part 1) and serves the list of structures for all modules
 3. Node B receives the list of endpoints and for each of the upstreamed modules (from node A), requests the specific endpoint for the federated module (/federation/structure/module/{id})
@@ -25,34 +117,6 @@ image:../images/federation_structure_sync.jpg[Diagram of the structure sync acti
 5. Note - only the module and field basic info is stored at this point - no compose.Module is created yet!
 6. Once the module/field meta is saved to the federation store, the structure sync operation is marked as done for the node A/node B duo
 7. Once the structure sync operation is done, the structure mapping on node A or data sync (even if no structure is mapped) can be commenced
-
-image:../images/federation_structure_sync_phase2.jpg[Diagram of the structure sync action as seen from node B]
-
-// == Endpoints
-
-// [cols="~,~,~"]
-// |===
-// |Action| Endpoint |Description
-
-// 3+|*CRUD endpoints*
-// |GET     |/nodes/{nodeID}/modules?exposed               |list of federated modules that are shared to the other node
-// |GET     |/nodes/{nodeID}/modules?shared                |list of federated modules that are shared by other node
-// // |GET     |/nodes/{nodeID}/modules/{f-moduleID-A}        |????dodaj spec. modul v federation????
-// |POST    |/nodes/{nodeID}/modules/{f-moduleID-A}        |dodaj spec. modul v federation
-// |DELETE  |/nodes/{nodeID}/modules/{f-moduleID-A}        |remove federated module (from sharing)
-// |GET     |/nodes/{nodeID}/modules/{f-moduleID-A}/exposed|federated module info (with fields) - sharing to the other node
-// |PUT     |/nodes/{nodeID}/modules/{f-moduleID-A}/exposed|change sharing settings of a federated module (fields we share to other node)
-// |GET     |/nodes/{nodeID}/modules/{f-moduleID-B}/shared |federated module info (with fields) of the shared module from other node
-// |GET     |/nodes/{nodeID}/modules/{f-moduleID-B}/mapped |mapping settings for a federated modules
-// |PUT     |/nodes/{nodeID}/modules/{f-moduleID-B}/mapped |set mapping for a federated module
-// |DELETE  |/nodes/{nodeID}/modules/{f-moduleID-B}/mapped |revoke mapping, cancel record sync 
-// 3+|*Sync endpoints*
-// |GET|/exposed/modules                              |get a list of federated modules (changes on the originating node)
-// |GET|/exposed/modules/{f-moduleID}                 |get the shared federated module structure (with fields, per-node)
-// |GET|/exposed/modules/{f-moduleID}/records         |get the records of a federated module
-// |GET|/exposed/users/                               |TBD
-// |===
-
 
 == Field mapping on Destination
 
@@ -67,6 +131,7 @@ These are the fields that are exposed on the Origin. During the sync, these fiel
 [
     {
         "name": "<origin_compose_module_field_name>",
+        "label": "<origin_compose_module_field_label>",
         "kind": "<origin_compose_module_field_kind>",
         "is_multi": "<origin_compose_module_field_is_multi>"
     }
@@ -95,40 +160,6 @@ These are the fields that are synced from the Origin on the Destination and mapp
     }
 ]
 ----
-
-
-== DB
-
-=== federation_module_exposed
-|===
-|Column |Description
-
-|id|federation module id
-|rel_node|node id (destination node id - who are we sharing to)
-|rel_compose_module|module id on source node
-|fields|list of fields
-|===
-
-=== federation_module_shared
-|===
-|Column |Description
-
-|id|federation module id
-|handle|Module handle
-|name|Module name
-|rel_node|node id (source node id - who is sharing with us)
-|xref_module|federation module id on source node (id in federation_module_exposed)
-|fields|list of fields
-|===
-
-=== federation_module_mapping
-|===
-|Column |Description
-
-|federation_module_id|id from federation_module_downstream
-|compose_module_id|existing module
-|field_mapping|json field mappings, ex: [{ source: 'node_A_module_field_7', dest: 'node_B_module_field_2', transform: 'string' }]
-|===
 
 == Examples
 
@@ -164,11 +195,10 @@ First phase is exposing the desired modules for a specific node (to the Destinat
 
 *federation_module_exposed*
 |===
-|id|rel_node|rel_compose_module|fields
+|id|rel_node|rel_compose_module|field_mapping
 
 |11|2|161250629010849793|[{"name":"Phone","kind":"String","is_multi":0}]
 |===
-
 
 === Phase II - on Destination node
 
@@ -194,7 +224,7 @@ There are 2 phases in the phase II. First the module info from Origin is saved. 
 |id|name
 
 |1|Our server
-|2|Misc server
+|2|Misc server (some other server)
 |3|Origin server in this example (from phase I)
 |===
 
@@ -203,11 +233,10 @@ There are 2 phases in the phase II. First the module info from Origin is saved. 
 *federation_module_shared*
 
 |===
-|id|handle|name|rel_node|xref_module|fields
+|id|handle|name|rel_node|xref_module|field_mapping
 
 |22|Account|Account|3|11|[{"name":"Phone","kind":"String","is_multi":0}]
 |===
-
 
 ==== 2. Mapping finished, modules created
 
@@ -216,7 +245,7 @@ The sharing of modules info from Origin is added, that is enough information for
 *federation_module_mapping*
 
 |===
-|federation_module_id|compose_module_id|field_mapping
+|federation_module_id|compose_module_id|fields
 
 |22|261250629010849755|[{"origin":{"name":"Phone","kind":"String","is_multi":0},"destination":{"name":"Mobile","kind":"String","is_multi":0}}]
 |===

@@ -2,7 +2,7 @@
 |Action| Endpoint |Query Parameters|Request Body
 
 |GET
-|/federation/nodes/{nodeID}/modules/{moduleID}/shared
+|/federation/nodes/{nodeID}/modules/{moduleID}/mapped
 |/
 |/
 |===
@@ -16,14 +16,17 @@ $BASE_URL
 # jwt of the user
 $JWT
 
-# node id of the origin node
+# node id of the destination node
 $NODE_ID
+
+# federation module id
+$MODULE_ID
 ----
 
 .Example request
 [source,bash]
 ----
-curl -X GET "${BASE_URL}/federation/nodes/${NODE_ID}/modules/${MODULE_ID}/shared" \
+curl -X GET "${BASE_URL}/federation/nodes/${NODE_ID}/modules/${MODULE_ID}/mapped" \
   -H "Authorization: Bearer ${JWT}"
 ----
 
@@ -37,18 +40,18 @@ curl -X GET "${BASE_URL}/federation/nodes/${NODE_ID}/modules/${MODULE_ID}/shared
         "name": "Account",
         "createdAt": "2019-12-18T17:45:15Z",
         "updatedAt": "2020-05-26T13:29:36Z",
-        "fields": [
+        "mapping": [
             {
-                "kind": "Url",
-                "name": "LinkedIn",
-                "label": "LinkedIn",
-                "isMulti": false,
-            },
-            {
-                "kind": "String",
-                "name": "Phone",
-                "label": "Phone",
-                "isMulti": false,
+                "origin": {
+                    "name": "LinkedIn",
+                    "kind": "Url",
+                    "is_multi": 0
+                },
+                "destination": {
+                    "name": "Social",
+                    "kind": "String",
+                    "is_multi": 0
+                }
             }
         ]
     }

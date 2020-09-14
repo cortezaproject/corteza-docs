@@ -28,17 +28,38 @@ include::node_handshake_complete.adoc[]
 
 == Structure sync
 
+=== Add module to federation
+include::structure_sync__add_module_to_federation.adoc[]
+
 === Change sharing fields
 include::structure_sync__change_sharing_fields.adoc[]
 
 === Info about shared federated module
 include::structure_sync__list_shared_module.adoc[]
 
+=== Info about exposed federated module
+include::structure_sync__list_exposed_module.adoc[]
+
 === List shared modules
 include::structure_sync__list_shared_modules.adoc[]
 
 === Remove module from federation
 include::structure_sync__remove_module_federation.adoc[]
+
+=== Remove module mapping from federation
+include::structure_sync__remove_module_federation_mapping.adoc[]
+
+=== Set module mapping for a module
+include::structure_sync__set_module_federation_mapping.adoc[]
+
+=== Get module mapping for a module
+include::structure_sync__get_module_federation_mapping.adoc[]
+
+=== Get master changes
+include::structure_sync__master_changes.adoc[]
+
+=== Sync shared module structure
+include::structure_sync__sync_shared_module.adoc[]
 
 == Data sync
 

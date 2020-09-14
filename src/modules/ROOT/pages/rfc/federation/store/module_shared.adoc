@@ -1,0 +1,11 @@
+.`federation_module_shared`
+|===
+|Column |Type |Description
+
+|ID         |uint64      |federation module id
+|handle     |varchar(200)|Module handle
+|name       |varchar(64) |Module name
+|rel_node   |uint64      |node id (source node id - who is sharing with us)
+|xref_module|uint64      |federation module id on source node (id in federation_module_exposed)
+|fields     |json        |list of fields
+|===

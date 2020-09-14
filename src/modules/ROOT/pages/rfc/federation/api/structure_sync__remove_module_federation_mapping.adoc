@@ -2,7 +2,7 @@
 |Action| Endpoint |Query Parameters|Request Body
 
 |DELETE
-|/federation/nodes/{nodeID}/modules/{moduleID}
+|/federation/nodes/{nodeID}/modules/{moduleID}/mapped
 |/
 |/
 |===

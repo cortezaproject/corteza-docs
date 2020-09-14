@@ -6,7 +6,7 @@ Structure sync is the process of syncing shared structures between the origin an
 [IMPORTANT]
 ====
 The two nodes must be paired prior to this.
-See <<rfc:federation:node-pair>>.
+See <<rfc:federation:node-pair, Node pairing>>.
 ====
 
 == Exposing structures
@@ -47,15 +47,51 @@ include::store/module_exposed.adoc[]
 
 When the two nodes are paired and the origin node has exposed some structures, the actual structure sync can occur.
 
-.Outline of the entire structure sync process.
-[plantuml,node-pair,svg,role=sequence]
+.Detailed image of the process on the origin node.
+[plantuml,structure-sync-origin,svg,role=sequence]
 ----
 @startuml
 skinparam responseMessageBelowArrow true
 hide footbox
-
-actor Todo
-
+actor "Destination Node" as NodeDestination
+box "Origin Node" #f7f7f7
+participant "Federation Rest Controller" as FRestController
+participant "Federation Service" as FederationService
+participant "Compose Module Service" as ComposeMS
+database Store
+participant "Federation Structure Service" as FStructureService
+participant Encoder
+NodeDestination -> FRestController: get structure
+note left : only the structure\nthat was updated after\nlast successful sync
+activate FRestController
+FRestController -> FederationService: get structure for all modules
+activate FederationService
+FederationService -> Store: get module id list
+activate Store
+Store -> FederationService: federated modules id list
+deactivate Store
+FederationService -> ComposeMS: get filtered compose Modules
+activate ComposeMS
+ComposeMS -> Store: get filtered list of modules
+activate Store
+Store -> ComposeMS: list of compose Modules
+deactivate Store
+ComposeMS -> FederationService: list of compose Modules
+deactivate ComposeMS
+FederationService -> FStructureService: module list + federated module ID list + federated field ID list
+note left : omit the fields we do not wish to share
+activate FStructureService
+FStructureService -> FederationService: module list with specific fields
+deactivate FStructureService
+FederationService -> Encoder: transform the list to specific structure
+activate Encoder
+Encoder -> FederationService: transformed list
+deactivate Encoder
+FederationService -> FRestController: transformed list of modules (structure)
+deactivate FederationService
+FRestController -> NodeDestination: list of modules
+deactivate FRestController
+end box
 @enduml
 ----
 
@@ -73,9 +109,48 @@ include::api/structure_sync__sync_shared_module.adoc[]
 Destination node updates its store::
     Once the structure sync is finished, the destination node writes the structures to the store and updates the nodes status.
 
+.Detailed image of the process on the destination node.
+[plantuml,structure-sync-destination,svg,role=sequence]
+----
+@startuml
+skinparam responseMessageBelowArrow true
+hide footbox
+actor "Origin Node" as NodeOrigin
+
+box "Destination Node" #f7f7f7
+
+participant "Federation Service" as FederationService
+database Store
+participant "Federation Structure Service" as FStructureService
+participant Decoder
+
+FederationService -> NodeOrigin: get structure for module
+activate FederationService
+activate NodeOrigin
+NodeOrigin -> FederationService: structure for module
+deactivate NodeOrigin
+note left : federated Module structure from Origin
+
+FederationService -> Decoder: structure for module in specific format
+activate Decoder
+Decoder -> FederationService: structure for module
+deactivate Decoder
+
+FederationService -> FStructureService: structure for module and fields
+activate FStructureService
+FStructureService -> FederationService: remapped module with fields
+deactivate FStructureService
+
+FederationService -> Store: write federated modules and fields info
+FederationService -> Store: structure sync OK
+deactivate FederationService
+end box
+@enduml
+----
+
 [IMPORTANT]
 ====
-This step doesn't create any system resources, such as modules, on the destination node.
+This step doesn't create any system resources, such as records, on the destination node.
 This is performed later in the data sync.
 ====
 
@@ -109,8 +184,6 @@ include::api/structure_sync__remove_module_federation_mapping.adoc[]
 include::store/module_mapping.adoc[]
 
 == Example
-
-// @todo...
 
 === Phase I - on Origin node
 

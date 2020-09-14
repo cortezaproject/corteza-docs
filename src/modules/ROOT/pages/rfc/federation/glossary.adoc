@@ -5,7 +5,7 @@
 [IMPORTANT]
 ====
 Before the two nodes are paired, we are unable to determine what node is the data source and what node is the destination.
-To avoid confusion, we use node A and node B when referring to the two nodes.
+To avoid confusion, we use _node A_ and _node B_ when referring to the two nodes.
 ====
 
 Node URI::

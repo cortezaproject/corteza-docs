@@ -1,13 +1,13 @@
 .Used variables
 [source,bash]
 ----
-# base url for the federation api
+# Base url for the federation api
 $BASE_URL
 
-# jwt of the user
+# JWT of the user
 $JWT
 
-# node id of the origin node
+# Node id of the origin node
 $NODE_ID
 ----
 

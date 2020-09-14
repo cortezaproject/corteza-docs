@@ -1,4 +1,4 @@
-.`federation_module_shared`
+.`federation_module_exposed`
 |===
 |Column |Type |Description
 

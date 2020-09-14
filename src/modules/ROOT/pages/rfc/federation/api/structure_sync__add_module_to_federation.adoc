@@ -36,7 +36,7 @@ $MODULE_ID
 curl -X PUT "${BASE_URL}/federation/nodes/${NODE_ID}/modules/${MODULE_ID}" \
   -H "Authorization: Bearer ${JWT}"
   -H "Content-Type: application/json" \
-  --data "[{\"name\":\"LinkedIn\",\"label\":\"LinkedIn\",\"kind\":\"Url\",\"is_multi\":0}]"
+  --data "[{\"name\":\"LinkedIn\",\"label\":\"LinkedIn Url\",\"kind\":\"Url\",\"is_multi\":0}]"
 ----
 
 .Example response
@@ -49,18 +49,12 @@ curl -X PUT "${BASE_URL}/federation/nodes/${NODE_ID}/modules/${MODULE_ID}" \
         "name": "Account",
         "createdAt": "2019-12-18T17:45:15Z",
         "updatedAt": "2020-05-26T13:29:36Z",
-        "mapping": [
+        "fields": [
             {
-                "origin": {
-                    "name": "LinkedIn",
-                    "kind": "Url",
-                    "is_multi": 0
-                },
-                "destination": {
-                    "name": "Social",
-                    "kind": "String",
-                    "is_multi": 0
-                }
+                "name": "LinkedIn",
+                "label": "LinkedIn Url",
+                "kind": "Url",
+                "is_multi": 0
             }
         ]
     }

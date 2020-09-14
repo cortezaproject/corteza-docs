@@ -2,13 +2,13 @@ include::../../variables.adoc[]
 
 = Federation
 
-// @todo
-
 :leveloffset: +1
 
 include::glossary.adoc[]
 
 include::security.adoc[]
+
+include::logging.adoc[]
 
 include::node_pair.adoc[]
 

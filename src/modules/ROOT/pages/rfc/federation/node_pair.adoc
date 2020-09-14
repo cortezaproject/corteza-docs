@@ -9,13 +9,81 @@ Node identification::
 Node handshake::
     The step exchanges the authentication tokens so the two nodes can access protected resources from each other.
 
-.Outline of the entire pairing process:
-image:rfc/federation/federation_pair.png[Outline of the entire pairing process]
+.Outline of the entire pairing process.
+[plantuml,node-pair,svg,role=sequence]
+----
+@startuml
+skinparam responseMessageBelowArrow true
+
+actor "Administrator A" as AdministratorA
+participant "Node A" as NodeA
+participant "Node B" as NodeB
+actor "Administrator B" as AdministratorB
+
+== Node identification ==
+AdministratorA->NodeA: Register federated node B
+note right of AdministratorA
+Administrator A sends the node URI
+to administrator B via a secure channel.
+end note
+AdministratorA-->AdministratorB: Send node URI
+...
+note left of AdministratorB
+Administrator B registers node A
+using the node URI.
+end note
+AdministratorB->NodeB: Register federated node A
+
+== Node handshake ==
+AdministratorB->NodeB: Initialize the handshake
+note over NodeB #FFAAAA
+Prepare the node's state for a
+federated network.
+end note
+
+NodeB->NodeA: Request handshake
+NodeA-->AdministratorA: Notify administrator A
+note right of AdministratorA #ffffff
+Administrator A should manually
+approve the handshake.
+end note
+...
+AdministratorA->NodeA: Approve handshake request
+note over NodeA #FFAAAA
+Prepare the node's state for a
+federated network.
+end note
+NodeA->NodeB: Complete handshake
+@enduml
+----
 
 == Node identification
 
-.Outline of the node identification step:
-image:rfc/federation/federation_pair_identification.png[Outline of the node identification step]
+.Outline of the node identification step.
+[plantuml,node-pair,svg,role=sequence]
+----
+@startuml
+skinparam responseMessageBelowArrow true
+
+actor "Administrator A" as AdministratorA
+participant "Node A" as NodeA
+participant "Node B" as NodeB
+actor "Administrator B" as AdministratorB
+
+AdministratorA->NodeA: Register federated node B
+note right of AdministratorA
+Administrator A sends the node URI
+to administrator B via a secure channel.
+end note
+AdministratorA-->AdministratorB: Send node URI
+...
+note left of AdministratorB
+Administrator B registers node A
+using the node URI.
+end note
+AdministratorB->NodeB: Register federated node A
+@enduml
+----
 
 [IMPORTANT]
 ====
@@ -56,8 +124,38 @@ In the above response, `$NODE_URI` contains the value provided by node A.
 [#rfc:federation:node-pair:node-handshake]
 == Node handshake
 
-.Outline of the node handshake step:
-image:rfc/federation/federation_pair_handshake.png[Outline of the node handshake step]
+.Outline of the node handshake step.
+[plantuml,node-pair,svg,role=sequence]
+----
+@startuml
+skinparam responseMessageBelowArrow true
+
+actor "Administrator A" as AdministratorA
+participant "Node A" as NodeA
+participant "Node B" as NodeB
+actor "Administrator B" as AdministratorB
+
+AdministratorB->NodeB: Initialize the handshake
+note over NodeB #FFAAAA
+Prepare the node's state for a
+federated network.
+end note
+
+NodeB->NodeA: Request handshake
+NodeA-->AdministratorA: Notify administrator A
+note right of AdministratorA #ffffff
+Administrator A should manually
+approve the handshake.
+end note
+...
+AdministratorA->NodeA: Approve handshake request
+note over NodeA #FFAAAA
+Prepare the node's state for a
+federated network.
+end note
+NodeA->NodeB: Complete handshake
+@enduml
+----
 
 Node B administrator initializes the process with node A::
     This configures the state on node B and generates the `$TOKEN_B`; so node A will be able to access protected resources on node B.

@@ -1,7 +1,7 @@
 [#rfc:federation:node-pair]
 = Pairing nodes
 
-Node pairing is the process of establishing a federated network between two nodes in order to share their information.
+The process of establishing a federated network between two nodes with intent of securely sharing data.
 The process consists of two steps:
 
 Node identification::
@@ -10,7 +10,7 @@ Node identification::
 Node handshake::
     The step exchanges the authentication tokens so the two nodes can access protected resources from each other.
 
-.Outline of the entire pairing process.
+.Outline of the entire node pairing process.
 [plantuml,node-pair,svg,role=sequence]
 ----
 @startuml
@@ -60,7 +60,7 @@ NodeA->NodeB: Complete handshake
 
 == Node identification
 
-.Outline of the node identification step.
+.Outline of the node identification step of the node pairing process.
 [plantuml,node-pair,svg,role=sequence]
 ----
 @startuml

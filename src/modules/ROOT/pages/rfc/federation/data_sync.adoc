@@ -1,8 +1,10 @@
 [#rfc:federation:data-sync]
 = Syncing data
 
-Data sync is the process of syncing data between the origin and the destination nodes.
-Data sync service operates directly on compose services and storage layers, but is designed to be decoupled and moved away from the main corteza service.
+The process of updating data on the destination node, based on the updated data source.
+The destination node has the ability to determine what field from the origin node maps into what field in the destination node.
+
+Data sync operates directly on compose services and storage layers, but is designed to be decoupled and moved away from the main corteza service.
 
 [IMPORTANT]
 ====
@@ -12,7 +14,7 @@ See <<rfc:federation:node-pair>>.
 
 == Syncing data
 
-After the two nodes are paired and the <<rfc:federation:structure-sync>> has finished, we can proceed with the data sync process.
+After the two nodes are paired and the <<rfc:federation:structure-sync,structure syncing>> has finished, we can proceed with the data sync.
 
 [IMPORTANT]
 ====
@@ -20,7 +22,7 @@ Data syncing uses already established compose services along with it's storage l
 This removes the need for any additional storage layer modifications.
 ====
 
-.Detailed outline of the data sync process on the destination node.
+.Outline of the data sync process on the destination node.
 [plantuml,data-sync-destination,svg,role=sequence]
 ----
 @startuml
@@ -75,7 +77,7 @@ end box
 @enduml
 ----
 
-.Detailed outline of the data sync process on the origin node.
+.Outline of the data sync process on the origin node.
 [plantuml,data-sync-origin,svg,role=sequence]
 ----
 @startuml

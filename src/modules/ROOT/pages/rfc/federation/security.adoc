@@ -1,14 +1,15 @@
 = Security
 
+[#rfc:federation:security:authentication]
 == Authentication
 
-Federated nodes leverage Corteza's already established authentication facility that *system user* and *JWT tokens* (later referred as *token*).
+Federated nodes leverage Corteza's already established authentication facility that uses *system user* and *JWT tokens* (later referred as a *token*).
 During the pairing process between the two nodes, both nodes create a system user and securely exchange their authentication tokens.
 
-* Node A defines a *system user* and *token A* that allow node B to access protected resources,
-* node B defines a *system user* and *token B* that allow node A to access protected resources.
+* Node A defines a *system user* and *token A* that allows node B to access protected resources,
+* node B defines a *system user* and *token B* that allows node A to access protected resources.
 
-Whenever node A wishes to access protected resources on *node B*, it uses *token B* for authentication; vice-versa for node B accessing protected resources on node A.
+Whenever *node A* wishes to access protected resources on *node B*, it uses *token B* for authentication; vice-versa for node B accessing protected resources on node A.
 
 [IMPORTANT]
 ====
@@ -21,15 +22,16 @@ When a new node is added to the federated network, a new pair of system users an
 Token A and token B *are not the same*.
 ====
 
+[#rfc:federation:security:access-control]
 == Access control
 
-The feature uses Corteza's already established RBAC access control facility that operates over *user roles*, *system resources* and *operations* over given resources.
+The federation service uses Corteza's already established RBAC access control facility that operates over *user roles*, *system resources* and *operations* over given resources.
 
 Each node in a federated network has the ability to define what resources a paired node is *allowed* to access.
 This can be as simple as controlling access to records belonging to specific modules, or as detailed as controlling access to specific fields for specific modules.
 
 .When a destination node requests data from the origin node, the origin node:
 * Passes the request through the access control facility to check if we are allowed to access the resource,
-* collects the requested data, following the defined RBAC permissions.
+* collects the requested data, following the defined RBAC permissions, excluding data that the destination node is not allowed to access.
 
-The federation service then performs some additional operations, see <<rfc:federation:structure-sync>> and <<rfc:federation:data-sync>>, and sends it over to the destination node.
+The federation service then performs some additional operations, see <<rfc:federation:data-sync>>, and sends it over to the destination node.

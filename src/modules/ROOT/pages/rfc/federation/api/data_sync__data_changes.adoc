@@ -6,16 +6,16 @@ $TOKEN_B is the token that was generated during the handshake and is used to aut
 .Used variables
 [source,bash]
 ----
-# base url for the federation api
+# Base url for the federation api
 $BASE_URL
 
-# jwt of the user
+# JWT of the user
 $JWT
 
-# node id of the destination node (?exposed) or the origin node (?shared)
+# Node id of the destination node (?exposed) or the origin node (?shared)
 $NODE_ID
 
-# federation module id
+# Federation module id
 $MODULE_ID
 
 # Node B auth token

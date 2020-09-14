@@ -1,16 +1,16 @@
 .Used variables
 [source,bash]
 ----
-# base url for the federation api
+# Base url for the federation api
 $BASE_URL
 
-# jwt of the user
+# JWT of the user
 $JWT
 
-# node id of the destination node (?exposed) or the origin node (?shared)
+# Node id of the destination node (?exposed) or the origin node (?shared)
 $NODE_ID
 
-# federation module id
+# Federation module id
 $MODULE_ID
 ----
 

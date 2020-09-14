@@ -1,7 +1,9 @@
 [#rfc:federation:structure-sync]
 = Syncing structures
 
-Structure sync is the process of syncing shared structures between the origin and the destination nodes.
+The process of determining what structures on the origin node, is exposed to it's destination node.
+The origin node has full control over what data the destination node is allowed to access.
+This can be as simple as allowing access to only specific modules; and as complex as allowing access to only specific module fields.
 
 [IMPORTANT]
 ====
@@ -47,7 +49,7 @@ include::store/module_exposed.adoc[]
 
 When the two nodes are paired and the origin node has exposed some structures, the actual structure sync can occur.
 
-.Detailed image of the process on the origin node.
+.Outline of structure sync process on the origin node.
 [plantuml,structure-sync-origin,svg,role=sequence]
 ----
 @startuml
@@ -95,21 +97,7 @@ end box
 @enduml
 ----
 
-Destination node requests changed structures::
-    Origin node provides a set of endpoints that the destination node can use to fetch shared structures.
-
-include::api/structure_sync__master_changes.adoc[]
-
-Destination node fetches updated structures::
-    The destination node requests structure definitions based on the above provided set of endpoints.
-    The origin node provides the structure definition with respect to the fields that the destination node is allowed to access.
-
-include::api/structure_sync__sync_shared_module.adoc[]
-
-Destination node updates its store::
-    Once the structure sync is finished, the destination node writes the structures to the store and updates the nodes status.
-
-.Detailed image of the process on the destination node.
+.Outline of structure sync process on the destination node.
 [plantuml,structure-sync-destination,svg,role=sequence]
 ----
 @startuml
@@ -148,6 +136,20 @@ end box
 @enduml
 ----
 
+Destination node requests changed structures::
+    Origin node provides a set of endpoints that the destination node can use to fetch shared structures.
+
+include::api/structure_sync__master_changes.adoc[]
+
+Destination node fetches updated structures::
+    The destination node requests structure definitions based on the above provided set of endpoints.
+    The origin node provides the structure definition with respect to the fields that the destination node is allowed to access.
+
+include::api/structure_sync__sync_shared_module.adoc[]
+
+Destination node updates its store::
+    Once the structure sync is finished, the destination node writes the structures to the store and updates the nodes status.
+
 [IMPORTANT]
 ====
 This step doesn't create any system resources, such as records, on the destination node.
@@ -160,6 +162,7 @@ This is performed later in the data sync.
 
 include::store/module_shared.adoc[]
 
+[#rfc:federation:structure-sync:field-mapping]
 == Field mapping
 
 Field mapping allows the destination node to determine what fields from the origin node should map into what fields on the destination node.

@@ -1,12 +1,3 @@
-|===
-|Action| Endpoint |Query Parameters|Request Body
-
-|DELETE
-|/federation/nodes/{nodeID}/modules/{moduleID}
-|/
-|/
-|===
-
 .Used variables
 [source,bash]
 ----
@@ -26,8 +17,8 @@ $MODULE_ID
 .Example request
 [source,bash]
 ----
-curl -X DELETE "${BASE_URL}/federation/nodes/${NODE_ID}/modules/${MODULE_ID}" \
-  -H "authorization: Bearer ${JWT}"
+curl -X DELETE "$BASE_URL/federation/nodes/$NODE_ID/modules/$MODULE_ID" \
+  -H "authorization: Bearer $JWT";
 ----
 
 .Example response

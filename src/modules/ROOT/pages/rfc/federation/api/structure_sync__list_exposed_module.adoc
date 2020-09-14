@@ -1,12 +1,3 @@
-|===
-|Action| Endpoint |Query Parameters|Request Body
-
-|GET
-|/federation/nodes/{nodeID}/modules/{moduleID}/exposed
-|/
-|/
-|===
-
 .Used variables
 [source,bash]
 ----
@@ -23,8 +14,8 @@ $NODE_ID
 .Example request
 [source,bash]
 ----
-curl -X GET "${BASE_URL}/federation/nodes/${NODE_ID}/modules/${MODULE_ID}/exposed" \
-  -H "Authorization: Bearer ${JWT}"
+curl -X GET "$BASE_URL/federation/nodes/$NODE_ID/modules/$MODULE_ID/exposed" \
+  -H "Authorization: Bearer $JWT";
 ----
 
 .Example response

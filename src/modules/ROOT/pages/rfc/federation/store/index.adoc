@@ -1,13 +1,17 @@
 = Store
 
 == Federation node
+
 include::node.adoc[]
 
-=== Federation module exposed
+== Exposed federation module
+
 include::module_exposed.adoc[]
 
-=== Federation module shared
+== Shared federation module
+
 include::module_shared.adoc[]
 
-=== Federation module mapping
+== Federation module mapping
+
 include::module_mapping.adoc[]

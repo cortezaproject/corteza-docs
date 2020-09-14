@@ -1,25 +1,3 @@
-|===
-|Action| Endpoint |Query Parameters|Request Body
-
-|PUT
-|/federation/nodes/{nodeID}/modules/{moduleID}/mapped
-|/
-|[
-    {
-        "origin": {
-            "name": "<origin_compose_module_field_name>",
-            "kind": "<origin_compose_module_field_kind>",
-            "is_multi": "<origin_compose_module_field_is_multi>"
-        },
-        "destination": {
-            "name": "<destination_compose_module_field_name>",
-            "kind": "<destination_compose_module_field_kind>",
-            "is_multi": "<destination_compose_module_field_is_multi>"
-        }
-    }
-]
-|===
-
 .Used variables
 [source,bash]
 ----
@@ -39,10 +17,21 @@ $MODULE_ID
 .Example request
 [source,bash]
 ----
-curl -X PUT "${BASE_URL}/federation/nodes/${NODE_ID}/modules/${MODULE_ID}/mapped" \
-  -H "Authorization: Bearer ${JWT}"
+curl -X PUT "$BASE_URL/federation/nodes/$NODE_ID/modules/$MODULE_ID/mapped" \
+  -H "Authorization: Bearer $JWT"
   -H "Content-Type: application/json" \
-  --data "[{\"origin\":{\"name\":\"LinkedIn\",\"kind\":\"Url\",\"is_multi\":0},\"destination\":{\"name\":\"Social\",\"kind\":\"String\",\"is_multi\":0}}]"
+  --data "[{
+      \"origin\":{
+          \"name\":\"LinkedIn\",
+          \"kind\":\"Url\",
+          \"is_multi\":0
+        },
+        \"destination\":{
+            \"name\":\"Social\",
+            \"kind\":\"String\",
+            \"is_multi\":0
+        }
+    }]";
 ----
 
 .Example response

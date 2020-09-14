@@ -1,169 +1,116 @@
 [#rfc:federation:structure-sync]
-= Structure sync
+= Syncing structures
 
-== Structure sync (Origin)
+Structure sync is the process of syncing shared structures between the origin and the destination nodes.
 
-Structure sync starts when both of the nodes are already paired and ready to receive data.
+[IMPORTANT]
+====
+The two nodes must be paired prior to this.
+See <<rfc:federation:node-pair>>.
+====
 
-=== Structure sync diagram
-[source,uml]
+== Exposing structures
+
+Firstly, in order to perform any data sharing, the origin node must define what structures (in our case modules and fields) the destination node can access.
+This can be performed via the Corteza Low-Code administration panel, or directly via the API.
+
+[NOTE]
+====
+Besides the module itself, the origin node must also specify what fields the destination node is allowed to access.
+====
+
+=== API
+
+==== Expose module
+
+include::api/structure_sync__add_module_to_federation.adoc[]
+
+==== See exposed module
+
+include::api/structure_sync__list_exposed_module.adoc[]
+
+==== Remove exposed module
+
+include::api/structure_sync__remove_module_federation.adoc[]
+
+==== Change exposed module fields
+
+include::api/structure_sync__change_sharing_fields.adoc[]
+
+=== Store
+
+==== Exposed modules
+
+include::store/module_exposed.adoc[]
+
+== Syncing structures
+
+When the two nodes are paired and the origin node has exposed some structures, the actual structure sync can occur.
+
+.Outline of the entire structure sync process.
+[plantuml,node-pair,svg,role=sequence]
 ----
 @startuml
 skinparam responseMessageBelowArrow true
 hide footbox
 
-actor "Destination Node" as NodeDestination
+actor Todo
 
-box "Origin Node" #f7f7f7
-
-participant "Federation Rest Controller" as FRestController
-participant "Federation Service" as FederationService
-participant "Compose Module Service" as ComposeMS
-database Store
-participant "Federation Structure Service" as FStructureService
-participant Encoder
-
-NodeDestination -> FRestController: get structure
-note left : only the structure\nthat was updated after\nlast successful sync
-activate FRestController
-
-FRestController -> FederationService: get structure for all modules
-activate FederationService
-
-FederationService -> Store: get module id list
-
-activate Store
-Store -> FederationService: federated modules id list
-deactivate Store
-
-FederationService -> ComposeMS: get filtered compose Modules
-
-activate ComposeMS
-ComposeMS -> Store: get filtered list of modules
-
-activate Store
-Store -> ComposeMS: list of compose Modules
-deactivate Store
-
-ComposeMS -> FederationService: list of compose Modules
-deactivate ComposeMS
-
-FederationService -> FStructureService: module list + federated module ID list + federated field ID list
-note left : omit the fields we do not wish to share
-activate FStructureService
-FStructureService -> FederationService: module list with specific fields
-deactivate FStructureService
-
-FederationService -> Encoder: transform the list to specific structure
-
-activate Encoder
-Encoder -> FederationService: transformed list
-deactivate Encoder
-
-FederationService -> FRestController: transformed list of modules (structure)
-deactivate FederationService
-
-FRestController -> NodeDestination: list of modules
-deactivate FRestController
-
-end box
 @enduml
 ----
 
+Destination node requests changed structures::
+    Origin node provides a set of endpoints that the destination node can use to fetch shared structures.
 
-.Sharing structure on the Origin node:
-1. Starting with no information regarding the federated modules on node A, node B makes a request for the structure list
-2. Node A serves the list of federated module endpoints
-3. Node B parses the endpoints and starts to sync the structure data per-module by calling each of the endpoints in the master list
-4. Node A serves the module details by fetching the federation info from store, module info via compose (from store) and filters the list to the end structure of choice (for now - json compose.Record)
-5. Once the node B fetches the list, it stores the information to the federation store
-6. Once the structure sync is done, the federation sync status is written to the store, along with the date of the action (needed by the data sync)
+include::api/structure_sync__master_changes.adoc[]
 
-== Structure sync (Destination)
+Destination node fetches updated structures::
+    The destination node requests structure definitions based on the above provided set of endpoints.
+    The origin node provides the structure definition with respect to the fields that the destination node is allowed to access.
 
-=== Structure sync diagram
-[source,uml]
-----
-@startuml
-skinparam responseMessageBelowArrow true
-hide footbox
+include::api/structure_sync__sync_shared_module.adoc[]
 
-actor "Destination Node" as NodeOrigin
+Destination node updates its store::
+    Once the structure sync is finished, the destination node writes the structures to the store and updates the nodes status.
 
-box "Origin Node" #f7f7f7
+[IMPORTANT]
+====
+This step doesn't create any system resources, such as modules, on the destination node.
+This is performed later in the data sync.
+====
 
-participant "Federation Service" as FederationService
-participant "Compose Module Service" as ComposeMS
-database Store
+=== Store
 
-NodeOrigin -> FederationService: get structure
-note left : list of federated Modules\nfrom phase I
-activate FederationService
+==== Shared modules
 
-FederationService -> Store: write federated modules and fields info
-FederationService -> Store: structure sync OK
+include::store/module_shared.adoc[]
 
-deactivate FederationService
+== Field mapping
 
-end box
-@enduml
-----
+Field mapping allows the destination node to determine what fields from the origin node should map into what fields on the destination node.
+This allows some flexibility when it comes down to datamodel definitions on both origin and destination nodes.
+This can be performed via the Corteza Low-Code administration panel, or directly via the API.
 
-.Sharing structure on the Destination node:
-1. Destination node (node B) sends a request to node A for the structural changes (/federation/structure)
-2. Node A goes through the first phase (structure sync part 1) and serves the list of structures for all modules
-3. Node B receives the list of endpoints and for each of the upstreamed modules (from node A), requests the specific endpoint for the federated module (/federation/structure/module/{id})
-4. Node B parses the response from node A and writes the module and field data to the store
-5. Note - only the module and field basic info is stored at this point - no compose.Module is created yet!
-6. Once the module/field meta is saved to the federation store, the structure sync operation is marked as done for the node A/node B duo
-7. Once the structure sync operation is done, the structure mapping on node A or data sync (even if no structure is mapped) can be commenced
+=== API
 
-== Field mapping on Destination
+==== Set field mapping for a module
+include::api/structure_sync__set_module_federation_mapping.adoc[]
 
-The custom field mapping is done via a json payload in the *federation_module_mapping* and *federation_module_exposed* tables.
+==== Get field mapping for a module
+include::api/structure_sync__get_module_federation_mapping.adoc[]
 
-=== Exposed payload
+==== Remove field mapping for a module
+include::api/structure_sync__remove_module_federation_mapping.adoc[]
 
-These are the fields that are exposed on the Origin. During the sync, these fields are fetched from compose DB via name (unique) and added to the structure payload along with the module info.
+=== Store
 
-[source,json]
-----
-[
-    {
-        "name": "<origin_compose_module_field_name>",
-        "label": "<origin_compose_module_field_label>",
-        "kind": "<origin_compose_module_field_kind>",
-        "is_multi": "<origin_compose_module_field_is_multi>"
-    }
-]
-----
+==== Module mapping
 
+include::store/module_mapping.adoc[]
 
-=== Mapping payload
+== Example
 
-These are the fields that are synced from the Origin on the Destination and mapped via a designated UI (or not) in the DB.
-
-[source,json]
-----
-[
-    {
-        "origin": {
-            "name": "<origin_compose_module_field_name>",
-            "kind": "<origin_compose_module_field_kind>",
-            "is_multi": "<origin_compose_module_field_is_multi>"
-        },
-        "destination": {
-            "name": "<destination_compose_module_field_name>",
-            "kind": "<destination_compose_module_field_kind>",
-            "is_multi": "<destination_compose_module_field_is_multi>"
-        }
-    }
-]
-----
-
-== Examples
-
-*Module _Account_*
+// @todo...
 
 === Phase I - on Origin node
 

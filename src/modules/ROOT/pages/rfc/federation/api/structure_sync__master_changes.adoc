@@ -1,12 +1,3 @@
-|===
-|Action| Endpoint |Query Parameters|Request Body
-
-|GET
-|/federation/exposed/modules
-|/
-|/
-|===
-
 [NOTE]
 $TOKEN_B is the token that was generated during the handshake and is used to authenticate the user on the Origin node (the one who shares the data) by the Destination node.
 
@@ -29,8 +20,8 @@ $TOKEN_B
 .Example request
 [source,bash]
 ----
-curl -X GET "${BASE_URL}/federation/exposed/modules" \
-  -H "Authorization: Bearer ${TOKEN_B}"
+curl -X GET "$BASE_URL/federation/exposed/modules" \
+  -H "Authorization: Bearer $TOKEN_B";
 ----
 
 .Example response

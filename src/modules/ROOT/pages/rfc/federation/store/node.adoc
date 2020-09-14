@@ -3,5 +3,9 @@
 |Column |Type |Description
 
 |ID | uint64 | Node ID
-// ...
+|status | string | Node status
+|structure_status | string | Structure sync status
+|structure_synced_at | Timestamp | Last structure sync
+|data_status | string | Data sync status
+|data_synced_at | Timestamp | Last data sync
 |===

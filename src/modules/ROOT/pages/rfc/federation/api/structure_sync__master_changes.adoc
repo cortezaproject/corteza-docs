@@ -27,5 +27,26 @@ curl -X GET "$BASE_URL/federation/exposed/modules" \
 .Example response
 [source,bash]
 ----
-TBD
+{
+    "response": {
+        "filter": {
+            "query": "after=1600109447",
+            "page": 1,
+            "perPage": 20,
+            "count": 97,
+        },
+        "set": [
+            {
+                "type": "GET",
+                "rel": "Account",
+                "href": "$BASE_URL/federation/exposed/modules/$MODULE_ID?after=1600109447"
+            },
+            {
+                "type": "GET",
+                "rel": "Contact",
+                "href": "$BASE_URL/federation/exposed/modules/$MODULE_ID?after=1600109447"
+            }
+        ]
+    }
+}
 ----

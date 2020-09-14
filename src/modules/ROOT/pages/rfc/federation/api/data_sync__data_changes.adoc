@@ -32,5 +32,27 @@ curl -X GET "$BASE_URL/federation/exposed/records?after=$AFTER_TIMESTAMP" \
 .Example response
 [source,bash]
 ----
-TBD
+{
+    "response": {
+        "filter": {
+            "query": "after=1600109447",
+            "page": 1,
+            "perPage": 20,
+            "count": 97,
+            "deleted": 0
+        },
+        "set": [
+            {
+                "type": "GET",
+                "rel": "Lead",
+                "href": "$BASE_URL/federation/exposed/records/$MODULE_ID?after=1600109447"
+            },
+            {
+                "type": "GET",
+                "rel": "Contact",
+                "href": "$BASE_URL/federation/exposed/records/$MODULE_ID?after=1600109447"
+            }
+        ]
+    }
+}
 ----

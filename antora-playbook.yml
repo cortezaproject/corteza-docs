@@ -19,3 +19,7 @@ ui:
 output:
   clean: true
   dir: dist
+
+asciidoc:
+  extensions:
+    - asciidoctor-kroki

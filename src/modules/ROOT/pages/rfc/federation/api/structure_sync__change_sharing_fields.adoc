@@ -1,0 +1,62 @@
+.Used variables
+[source,bash]
+----
+# base url for the federation api
+$BASE_URL
+
+# jwt of the user
+$JWT
+
+# node id of the destination node
+$NODE_ID
+
+# federation module id
+$MODULE_ID
+----
+
+.Example request
+[source,bash]
+----
+curl -X PUT "$BASE_URL/federation/nodes/$NODE_ID/modules/$MODULE_ID/exposed" \
+  -H "Authorization: Bearer $JWT"
+  -H "Content-Type: application/json" \
+  --data "[{
+      \"name\":\"LinkedIn\",
+      \"label\":\"LinkedIn\",
+      \"kind\":\"Url\",
+      \"is_multi\":1
+    }, {
+      \"name\":\"Phone\",
+      \"label\":\"Phone\",
+      \"kind\":\"String\",
+      \"is_multi\":0
+    }]";
+----
+
+.Example response
+[source,bash]
+----
+{
+    "response": {
+        "moduleID": "122709113267335170",
+        "handle": "Account",
+        "name": "Account",
+        "createdAt": "2019-12-18T17:45:15Z",
+        "updatedAt": "2020-05-26T13:29:36Z",
+        "fields": [
+            {
+                "kind": "Url",
+                "name": "LinkedIn",
+                "label": "LinkedIn",
+                "isMulti": 0,
+            },
+            {
+                "kind": "String",
+                "name": "Phone",
+                "label": "Phone",
+                "isMulti": 0,
+            }
+        ]
+    }
+}
+----

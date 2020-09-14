@@ -4,10 +4,14 @@
 
 include::node.adoc[]
 
-== Federation module
+== Exposed federation module
 
-include::module.adoc[]
+include::module_exposed.adoc[]
 
-== Federation module field
+== Shared federation module
 
-include::module_field.adoc[]
+include::module_shared.adoc[]
+
+== Federation module mapping
+
+include::module_mapping.adoc[]

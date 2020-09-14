@@ -1,0 +1,9 @@
+.`federation_module_exposed`
+|===
+|Column |Type |Description
+
+|ID                 |uint64|federation module id
+|rel_node           |uint64|node id (destination node id - who are we sharing to)
+|rel_compose_module |uint64|module id on source node
+|fields             |json  |list of fields
+|===

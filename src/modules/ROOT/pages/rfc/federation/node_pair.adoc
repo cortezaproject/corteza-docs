@@ -1,3 +1,4 @@
+[#rfc:federation:node-pair]
 = Pairing nodes
 
 Node pairing is the process of establishing a federated network between two nodes in order to share their information.

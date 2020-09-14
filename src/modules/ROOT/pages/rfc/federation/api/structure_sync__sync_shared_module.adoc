@@ -1,0 +1,53 @@
+[NOTE]
+$TOKEN_B is the token that was generated during the handshake and is used to authenticate the user on the Origin node (the one who shares the data) by the Destination node.
+
+.Used variables
+[source,bash]
+----
+# base url for the federation api
+$BASE_URL
+
+# jwt of the user
+$JWT
+
+# node id of the origin node
+$NODE_ID
+
+# Node B auth token
+$TOKEN_B
+----
+
+.Example request
+[source,bash]
+----
+curl -X GET "$BASE_URL/federation/exposed/modules/$MODULE_ID" \
+  -H "Authorization: Bearer $TOKEN_B";
+----
+
+.Example response
+[source,bash]
+----
+{
+    "response": {
+        "moduleID": "122709113267335170",
+        "handle": "Account",
+        "name": "Account",
+        "createdAt": "2019-12-18T17:45:15Z",
+        "updatedAt": "2020-05-26T13:29:36Z",
+        "fields": [
+            {
+                "kind": "Url",
+                "name": "LinkedIn",
+                "label": "LinkedIn",
+                "isMulti": false,
+            },
+            {
+                "kind": "String",
+                "name": "Phone",
+                "label": "Phone",
+                "isMulti": false,
+            }
+        ]
+    }
+}
+----

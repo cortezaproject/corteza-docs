@@ -1,7 +1,7 @@
 |===
 |Action| Endpoint |Query Parameters|Request Body
 
-|PUT
+|GET
 |/exposed/modules/{moduleID}/records
 |*after* - timestamp, filter only records after a specific time (ie - last successful sync)
 |/

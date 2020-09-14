@@ -35,7 +35,7 @@ $NODE_DESTINATION
 [source,bash]
 ----
 curl -X GET "${BASE_URL}/federation/nodes/{nodeID}/audit" \
-  -H "Authorization: Bearer ${TOKEN_B}"
+  -H "Authorization: Bearer ${JWT}"
 ----
 
 .Example response

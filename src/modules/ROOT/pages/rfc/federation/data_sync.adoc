@@ -1,22 +1,82 @@
 [#rfc:federation:data-sync]
-= Data Sync
+= Syncing data
 
-[NOTE]
+Data sync is the process of syncing data between the origin and the destination nodes.
+Data sync service operates directly on compose services and storage layers, but is designed to be decoupled and moved away from the main corteza service.
+
+[IMPORTANT]
 ====
-The Origin and Destination nodes are referred to the point of Origin of data as in the sharer of the information, as opposed to the Destination node, the destination of the sent information. See more in <<rfc:federation:data-sync:origin, Glossary>>.
+The two nodes must be paired prior to this.
+See <<rfc:federation:node-pair>>.
 ====
 
-The data sync occurs after the first two phases, node authentication and pairing, and structure sync are successfuly done. The orchestrator for the data sync is a federation data sync service that works with the compose API service and store repository methods. The structure of the microservice works in a way as to possibly decouple the service from the main corteza server.
+== Syncing data
 
-Once the structure sync is successfuly done (before each data sync starts), the data sync commences. First, it needs to fetch the master changes list, which lists the endpoints of all the modules whose records were either deleted, updated or created during the time window since the last successful data sync.
+After the two nodes are paired and the <<rfc:federation:structure-sync>> has finished, we can proceed with the data sync process.
 
-After the Federation Service fetches the master list, the data sync is started for each of the modules. More is described in the <<rfc:federation:data-sync:origin,Flow from the Origin node aspect>> and <<rfc:federation:data-sync:destination,Flow from the Destination node aspect>>.
+[IMPORTANT]
+====
+Data syncing uses already established compose services along with it's storage layer.
+This removes the need for any additional storage layer modifications.
+====
 
-[#rfc:federation:data-sync:origin]
-== Data sync (Origin)
+.Detailed outline of the data sync process on the destination node.
+[plantuml,data-sync-destination,svg,role=sequence]
+----
+@startuml
+skinparam responseMessageBelowArrow true
+actor "Origin Node" as NodeOrigin
 
-=== Data sync diagram
-[source,uml]
+box "Destination Node" #f7f7f7
+
+participant "Federation Service" as FederationService
+participant "Compose Record Service" as ComposeRS
+database Store
+participant "Federation Data Service" as FDataService
+participant Decoder
+
+activate FederationService
+FederationService -> NodeOrigin: get federated records for module
+activate NodeOrigin
+NodeOrigin -> FederationService: list of federated records
+deactivate NodeOrigin
+
+FederationService -> Store: get federation info on module and mapped fields
+
+activate Store
+Store -> FederationService: federation mappings
+deactivate Store
+
+FederationService -> Decoder: list of records in specific format
+note right: this is the transport structure\n coming from Origin Node
+activate Decoder
+Decoder -> FederationService: list of records
+deactivate Decoder
+
+FederationService -> FDataService: records + federation mappings
+activate FDataService
+FDataService -> FederationService: list of compose Records
+deactivate FDataService
+
+FederationService -> ComposeRS: list of records with appropriate fields
+activate ComposeRS
+ComposeRS -> Store: write records to compose storage
+
+activate Store
+Store -> ComposeRS: status
+deactivate Store
+
+ComposeRS -> FederationService: status
+deactivate ComposeRS
+
+FederationService -> Store: set sync status
+deactivate FederationService
+end box
+@enduml
+----
+
+.Detailed outline of the data sync process on the origin node.
+[plantuml,data-sync-origin,svg,role=sequence]
 ----
 @startuml
 skinparam responseMessageBelowArrow true
@@ -78,83 +138,25 @@ end box
 @enduml
 ----
 
-.*Sharing federated data on the Origin node*:
-1. The incoming request from Destination is parsed and the input parameters about module and 
-last update time is provided to the Federation service
-2. The federation service calls the Federation Data Service, which in turn first fetches all the federation info about the 
-module and the fields mappings
-3. Once the info is gathered from the store, the Federation Data Service fetches the compose Records from store
-4. All the records are then transformed in the service to include only the necessary data (also the specific fields and the paging data)
-5. Once the list is generated, it is sent to the exporter service to transform the list to the appropriate standard
-6. Alongside the list, there is also the filtering info with the paging data, so any necessary requests are made again
-to satisfy the length of the data (paging) and to ensure all the data is not fetched in one big chunk
+Destination node requests the information about any data changes::
+    Origin node provides a set of endpoints that the destination node can use to fetch newly created, updated, and deleted data.
+    The destination node provides some additional filtering parameters; such as last sync timestamp; to exclude any unchanged data.
 
-[#rfc:federation:data-sync:destination]
-== Data sync (Destination)
+include::api/data_sync__data_changes.adoc[]
 
-=== Data sync diagram
-[source,uml]
-----
-@startuml
-skinparam responseMessageBelowArrow true
-actor "Origin Node" as NodeOrigin
+Destination node requests changed data::
+    The destination node fetches the data on per-module basis from the above provided set of endpoints.
 
-box "Destination Node" #f7f7f7
+include::api/data_sync__exposed_records.adoc[]
 
-participant "Federation Service" as FederationService
-participant "Compose Record Service" as ComposeRS
-database Store
-participant "Federation Data Service" as FDataService
-participant Decoder
+Origin node provides changed data for the requested structure::
+    The origin node provides a set of changes based on base filter parameters such as timestamp, and requested structure to determine what data the destination node would like to receive.
+    The filtered data, along with federated structure definitions are then passed into internal data manipulation systems to transform the data into the desired output, such as Activity Pub, and JSON (this also removes any fields that are *not* exposed by the origin node).
+    The response also includes any additional filtering and pagination related parameters so the data can be fetched in chunks, or re-fetched if it any issues occurred.
 
-activate FederationService
-FederationService -> NodeOrigin: get federated records for module
-activate NodeOrigin
-NodeOrigin -> FederationService: list of federated records
-deactivate NodeOrigin
+Destination node transforms the provided data into internal resource structures::
+    The destination node uses data manipulation systems, along with module mapping definitions (see <<rfc:federation:structure-sync:field-mapping>>) to transform the provided data set into internal resource structures.
+    These are then used to update the destination node's storage.
 
-FederationService -> Store: get federation info on module and mapped fields
-
-activate Store
-Store -> FederationService: federation mappings
-deactivate Store
-
-FederationService -> Decoder: list of records in specific format
-note right: this is the transport structure\n coming from Origin Node
-activate Decoder
-Decoder -> FederationService: list of records
-deactivate Decoder
-
-FederationService -> FDataService: records + federation mappings
-activate FDataService
-FDataService -> FederationService: list of compose Records
-deactivate FDataService
-
-FederationService -> ComposeRS: list of records with appropriate fields
-activate ComposeRS
-ComposeRS -> Store: write records to compose storage
-
-activate Store
-Store -> ComposeRS: status
-deactivate Store
-
-ComposeRS -> FederationService: status
-deactivate ComposeRS
-
-FederationService -> Store: set sync status
-deactivate FederationService
-end box
-@enduml
-----
-
-.*Fetching shared federated data to the Destination node*:
-1. Start the data sync after a successful structure sync is done
-2. Data sync service checks for the last successful sync date in store
-3. The latest data changes are fetched from the Origin (depending on the last sync)
-4. The list of url endpoints is provided on the Origin
-5. Destination parses the list of endpoints and fetches the corresponding records per-federation module
-6. Destination node gets the mapping info via Federation Service from the Store
-7. The federation info and the list of records are transformed in the Federation Data Service
-to accomodate the field mappings
-8. The list of records are then written to the Store via compose service
-9. After the successful data sync, the federation status is saved as successful for the future sync
+Destination node updates the nodes status::
+    The node's status is updated to indicate when the last successful data sync has occurred.

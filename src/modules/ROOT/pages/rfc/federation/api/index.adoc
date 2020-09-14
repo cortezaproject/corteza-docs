@@ -76,13 +76,10 @@ include::structure_sync__master_changes.adoc[]
 
 include::structure_sync__sync_shared_module.adoc[]
 
-== Data sync
+== Fetch exposed data changes
 
-=== Data master changes list
-include::data_sync__master_changes.adoc[]
+include::data_sync__data_changes.adoc[]
 
-=== Exposed records per-module
+== Fetch exposed data
+
 include::data_sync__exposed_records.adoc[]
-
-=== Auditlog preview per-node
-include::data_sync__auditlog.adoc[]

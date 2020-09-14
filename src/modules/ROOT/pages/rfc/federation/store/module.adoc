@@ -1,7 +1,0 @@
-.`federation_module`
-|===
-|Column |Type |Description
-
-|ID | uint64 | Node ID
-// ...
-|===

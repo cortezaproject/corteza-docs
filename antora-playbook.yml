@@ -7,7 +7,7 @@ site:
 content:
   sources:
   - url: https://github.com/cortezaproject/corteza-docs
-    branches: [ 2019.12.x, develop ]
+    branches: [ 2019.12.x, 2020.6.x, develop ]
     start_path: src
 
 ui:

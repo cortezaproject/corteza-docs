@@ -1,0 +1,33 @@
+include::../variables.adoc[]
+
+[#dev-ops-guide]
+= DevOps Guide
+:doctype: book
+
+This guide is tailored to DevOps engineers that are responsible for {PRODUCT_NAME} instance deploys and it's maintenance on a system level; such as configuring the environment and setting up email notifications.
+
+:leveloffset: +1
+
+include::architecture-overview.adoc[]
+
+include::system-requirements.adoc[]
+
+include::docker-compose.adoc[]
+
+include::server-configuration/index.adoc[]
+
+include::corredor-configuration.adoc[]
+
+include::cli.adoc[]
+
+include::setup-local-demo.adoc[]
+
+include::nginx-proxy.adoc[]
+
+include::setup-production.adoc[]
+
+include::email-relay.adoc[]
+
+include::backup.adoc[]
+
+:leveloffset: -1

@@ -1,14 +1,17 @@
 include::modules/ROOT/pages/variables.adoc[]
 
-* xref:overview/index.adoc[Overview]
-** xref:overview/product.adoc[Product]
-** xref:overview/security.adoc[Security]
-** xref:overview/architecture.adoc[Architecture]
-** xref:overview/core-development.adoc[Core Development]
-** xref:overview/deployment.adoc[Deployment]
-** xref:overview/customization.adoc[Customization]
-** xref:overview/requirements.adoc[Requirements]
-** xref:overview/roadmap.adoc[Roadmap]
+* xref:dev-ops-guide/index.adoc[DevOps Guide]
+** xref:dev-ops-guide/structure-overview.adoc[Structure Overview]
+** xref:dev-ops-guide/system-requirements.adoc[System Requirements]
+** xref:dev-ops-guide/docker-compose.adoc[Docker Compose]
+** xref:dev-ops-guide/server-configuration/index.adoc[]{PRODUCT_NAME} Server Configuration
+** xref:dev-ops-guide/corredor-configuration.adoc[]{APP_AUTOMATION} Server Configuration
+** xref:dev-ops-guide/cli.adoc[CLI Tool]
+** xref:dev-ops-guide/setup-local-demo.adoc[Local Setup]
+** xref:dev-ops-guide/nginx-proxy.adoc[Nginx Proxy Configuration]
+** xref:dev-ops-guide/setup-production.adoc[Production setup]
+** xref:dev-ops-guide/email-relay.adoc[Relaying Inbound Emails]
+** xref:dev-ops-guide/backup.adoc[Backups]
 
 * xref:end-user-guide/index.adoc[End-user Guide]
 ** xref:end-user-guide/getting-started.adoc[Getting started]

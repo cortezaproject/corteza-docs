@@ -1,0 +1,23 @@
+include::../../variables.adoc[]
+
+[cols="1,1,3a"]
+|===
+|Type|Default value|Description
+
+3+| *PROVISION_MIGRATE_DATABASE*
+| `boolean`
+| true
+| Controls if database migration (creation of tables, changes of schema between versions) should be done before each service is started.
+
+3+| *PROVISION_CONFIGURATION*
+| `boolean`
+| true
+| Runs various auto-setup procedures and creates resources:
+
+* Creates default permission rules and roles,
+* creates default channels,
+* creates default applications,
+* creates default compose resources (namespaces, modules, charts,...),
+* setup auto-discovery settings.
+
+|===

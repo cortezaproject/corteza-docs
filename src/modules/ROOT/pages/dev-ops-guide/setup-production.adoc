@@ -1,0 +1,106 @@
+include::../variables.adoc[]
+
+[#dev-ops-guide:setup-production]
+= Production setup
+
+[NOTE]
+====
+You can use similar steps when deploying a staging or a demo environment.
+====
+
+[IMPORTANT]
+====
+This example describes a production-ready deployment.
+It depends on running nginx-proxy service (see <<dev-ops-guide:nginx-proxy,Nginx Proxy>>).
+====
+
+[IMPORTANT]
+====
+Make sure your nginx-proxy service is up and running before running {PRODUCT_NAME}.
+In other cases, you might get an error like:
+
+[source,text]
+----
+ERROR: Network proxy declared as external, but could not be found. Please create the network manually using `docker network create proxy` and try again.
+----
+====
+
+[NOTE]
+====
+If nginx-proxy refuses to start, inspect your configuration files and compare them with ones provided in <<dev-ops-guide:nginx-proxy,Nginx Proxy>> section.
+====
+
+== DNS
+
+This demo uses 2 example domains; *your-demo.example.tld* and *api.your-demo.example.tld*.
+
+You need to configure your DNS by adding two hosts and point them to the IP address (A record) or the hostname (CNAME record) of the server you're using for running {PRODUCT_NAME}.
+
+== Configurations
+
+[NOTE]
+====
+Some of the configuration options in the docker-compose are in-lined for brevity and easier enabling/disabling (commenting-out).
+====
+
+[NOTE]
+====
+Some operating systems do not like files that start with a dot, so make sure `.env` file is properly named.
+====
+
+.`.env`
+[source,dotenv]
+----
+include::ROOT:example$docker-compose/production/env.txt[]
+----
+
+.`docker-compose.yaml`
+[source,yaml]
+----
+include::ROOT:example$docker-compose/production/docker-compose.yaml[]
+----
+
+Create an empty directory with the `.env` and `docker-compose.yaml` files.
+You can adjust the provided example configuration files as you see fit.
+
+[IMPORTANT]
+====
+Make sure to change the `AUTH_JWT_SECRET` value to something else.
+====
+
+== Run the services
+
+[source,shell]
+----
+docker-compose up -d
+----
+
+Run this command in the same directory as your `docker-compose.yaml` file.
+It will start all of the services based on the configurations provided in the configuration files.
+
+You can check if everything is running correctly by executing the `docker-compose ps` command.
+The output should be similar to this one:
+
+[source,shell]
+----
+include::ROOT:example$docker-compose/production/output-ps.txt[]
+----
+
+You can see four services up and running.
+
+[IMPORTANT]
+====
+Your services should soon be available on the configured domains in a matter of minutes.
+====
+
+== Finishing the setup
+
+. Direct your browser to `http://your-demo.example.tld`.
+On your first visit, {PRODUCT_NAME} redirects you to the authentication page (`/auth`),
+. create your account through the sign-up form.
+
+[NOTE]
+====
+The first user gets automatically promoted to an administrator.
+You can add additional users by using the sign-up form or by adding them in the administration panel.
+====

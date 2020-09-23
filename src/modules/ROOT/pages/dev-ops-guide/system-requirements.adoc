@@ -1,0 +1,132 @@
+include::../variables.adoc[]
+
+= System requirements
+
+== Supported clients
+
+[IMPORTANT]
+====
+{PRODUCT_NAME} doesn't support older browsers as we wish to develop a modern platform on modern technologies.
+
+If you wish to do so, you may build your own Docker containers with custom build procedures.
+====
+
+.Supported web clients and their versions.
+[cols=","]
+|===
+|Client |Version
+
+|Chrome| v78+
+|Firefox| v68+
+|Safari| v12+
+|Edge| v44+
+|iOS| iPhone 5s devices and later with iOS 12+
+|Android| Android 7+
+|===
+
+== Server Operating System
+
+Any Docker-compatible operating system is supported 
+
+[NOTE]
+====
+We recommend a Linux-based OS is recommended, preferably Ubuntu LTS.
+====
+
+== Docker
+
+The minimum version for Docker Engine is 1.12.x
+
+== HTTP server
+
+Web applications and the API should be placed behind a firewall and/or an HTTP reverse proxy.
+The responsibility of this proxy is to forward traffic to {PRODUCT_NAME} services and do https://en.wikipedia.org/wiki/TLS_termination_proxy[SSL termination].
+Most of the https://en.wikipedia.org/wiki/TLS_termination_proxy[popular HTTP servers] have this capability.
+
+{PRODUCT_NAME} provides configuration guide for https://github.com/jwilder/nginx-proxy[Nginx Reverse Proxy] and for https://github.com/JrCs/docker-letsencrypt-nginx-proxy-companion[LetsEncrypt companion container for nginx-proxy].
+
+[NOTE]
+====
+Nginx is not required, you can use HTTP server you are familiar with.
+Use provided examples for Nginx as a reference on how to configure it.
+====
+
+== Database
+
+We recommend Percona Server for MySQL 8.x, either native on the host or provided via Docker.
+
+== Hardware
+
+|===
+| Number of Users | Processor      | Memory
+|    1 - 500      |  1 vCPU/cores  |  2 GB RAM
+|  500 - 1000     |  2 vCPU/cores  |  4 GB RAM
+| 1000 - 2000     |  4 vCPU/cores  |  8 GB RAM
+| 2000 - 5000     |  8 vCPU/cores  | 16 GB RAM
+| 5000+           | 16 vCPU/cores  | 32 GB RAM
+|===
+
+== Storage
+
+.Estimated storage per user per month
+[cols="m,,"]
+|===
+|Volume|Description|Recommended Storage
+
+| Low volume
+| *{APP_NAME_MESSAGING}*: sending text messages and links (without file upload); *{APP_NAME_COMPOSE}*: creating plain text records (without file upload).
+| 5 MB/user/month
+
+|Medium volume
+| *{APP_NAME_MESSAGING}*: sending text messages, links and occasionally sending documents and images; *{APP_NAME_COMPOSE}*: attaching documents and images to records
+| 25 MB/user/month
+
+| High volume
+| *{APP_NAME_MESSAGING}*: uploading large files daily; *{APP_NAME_COMPOSE}*: attaching a high number of documents and images to records daily
+| 100 MB/user/month
+
+|===
+
+.Annual storage calculation:
+* Base storage (operating system and core components) of 10 GB,
+* Recommended storage per user per month based on the matrix above (multiplied by 12 to get the yearly amount),
+* Average number of users in a year,
+* Safety factor of 2.0 is recommended.
+
+.Formula:
+----
+total = (nr. of users * recommended storage * 12 * safety factor) + base storage
+----
+
+.Example calculation for 30 medium usage users:
+----
+Recommended storage = (30 * 25 MB * 12 * 2) + 10 GB = 28 GB / year
+----
+
+== Network
+
+{PRODUCT_NAME} does need some access to outside services, depending on configuration and customization of the deployment.
+
+SMTP servers should be configured and accessible if deployment uses email address confirmation on sign-in, password recovery or other kinds of email notifications.
+
+HTTP traffic should be allowed if there OAuth2 or OIDC sign-up is enabled or there are custom scripts that access external URLs.
+
+== Domain and hostname
+
+Setup with 2 domains (API + app) is the most common one:
+
+* Hostname for Web application,
+* hostname for API server.
+
+If you already own a domain, you can add two or more hosts and use them to access your {PRODUCT_NAME} instance.
+
+== HTTPS/SSL Certificates
+
+{PRODUCT_NAME} supports any kind of SSL certificate from all certificate authorities (CA).
+You can use any existing or new SSL certificate from any commercial SSL certificate provider, self-signed or provided by service like https://en.wikipedia.org/wiki/Let's_Encrypt[Let's Encrypt].
+
+[NOTE]
+====
+If you do not use any other HTTP server, we highly recommend setup with https://github.com/jwilder/nginx-proxy[Nginx Reverse Proxy] and https://github.com/JrCs/docker-letsencrypt-nginx-proxy-companion[LetsEncrypt companion container for nginx-prox].
+Its an automated and the simplest way to secure {PRODUCT_NAME} or any other web application you host.
+====

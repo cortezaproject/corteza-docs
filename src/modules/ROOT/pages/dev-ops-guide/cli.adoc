@@ -1,0 +1,414 @@
+include::../variables.adoc[]
+
+= {PRODUCT_NAME} CLI
+
+{PRODUCT_NAME} command-line interface tool allows you to quickly interact with different parts of the system -- from changing the settings to assigning roles to users.
+
+.Depending on built flavour, you can use a different entry:
+* Microservice build produce `corteza-server-system`, `corteza-server-messaging` and `corteza-server-compose`,
+* monolith build produces `corteza-server` binary with `system`, `messaging`, `compose` sub-commands.
+
+== Base commands
+
+=== Start the HTTP Server with REST API
+
+[source,shell]
+----
+Usage:
+  corteza-server serve-api [flags]
+
+Flags:
+  -h, --help   help for serve-api
+----
+
+== Provision commands
+
+=== Base command
+
+[source,shell]
+----
+Usage:
+  corteza-server provision [command]
+
+Available Commands:
+  configuration    Create permissions & resources
+  migrate-database Run database migration scripts
+
+Flags:
+  -h, --help   help for provision
+
+Use "corteza-server provision [command] --help" for more information about a command.
+----
+
+=== Create permissions and resources
+
+[source,shell]
+----
+Usage:
+  corteza-server provision configuration [flags]
+
+Flags:
+  -h, --help   help for configuration
+----
+
+=== Run database migration scripts
+
+[source,shell]
+----
+Usage:
+  corteza-server provision migrate-database [flags]
+
+Flags:
+  -h, --help   help for migrate-database
+----
+
+== System commands
+
+=== External authentication
+
+[source,shell]
+----
+Usage:
+  corteza-server system auth [command]
+
+Available Commands:
+  auto-discovery     Auto discovers new OIDC client
+  jwt                Generates new JWT for a user
+  test-notifications Sends samples of all authentication notification to the recipient
+
+Flags:
+  -h, --help   help for auth
+
+Use "corteza-server system auth [command] --help" for more information about a command.
+----
+
+=== Auto discovers new OIDC client
+
+[source,shell]
+----
+Usage:
+  corteza-server system auth auto-discovery [name] [url] [flags]
+
+Flags:
+      --enable            Enable this provider and external auth
+  -h, --help              help for auto-discovery
+      --skip-validation   Skip validation
+----
+
+=== Sends samples of all authentication notification to the recipient
+
+[source,shell]
+----
+Usage:
+  corteza-server system auth test-notifications [recipient] [flags]
+
+Flags:
+  -h, --help   help for test-notifications
+----
+
+=== Generates new JWT for a user
+
+[source,shell]
+----
+Usage:
+  corteza-server system auth jwt [email-or-id] [flags]
+
+Flags:
+  -h, --help   help for jwt
+----
+
+=== Export system resources
+
+[source,shell]
+----
+Usage:
+  corteza-server system export [flags]
+
+Flags:
+  -h, --help          help for export
+  -p, --permissions   Export system permissions
+  -s, --settings      Export settings
+----
+
+=== Import system resources
+
+[source,shell]
+----
+Usage:
+  corteza-server system import [flags]
+
+Flags:
+  -h, --help   help for import
+----
+
+=== Manage roles
+
+[source,shell]
+----
+Usage:
+  corteza-server system roles [command]
+
+Available Commands:
+  useradd     Add user to role
+
+Flags:
+  -h, --help   help for roles
+
+Use "corteza-server system roles [command] --help" for more information about a command.
+----
+
+=== Add user to role
+
+[source,shell]
+----
+Usage:
+  corteza-server system roles useradd [role-ID-or-name-or-handle] [user-ID-or-email] [flags]
+
+Flags:
+  -h, --help   help for useradd
+----
+
+=== Manage settings
+
+[source,shell]
+----
+Usage:
+  corteza-server system settings [command]
+
+Available Commands:
+  delete      Set value (raw JSON) for a specific key (or by prefix)
+  export      Import settings as JSON to stdout or file
+  get         Get value (raw JSON) for a specific key
+  import      Import settings as JSON from stdin or file
+  list        List all
+  set         Set value (raw JSON) for a specific key
+
+Flags:
+  -h, --help   help for settings
+
+Use "corteza-server system settings [command] --help" for more information about a command.
+----
+
+=== Remove settings for specific keys
+
+[source,shell]
+----
+Usage:
+  corteza-server system settings delete [keys, ...] [flags]
+
+Flags:
+  -h, --help            help for delete
+      --prefix string   Filter settings by prefix
+----
+
+=== Export settings as JSON to stdout or a file
+
+[source,shell]
+----
+Usage:
+  corteza-server system settings export [file] [flags]
+
+Flags:
+  -h, --help   help for export
+----
+
+=== Get value for a specific key
+
+[IMPORTANT]
+====
+The value is provided as a raw JSON.
+====
+
+[source,shell]
+----
+Usage:
+  corteza-server system settings get [key to get, ...] [flags]
+
+Flags:
+  -h, --help   help for get
+----
+
+=== Import settings as JSON from stdin or a file
+
+[source,shell]
+----
+Usage:
+  corteza-server system settings import [file] [flags]
+
+Flags:
+  -h, --help   help for import
+----
+
+=== List all settings
+
+[source,shell]
+----
+Usage:
+  corteza-server system settings list [flags]
+
+Flags:
+  -h, --help            help for list
+      --prefix string   Filter settings by prefix
+----
+
+=== Set value for a specific key
+
+[IMPORTANT]
+====
+The value is provided as a raw JSON.
+====
+
+[source,shell]
+----
+Usage:
+  corteza-server system settings set [key to set] [value] [flags]
+
+Flags:
+  -h, --help   help for set
+----
+
+=== Sink
+
+[source,shell]
+----
+Usage:
+  corteza-server system sink [command]
+
+Available Commands:
+  signature   Creates signature for sink HTTP endpoint
+
+Flags:
+  -h, --help   help for sink
+
+Use "corteza-server system sink [command] --help" for more information about a command.
+----
+
+=== Create sink signature
+
+[source,shell]
+----
+Usage:
+  corteza-server system sink signature [flags]
+
+Flags:
+      --content-type string   Content type (optional)
+      --expires string        Date of expiration (YYYY-MM-DD, optional)
+  -h, --help                  help for signature
+      --max-body-size int     Max allowed body size
+      --method string         HTTP method that will be used (optional)
+      --origin string         Origin of the request (arbitrary string, optional)
+      --path string           Full sink request path (do not include /sink prefix, add / for just root)
+      --signature-in-path     Include signature in a path instead of query string
+----
+
+=== Manage system users
+
+[source,shell]
+----
+Usage:
+  corteza-server system users [command]
+
+Available Commands:
+  add         Add new user
+  list        List users
+  password    Change password for user
+
+Flags:
+  -h, --help   help for users
+
+Use "corteza-server system users [command] --help" for more information about a command.
+----
+
+=== Add a new system user
+
+[source,shell]
+----
+Usage:
+  corteza-server system users add [email] [flags]
+
+Flags:
+  -h, --help          help for add
+      --no-password   Create user without password
+----
+
+=== List system users
+
+[source,shell]
+----
+Usage:
+  corteza-server system users list [flags]
+
+Flags:
+  -h, --help   help for list
+----
+
+=== Change password for a system user
+
+[source,shell]
+----
+Usage:
+  corteza-server system users password [email] [flags]
+
+Flags:
+  -h, --help   help for password
+----
+
+== {APP_NAME_COMPOSE} commands
+
+=== Export {APP_NAME_COMPOSE} resources
+
+[source,shell]
+----
+Usage:
+  corteza-server compose export [flags]
+
+Flags:
+  -h, --help               help for export
+      --namespace string   Export namespace resources (by ID or string)
+  -p, --permissions        Export system permissions
+  -s, --settings           Export settings
+
+Arguments:
+  modules                  Export modules
+  pages                    Export pages
+  charts                   Export charts
+  permissions              Export permissions
+----
+
+=== Import {APP_NAME_COMPOSE} resources
+
+[source,shell]
+----
+Usage:
+  corteza-server compose import [flags]
+
+Flags:
+  -h, --help               help for import
+      --namespace string   Import into namespace (by ID or string)
+----
+
+== {APP_NAME_MESSAGING} commands
+
+=== Export {APP_NAME_MESSAGING} resources
+
+[source,shell]
+----
+Usage:
+  corteza-server messaging export [flags]
+
+Flags:
+  -h, --help          help for export
+  -p, --permissions   Export system permissions
+  -s, --settings      Export settings
+----
+
+=== Import {APP_NAME_MESSAGING} resources
+
+[source,shell]
+----
+Usage:
+  corteza-server messaging import [flags]
+
+Flags:
+  -h, --help   help for import
+----

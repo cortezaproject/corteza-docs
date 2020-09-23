@@ -1,0 +1,63 @@
+include::../../variables.adoc[]
+
+= Automation Scripts
+
+Automation Scripts provide a way to automate processes in {PRODUCT_NAME}.
+There are two primary types of automation scripts:
+
+* *Client scripts*: Executed in browser
+* *Server scripts*: Executed by {APP_AUTOMATION}
+
+Furthermore both of the types can be triggered:
+
+* *Manually*: Via a button on {APP_NAME_COMPOSE}
+* *Automaticially*: On desired trigger
+
+For detailed information of automation scripts see: link:../../integrator-guide/extensions/index.html[Automation Scripts]
+
+== Context
+Examples below will provide instructions on how to write the different types of scripts mentioned. +
+To show the difference between the types, all scripts will do the same task. +
+The tasks will be executed in the following state:
+
+[IMPORTANT]
+====
+For API interaction we'll be using the Corredor helpers, for more information see link:../../integrator-guide/index.html#_corredor_helpers[here]
+====
+
+=== Modules
+We will be using two simple modules for the task.
+
+The module `Quote` has two fields:
+
+* *Name*: Quote name - *String*
+* *Contact*: Contact assigned to the `Quote` - *Record*
+
+The module `Contact` also has two fields:
+
+* *Name*: Contact name - *String*
+* *User*: User(system) assigned to the `Contact` - *User*
+
+=== Records
+Both modules will have a single record defined
+
+The `Quote` record which we will be preforming the task on has the following values:
+
+* *Name*: "Example Name"
+* *Contact*: "123456789" - Example recordID
+
+The `Contact` record the following values:
+
+* *Name*: "Example Contact"
+* *User*: "987654321" - Example userID
+
+=== Task
+The task is as follows:
+
+1. Find the related `Contact` of the specific `Quote`
+2. Update `Quote` name
+3. Inform `Quote` `Contact` of update via Email
+
+include::client-scripts/index.adoc[]
+
+include::server-scripts/index.adoc[]

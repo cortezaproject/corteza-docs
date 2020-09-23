@@ -1,0 +1,136 @@
+include::../../../variables.adoc[]
+
+== Server Scripts
+General information on link:../../integrator-guide/index.html#_client_scripts[Server Scripts]
+Since Server scripts are executed on the server we don't have the option to display alerts via the `ComposeUI`
+
+=== Manual
+A manual script is defined by its triggers. +
+To use a manual script, create an link:../../administator-guide/index.html#_automation[Automation] block on a record page. +
+Or use it in a link:../../administator-guide/index.html#_record_list[Record List]
+
+[source,javascript]
+----
+export default {
+  label: "Script label",
+  description: 'Script description',
+
+  * triggers ({ on }) {
+    yield on('manual') // <1>
+      .for('compose:record') // <2>
+      .where('module', 'Quote') // <3>
+      .where('namespace', 'crm') // <4>
+      .uiProp('app', 'compose') // <5>
+  },
+
+  async exec ({ $record }, { Compose, System }) { // <6>
+    // Check if $record has 'Contact' value
+    if ($record.values.Contact) {
+      // Get Contact
+      const contact = await Compose.findRecordByID($record.values.Contact, 'Contact')
+
+      // If recordID exists that means we got a Contact
+      if (contact.recordID) {
+        // Update the Quote record
+        const oldName = $record.values.Name
+        $record.values.Name = 'Updated name'
+
+        // Now we can notify the Contact about the update
+        // First we fetch the system user based on the User value
+        const systemUser = await System.findUserByID(contact.values.User)
+        
+        // Now we can send the email
+        await Compose.sendMail(
+          systemUser.email,
+          'Quote renamed',
+          { html: `The following Quote has been renamed from "${oldName}" to "${$record.values.Name}"` }
+        )
+      }
+
+      // Save the record by returning it
+      return $record
+    } else {
+      return false
+    }
+  }
+}
+----
+
+<1> Register manual trigger
+<2> This script will trigger on a {APP_NAME_COMPOSE} record
+<3> On the module called `Quote`
+<4> In the namespace with slug called `crm`
+<5> Register the script so it can be used in the Automation block
+<6> Import parameters:
+  - `$record` is the record object where the manual script is triggered from
+  - `System` is the helper library that allows the interaction with the System(Users, Roles...)
+  - `Compose` is the helper library that allows the interaction with {APP_NAME_COMPOSE}
+
+=== Automatic
+An automatic script is executed based on the defined link:../../integrator-guide/extensions/index.html#integrator-guide:extensions:automation-triggers[Automation trigger]
+
+For this example we will use the `before:update` trigger. +
+That means the script will execute before updating the record.
+
+[IMPORTANT]
+====
+Remember to return the `$record`
+====
+
+[source,javascript]
+----
+export default {
+  label: "Script label",
+  description: 'Script description',
+
+  * triggers ({ before }) {
+    yield before('update', 'create') // <1>
+      .for('compose:record') // <2>
+      .where('module', 'Quote') // <3>
+      .where('namespace', 'crm') // <4>
+  },
+
+  async exec ({ $record }, { Compose, System }) { // <5>
+    // Check if $record has 'Contact' value
+    if ($record.values.Contact) {
+      // Get Contact
+      const contact = await Compose.findRecordByID($record.values.Contact, 'Contact')
+
+      // If recordID exists that means we got a Contact
+      if (contact.recordID) {
+        // Update the Quote record
+        const oldName = $record.values.Name
+        $record.values.Name = 'Updated name'
+
+        // Because this is a client script we have to manually save the updated record
+        $record = await Compose.saveRecord($record)
+
+        // Now we can notify the Contact about the update
+        // First we fetch the system user based on the User value
+        const systemUser = await System.findUserByID(contact.values.User)
+        
+        // Now we can send the email
+        await Compose.sendMail(
+          systemUser.email,
+          'Quote renamed',
+          { html: `The following Quote has been renamed from "${oldName}" to "${$record.values.Name}"` }
+        )
+
+        // Return record to apply changes to current record
+        return $record
+      } else {
+        return false
+      }
+    }
+  }
+}
+----
+
+<1> Register `before:update` and `before:create` trigger
+<2> This script will trigger on a {APP_NAME_COMPOSE} record
+<3> On the module called `Quote`
+<4> In the namespace with slug called `crm`
+<5> Import parameters:
+  - `$record` is the record object where the manual script is triggered from
+  - `System` is the helper library that allows the interaction with the System(Users, Roles...)
+  - `Compose` is the helper library that allows the interaction with {APP_NAME_COMPOSE}

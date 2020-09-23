@@ -48,6 +48,7 @@ include::modules/ROOT/pages/variables.adoc[]
 * xref:examples/index.adoc[Examples]
 ** xref:examples/system-api/index.adoc[System API]
 ** xref:examples/compose-api/index.adoc[Compose API]
+** xref:examples/automation-scripts/index.adoc[Automation Scripts]
 
 * xref:rfc/index.adoc[RFC]
 ** xref:rfc/federation/index.adoc[Federation]

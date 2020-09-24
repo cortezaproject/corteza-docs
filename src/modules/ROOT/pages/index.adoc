@@ -5,7 +5,7 @@ include::variables.adoc[]
 It provides a wide ecosystem of a *Unified Workspace* (like Google G Suite), *Enterprise Messaging* (like Slack), a *low code environment* for rapidly and securely delivering records-based management solutions, and *CRM* (like Salesforce).
 
 {PRODUCT_NAME} is built upon modern technologies, using https://golang.org/[Golang] as a back-end and https://vuejs.org/[Vue.js] as a front-end.
-The platform is *secure* with a powerful *RBAC access control facility*, that allows you yo configure your users just the way you want to!
+The platform is *secure* with a powerful *RBAC access control facility*, that allows you to configure your users just the way you want to!
 
 {PRODUCT_NAME} aims to be *indisputably trustworthy* in its motivations and its approach to design, development and maintenance of the platform.
 Organisations should feel that their chosen digital work platform is always *under their control*, always *protected* and always *developed in their best interests*.

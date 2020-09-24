@@ -1,6 +1,6 @@
 include::../../variables.adoc[]
 
-[cols="2,1,2,5a"]
+[cols="2,2,2,5a"]
 |===
 |Key|Type|Default value|Description
 

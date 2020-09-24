@@ -1,6 +1,5 @@
 include::../../variables.adoc[]
 
-[#admin-adminpanel-dashboard]
 = Dashboard
 
 [NOTE]

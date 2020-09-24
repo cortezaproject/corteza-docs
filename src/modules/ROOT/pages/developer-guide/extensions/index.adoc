@@ -1,12 +1,12 @@
 include::../../variables.adoc[]
 
-[#developer-guide:extensions]
+[#extensions]
 = Extensions
 
 [NOTE]
 ====
 This section covers the system behind extensions.
-If you're interested in extension's development, refer to <<integrator-guide:extenisons>>.
+If you're interested in extension development, refer to the xref:ROOT:integrator-guide/index.adoc[integrator guide].
 ====
 
 :leveloffset: +1

@@ -10,4 +10,4 @@ include::../../variables.adoc[]
 * it defines an `export default {...}`,
 * defines at least one valid trigger *or* iterator,
 * defines a security context if it the script is a sink or deferred,
-* conforms to the <<integrator-guide:extensions:tl-dr:script-signature>>.
+* conforms to the <<extensions:tl-dr:script-signature>>.

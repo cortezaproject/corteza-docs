@@ -2,7 +2,7 @@ include::../../variables.adoc[]
 
 = TL;DR
 
-[#integrator-guide:extensions:tl-dr:script-signature]
+[#extensions:tl-dr:script-signature]
 == Script signature
 
 An automation script must conform to the given interface:
@@ -30,8 +30,8 @@ export interface Script extends ScriptFile {
 <1> User-friendly name for the script.
 <2> Additional description if needed.
 <3> Security context for the script; if defining `runAs`, you can provide a string.
-<4> Script triggers; refer to <<integrator-guide:extensions:automation-triggers>> for details.
-<5> Script iterator; refer to <<integrator-guide:extensions:automation-iterators>> for details.
+<4> Script triggers; refer to <<extensions:automation-triggers>> for details.
+<5> Script iterator; refer to <<extensions:automation-iterators>> for details.
 
 == File structure
 
@@ -105,7 +105,7 @@ These include:
 
 Implicit triggers execute as a collateral to another system event such as record creation.
 These triggers include any before/after event.
-For a full list of events see <<integrator-guide:resources-events>>.
+For a full list of events see xref:ROOT:integrator-guide/index.adoc#resources-events[resources and events].
 
 == Deferred triggers
 

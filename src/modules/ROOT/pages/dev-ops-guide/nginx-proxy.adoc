@@ -1,12 +1,12 @@
 include::../variables.adoc[]
 
-[#dev-ops-guide:nginx-proxy]
+[#nginx-proxy]
 = Nginx proxy
 
 [NOTE]
 ====
 This is not needed when working on local instances.
-<<dev-ops-guide:setup-local-demo>> are enough to get a local instance up and running
+Following the xref:ROOT:dev-ops-guide/index.adoc#setup-local-demo[setup local demo section] is enough to get a local instance up and running.
 ====
 
 [WARNING]
@@ -40,6 +40,7 @@ https://github.com/JrCs/docker-letsencrypt-nginx-proxy-companion[LetsEncrypt Ngi
 . Containers (like {PRODUCT_NAME} server, and fronted application) that are exposed publicly no longer have to publish their ports on public IP,
 . complicated firewall configurations and network forwarding rules are no longer required.
 
+[#nginx-proxy-config]
 == Configurations
 
 .`docker-compose.yaml`

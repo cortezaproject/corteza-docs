@@ -1,6 +1,6 @@
 include::../../variables.adoc[]
 
-[#dev-ops-guide:server-configuration]
+[#server-configuration]
 = Server configuration
 
 Core {PRODUCT_NAME} services are configured via the environment (`.env`) file.

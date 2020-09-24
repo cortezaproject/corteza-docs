@@ -1,6 +1,5 @@
 include::../variables.adoc[]
 
-[#dev-ops-guide]
 = DevOps Guide
 :doctype: book
 

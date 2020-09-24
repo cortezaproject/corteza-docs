@@ -1,6 +1,6 @@
 include::../../variables.adoc[]
 
-[#admin-adminpanel-system-settings]
+[#admin-panel-system-settings]
 = Settings
 
 [NOTE]
@@ -18,14 +18,14 @@ Email::
 
 External authentication::
     This section allows you to configure external authentication providers, such as Google and Facebook.
-    See <<admin-adminpanel-system-settings-externalauth>> for configuration details.
+    See <<admin-panel-system-settings-externalauth>> for configuration details.
 
 [TIP]
 ====
 The ability to disable internal login can be useful when wanting to force the users to either use external authentication providers or using a different system for their authentication.
 ====
 
-[#admin-adminpanel-system-settings-externalauth]
+[#admin-panel-system-settings-externalauth]
 == Configuring external providers
 
 === Google

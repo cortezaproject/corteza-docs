@@ -21,5 +21,5 @@ include::../variables.adoc[]
 * {GIT_REPO_LINK_PREFIX}-webapp-messaging[{PRODUCT_NAME} {APP_NAME_MESSAGING}] collaboration platform that allows teams to collaborate more efficiently and communicate safely with other organizations or customers,
 * {GIT_REPO_LINK_PREFIX}-webapp-one[{PRODUCT_NAME} {APP_NAME_SHELL}] is a unified workspace to access and run third-party web and {PRODUCT_NAME} applications. Centralized access management from a single console enables administrative control over who can see or access applications.
 
-.An abstract overview over the entire {PRODUCT_NAME} and how different components are connected.
+.An abstract overview of the entire {PRODUCT_NAME} and how different components are connected.
 image::arch-overview.png[{PRODUCT_NAME} architectural overview]

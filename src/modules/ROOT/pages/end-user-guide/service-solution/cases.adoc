@@ -1,6 +1,6 @@
 include::../../variables.adoc[]
 
-[#end-user-guide:service-solution:cases]
+[#cases]
 = Cases
 
 The Dashboards page is accessible by clicking on the "Dashboards" in the main navigation bar on the top of the screen.

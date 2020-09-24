@@ -1,6 +1,6 @@
 include::../../variables.adoc[]
 
-[#developer-guide:documentation:rules]
+[#documentation-rules]
 = Contribution Rules
 
 Below is a list of rules that apply to *every contributor* of any {PRODUCT_NAME} repository.
@@ -27,7 +27,7 @@ All relevant guides must me updated::
 
 Consistent style of writing::
     Be consistent with other contributors as we wish to have a consistent, easy to read documentation.
-    Refer to <<developer-guide:documentation:writing-guidelines>> for more insight on this.
+    Refer to <<documentation-writing-guidelines>> for more insight on this.
 
 Try to follow the rules::
     In the edge case where it is excusable for you to not follow the above rules (extremely tight schedule, urgent fixes that need to be released asap, ...) open up an issue that outlines your changes, provides some references to the PR/commit so someone (preferably yourself) can get to it as soon as possible.
@@ -45,8 +45,5 @@ Let's not make our lives harder by not wanting to share our knowledge!
 [NOTE]
 ====
 Stuck?
-Refer to the <<examples>> to get an idea.
-
-Still stuck?
-Get in touch with us on https://latest.{DOMAIN} !
+Get in touch with us on https://latest.{DOMAIN}!
 ====

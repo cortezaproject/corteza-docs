@@ -1,6 +1,6 @@
 include::../../variables.adoc[]
 
-[#admin-adminpanel-system-roles]
+[#admin-panel-system-roles]
 = Roles
 
 The roles interface can be accessed by clicking on the "Roles" navigation item on the left navigation drawer under the system item group.
@@ -12,13 +12,13 @@ Each role has a name, a system handle and a set of permissions on resources.
 
 The interface allows you to:
 
-* Edit permissions regarding the permissions (see <<admin-adminpanel-system-roles-perms>>),
-* add new role (see <<admin-adminpanel-system-roles-add>>),
-* list roles (see <<admin-adminpanel-system-roles-list>>),
-* edit roles (see <<admin-adminpanel-system-roles-edit>>).
+* Edit permissions regarding the permissions (see <<admin-panel-role-permissions>>),
+* add new role (see <<admin-panel-role-add>>),
+* list roles (see <<admin-panel-role-list>>),
+* edit roles (see <<admin-panel-role-edit>>).
 
 
-[#admin-adminpanel-system-roles-perms]
+[#admin-panel-role-permissions]
 == Managing permissions
 
 To manage permissions related to the role resource, click on the "Permissions" button on the top right corner of the page.
@@ -36,7 +36,7 @@ Delete any role::
 Manage members for any role::
     Determines if the given role is allowed to add or remove members to any role.
 
-[#admin-adminpanel-system-roles-add]
+[#admin-panel-role-add]
 == Adding roles
 
 To add a new role, click on the "New" button on the top right corner of the page.
@@ -50,14 +50,14 @@ After saving the role, a new interface is provided where you can edit the newly 
 
 include::./partials/role-edit.adoc[]
 
-[#admin-adminpanel-system-roles-list]
+[#admin-panel-role-list]
 == Listing roles
 
 Roles can be viewed on the table in the middle of the interface.
 The system supports a powerful search engine, from partial searching, finding only active roles and so on.
 It also supports pagination and sorting.
 
-[#admin-adminpanel-system-roles-edit]
+[#admin-panel-role-edit]
 == Editing roles
 
 Roles can be edited by pressing on the edit icon next to each row in the role list, that opens up a new interface,

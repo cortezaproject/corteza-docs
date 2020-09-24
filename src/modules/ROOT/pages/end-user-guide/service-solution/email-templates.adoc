@@ -23,7 +23,7 @@ Template is used in following emails::
 We can use placeholders in both the subject and the body.
 ====
 
-We can use the following placeholders (take note of the `\{\{  \}\}` -- this indicates a placeholder).
+We can use the following placeholders (take note of the `{{  }}` -- this indicates a placeholder).
 
 .Placeholders for getting data of the case:
 * `{{Case.Number}}`
@@ -42,21 +42,21 @@ We can use the following placeholders (take note of the `\{\{  \}\}` -- this ind
 * `{{Case.TotalCost}}`
 
 .Placeholders for getting data of the contact:
-* `{\{Contact.FirstName}}`
-* `{\{Contact.LastName}}`
-* `{\{Contact.Title}}`
-* `{\{Contact.Phone}}`
-* `{\{Contact.Email}}`
-* `{\{Contact.Twitter}}`
-* `{\{Contact.Facebook}}`
-* `{\{Contact.LinkedIn}}`
-* `{\{Contact.MailingStreet}}`
-* `{\{Contact.MailingCity}}`
-* `{\{Contact.MailingState}}`
-* `{\{Contact.MailingPostalCode}}`
-* `{\{Contact.MailingCountry}}`
-* `{\{Contact.DoNotCall}}`
-* `{\{Contact.HasOptedOutOfEmail}}`
+* `{{Contact.FirstName}}`
+* `{{Contact.LastName}}`
+* `{{Contact.Title}}`
+* `{{Contact.Phone}}`
+* `{{Contact.Email}}`
+* `{{Contact.Twitter}}`
+* `{{Contact.Facebook}}`
+* `{{Contact.LinkedIn}}`
+* `{{Contact.MailingStreet}}`
+* `{{Contact.MailingCity}}`
+* `{{Contact.MailingState}}`
+* `{{Contact.MailingPostalCode}}`
+* `{{Contact.MailingCountry}}`
+* `{{Contact.DoNotCall}}`
+* `{{Contact.HasOptedOutOfEmail}}`
 
 == Example subject
 

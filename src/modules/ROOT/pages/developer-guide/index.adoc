@@ -1,6 +1,5 @@
 include::../variables.adoc[]
 
-[#developer-guide]
 = Developer Guide
 :doctype: book
 

@@ -1,6 +1,6 @@
 include::../../variables.adoc[]
 
-[#integrator-guide:extensions:automation-iterators]
+[#extensions-automation-iterators]
 = Automation iterators
 
 An automation iterator (later refereed as "iterator") specifies under what conditions an automation script iterator should execute and part of the execution context.
@@ -47,9 +47,9 @@ interface {
   filter: IteratorFilter; <4>
 }
 ----
-<1> define the resource type; see <<integrator-guide:resources-events>> for details.
-<2> define the event type; see <<integrator-guide:resources-events>> for details.
-<3> define what action the script performs; see <<integrator-guide:extensions:automation-iterators:actions>> for details,
+<1> define the resource type; see xref:ROOT:integrator-guide/index.adoc#resources-events[resources and events] for details.
+<2> define the event type; see xref:ROOT:integrator-guide/index.adoc#resources-events[resources and events] for details.
+<3> define what action the script performs; see <<extensions:automation-iterators:actions>> for details,
 <4> define the filter to use.
 
 [source,typescript]
@@ -74,7 +74,7 @@ interface IteratorFilter {
 `i.every`::
     Defines the interval in which the automation script is executed, defined as a cron expression.
 
-[#integrator-guide:extensions:automation-iterators:actions]
+[#extensions:automation-iterators:actions]
 == Iterator actions
 
 [IMPORTANT]

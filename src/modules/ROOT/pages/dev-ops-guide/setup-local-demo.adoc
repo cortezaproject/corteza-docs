@@ -1,6 +1,6 @@
 include::../variables.adoc[]
 
-[#dev-ops-guide:setup-local-demo]
+[#setup-local-demo]
 = Basic setup for a local demo
 
 [IMPORTANT]
@@ -9,7 +9,7 @@ The section covers configuration files that are only suitable for a demo on a lo
 All services are on the same network, ports are bound to the host's network, etc.
 
 This is *not* an optimal setup for a production environment.
-See <<dev-ops-guide:nginx-proxy,Nginx Proxy>> and <<dev-ops-guide:setup-production,Production deployment>> for a production deploy.
+See xref:ROOT:dev-ops-guide/index.adoc#nginx-proxy[Nginx proxy] and xref:ROOT:dev-ops-guide/index.adoc#setup-production[production setup] guides for a production deploy.
 ====
 
 == Configurations

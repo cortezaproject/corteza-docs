@@ -1,6 +1,6 @@
 include::../variables.adoc[]
 
-[#dev-ops-guide:email-relay]
+[#email-relay]
 = Relaying inbound emails to {PRODUCT_NAME} with Postfix
 
 {PRODUCT_NAME} allows you to detect and react to incoming emails via automation scripts.
@@ -15,7 +15,7 @@ If you've used anything else, such as MailGun, the examples might not work corre
 [IMPORTANT]
 ====
 This section doesn't cover any script development related topics, such as detecting sink routes.
-Refer to the integrator guide for insight on this.
+Refer to the xref:ROOT:integrator-guide/index.adoc[integrator guide] for more information regarding script development.
 ====
 
 .Flow outline:
@@ -56,12 +56,12 @@ Run `{CLI_CMD_SYSTEM} sink signature -h` for all available options:
 
 For example:
 
-[source,shell,subs=attributes]
+[source,bash,subs=attributes]
 ----
 {CLI_CMD_SYSTEM} sink signature --content-type email
 ----
 
-It should output something in the lines of:
+Should output something in the lines of:
 
 [source,text]
 ----
@@ -90,16 +90,21 @@ Take note of the above `__sign=...` parameter; we will need it later.
 virtual_alias_maps = pcre:/etc/postfix/virtual_alias
 ----
 
+[IMPORTANT]
+====
+Make sure to change the domain in the below snippet.
+====
+
 .Add virtual alias to `/etc/postfix/virtual_alias`:
 [source,text]
 ----
 # Catch-all for corteza.domain.tld and redirect it to corteza_sink mailbox
-# Make sure to change the domain!
+#     vv change this vv
 /.+@corteza\.domain\.tld$/ corteza_sink
 ----
 
 .Update virtual-alias map/db file, and restart postfix
-[source,shell]
+[source,bash]
 ----
 postmap /etc/postfix/virtual_alias
 postfix reload
@@ -111,7 +116,7 @@ Make sure to change the domain and the sink signature to match your parameters.
 ====
 
 .Add entry to `/etc/aliases`
-[source,shell,subs="attributes"]
+[source,bash,subs="attributes"]
 ----
 corteza_sink: "| curl --data-binary @- '{API_SYSTEM_BASE_URL}/sink?content-type=email&expires=&method=POST&origin=postfix&__sign=187...3D'"
 ----
@@ -122,7 +127,7 @@ The above will forward any email for a specific mailbox to a curl command, which
 ====
 
 .Update aliases
-[source,shell]
+[source,bash]
 ----
 newaliases
 ----
@@ -136,7 +141,7 @@ We recommend using a different machine -- one that is not running postfix.
 
 You can verify if everything works correctly by either sending an email to the configured address or with a simple CLI command:
 
-[source,shell]
+[source,bash]
 ----
 # Make sure to change `test@corteza.domain.tld`.
 echo "hello corteza"|mail -s 'hello' test@corteza.domain.tld
@@ -164,7 +169,7 @@ If nothing happens when you send an email, there could be a firewall issue and b
 
 To test if your sink signature and automaton script are setup correctly, you can use the following command:
 
-[source,shell,subs=attributes]
+[source,bash,subs=attributes]
 ----
 echo "
 From: &lt;sender@cortezaproject.org&gt;

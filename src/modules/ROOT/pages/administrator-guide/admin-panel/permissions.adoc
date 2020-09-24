@@ -1,6 +1,5 @@
 include::../../variables.adoc[]
 
-[#admin-adminpanel-system-permissions]
 = Permissions
 
 [NOTE]
@@ -13,7 +12,6 @@ Refer to ... for a more fine-grained overview over all the possibilities.
 
 == {PRODUCT_NAME} system
 
-[#admin-adminpanel-system-permissions-sys]
 == System service permissions
 
 include::../../../partials/permissions/system-service.adoc[]
@@ -23,17 +21,14 @@ include::../../../partials/permissions/system-service.adoc[]
 When denying access to system settings, this also prevents their usage from inside automation scripts or any other operation that might read these settings.
 ====
 
-[#admin-adminpanel-system-permissions-org]
 == Organizations
 
 include::../../../partials/permissions/system-organisations.adoc[]
 
-[#admin-adminpanel-system-permissions-application]
 == Applications
 
 include::../../../partials/permissions/system-applications.adoc[]
 
-[#admin-adminpanel-system-permissions-user]
 == Users
 
 include::../../../partials/permissions/system-users.adoc[]
@@ -43,7 +38,6 @@ include::../../../partials/permissions/system-users.adoc[]
 The ability to show/hide email address/name can be useful when defining a community instance and we wish to keep some privacy.
 ====
 
-[#admin-adminpanel-system-permissions-role]
 == Roles
 
 include::../../../partials/permissions/system-roles.adoc[]

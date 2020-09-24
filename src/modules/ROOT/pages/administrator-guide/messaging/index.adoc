@@ -1,6 +1,5 @@
 include::../../variables.adoc[]
 
-[#administrator-guide:messaging]
 = {PRODUCT_NAME} {APP_NAME_MESSAGING}
 
 {PRODUCT_NAME} {APP_NAME_MESSAGING} is a modern, private, secure messaging system which integrates seamlessly with {PRODUCT_NAME} {APP_NAME_SHELL}, {PRODUCT_NAME} CRM and {PRODUCT_NAME} {APP_NAME_COMPOSE}.

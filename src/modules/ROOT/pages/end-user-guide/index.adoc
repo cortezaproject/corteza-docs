@@ -1,6 +1,5 @@
 include::../variables.adoc[]
 
-[#end-user-guide]
 = End-User Guide
 :doctype: book
 

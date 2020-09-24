@@ -34,7 +34,7 @@ For example, running the following code in the client script's exec function wil
 The execution arguments provide an object containing all of the arguments related to the given operation and resource.
 For example, when working with records this will contain the `$record`, `$module` and `$namespace`.
 
-Refer to <<integrator-guide:resources-events>> for a complete list of available arguments.
+Refer to xref:ROOT:integrator-guide/index.adoc#resources-events[resources and events] for a complete list of available arguments.
 
 == Execution context
 

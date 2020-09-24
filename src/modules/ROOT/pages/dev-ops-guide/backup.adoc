@@ -1,5 +1,6 @@
 include::../variables.adoc[]
 
+[#backup]
 = Backup and restore
 
 We recommend updating your database and uploaded files regularly.
@@ -26,7 +27,7 @@ By default, `mysqldump` locks the tables when you run the export.
 Table locks might cause issues when running in production, so do keep this in mind.
 ====
 
-[WARNING]
+[CAUTION]
 ====
 Do not try to copy raw database files to perform a backup.
 It might lead to corrupted data.

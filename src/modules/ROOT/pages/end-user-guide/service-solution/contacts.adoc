@@ -48,7 +48,7 @@ We can use this outside of cases, for example, to notify the client that their s
 
 [NOTE]
 ====
-Refer to <<end-user-guide:service-solution:cases>> for additional details.
+Refer to xref:ROOT:end-user-guide/service-solution/index.adoc#cases[the cases section] for additional details.
 ====
 
 == Add an email for a contact

@@ -1,7 +1,5 @@
 include::../../variables.adoc[]
 
-[#admin-adminpanel-actionlog]
-[#admin-adminpanel-system-actionlog]
 = Action Log
 
 [NOTE]
@@ -15,10 +13,10 @@ The action log comes in handy when debugging the system as it provides a rich in
 
 The interface allows you to:
 
-* List registered actions (see <<admin-adminpanel-system-actionlog-list>>),
-* see action's details (see <<admin-adminpanel-system-actionlog-read>>).
+* List registered actions (see <<actionlog-list>>),
+* see action's details (see <<actionlog-read>>).
 
-[#admin-adminpanel-system-actionlog-list]
+[#actionlog-list]
 == Listing actions
 
 Registered actions are displayed in a table in the middle of the interface.
@@ -35,7 +33,7 @@ The table provides a brief overview of the action:
 ** *warning*: a warning that something did not go as expected but was not fatal, such as an invalid login attempt,
 ** *error*: there was an error either in the internal system or in one of the extensions.
 
-[#admin-adminpanel-system-actionlog-read]
+[#actionlog-read]
 == Inspecting actions
 
 To inspect an action, click on the action (table row).

@@ -1,18 +1,18 @@
 include::../../variables.adoc[]
 
-[#admin-adminpanel-system-applications]
+[#admin-panel-applications]
 = Applications
 
 The applications interface can be accessed by clicking on the "Applications" navigation item on the left navigation drawer under the system item group.
 
 The interface allows you to:
 
-* Edit permissions regarding the applications (see <<admin-adminpanel-system-applications-perms>>),
-* add new applications (see <<admin-adminpanel-system-applications-add>>),
-* list applications (see <<admin-adminpanel-system-applications-list>>),
-* edit applications (see <<admin-adminpanel-system-applications-edit>>).
+* Edit permissions regarding the applications (see <<admin-panel-application-permission>>),
+* add new applications (see <<admin-panel-application-add>>),
+* list applications (see <<admin-panel-application-list>>),
+* edit applications (see <<admin-panel-application-edit>>).
 
-[#admin-adminpanel-system-applications-perms]
+[#admin-panel-application-permission]
 == Managing permissions
 
 To manage permissions related to the application resource, click on the "Permissions" button on the top right corner of the page.
@@ -27,7 +27,7 @@ Update any application::
 Delete any application::
     Determines if the given role is allowed to delete any application,
 
-[#admin-adminpanel-system-applications-add]
+[#admin-panel-application-add]
 == Adding applications
 
 To add a new application, click on the "New" button on the top right corner of the page.
@@ -41,7 +41,7 @@ After saving the application, a new interface is provided where you can edit the
 
 include::./partials/application-edit.adoc[]
 
-[#admin-adminpanel-system-applications-list]
+[#admin-panel-application-list]
 == Listing applications
 
 Applications can be viewed on the table in the middle of the interface.
@@ -56,7 +56,7 @@ Out of the box, these applications are already configured:
 * {PRODUCT_NAME} Admin Area,
 * Google Maps.
 
-[#admin-adminpanel-system-applications-edit]
+[#admin-panel-application-edit]
 == Editing applications
 
 Applications can be edited by pressing on the edit icon next to each row in the role list, that opens up a new interface,

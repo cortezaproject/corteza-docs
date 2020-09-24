@@ -1,6 +1,5 @@
 include::../variables.adoc[]
 
-[#administrator-guide]
 = Administrator Guide
 :doctype: book
 
@@ -9,7 +8,7 @@ It provides a fairly low-level overview over the entire {PRODUCT_NAME} while omi
 
 [NOTE]
 ====
-If you are an integrator and wish to also take on the administrator role, the information from the <<integrator-guide>> is sufficient.
+If you are an integrator and wish to also take on the administrator role, the information from the xref:ROOT:integrator-guide/index.adoc[integrator guide] is sufficient.
 If you wish to simply refresh your memory, go ahead.
 ====
 

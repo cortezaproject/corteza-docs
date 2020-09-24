@@ -1,6 +1,6 @@
 include::../variables.adoc[]
 
-[#integrator-guide:development-process]
+[#development-process]
 = Development Process
 
 // @todo

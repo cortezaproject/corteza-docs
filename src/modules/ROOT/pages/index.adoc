@@ -20,36 +20,44 @@ Checkout https://{DOMAIN}[our homepage], or https://latest.{DOMAIN}[get in touch
 
 === I need to deploy my own {PRODUCT_NAME} instance
 
-Take a look at the link:dev-ops-guide/index.html[DevOps guide]!
+Take a look at the xref:ROOT:dev-ops-guide/index.adoc[DevOps guide]!
 
-It covers everything you need to know about link:dev-ops-guide/index.html#dev-ops-guide:server-configuration[{PRODUCT_NAME} configuration], link:dev-ops-guide/index.html#dev-ops-guide:nginx-proxy[Nginx proxy configuration] and link:dev-ops-guide/index.html#dev-ops-guide:setup-production[production deploys].
+It covers everything you need to know about xref:ROOT:dev-ops-guide/index.adoc#server-configuration[{PRODUCT_NAME} server configuration], xref:ROOT:dev-ops-guide/index.adoc#nginx-proxy[Nginx proxy configuration] and xref:ROOT:dev-ops-guide/index.adoc#setup-production[production deploys].
+
+We also provide some miscellanies, such as xref:dev-ops-guide/index.adoc#setup-local-demo[Setting up a local demo], xref:dev-ops-guide/index.adoc#email-relay[relaying inbound emails], xref:dev-ops-guide/index.adoc#backup[data backups].
 
 === I need to learn how to use different {PRODUCT_NAME} applications
 
-Take a look at the link:end-user-guide/index.html#_tabs[end-user guide]!
+Take a look at the xref:ROOT:end-user-guide/index.adoc[end-user guide]!
 
 It covers all of the {PRODUCT_NAME} applications, what features they provide and how to use them.
 It's designed to be easily understandable by non-techy people, so you don't need to be a field expert.
 
+.Here is a shortcut:
+* xref:ROOT:end-user-guide/messaging/index.adoc[{PRODUCT_NAME} {APP_NAME_MESSAGING}],
+* xref:ROOT:end-user-guide/shell/index.adoc[{PRODUCT_NAME} {APP_NAME_SHELL}],
+* xref:ROOT:end-user-guide/crm/index.adoc[{PRODUCT_NAME} CRM],
+* xref:ROOT:end-user-guide/service-solution/index.adoc[{PRODUCT_NAME} Service Solution].
+
 === I need to know how to take on the administrator role
 
-Take a look at the link:administrator-guide/index.html[administrator guide]!
+Take a look at the xref:ROOT:administrator-guide/index.adoc[administrator guide]!
 
-It covers all aspects of {PRODUCT_NAME} administration, such as link:administrator-guide/security.html[system security], link:administrator-guide/admin-panel/index.html[administration panel], and link:administrator-guide/compose/index.html[{PRODUCT_NAME} {APP_NAME_COMPOSE} configuration].
+It covers all aspects of {PRODUCT_NAME} administration, such as xref:ROOT:administrator-guide/index.adoc#security[system security], xref:ROOT:administrator-guide/index.adoc#admin-panel[administration panel], and xref:ROOT:administrator-guide/index.adoc#compose[{PRODUCT_NAME} {APP_NAME_COMPOSE} configuration].
 
 === I want to create something with {PRODUCT_NAME}
 
-Take a look at the link:integrator-guide/index.html[integrator guide]!
+Take a look at the xref:ROOT:integrator-guide/index.adoc[integrator guide]!
 
 It takes you step-by-step over the entire integration process, from designing a datamodel, configuring users their roles, to creating extensions.
 
 === I love open source -- Let me contribute!!
 
 Welcome aboard!
-Take a look at the link:developer-guide/index.html[developer guide]!
+Take a look at the xref:ROOT:developer-guide/index.adoc[developer guide]!
 
 It provides a fairly abstract overview of each feature provided by each {PRODUCT_NAME} application.
-It covers everything from link:developer-guide/documentation/index.html[writing documentation] to link:developer-guide/compose/index.html[{PRODUCT_NAME} {APP_NAME_COMPOSE}], and it should give you enough knowledge to help you get started with helping out.
+It covers everything from xref:ROOT:developer-guide/index.adoc#documentation[writing documentation] to xref:ROOT:developer-guide/index.adoc#compose[{PRODUCT_NAME} {APP_NAME_COMPOSE}], and it should give you enough knowledge to help you get started with helping out.
 
 [NOTE]
 ====
@@ -68,9 +76,9 @@ If you have any questions or are stuck, don't hesitate to get in touch with us o
 
 == I am stuck... I need some examples
 
-Take a look at our link:examples/index.html[examples]!
+Take a look at our xref:ROOT:examples/index.adoc[examples]!
 
-We have examples for working with the System API, Compose API, and automation script development.
+We have examples for working with the xref:ROOT:examples/system-api/index.adoc[System API], xref:ROOT:examples/system-api/index.adoc[Compose API], and automation script development.
 They should give you enough knowledge to help you get started.
 
 [NOTE]
@@ -81,7 +89,7 @@ Get in touch with us on the https://latest.{DOMAIN}[community {PRODUCT_NAME} ins
 
 == I would like to upgrade my instance -- what do I need to do?
 
-Firstly, take a look at the link:changelog/index.html[changelog] to see what has changed and if there are any backwards-incompatible changes.
+Firstly, take a look at the xref:ROOT:changelog/index.adoc[changelog] to see what has changed and if there are any backwards-incompatible changes.
 Then you can simply update your containers.
 
 // @todo add a proper upgrade guide
@@ -89,7 +97,7 @@ Then you can simply update your containers.
 == This is exciting! What's in store for the future?!
 
 We're glad you asked!
-Here are the big link:rfc/index.html[features we are working on].
+Here are the big xref:ROOT:rfc/index.adoc[features we are working on].
 
 // This is our roadmap for the near future:
 

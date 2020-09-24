@@ -22,7 +22,6 @@ include::modules/ROOT/pages/variables.adoc[]
 
 * xref:administrator-guide/index.adoc[Administrator Guide]
 ** xref:administrator-guide/security.adoc[Security]
-** xref:administrator-guide/system-setup/index.adoc[System Setup]
 ** xref:administrator-guide/admin-panel/index.adoc[Admin Panel]
 ** xref:administrator-guide/compose/index.adoc[]{APP_NAME_COMPOSE}
 ** xref:administrator-guide/messaging/index.adoc[]{APP_NAME_MESSAGING}
@@ -40,8 +39,8 @@ include::modules/ROOT/pages/variables.adoc[]
 ** xref:developer-guide/compose/index.adoc[]{PRODUCT_NAME} {APP_NAME_COMPOSE}
 ** xref:developer-guide/extensions/index.adoc[Extensions]
 
-* xref:extensions/index.adoc[Extensions]
-** xref:extensions/docusign/index.adoc[DocuSign]
+// * xref:extensions/index.adoc[Extensions]
+// ** xref:extensions/docusign/index.adoc[DocuSign]
 
 * xref:examples/index.adoc[Examples]
 ** xref:examples/system-api/index.adoc[System API]

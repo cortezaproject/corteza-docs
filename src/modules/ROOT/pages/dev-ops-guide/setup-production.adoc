@@ -1,6 +1,6 @@
 include::../variables.adoc[]
 
-[#dev-ops-guide:setup-production]
+[#setup-production]
 = Production setup
 
 [NOTE]
@@ -10,8 +10,7 @@ You can use similar steps when deploying a staging or a demo environment.
 
 [IMPORTANT]
 ====
-This example describes a production-ready deployment.
-It depends on running nginx-proxy service (see <<dev-ops-guide:nginx-proxy,Nginx Proxy>>).
+This setup depends on you running the xref:ROOT:dev-ops-guide/index.adoc#nginx-proxy[Nginx proxy service].
 ====
 
 [IMPORTANT]
@@ -27,7 +26,7 @@ ERROR: Network proxy declared as external, but could not be found. Please create
 
 [NOTE]
 ====
-If nginx-proxy refuses to start, inspect your configuration files and compare them with ones provided in <<dev-ops-guide:nginx-proxy,Nginx Proxy>> section.
+If nginx-proxy refuses to start, inspect your configuration files and compare them with ones provided in the xref:ROOT:dev-ops-guide/index.adoc#nginx-proxy-config[Nginx proxy section].
 ====
 
 == DNS

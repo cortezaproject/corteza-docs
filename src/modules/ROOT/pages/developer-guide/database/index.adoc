@@ -1,6 +1,6 @@
 include::../../variables.adoc[]
 
-[#developer-guide:database]
+[#database]
 = {PRODUCT_NAME} Database
 
 :leveloffset: +1

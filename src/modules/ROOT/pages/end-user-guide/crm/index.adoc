@@ -1,6 +1,6 @@
 include::../../variables.adoc[]
 
-[#end-user-guide:crm]
+[#crm]
 = {PRODUCT_NAME} CRM
 :doctype: book
 

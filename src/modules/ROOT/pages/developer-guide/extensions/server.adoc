@@ -96,7 +96,7 @@ Implicit::
 
 [NOTE]
 ====
-The same is also true for the <<developer-guide:extensions:server:scheduler>>.
+The same is also true for the <<extensions-server-scheduler>>.
 ====
 
 Iterator::
@@ -123,7 +123,7 @@ This can be used for things like webhooks.
  - POST parameters,
 . generate an event and dispatch it via the event bus.
 
-[#developer-guide:extensions:server:scheduler]
+[#extensions-server-scheduler]
 == Scheduler
 
 The scheduler system is responsible for triggering deferred scripts.

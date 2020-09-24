@@ -1,6 +1,5 @@
 include::../variables.adoc[]
 
-[#end-user-guide:getting-started]
 = Getting Started
 
 // @todo

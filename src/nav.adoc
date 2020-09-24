@@ -39,6 +39,9 @@ include::modules/ROOT/pages/variables.adoc[]
 ** xref:developer-guide/compose/index.adoc[]{PRODUCT_NAME} {APP_NAME_COMPOSE}
 ** xref:developer-guide/extensions/index.adoc[Extensions]
 
+* xref:upgrade-guide/index.adoc[Upgrade Guide]
+** xref:upgrade-guide/202003.adoc[Upgrade to 2020.3]
+
 // * xref:extensions/index.adoc[Extensions]
 // ** xref:extensions/docusign/index.adoc[DocuSign]
 

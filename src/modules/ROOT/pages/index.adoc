@@ -1,34 +1,96 @@
 include::variables.adoc[]
-= {PRODUCT_NAME} Guides
+= {PRODUCT_NAME}
 
-Interested about {PRODUCT_NAME}?::
-    Check out the product's link:overview/index.html[overview] to get a better understanding of what it is and who it is for!
+{PRODUCT_NAME} is an *open source*, *self-hosted cloud-based* platform for your work.
+It provides a wide ecosystem of a *Unified Workspace* (like Google G Suite), *Enterprise Messaging* (like Slack), a *low code environment* for rapidly and securely delivering records-based management solutions, and *CRM* (like Salesforce).
 
-Do you want to know how to use {PRODUCT_NAME}?::
-    Check out the link:end-user-guide/index.html[end-user guide].
-    Its designed for non-techy people so it is easily understandable!
-    It covers all the available features and shows you how to use them.
+{PRODUCT_NAME} is built upon modern technologies, using https://golang.org/[Golang] as a back-end and https://vuejs.org/[Vue.js] as a front-end.
+The platform is *secure* with a powerful *RBAC access control facility*, that allows you yo configure your users just the way you want to!
 
-Responsible for system setup and administration?::
-    Check out the link:administrator-guide/index.html[administrator guide].
-    It covers provides you all the important information from system deploy to maintenance and administration.
+{PRODUCT_NAME} aims to be *indisputably trustworthy* in its motivations and its approach to design, development and maintenance of the platform.
+Organisations should feel that their chosen digital work platform is always *under their control*, always *protected* and always *developed in their best interests*.
 
-Creating solutions based upon {PRODUCT_NAME}?::
-    Check out the link:integrator-guide/index.html[integrator guide].
-    It provides you all the knowledge to build amazing things from scratch!
+[NOTE]
+====
+Questions?
+Checkout https://{DOMAIN}[our homepage], or https://latest.{DOMAIN}[get in touch with us]!
+====
 
-Want to contribute?::
-    Check out the link:developer-guide/index.html[developer guide].
-    It provides you enough insight into the low-level aspects of the products to help you get started.
-    If you're stuck, don't hesitate to get in touch with us!
+== I'm interested! What's next?!
 
-Looking for an official {PRODUCT_NAME} extension?::
-    Check out the link:extensions/index.html[extensions] to see if we have something to fit your needs.
-    Nothing fits?
-    Check out the link:integrator-guide/index.html[integrator guide] to build one yourself!
+=== I need to deploy my own {PRODUCT_NAME} instance
 
-Prefer to learn from examples?::
-    Check out our link:examples/index.html[examples] to help you get started building amazing things!
+Take a look at the link:dev-ops-guide/index.html[DevOps guide]!
 
-Want to learn about new features and contribute to their development?::
-    Check out our link:rfc/index.html[RFC] list to get involved!
+It covers everything you need to know about link:dev-ops-guide/index.html#dev-ops-guide:server-configuration[{PRODUCT_NAME} configuration], link:dev-ops-guide/index.html#dev-ops-guide:nginx-proxy[Nginx proxy configuration] and link:dev-ops-guide/index.html#dev-ops-guide:setup-production[production deploys].
+
+=== I need to learn how to use different {PRODUCT_NAME} applications
+
+Take a look at the link:end-user-guide/index.html#_tabs[end-user guide]!
+
+It covers all of the {PRODUCT_NAME} applications, what features they provide and how to use them.
+It's designed to be easily understandable by non-techy people, so you don't need to be a field expert.
+
+=== I need to know how to take on the administrator role
+
+Take a look at the link:administrator-guide/index.html[administrator guide]!
+
+It covers all aspects of {PRODUCT_NAME} administration, such as link:administrator-guide/security.html[system security], link:administrator-guide/admin-panel/index.html[administration panel], and link:administrator-guide/compose/index.html[{PRODUCT_NAME} {APP_NAME_COMPOSE} configuration].
+
+=== I want to create something with {PRODUCT_NAME}
+
+Take a look at the link:integrator-guide/index.html[integrator guide]!
+
+It takes you step-by-step over the entire integration process, from designing a datamodel, configuring users their roles, to creating extensions.
+
+=== I love open source -- Let me contribute!!
+
+Welcome aboard!
+Take a look at the link:developer-guide/index.html[developer guide]!
+
+It provides a fairly abstract overview of each feature provided by each {PRODUCT_NAME} application.
+It covers everything from link:developer-guide/documentation/index.html[writing documentation] to link:developer-guide/compose/index.html[{PRODUCT_NAME} {APP_NAME_COMPOSE}], and it should give you enough knowledge to help you get started with helping out.
+
+[NOTE]
+====
+If you have any questions or are stuck, don't hesitate to get in touch with us on the https://latest.{DOMAIN}[community {PRODUCT_NAME} instance]!
+====
+
+// === I need something, but it's not in the core
+
+// {PRODUCT_NAME} provides a set of link:extensions/index.html[official extensions] that are developed and maintained by the {PRODUCT_NAME} team.
+
+// [NOTE]
+// ====
+// Still nothing?
+// Take a look at the link:integrator-guide/index.html[integrator guide] to make it yourself, or get in touch with us -- we'll figure something out!
+// ====
+
+== I am stuck... I need some examples
+
+Take a look at our link:examples/index.html[examples]!
+
+We have examples for working with the System API, Compose API, and automation script development.
+They should give you enough knowledge to help you get started.
+
+[NOTE]
+====
+Still stuck?
+Get in touch with us on the https://latest.{DOMAIN}[community {PRODUCT_NAME} instance]!
+====
+
+== I would like to upgrade my instance -- what do I need to do?
+
+Firstly, take a look at the link:changelog/index.html[changelog] to see what has changed and if there are any backwards-incompatible changes.
+Then you can simply update your containers.
+
+// @todo add a proper upgrade guide
+
+== This is exciting! What's in store for the future?!
+
+We're glad you asked!
+Here are the big link:rfc/index.html[features we are working on].
+
+// This is our roadmap for the near future:
+
+// include::roadmap.adoc[]

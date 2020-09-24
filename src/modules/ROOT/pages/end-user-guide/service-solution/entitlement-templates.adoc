@@ -2,10 +2,30 @@ include::../../variables.adoc[]
 
 = Entitlement templates
 
-A product or service normally comes with a entitlement to support.
+The Entitlement Templates page is accessible by clicking on the "Entitlement Templates" under the "Products" dropdown in the main navigation bar on the top of the screen.
+
+A product or service comes typically with an entitlement to support.
 For example, a software license may allow the client to contact you by phone when they have issues or questions.
 Or, when you sell hardware, you may need to offer a period of guarantee, allowing the client to contact you when the product breaks within that period.
 
-For most products and services the entitlements will be the same, so that's why Service Solution offers a templates module.
-After creating an entitlement template, you can select it in a product.
-Then, when a customer acquires that product, the template will be used to prefill data such at type of entitlement and end date.
+Service Solution provides an easy way of defining the most common entitlements as entitlement templates.
+After we create a template, we bind it to a product.
+Now, whenever we create an entitlement for that product, the template will be used to prefill the base information regarding the entitlement.
+
+== Create an entitlement template
+
+. Navigate to the Entitlement Templates page,
+. press the "+ Add" button at the top of the list,
+. fill out the form and press the "Save" button in the bottom right corner.
+
+== Add an entitlement template to a product
+
+. Navigate to the Products page,
+. press the edit icon next to the product you wish to do this for,
+. navigate to the "Product Description" block and select an "Entitlement Template",
+. press the "Save" button in the bottom right corner.
+
+[NOTE]
+====
+If you wish to create a new product instead of editing an existing one, press the "+ Add" button instead of the edit button on the product list.
+====

@@ -2,33 +2,37 @@ include::../../variables.adoc[]
 
 = Products
 
-In Service Solution you can link a case to a product.
-This enables you to have a complete overview of how much service is provided for a certain product or product family.
-A product can be a physical product or a service.
+The Products page is accessible by clicking on the "Products" in the main navigation bar on the top of the screen.
 
-Default fields in this module are the product code, name, category and description.
-You can set the entitlement template, allowing you to easily set entitlements for clients.
-Optionally, you can set a product photo and attach files (such as manuals).
+A product can be a physical or a software product, as well as a service provided by your company.
+Products allow you to keep track of how much service a specific product or product family provides.
+We also get an overview of all cases for a specific product.
 
-== Total time and cost
+== Key parts of a product
 
-An important block is "Cases Totals".
-Here are calculated values that show how much support have been given to the product.
-The first value is time: how many hours.
-The second value is cost: how much money.
-This allows you to easily detect products that are requiring to much support, and you can act on it accordingly.
+Product Description::
+    Here we store the essential information regarding the product, such as it's product code, name, family and optionally an entitlement template.
 
-== Entitlements related to the product
+[TIP]
+====
+We can use entitlement templates to automate the creation of more common entitlements, such as a hardware warranty for a product.
+====
 
-The "Entitlements for this product" block shows all customers that are entitled to support for this product.
-More info about entitlements can be found in the "Entitlements" and "Entitlement templates" chapters.
+Cases totals::
+    Here we see the total time and cost that a specific product has required so far.
+    The system calculates these fields, so we don't need to worry about that!
 
-== Cases related to the product
+Cases related to this product::
+    Here we find all the cases that we created for the product.
+    It can help us identify the most problematic products and the most common issues.
 
-The product page shows a list of all cases where the product was selected.
-It allows you to quickly access any related case, and it gives a good overview of the status of the cases related to the product.
+Entitlements for this product::
+    Here we find all of the entitlements that we created for this product.
 
-== Knowledge Base items related to this product
+Knowledge Base items related to this product::
+    The knowledge base allows us to provide some information regarding the product, so our support agents can provide quality answers without the need for experts.
 
-This block is perfect for service agents to quickly find information about the product.
-It's a filtered list of only items that are related.
+[NOTE]
+====
+The knowledge base is accessible from the case creation screen.
+====

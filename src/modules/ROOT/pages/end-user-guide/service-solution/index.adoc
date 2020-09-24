@@ -1,7 +1,21 @@
+include::../../variables.adoc[]
+
 [#end-user-guide:service-solution]
 = Service Solution
+:doctype: book
+
+{PRODUCT_NAME} Service Solution is a *highly flexible*, *scalable* and *open source* solution for keeping up with customer cases.
+
+[IMPORTANT]
+====
+Since Service Solution is highly customizable, this guide may differ from yours.
+
+In such cases, please contact your system administrator.
+====
 
 :leveloffset: +1
+
+include::home.adoc[]
 
 include::cases.adoc[]
 
@@ -15,14 +29,14 @@ include::products.adoc[]
 
 include::entitlement-templates.adoc[]
 
-include::kb.adoc[]
+include::knowledge-base.adoc[]
 
 include::departments.adoc[]
-
-include::dashboards.adoc[]
 
 include::settings.adoc[]
 
 include::email-templates.adoc[]
+
+include::dashboards.adoc[]
 
 :leveloffset: -1

@@ -2,7 +2,6 @@ include::../variables.adoc[]
 
 [#end-user-guide]
 = End-User Guide
-
 :doctype: book
 
 This guide is tailored to end-users that need to know how to use the entire {PRODUCT_NAME}.
@@ -10,7 +9,7 @@ It provides a high-level overview of all the features while keeping it simple an
 
 :leveloffset: +1
 
-include::./getting-started.adoc[]
+// include::./getting-started.adoc[]
 
 include::./messaging/index.adoc[]
 

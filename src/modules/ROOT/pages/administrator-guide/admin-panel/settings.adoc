@@ -73,7 +73,7 @@ Basic::
 Basic::
     This section allows you to define some basic user interface and system options, such as attachment limitations and some minor user interface tweaks.
 
-== [APP_NAME_SHELL]
+== {APP_NAME_SHELL}
 
 Logo::
     This section allows you to customize the interface by interpolating your own logo instead of our own,

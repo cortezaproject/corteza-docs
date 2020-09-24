@@ -14,11 +14,11 @@ include::modules/ROOT/pages/variables.adoc[]
 ** xref:dev-ops-guide/backup.adoc[Backups]
 
 * xref:end-user-guide/index.adoc[End-user Guide]
-** xref:end-user-guide/getting-started.adoc[Getting started]
-** xref:end-user-guide/messaging/index.adoc[Messaging]
-** xref:end-user-guide/shell/index.adoc[Shell]
-** xref:end-user-guide/crm/index.adoc[Crm]
-** xref:end-user-guide/service-solution/index.adoc[Service Solution]
+// ** xref:end-user-guide/getting-started.adoc[Getting started]
+** xref:end-user-guide/messaging/index.adoc[]{PRODUCT_NAME} {APP_NAME_MESSAGING}
+** xref:end-user-guide/shell/index.adoc[]{PRODUCT_NAME} {APP_NAME_SHELL}
+** xref:end-user-guide/crm/index.adoc[]{PRODUCT_NAME} CRM
+** xref:end-user-guide/service-solution/index.adoc[]{PRODUCT_NAME} {CRM} Service Solution
 
 * xref:administrator-guide/index.adoc[Administrator Guide]
 ** xref:administrator-guide/security.adoc[Security]

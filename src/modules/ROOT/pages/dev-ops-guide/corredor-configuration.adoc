@@ -18,7 +18,7 @@ In the context of Docker Compose, it is next to the `docker-compose.yaml` file.
 
 [TIP]
 ====
-You can use variables defined in the `.env` inside your `docker-compose.yaml` file; for example `${VERSION}`.
+You can use variables defined in the `.env` inside your `docker-compose.yaml` file; for example `$\{VERSION\}`.
 ====
 
 == Base configuration

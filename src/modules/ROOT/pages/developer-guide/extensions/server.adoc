@@ -28,7 +28,7 @@ The following automation scripts are executed directly by the {PRODUCT_NAME} ser
 [APPLICATION NAME]/automation/list::
     Provides a list of available automation scripts for the given {PRODUCT_NAME} application.
 
-[APPLICATION NAME]/automation/{bundle}-{type}.{ext}::
+[APPLICATION NAME]/automation/\{bundle\}-\{type\}.\{ext\}::
     Provides the client-script automation bundle for the given {PRODUCT_NAME} application.
 
 [NOTE]

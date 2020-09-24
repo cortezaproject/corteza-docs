@@ -19,6 +19,6 @@ Also, make sure that your redirect URL (`auth.external.redirect-url`) is properl
 |
 | Sets value for `auth.external.redirect-url` setting.
 
-This should be set to `{API_SYSTEM_BASE_URL}/auth/external/{PROVIDER_NAME}/callback`.
+This should be set to `{API_SYSTEM_BASE_URL}/auth/external/\{PROVIDER_NAME\}/callback`.
 
 |===

@@ -44,7 +44,7 @@ It contains:
 `ctx.console`::
     Used for logging.
     When running in the UA, this will be native `window.console`.
-    When running in {app_automation}, this will be a `Pino` instance,
+    When running in {APP_AUTOMATION}, this will be a `Pino` instance,
 
 `ctx.log`::
     Shortcut for `ctx.console.log`,

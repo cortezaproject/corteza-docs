@@ -2,7 +2,6 @@ include::../variables.adoc[]
 
 [#administrator-guide]
 = Administrator Guide
-
 :doctype: book
 
 This guide is tailored to system administrators that need to know enough about the system internals, how to configure different parts of the system so that you will be confident in taking the role.
@@ -17,8 +16,6 @@ If you wish to simply refresh your memory, go ahead.
 :leveloffset: +1
 
 include::security.adoc[]
-
-include::system-setup/index.adoc[]
 
 include::admin-panel/index.adoc[]
 

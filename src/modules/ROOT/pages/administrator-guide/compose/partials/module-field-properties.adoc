@@ -1,7 +1,7 @@
 * *Name*: This defines the internal naming convention and it must be specified and unique.
 This is not shown to the end user.
 It must:
-include::partial$handle-constraints.adoc[]
+include::ROOT:partial$handle-constraints.adoc[]
 
 * *Title*: This is a "human-friendly" representation of the field and is shown to the end-user when they view/edit the field.
 The title field doesn't define strict restrictions, but is limited to the maximum of 64 characters,

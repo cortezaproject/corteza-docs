@@ -2,29 +2,65 @@ include::../../variables.adoc[]
 
 = Leads
 
-A lead is an individual who might become your customer, but currently isn’t.
-Another word for a lead is a prospect. Leads are usually converted to accounts, contacts and opportunities.
+The Leads page is accessible by clicking on the "Leads" in the main navigation bar on the top of the screen.
 
-When the leads are enters the CRM, it needs to be qualified.
-The rating field is particularly helpful to see if a lead is a potential customer or not.
+[NOTE]
+====
+There are three pages dedicated to leads -- one main page and two subpages.
+They all show leads but with different filtering.
 
-When a lead shows commercial interest, such a a request for pricing, and the lead’s location matches the region your business targets, this lead is should be considered a 5 star lead.
-A 3 star lead can be a lead that did an online demo and nothing more, and a 0 or 1 star lead can be a lead that contacted the company for anything but one of your products or services.
+* *Leads* shows all of the leads in the system,
+* *All New Leads* shows only the leads that have the `New` status,
+* *My Leads* shows only the leads that you are responsible for.
+====
 
-The typical process is that a sales person follows up on the lead.
-The related record blocks “notes” (for any note), “events” (for example a scheduled online demo) and “tasks” (for example “send price list via email” or “call back”) are helpful here.
+A *lead* or a prospect is an individual who *might become your customer*, but currently is not.
+They are usually converted to *accounts*, *contacts* and *opportunities*.
 
-Leads can be part of a campaign.
-More info about campaigns can be found in the <<campaigns>> chapter.
+== Add a new lead
 
-When the sales person has made contact with the lead, and there is a sales opportunity here, the sales person should convert the lead.
-There are two automation buttons on the top right.
-One will convert the lead in to an account + contact, and the other one, if there is already more info about the potential opportunity, will create an account + contact + opportunity.
+[NOTE]
+====
+A new lead can be added from either one of the subpages.
+====
 
-== My Leads
+. Click on the "+ Add" button to open up the form,
+. populate the data and press the "Save" button on the bottom right corner.
 
-My Leads is a sub page of leads, showing only the leads owned by you.
+[TIP]
+====
+The rating field is incredibly helpful as it allows you to distinguish between good leads quickly.
+====
 
-== All New Leads
+The typical process of handling a lead after it is inserted in the system is for a salesperson to follow up on the lead.
 
-All New Leads is a sub page of leads, showing all leads with the status “New”.
+[TIP]
+====
+You can create notes, events and tasks are extremely helpful here.
+====
+
+== Converting the lead
+
+A lead should be converted *after* a salesperson has made contact, and there is a sales opportunity.
+
+You have two options:
+Convert this lead into an Account::
+    This creates an account and a contact for the lead.
+    Use it when a lead shows some interest but its not exactly clear what their needs are.
+
+Convert this lead into an Account and Opportunity::
+    This creates an account, contact and an opportunity for the lead.
+    Use it when a lead shows interest, and we already know what their needs are.
+
+[TIP]
+====
+When a lead is converted, the generated Contact is set as the primary contact for the account.
+====
+
+== Tips for determining a lead rating
+
+If a lead *shows commercial interest*, such as a request for pricing and the lead's *location matches the region your business targets*, this lead should be considered a *5 star lead*.
+
+If a lead *performed some additional interactions*, such as going through a demo, they could be considered a *3 star lead*.
+
+If a lead *contacted* you regarding one of your services and didn't show any explicit business intention, it can be considered a *0 star* or a *1 star* lead.

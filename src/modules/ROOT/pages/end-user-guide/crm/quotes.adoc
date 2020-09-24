@@ -2,5 +2,9 @@ include::../../variables.adoc[]
 
 = Quotes
 
-This module shows the list of all quotes.
-For details on easy quote generation, please check the <<opportunities>> module documentation.
+The Quotes page is accessible by clicking on the "Quotes" in the main navigation bar on the top of the screen.
+
+You generate a quote from an opportunity.
+A quote allows you to complete the payment and thus charge the customer.
+
+// @todo improve

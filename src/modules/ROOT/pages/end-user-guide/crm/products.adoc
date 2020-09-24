@@ -2,8 +2,16 @@ include::../../variables.adoc[]
 
 = Products
 
-In this module you manage all products (or services) your company sells.
+The Products page is accessible by clicking on the "Products" in the main navigation bar on the top of the screen.
 
-In each product you can define the main details (such as name or product code) and add pricing per price book, allowing you to have different pricing for different types of companies or regions.
+Here you can manage all of your companies products and service.
 
-The details view of products also shows the related cases.
+Each product defines the base information, such as its name, product code and related files.
+The cost of the product is determined by the price book.
+
+== Price book
+
+Your company may have different price books depending on the region and client organization type.
+
+The price book determines how much the product costs.
+When creating an opportunity, product prices and the totals are calculated based on the selected price book.

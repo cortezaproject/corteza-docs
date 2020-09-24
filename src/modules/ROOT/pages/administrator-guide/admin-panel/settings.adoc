@@ -1,6 +1,6 @@
 include::../../variables.adoc[]
 
-[#admin-adminpanel-system-settings]
+[#admin-panel-system-settings]
 = Settings
 
 [NOTE]
@@ -18,14 +18,14 @@ Email::
 
 External authentication::
     This section allows you to configure external authentication providers, such as Google and Facebook.
-    See <<admin-adminpanel-system-settings-externalauth>> for configuration details.
+    See <<admin-panel-system-settings-externalauth>> for configuration details.
 
 [TIP]
 ====
 The ability to disable internal login can be useful when wanting to force the users to either use external authentication providers or using a different system for their authentication.
 ====
 
-[#admin-adminpanel-system-settings-externalauth]
+[#admin-panel-system-settings-externalauth]
 == Configuring external providers
 
 === Google
@@ -73,7 +73,7 @@ Basic::
 Basic::
     This section allows you to define some basic user interface and system options, such as attachment limitations and some minor user interface tweaks.
 
-== [APP_NAME_SHELL]
+== {APP_NAME_SHELL}
 
 Logo::
     This section allows you to customize the interface by interpolating your own logo instead of our own,

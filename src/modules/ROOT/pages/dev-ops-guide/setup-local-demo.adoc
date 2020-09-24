@@ -1,0 +1,84 @@
+include::../variables.adoc[]
+
+[#setup-local-demo]
+= Basic setup for a local demo
+
+[IMPORTANT]
+====
+The section covers configuration files that are only suitable for a demo on a local environment.
+All services are on the same network, ports are bound to the host's network, etc.
+
+This is *not* an optimal setup for a production environment.
+See xref:ROOT:dev-ops-guide/index.adoc#nginx-proxy[Nginx proxy] and xref:ROOT:dev-ops-guide/index.adoc#setup-production[production setup] guides for a production deploy.
+====
+
+== Configurations
+
+[NOTE]
+====
+Some of the configuration lines in the provided docker-compose file are written in a single line for brevity and simpler enabling/disabling (commenting-out).
+====
+
+[NOTE]
+====
+Some operating systems do not like files that start with a dot, so make sure `.env` file is properly named.
+====
+
+.`.env`
+[source,dotenv]
+----
+include::ROOT:example$docker-compose/basic/env.txt[]
+----
+
+.`docker-compose.yaml`
+[source,yaml]
+----
+include::ROOT:example$docker-compose/basic/docker-compose.yaml[]
+----
+
+Create an empty directory with the `.env` and `docker-compose.yaml` files.
+You can adjust the provided example configuration files as you see fit.
+
+[IMPORTANT]
+====
+Make sure to change the `AUTH_JWT_SECRET` value to something else.
+====
+
+== Run the services
+
+[source,shell]
+----
+docker-compose up -d
+----
+
+Run this command in the same directory as your `docker-compose.yaml` file.
+It will start all of the services based on the configurations provided in the configuration files.
+
+You can check if everything is running correctly, by executing the `docker-compose ps` command.
+The output should be similar to this one:
+
+[source,shell]
+----
+include::ROOT:example$docker-compose/basic/output-ps.txt[]
+----
+
+You can see 4 services up and running.
+Two of them are accessible on localhost (ports `8080` and `8081`).
+
+[NOTE]
+====
+If you changed the ports in your `.env` file, the ports will be different.
+====
+
+== Finishing the setup
+
+. Direct your browser to `http://localhost:8080`.
+If you used other ports in your configurations, use those.
+On your first visit, you should be redirected to the authentication page (`/auth`),
+. create your account through the sign-up form.
+
+[NOTE]
+====
+The first user gets automatically promoted to an administrator.
+You can add additional users by using the sign-up form or by adding them in the administration panel.
+====

@@ -2,5 +2,15 @@ include::../../variables.adoc[]
 
 = Tasks
 
-Tasks in the CRM are actions that needs to be completed by yourself or another user.
-You can use them to manage daily work tasks.
+The Tasks page is accessible by clicking on the "Tasks" in the main navigation bar on the top of the screen.
+
+Tasks allow you to keep track of actions that need to be completed by someone; either yourself or someone else.
+
+[NOTE]
+====
+Make sure to set the task as "Closed" once you complete it.
+====
+
+You can access tasks either from the list on the current page or on the calendar on the homepage.
+
+You can relate tasks to leads, accounts, contacts, opportunities, quotes or contacts.

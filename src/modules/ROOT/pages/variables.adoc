@@ -19,6 +19,10 @@
 :API_MESSAGING_BASE_URL: https://api.{API_DOMAIN}/messagig
 :API_COMPOSE_BASE_URL:   https://api.{API_DOMAIN}/compose
 
+:APP_DOMAIN:             your-corteza-instance.tld
+:APP_MESSAGING_BASE_URL: https://{APP_DOMAIN}/messagig
+:APP_COMPOSE_BASE_URL:   https://{APP_DOMAIN}/compose
+
 :GIT_REPO_GROUP:        cortezaproject
 :GIT_REPO_PREFIX:       corteza
 :GIT_REPO_LINK_PREFIX:  https://github.com/{GIT_REPO_GROUP}/{GIT_REPO_PREFIX}

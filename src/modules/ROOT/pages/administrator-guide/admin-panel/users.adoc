@@ -1,6 +1,6 @@
 include::../../variables.adoc[]
 
-[#admin-adminpanel-system-users]
+[#admin-panel-user]
 = Users
 
 [NOTE]
@@ -15,12 +15,12 @@ Additionally, each user has a username (=email) and password to enable them to l
 
 The interface allows you to:
 
-* Edit permissions regarding the user resource (see <<admin-adminpanel-system-users-perms>>),
-* add new users (see <<admin-adminpanel-system-users-add>>),
-* list system users (see <<admin-adminpanel-system-users-list>>),
-* edit users (see <<admin-adminpanel-system-users-edit>>).
+* Edit permissions regarding the user resource (see <<admin-panel-user-permissions>>),
+* add new users (see <<admin-panel-user-add>>),
+* list system users (see <<admin-panel-user-list>>),
+* edit users (see <<admin-panel-user-edit>>).
 
-[#admin-adminpanel-system-users-perms]
+[#admin-panel-user-permissions]
 == Managing permissions
 
 To manage permissions related to the user resource, click on the "Permissions" button on the top right corner of the page.
@@ -47,7 +47,7 @@ The ability to manage the visibility of emails and names was introduced with the
 It allows a specific role to know about other users but they can't necessarily know of their private information.
 ====
 
-[#admin-adminpanel-system-users-add]
+[#admin-panel-user-add]
 == Adding users
 
 To add a new user, click on the "New" button on the top right corner of the page.
@@ -62,14 +62,14 @@ After saving the user, a new interface is provided where you can edit the newly 
 
 include::./partials/user-edit.adoc[]
 
-[#admin-adminpanel-system-users-list]
+[#admin-panel-user-list]
 == Listing users
 
 Users can be viewed on the table in the middle of the interface.
 The system supports a powerful search engine, from partial searching, finding only non-suspended users and so on.
 It also supports pagination and sorting.
 
-[#admin-adminpanel-system-users-edit]
+[#admin-panel-user-edit]
 == Editing users
 
 Users can be edited by pressing on the edit icon next to each row in the user list, that opens up a new interface.

@@ -2,5 +2,13 @@ include::../../variables.adoc[]
 
 = Dashboards
 
+The Dashboards page is accessible by clicking on the "Dashboards" in the main navigation bar on the top of the screen.
+
 Dashboards help you to visually understand changing business conditions so you can make decisions based on the real-time data of your CRM.
-Different type of charts are supported, and you can insert other rich element, such as Twitter feeds or filtered lists of records.
+
+{PRODUCT_NAME} CRM comes built-in with a handful of predefined dashboards that should give you enough understanding about the business.
+
+[TIP]
+====
+Your dashboards can also include social media feeds.
+====

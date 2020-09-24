@@ -1,0 +1,47 @@
+include::../../variables.adoc[]
+
+[cols="1,1,5a"]
+|===
+|Type|Default value|Description
+
+3+| *DB_LOGGER*
+| `boolean`
+| false
+| Log SQL queries.
+
+3+| *CORREDOR_LOG_ENABLED*
+| `boolean`
+| false
+| Log communication with {APP_AUTOMATION}.
+
+3+| *HTTP_REPORT_PANIC*
+| `boolean`
+|
+| Report HTTP panic to Sentry.
+
+3+| *HTTP_LOG_REQUEST*
+| `boolean`
+| false
+| Log HTTP requests.
+
+3+| *HTTP_LOG_RESPONSE*
+| `boolean`
+| false
+| Log HTTP responses.
+
+3+| *HTTP_ENABLE_VERSION_ROUTE*
+| `boolean`
+| false
+| Enable `/version` route.
+
+3+| *HTTP_ENABLE_DEBUG_ROUTE*
+| `boolean`
+| false
+| Enable `/debug` route.
+
+3+| *GRPC_CLIENT_LOG*
+| `boolean`
+| false
+| Log gRPC communication.
+
+|===

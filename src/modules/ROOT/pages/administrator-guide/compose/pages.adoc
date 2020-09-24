@@ -59,7 +59,7 @@ include::./page-blocks/index.adoc[]
 [NOTE]
 ====
 Page editor and page builder are not the same thing.
-Refer to the <<administrator-guide:compose:pages:page-builder>> section on details regarding the page builder.
+Refer to the <<compose-page-builder>> section on details regarding the page builder.
 ====
 
 == Delete a page
@@ -70,7 +70,7 @@ Refer to the <<administrator-guide:compose:pages:page-builder>> section on detai
 . click on the edit icon next to the page you wish to edit,
 . Press the "Delete" button on the bottom of the page and confirm the operation.
 
-[#administrator-guide:compose:pages:page-builder]
+[#compose-page-builder]
 == Page builder
 
 . Navigate to the {PRODUCT_NAME} {APP_NAME_COMPOSE} page and enter the namespace you wish to edit,

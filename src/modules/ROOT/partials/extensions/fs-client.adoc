@@ -19,9 +19,9 @@ include::../../pages/variables.adoc[]
         /... <7>
 ----
 <1> Root folder for all client scripts (under each search path).
-<2> Defines a bundle for {PRODUCT_NAME} {app_name_auth}.
-<3> Defines a bundle for {PRODUCT_NAME} {app_name_admin}.
-<4> Defines a bundle for {PRODUCT_NAME} {app_name_compose}.
-<5> Defines a bundle for {PRODUCT_NAME} {app_name_messaging}.
+<2> Defines a bundle for {PRODUCT_NAME} {APP_NAME_AUTH}.
+<3> Defines a bundle for {PRODUCT_NAME} {APP_NAME_ADMIN}.
+<4> Defines a bundle for {PRODUCT_NAME} {APP_NAME_COMPOSE}.
+<5> Defines a bundle for {PRODUCT_NAME} {APP_NAME_MESSAGING}.
 <6> Reserved directory for any shared logic, such as custom libraries, assets, ...
 <7> Undefined file structure; can be defined as needed.

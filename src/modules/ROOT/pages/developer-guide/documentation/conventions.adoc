@@ -1,6 +1,6 @@
 include::../../variables.adoc[]
 
-[#developer-guide:documentation:conventions]
+[#documentation-conventions]
 = Conventions
 
 You can use all of the formatting and different components that AsciiDoc allows.
@@ -94,29 +94,31 @@ This is *very* important!
 ====
 ----
 
-== Referencing
+// @todo update this section
+// 
+// == Referencing
 
-Use this template to specify an explicit ID:
-[source,adoc]
-----
-[#{{ documentation type }}:{{ nesting separated by ':' }}].
-----
+// Use this template to specify an explicit ID:
+// [source,adoc]
+// ----
+// [#{{ documentation type }}:{{ nesting separated by ':' }}].
+// ----
 
-For example, the Conventions section defines an explicit ID of:
-[source,adoc]
-----
-[#developer-guide:documentation:conventions]
-----
+// For example, the Conventions section defines an explicit ID of:
+// [source,adoc]
+// ----
+// [#developer-guide:documentation:conventions]
+// ----
 
-To reference this ID, simply use:
-[source,adoc]
-----
-<<{{ ID here }}>>
-----
+// To reference this ID, simply use:
+// [source,adoc]
+// ----
+// <<{{ ID here }}>>
+// ----
 
-for example:
+// for example:
 
-[source,adoc]
-----
-<<developer-guide:documentation:conventions>>
-----
+// [source,adoc]
+// ----
+// <<developer-guide:documentation:conventions>>
+// ----

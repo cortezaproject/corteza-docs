@@ -1,44 +1,63 @@
 include::../../variables.adoc[]
 = Channels
 
-Channels are used to organise your conversations.
-A channel is a single place to share messages and upload files.
-List of available channels is located on the left sidebar of the interface.
+:CHLIST_SHORTCUT: CTRL/CMD + K
 
-There are three different types of channels:
+Channels make your conversations *structured* and in *one place*.
+It is a single place where you can *share messages*, share resources and *upload files*
 
-* Public Channels
-* Private Channels
-* Direct Messages
+[TIP]
+====
+You can see all of your channels on the left sidebar.
+====
+
+
+.There are three different *channel types*:
 
 Public channels::
-    are open to everyone who is signed up to {APP_NAME_MESSAGING}.
-    They are identified with a hashtag icon (“#”).
-    Click on “Browse all Channels” at the bottom of the Public Channels list or press "CTRL/CMD + K" to search the full list of Public Channels available
+    Public channels are open and available to all members.
+    They are listed under "Public channels" in the sidebar and are identified with a hashtag icon.
+    You can join a public channel by clicking on the "Browse all channels" at the bottom of the channel list.
+
+[TIP]
+====
+You can use the `{CHLIST_SHORTCUT}` shortcut to search through available channels quickly.
+====
 
 Private channels::
-    are for discussions that are limited to only selected team members.
-    Private Channels are identified by a lock icon.
+    Private channels are limited only to the invited team members.
+    They can be used to discuss sensitive topics that other members should not access.
+    They are listed under "Private channels" in the sidebar and are identified with a lock icon.
 
 Direct messages::
-    are discussions between two or more people.
-    There is no channel name, only the names of the individuals.
-    The Direct Message discussion is only visible to the people involved.Direct Messages are identified by the presence icon.
-    If the presence icon is block green, then all members of the Direct Message discussion are online.
-    If the presence icon has a green perimeter only, then only one or some of the members of the discussion are online.
-    If the presence icon is grey, then no-one is available in the discussion.
+    Direct messages are a discussion between two or more people limited to only them.
 
 == Creating channels
 
-Click on plus icon (+) next to "Public channel", "Private channel" or "Direct messages" section titles.
-Fullfill the form, add members and click on "Create" button.
+. Click on the plus icon (`+`) next to "Public channel", "Private channel" or "Direct messages" section titles,
+. fill in the form and optionally add members,
+. click on the "Create" button.
 
 == Joining channels
 
-Choose a channel you want to join and click on the "Join channel" button on the very bottom (covering the {APP_NAME_MESSAGING} input).
+. Click the "Browse all channels" or use the `{CHLIST_SHORTCUT}` shortcut,
+. find the channel you wish to join and click on it,
+. if you are not already a member of the channel, press on the "Join Channel" button on the bottom of the page.
 
-== Hiding channels
+== Channel options
 
-Any channel can be hidden from interface by hovering the cursor over the channel name and clicking on the “x” next to the channel name.
-Removing the channel from the user interface does not delete the channel for you or for any other user.
+Hover your mouse over the navigation icon in the top right corner (the three vertical dots).
+.You can:
+* See channel members,
+* edit the channel,
+* hide or show the channel,
+* pin or unpin the channel,
+* ignore or follow the channel (this disables or enables notifications),
+* see bookmarked and pinned messages,
+* leave the channel.
 
+[NOTE]
+====
+If you don't see some of the channel options, you might not have permissions to access that option.
+Contact your system administrator.
+====

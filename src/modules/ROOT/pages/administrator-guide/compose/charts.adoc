@@ -30,7 +30,7 @@ Once selected, you are presented with the following:
     For example: Quote Line,
 * **Handle**: The module handle should be in snake_case, it should be short and descriptive, with no special characters.
     If provided, it must:
-include::partial$handle-constraints.adoc[]
+include::ROOT:partial$handle-constraints.adoc[]
 
 * **Color theme**: One of the predefined color themes that should be used inside the chart,
 * *Module*: What module provides the data for the chart,

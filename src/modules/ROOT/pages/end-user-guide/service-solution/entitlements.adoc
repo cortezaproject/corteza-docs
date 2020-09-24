@@ -2,13 +2,21 @@ include::../../variables.adoc[]
 
 = Entitlements
 
-Entitlements are types of customer support, such as “Phone support” or “Email support”.
-You can set up entitlements in Service Solution to help support agents determine whether a customer is eligible for support or not.
+The Entitlements page is accessible by clicking on the "Entitlements" under the "Accounts" dropdown in the main navigation bar on the top of the screen.
 
-Entitlements are always related to an account and a product, and they normally have a start and end date.
-For example: company Green Global has acquired a software license and this entitles them to receive phone support for one year.
+Entitlements are types of customer support, such as *phone support* or *email support*.
+You can set up entitlements to help support agents determine whether a customer is eligible for support or not.
 
-To facilitate the use of this module, multiple values are inserted automatically, thanks to the option of selecting an entitlement template for a product.
+Entitlements are related to an account and a product, and they are eligible for a fixed amount of time (defined by the start and end date).
 
+== Add an entitlement
 
+. Click on the "+ Add" button on top of the Entitlements list,
+. fill out the data,
+. press "Save" on the bottom right corner.
 
+[TIP]
+====
+You can define an entitlement template under a product to automatically prefill some of the data.
+Refer to entitlement templates for more information.
+====

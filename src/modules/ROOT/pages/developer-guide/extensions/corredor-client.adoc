@@ -54,7 +54,7 @@ A big difference between server-side and client-side execution is that client-si
 Any change done to the original object *is reflected* to the original object.
 ====
 
-[#developer-guide:extensions:corredor-client:ui-hooks]
+[#extensions-corredor-client:ui-hooks]
 == UI hooks
 
 A UI hook defines a component that represents an explicit automation script -- either a client-script or a server-script.
@@ -70,7 +70,7 @@ It is up to the web-app to render these components and dispatch events on the ev
 ====
 
 Explicit::
-    Explicit scripts are invoked by the user by explicitly invoking the above mentioned <<developer-guide:extensions:corredor-client:ui-hooks>>.
+    Explicit scripts are invoked by the user by explicitly invoking the above mentioned <<extensions-corredor-client:ui-hooks>>.
     The web-app creates an event and dispatches it on the event bus.
     The handler function requests the script's execution on the {PRODUCT_NAME} server.
 

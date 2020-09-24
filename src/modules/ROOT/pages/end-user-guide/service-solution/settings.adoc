@@ -2,49 +2,107 @@ include::../../variables.adoc[]
 
 = Settings
 
-In the settings page you can set multiple values that are used within Service Solution as default values.
-You will need to enter this page when you have just installed {PRODUCT_NAME} and wish to use Service Solution.
+The Settings page is accessible by clicking on the "Settings" in the main navigation bar on the top of the screen.
 
-.Settings fields:
-* Next number for a KB item
-* Default cost per hour
-* Default department for new ticket
-* Default time for a case update
-* Default support channel id
-* Default case link
-* Default case email template
+In the settings page, we can configure some parts of the system to suit our needs better.
+Let's go over them.
 
-== Steps to follow just installed {PRODUCT_NAME} Service Solution
+== Available settings
 
-. When you start using Service Solution, you first need to enter the "Settings" module.
-+
-This is done by selecting the Settings item  in the main menu.
-. By default there is one line , and you need to click on the "Edit the record" button on the right.
-. Select the default department
-+
-This is used in cases
-. Optional: insert a support channel id.
-+
-In this channel case updates will be inserted.
-.. Go to {APP_NAME_MESSAGING}
-.. If you don’t have a channel yet where you want to show Service Solution updates, create the channel with the (+) button.
-.. Get the id of the channel.
-+
-This can be done by hovering with the mouse over the channel name in the list of channels.
-+
-For example: 117587018585788420
-. Insert the default case link.
-+
-This will allow clickable links to cases from emails and messages in the channel.
+=== Next number for a KB item
 
-.. To find the link, go to the admin panel.
-.. Select “Pages”
-.. Copy the link under the “view” icon of the page: Record page for module “Case”. Normally the view icon opens the page, but we are interested in retrieving the exact location.
-.. The record page of a case is opened.
-+
-It will look like: https://LINK-TO-YOUR-INSTANCE/compose/ns/service-solution/pages/117582846914252804/record/117585622083883012
-+
-You will need to copy "https://LINK-TO-YOUR-INSTANCE/compose/ns/service-solution/pages/117582846914252804/record" (so, everything except the last "/" and number), and paste it in the Default case link field.
-. And, the last step is to select the default case email template.
+This indicates the next ID that is used for the next KB item (entry).
+Unless you are migrating from another system, this value doesn't need to be changed.
 
-Other values are inserted with default values, and you can change them if you like.
+=== Default cost per hour
+
+This is used if a department doesn't define its hourly cost or if we don't assign a department to the case update.
+
+[NOTE]
+====
+We strongly advise that each department explicitly specifies an hourly cost.
+====
+
+=== Default department for new ticket
+
+This is the default department that will be assigned to a ticket if no other department is selected.
+
+=== Default time for a case update
+
+This is the default time that is used when working on case updates.
+
+[TIP]
+====
+You can calculate the average consumed time and use that value here.
+====
+
+=== Default support channel id
+
+{PRODUCT_NAME} Service Solution integrates into the {PRODUCT_NAME} {APP_NAME_MESSAGING} application.
+Specific events, such as a case update, are sent to the {PRODUCT_NAME} {APP_NAME_MESSAGING} channel that is defined in this field.
+
+Here is an example of an automated message update:
+
+> Automatic update. "Ticket#20200914101549730" has been updated: Email: Case: [Ticket#20200914101549730] "Cannot connect the cable to the screen" (type: Outgoing email). Direct link: https://latest.cortezaproject.org/compose/ns/service-cloud/pages/111502308285612036/record/161946717564960772
+
+=== Default case link
+
+This is the base URL that will be used when generating links to cases.
+
+[TIP]
+====
+If you have an external portal that is able to display cases stored by {PRODUCT_NAME}, you can change this link to point to that portal.
+====
+
+=== Default case email template
+
+This is the default email template that will be used when generating case emails.
+
+== Step by step configuration
+
+=== Next number for a KB item
+
+If you've migrated from another system, insert the next number that should be used.
+If not, you can leave this as it is.
+
+=== Default cost per hour
+
+Enter a default cost that should be used when working on a case update.
+
+=== Default department for new ticket
+
+Select the default department.
+If you don't see any departments, you should first create it.
+
+=== Default time for a case update
+
+Enter a default time that should be used when working on a case update.
+
+=== Default support channel id
+
+[NOTE]
+====
+If you don't wish to send automated messages to the {PRODUCT_NAME} {APP_NAME_MESSAGING} application, you can skip this.
+====
+
+. Open {PRODUCT_NAME} {APP_NAME_MESSAGING}, select a channel you wish to use, or create a new one,
+. take note of the channel ID (this is the long number at the end of the URL address),
+. paste the channel ID into this field.
+
+=== Default case link
+
+. Navigate to the "Pages" of your admin panel,
+. find the page called `Record page for module "Case"`,
+. copy the page ID (this is the long number at the end of the address -- similar to the above channel ID),
+. insert `{APP_COMPOSE_BASE_URL}/ns/service-solution/pages/<page_ID_here>/record`.
+For example: `{APP_COMPOSE_BASE_URL}/ns/service-solution/pages/111502308285612036/record`
+
+[TIP]
+====
+If you have an external portal that is able to display cases stored by {PRODUCT_NAME}, you can change this link to point to that portal.
+====
+
+=== Default case email template
+
+Select a default email template that should be used when working on cases.
+If you don't see any email templates, you should first create it.

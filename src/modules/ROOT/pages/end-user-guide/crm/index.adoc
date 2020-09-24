@@ -1,9 +1,19 @@
-[#end-user-guide:crm]
-= CRM
+include::../../variables.adoc[]
+
+[#crm]
+= {PRODUCT_NAME} CRM
+:doctype: book
+
+{PRODUCT_NAME} CRM is a *highly flexible*, *scalable* and *open source* Customer Relationship Management solution.
+
+[IMPORTANT]
+====
+Since the {PRODUCT_NAME} CRM is highly customizable it is possible that this guide differs from your CRM.
+
+In such cases, please contact your system administrator.
+====
 
 :leveloffset: +1
-
-include::what-is-the-crm.adoc[]
 
 include::home.adoc[]
 
@@ -13,20 +23,18 @@ include::accounts.adoc[]
 
 include::opportunities.adoc[]
 
+include::tasks.adoc[]
+
+include::campaigns.adoc[]
+
 include::quotes.adoc[]
 
 include::products.adoc[]
 
-include::price-books.adoc[]
+include::dashboards.adoc[]
 
 include::cases.adoc[]
 
-include::campaigns.adoc[]
-
-include::tasks.adoc[]
-
 include::events.adoc[]
-
-include::dashboards.adoc[]
 
 :leveloffset: -1

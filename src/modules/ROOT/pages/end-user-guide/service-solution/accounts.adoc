@@ -2,18 +2,25 @@ include::../../variables.adoc[]
 
 = Accounts
 
-In Service Solution accounts give a 360 degree overview of companies you are doing business with.
-It shows the following related data:
+The Accounts page is accessible by clicking on the "Accounts" in the main navigation bar on the top of the screen.
 
-* Cases
-+
-A list of all cases related to the account, ordered by creation date
-* Entitlements
-+
-The list of entitlements to products / services, ordered by end date
-* Contacts
-+
-All contacts related to the account
+Accounts are entities (companies or other) that you are doing business with.
+An account stores essential data regarding the company, along with a set of contacts, entitlements and cases.
 
-The most important action in an account is creating cases.
-This can be done easily with the "add new record” button on top of the cases list.
+== Add a new account
+
+. Press the "+ Add" button on the top of the list,
+. fill out the data,
+. press "Save" on the bottom right corner.
+
+== Add a case for an account
+
+. Open an account you wish to create a case for,
+. click on the "+ Add" button on top of the Cases list,
+. fill out the data,
+. press "Save" on the bottom right corner.
+
+[NOTE]
+====
+Refer to xref:ROOT:end-user-guide/service-solution/index.adoc#cases[the cases section] for additional details.
+====

@@ -1,8 +1,6 @@
 include::../variables.adoc[]
 
-[#integrator-guide]
 = Integrator Guide
-
 :doctype: book
 
 This guide is tailored to the integrators; the people that wish to build upon {PRODUCT_NAME} to build new solutions.
@@ -19,5 +17,7 @@ include::security.adoc[]
 include::extensions/index.adoc[]
 
 include::resources-events.adoc[]
+
+include::constraint-resources/index.adoc[]
 
 :leveloffset: -1

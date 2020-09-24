@@ -30,7 +30,7 @@ Module name::
 Module handle::
     The module handle should be in snake_case, it should be short and descriptive, with no special characters.
     If provided, it must:
-include::partial$handle-constraints.adoc[]
+include::ROOT:partial$handle-constraints.adoc[]
 
 == Module field guidelines
 
@@ -39,7 +39,7 @@ For a consistent experience across different namespaces and {PRODUCT_NAME} insta
 Field name::
     The module field title should be in snake_case, it should be short and descriptive, with no special characters.
     Name must:
-include::partial$handle-constraints.adoc[]
+include::ROOT:partial$handle-constraints.adoc[]
 
 Field title::
     The module field title doesn't define any strict restriction, as it is shown to the user.

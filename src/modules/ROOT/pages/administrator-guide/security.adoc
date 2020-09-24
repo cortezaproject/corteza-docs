@@ -1,3 +1,2 @@
-
-[#administrator-guide:security]
+[#security]
 include::../../partials/security.adoc[]

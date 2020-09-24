@@ -1,8 +1,6 @@
 include::../variables.adoc[]
 
-[#administrator-guide]
 = Administrator Guide
-
 :doctype: book
 
 This guide is tailored to system administrators that need to know enough about the system internals, how to configure different parts of the system so that you will be confident in taking the role.
@@ -10,15 +8,13 @@ It provides a fairly low-level overview over the entire {PRODUCT_NAME} while omi
 
 [NOTE]
 ====
-If you are an integrator and wish to also take on the administrator role, the information from the <<integrator-guide>> is sufficient.
+If you are an integrator and wish to also take on the administrator role, the information from the xref:ROOT:integrator-guide/index.adoc[integrator guide] is sufficient.
 If you wish to simply refresh your memory, go ahead.
 ====
 
 :leveloffset: +1
 
 include::security.adoc[]
-
-include::system-setup/index.adoc[]
 
 include::admin-panel/index.adoc[]
 

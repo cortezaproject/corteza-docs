@@ -1,6 +1,6 @@
 include::../../variables.adoc[]
 
-[#developer-guide:documentation:writing-guidelines]
+[#documentation-writing-guidelines]
 = Writing Guidelines
 
 We outline the most important writing style rules that must be followed when you contribute to {PRODUCT_NAME} documentation.

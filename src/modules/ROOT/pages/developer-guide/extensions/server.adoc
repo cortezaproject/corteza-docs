@@ -28,7 +28,7 @@ The following automation scripts are executed directly by the {PRODUCT_NAME} ser
 [APPLICATION NAME]/automation/list::
     Provides a list of available automation scripts for the given {PRODUCT_NAME} application.
 
-[APPLICATION NAME]/automation/{bundle}-{type}.{ext}::
+[APPLICATION NAME]/automation/\{bundle\}-\{type\}.\{ext\}::
     Provides the client-script automation bundle for the given {PRODUCT_NAME} application.
 
 [NOTE]
@@ -96,7 +96,7 @@ Implicit::
 
 [NOTE]
 ====
-The same is also true for the <<developer-guide:extensions:server:scheduler>>.
+The same is also true for the <<extensions-server-scheduler>>.
 ====
 
 Iterator::
@@ -123,7 +123,7 @@ This can be used for things like webhooks.
  - POST parameters,
 . generate an event and dispatch it via the event bus.
 
-[#developer-guide:extensions:server:scheduler]
+[#extensions-server-scheduler]
 == Scheduler
 
 The scheduler system is responsible for triggering deferred scripts.

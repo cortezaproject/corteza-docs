@@ -1,6 +1,6 @@
 include::../../variables.adoc[]
 
-[#administrator-guide:compose]
+[#compose]
 = {PRODUCT_NAME} {APP_NAME_COMPOSE}
 
 {PRODUCT_NAME} {APP_NAME_COMPOSE} is a low-code platform development platform.

@@ -1,0 +1,25 @@
+include::../variables.adoc[]
+
+= Architecture overview
+
+.Mayor component or services in {PRODUCT_NAME}:
+* Frontend applications (WebApps),
+* {PRODUCT_NAME} server,
+* {PRODUCT_NAME} {APP_AUTOMATION} server.
+
+.Auxiliary services:
+* Log storage,
+* error tracking,
+* email sending,
+* object storage,
+* database.
+
+.Frontend applications:
+* {GIT_REPO_LINK_PREFIX}-webapp-auth[{PRODUCT_NAME} {APP_NAME_AUTH}] handles all flows related to user authentication; such as sign-up, login, and password recovery,
+* {GIT_REPO_LINK_PREFIX}-webapp-admin[{PRODUCT_NAME} {APP_NAME_ADMIN}] handles main administration aspects of your {PRODUCT_NAME} instance; such as configuring settings, defining roles, and managing general permissions,
+* {GIT_REPO_LINK_PREFIX}-webapp-compose[{PRODUCT_NAME} {APP_NAME_COMPOSE}] is a https://en.wikipedia.org/wiki/Low-code_development_platform[low-code development platform] and allows creation of record-absed business applications,
+* {GIT_REPO_LINK_PREFIX}-webapp-messaging[{PRODUCT_NAME} {APP_NAME_MESSAGING}] collaboration platform that allows teams to collaborate more efficiently and communicate safely with other organizations or customers,
+* {GIT_REPO_LINK_PREFIX}-webapp-one[{PRODUCT_NAME} {APP_NAME_SHELL}] is a unified workspace to access and run third-party web and {PRODUCT_NAME} applications. Centralized access management from a single console enables administrative control over who can see or access applications.
+
+.An abstract overview of the entire {PRODUCT_NAME} and how different components are connected.
+image::arch-overview.png[{PRODUCT_NAME} architectural overview]

@@ -1,0 +1,185 @@
+include::../variables.adoc[]
+
+[#email-relay]
+= Relaying inbound emails to {PRODUCT_NAME} with Postfix
+
+{PRODUCT_NAME} allows you to detect and react to incoming emails via automation scripts.
+You can implement automatic responses, create records based on the email content, and forward the email to a {APP_NAME_MESSAGING} channel.
+
+[IMPORTANT]
+====
+All further sections assume that the system is configured by following these instructions.
+If you've used anything else, such as MailGun, the examples might not work correctly.
+====
+
+[IMPORTANT]
+====
+This section doesn't cover any script development related topics, such as detecting sink routes.
+Refer to the xref:ROOT:integrator-guide/index.adoc[integrator guide] for more information regarding script development.
+====
+
+.Flow outline:
+. Postfix; or similar; forwards the email to the sink API endpoint,
+. {PRODUCT_NAME} sink service extracts header and body data from received email,
+. `onReceive` triggers are filtered for a match (you can configure your triggers to only respond to specific conditions),
+. automation scripts are executed.
+
+== {PRODUCT_NAME} setup
+
+For a sink route to work, you must generate a sink signature.
+
+[IMPORTANT]
+====
+Consider your sink signatures as passwords that allow access to some parts of the system.
+Make sure they are kept safe and sound.
+====
+
+[NOTE]
+====
+We recommend constraining sink signatures as much as possible to help with system security.
+For example, if we only care about POST requests, let the signature only allow POST requests.
+
+Run `{CLI_CMD_SYSTEM} sink signature -h` for all available options:
+
+[source,text]
+----
+    --content-type string   Content type (optional)
+    --expires string        Date of expiration (YYYY-MM-DD, optional)
+-h, --help                  help for signature
+    --max-body-size int     Max allowed body size
+    --method string         HTTP method that will be used (optional)
+    --origin string         Origin of the request (arbitrary string, optional)
+    --path string           Full sink request path (do not include /sink prefix, add / for just root)
+    --signature-in-path     Include signature in a path instead of query string
+----
+====
+
+For example:
+
+[source,bash,subs=attributes]
+----
+{CLI_CMD_SYSTEM} sink signature --content-type email
+----
+
+Should output something in the lines of:
+
+[source,text]
+----
+/system/sink?__sign=187...3D
+Sink request constraints:
+ - signature should be part of query-string
+ - body size is not limited
+ - expecting content type to be "email"
+----
+
+[IMPORTANT]
+====
+Make sure to specify a `--content-type email`.
+====
+
+[IMPORTANT]
+====
+Take note of the above `__sign=...` parameter; we will need it later.
+====
+
+== Postfix setup
+
+.Edit `/etc/postfix/main.cf`:
+[source,text]
+----
+virtual_alias_maps = pcre:/etc/postfix/virtual_alias
+----
+
+[IMPORTANT]
+====
+Make sure to change the domain in the below snippet.
+====
+
+.Add virtual alias to `/etc/postfix/virtual_alias`:
+[source,text]
+----
+# Catch-all for corteza.domain.tld and redirect it to corteza_sink mailbox
+#     vv change this vv
+/.+@corteza\.domain\.tld$/ corteza_sink
+----
+
+.Update virtual-alias map/db file, and restart postfix
+[source,bash]
+----
+postmap /etc/postfix/virtual_alias
+postfix reload
+----
+
+[IMPORTANT]
+====
+Make sure to change the domain and the sink signature to match your parameters.
+====
+
+.Add entry to `/etc/aliases`
+[source,bash,subs="attributes"]
+----
+corteza_sink: "| curl --data-binary @- '{API_SYSTEM_BASE_URL}/sink?content-type=email&expires=&method=POST&origin=postfix&__sign=187...3D'"
+----
+
+[NOTE]
+====
+The above will forward any email for a specific mailbox to a curl command, which then pushes that raw email to the sink endpoint on the {PRODUCT_NAME} API.
+====
+
+.Update aliases
+[source,bash]
+----
+newaliases
+----
+
+== Testing Postfix changes
+
+[NOTE]
+====
+We recommend using a different machine -- one that is not running postfix.
+====
+
+You can verify if everything works correctly by either sending an email to the configured address or with a simple CLI command:
+
+[source,bash]
+----
+# Make sure to change `test@corteza.domain.tld`.
+echo "hello corteza"|mail -s 'hello' test@corteza.domain.tld
+----
+
+This should produce a new entry in your mail log (usually `/var/log/mail.log`) for the test email, along with a log that looks something in the lines of:
+
+[source,text]
+----
+postfix/smtpd[23155]: connect from some-host.tld[xxx.xxx.xxx.xxx]
+postfix/smtpd[23155]: 277AF5C1B78: client=some-host.tld[xxx.xxx.xxx.xxx]
+postfix/cleanup[23159]: 277AF5C1B78: message-id=<b808218e-ce41-6cbf-cb4f-be2b4cf8f776@crust.tech>
+postfix/qmgr[14490]: 277AF5C1B78: from=<sender@some-host.tld>, size=1476, nrcpt=1 (queue active)
+postfix/smtpd[23155]: disconnect from some-host.tld[xxx.xxx.xxx.xxx] ehlo=2 starttls=1 mail=1 rcpt=1 data=1 quit=1 commands=7
+postfix/local[23160]: 277AF5C1B78: to=<corteza_sink@my-server>, orig_to=<demo@corteza.domain.tld>, relay=local, delay=0.67, delays=0.03/0.01/0/0.62, dsn=2.0.0, status=sent (delivered to command:  curl --data-binary @- 'https://api.your-corteza-instance.tld/system/sink?content-type=email&expires=&method=POST&origin=postfix&__sign=187...3D')
+postfix/qmgr[14490]: 277AF5C1B78: removed
+----
+
+[TIP]
+====
+If nothing happens when you send an email, there could be a firewall issue and blocked ports.
+====
+
+== Testing {PRODUCT_NAME}
+
+To test if your sink signature and automaton script are setup correctly, you can use the following command:
+
+[source,bash,subs=attributes]
+----
+echo "
+From: &lt;sender@cortezaproject.org&gt;
+To: &lt;test@corteza.domain.tld&gt;
+Subject: hello
+Message-ID: &lt;1234@local.machine.example&gt;
+
+Ola Corteza!
+" | curl -i --data-binary @- "{API_SYSTEM_BASE_URL}/sink?content-type=email&expires=&method=POST&origin=postfix&__sign=187...3D"
+----
+
+If this command does not return a `200 OK` response, it means that something is misconfigured.
+Refer to system logs to see exactly where the issue lies.

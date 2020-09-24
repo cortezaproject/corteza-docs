@@ -2,23 +2,22 @@ include::../../variables.adoc[]
 
 = Accounts
 
-In accounts you store information about your customers.
-Accounts are companies that you’re doing business with, and contacts are the people who work in them.
+The Accounts page is accessible by clicking on the "Accounts" in the main navigation bar on the top of the screen.
 
-An account can have multiple contacts, and by default the lead that was converted in to an account + contact in the Leads module is set as “Primary contact for account”.
-This means that the data of this contact will be used for Quote generation.
+Accounts are entities (companies or other) that you are doing business with.
+A contact is an employee that we are allowed to reach out to.
 
-The modules related to accounts are:
+[NOTE]
+====
+The primary contact provides contact information when generating documents such as quotes.
+====
 
-* Contacts
-* Opportunities
-* Entitlements
-* Contracts
-* Cases
-* Tasks
-* Events
-* Related events
-* Notes
+[TIP]
+====
+You can create new contacts for the account by pressing the "Create new Contact from this account" button.
+====
 
-The most important action in an account is creating opportunities.
-This can be done easily with the automation button “Generate new opportunity”, which maps all relevant account data directly to the new opportunity.
+Accounts allow you to store information about your customers, such as company size, opportunities and business contact information.
+
+The important action in an account is creating opportunities.
+Press the "Create new Opportunity from this account" button to create a new opportunity.

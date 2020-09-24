@@ -1,0 +1,37 @@
+include::../../variables.adoc[]
+
+[cols="1,2,5a"]
+|===
+|Type|Default value|Description
+
+3+| *CORREDOR_ENABLED*
+| `boolean`
+| true
+| Enable/disable {APP_AUTOMATION} integration.
+
+3+| *CORREDOR_ADDR*
+| `string`
+| corredor:80
+| Hostname and port of the {APP_AUTOMATION} gRPC server.
+
+3+| *CORREDOR_MAX_BACKOFF_DELAY*
+| `duration`
+| 1 minute
+| Max delay for backoff on connection.
+
+3+| *CORREDOR_API_BASE_URL_SYSTEM*
+| `string`
+|
+| Instructions passed to {APP_AUTOMATION} on every call - where the system API is located.
+
+3+| *CORREDOR_API_BASE_URL_MESSAGING*
+| `string`
+|
+| Instructions passed to {APP_AUTOMATION} on every call - where the {APP_NAME_MESSAGING} API is located.
+
+3+| *CORREDOR_API_BASE_URL_COMPOSE*
+| `string`
+|
+| Instructions passed to {APP_AUTOMATION} on every call - where the {APP_NAME_COMPOSE} API is located.
+
+|===

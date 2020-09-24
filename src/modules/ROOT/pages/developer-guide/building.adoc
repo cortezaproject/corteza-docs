@@ -1,6 +1,6 @@
 include::../variables.adoc[]
 
-[#developer-guide:building]
+[#building]
 = Build Pipelines
 
 Here is a diagram to provide a nicer graphical representation of the entire pipeline.

@@ -1,0 +1,100 @@
+include::../../variables.adoc[]
+
+[cols="2,2,2,5a"]
+|===
+|Key|Type|Default value|Description
+
+4+| *PROVISION_SETTINGS_AUTH_EXTERNAL_ENABLED*
+| `auth.external.enabled`
+| `boolean`
+| true
+| Is OAuth2 enabled or disabled.
+
+4+| *PROVISION_SETTINGS_AUTH_EXTERNAL_REDIRECT_URL*
+| `auth.external.redirect-url`
+| `string`
+|
+| searches env-variables (`DOMAIN`, `LETSENCRYPT_HOST`, `VIRTUAL_HOST`, `HOSTNAME`, `HOST`)
+and uses additional info (monolith, api-base-url) to calculate the value.
+
+4+| *PROVISION_SETTINGS_AUTH_EXTERNAL_SESSION_STORE_SECRET*
+| `auth.external.session-store-secret`
+| `string`
+| _random 64 char string_
+| generated 64 char long string if missing.
+
+Is session cookie "secure" flag used (if yes, cookie can only be access over HTTPS).
+
+4+| *PROVISION_SETTINGS_AUTH_EXTERNAL_SESSION_STORE_SECURE*
+| `auth.external.session-store-secure`
+| `boolean`
+| false
+| If HTTPS is used for external auth redirection url, value is set to true.
+
+4+| *PROVISION_SETTINGS_AUTH_FRONTEND_URL_BASE*
+| `auth.frontend.url.base`
+| `string`
+|
+| Where the frontend SPA is located. Serves as base for generating other `auth.frontend.url...` variables.
+
+4+| *PROVISION_SETTINGS_AUTH_FRONTEND_URL_PASSWORD_RESET*
+| `auth.frontend.url.password-reset`
+| `string`
+|
+| Where the frontend SPA is located, the password reset form.
+
+4+| *PROVISION_SETTINGS_AUTH_FRONTEND_URL_EMAIL_CONFIRMATION*
+| `auth.frontend.url.email-confirmation`
+| `string`
+|
+| Where the frontend SPA is located, password email confirmation page.
+`auth.frontend.url.base` is used as base URL
+
+4+| *PROVISION_SETTINGS_AUTH_FRONTEND_URL_REDIRECT*
+| `auth.frontend.url.redirect`
+| `string`
+|
+| Where the frontend SPA is located.
+User will be redirected here on successful external authentication.
+Auto discovery uses `auth.frontend.url.base` as base URL.
+
+4+| *PROVISION_SETTINGS_AUTH_EMAIL_FROM_ADDRESS*
+| `auth.mail.from-address`
+| `string`
+| to-be-configured@example.tld
+| Email address used for sending auth emails (password reset, email confirmation).
+
+Name used for sending auth emails (password reset, email confirmation).
+
+4+| *PROVISION_SETTINGS_AUTH_EMAIL_FROM_NAME*
+| `auth.mail.from-name`
+| `string`
+| Corteza Team (to-be-configured)
+| The email from parameter.
+
+4+| *PROVISION_SETTINGS_AUTH_INTERNAL_ENABLED*
+| `auth.internal.signup`
+| `boolean`
+| true
+| Controls if users are allowed to use internal authentication features, such as login, sign-up, and password reset.
+
+4+| *PROVISION_SETTINGS_AUTH_INTERNAL_SIGNUP_ENABLED*
+| `auth.internal.signup.enabled`
+| `boolean`
+| true
+| Controls if users are allowed to ue internal authentication sign-up.
+
+4+| *PROVISION_SETTINGS_AUTH_INTERNAL_SIGNUP_EMAIL_CONFIRMATION_REQUIRED*
+| `auth.internal.signup-email-confirmation-required`
+| `boolean`
+| false
+| Controls if users are required to confirm the email?
+Enabled on auto-discovery if server has email capabilities (`SMTP_HOST` variable is set).
+
+4+| *PROVISION_SETTINGS_AUTH_INTERNAL_PASSWORD_RESET_ENABLED*
+| `auth.internal.password-reset.enabled`
+| `boolean`
+| false
+| Controls if suers are allowed to use password reset for accounts created via internal sign-up.
+
+|===

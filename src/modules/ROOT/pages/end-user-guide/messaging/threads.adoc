@@ -1,7 +1,14 @@
 include::../../variables.adoc[]
 = Threads
 
-. Hover over the message with the cursor and click on the speech bubble icon that appears at the end of the message.
+[TIP]
+====
+You can use threads to continue on a specific sub-topic without disrupting the rest of the conversation.
+====
 
-Replying to a message opens a side bar on the right of the screen called a message “Thread”.
-The unread message count in a thread appear in red underneath the original message.
+To start a thread, hover over the message and click on the speech bubble icon.
+
+[TIP]
+====
+If a message already has a thread, you can click on the `x replies` below the message to open the thread.
+====

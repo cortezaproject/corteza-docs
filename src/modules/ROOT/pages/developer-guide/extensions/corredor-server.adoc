@@ -15,7 +15,7 @@ include::../../../partials/extensions/fs-server.adoc[]
 
 include::../../../partials/extensions/fs-client.adoc[]
 
-[#developer-guide:extensions:automation-script-processing]
+[#extensions-automation-script-processing]
 == Automation script processing
 
 Flow outline:
@@ -51,7 +51,7 @@ Parse client-scripts::
     Go over each script file defined inside the `client-scripts` sub-tree.
     Parse the script and extract all the important bits such as dependencies, triggers, iterators and the exec function itself.
     Create a per-app bundle containing relevant automation scripts, dependencies and other relevant bits.
-    Refer to <<developer-guide:extensions:client-script-bundling>> for details about creating bundles.
+    Refer to <<extensions-client-script-bundling>> for details about creating bundles.
 
 [NOTE]
 ====
@@ -89,7 +89,7 @@ The base search path of the extension is *excluded* from the script's name.
 This allows easier reusability across different systems that don't define the same file hierarchy.
 ====
 
-[#developer-guide:extensions:client-script-bundling]
+[#extensions-client-script-bundling]
 == Client-script bundling
 
 Client-scripts are bundled using webpack.
@@ -137,4 +137,4 @@ Any execution is and should be invoked either by the {PRODUCT_NAME} server or ma
 == Watching for changes
 
 When the {APP_AUTOMATION} server is running in development mode or is configured so via the .env variables it uses file watchers to detect changes to the extensions and dependency definition files.
-When a change occurs, the server wil restart the entire <<developer-guide:extensions:automation-script-processing>> flow.
+When a change occurs, the server wil restart the entire <<extensions-automation-script-processing>> flow.

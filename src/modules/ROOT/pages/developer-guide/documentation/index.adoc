@@ -1,4 +1,4 @@
-[#developer-guide:documentation]
+[#documentation]
 = Documentation
 
 :leveloffset: +1

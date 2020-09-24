@@ -1,0 +1,17 @@
+include::../variables.adoc[]
+
+= Upgrade Guide
+:doctype: book
+
+This guide will help you upgrade your {PRODUCT_NAME} to the newest version in no time!
+
+[IMPORTANT]
+====
+If you are upgrading multiple versions at the same time; for example from 2019.12 to 2020.9; you should follow all of the relevant upgrade guides.
+====
+
+:leveloffset: +1
+
+include::202003.adoc[]
+
+:leveloffset: -1

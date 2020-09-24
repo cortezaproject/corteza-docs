@@ -2,23 +2,28 @@ include::../../variables.adoc[]
 
 = Email templates
 
-Contacts of cases can be emailed directly from the Service Solution.
-Each outgoing email is recorded in the case update list.
-To make sending out emails easier, Service Solution allows you to create email templates with placeholders.
+The Email Templates page is accessible by clicking on the "Email Templates" under the "Settings" dropdown in the main navigation bar on the top of the screen.
 
-Each email template has a name and description.
-They are for internal use.
-The subject and the body fields are what's being sent to the contact.
+Email templates help us speed up the process of contacting our clients by prefilling the more common information and let us fine-tune the last few details, specific to the client.
 
-The subject of an email template is a string.
-The body is a rich text area.
-The content can be multiple lines, and it allows basic styling, adding links and adding images.
+== Key parts of an email template
+
+Template::
+    Here we store the essential parts of the template, such as its name, description, subject and the body content.
+    We can use placeholders to speedup the process of designing an email (more on this in the below section).
+
+Template is used in following emails::
+    Here we can see all the emails that are using this template.
+    We can use this to distinguish the more popular templates to help us design better templates in the future.
 
 == Placeholders
 
-In both the subject and body you can use placeholders.
-This allows you to easily personalise emails.
-The following placeholders can be used:
+[NOTE]
+====
+We can use placeholders in both the subject and the body.
+====
+
+We can use the following placeholders (take note of the `{{  }}` -- this indicates a placeholder).
 
 .Placeholders for getting data of the case:
 * `{{Case.Number}}`
@@ -37,36 +42,40 @@ The following placeholders can be used:
 * `{{Case.TotalCost}}`
 
 .Placeholders for getting data of the contact:
-* `{\{FirstName}}`
-* `{\{LastName}}`
-* `{\{Title}}`
-* `{\{Phone}}`
-* `{\{Email}}`
-* `{\{Twitter}}`
-* `{\{Facebook}}`
-* `{\{LinkedIn}}`
-* `{\{MailingStreet}}`
-* `{\{MailingCity}}`
-* `{\{MailingState}}`
-* `{\{MailingPostalCode}}`
-* `{\{MailingCountry}}`
-* `{\{DoNotCall}}`
-* `{\{HasOptedOutOfEmail}}`
+* `{{Contact.FirstName}}`
+* `{{Contact.LastName}}`
+* `{{Contact.Title}}`
+* `{{Contact.Phone}}`
+* `{{Contact.Email}}`
+* `{{Contact.Twitter}}`
+* `{{Contact.Facebook}}`
+* `{{Contact.LinkedIn}}`
+* `{{Contact.MailingStreet}}`
+* `{{Contact.MailingCity}}`
+* `{{Contact.MailingState}}`
+* `{{Contact.MailingPostalCode}}`
+* `{{Contact.MailingCountry}}`
+* `{{Contact.DoNotCall}}`
+* `{{Contact.HasOptedOutOfEmail}}`
 
-== Example
+== Example subject
 
-*Subject:*
-Case: [`{{Case.Number}}`] "`{{Case.Subject}}`"
+[source,text]
+----
+Case: [{{Case.Number}}] "{{Case.Subject}}"
+----
 
-*Body:*
+== Example body
 
-Dear `{{Contact.FirstName}}`,
+[source,text]
+----
+Dear {{Contact.FirstName}},
 
-We are contacting you with regard to the case "`{{Case.Subject}}`".
+We are contacting you concerning the case "{{Case.Subject}}".
 
-ADD_REASON_FOR_CONTACT_HERE
+...ADD_REASON_FOR_CONTACT_HERE...
 
 Kind regards,
 
 The service team
-
+----

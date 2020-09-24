@@ -28,7 +28,7 @@ You can only define permissions for namespaces that already exist.
 Once you create the new namespace the option becomes available.
 ====
 
-[#administrator-guide:compose:namespaces:edit]
+[#compose-namespaces-edit]
 == Edit a namespace
 
 . Navigate to the {PRODUCT_NAME} {APP_NAME_COMPOSE} page,
@@ -63,7 +63,7 @@ Contact your system administrator.
 [TIP]
 ====
 Not sure if the namespace could be used in the future?
-Maybe disable the namespace instead -- <<administrator-guide:compose:namespaces:edit>>
+Maybe disable the namespace instead -- <<compose-namespaces-edit>>
 ====
 
 == Permissions

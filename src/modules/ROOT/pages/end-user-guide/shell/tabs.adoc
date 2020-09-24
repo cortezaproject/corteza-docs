@@ -1,20 +1,17 @@
 include::../../variables.adoc[]
+
 = Tabs
 
-A Tab is your point of access to any application in the application menu.
-Tabs in {APP_NAME_SHELL} work just like browser tabs.
-To open a new Tab, click on the plus sign (+) at the end of open Tabs.
-At least two Tabs ({APP_NAME_MESSAGING} and CRM applications) are open by default when you first log into {PRODUCT_NAME} {APP_NAME_SHELL}.
+Tabs allow you to show one or more applications inside any given panel -- they work just like browser tabs.
 
-== Application Menu
+To open a new tab, click on the plus icon (`+`) on the top of the panel.
+This opens the application selector menu where you can choose what application you wish to open.
+Click on the application to open it.
 
-The Application Menu lists the applications available to you as a user to open.
-It is accessed by clicking on a plus sign (+) at the end of open <<Tabs>>.
+When you hove over an application, you will notice an arrow icon.
+Clicking on it will open the application in a new browser tab instead of the panel.
 
-When the cursor is “rolled over” any application, the user is presented with two options:
-
-- Open in **{PRODUCT_NAME} Tab** which opens the application in the {APP_NAME_SHELL} workspace.
-- Open in **New Window** which opens the application in an external browser window.
-
-Once you have selected the first of the two options, you will be redirected automatically to the main {APP_NAME_SHELL} interface with application you have selected open in the Tab.
-
+[NOTE]
+====
+Depending on how your system is set up, you might already see some applications opened out of the box.
+====

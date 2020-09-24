@@ -1,0 +1,42 @@
+include::../../variables.adoc[]
+
+[cols="1,2,5a"]
+|===
+|Type|Default value|Description
+
+3+| *MINIO_ENDPOINT*
+| `string`
+|
+|
+
+3+| *MINIO_SECURE*
+| `boolean`
+| true
+|
+
+3+| *MINIO_ACCESS_KEY*
+| `string`
+|
+|
+
+3+| *MINIO_SECRET_KEY*
+| `string`
+|
+|
+
+3+| *MINIO_SSEC_KEY*
+| `string`
+|
+|
+
+3+| *MINIO_BUCKET*
+| `string`
+|
+|
+
+3+| *MINIO_STRICT*
+| `boolean`
+| false
+|
+
+|===

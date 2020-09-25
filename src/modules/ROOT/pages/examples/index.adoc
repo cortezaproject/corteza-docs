@@ -13,6 +13,8 @@ include::system-api/index.adoc[]
 
 include::compose-api/index.adoc[]
 
-include::automation-scripts/index.adoc[]
+include::server-scripts/index.adoc[]
+
+include::client-scripts/index.adoc[]
 
 :leveloffset: -1

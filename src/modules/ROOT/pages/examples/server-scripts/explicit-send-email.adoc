@@ -1,0 +1,50 @@
+= Send an email to the contact
+
+The example script sends an email to the contact it was invoked for.
+
+[IMPORTANT]
+====
+Make sure that your SMTP configuration is working.
+====
+
+.server-scripts/Contact/SendMail.js
+[source,js]
+----
+export default {
+  label: "Script label",
+  description: 'Script description',
+
+  * triggers ({ on }) {
+    // This script myst be invoked manually (explicitly)
+    yield on('manual')
+      // for a record
+      .for('compose:record')
+      // if the record belongs to the Quote module
+      .where('module', 'Contact')
+      // and the module belongs to the crm namespace -- this is the slug
+      .where('namespace', 'crm')
+      // visible in the compose application
+      .uiProp('app', 'compose')
+  },
+
+  // Refer to the integrator guide for details on these two parameters
+  async exec ({ $record }, { Compose }) {
+    let emailContent
+    let emailSubject
+
+    // Determine the email content and subject.
+    // You could also do other bits inhere
+
+    if (!$record.values.Email) {
+      // This will stop the script's execution
+      return false
+    }
+
+    await Compose.sendMail(
+      $record.values.Email,
+      emailSubject,
+      { html: emailContent }
+    )
+  }
+}
+----

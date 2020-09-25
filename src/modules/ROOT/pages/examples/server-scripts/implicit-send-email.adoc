@@ -1,0 +1,51 @@
+= Notify owner about the update
+
+The example fetches the lead owner and sends them an email.
+
+[IMPORTANT]
+====
+Make sure that your SMTP configuration is working.
+====
+
+.server-scripts/Lead/NotifyChange.js
+[source,js]
+----
+export default {
+  label: "Script label",
+  description: 'Script description',
+
+  * triggers ({ after }) {
+    // This script myst be invoked after the record is updated (implicitly)
+    yield after('update')
+      // for a record
+      .for('compose:record')
+      // if the record belongs to the Lead module
+      .where('module', 'Lead')
+      // and the module belongs to the crm namespace -- this is the slug
+      .where('namespace', 'crm')
+  },
+
+  // Refer to the integrator guide for details on these two parameters
+  async exec ({ $record }, { Compose, System }) {
+    let emailContent
+    let emailSubject
+
+    if (!$record.ownedBy) {
+      // This will stop the script's execution
+      return false
+    }
+
+    // Lets get the owner
+    const owner = await System.findUserByID($record.ownedBy)
+
+    // Determine the email content and subject.
+    // You could also do other bits inhere
+
+    await Compose.sendMail(
+      owner.email,
+      emailSubject,
+      { html: emailContent }
+    )
+  }
+}
+----

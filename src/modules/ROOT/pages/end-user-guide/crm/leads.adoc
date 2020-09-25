@@ -11,11 +11,11 @@ They all show leads but with different filtering.
 
 * *Leads* shows all of the leads in the system,
 * *All New Leads* shows only the leads that have the `New` status,
-* *My Leads* shows only the leads that you are responsible for.
+* *My Leads* shows only the leads that are assigned to you.
 ====
 
 A *lead* or a prospect is an individual who *might become your customer*, but currently is not.
-They are usually converted to *accounts*, *contacts* and *opportunities*.
+They are usually converted into *accounts*, *contacts* and *opportunities*.
 
 == Add a new lead
 
@@ -29,28 +29,34 @@ A new lead can be added from either one of the subpages.
 
 [TIP]
 ====
-The rating field is incredibly helpful as it allows you to distinguish between good leads quickly.
+The rating field is incredibly helpful as it allows you to see which leads are qualified as good leads.
 ====
 
-The typical process of handling a lead after it is inserted in the system is for a salesperson to follow up on the lead.
+The typical process of handling a lead after it is inserted in the system is for the assigned salesperson to follow up on the lead. This salesperson can contact, and further qualify the lead.
 
 [TIP]
 ====
-You can create notes, events and tasks are extremely helpful here.
+Try to retreive as much relevant lead data as possible. It will help you create interesting charts, such as leads per country or leads per industry.
+====
+
+[TIP]
+====
+Fill in the lead's personal or company twitter profile. This allows you to see, directly in the lead record, a list of latest tweets from that profile.
+====
+
+[TIP]
+====
+You can create notes, events and tasks for every lead.
 ====
 
 == Converting the lead
 
-A lead should be converted *after* a salesperson has made contact, and there is a sales opportunity.
+A lead should be converted when there is a sales opportunity.
 
 You have two options:
-Convert this lead into an Account::
-    This creates an account and a contact for the lead.
-    Use it when a lead shows some interest but its not exactly clear what their needs are.
 
-Convert this lead into an Account and Opportunity::
-    This creates an account, contact and an opportunity for the lead.
-    Use it when a lead shows interest, and we already know what their needs are.
+. Convert this lead into an Account: this creates an account and a contact for the lead. Use it when a lead shows some interest but its not exactly clear what the sales opportunity will look like.
+. Convert this lead into an Account and Opportunity: This creates an account, contact and an opportunity for the lead. Use it when a lead shows interest, and we already have enough info about the sales opportunity.
 
 [TIP]
 ====
@@ -59,8 +65,8 @@ When a lead is converted, the generated Contact is set as the primary contact fo
 
 == Tips for determining a lead rating
 
-If a lead *shows commercial interest*, such as a request for pricing and the lead's *location matches the region your business targets*, this lead should be considered a *5 star lead*.
+If a lead *shows commercial interest*, such as a request for pricing and the lead's *location matches the region your business targets*, this lead could be considered a *5 star lead*.
 
 If a lead *performed some additional interactions*, such as going through a demo, they could be considered a *3 star lead*.
 
-If a lead *contacted* you regarding one of your services and didn't show any explicit business intention, it can be considered a *0 star* or a *1 star* lead.
+If a lead *contacted* you regarding, but it's clear that there is no explicit business intention, it can be considered a *0 star* or a *1 star* lead.

@@ -4,8 +4,6 @@ include::../../variables.adoc[]
 
 The home page is accessible by clicking on the "Home" in the main navigation bar on the top of the screen.
 
-The homepage is sort of like a dashboard for your business -- it gives you a quick overview of the entire system.
+The homepage is the main dashboard for your business -- it gives you a quick overview of the most important information in the CRM.
 
-It shows you essential statistics regarding your leads, as well as a calendar to overview future tasks and events.
-
-The home page also shows you a list of new leads, opportunities and tasks that you are responsible for.
+By default, it shows you essential statistics regarding your leads, a calendar with events, as well as lists of your new leads, key opportunities and tasks.

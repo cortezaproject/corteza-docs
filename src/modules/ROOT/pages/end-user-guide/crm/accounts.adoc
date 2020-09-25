@@ -4,8 +4,26 @@ include::../../variables.adoc[]
 
 The Accounts page is accessible by clicking on the "Accounts" in the main navigation bar on the top of the screen.
 
-Accounts are entities (companies or other) that you are doing business with.
-A contact is an employee that we are allowed to reach out to.
+Accounts are entities (companies or other) that you are doing business with. Here you can store information such as company size, opportunities and business contact information.
+
+[NOTE]
+====
+A new account can be created in two ways:
+
+. You can add a account by clicking on the "Add" button.
+. You can create an account by converting a lead. In this case, lead data is mapped to the account and primary contact.
+====
+
+An account has, just as a lead, an owner. The "account owner" is the person responsible for the account.
+
+The most important block in accounts is "Opportunities" (potential sales). To generate a new "Opportunity" for the account, press the "Create new Opportunity from this account".
+
+Other related blocks are:
+
+. Contacts: all the contacts related to the account
+. Contracts: all contracts, active or inactive related to the account
+. Cases: All cases that are related to the account
+. Notes, Events and Tasks
 
 [NOTE]
 ====
@@ -14,10 +32,12 @@ The primary contact provides contact information when generating documents such 
 
 [TIP]
 ====
-You can create new contacts for the account by pressing the "Create new Contact from this account" button.
+You can create new contracts for the account by pressing the "Create new Contract from this account" button.
 ====
 
-Accounts allow you to store information about your customers, such as company size, opportunities and business contact information.
+[TIP]
+====
+You can create new cases for the account by pressing the "Create new Case from this account" button.
+====
 
-The important action in an account is creating opportunities.
-Press the "Create new Opportunity from this account" button to create a new opportunity.
+

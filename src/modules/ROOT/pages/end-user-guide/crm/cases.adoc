@@ -10,3 +10,8 @@ It allows you to keep track of various customer complaints, disputes or similar.
 They can be linked to accounts, contacts products or even to other cases.
 
 You can define who is part of the case, what role they have, keep track of the progress and assign notes and tasks.
+
+[NOTE]
+====
+You can store a resolved case as a "Solution". Solutions help you to solve (future) similar cases with ease.
+====

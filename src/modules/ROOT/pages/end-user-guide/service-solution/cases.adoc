@@ -3,17 +3,12 @@ include::../../variables.adoc[]
 [#cases]
 = Cases
 
-The Dashboards page is accessible by clicking on the "Dashboards" in the main navigation bar on the top of the screen.
-
-[NOTE]
-====
 There are three pages dedicated to cases -- one main page and two subpages.
 They all show leads but with different filtering.
 
 * *Cases* shows all of the cases in the system,
 * *All New cases* shows only the cases that have the `New` status,
 * *My new cases* shows only the new cases that you are responsible for.
-====
 
 Cases are the main component of {PRODUCT_NAME} Service Solution -- this is where all of the customer issues are captured and handled.
 

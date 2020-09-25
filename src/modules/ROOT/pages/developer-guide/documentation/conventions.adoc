@@ -5,7 +5,7 @@ include::../../variables.adoc[]
 
 You can use all of the formatting and different components that AsciiDoc allows.
 We do define some exceptions for better consistency when working with more flexible components.
-The conventions listed bellow must be followed when contributing to any part of the documentation.
+The conventions listed below must be followed when contributing to any part of the documentation.
 
 == Lists
 

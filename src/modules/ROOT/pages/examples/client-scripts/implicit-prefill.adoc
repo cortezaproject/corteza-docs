@@ -1,0 +1,46 @@
+= Prefill values
+
+This example prefills some record values in case they are not provided.
+
+[NOTE]
+====
+This can also be done with the module field default value setting.
+====
+
+.client-scripts/compose/crm/Contact/Prefill.js
+[source,js]
+----
+export default {
+  label: "Script label",
+  description: 'Script description',
+
+  * triggers ({ before }) {
+    // This script myst be invoked manually (explicitly)
+    yield before('formSubmit')
+      // for a record
+      .for('compose:record')
+      // if the record belongs to the Request module
+      .where('module', 'Request')
+      // and the module belongs to the crm namespace -- this is the slug
+      .where('namespace', 'crm')
+  },
+
+  // Refer to the integrator guide for details on these two parameters
+  async exec ({ $record, $module }, { Compose }) {
+    // Lets get the defaults from a Default module.
+    // This allows some more flexibility
+    const defaults = await Compose.findFirstRecord('Defaults')
+
+    for (const k in $record.values) {
+      if (!$record.values[k]) {
+        $record.values[k] = defaults.values[k]
+      }
+    }
+
+    // IMPORTANT: client-scripts work with references, so you don't need to
+    // explicitly return the $record -- this is already applied when we
+    // assigned a new value above.
+    return $record
+  }
+}
+----

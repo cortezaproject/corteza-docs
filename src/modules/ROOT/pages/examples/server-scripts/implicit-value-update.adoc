@@ -1,0 +1,50 @@
+= Calculate the lead cost
+
+The example calculates the lead cost when it is created *or* updated.
+
+.server-scripts/Lead/UpdateCost.js
+[source,js]
+----
+export default {
+  label: "Script label",
+  description: 'Script description',
+
+  * triggers ({ before }) {
+    // This script myst be invoked before the record is created or updated (implicitly)
+    yield before('create', 'update')
+      // for a record
+      .for('compose:record')
+      // if the record belongs to the Lead module
+      .where('module', 'Lead')
+      // and the module belongs to the crm namespace -- this is the slug
+      .where('namespace', 'crm')
+  },
+
+  // Refer to the integrator guide for details on these two parameters
+  async exec ({ $record }, { Compose }) {
+    if (!$record.values.LeadSource) {
+      // This will use the original record, since no changes are required.
+      // You could also use return false to stop the execution
+      return $record
+    }
+
+    switch ($record.values.LeadSource) {
+      case 'source-a':
+        $record.values.LeadCost = 10
+        break
+
+      case 'source-b':
+        $record.values.LeadCost = 20
+        break
+
+      default:
+        $record.values.LeadCost = 30
+        break
+    }
+
+    // Returning $record in a before script will automatically update the record.
+    // IMPORTANT: This is not the same for after scripts -- they need to be explicitly updated.
+    return $record
+  }
+}
+----

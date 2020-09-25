@@ -1,0 +1,40 @@
+= Prompt notification
+
+This example prompts the user to enter a value and then displays it as a notification.
+
+.client-scripts/compose/crm/Contact/CollectValue.js
+[source,js]
+----
+export default {
+  label: "Script label",
+  description: 'Script description',
+
+  * triggers ({ on }) {
+    // This script myst be invoked manually (explicitly)
+    yield on('manual')
+      // for a record
+      .for('compose:record')
+      // if the record belongs to the Quote module
+      .where('module', 'Contact')
+      // and the module belongs to the crm namespace -- this is the slug
+      .where('namespace', 'crm')
+      // visible in the compose application
+      .uiProp('app', 'compose')
+  },
+
+  // Refer to the integrator guide for details on these two parameters
+  async exec ({ $record }, { Compose, ComposeUI }) {
+
+    const value = window.prompt('Please insert a value')
+    if (!value) {
+      ComposeUI.warning('No value provided')
+      return false
+    }
+
+    // Do something with the inserted value
+    // ...
+
+    ComposeUI.success(`Hi! You've entered ${value}!`)
+  }
+}
+----

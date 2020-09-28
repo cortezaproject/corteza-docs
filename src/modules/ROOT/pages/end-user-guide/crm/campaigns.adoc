@@ -9,8 +9,11 @@ This allows you to analyze different business strategies and analyze which one i
 
 A campaign can be anything from a simple newsletter, seminar, conference, or any other type of marketing initiative.
 
-Leads, contacts, accounts and opportunities can be related to campaigs, as *campaign members*.
-The campaign - opportunity relationship allows you to calculate values such as the ROI (Return Of Investment) based on the campaign cost and expected revenue. To calculate the ROI you need to insert the cost of the campaign. The CRM creates the numbers that compare the costs to the value of the won opportunities.
+Leads, contacts, accounts and opportunities are related to campaigns, as *campaign members*.
+The campaign - opportunity relationship allows you to calculate values such as the ROI (Return Of Investment) based on the campaign cost and expected revenue.
+
+To calculate the ROI, you need to insert the cost of the campaign.
+The CRM creates the numbers that compare the costs to the value of the won opportunities.
 
 [NOTE]
 ====
@@ -19,5 +22,6 @@ Campaign results are automatically updated.
 
 [TIP]
 ====
-Try to add campaings to all your leads. Upon lead conversion the campaings is mapped to the account and opportunity, allowing you to define the ROI of your lead generation activities.
+Try to add campaigns to all your leads.
+Upon lead conversion, the campaigns are mapped to the account and opportunity, allowing you to define the ROI of your lead generation activities.
 ====

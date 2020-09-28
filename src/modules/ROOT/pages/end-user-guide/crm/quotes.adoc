@@ -4,12 +4,13 @@ include::../../variables.adoc[]
 
 The Quotes page is accessible by clicking on the "Quotes" in the main navigation bar on the top of the screen.
 
-You generate a quote from an opportunity. An opportunity can have multiple quotes.
+You generate a quote from an opportunity.
+An opportunity can have multiple quotes.
 A quote allows you to complete the payment and thus charge the customer.
 
 Products in an opportunity are inserted as quote line items.
 
-Quote "Bill to", "Quote to" and "Ship to" information is retreived from the account related.
+Quote "Bill to", "Quote to" and "Ship to" information are retrieved from the account related.
 
 [TIP]
 ====
@@ -18,5 +19,5 @@ You can overwrite automatically mapped information in a quote without problems.
 
 [NOTE]
 ====
-You can send a quote via email to the primary contact or to a custom email.
+You can send a quote via email to the primary contact or a custom email.
 ====

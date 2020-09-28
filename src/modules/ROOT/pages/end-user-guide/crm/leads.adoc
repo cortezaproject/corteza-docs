@@ -32,21 +32,24 @@ A new lead can be added from either one of the subpages.
 The rating field is incredibly helpful as it allows you to see which leads are qualified as good leads.
 ====
 
-The typical process of handling a lead after it is inserted in the system is for the assigned salesperson to follow up on the lead. This salesperson can contact, and further qualify the lead.
+The typical process of handling a lead after it is inserted in the system is for the assigned salesperson to follow up on the lead.
+This salesperson can contact, and further qualify the lead.
 
 [TIP]
 ====
-Try to retreive as much relevant lead data as possible. It will help you create interesting charts, such as leads per country or leads per industry.
+Try to retrieve as much relevant lead data as possible.
+It will help you create interesting charts, such as leads per country or leads per industry.
 ====
 
 [TIP]
 ====
-Fill in the lead's personal or company twitter profile. This allows you to see, directly in the lead record, a list of latest tweets from that profile.
+Fill in the lead's personal or company twitter profile.
+This allows you to see, directly in the lead record, a list of latest tweets from that profile.
 ====
 
 [TIP]
 ====
-You can create notes, events and tasks for every lead.
+You can create notes, events and tasks for a lead.
 ====
 
 == Converting the lead
@@ -55,8 +58,13 @@ A lead should be converted when there is a sales opportunity.
 
 You have two options:
 
-. Convert this lead into an Account: this creates an account and a contact for the lead. Use it when a lead shows some interest but its not exactly clear what the sales opportunity will look like.
-. Convert this lead into an Account and Opportunity: This creates an account, contact and an opportunity for the lead. Use it when a lead shows interest, and we already have enough info about the sales opportunity.
+Convert this lead into an Account::
+    This creates an account and a contact for the lead.
+    Use it when a lead shows some interest but its not exactly clear what the sales opportunity will look like.
+
+Convert this lead into an Account and Opportunity::
+    This creates an account, contact and an opportunity for the lead.
+    Use it when a lead shows interest, and we already have enough info about the sales opportunity.
 
 [TIP]
 ====

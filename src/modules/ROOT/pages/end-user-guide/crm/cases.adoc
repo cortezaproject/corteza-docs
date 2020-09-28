@@ -13,5 +13,6 @@ You can define who is part of the case, what role they have, keep track of the p
 
 [NOTE]
 ====
-You can store a resolved case as a "Solution". Solutions help you to solve (future) similar cases with ease.
+You can store a resolved case as a "Solution".
+Solutions help you to solve (future) similar cases with ease.
 ====

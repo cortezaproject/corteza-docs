@@ -43,7 +43,7 @@ Specific events, such as a case update, are sent to the {PRODUCT_NAME} {APP_NAME
 
 Here is an example of an automated message update:
 
-> Automatic update. "Ticket#20200914101549730" has been updated: Email: Case: [Ticket#20200914101549730] "Cannot connect the cable to the screen" (type: Outgoing email). Direct link: https://latest.cortezaproject.org/compose/ns/service-cloud/pages/111502308285612036/record/161946717564960772
+> Automatic update. "Ticket#20200914101549730" has been updated: Email: Case: [Ticket#20200914101549730] "Cannot connect the cable to the screen" (type: Outgoing email). Direct link: https://latest.cortezaproject.org/compose/ns/service-solution/pages/111502308285612036/record/161946717564960772
 
 === Default case link
 

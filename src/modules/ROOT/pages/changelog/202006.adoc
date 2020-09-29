@@ -1,8 +1,8 @@
 include::../variables.adoc[]
 
-== 2020.6
+= 2020.6
 
-=== {PRODUCT_NAME} Server
+== {PRODUCT_NAME} Server
 
 .Changes
  - Refactored how application (server, cli tools) is started to allow more modular service initialization
@@ -36,7 +36,7 @@ include::../variables.adoc[]
 . Tomaž Jerman
 
 
-=== {PRODUCT_NAME} {APP_AUTOMATION} Automation Server
+== {PRODUCT_NAME} {APP_AUTOMATION} Automation Server
 
 .Changes
  - Ported to TypeScript
@@ -53,7 +53,7 @@ include::../variables.adoc[]
 . Peter Grlica
 . Tomaž Jerman
 
-=== {PRODUCT_NAME} Web applications (clients)
+== {PRODUCT_NAME} Web applications (clients)
 
 .General changes
  - Split `corteza-webapp-common` to `corteza-vue` and `corteza-js` and port most of the code to TypeScript

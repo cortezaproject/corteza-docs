@@ -1,5 +1,16 @@
 include::../variables.adoc[]
 = Changelog
 
-include::2020.09.adoc[]
-include::2020.06.adoc[]
+:leveloffset: +1
+
+include::202009.adoc[]
+
+:leveloffset: -1
+
+== Archive
+
+:leveloffset: +2
+
+include::202006.adoc[]
+
+:leveloffset: -2

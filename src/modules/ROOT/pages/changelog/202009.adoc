@@ -5,7 +5,8 @@ include::../variables.adoc[]
 == {PRODUCT_NAME} Server
 
 .Changes
- - Add SMTP_TSL_INSECURE and SMTP_TSL_SERVER_NAME for better SMTP TSL control
+ - Add `SMTP_TSL_INSECURE` and `SMTP_TSL_SERVER_NAME` for better SMTP TSL control
+ - Replace `PROVISION_MIGRATE_DATABASE` and `PROVISION_CONFIGURATION` with `UPGRADE_ALWAYS`
  - Mail/smtp improvements: default sender, TSL, healthcheck)
  - External authentication fixed (due to initialization order)
  - Improve setting value decoding & conversion that caused crashes on startup

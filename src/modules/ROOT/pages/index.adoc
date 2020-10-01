@@ -89,8 +89,15 @@ Get in touch with us on the https://latest.{DOMAIN}[community {PRODUCT_NAME} ins
 
 == I would like to upgrade my instance -- what do I need to do?
 
-Firstly, take a look at the xref:ROOT:changelog/index.adoc[changelog] to see what has changed and if there are any backwards-incompatible changes.
-After that you can update your instance and refer to the xref:ROOT:upgrade-guide/index.adoc[upgrade guide] for a quick how-to upgrade.
+[IMPORTANT]
+====
+When upgrading, you should always firstly go over the xref:ROOT:changelog/index.adoc[changelog] and the xref:ROOT:upgrade-guide/index.adoc[upgrade guide].
+Versions may not be backwards compatible and may need some additional work to get setup.
+====
+
+To upgrade from 2020.6, you can use xref:ROOT:changelog/202009.adoc[this changelog] and xref:ROOT:upgrade-guide/202009.adoc[this upgrade guide].
+
+You can find all of the changelogs xref:ROOT:changelog/index.adoc[here], and all of the upgrade guides xref:ROOT:upgrade-guide/index.adoc[here].
 
 == This is exciting! What's in store for the future?!
 

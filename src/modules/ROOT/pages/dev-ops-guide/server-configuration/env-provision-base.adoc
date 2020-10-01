@@ -4,20 +4,14 @@ include::../../variables.adoc[]
 |===
 |Type|Default value|Description
 
-3+| *PROVISION_MIGRATE_DATABASE*
+3+| *PROVISION_ALWAYS*
 | `boolean`
 | true
-| Controls if database migration (creation of tables, changes of schema between versions) should be done before each service is started.
+| Controls if the provisioning should run when the server starts.
 
-3+| *PROVISION_CONFIGURATION*
+3+| *UPGRADE_ALWAYS*
 | `boolean`
 | true
-| Runs various auto-setup procedures and creates resources:
-
-* Creates default permission rules and roles,
-* creates default channels,
-* creates default applications,
-* creates default compose resources (namespaces, modules, charts,...),
-* setup auto-discovery settings.
+| Controls if the upgradable systems should be upgraded when the server starts.
 
 |===

@@ -16,7 +16,7 @@ include::../../variables.adoc[]
 
 3+| *HTTP_REPORT_PANIC*
 | `boolean`
-|
+| true
 | Report HTTP panic to Sentry.
 
 3+| *HTTP_LOG_REQUEST*

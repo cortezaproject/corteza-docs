@@ -19,19 +19,59 @@ include::../../variables.adoc[]
 | 1 minute
 | Max delay for backoff on connection.
 
-3+| *CORREDOR_API_BASE_URL_SYSTEM*
-| `string`
+3+| *CORREDOR_MAX_RECEIVE_MESSAGE_SIZE*
+| int
+| 16MB
 |
-| Instructions passed to {APP_AUTOMATION} on every call - where the system API is located.
 
-3+| *CORREDOR_API_BASE_URL_MESSAGING*
-| `string`
-|
-| Instructions passed to {APP_AUTOMATION} on every call - where the {APP_NAME_MESSAGING} API is located.
+3+| *CORREDOR_DEFAULT_EXEC_TIMEOUT*
+| time
+| 1 minute
+| 
 
-3+| *CORREDOR_API_BASE_URL_COMPOSE*
-| `string`
-|
-| Instructions passed to {APP_AUTOMATION} on every call - where the {APP_NAME_COMPOSE} API is located.
+3+| *CORREDOR_LIST_TIMEOUT*
+| duration
+| 2 second
+| 
+
+3+| *CORREDOR_LIST_REFRESH*
+| duration
+| 2 second
+| 
+
+3+| *CORREDOR_RUN_AS_ENABLED*
+| bool
+| false
+| 
+
+3+| *CORREDOR_CLIENT_CERTIFICATES_ENABLED*
+| bool
+| false
+| 
+
+3+| *CORREDOR_CLIENT_CERTIFICATES_PATH*
+| string
+| /certs/corredor/client
+| 
+
+3+| *CORREDOR_CLIENT_CERTIFICATES_CA*
+| string
+| ca.crt
+| 
+
+3+| *CORREDOR_CLIENT_CERTIFICATES_PUBLIC*
+| string
+| public.crt
+| 
+
+3+| *CORREDOR_CLIENT_CERTIFICATES_PRIVATE*
+| string
+| private.key
+| 
+
+3+| *CORREDOR_CLIENT_CERTIFICATES_SERVER_NAME*
+| string
+| ""
+| 
 
 |===

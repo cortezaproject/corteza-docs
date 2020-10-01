@@ -14,7 +14,7 @@ include::../../variables.adoc[]
 |
 | Facebook's app credentials: `<key> <secret>`.
 
-3+| *PROVISION_SETTINGS_AUTH_EXTERNAL_GPLUS*
+3+| *PROVISION_SETTINGS_AUTH_EXTERNAL_GOOGLE*
 | `string`
 |
 | Google's app credentials: `<key> <secret>`.

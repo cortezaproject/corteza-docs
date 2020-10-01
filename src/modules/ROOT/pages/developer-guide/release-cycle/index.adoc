@@ -1,0 +1,7 @@
+= Release cycle
+
+:leveloffset: +1
+
+include::pre-release-checklist.adoc[]
+
+:leveloffset: -1

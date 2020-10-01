@@ -1,0 +1,59 @@
+include::../../variables.adoc[]
+
+= Pre-release checklist
+
+[NOTE]
+====
+The pre-release checklist is a reference for the core {PRODUCT_NAME} team to help us keep a consistent flow when preparing for a release.
+
+If you are curious, keep on reading; else, you can skip this.
+====
+
+== Update any dependency warning
+
+Go over each repository and assure that there aren't any warnings with any of the dependencies.
+GitHub provides a friendly system for this, so that shouldn't be an issue.
+
+.Repos:
+. corteza-js: ({GIT_REPO_LINK_PREFIX}-js)
+. corteza-vue: ({GIT_REPO_LINK_PREFIX}-vue)
+. corteza-server-corredor: ({GIT_REPO_LINK_PREFIX}-server-corredor)
+. corteza-webapp-auth: ({GIT_REPO_LINK_PREFIX}-webapp-auth)
+. corteza-webapp-one: ({GIT_REPO_LINK_PREFIX}-webapp-one)
+. corteza-webapp-admin: ({GIT_REPO_LINK_PREFIX}-webapp-admin)
+. corteza-webapp-messaging: ({GIT_REPO_LINK_PREFIX}-webapp-messaging)
+. corteza-webapp-compose: ({GIT_REPO_LINK_PREFIX}-webapp-compose)
+
+== Bump version, build and publish packages
+
+Bump the version of the NPM packages, following the https://calver.org/[CalVer] standard; for example `2020.9-rc1`.
+
+Build and publish new packages.
+
+.Repos:
+. corteza-js: ({GIT_REPO_LINK_PREFIX}-js)
+. corteza-vue: ({GIT_REPO_LINK_PREFIX}-vue)
+
+== Update cdeps (Corteza Dependencies)
+
+Go over all repositories that use these and make sure they are up to date.
+You can use the `yarn cdeps` command to speed it up.
+
+. corteza-server-corredor: ({GIT_REPO_LINK_PREFIX}-server-corredor)
+. corteza-webapp-auth: ({GIT_REPO_LINK_PREFIX}-webapp-auth)
+. corteza-webapp-one: ({GIT_REPO_LINK_PREFIX}-webapp-one)
+. corteza-webapp-admin: ({GIT_REPO_LINK_PREFIX}-webapp-admin)
+. corteza-webapp-messaging: ({GIT_REPO_LINK_PREFIX}-webapp-messaging)
+. corteza-webapp-compose: ({GIT_REPO_LINK_PREFIX}-webapp-compose)
+
+== Bump core repo version
+
+Go over all of the remaining repositories and update their version, following the https://calver.org/[CalVer] standard; for example `2020.9-rc1`.
+
+. corteza-server: ({GIT_REPO_LINK_PREFIX}-server)
+. corteza-server-corredor: ({GIT_REPO_LINK_PREFIX}-server-corredor)
+. corteza-webapp-auth: ({GIT_REPO_LINK_PREFIX}-webapp-auth)
+. corteza-webapp-one: ({GIT_REPO_LINK_PREFIX}-webapp-one)
+. corteza-webapp-admin: ({GIT_REPO_LINK_PREFIX}-webapp-admin)
+. corteza-webapp-messaging: ({GIT_REPO_LINK_PREFIX}-webapp-messaging)
+. corteza-webapp-compose: ({GIT_REPO_LINK_PREFIX}-webapp-compose)

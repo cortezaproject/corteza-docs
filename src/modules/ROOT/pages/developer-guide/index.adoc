@@ -11,6 +11,8 @@ Instead of describing all the little functions it mainly focuses on features and
 
 include::building.adoc[]
 
+include::release-cycle/index.adoc[]
+
 include::documentation/index.adoc[]
 
 include::database/index.adoc[]

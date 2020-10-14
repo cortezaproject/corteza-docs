@@ -1,0 +1,65 @@
+include::../../variables.adoc[]
+
+= Resource labeling
+
+This is proposal to extend Corteza to support resource labeling.
+
+Each resource in Corteza (module, user, ...) would gain ability to add arbitrary key-value data.
+
+== Examples of possible usages:
+
+ - various categorization/taxonomy
+ - resource group (currently we do this by convection with prefixing names and handles)
+ - marking federated records (`federated=<remote-record-id>`)
+ - store import references (`imported=<original-id>`)
+ - mark resources that could be preloaded in Corredor
+ - marking dependencies on resources by automation scripts, workflow
+
+== Label constraints:
+ - key: `string`, valid handle (`^[A-Za-z][0-9A-Za-z_\-.]*[A-Za-z0-9]$`), max 512 characters
+ - value: `string` without constraints or limitations
+   #TBD: Is this ok? Should we limit this?#
+ - keys are unique per specific resource (module `A` would only be able to have one label with key `KEY`)
+
+[NOTE]
+====
+Keys are unique per-resource because we want to avoid complexity with multiple keys;
+additional ID would be needed to allow modifications
+====
+
+[#rfc:labels:changes-rest]
+== Changes in REST API
+ 1. All resources that support labels would get additional param `label` with type `map[string]string` (`{[_: string]: string}`)
+  a. if param is not set (`labels == nil`), no modification are done to labels
+  b. if param is empty (`len(labels) == 0`), all labels are removed from that resource
+  c. if param is set (`len(labels) > 0`), labels are removed, added and updated accordingly
+ 2. All resources that support labels would get ability for explicit filter by labels
+  a. filtering resources by label existence (any value)
+  b. filtering resources by label unexistence
+  c. filtering resources by specific label value
+ 3. Resource labels are returned as `map[string]string` with resource (under `label` prop) when
+  a. labels are added/changed/removed
+  b. filtering by label is done
+  c. labels are explicitly required with presence of `incLabels` query string parameter
+     #TBD: Do we even need this?#
+
+== Changes in core code
+
+Label loading, searching and modifications are covered in dedicated `pkg/label` package
+Services on all supported resource are modified to support storing, loading and filtering by labels
+
+== Changes in store layer
+
+All labels for all resources are stored in one centralized table `labels` in primary store.
+Certain store implementation could intercept label loading and storing for particular resource type and use alternative store.
+
+== Proof of concept
+
+Described changes are implemented for Compose module resource in POC Pull Request https://github.com/cortezaproject/corteza-server/pull/112[#112].
+
+Not implemented in the POC PR:
+ - conditional returning of labels (see 3.ac. in <<rfc:labels:changes-rest>>)
+
+== No-list
+
+ - labels will not be implemented on Messaging

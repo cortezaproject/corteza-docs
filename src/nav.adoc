@@ -47,6 +47,7 @@ include::modules/ROOT/pages/variables.adoc[]
 ** Data and Storage
 *** xref:developer-guide/store/index.adoc[]{PRODUCT_NAME} Store
 *** xref:developer-guide/pagination.adoc[Pagination]
+*** xref:developer-guide/resource-labeling.adoc[Resource Labelling]
 ** Security and Access
 *** xref:developer-guide/impersonation.adoc[Impersonation]
 ** xref:developer-guide/compose/index.adoc[]{PRODUCT_NAME} {APP_NAME_COMPOSE}

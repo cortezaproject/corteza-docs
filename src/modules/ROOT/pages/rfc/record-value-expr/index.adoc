@@ -1,0 +1,138 @@
+include::../../variables.adoc[]
+
+= Record Value Expressions
+
+Record Value Expressions enables support for expressions to record values and unlock:
+
+ - formula fields
+ - custom sanitizers
+ - custom validators
+ - custom formatting
+
+Introduction of expressions greatly simplifies solutions that required implementation through automation script.
+It brings execution closer to core and within the same process, reducing overhead and improving stability and performance.
+
+Library https://github.com/PaesslerAG/gval[gval] is used for parsing and evaluation of expression.
+This allows to reuse validators and sanitizers on front-end in JavaScript environment.
+
+== Formula field
+
+Formula fields allow dynamic calculation of record values from constants and other values.
+Only constants and values from current objects are supported.
+
+.Example expression for formula field that calculates price with tax:
+[source]
+----
+price * 1.25
+----
+
+This expression assumes there is another field named `price` in record values and multiplies that field with 1.25.
+
+.Example expression for formula field that concatinates 2 string fields
+[source]
+----
+trim(firstName + " " + lastName)
+----
+
+Expression assumes 2 other fields (firstName and lastName) and concatenates them with space between.
+Finally, we trim the result to ensure there result is not prefixed or suffixed with a space in case any of the two fields are empty.
+
+_Later upgrades will allow calculation from referenced records with dependency tracking and cascading updates._
+
+#TBD# How to handle formula change on existing data.
+
+== Sanitizers
+
+Sanitizers aid in record value processing and *cannot raise errors* but *can modify value*.
+Each module field can have one or more defined expression with accompanying description or explanation.
+
+.Example of length control
+[source]
+----
+length(title) > 5 ? substr(title, 0, 5) + "..." : title
+----
+.dfdfd
+
+
+Expressions are ran *before* built-in sanitizers. Built-in sanitizers cannot be disabled.
+When multiple sanitization expressions are defined they are all ran sequentially in defined order.
+
+Corteza logs all modifications to sanitizators.
+
+#TBD Explicit logging could be enabled to catch all sanitized data (where input value differs from final one) for a particular expression"
+
+== Validators
+
+Validators aid in record value processing, *can raise errors* in case of invalid values but *cannot change values*.
+Each module field can have one or more validation groups that consist of validation expression and  error message.
+Built-in field validators can be disabled.
+
+.Example of length control
+[source]
+----
+length(title) < 5
+----
+
+When multiple validation expressions are defined they are all ran sequentially in defined order.
+Custom validators are ran *after* or *instead* of built-in field-type validators.
+Note that validation can produce multiple errors from different fields but each value is validated only until first error (or success).
+
+Corteza logs all modifications to validators.
+
+#TBD Explicit logging could be enabled to catch and log errors for a expression#
+
+== Formatters
+
+When record values are prepared for output Corteza formats each one according to field type and custom formatters.
+Formatters *can reformat value* before they are outputed but *cannot raise errors or change them*.
+Each module field can have one or more formatter expression.
+
+Custom formatters are executed *after* or *instead* of built-on formatters.
+
+
+.Example of custom formatting
+[source]
+----
+capitalize(title)
+----
+
+== Expression functions (wip)
+
+|===
+|Name, signature | Description
+| trim(arg)
+| Removes whitespace characters (space, tab, new-line, ...)
+
+| length(arg)
+| Returns length of the string
+
+| toUpperCase(arg)
+| Returns string, all letters capitalized
+
+| toLowerCase(arg)
+| Returns string, all letters in lower case
+
+| toLowerCase(arg)
+| Returns string, all letters in lower case
+
+| longest(arg1, ... argN)
+| Returns the longest string from list of argument
+
+| shortest(arg1, ... argN)
+| Returns the shortest string from list of argument
+
+| max(arg1, ... argN)
+| Returns the greatest number or date from list of arguments
+
+| min(arg1, ... argN)
+| Returns the lowest number or date from list of arguments
+
+| coalesce(arg1, ... argN)
+| Returns first non-null argument
+
+| year(arg)
+| Returns year part from date; non date arguments return 0000
+
+|===
+
+

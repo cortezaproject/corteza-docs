@@ -1,0 +1,212 @@
+include::../../variables.adoc[]
+
+= Module field expressions
+
+Module field Expressions enables support for arbitraty expressions on moduel fields and unlock:
+
+ - value(s) expression (formula fields)
+ - custom sanitizers
+ - custom validators
+ - custom formatting
+
+Introduction of expressions greatly simplifies solutions that required implementation through automation script.
+It brings execution closer to core and within the same process, reducing overhead and improving stability and performance.
+
+Library https://github.com/PaesslerAG/gval[gval] is used for parsing and evaluation of expression.
+This allows to reuse validators and sanitizers on front-end in JavaScript environment.
+
+== Value(s) expressions
+
+Value expressions allow dynamic calculation of record values from constants and other values.
+Only constants and values from current objects are supported.
+
+Corteza implements this functionality by allowing value expressions on any field type.
+When expression on the field input value on this field is ignored and expression is evaluated instead.
+
+.Example expression for numeric field that calculates price with tax:
+[source]
+----
+price * 1.25
+----
+
+This expression assumes there is another field named `price` in record values and multiplies that field with 1.25.
+
+.Example expression for formula field that concatinates 2 string fields
+[source]
+----
+trim(firstName + " " + lastName)
+----
+
+Expression assumes 2 other fields (firstName and lastName) and concatenates them with space between.
+Finally, we trim the result to ensure there result is not prefixed or suffixed with a space in case any of the two fields are empty.
+
+_Later upgrades will allow calculation from referenced records with dependency tracking and cascading updates._
+
+=== Field options
+
+ - formula
+
+=== Behaviour
+
+ - If an error occurs while executing formula field expression, error is appended to record value error set
+ - If expression on multi-value fields does not return slice of values, system raises error
+ - If expression on single-value fields does not return single value, system raises error
+
+
+=== Available variables
+
+|===
+|Name | Description
+
+| `old`
+| record object
+
+| `new`
+| record object
+
+| `<field-name>`
+| String or array of strings with new value.
+
+If field name collides with any of reserved variables (old, new, field, module) it can be accessed via `old.values.<field-name>`
+
+
+|===
+
+
+== Sanitizers
+
+Sanitizers aid in record value processing and *cannot raise errors* but *can modify value*.
+Each module field can have one or more defined expression with accompanying description or explanation.
+
+.Example of length control
+[source]
+----
+length(value) > 5 ? substr(value, 0, 5) + "..." : value
+----
+
+Only one variable is exposed to the sanitizer
+
+Expressions are ran *before* built-in sanitizers. Built-in sanitizers cannot be disabled.
+When multiple sanitization expressions are defined they are all ran sequentially in defined order.
+
+#@todo Corteza logs all modifications to sanitizers.#
+
+Sanitizer expression evaluation errors are logged.
+
+=== Available variables
+
+|===
+|Name | Description
+
+| `value`
+| sanitized value
+|===
+
+== Validators
+
+Validators aid in record value processing, *can raise errors* in case of invalid values but *cannot change values*.
+Each module field can have one or more validation groups that consist of validation expression and  error message.
+Built-in field validators can be disabled.
+
+.Example of length control
+[source]
+----
+length(title) < 5
+----
+
+When multiple validation expressions are defined they are all ran sequentially in defined order.
+Custom validators are ran *after* or *instead* of built-in field-type validators and *before* unique value checks.
+Required and unique-multi-value validators can not be disabled.
+Note that validation can produce multiple errors from different fields but each value is validated only until first error.
+
+Corteza logs all modifications to validators.
+
+=== Available variables
+
+|===
+|Name | Description
+
+| `value`
+| current value
+
+| `oldValue`
+| old value value
+
+| `values.<field-name>`
+| all values
+|===
+
+== Formatters
+
+When record values are prepared for output Corteza formats each one according to field type and custom formatters.
+Formatters *can reformat value* before they are stored but *cannot raise errors or change them*.
+Each module field can have one or more formatter expression.
+
+Custom formatters are executed *after* or *instead* of built-on formatters.
+
+Formatter expression evaluation errors are logged.
+
+=== Available variables
+
+|===
+|Name | Description
+
+| `value`
+| formatting value
+|===
+
+=== Available variables
+
+|===
+|Name | Description
+
+| `value`
+| sanitized value
+|===
+
+.Example of custom formatting
+[source]
+----
+capitalize(title)
+----
+
+== Expression functions (wip)
+
+|===
+|Name, signature | Description
+| trim(arg)
+| Removes whitespace characters (space, tab, new-line, ...)
+
+| length(arg)
+| Returns length of the string
+
+| toUpperCase(arg)
+| Returns string, all letters capitalized
+
+| toLowerCase(arg)
+| Returns string, all letters in lower case
+
+| toLowerCase(arg)
+| Returns string, all letters in lower case
+
+| longest(arg1, ... argN)
+| Returns the longest string from list of argument
+
+| shortest(arg1, ... argN)
+| Returns the shortest string from list of argument
+
+| max(arg1, ... argN)
+| Returns the greatest number or date from list of arguments
+
+| min(arg1, ... argN)
+| Returns the lowest number or date from list of arguments
+
+| coalesce(arg1, ... argN)
+| Returns first non-null argument
+
+| year(arg)
+| Returns year part from date; non date arguments return 0000
+
+|===
+
+

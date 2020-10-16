@@ -1,0 +1,15 @@
+include::../../variables.adoc[]
+
+= Message gateway
+
+Message gateway is a service that can manage, influence, reroute, capture and forward incoming and outgoing messages sent from {product_name}.
+
+It supports multiple message types (email, sms, ...) and providers.
+
+Administrator can configure quotas, routing and logging rules:
+
+ - enable max messages / day for a user
+ - disable all email output for all users
+ - allow email forwarding only for a particular set of users (or email pattern)
+ - delay messages delivery until certain time intervals (send emails only during working hours)
+ - should handle message-send/message-received triggers transparently

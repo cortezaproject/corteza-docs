@@ -1,65 +1,98 @@
 include::../../variables.adoc[]
 
-= Resource labeling
-
-This is proposal to extend Corteza to support resource labeling.
-
-Each resource in Corteza (module, user, ...) would gain ability to add arbitrary key-value data.
-
-== Examples of possible usages:
-
- - various categorization/taxonomy
- - resource group (currently we do this by convection with prefixing names and handles)
- - marking federated records (`federated=<remote-record-id>`)
- - store import references (`imported=<original-id>`)
- - mark resources that could be preloaded in Corredor
- - marking dependencies on resources by automation scripts, workflow
-
-== Label constraints:
- - key: `string`, valid handle (`^[A-Za-z][0-9A-Za-z_\-.]*[A-Za-z0-9]$`), max 512 characters
- - value: `string` without constraints or limitations
-   #TBD: Is this ok? Should we limit this?#
- - keys are unique per specific resource (module `A` would only be able to have one label with key `KEY`)
+= Resource labelling
 
 [NOTE]
 ====
-Keys are unique per-resource because we want to avoid complexity with multiple keys;
-additional ID would be needed to allow modifications
+See the POC pull request https://github.com/cortezaproject/corteza-server/pull/112[#112].
+The POC already covers most of the bits defined in this RFC.
 ====
 
-[#rfc:labels:changes-rest]
-== Changes in REST API
- 1. All resources that support labels would get additional param `label` with type `map[string]string` (`{[_: string]: string}`)
-  a. if param is not set (`labels == nil`), no modification are done to labels
-  b. if param is empty (`len(labels) == 0`), all labels are removed from that resource
-  c. if param is set (`len(labels) > 0`), labels are removed, added and updated accordingly
- 2. All resources that support labels would get ability for explicit filter by labels
-  a. filtering resources by label existence (any value)
-  b. filtering resources by label unexistence
-  c. filtering resources by specific label value
- 3. Resource labels are returned as `map[string]string` with resource (under `label` prop) when
-  a. labels are added/changed/removed
-  b. filtering by label is done
-  c. labels are explicitly required with presence of `incLabels` query string parameter
-     #TBD: Do we even need this?#
+Resource labelling equips *internal {PRODUCT_NAME} resources* with arbitrary key-value labels that provide *more flexibility* when performing operations over these labels.
 
-== Changes in core code
+.Example use cases:
+* Categorization/taxonomy,
+* resource grouping without the need for messy prefixes,
+* data migration ID references,
+* marking federated resources,
+* {APP_AUTOMATION} resource preloading,
+* marking dependencies for automation scripts, workflows.
 
-Label loading, searching and modifications are covered in dedicated `pkg/label` package
-Services on all supported resource are modified to support storing, loading and filtering by labels
+[IMPORTANT]
+====
+{PRODUCT_NAME} {APP_NAME_MESSAGING} resources *will not* support this feature.
+====
 
-== Changes in store layer
+== Label structure
 
-All labels for all resources are stored in one centralized table `labels` in primary store.
-Certain store implementation could intercept label loading and storing for particular resource type and use alternative store.
+Resource labels define a simple structure of:
 
-== Proof of concept
+[source,text]
+----
+{KEY}: {VALUE}
+----
 
-Described changes are implemented for Compose module resource in POC Pull Request https://github.com/cortezaproject/corteza-server/pull/112[#112].
+`{KEY}`::
+    Label key is *a simple `string`* value that conforms to `^[A-Za-z][0-9A-Za-z_\-.]\*[A-Za-z0-9]$` and is limited to 512 characters.
+    Keys are *unique per specific resources* (a module can define only a single label with the key of `{KEY}`) and are simple strings.
+    This limitation simplifies the underlying systems, and it makes it less prone to abuse.
 
-Not implemented in the POC PR:
- - conditional returning of labels (see 3.ac. in <<rfc:labels:changes-rest>>)
+`{VALUE}`::
+    The label value is a regular `string` value that doesn't put in place any particular value validations or constraints.
 
-== No-list
+[NOTE]
+====
+Should we also constraint the label value?
+====
 
- - labels will not be implemented on Messaging
+== Label usage
+
+Labels can be used *by any {PRODUCT_NAME} resource* as long as it defines the proper facility for *assigning labels* and *label based retrieving*.
+
+[TIP]
+====
+{PRODUCT_NAME} defines a dedicated package (`pkg/label`) that knows how to perform the core operations over labels.
+Other services can trivially include the package into the request cycle.
+====
+
+=== Assigning labels
+
+.The resource *must cover* these cases when an additional `label` parameter is provided:
+* If the parameter is *not provided*, *no* label *modifications* are performed.
+* If the parameter *is provided* and *empty*, *remove all labels* from the given *resource*.
+* If the parameter *is provided* and is *not empty*, *remove missing* labels and *add new labels*.
+
+=== Retrieving resources
+
+[NOTE]
+====
+When we query over resources that support labels and already define some labels, do we always want to return those labels?
+Should we only return labels when we perform some operation over labels or when explicitly requested?
+Does this make sense?
+====
+
+.The resource supports the following filtering operations:
+* Filtering *by label existence*; check if *label with the given key* exists.
+* Filtering *by label !existence*; check if *label with the given key does not* exist.
+* Filtering by label *with a specific value*; check if *both* label *key and value* exist.
+
+== Label store
+
+We define a *simple generic* store definition for storing labels.
+This simplification allows us to use these labels *on any {PRODUCT_NAME} resource* with minimal effort on the storage layer.
+
+.Resource labels store definition.
+[cols="1s,1l,3a"]
+|===
+|Field |Type |Description
+
+|Kind | string| Specifies the *kind of the resource* this label belongs to.
+|ResourceID | uint64| Specifies the ID of the resource this label belongs to.
+|Name | string| Specifies the key part of the label.
+|Value | string| Specifies the value part of the label.
+|===
+
+[NOTE]
+====
+The primary key is *constructed* from `Kind`, `ResourceID`, and `Name` fields.
+====

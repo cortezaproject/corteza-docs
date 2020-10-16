@@ -9,3 +9,6 @@ It provides insight into all development aspects so you can get involved.
 
 Corteza federation::
     link:federation/index.html[Corteza federation] aims to connect different Corteza instances into a federated network, where they can freely exchange information.
+
+Resource labeling::
+    xref:ROOT:rfc/labels/index.adoc[Resource labeling] equips internal resources with arbitrary key-value labels that provide more flexibility.

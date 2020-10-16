@@ -1,0 +1,39 @@
+include::../../variables.adoc[]
+
+= Trigger management
+
+All event hooks are managed via UI with all supporting API endpoints implemented.
+
+Users can:
+ - create and update triggers
+ - selectively enable or disable triggers and control trigger constraints.
+ - view trigger metrics (count, frequency, duration, ...)
+ - view trigger action log to inspect trigger changes
+ - connect trigger with event handler (script, workflow)
+
+== UI
+
+All triggers can be reviewed and managed from the administration panel and from a dedicated interface accessible by resource type (sink, messages).
+
+=== View-only triggers:
+
+Some resource-types require specialised management interface that
+
+== Transition period and migration of trigger definitions on {app_automation} scripts
+
+Before full transition to trigger management {app_automation} scripts with triggers transparently create trigger entries.
+These triggers cannot be managed until trigger definition is removed from the script file and are in passive, view-only mode.
+When definition is removed from the files, administrator can edit triggers.
+
+== Glossary
+
+event::
+Event is raised when something happens in the system (before record update, after module delete, ...)
+
+event handler::
+Executes when event is raised.
+
+trigger::
+Connects one or more events from the same resource-type with one event handlers.
+Triggers can have multiple constraints that narrow amount of times event handler is executed
+

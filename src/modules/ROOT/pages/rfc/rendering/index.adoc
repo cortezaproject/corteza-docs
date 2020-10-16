@@ -1,0 +1,5 @@
+include::../../variables.adoc[]
+
+= Rendering
+
+Rendering of HTML, PDF and other textual and binary outputs through templates and input arguments.

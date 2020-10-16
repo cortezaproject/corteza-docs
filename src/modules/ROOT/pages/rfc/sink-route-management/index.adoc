@@ -1,0 +1,6 @@
+include::../../variables.adoc[]
+
+= Sink route management
+
+ - dedicated UI for handling sink triggers
+ - auth token generation (as replacement for signed routes)

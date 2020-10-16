@@ -1,0 +1,33 @@
+include::../../variables.adoc[]
+
+= OAuth2 Server
+
+== Supported grant types and protocols:
+
+ - Authorization Code Grant with PKCE extension; for browser apps
+ - Client Credentials; for machine-to-machine use
+ - Refresh Token
+
+== Tokens
+
+Hashed value of JSON Web Token is kept in credentials store to support token revocation (logout, RFC 7009).
+
+== Clients
+
+Preinstalled client for internal use:
+
+ - {PRODUCT_NAME} Web applications
+ - {APP_AUTOMATION}
+ - Sink
+
+=== Clients and RBAC roles
+
+Security roles have list of OAuth2 clients that can use the role in the security context on successful authentication.
+
+
+=== Server Libs
+
+- https://github.com/RichardKnop/go-oauth2-server
+- https://github.com/openshift/osin
+
+None of the libs have support for PKCE flow although `go-oauth2-server` has PR waiting.

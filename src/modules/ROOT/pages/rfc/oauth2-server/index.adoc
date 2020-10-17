@@ -12,22 +12,95 @@ include::../../variables.adoc[]
 
 Hashed value of JSON Web Token is kept in credentials store to support token revocation (logout, RFC 7009).
 
-== Clients
-
-Preinstalled client for internal use:
+== Preinstalled clients
 
  - {PRODUCT_NAME} Web applications
  - {APP_AUTOMATION}
- - Sink
+ - Sink #TBD#
 
-=== Clients and RBAC roles
+=== Client features, options, flags:
 
-Security roles have list of OAuth2 clients that can use the role in the security context on successful authentication.
+.Each client can have/be:
+ - enabled/disabled,
+ - shortlist of roles (see below)
+
+=== Key-Secret pairs
+
+Client can have multiple key-secret pairs.
+
+.Each pair can have/be:
+ - enabled/disabled,
+ - validity date range,
+ - grant type
+ - one or more IP ranges (when applicable)
+
+Key-secret properties are immutable (exception: enabled/disabled flag).
+
+=== Role shortlisting
+
+Each client must have explicitly defined list of roles.
+When successfully authenticated, intersection of user's and client roles is used to create a subgroup of roles.
+This subgroup is then used in security descriptor for that session.
 
 
-=== Server Libs
+== Security (RBAC)
 
+|===
+| Operation | Default | Description
+
+3+| `system`
+
+| `auth-client.create`
+| Allow role members creation of new OAuth2 clients
+| DENY
+
+3+| `system/auth-client:<client-id>`
+
+| `read`
+| Can read details of this client
+| DENY
+
+| `update`
+| Allow role members to
+| DENY
+
+| `delete`
+| Can delete this client
+| DENY
+
+| `authenticate`
+| Can authenticate with this client
+| DENY
+
+| `role-shortlist.manage`
+| Can manage shortlist of roles
+| DENY
+
+| `secret.manage`
+| Can manage shortlist of roles
+| DENY
+
+
+|===
+
+
+== Server Libs
+
+.Options
 - https://github.com/RichardKnop/go-oauth2-server
 - https://github.com/openshift/osin
 
 None of the libs have support for PKCE flow although `go-oauth2-server` has PR waiting.
+
+== Action log
+
+- client created
+- client updated
+- client deleted
+- client enabled
+- client disabled
+- client role shortlist changed
+- client key-secret pair added
+- client key-secret pair enabled
+- client key-secret pair disabled
+- client key-secret pair disabled

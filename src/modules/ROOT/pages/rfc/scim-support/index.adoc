@@ -1,0 +1,66 @@
+include::../../variables.adoc[]
+
+= Minimal support for SCIM v2
+
+Protocol
+
+{PRODUCT_NAME} supports SCIM protocol to enable and identity provisioning and simplify identity management.
+
+Lib used: https://github.com/imulab/go-scim
+
+== Will not implement:
+
+. https://tools.ietf.org/html/rfc7644#section-2.2[RFC7644 2.2.Anonymous Requests]
+. https://tools.ietf.org/html/rfc7644#section-3.4[RFC7644 3.4. Retrieving Resources]
+. https://tools.ietf.org/html/rfc7644#section-3.11[RFC7644 3.11. "/Me" Authenticated Subject Alias]
+. https://tools.ietf.org/html/rfc7644#section-3.4.3[RFC7644 3.4.3. Querying Resources Using HTTP POST]
+
+
+== Authentication
+
+Provisioning system must use Bearer Tokens, provided by {PRODUCT_NAME}.
+
+== Resource mapping
+
+=== User
+
+List of SCIM attributes and how they map to/from {PRODUCT_NAME} user fields.
+
+userName::
+  Mapped to `username` field.
+
+displayName::
+  Mapped to `name` field.
+
+nickName::
+    If compatible with handle format (`^[A-Za-z][0-9A-Za-z_\-.]*[A-Za-z0-9]$`), value is used to populate user's `handle` property.
+    Incompatible values are silently ignored.
+
+password::
+    Password will update internal credentials if it does not match currently active one.
+    Expecting cleartext passwords as per https://tools.ietf.org/html/rfc7643#section-9.2[RFC7643 Section 9.2].
+
+emails::
+    Due to current limitation of {PRODUCT_NAME}, only one email can be stored.
+    Primary email is used. If no emails are marked as primary, first entry is used.
+
+=== Provisioning groups
+
+List of SCIM attributes and how they map to/from {PRODUCT_NAME} role fields.
+
+displayName::
+    Mapped to `name` field.
+    If compatible with handle format (`^[A-Za-z][0-9A-Za-z_\-.]*[A-Za-z0-9]$`), value is used to populate roles's `handle` property.
+    Otherwise it sets handle to empty string
+
+=== Provisioning role membership
+
+When group with `members` or user with `groups` is updated, group membership is changed accordingly.
+
+=== References
+
+When created, resource `id` value is stored in `SCIM_id` label.
+{PRODUCT_NAME} will strictly use value from `id` as key identifier when modifying and replacing resources and
+modifying group-user memberships.
+
+

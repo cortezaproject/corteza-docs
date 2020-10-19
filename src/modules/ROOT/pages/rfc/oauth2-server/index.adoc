@@ -14,33 +14,50 @@ Hashed value of JSON Web Token is kept in credentials store to support token rev
 
 == Preinstalled clients
 
- - {PRODUCT_NAME} Web applications
- - {APP_AUTOMATION}
- - Sink #TBD#
+- {PRODUCT_NAME} Web applications
+- {APP_AUTOMATION}
+- Sink #TBD#
 
 === Client features, options, flags:
 
 .Each client can have/be:
- - enabled/disabled,
- - shortlist of roles (see below)
+- enabled/disabled,
+- grant type
+- one or more valid authorizing client IP ranges
+- one or more key-secret pairs (see below)
+- shortlist of roles (see below)
+- interfaces (see below)
 
-=== Key-Secret pairs
+Client name and description will be provided via label system
+
+=== Client key-secret pairs
 
 Client can have multiple key-secret pairs.
 
 .Each pair can have/be:
- - enabled/disabled,
- - validity date range,
- - grant type
- - one or more IP ranges (when applicable)
+- key string (8 random alphanumeric characters prefixed with `k_`)
+- secret string
+- validity date range
 
-Key-secret properties are immutable (exception: enabled/disabled flag).
+Client name and description will be provided via label system.
+Pair values are immutable.
+Pairs can be soft-deleted.
+
+Secret is a JWT with encoded preferences (key, random salt, validity date)
+
 
 === Role shortlisting
 
 Each client must have explicitly defined list of roles.
 When successfully authenticated, intersection of user's and client roles is used to create a subgroup of roles.
 This subgroup is then used in security descriptor for that session.
+
+=== Client interfaces
+
+. JSON REST API
+. SINK API
+. SCIM #when available#
+. GraphQL #when available#
 
 
 == Security (RBAC)

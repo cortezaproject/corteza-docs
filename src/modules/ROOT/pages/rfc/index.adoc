@@ -9,3 +9,6 @@ It provides insight into all development aspects so you can get involved.
 
 Corteza federation::
     link:federation/index.html[Corteza federation] aims to connect different Corteza instances into a federated network, where they can freely exchange information.
+
+Corteza Envoy::
+    xref:ROOT:rfc/envoy/index.adoc[Corteza Envoy] defines a framework to simplify the process of transporting and manipulating data.

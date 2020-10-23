@@ -1,0 +1,28 @@
+include::../../variables.adoc[]
+
+[#layer-decoder]
+= Decoder layer
+
+The decoder layer converts *input sources* into *internal structures* that are understandable by underlying layers.
+It operates over _extenral_ input sources, such as files and databases, and converts them into internal resource node structures understandable by the underlying layers.
+
+[NOTE]
+====
+Should we go into details regarding specific decoder implementation?
+It would be a good idea to mention the idea behind it in the developer guide.
+====
+
+The initial implementation defines a *set of base decoders* that cover our initial plans for a better data import/export system.
+Out of the box it supports *yaml*, *csv* files and the *{PRODUCT_NAME} store layer*.
+
+[TIP]
+====
+The output of this layer is a set of resource nodes.
+There is nothing stopping us from defining custom decoders for anything we might want to have in the future.
+====
+
+The decoder layer is *only allowed* to operate over the *resources* that are *available* in the provided *input source*.
+The decoder simply decodes the available data.
+If a thing refers to another thing that is *not* in the given input source, the decoder is *not allowed* to access any other input source in order to attempt to find it.
+
+If the decoder results partial data with a lot of _holes_, those should be handled by the <<layer-preproc,pre-process>> and the <<layer-validator,validator>> layers.

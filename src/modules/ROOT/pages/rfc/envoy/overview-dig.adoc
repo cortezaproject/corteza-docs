@@ -1,0 +1,131 @@
+.The diagram outlines the entire Envoy framework, all of it's layers, their inputs, and their outputs. Refer to the following sections to get more insight into the entire thing.
+[plantuml,envoy-outline,svg,role=component]
+----
+@startuml
+
+' ---------------
+' Decoder layer
+' ---------------
+
+package "Decoder" as dc {
+  [yaml] as dcyml
+  [csv] as dccsv
+  [store] as dcstore
+
+  note as ndc
+  A decoder takes in a set of sources (files, databases, ...)
+  and returns a set of envoy Node structs.
+  end note
+}
+
+interface "Decoded node set" as dcNodeSet
+
+dcyml -down-> dcNodeSet
+dccsv -down-> dcNodeSet
+dcstore -down-> dcNodeSet
+
+' ---------------
+' Pre-process layer
+' ---------------
+
+interface "Resource provider" as resProvider
+
+package "Pre-process" as preproc {
+  [Relationships] as pprels
+
+  note as npreproc
+  The pre-processor performs some initial tasks
+  on the provided set of Envoy Nodes.
+  end note
+}
+
+interface "Pre-processed node set" as preprocNodeSet
+
+resProvider -down-> pprels
+dcNodeSet -down-> pprels
+
+pprels -down-> preprocNodeSet
+
+' ---------------
+' Validation layer
+' ---------------
+
+package "Validation" as vld {
+  [Relationships] as vrels
+  [Transformations] as vtrans
+  [Operations] as vops
+
+  note as nvld
+  The validation layer validates the constructed
+  Envoy Nodes, provided configurations and the
+  existence of any related resources we may need.
+
+  This layer should be configurable to be as strict
+  as possible or as loose as possible.
+  The layer should be designed so that any operation
+  that follows may assume that all the data is there
+  and valid.
+  end note
+}
+
+interface "Validated node set" as vldNodeSet
+
+preprocNodeSet -down-> vrels
+preprocNodeSet -down-> vtrans
+preprocNodeSet -down-> vops
+
+vrels -down-> vldNodeSet
+vtrans -down-> vldNodeSet
+vops -down-> vldNodeSet
+
+' ---------------
+' Graph layer
+' ---------------
+
+package "Graph" as g {
+  [Graph builder] as gbld
+  [Dependency manager] as gdeps
+  [Garbage collector] as ggc
+
+  [Graph] as gr
+
+  note as ng
+  The graph layer is responsible for dependency
+  resolution between different resource nodes.
+
+  The graph acts as an iterator that feeds
+  underlying layers until every single node is
+  processed.
+  end note
+}
+
+interface "Encodable node set" as encNodeSet
+
+vldNodeSet -down-> gr
+gr -down-> encNodeSet: Node iterator
+
+' ---------------
+' Encoder layer
+' ---------------
+
+package "Encoder" as enc {
+  [yaml] as encyml
+  [csv] as enccsv
+  [store] as encstore
+
+  note as nenc
+  The encoder layer converts the data from the
+  resource node representation to what it should be
+  based on the encoder implementation.
+
+  This can be anything from writing to the store,
+  writing to yaml files, or writing to a HTTP response.
+  end note
+}
+
+encNodeSet -down-> encyml
+encNodeSet -down-> enccsv
+encNodeSet -down-> encstore
+
+@enduml
+----

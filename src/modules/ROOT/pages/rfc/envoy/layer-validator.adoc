@@ -1,0 +1,31 @@
+[#layer-validator]
+= Validation layer
+
+[NOTE]
+====
+Another major issue we've observed is that *human error* is a thing, and it makes the final data validation *more expensive* then it should be.
+
+This layer attempts to *minimize the cost* by being as *strict* as possible and as *detailed* as possible.
+====
+
+The validator layer validates the provided *data* as well as the *operations* we wish to perform (field mapping, source joining, ...).
+It operates over the *provided resource nodes*, and (probably) any other *input sources*, such as the *{PRODUCT_NAME} store* layer.
+
+The layer should be strict enough so that any following layers may assume that the data and all of the operations are valid and able to execute.
+
+The main responsibilities:
+
+Data integrity::
+    Data integrity checks that each node has enough *valid* information so that it can perform a specific operation.
+    For example, it checks that a module defines a name and a handle.
+
+Relationship assurance::
+    Relationship assurance assures that all of the *required* relationships are satisfied.
+    For example, it checks that there is a module for a specific record.
+
+Operation validation::
+    Operation validation checks if any defined operation (field mapping, data joining, ...) is valid and can be performed.
+
+*Any validation operation should* reside in this layer (unless it is absolutely impossible).
+We are trying to *preserve* our sanity when working with large data sources that could take *multiple hours/days* to process.
+This should help us resolve issues much faster then having to wait for the operation to complete.

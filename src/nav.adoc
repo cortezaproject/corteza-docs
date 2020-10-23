@@ -55,6 +55,7 @@ include::modules/ROOT/pages/variables.adoc[]
 
 * xref:rfc/index.adoc[RFC]
 ** xref:rfc/federation/index.adoc[Federation]
+** xref:rfc/envoy/index.adoc[Envoy]
 
 ---
 

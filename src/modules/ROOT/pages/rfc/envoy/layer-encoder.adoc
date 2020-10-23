@@ -1,0 +1,24 @@
+= Encoder layer
+
+The encoding layer converts *internal structures* into some *output form* we wish to have.
+It operates over internal resource nodes, and converts them into... something.
+
+[NOTE]
+====
+As the name implies, the encoder layer should only encode the data... *but* it's not limited to this.
+In the context of the envoy framework this layer can *perform any operation* over the data; write to the *store*, *file*, *HTTP response*, or even *send email* alerts.
+====
+
+The initial implementation defines a *set of base encoders* that cover our initial plans for a better data import/export system.
+Out of the box it supports *yaml*, *csv* files and the *{PRODUCT_NAME} store layer*.
+
+[TIP]
+====
+The simple and loose interface definition allows us to define an encoder for anything we might want in the future.
+====
+
+The encoder layer is *allowed* to operate over the *resource nodes* that are *provided* by the upper layer, *and* the storage layer.
+The encoder *is allowed* to access *the store* in order to determine if the resource should be *created* or *updated*.
+It however, should *not* attempt to reconstruct or fetch any additional parameters, such as missing users, modules, ...
+
+The encoder layer should rely on the <<layer-preproc,pre-process>> and the <<layer-validator,validator>> layers that the data is valid and good enough for processing.

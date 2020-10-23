@@ -1,0 +1,53 @@
+include::../../variables.adoc[]
+
+= {PRODUCT_NAME} Envoy
+
+== Overview
+
+*{PRODUCT_NAME} Envoy* (later referred to as *envoy*) is a *framework* to simplify the *manipulation* of arbitrary *complex data*.
+The framework can work with *linear acyclic data* (no relationships between the bits); as well as with *complex cyclic data* (relationships between the bits).
+
+We rely on the envoy framework whenever we wish to perform any *data transportation/manipulation* from one form to another.
+It is mainly used for data *import*, *export*, and xref:ROOT:rfc/federation/index.adoc[*federation*].
+
+[NOTE]
+====
+The core nature of the problem we are addressing is perfect for our good 'ol friend graph theory; so we will _mostly_ follow it's rules.
+We go into some theoretical bits later in the <<layer-graph,graph>> section.
+====
+
+The framework defines a *series of layers* with well defined, *simple interfaces* that can be *easily customized*, *exchanged* or outright *removed* if not needed.
+This makes the framework flexible and relatively trivial to use anywhere in our system.
+
+[NOTE]
+====
+The below diagram gives you a nice visual representation over all of the *layers*, how they *connect* and how the *data flows*.
+====
+
+.The main layers are:
+* *<<layer-decoder,The decoder layer>>* converts *input sources* into *internal structures* that are understandable by underlying layers.
+* *<<layer-preproc,The pre-process layer>>* performs some *initial operations* to prepare the data for it's journey.
+* *<<layer-validator,The validator layer>>* validates the provided *data* as well as the *operations* we wish to perform (field mapping, source joining, ...).
+* *<<layer-graph,The graph layer>>* helps us determine the *processing order*, keeping in mind the *dependency constraints* put in place by the resource nodes.
+* *<<layer-encoder,The encoding layer>>* converts *internal structures* into some *output form* we wish to have.
+
+[TIP]
+====
+This also allows us to do some fun bits like converting yaml files into json files.
+====
+
+include::overview-dig.adoc[]
+
+:leveloffset: +1
+
+include::layer-decoder.adoc[]
+
+include::layer-preproc.adoc[]
+
+include::layer-validator.adoc[]
+
+include::layer-graph.adoc[]
+
+include::layer-encoder.adoc[]
+
+:leveloffset: -1

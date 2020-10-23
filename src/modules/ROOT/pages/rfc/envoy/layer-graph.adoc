@@ -1,0 +1,61 @@
+= Graph layer
+
+The graph layer helps us determine the *processing order*, keeping in mind the *dependency constraints* put in place by the resource nodes.
+
+== Graph nodes
+
+A graph node is any structure that conforms to the `envoy.Node` interface:
+
+[source,go]
+----
+Node interface {
+  // Matches checks if the node matches the given resources and **any** of the identifiers.
+  Matches(resource string, identifiers ...string) bool
+
+  // Identifiers returns a set of values that identify the node.
+  //
+  // The identifiers may **not** be unique across all resources, but
+  // they **must** be unique inside a given resource.
+  Identifiers() NodeIdentifiers
+
+  // Resource returns the Corteza resource identifier that this node handles
+  Resource() string
+
+  // Relations returns a set of NodeRelationships regarding this node
+  //
+  // The graph layer **must** be able to handle dynamic relationships (changed in runtime).
+  Relations() NodeRelationships
+}
+----
+
+The specific node implementation is left up to the developer discretion, but it should be able to *specify it's dependencies*, how we can *identify the node* and a way of checking if the two *nodes match*.
+
+The intermediate resource node is mainly responsible for *dependency resolution* and *data preparation* for the processing layers.
+A node shouldn't have much complex logic out of the dependency management context.
+
+== Graph
+
+In this context, since we are addressing issues regarding dependencies, the *_directed_ graph* data structure is the perfect match.
+*But*, this isn't a regular graph.
+
+Our implementation is calculated *on-the-fly* (at runtime) and isn't (entirely) based on pointers like we would usually do.
+We've decided on this approach to greatly *simplify the underlying logic* required by the *graph structure* and the *node structures* that shape the graph.
+This also gives us *more flexibility* in regards to runtime graph modifications.
+
+[NOTE]
+====
+The #1 reason why we decided on this approach is the simplicity.
+The simpler graph logic and node relationship management allows us to trivially change dependencies while processing the graph.
+====
+
+[NOTE]
+====
+Since the envoy is meant to be used with *larger*, more *complex* data operations, this on-the-fly calculation is practically free.
+====
+
+[TIP]
+====
+The simple graph interface allows us to define multiple different implementations.
+Anything from a *simple linear graph*, to a _more efficient_ *pointer based graph*.
+As long as the interfaces remain the same, there should be no issues.
+====

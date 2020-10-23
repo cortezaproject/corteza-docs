@@ -1,4 +1,4 @@
-.The diagram outlines the entire Envoy framework, all of it's layers, their inputs, and their outputs. Refer to the following sections to get more insight into the entire thing.
+.The diagram outlines the entire Envoy framework, all of its layers, their inputs, and their outputs. Refer to the following sections to get more insight into the entire thing.
 [plantuml,envoy-outline,svg,role=component]
 ----
 @startuml
@@ -13,7 +13,7 @@ package "Decoder" as dc {
   [store] as dcstore
 
   note as ndc
-  A decoder takes in a set of sources (files, databases, ...)
+  A decoder takes in a set of sources (such as files and databases)
   and returns a set of envoy Node structs.
   end note
 }
@@ -39,7 +39,7 @@ package "Pre-process" as preproc {
   end note
 }
 
-interface "Pre-processed node set" as preprocNodeSet
+interface "Pre-processed node-set" as preprocNodeSet
 
 resProvider -down-> pprels
 dcNodeSet -down-> pprels
@@ -57,12 +57,12 @@ package "Validation" as vld {
 
   note as nvld
   The validation layer validates the constructed
-  Envoy Nodes, provided configurations and the
+  nodes provided configurations and the
   existence of any related resources we may need.
 
   This layer should be configurable to be as strict
   as possible or as loose as possible.
-  The layer should be designed so that any operation
+  The layer is designed so that any operation
   that follows may assume that all the data is there
   and valid.
   end note
@@ -119,7 +119,7 @@ package "Encoder" as enc {
   based on the encoder implementation.
 
   This can be anything from writing to the store,
-  writing to yaml files, or writing to a HTTP response.
+  writing to YAML files, or writing to an HTTP response.
   end note
 }
 

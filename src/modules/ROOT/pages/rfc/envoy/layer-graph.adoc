@@ -28,7 +28,7 @@ Node interface {
 }
 ----
 
-The specific node implementation is left up to the developer discretion, but it should be able to *specify it's dependencies*, how we can *identify the node* and a way of checking if the two *nodes match*.
+The specific node implementation is up to the developer discretion. Still, it should *specify it's dependencies*, how we can *identify the node* and a way of checking if the two *nodes match*.
 
 The intermediate resource node is mainly responsible for *dependency resolution* and *data preparation* for the processing layers.
 A node shouldn't have much complex logic out of the dependency management context.
@@ -39,23 +39,23 @@ In this context, since we are addressing issues regarding dependencies, the *_di
 *But*, this isn't a regular graph.
 
 Our implementation is calculated *on-the-fly* (at runtime) and isn't (entirely) based on pointers like we would usually do.
-We've decided on this approach to greatly *simplify the underlying logic* required by the *graph structure* and the *node structures* that shape the graph.
-This also gives us *more flexibility* in regards to runtime graph modifications.
+We've decided on this approach to significantly *simplify the underlying logic* required by the *graph structure* and the *node structures* that shape the graph.
+This approach also gives us *more flexibility* in regards to runtime graph modifications.
 
 [NOTE]
 ====
-The #1 reason why we decided on this approach is the simplicity.
-The simpler graph logic and node relationship management allows us to trivially change dependencies while processing the graph.
+The #1 reason why we decided on this approach is simplicity.
+The more straightforward graph logic and node relationship management allow us to change dependencies while processing the graph trivially.
 ====
 
 [NOTE]
 ====
-Since the envoy is meant to be used with *larger*, more *complex* data operations, this on-the-fly calculation is practically free.
+Since the envoy is designed for use with *larger*, more *complex* data operations, this on-the-fly calculation is practically free.
 ====
 
 [TIP]
 ====
 The simple graph interface allows us to define multiple different implementations.
-Anything from a *simple linear graph*, to a _more efficient_ *pointer based graph*.
+Anything from a *simple linear graph*, to a _more efficient_ *pointer-based graph*.
 As long as the interfaces remain the same, there should be no issues.
 ====

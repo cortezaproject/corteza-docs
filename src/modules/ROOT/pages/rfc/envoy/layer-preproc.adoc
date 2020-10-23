@@ -7,16 +7,16 @@ include::../../variables.adoc[]
 ====
 One of the most... annoying problems we've taken note of when working with custom (POC) implementations is that a lot of the times, something is left out.
 
-It is much easier to have a _middleware_ layer that is able to automatically resolve this instead of it just breaking the process or finishing partially.
+It is much easier to have a _middleware_ layer that can automatically resolve this instead of it just breaking the process or finishing partially.
 ====
 
-The pre-process layer performs some *initial operations* to prepare the data for it's journey.
+The pre-process layer performs some *initial operations* to prepare the data for its journey.
 It operates over the *provided resource nodes*, and any other *input sources*, such as the *{PRODUCT_NAME} store* layer.
 
 The main responsibilities:
 
 Hole patching::
-    The decoder layer may not have had enough data to properly define all of the resources that a specific node may need.
+    The decoder layer may not have had enough data to correctly define all of the resources that a specific node may need.
     The pre-process layer attempts to correct this by accessing other input sources (such as the store layer) to find out if it already exists.
 
 Resource factory::
@@ -26,5 +26,5 @@ Resource factory::
 [NOTE]
 ====
 For now, the resource factory is just an idea.
-If this becomes a thing, it should be enabled explicitly.
+One of the considerations is to have it as a separate layer or a sub-system.
 ====

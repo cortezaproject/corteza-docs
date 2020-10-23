@@ -94,6 +94,61 @@ This is *very* important!
 ====
 ----
 
+== Diagrams
+
+Use the https://plantuml.com/[PlantUML] framework *for any* diagrams (unless there is an explicit reason why not).
+This makes it easier on us to keep a consistent feel throughout the entire documentation.
+
+[NOTE]
+====
+Move large diagrams into separate files to avoid clutter and unreadable source.
+====
+
+// Here, this one is also an exception
+```
+.Provide a good caption to summarize the *entire* diagram.
+[plantuml,diagram-name-here,svg,role=diagram-name]
+----
+@startuml
+
+... content here ...
+
+@enduml
+----
+```
+
+[TIP]
+====
+Larger diagrams can get a bit messy to understand what is going on, so do your best to group elements together, and use a nice comment to indicate it.
+====
+
+Diagram captions::
+    A caption *must* be enough to give you enough understanding to know what is going on on the diagram.
+    Make sure that the caption gives the reader enough insight to have an idea what they can expect to learn from the diagram.
+
+[IMPORTANT]
+====
+We are quite strict in having 1 sentence per line to simplify history tracking.
+Here, however, I am unable to figure out how/if this is possible.
+You are free to inline all of your sentences when it comes to captions (for now).
+====
+
+Comments::
+    A PlantUML comment starts with `'` (single line), or is enclosed between `/'`, and `'/`.
+    We'll use the following notation to be consistent:
+
+[source,adoc]
+----
+' ---------------
+' Do a comment like this.
+' Multiple lines are fine.
+' ---------------
+----
+
+Diagram structure::
+    You are free to use any diagram, and any component defined by the diagram.
+    *Avoid* any extreme visual customization using *Skinparam*.
+
 // @todo update this section
 // 
 // == Referencing

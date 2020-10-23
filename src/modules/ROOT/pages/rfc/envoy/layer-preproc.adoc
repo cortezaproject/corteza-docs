@@ -19,6 +19,9 @@ Hole patching::
     The decoder layer may not have had enough data to correctly define all of the resources that a specific node may need.
     The pre-process layer attempts to correct this by accessing other input sources (such as the store layer) to find out if it already exists.
 
+Existence checking::
+    Existence check checks if the given resource already exists in the storage layer and determines if the encoder should create or update the resource.
+
 Resource factory::
     The resource factory attempts to construct missing parts of the data isn't defined by the provided resource nodes.
     For example, given a single record resource node, we would be able to construct a module and a namespace node.

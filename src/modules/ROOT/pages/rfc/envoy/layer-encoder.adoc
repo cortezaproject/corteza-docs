@@ -17,8 +17,8 @@ Out of the box, it supports *YAML*, *CSV* files and the *{PRODUCT_NAME} store la
 The loose and straightforward interface definition allows us to define an encoder for anything we might want in the future.
 ====
 
-The encoder layer is *allowed* to operate over the *resource nodes* that is *provided* by the upper layer, *and* the storage layer.
-The encoder *is allowed* to access *the store* in order to determine if the resource should be *created* or *updated*.
-It, however, should *not* attempt to reconstruct or fetch any additional parameters, such as missing users and modules.
+The Encoder layer is *allowed* to operate over the *resource nodes* that are *provided* by the upper layer.
+The encoder *should not*  have to worry about any data validations or related operations.
+It should also *not have to* figure out if the resource should be *created*, *updated*, or *deleted* -- the upper layers should determine this.
 
 The encoder layer should rely on the <<layer-preproc,pre-process>> and the <<layer-validator,validator>> layers that the data is valid and good enough for processing.

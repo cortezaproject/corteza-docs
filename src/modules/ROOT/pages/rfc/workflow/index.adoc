@@ -54,7 +54,62 @@ This format supports all required workflow information, task configuration and e
 As an extension, it supports parameters needed for graphical representation of the workflow
 (coordinates, dimensions, colors, images, ...)
 
-#FORMAT SPECS TBD#
+=== Example
+image::../../../images/workflow-example.png[{PRODUCT_NAME} workflow]
+
+This workflow is represented by the config below
+
+[source,json]
+----
+{
+  "workflow": [
+    {
+      ...workflow-node1-configuration,
+      "ext": {
+        "graphics": {
+          "id": "1",
+          "xywh": [100, 100, 40, 40],
+          "parent": "0",
+          "value": "Start",
+          "type": "ellipse",
+          "edges": [
+            {
+              "id": "3",
+              "value": "Node1 -> Node2",
+              "parent": "0",
+              "source": "1",
+              "target": "2"
+            },
+          ],
+        }
+      } 
+    },
+
+    {
+      ...workflow-node2-configuration,
+      "ext": {
+        "graphics": {
+          "id": "2",
+          "xywh": [400, 200, 40, 40],
+          "parent": "0",
+          "value": "End",
+          "type": "ellipse",
+          "edges": [
+            {
+              "id": "3",
+              "value": "Node1 -> Node2",
+              "parent": "0",
+              "source": "1",
+              "target": "2"
+            },
+          ],
+        }
+      } 
+    }
+  ]
+}
+
+----
 
 === Persistence
 

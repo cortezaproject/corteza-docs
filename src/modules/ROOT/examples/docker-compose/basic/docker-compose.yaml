@@ -54,5 +54,5 @@ services:
       MYSQL_DATABASE: dbname
       MYSQL_USER:     dbuser
       MYSQL_PASSWORD: dbpass
-      MYSQL_RANDOM_ROOT_PASSWORD: random # docker-compose logs db |grep "GENERATED ROOT PASSWORD"
+      MYSQL_RANDOM_ROOT_PASSWORD: "yes" # docker-compose logs db |grep "GENERATED ROOT PASSWORD"
     healthcheck: { test: ["CMD", "mysqladmin" ,"ping", "-h", "localhost"], timeout: 20s, retries: 10 }

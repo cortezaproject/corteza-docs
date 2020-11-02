@@ -63,7 +63,7 @@ include::ROOT:example$docker-compose/basic/output-ps.txt[]
 ----
 
 You can see 4 services up and running.
-Two of them are accessible on localhost (ports `8080` and `8081`).
+Two of them are accessible on localhost (ports `18080` and `18081`).
 
 [NOTE]
 ====
@@ -72,7 +72,7 @@ If you changed the ports in your `.env` file, the ports will be different.
 
 == Finishing the setup
 
-. Direct your browser to `http://localhost:8080`.
+. Direct your browser to `http://localhost:18080`.
 If you used other ports in your configurations, use those.
 On your first visit, you should be redirected to the authentication page (`/auth`),
 . create your account through the sign-up form.

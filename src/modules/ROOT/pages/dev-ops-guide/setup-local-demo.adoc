@@ -63,7 +63,7 @@ include::ROOT:example$docker-compose/basic/output-ps.txt[]
 ----
 
 You can see 4 services up and running.
-Two of them are accessible on localhost (ports `8080` and `8081`).
+Two of them are accessible on localhost (ports `18080` and `18081`).
 
 [NOTE]
 ====

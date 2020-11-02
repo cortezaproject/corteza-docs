@@ -12,7 +12,7 @@ Resource labelling equips *internal {PRODUCT_NAME} resources* with arbitrary key
 
 .Example use cases:
 * Categorization/taxonomy,
-* resource grouping without the need for messy prefixes,
+* resource grouping without the need for forced handle format to ensure prefix-based filtering,
 * data migration ID references,
 * marking federated resources,
 * {APP_AUTOMATION} resource preloading,
@@ -40,20 +40,26 @@ Resource labels define a simple structure of:
 `{VALUE}`::
     The label value is a regular `string` value that doesn't put in place any particular value validations or constraints.
 
-[NOTE]
-====
-Should we also constraint the label value?
-====
-
 == Label usage
 
-Labels can be used *by any {PRODUCT_NAME} resource* as long as it defines the proper facility for *assigning labels* and *label based retrieving*.
+Labels can be used *by majority of {PRODUCT_NAME} resources* as long as it defines the proper facility for *assigning labels* and *label based retrieving*.
 
 [TIP]
 ====
 {PRODUCT_NAME} defines a dedicated package (`pkg/label`) that knows how to perform the core operations over labels.
 Other services can trivially include the package into the request cycle.
 ====
+
+.Supported resources:
+. Users #@todo#
+. Roles #@todo#
+. Compose namespace
+. Compose page
+. Compose chart
+. Compose module
+. Compose module field #@todo#
+. Compose record #@todo#
+
 
 === Assigning labels
 
@@ -76,10 +82,16 @@ Does this make sense?
 * Filtering *by label !existence*; check if *label with the given key does not* exist.
 * Filtering by label *with a specific value*; check if *both* label *key and value* exist.
 
+== Access control
+
+All label access control falls under access control of the resource holding the labels.
+Read access fall under resource's `read` operation.
+Managing access (create, update, delete) fall under resource's `labels.manage` operation. #@todo#
+
 == Label store
 
-We define a *simple generic* store definition for storing labels.
-This simplification allows us to use these labels *on any {PRODUCT_NAME} resource* with minimal effort on the storage layer.
+Label store is generic and can be used by any {PRODUCT_NAME} resource using labels.
+See the list of supported resouces in <<_label_usage>>.
 
 .Resource labels store definition.
 [cols="1s,1l,3a"]
@@ -96,3 +108,9 @@ This simplification allows us to use these labels *on any {PRODUCT_NAME} resourc
 ====
 The primary key is *constructed* from `Kind`, `ResourceID`, and `Name` fields.
 ====
+
+== Resource and label deleting
+
+When resource is deleted a soft-delete is preformed in most cases.
+For simplicity, on implementation level and for use, labels do not support soft delete.
+When resource is deleted, all connected labels stay stored and available in case resource is restored later.

@@ -1,9 +1,11 @@
 include::../variables.adoc[]
 = Changelog
 
+== Latest stable
+
 :leveloffset: +1
 
-include::202009.adoc[]
+include::202012.adoc[]
 
 :leveloffset: -1
 
@@ -11,6 +13,7 @@ include::202009.adoc[]
 
 :leveloffset: +2
 
+include::202009.adoc[]
 include::202006.adoc[]
 
 :leveloffset: -2

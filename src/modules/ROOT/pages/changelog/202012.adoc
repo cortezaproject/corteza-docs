@@ -1,0 +1,37 @@
+include::../variables.adoc[]
+
+= 2020.12
+
+== {PRODUCT_NAME} Server
+
+.Changes
+ - Experimental support for federated compose records
+ - Experimental support for SCIM protocol
+ - Support for field value expressions
+ - Add support for key-value labels on most resources
+ - Frontend web applications can now be served directly from server
+ - API documentation (now as OpenAPI 3) is now served directly from server
+ - Upgrade to go v1.15
+ - Removed code that allowed separate build for messaging, compose and system, simplified architecture and internal cross-service comm
+ - Error creation and handling rewritten to allow more verbosity and detail in dev and production mode
+ - Cleanup codegen tools and unified all codegen under one package and single strategy
+ - Replaced rebuild-on-change dev tool (`realize`) with gin (`github.com/codegangsta/gin`)
+ - Replace internal node.js dev tools for reloading (where not gin) with fswatch
+ - SMTP configuration fixes
+ - Moved and refactored RBAC package (was "permissions")
+ - Completely refactored store ([.line-through]#repository#) layer
+ - SQLite3 in-memory replaces MySQL as a default database Corteza
+ - Removed organizations data structures, references and (db) tables
+ - Ported `pkg/rh` to  `pkg/filters`, removed obsolete "repository-handler" code
+ - Moved from SQL based database migrations to code-based migrations
+ - Replace offset with key-based pagination
+
+.Contributors:
+. Denis Arh
+. Tomaž Jerman
+. Jože Fortun
+. Peter Grlica
+
+== {PRODUCT_NAME} Web applications (clients)
+
+#TODO#

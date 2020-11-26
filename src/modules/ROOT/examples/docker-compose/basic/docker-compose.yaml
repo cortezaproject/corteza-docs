@@ -8,9 +8,6 @@ services:
     # Binds internal port 80 to port LOCAL_DEMO_SPA_PORT on localhost
     ports: [ "127.0.0.1:${LOCAL_DEMO_SPA_PORT}:80" ]
     environment:
-      # Monolith API settings informs webapp autoconfiguration script that we're running
-      # a monolith API server.
-      MONOLITH_API: "true"
       # Configure web application with API location
       API_BASEURL:  "127.0.0.1:${LOCAL_DEMO_API_PORT}"
 

@@ -13,9 +13,6 @@ services:
       # This is needed only if you are using NginX Lets-Encrypt companion
       # (see docs.cortezaproject.org for details)
       LETSENCRYPT_HOST: ${DOMAIN}
-      # Monolith API settings informs webapp autoconfiguration script that we're running
-      # a monolith API server.
-      MONOLITH_API: "true"
 
   server:
     image: cortezaproject/corteza-server-monolith:${VERSION}

@@ -26,6 +26,10 @@ include::../variables.adoc[]
  - Moved from SQL based database migrations to code-based migrations
  - Replace offset with key-based pagination
 
+WARNING: Database tables (*_settings, *_permissions, sys_*) are renamed, merged and/or removed.
+Database schema upgrade is irreversible.
+Make sure you backup your data before doing an upgrade.
+
 .Contributors:
 . Denis Arh
 . Tomaž Jerman

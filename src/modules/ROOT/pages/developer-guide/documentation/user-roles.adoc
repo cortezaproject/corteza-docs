@@ -1,26 +1,32 @@
 include::../../variables.adoc[]
 
-[#documentation-user-roles]
 = User Roles
+
+== DevOps
+
+A *DevOps* is someone responsible for *deploying* and *maintaining* the {PRODUCT_NAME} instance.
+They need to now things like *how to configure* the docker-compose, what *configurations are available*, and what services need to run on the server.
 
 == End-User
 
-An *end-user* is someone who is tasked to perform some operations on the {PRODUCT_NAME} product or any of the integrations.
-In most cases, this users are *not* field experts so we should keep that in mind.
+An *end-user* is someone who is not necessarily a field-expert and needs to know how to do something.
+They need to do things like *how to create a new record*, *how to log in*, and *how to send a formatted message*.
+
+Don't consider them field experts, and use simple word with as little complex terminology as possible.
 
 == Administrator
 
-An *administrator* is someone who is responsible to setup and maintain a {PRODUCT_NAME} instance.
-This involves everything from the actual deployment, maintenance and permission configuration.
-These users should be knowledgeable in this fields in order to perform the tasks in an effective manner.
+An *administrator* is someone responsible for *setting up* and *maintaining security-related parts* of the system, such as *user roles*, *users*, and *permissions*.
+
+These users should be knowledgeable in these fields to perform the tasks effectively.
 
 == Integrator
 
-An *integrator* is someone who is responsible to create an integration for either themselves or a client.
+An *integrator* is someone responsible to create an integration for either themselves or a client.
 An integration extends on the base {PRODUCT_NAME} features.
 These users should be field experts on designing such systems.
 
 == Developer
 
-A *developer* is someone who is responsible or would like to contribute to the core {PRODUCT_NAME} repositories.
+A *developer* is someone who is responsible (or would like to contribute) for the core {PRODUCT_NAME} repositories.
 These users should be field experts on the subject.

@@ -6,43 +6,54 @@ For an easier representation, we use the following feature specification:
 
 include::sample-feature.adoc[]
 
-- specify a set of bullets (section) that outline the important parts of the system
+== Take note of the important bits
+
+Specify a *set of bullets* (sections) that *outline the important parts* of the system -- the things you want the *readers to remember*.
 
 For example:
 
 [source,adoc]
 ----
-- security
-- front-end
-- backend
-- repository
+* security
+* front-end
+* backend
+* repository
 ----
 
-- expend on each of the sections with additional important bits that should be mentioned
+== Expend on the main things
+
+*Expand* the main sections.
+Break them down into the *main components* that outline the section.
 
 For example:
 
 [source,adoc]
 ----
-- security
-  - available permissions
-  - the scope of each permission
-  - guidelines
-- front-end
-  - important libraries used
-  - browser compatibility
-  - used algorithms
-  - communication with the backend
-- backend
-  - access control
-  - used algorithms
-  - limitations such as throttling
-- repository
-  - tables, fields and their types
+* security
+** available permissions
+** the scope of each permission
+** guidelines
+
+* front-end
+** important libraries used
+** browser compatibility
+** used algorithms
+** communication with the backend
+
+* backend
+** access control
+** used algorithms
+** limitations such as throttling
+
+* repository
+** tables, fields and their types
 ----
 
-- go over all the bullets from start to finish and expand those as you think best fits.
-Don't worry if the first version doesn't feel right, we will get there!
+== Iterate over your bullets
+
+*Iterate over your documents* and progressively *expand and refactor* your content.
+Try to rewrite the same paragraph *multiple times* to see what fits best.
+Add some *admonition blocks* and *text formatting*.
 
 For example:
 
@@ -51,11 +62,10 @@ For example:
 = Monitor
 
 This feature implements a system that monitors the clients connected to the {PRODUCT_NAME} Monitor core system.
-Reports statistics.
 
 == Security
 
-=== Available permissions
+== Available permissions
 
 Monitor log::
     The permission allows the role to create a log entry for the Monitor system.
@@ -67,7 +77,7 @@ Monitor list::
 
 Monitor log delete::
     The permission allows the role to remove a log entry from the monitor system.
-    Be careful with this one, as we don't want users to needlessly remove information.
+    Be careful with this one, as we don't want users to remove information needlessly.
 
 ...
 
@@ -75,6 +85,6 @@ Monitor log delete::
 
 [NOTE]
 ====
-The above example's wording is not the best and should be improved with additional iterations.
-Also note, that we've merged multiple security subsections (available permissions, scope and guidelines) into one to create a more condensed outline.
+The above is just an example and an outline of how I get about doing documentation.
+I find that this helps me define a better, more structured document as I go over the entire thing multiple times.
 ====

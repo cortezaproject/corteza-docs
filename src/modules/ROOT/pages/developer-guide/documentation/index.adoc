@@ -13,4 +13,6 @@ include::user-roles.adoc[]
 
 include::overview.adoc[]
 
+include::examples/index.adoc[]
+
 :leveloffset: -1

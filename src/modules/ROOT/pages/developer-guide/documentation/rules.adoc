@@ -4,40 +4,41 @@ include::../../variables.adoc[]
 = Contribution Rules
 
 Below is a list of rules that apply to *every contributor* of any {PRODUCT_NAME} repository.
-With the below points we are able to provide consistent, quality software that is easy to use or contribute to.
+With the below points, we wish to provide consistent, quality software that is easy to use and get involved with.
 
-All major modifications must be documented::
-    A modification classifies as *major* when it causes *any changes* to an *actions output* or how the *action is performed*.
+Document your major modifications::
+    A modification classifies as *major* when it *changes the features output*, or the *concept of the logic differs* from the prior version.
     For example:
 
-    * Changed api response,
-    * change in the access control logic,
-    * additional settings, environment variables,
-    * changed the interface for data export,
-    * new features; etc.
+    * changed api response;
+    * change in the access control logic;
+    * additional settings, environment variables;
+    * changed the interface for data export; and
+    * new features.
 
 All relevant guides must me updated::
-    When a modification affects multiple guides, *each* of them needs to be taken care of.
-    For example, your feature introduces a new application with a special API and a user interface.
-    You should update:
+    When a modification affects multiple guides, *each* of them needs to be taken care of (see the <<structure-overview>> section for more details).
+    If the change is *not backwards compatible*, make sure to take note in the *upgrade guide*.
+    For example, your feature introduces *a new application* with a new *API* and a *user interface*.
+    You should update the:
 
-    * Developer guide,
-    * administrator guide,
+    * developer guide;
+    * administrator guide; and the
     * end-user guide.
 
 Consistent style of writing::
     Be consistent with other contributors as we wish to have a consistent, easy to read documentation.
-    Refer to <<documentation-writing-guidelines>> for more insight on this.
+    Refer to the <<documentation-writing-guidelines,writing guidelines>> for more insight on this.
 
 Try to follow the rules::
-    In the edge case where it is excusable for you to not follow the above rules (extremely tight schedule, urgent fixes that need to be released asap, ...) open up an issue that outlines your changes, provides some references to the PR/commit so someone (preferably yourself) can get to it as soon as possible.
-    No big deal, as long as it gets done before the release.
+    In an edge case where you are not able to work on the documentation straight away, *open a new issue* that *outlines the changes* and provides some *references*.
+    No big deal, as long as *it gets done* before the release.
 
 [IMPORTANT]
 ====
 If you *refuse* to follow the above guidelines for any reason, you will *not be able* to contribute to the project.
 
-We all hate it when an amazing framework or platform lacks in documentation and we have to reverse engineer every little feature.
+We all hate it when a fantastic framework or platform lacks in the documentation, and we have to reverse engineer every little feature.
 How good is a product if no one knows how to use or maintain it?
 Let's not make our lives harder by not wanting to share our knowledge!
 ====

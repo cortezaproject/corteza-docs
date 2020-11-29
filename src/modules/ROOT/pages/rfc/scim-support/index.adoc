@@ -15,10 +15,20 @@ Lib used: https://github.com/imulab/go-scim
 . https://tools.ietf.org/html/rfc7644#section-3.11[RFC7644 3.11. "/Me" Authenticated Subject Alias]
 . https://tools.ietf.org/html/rfc7644#section-3.4.3[RFC7644 3.4.3. Querying Resources Using HTTP POST]
 
+== Configuration
+
+|===
+|SCIM_ENABLED|bool|`false`
+|SCIM_BASE_URL|string|`/scim`
+|SCIM_SECRET|string|
+|===
+
+
 
 == Authentication
 
-Provisioning system must use Bearer Tokens, provided by {PRODUCT_NAME}.
+Provisioning system must send `Authentication` header with `Bearer <SECRET>` value.
+Authentication and secret checking is disabled in development mode.
 
 == Resource mapping
 
@@ -29,7 +39,7 @@ List of SCIM attributes and how they map to/from {PRODUCT_NAME} user fields.
 userName::
   Mapped to `username` field.
 
-displayName::
+name.formatted::
   Mapped to `name` field.
 
 nickName::
@@ -44,6 +54,17 @@ emails::
     Due to current limitation of {PRODUCT_NAME}, only one email can be stored.
     Primary email is used. If no emails are marked as primary, first entry is used.
 
+externalId::
+    Arbitrary string value that can represent provisioner's user ID can be stored alongside {PRODUCT_NAME} resource.
+    When value is stored with `SCIM_externalId` key as label.
+
+groups #TBD#::
+    Set of objects with `value` key and string value: `[{"value":"...."}, ...]`.
+    Value should contain provisioner group identifier (passed as `externalId`) when creating group.
+    Absence of `groups` attribute indicates no update.
+    Presence of the attribute forces removal of all memberships that were not provided in the list and joining user to all listed ones.
+    If provided `externalId` is not found on any of the provisioned groups, that group is skipped.
+
 === Provisioning groups
 
 List of SCIM attributes and how they map to/from {PRODUCT_NAME} role fields.
@@ -53,14 +74,36 @@ displayName::
     If compatible with handle format (`^[A-Za-z][0-9A-Za-z_\-.]*[A-Za-z0-9]$`), value is used to populate roles's `handle` property.
     Otherwise it sets handle to empty string
 
-=== Provisioning role membership
+externalId::
+    Arbitrary string value that can represent provisioner's group ID can be stored alongside {PRODUCT_NAME} resource.
+    When value is stored with `SCIM_externalId` key as label.
 
-When group with `members` or user with `groups` is updated, group membership is changed accordingly.
+=== Provisioning role (group) membership
 
-=== References
-
-When created, resource `id` value is stored in `SCIM_id` label.
-{PRODUCT_NAME} will strictly use value from `id` as key identifier when modifying and replacing resources and
-modifying group-user memberships.
+#TODO# When group with `members` or user with `groups` is updated, group membership is changed accordingly.
 
 
+== Creating
+
+=== User
+
+Resource existence is checked in the following order:
+
+. `externalId` value (if provided)
+. `email`
+
+If resource is found, system updates it instead of creating new one.
+
+=== Group
+
+Resource existence is checked in the following order:
+
+. `externalId` value (if provided)
+. `name`
+
+If resource is found, system updates it instead of creating new one.
+
+
+== Updating #TBD#
+
+{PRODUCT_NAME} expects its internal resource IDs to be used when constructing resource update endpoints.

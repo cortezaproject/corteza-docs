@@ -51,14 +51,14 @@ Other services can trivially include the package into the request cycle.
 ====
 
 .Supported resources:
-. Users #@todo#
-. Roles #@todo#
+. Users
+. Roles
 . Compose namespace
 . Compose page
 . Compose chart
 . Compose module
-. Compose module field #@todo#
-. Compose record #@todo#
+. Compose module field
+. Compose record
 
 
 === Assigning labels
@@ -86,7 +86,7 @@ Does this make sense?
 
 All label access control falls under access control of the resource holding the labels.
 Read access fall under resource's `read` operation.
-Managing access (create, update, delete) fall under resource's `labels.manage` operation. #@todo#
+Managing access (create, update, delete) fall under resource's `create` or `update` operation.
 
 == Label store
 

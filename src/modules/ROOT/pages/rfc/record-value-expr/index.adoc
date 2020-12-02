@@ -112,41 +112,122 @@ Validation expression is not executed when:
 
 == Available functions
 
+=== General
 |===
-|Name, signature | Description
-| trim(arg)
-| Removes whitespace characters (space, tab, new-line, ...)
-
-| length(arg)
-| Returns length of the string
-
-| toUpperCase(arg)
-| Returns string, all letters capitalized
-
-| toLowerCase(arg)
-| Returns string, all letters in lower case
-
-| toLowerCase(arg)
-| Returns string, all letters in lower case
-
-| longest(arg1, ... argN)
-| Returns the longest string from list of argument
-
-| shortest(arg1, ... argN)
-| Returns the shortest string from list of argument
-
-| max(arg1, ... argN)
-| Returns the greatest number or date from list of arguments
-
-| min(arg1, ... argN)
-| Returns the lowest number or date from list of arguments
-
-| coalesce(arg1, ... argN)
-| Returns first non-null argument
-
-| year(arg)
-| Returns year part from date; non date arguments return 0000
-
+|Name, signature | Description | Example | Result
+| `coalesce(arg1, arg2, ...argN)`
+| Returns the first non null value
+| `coalesce(null, 0, 1, 2)`
+| 0
 |===
 
+
+=== Number
+|===
+|Name, signature | Description | Example | Result
+
+| `min(arg1, arg2, ...argN)`
+| Returns item with the lowest value
+| `min(0, 1, 2)`
+| 0
+
+| `max(arg1, arg2, ...argN)`
+| Returns item with the highest value
+| `max(0, 1, 2)`
+| 2
+
+| `round(number, digits)`
+| Rounds a floating point number to the specified number of digits
+| `round(3.14, 1)`
+| 3.1
+
+| `floor(number)`
+| Rounds number down to the nearest integer
+| `floor(3.14)`
+| 3
+
+| `ceil(number)`
+| Rounds number up to the nearest integer
+| `ceil(3.14)`
+| 4
+
+|===
+
+
+=== String
+|===
+|Name, signature | Description | Example | Result
+
+| `trim(string)`
+| Removes spaces at the beginning and at the end of the string
+| `trim(" foo ")`
+| "foo"
+
+| `trimLeft(string, character)`
+| Removes character from the beginning of the string
+| `trim(" foo ", " ")`
+| "foo "
+
+| `trimRight(string, character)`
+| Removes character from the end of the string
+| `trim(" foo ", " ")`
+| " foo"
+
+| `toLower(string)`
+| Converts all characters to lowercase
+| `toLower("FOO")`
+| "foo"
+
+| `toUpper(string)`
+| Converts all characters to uppercase
+| `toUpper("foo")`
+| "FOO"
+
+| `shortest(arg1, arg2, ...argN)`
+| Returns the shortest string
+| `shortest("foo", "foobar")`
+| "foo"
+
+| `longest(arg1, arg2, ...argN)`
+| Returns the longest string
+| `longest("foo", "foobar")`
+| "foobar"
+
+|===
+
+=== Date and Time
+|===
+|Name, signature | Description | Example | Result
+
+| `strftime(datetime, format)`
+| Returns DateTime string for the specified date and format
+| `strftime(datefield, "%Y-%m-%d")`
+| "1970-01-01"
+
+| `modTime(datetime, duration)`
+| Returns modified DateTime string
+| `modTime(datefield, "+30m")`
+| "1970-01-01T00:30:00"
+
+| `parseISOTime(datetime)`
+| Returns parsed ISO DateTime string
+| `parseISOTime(datefield)`
+| "1970-01-01T00:00:00+00:00"
+
+| `parseDuration(duration)`
+| Returns parsed duration
+| `parseDuration("2h")`
+| "2h0m0s"
+
+| `earliest(arg1, arg2, ...argN)`
+| Returns earliest DateTime
+| `earliest(datefield1, datefield2)`
+| "1970-01-01T00:00:00"
+
+| `latest(arg1, arg2, ...argN)`
+| Returns latest DateTime
+| `latest(datefield1, datefield2)`
+| "1970-01-01T00:30:00"
+
+|===
 

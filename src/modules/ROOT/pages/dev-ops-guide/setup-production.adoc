@@ -50,7 +50,7 @@ Some operating systems do not like files that start with a dot, so make sure `.e
 .`.env`
 [source,dotenv]
 ----
-include::ROOT:example$docker-compose/production/env.txt[]
+include::ROOT:example$docker-compose/production/env-example.txt[]
 ----
 
 .`docker-compose.yaml`
@@ -64,8 +64,22 @@ You can adjust the provided example configuration files as you see fit.
 
 [IMPORTANT]
 ====
-Make sure to change the `AUTH_JWT_SECRET` value to something else.
+Make changes to variables in your `.env` file:
+
+- `DOMAIN`
+- `AUTH_JWT_SECRET`
+- `SMTP_*`
 ====
+
+If you uncommented local fs for data persinstance in the `db` and `server` containers, you need to prepare the directories.
+
+.Create directories and change ownership so that containers can write to it:
+[source,shell]
+----
+mkdir -p data/db data/server
+chown 1001:1001 data/db
+chown 4242:4242 data/server
+----
 
 == Run the services
 

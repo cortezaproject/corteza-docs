@@ -4,24 +4,8 @@
 
 ########################################################################################################################
 # General settings
-VERSION=2020.9
-
-########################################################################################################################
-# Ports where these services will be accessible
-# In case of an "address already in use" change these ports to a higher number
-
-# Web applications
-# http://localhost:18080
-LOCAL_DEMO_SPA_PORT=18080
-
-# API Server
-# http://localhost:18081
-LOCAL_DEMO_API_PORT=18081
-
-# Corredor gRPC server, nothing to see here,
-# just for internal traffic between API server and corredor
-LOCAL_DEMO_CRD_PORT=18082
-
+DOMAIN=your-demo.example.tld
+VERSION=2020.12
 
 ########################################################################################################################
 # Database connection
@@ -34,7 +18,6 @@ DB_DSN=dbuser:dbpass@tcp(db:3306)/dbname?collation=utf8mb4_general_ci
 # Secret to use for JWT token
 # Make sure you change it (>30 random characters) if
 # you expose your deployment to outside traffic
-
 AUTH_JWT_SECRET=this-is-only-for-demo-purpose--make-sure-you-change-it-for-production
 
 ########################################################################################################################
@@ -42,11 +25,20 @@ AUTH_JWT_SECRET=this-is-only-for-demo-purpose--make-sure-you-change-it-for-produ
 
 # Disable email confirmation for sign-up protocol to allow more seamless setup without the need
 # for SMTP Server
-PROVISION_SETTINGS_AUTH_INTERNAL_SIGNUP_EMAIL_CONFIRMATION_REQUIRED=false
+#PROVISION_SETTINGS_AUTH_INTERNAL_SIGNUP_EMAIL_CONFIRMATION_REQUIRED=false
 
 # Point this to your local or external SMTP server
-#SMTP_HOST=smtp-server.example.tld:587
-#SMTP_USER=postmaster@smtp-server.example.tld
-#SMTP_PASS=this-is-your-smtp-password
-#SMTP_FROM="Demo" <info@your-demo.example.tld>
+SMTP_HOST=smtp-server.example.tld:587
+SMTP_USER=postmaster@smtp-server.example.tld
+SMTP_PASS=this-is-your-smtp-password
+SMTP_FROM="Demo" <info@your-demo.example.tld>
+
+
+########################################################################################################################
+# Corredor service settings
+
+# Corredor address is used in Corredor service for grpc server configuration
+# and inside Server for configuring corredor gRPC client with location for corredor server
+# If these two values are different in your environment for
+CORREDOR_ADDR=corredor:80
 

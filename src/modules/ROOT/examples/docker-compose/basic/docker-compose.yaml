@@ -12,7 +12,7 @@ services:
       API_BASEURL:  "127.0.0.1:${LOCAL_DEMO_API_PORT}"
 
   server:
-    image: cortezaproject/corteza-server-monolith:${VERSION}
+    image: cortezaproject/corteza-server:${VERSION}
     restart: on-failure
     depends_on: [ db, corredor ]
     # Binds internal port 80 to port LOCAL_DEMO_API_PORT on localhost

@@ -15,7 +15,7 @@ services:
       LETSENCRYPT_HOST: ${DOMAIN}
 
   server:
-    image: cortezaproject/corteza-server-monolith:${VERSION}
+    image: cortezaproject/corteza-server:${VERSION}
     restart: on-failure
     env_file: [ .env ]
     depends_on: [ db, corredor ]

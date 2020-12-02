@@ -27,7 +27,7 @@ Some operating systems do not like files that start with a dot, so make sure `.e
 .`.env`
 [source,dotenv]
 ----
-include::ROOT:example$docker-compose/basic/env.txt[]
+include::ROOT:example$docker-compose/basic/env-example.txt[]
 ----
 
 .`docker-compose.yaml`

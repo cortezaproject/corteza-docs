@@ -31,13 +31,9 @@ You can use variables defined in the `.env` inside your `docker-compose.yaml` fi
 
 These variables control the base {PRODUCT_NAME} configurations, such as the port and the database DSN.
 
-include::env-base.adoc[]
-
-== Security
-
-These variables control security aspects of {PRODUCT_NAME}, such as the JWT token secret and the token lifetime.
-
-include::env-security.adoc[]
+:leveloffset: +1
+include::option_env_variables_gen.adoc[]
+:leveloffset: +-
 
 == Provisioning
 
@@ -65,49 +61,3 @@ include::env-provision-oidc.adoc[]
 
 include::env-provision-external.adoc[]
 
-== SMTP
-
-include::env-smtp.adoc[]
-
-== Corredor
-
-include::env-corredor.adoc[]
-
-== MinIO
-
-[NOTE]
-====
-The MinIO integration allows you to replace local storage with cloud storage.
-When configured, `STORAGE_PATH` is not needed.
-====
-
-include::env-minio.adoc[]
-
-== Debugging
-
-[NOTE]
-====
-These parameters help in the development and testing process.
-When you are deploying to production, these should be disabled to improve performance and reduce storage usage.
-
-You should configure external services such as Sentry or ELK to keep track of logs and error reports.
-====
-
-=== Sentry
-
-include::env-debug-sentry.adoc[]
-
-=== Logging
-
-include::env-debug-logging.adoc[]
-
-== Delaying API execution
-
-You can configure these options to defer API execution until another external (HTTP) service is up and running.
-
-[TIP]
-====
-Delaying API execution can come in handy in complex setups where execution order is important.
-====
-
-include::env-wait-for.adoc[]

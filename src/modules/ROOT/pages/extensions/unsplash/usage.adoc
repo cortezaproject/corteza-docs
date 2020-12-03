@@ -1,0 +1,45 @@
+include::../../variables.adoc[]
+
+= Usage
+
+[source,js]
+----
+// To use the Unsplash client, first import the client into the desired automation script
+import Unsplash from 'unsplash/lib/'
+
+// Next step is to initialize the Unsplash client with the `accessKey` and `secret`
+const unsplashClient = new UnsplashClient(accessKey, secret)
+
+// The client is now ready to accept querries, for example
+const images = await unsplashClient.search({ query: 'Example', perPage: 10, page: 1 })
+----
+
+
+== Available querries
+
+search(query: '', perPage: 10, page: 1)::
+    Fetches images that match the query base on the provided pagination data
+
+getPhotoByID(photoID: '')::
+    Fetches the image under the provided Unsplash photoID
+
+
+== Example response for images
+
+[source,js]
+----
+{
+  id, // Unsplash image ID
+  preview: {
+    original, // URL to original image,
+    regular, // URL to regular sized image,
+    large, // URL to large size image
+    thumbnail, // URL to the thumbnail size image
+  },
+  author: {
+    name, // Image author name
+    url, // URL to the Unsplash author profile
+  },
+  origin: 'Unsplash', // Origin of the image
+}
+----

@@ -1,10 +1,12 @@
 include::../../variables.adoc[]
-= DocuSign
+= Renderer
 
 :leveloffset: +1
 
 include::about.adoc[]
 
 include::config.adoc[]
+
+include::usage.adoc[]
 
 :leveloffset: -1

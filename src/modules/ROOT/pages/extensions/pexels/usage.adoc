@@ -1,0 +1,67 @@
+include::../../variables.adoc[]
+
+= Usage
+
+[source,js]
+----
+// To use the Pexels client, first import the client into the desired automation script
+import PexelsClient from 'pexels/lib/'
+
+// Next step is to initialize the Pexels client with the `apiKey`
+const pexelsClient = new PexelsClient(apiKey)
+
+// The client is now ready to accept querries, for example
+const images = await pexelsClient.searchPhotos({ query: 'Example', perPage: 10, page: 1 })
+----
+
+== Available querries
+
+searchPhotos(query: '', perPage: 10, page: 1)::
+    Fetches images that match the query base on the provided pagination data
+
+getPhotoByID(photoID: '')::
+    Fetches the image under the provided Pexels photoID
+
+searchVideos(query: '', perPage: 10, page: 1)::
+    Fetches images that match the query base on the provided pagination data
+
+
+
+== Example response for images
+
+[source,js]
+----
+{
+  id, // Pexels image ID
+  preview: {
+    original, // URL to original image,
+    regular, // URL to regular sized image,
+    large, // URL to large size image
+    thumbnail, // URL to the thumbnail size image
+  },
+  author: {
+    name, // Image author name
+    url, // URL to the Pexels author profile
+  },
+  origin: 'Pexels', // Origin of the image
+}
+----
+
+== Example response for videos
+
+[source,js]
+----
+{
+  id, // Pexels video ID
+  // Thumbnail
+  preview: {
+    thumbnail, // URL to the video thumbnail size image
+  },
+  video, // Actual video URL on Pexels
+  author: {
+    name, // Image author name
+    url, // URL to the Pexels author profile
+  },
+  origin: 'Pexels',  // Origin of the video
+}
+----

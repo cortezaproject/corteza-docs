@@ -1,0 +1,8 @@
+include::../../variables.adoc[]
+
+= About
+
+Similar to the CRM extension. +
+{PRODUCT_NAME} Service Solution is a namespace configuration that allows for easier management of customer cases.
+
+It includes all of the modules, pages, charts and automation necessary to start tracking customer cases.

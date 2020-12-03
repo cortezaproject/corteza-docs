@@ -1,0 +1,10 @@
+include::../../variables.adoc[]
+
+= Configuration
+
+To use the Unsplash extension:
+
+1. Obtain the UnsplashAPI production `accessKey` and `secret`
+2. Place the extensions in a directory where it can be imported into an automation script
+3. Initialize the Unsplash client
+

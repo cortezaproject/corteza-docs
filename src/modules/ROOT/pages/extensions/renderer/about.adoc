@@ -1,0 +1,9 @@
+include::../../variables.adoc[]
+
+= About
+
+The Renderer extension provides a way to render HTML or PDF files using templates. +
+This provides a way to render and create Quotes or Invoices, Emails or other types of messages.
+
+The renderer is inteded to be used inside automation scripts. +
+For example generating a Quote after creating a Quote record.

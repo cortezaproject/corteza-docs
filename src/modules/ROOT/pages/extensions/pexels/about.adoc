@@ -1,0 +1,14 @@
+include::../../variables.adoc[]
+
+= About
+
+https://www.pexels.com/[Pexels] is a third party service that provides stock image and video assets. +
+This extensions is available in the form of a Javascript client.
+
+It is currently intended for the use in automation scripts. +
+For example if you need to attach a stock asset to a certain record.
+
+[IMPORTANT]
+====
+To use the Pexels client in production, you will need a production ready Pexels account.
+====

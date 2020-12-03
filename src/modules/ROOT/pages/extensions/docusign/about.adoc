@@ -18,8 +18,6 @@ Document signature::
 [IMPORTANT]
 ====
 DocuSign is fairly strict in the terms of when your credentials can be used in production.
-
-@todo add constraints
 ====
 
 == Required token scopes

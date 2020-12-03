@@ -7,8 +7,21 @@ include::../variables.adoc[]
 
 This guide introduces all the official {PRODUCT_NAME} extensions developed and maintained by the core team and all of our contributors.
 
+Extensions provide a way to add certain features to {PRODUCT_NAME} on demand. +
+Since not all extensions are useful for every instance of {PRODUCT_NAME}, they have to be hand picked.
+
 :leveloffset: +1
 
+include::crm/index.adoc[]
+
+include::service-solution/index.adoc[]
+
+include::renderer/index.adoc[]
+
+include::phone-burner/index.adoc[]
+
 include::docusign/index.adoc[]
+
+include::pexels/index.adoc[]
 
 :leveloffset: -1

@@ -1,0 +1,71 @@
+include::../../variables.adoc[]
+
+= Usage
+The renderer can be used anywhere it can be imported. +
+Based on the template and data provided it generates a file that can be used to your linking.
+
+[source,js]
+----
+// Import renderer and template to automation script
+import renderer from '@cortezaproject/corteza-ext-renderer'
+import template from './template'
+
+// Prepare data object
+const data = {
+  value: ''
+}
+
+// Render the report PDF
+const { report, meta } = await renderer.render({ data, template, renderer: renderer.types.RendererKind.HTML })
+
+// OR
+const { report, meta } = await renderer.render({ data, template, renderer: renderer.types.RendererKind.PDF })
+----
+
+
+== PDF
+The PDF templates are created according to the https://pdfmake.github.io/docs/0.1/[PDFMake] syntax. +
+The data is passed inside the data object, as you defined it.
+
+=== Example:
+[source,js]
+----
+{
+  content: [
+    'First paragraph',
+    'Another paragraph, this time a little bit longer to make sure, this line will be divided into at least two lines'
+    'Third paragraph is an object value: ' + data.value
+  ]
+}
+----
+
+
+== HTML
+The HTML templates are created like any other HTML file.
+To use variable data in certain places, use the handlebars syntax `{{ this.value }}`.
+
+[IMPORTANT]
+====
+Make sure to prefix data with `this`
+====
+
+=== Example:
+[source,html]
+----
+<!DOCTYPE html>
+<html>
+<head>
+  <title>
+    Example
+  </title>
+</head>
+<body>
+  <main>
+    <p>
+      This is a HTML template example
+      <br />
+      Using variable data {{ this.value }}
+    </p>
+  </main>
+</body>
+----

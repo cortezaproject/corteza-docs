@@ -1,0 +1,128 @@
+include::../variables.adoc[]
+
+= Sink endpoint and automation scripts
+
+{PRODUCT_NAME} provides an robust system to handle *inbound webhooks*.
+If you're using an external system, SaaS service or similar that you can not control but can send HTTP requests automation scripts with sink endpoints are the best way to handle them.
+
+== Examples of use:
+
+Creating records from an external form::
+    Form on an external webpage collects data that is then sent to sink API.
+    Appropriate record(s) are then created or updated.
+
+Document approval/signature tracking::
+    {PRODUCT_NAME} sends a generated document to document-signing service and informs all signing parties.
+    An internal record is also created/updated to track all the signers.
+    For each signature a webhook is executed on the document-signing service and captured by sink endpoint and automations script.
+    Script finds the tracking record and updates it according to the payload received.
+
+Credit card payment capturing::
+    When credit card payment is cleared, credit card processing service sends a webhook with payment information to {PRODUCT_NAME}.
+    Records storing a customer and contract are looked up by automation script and flagged as paid.
+
+Refer to xref:ROOT:developer-guide/sink-routes.adoc[developers guide] to learn more about how sink routes and events work.
+
+[NOTE]
+====
+In case you have capabilities and a platform or system to build your own integration that interacts with the {PRODUCT_NAME} API directly we encourage you to use it.
+====
+
+
+.Example sink request handling script
+[source,javascript]
+----
+import base64 from 'base-64'
+
+export default {
+  label: 'Example sink handler',
+  security: {
+    runAs: 'user@corteza.example',
+  },
+  triggers (t) {
+    return [
+      t.on('request')
+        .where('request.path', '/path')
+        .where('request.method', 'POST')
+        .for('system:sink')
+    ]
+  },
+
+  async exec ({ $request, $response }) {
+    // body is base64 encoded and we're expecting a JSON payload
+    const body = JSON.parse(base64.decode($request.rawBody))
+
+    // create a record, user, send request to another service ...
+
+    // response status & header
+    $response.status = 200
+    $response.header = { 'Content-Type': ['application/json'] }
+
+    // generate the response body
+    $response.body = JSON.stringify({ result: 'example' })
+
+    // and send back everything
+    return $response
+  }
+}
+----
+
+
+.$request object properties
+|===
+| Property name | type | description
+
+| method
+| `string`
+| HTTP method used for request (`GET`, `POST`, ....)
+
+| path
+| `string`
+| Path from the request URL
+
+| host
+| `string`
+| Hostname from the request
+
+| username
+| `string`
+| Username from the request URL
+
+| password
+| `string`
+| Password from the request URL
+
+| header
+| `{[_ :string]: []string}`
+| Request headers
+
+| query
+| `{[_ :string]: []string}`
+| Parsed request query string parameters
+
+| postForm
+| `{[_ :string]: []string}`
+| Available when content-type is application/octet-stream or application/x-www-form-urlencoded.
+
+| rawBody
+| `string`
+| Raw body, base-64 encoded
+|===
+
+.$response object properties
+|===
+| Property name | type | description
+
+| header
+| `{[_ :string]: []string}`
+| Response headers
+
+| status
+| `number`
+| HTTP status, defaults to 200
+
+| body
+| `string`
+| Body to be returned with response
+
+|===

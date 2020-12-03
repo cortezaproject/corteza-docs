@@ -1,0 +1,118 @@
+include::../variables.adoc[]
+
+= Sink routes, inbound webhooks or incoming HTTP requests
+
+Besides responding to events, triggered when resource is created or changed, {PRODUCT_NAME} can handle incoming HTTP requests.
+
+== Security model
+
+=== Authentication with signature
+
+Sink URL MUST be signed for security. Signature is based on the sink parameters and constraints.
+It's salted with secret used for JWT tokens.
+
+See the described procedure for  xref:ROOT:dev-ops-guide/cli.adoc#_create_sink_signature[sink signature creation].
+
+[NOTE]
+====
+Alternative ways to secure sink URLs will be provided in the future.
+====
+
+=== Automation script security context
+
+Automation scripts triggered by HTTP request must have run-as user defined in the trigger definition.
+Without it {PRODUCT_NAME} does not know who is running the script and what permissions apply.
+See how xref:ROOT:integrator-guide/extensions/security-context.adoc[security context] works in automation scripts.
+
+.request flow when invoking sink endpoint from HTTP layer to Corredor
+[plantuml,diagram-name-here,svg,role=sink-request]
+----
+@startuml
+skinparam ParticipantPadding 20
+skinparam BoxPadding 200
+skinparam SequenceArrowThickness 2
+skinparam RoundCorner 10
+
+actor "External service" as Ext
+participant "HTTP request handler" as HttpReqProc
+participant "Sink processor" as SinkProc
+participant "Eventbus"
+participant "EventHandler"
+participant "Corredor"
+
+activate Ext
+Ext -> HttpReqProc: HTTP request
+
+group Internal
+    activate HttpReqProc
+    activate SinkProc
+    HttpReqProc -> SinkProc: Resolved Sink request
+
+    activate Eventbus
+    SinkProc -> Eventbus: Event raised
+
+    activate EventHandler
+    Eventbus -> EventHandler: Trigger
+
+    group Automation script
+        EventHandler <-> Corredor: Script execution
+    end
+
+    Eventbus <- EventHandler: Response
+    deactivate EventHandler
+
+    SinkProc <- Eventbus: Response
+    deactivate Eventbus
+
+    HttpReqProc <- SinkProc: Response
+    deactivate SinkProc
+end
+
+
+HttpReqProc -> Ext: Response
+deactivate HttpReqProc
+deactivate Ext
+
+@enduml
+----
+
+[NOTE]
+====
+This document focuses on HTTP and sink request handlers and on Corredor automation scripts.
+Eventbus and event handler do not have any special effect or influence over how sink requests are handled.
+====
+
+== HTTP request handler
+
+HTTP request is validate and converted into Sink request.
+
+Validation process steps:
+
+. Is signatue provided?
+. Is signature is valid?
+. Is HTTP method enforced and does the used method match?
+. Is `Content-Type` header enforced and does it match?
+. Is path part of the URL enforced and does it match?
+. Is expiration time set and is it expired?
+. Is max request body size enforced and does the request fit?
+== Sink processor
+
+Creates a new event from sink request.
+
+When request sent with `message/rfc822`, `rfc822`, `email` or `mail` as `Content-Type` header `OnReceive` on `system:mail` event is raised.
+In any other case `OnRequest` event on `system:sink` resource is raised.
+
+When response is returned from the event handler, sink processor can use it to configure the response headers and body
+
+== Event Handler
+
+When new automation script is registered it creates an event handlers that connect event to the automation script.
+Additional constraints can be configured that filter the events that actually trigger the script, like path, request method (GET, POST) and headers.
+See xref:ROOT:integrator-guide/constraint-resources/system/mail.adoc[mail] and xref:ROOT:integrator-guide/constraint-resources/system/sink.adoc[sink] constraints for the complete list.
+
+== Corredor automation scripts
+
+Automation scripts, triggered by sink request can process it and return a response.
+Although it's not recommended, a fully functional web application could be built using only sink request/response capabilities.
+
+Please refer to the xref:ROOT:integrator-guide/sink-scripts.adoc#_sink_scripts[integration guide] to learn more about automation scripts for handling sink requests.

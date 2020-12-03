@@ -4,90 +4,18 @@ include::../variables.adoc[]
 
 {PRODUCT_NAME} command-line interface tool allows you to quickly interact with different parts of the system -- from changing the settings to assigning roles to users.
 
-.Depending on built flavour, you can use a different entry:
-* Microservice build produce `corteza-server-system`, `corteza-server-messaging` and `corteza-server-compose`,
-* monolith build produces `corteza-server` binary with `system`, `messaging`, `compose` sub-commands.
+== Authentication
 
-== Base commands
+External authentication
 
-=== Start the HTTP Server with REST API
+=== Auto discovery
 
-[source,shell]
-----
-Usage:
-  corteza-server serve-api [flags]
-
-Flags:
-  -h, --help   help for serve-api
-----
-
-== Provision commands
-
-=== Base command
+Auto discovers new OIDC client
 
 [source,shell]
 ----
 Usage:
-  corteza-server provision [command]
-
-Available Commands:
-  configuration    Create permissions & resources
-  migrate-database Run database migration scripts
-
-Flags:
-  -h, --help   help for provision
-
-Use "corteza-server provision [command] --help" for more information about a command.
-----
-
-=== Create permissions and resources
-
-[source,shell]
-----
-Usage:
-  corteza-server provision configuration [flags]
-
-Flags:
-  -h, --help   help for configuration
-----
-
-=== Run database migration scripts
-
-[source,shell]
-----
-Usage:
-  corteza-server provision migrate-database [flags]
-
-Flags:
-  -h, --help   help for migrate-database
-----
-
-== System commands
-
-=== External authentication
-
-[source,shell]
-----
-Usage:
-  corteza-server system auth [command]
-
-Available Commands:
-  auto-discovery     Auto discovers new OIDC client
-  jwt                Generates new JWT for a user
-  test-notifications Sends samples of all authentication notification to the recipient
-
-Flags:
-  -h, --help   help for auth
-
-Use "corteza-server system auth [command] --help" for more information about a command.
-----
-
-=== Auto discovers new OIDC client
-
-[source,shell]
-----
-Usage:
-  corteza-server system auth auto-discovery [name] [url] [flags]
+  corteza-server auth auto-discovery [name] [url] [flags]
 
 Flags:
       --enable            Enable this provider and external auth
@@ -95,200 +23,119 @@ Flags:
       --skip-validation   Skip validation
 ----
 
-=== Sends samples of all authentication notification to the recipient
+=== JWT
+
+Generates a new JWT for a user
 
 [source,shell]
 ----
 Usage:
-  corteza-server system auth test-notifications [recipient] [flags]
-
-Flags:
-  -h, --help   help for test-notifications
-----
-
-=== Generates new JWT for a user
-
-[source,shell]
-----
-Usage:
-  corteza-server system auth jwt [email-or-id] [flags]
+  corteza-server auth jwt [email-or-id] [flags]
 
 Flags:
   -h, --help   help for jwt
 ----
 
-=== Export system resources
+=== Test notification
+
+Sends samples of all authentication notification to receipient
 
 [source,shell]
 ----
 Usage:
-  corteza-server system export [flags]
+  corteza-server auth test-notifications [recipient] [flags]
 
 Flags:
-  -h, --help          help for export
-  -p, --permissions   Export system permissions
-  -s, --settings      Export settings
+  -h, --help   help for test-notifications
 ----
 
-=== Import system resources
+== Import
+
+Import data from yaml sources.
 
 [source,shell]
 ----
 Usage:
-  corteza-server system import [flags]
+  corteza-server import [flags]
 
 Flags:
-  -h, --help   help for import
+  -h, --help                   help for import
+      --merge-left-existing    Update any existing values; existing data takes priority. Default skips.
+      --merge-right-existing   Update any existing values; new data takes priority. Default skips.
+      --replace-existing       Replace any existing values. Default skips.
 ----
 
-=== Manage roles
+== Provision
+
+Provision tasks
 
 [source,shell]
 ----
 Usage:
-  corteza-server system roles [command]
-
-Available Commands:
-  useradd     Add user to role
+  corteza-server provision [flags]
 
 Flags:
-  -h, --help   help for roles
-
-Use "corteza-server system roles [command] --help" for more information about a command.
+  -h, --help   help for provision
 ----
 
-=== Add user to role
+== RBAC
+
+Check and manipulates permissions
+
+=== Check 
+
+Check applied permissions against given file (only supports compose permissions for now)
 
 [source,shell]
 ----
 Usage:
-  corteza-server system roles useradd [role-ID-or-name-or-handle] [user-ID-or-email] [flags]
+  corteza-server rbac check [flags]
+
+Flags:
+  -h, --help   help for check
+----
+
+== Roles
+
+Role management
+
+=== Add user
+
+Add user to role
+
+[source,shell]
+----
+Usage:
+  corteza-server roles useradd [role-ID-or-name-or-handle] [user-ID-or-email] [flags]
 
 Flags:
   -h, --help   help for useradd
 ----
 
-=== Manage settings
+== Serve api
+
+Start HTTP server with REST API
 
 [source,shell]
 ----
 Usage:
-  corteza-server system settings [command]
+  corteza-server serve-api [flags]
 
-Available Commands:
-  delete      Set value (raw JSON) for a specific key (or by prefix)
-  export      Import settings as JSON to stdout or file
-  get         Get value (raw JSON) for a specific key
-  import      Import settings as JSON from stdin or file
-  list        List all
-  set         Set value (raw JSON) for a specific key
+Aliases:
+  serve-api, serve
 
 Flags:
-  -h, --help   help for settings
-
-Use "corteza-server system settings [command] --help" for more information about a command.
+  -h, --help   help for serve-api
 ----
 
-=== Remove settings for specific keys
+== Sink signature
+
+Creates signature for sink HTTP endpoint
 
 [source,shell]
 ----
 Usage:
-  corteza-server system settings delete [keys, ...] [flags]
-
-Flags:
-  -h, --help            help for delete
-      --prefix string   Filter settings by prefix
-----
-
-=== Export settings as JSON to stdout or a file
-
-[source,shell]
-----
-Usage:
-  corteza-server system settings export [file] [flags]
-
-Flags:
-  -h, --help   help for export
-----
-
-=== Get value for a specific key
-
-[IMPORTANT]
-====
-The value is provided as a raw JSON.
-====
-
-[source,shell]
-----
-Usage:
-  corteza-server system settings get [key to get, ...] [flags]
-
-Flags:
-  -h, --help   help for get
-----
-
-=== Import settings as JSON from stdin or a file
-
-[source,shell]
-----
-Usage:
-  corteza-server system settings import [file] [flags]
-
-Flags:
-  -h, --help   help for import
-----
-
-=== List all settings
-
-[source,shell]
-----
-Usage:
-  corteza-server system settings list [flags]
-
-Flags:
-  -h, --help            help for list
-      --prefix string   Filter settings by prefix
-----
-
-=== Set value for a specific key
-
-[IMPORTANT]
-====
-The value is provided as a raw JSON.
-====
-
-[source,shell]
-----
-Usage:
-  corteza-server system settings set [key to set] [value] [flags]
-
-Flags:
-  -h, --help   help for set
-----
-
-=== Sink
-
-[source,shell]
-----
-Usage:
-  corteza-server system sink [command]
-
-Available Commands:
-  signature   Creates signature for sink HTTP endpoint
-
-Flags:
-  -h, --help   help for sink
-
-Use "corteza-server system sink [command] --help" for more information about a command.
-----
-
-=== Create sink signature
-
-[source,shell]
-----
-Usage:
-  corteza-server system sink signature [flags]
+  corteza-server sink signature [flags]
 
 Flags:
       --content-type string   Content type (optional)
@@ -301,114 +148,70 @@ Flags:
       --signature-in-path     Include signature in a path instead of query string
 ----
 
-=== Manage system users
+== Upgrade
 
 [source,shell]
 ----
 Usage:
-  corteza-server system users [command]
-
-Available Commands:
-  add         Add new user
-  list        List users
-  password    Change password for user
+  corteza-server upgrade [flags]
 
 Flags:
-  -h, --help   help for users
-
-Use "corteza-server system users [command] --help" for more information about a command.
+  -h, --help   help for upgrade
 ----
 
-=== Add a new system user
+== Users
+
+User management
+
+=== Add user
+
+Add new user
 
 [source,shell]
 ----
 Usage:
-  corteza-server system users add [email] [flags]
+  corteza-server users add [email] [flags]
 
 Flags:
   -h, --help          help for add
       --no-password   Create user without password
 ----
 
-=== List system users
+=== List
+
+List users
 
 [source,shell]
 ----
 Usage:
-  corteza-server system users list [flags]
+  corteza-server users list [flags]
 
 Flags:
-  -h, --help   help for list
+  -h, --help           help for list
+  -l, --limit int      How many entry to display (default 20)
+  -q, --query string   Query and filter by handle, email, name
 ----
 
-=== Change password for a system user
+=== Password
+
+Change password for user
 
 [source,shell]
 ----
 Usage:
-  corteza-server system users password [email] [flags]
+  corteza-server users password [email] [flags]
 
 Flags:
   -h, --help   help for password
 ----
 
-== {APP_NAME_COMPOSE} commands
-
-=== Export {APP_NAME_COMPOSE} resources
+== Version
 
 [source,shell]
 ----
 Usage:
-  corteza-server compose export [flags]
+  corteza-server version [flags]
 
 Flags:
-  -h, --help               help for export
-      --namespace string   Export namespace resources (by ID or string)
-  -p, --permissions        Export system permissions
-  -s, --settings           Export settings
-
-Arguments:
-  modules                  Export modules
-  pages                    Export pages
-  charts                   Export charts
-  permissions              Export permissions
-----
-
-=== Import {APP_NAME_COMPOSE} resources
-
-[source,shell]
-----
-Usage:
-  corteza-server compose import [flags]
-
-Flags:
-  -h, --help               help for import
-      --namespace string   Import into namespace (by ID or string)
-----
-
-== {APP_NAME_MESSAGING} commands
-
-=== Export {APP_NAME_MESSAGING} resources
-
-[source,shell]
-----
-Usage:
-  corteza-server messaging export [flags]
-
-Flags:
-  -h, --help          help for export
-  -p, --permissions   Export system permissions
-  -s, --settings      Export settings
-----
-
-=== Import {APP_NAME_MESSAGING} resources
-
-[source,shell]
-----
-Usage:
-  corteza-server messaging import [flags]
-
-Flags:
-  -h, --help   help for import
+  -h, --help   help for version
 ----

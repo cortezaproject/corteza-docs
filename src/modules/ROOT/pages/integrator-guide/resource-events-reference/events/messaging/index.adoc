@@ -1,0 +1,13 @@
+include::../../../../variables.adoc[]
+
+= {APP_NAME_MESSAGING}
+
+:leveloffset: +1
+
+include::messaging.gen.adoc[]
+include::message.gen.adoc[]
+include::command.gen.adoc[]
+include::channel.gen.adoc[]
+include::channel_member.gen.adoc[]
+
+:leveloffset: -1

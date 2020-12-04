@@ -1,0 +1,141 @@
+include::../../variables.adoc[]
+
+// @todo fact-check resource ID's
+
+= Resource constraints
+
+== {APP_NAME_COMPOSE}
+
+=== Module (`compose:module`)
+
+[cols="2m,5"]
+|===
+|property|Description
+include::./compose/module.adoc[]
+include::./compose/namespace.adoc[]
+|===
+
+=== Namespace (`compose:namespace`)
+
+[cols="2m,5"]
+|===
+|property|Description
+include::./compose/namespace.adoc[]
+|===
+
+=== Page (`compose:page`)
+
+[cols="2m,5"]
+|===
+|property|Description
+include::./compose/page.adoc[]
+include::./compose/namespace.adoc[]
+|===
+
+=== Record (`compose:record`)
+
+[cols="2m,5"]
+|===
+|property|Description
+include::./compose/record.adoc[]
+include::./compose/module.adoc[]
+include::./compose/namespace.adoc[]
+|===
+
+== {APP_NAME_MESSAGING}
+
+=== channel member (`messaging:channel-member`)
+
+[cols="2m,5"]
+|===
+|property|Description
+include::./messaging/channel-member.adoc[]
+include::./messaging/channel.adoc[]
+|===
+
+=== channel (`messaging:channel`)
+
+[cols="2m,5"]
+|===
+|property|Description
+include::./messaging/channel.adoc[]
+|===
+
+=== command (`messaging:command`)
+
+[cols="2m,5"]
+|===
+|property|Description
+include::./messaging/command.adoc[]
+include::./messaging/channel.adoc[]
+|===
+
+=== message (`messaging:message`)
+
+[cols="2m,5"]
+|===
+|property|Description
+include::./messaging/message.adoc[]
+include::./messaging/channel.adoc[]
+|===
+
+// System
+
+== System
+
+=== application (`system:application`)
+
+[cols="2m,5"]
+|===
+|property|Description
+include::./system/application.adoc[]
+|===
+
+=== auth (`system:auth`)
+
+[cols="2m,5"]
+|===
+|property|Description
+include::./system/user.adoc[]
+|===
+
+=== user (`system:user`)
+
+[cols="2m,5"]
+|===
+|property|Description
+include::./system/user.adoc[]
+|===
+
+=== role (`system:role`)
+
+[cols="2m,5"]
+|===
+|property|Description
+include::./system/role.adoc[]
+|===
+
+=== role member (`system:role-member`)
+
+[cols="2m,5"]
+|===
+|property|Description
+include::./system/user.adoc[]
+include::./system/role.adoc[]
+|===
+
+=== sink (`system:sink`)
+
+[cols="2m,5"]
+|===
+|property|Description
+include::./system/sink.adoc[]
+|===
+
+=== mail (`system:mail`)
+
+[cols="2m,5"]
+|===
+|property|Description
+include::./system/mail.adoc[]
+|===

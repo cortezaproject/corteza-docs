@@ -1,8 +1,8 @@
 include::variables.adoc[]
 = {PRODUCT_NAME}
 
-{PRODUCT_NAME} is an *open source*, *self-hosted cloud-based* platform for your work.
-It provides a wide ecosystem of a *Unified Workspace* (like Google G Suite), *Enterprise Messaging* (like Slack), a *low code environment* for rapidly and securely delivering records-based management solutions, and *CRM* (like Salesforce).
+{PRODUCT_NAME} is an *open source*, *self-hosted cloud-based* Digital Work Platform.
+Main features include a Low-Code Platform, CRM, Service Solution, Enterprise Messaging, and End-to-End Business Automation.
 
 {PRODUCT_NAME} is built upon modern technologies, using https://golang.org/[Golang] as a back-end and https://vuejs.org/[Vue.js] as a front-end.
 The platform is *secure* with a powerful *RBAC access control facility*, that allows you to configure your users just the way you want to!
@@ -13,7 +13,7 @@ Organisations should feel that their chosen digital work platform is always *und
 [NOTE]
 ====
 Questions?
-Checkout https://{DOMAIN}[our homepage], or https://latest.{DOMAIN}[get in touch with us]!
+Check out https://{DOMAIN}[our homepage], or https://latest.{DOMAIN}[get in touch with us]!
 ====
 
 == I'm interested! What's next?!
@@ -33,11 +33,13 @@ Take a look at the xref:ROOT:end-user-guide/index.adoc[end-user guide]!
 It covers all of the {PRODUCT_NAME} applications, what features they provide and how to use them.
 It's designed to be easily understandable by non-techy people, so you don't need to be a field expert.
 
-.Here is a shortcut:
-* xref:ROOT:end-user-guide/messaging/index.adoc[{PRODUCT_NAME} {APP_NAME_MESSAGING}],
-* xref:ROOT:end-user-guide/shell/index.adoc[{PRODUCT_NAME} {APP_NAME_SHELL}],
+.Here are a few shortcuts:
+* xref:ROOT:administrator-guide/compose/index.adoc[{PRODUCT_NAME} {APP_NAME_COMPOSE}],
 * xref:ROOT:end-user-guide/crm/index.adoc[{PRODUCT_NAME} CRM],
 * xref:ROOT:end-user-guide/service-solution/index.adoc[{PRODUCT_NAME} Service Solution].
+* xref:ROOT:end-user-guide/messaging/index.adoc[{PRODUCT_NAME} {APP_NAME_MESSAGING}],
+* xref:ROOT:end-user-guide/shell/index.adoc[{PRODUCT_NAME} {APP_NAME_SHELL}],
+
 
 === I need to know how to take on the administrator role
 

@@ -1,0 +1,2 @@
+| Content
+| A *content page block* is used to contain some static content, such as an important announcement, help text, or some contact information.

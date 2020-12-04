@@ -1,0 +1,84 @@
+include::../../variables.adoc[]
+
+= Namespaces
+
+A *namespace* is the *root* of your *data model*, and it *encapsulates the components* that make up a *specific application*.
+For example, *CRM related things* go under the *CRM namespace*; *call centre things* go under the *call centre namespace*.
+
+[TIP]
+====
+A namespace can be thought of as a *schema* in a relational database.
+The schema encapsulates modules, their attributes, and entities.
+====
+
+== Create a namespace
+
+.To create a new namespace:
+. navigate to the {PRODUCT_NAME} {APP_NAME_COMPOSE} page,
+. click on the "Create namespace" button at the bottom of the page,
+. provide all the requested data (see <<compose-namespaces-properties>>),
+. press the "Save" or "Save and close" button.
+
+[IMPORTANT]
+====
+You can only define permissions for existing namespaces.
+After you save the namespace, the option becomes available.
+====
+
+[#compose-namespaces-edit]
+== Edit a namespace
+
+.To edit an existing namespace:
+. navigate to the {PRODUCT_NAME} {APP_NAME_COMPOSE} page,
+. hover over the namespace you wish to edit,
+. press on the edit icon,
+. change the namespace as you see fit,
+. press the "Save" or "Save and close" button.
+
+== Delete a namespace
+
+[TIP]
+====
+Not sure if the namespace could be *used in the future*?
+You can just <<compose-namespaces-edit,*disable the namespace*>>.
+====
+
+.To delete an existing namespace:
+. navigate to the {PRODUCT_NAME} {APP_NAME_COMPOSE} page,
+. hover over the namespace you wish to edit,
+. press on the edit icon,
+. press and confirm the "Delete" option.
+
+[#compose-namespaces-properties]
+== Namespace properties
+
+Full namespace name (mandatory)::
+    *The name of your application*, which will be shown in the {APP_NAME_COMPOSE} Namespaces menu.
+    Keep your namespace names short and descriptive.
+
+short name (mandatory)::
+    *A shortened name* that is used within the system.
+    It can also *replace the identifier* for easier referencing (see the URL address, it uses the *shortened name* instead of an ID).
+
+[IMPORTANT]
+====
+.The provided short name must:
+include::ROOT:partial$handle-constraints.adoc[]
+====
+
+Subtitle (optional)::
+    *The subtitle* is shown *below the name* of the application in the {APP_NAME_COMPOSE} Namespaces menu.
+
+Namespace description (optional)::
+    A *longer description* that appears when hovering over the namespace in the {APP_NAME_COMPOSE} Namespaces menu.
+
+Enable namespace (optional)::
+    The namespace *is shown regardless* of the value; when disabled, you *can not enter* the namespace.
+
+== Permissions for all namespaces
+
+include::ROOT:partial$permissions/compose-namespaces.adoc[]
+
+== Permissions for a specific namespace
+
+include::ROOT:partial$permissions/compose-namespace-specific.adoc[]

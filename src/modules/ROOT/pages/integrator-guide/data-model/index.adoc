@@ -1,0 +1,17 @@
+include::../../variables.adoc[]
+
+= Data model
+
+The *data model* defines the *logical structure* (the skeleton) of your data, how it is *stored*, and how it can be *manipulated*.
+
+:leveloffset: +1
+
+include::namespaces.adoc[]
+
+include::modules.adoc[]
+
+include::pages.adoc[]
+
+include::charts.adoc[]
+
+:leveloffset: -1

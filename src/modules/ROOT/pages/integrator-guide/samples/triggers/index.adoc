@@ -1,0 +1,69 @@
+= Triggers
+
+== Explicit trigger (button)
+
+[source,js]
+----
+triggers ({ on }) {
+  return on('manual')
+    .for('compose:record')
+    .uiProp('app', 'compose')
+},
+----
+
+== Implicit trigger (automatic)
+
+[source,js]
+----
+// Before something
+triggers ({ before }) {
+  // You can pass in multiple events: create, update, delete
+  return before('create', 'update')
+      .for('compose:record')
+      .where('module', 'Module1')
+},
+
+// After something
+triggers ({ after }) {
+  // You can pass in multiple events: create, update, delete
+  return after('create', 'update')
+      .for('compose:record')
+      .where('module', 'Module1')
+},
+----
+
+== Deferred (interval)
+
+[source,js]
+----
+// Every day at 2AM
+triggers ({ on }) {
+  return on('interval')
+    .every('0 2 * * *')
+},
+----
+
+== Deferred (interval)
+
+[source,js]
+----
+// On christmas eve
+triggers ({ at }) {
+    // You can pass multiple timestamps (timestamp1, timestamp2, ..., timestampN)
+  return at('2020-12-24T21:00:00Z')
+},
+----
+
+== On HTTP request
+
+[source,js]
+----
+// On christmas eve
+triggers ({ on }) {
+  return on('request')
+    .where('request.path', '/some/path/here')
+    // HTTP protocol; GET, POST, PUT, PATCH, DELETE
+    .where('request.method', 'POST')
+    .for('system:sink'),
+},
+----

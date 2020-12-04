@@ -1,6 +1,0 @@
-include::../variables.adoc[]
-
-[#development-process]
-= Development Process
-
-// @todo

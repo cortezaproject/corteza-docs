@@ -1,92 +1,136 @@
 include::../../variables.adoc[]
 
-[#extensions-automation-iterators]
-= Automation iterators
+// @todo...
 
-An automation iterator (later refereed as "iterator") specifies under what conditions an automation script iterator should execute and part of the execution context.
+// [#extensions-automation-iterators]
+// = Automation iterators
 
-[IMPORTANT]
-====
-The main difference between triggers and iterators is, that an *iterator* is executed for multiple resources defined by the constraints, one after another.
+// An automation iterator (later refereed as "iterator") specifies under what conditions an automation script iterator should execute and part of the execution context.
 
-A *trigger* is executed for a single resource defined by the constraints.
-====
+// [IMPORTANT]
+// ====
+// The main difference between triggers and iterators is, that an *iterator* is executed for multiple resources defined by the constraints, one after another.
 
-Iterators are defined by the `iterator (i) {...}` method defined by the automation script.
+// A *trigger* is executed for a single resource defined by the constraints.
+// ====
 
-[IMPORTANT]
-====
-Iterators are evaluated in an isolated context, outside of the actual automation script.
-This prevents use of any constants or other symbols defiled outside of the iterator.
+// Iterators are defined by the `iterator (i) {...}` method defined by the automation script.
 
-For example, the following iterator will *not* work:
+// [IMPORTANT]
+// ====
+// Iterators are evaluated in an isolated context, outside of the actual automation script.
+// This prevents use of any constants or other symbols defiled outside of the iterator.
 
-[source,js]
-----
-// @todo provide an example, similar to how triggers have it.
-----
-====
+// For example, the following iterator will *not* work:
 
-[IMPORTANT]
-====
-Trigger and iterator are not compatible; you can only use one or the other within the same automation script.
-====
+// [source,js]
+// ----
+// // @todo provide an example, similar to how triggers have it.
+// ----
+// ====
 
-== Iterator interface
+// [IMPORTANT]
+// ====
+// Trigger and iterator are not compatible; you can only use one or the other within the same automation script.
+// ====
 
-`i`::
-    Defines the resource, action and the filter used for resource fetching.
-    Passed object must conform to the interface:
+// == Iterator interface
 
-[source,typescript]
-----
-interface {
-  resourceType: string; <1>
-  eventType: 'onManual' | 'onInterval' | 'onTimestamp' = 'onManual'; <2>
-  action: 'update' | 'delete' | 'clone' | '' = ''; <3>
-  filter: IteratorFilter; <4>
-}
-----
-<1> define the resource type; see xref:ROOT:integrator-guide/index.adoc#resources-events[resources and events] for details.
-<2> define the event type; see xref:ROOT:integrator-guide/index.adoc#resources-events[resources and events] for details.
-<3> define what action the script performs; see <<extensions:automation-iterators:actions>> for details,
-<4> define the filter to use.
+// `i`::
+//     Defines the resource, action and the filter used for resource fetching.
+//     Passed object must conform to the interface:
 
-[source,typescript]
-----
-interface IteratorFilter {
-  query: string; <1>
-  sort: string; <2>
-  limit: number | string; <3>
-  offset: number | string; <4>
-  [_: string]: number | string; <5>
-}
-----
-<1> SQL like query filter to use (`WHERE <query>`).
-<2> SQL like sort to use (`ORDER BY <sort>`).
-<3> Maximum number of resource.
-<4> Offset from first record.
-<5> additional non-standard resource specific parameters.
+// [source,typescript]
+// ----
+// interface {
+//   resourceType: string; <1>
+//   eventType: 'onManual' | 'onInterval' | 'onTimestamp' = 'onManual'; <2>
+//   action: 'update' | 'delete' | 'clone' | '' = ''; <3>
+//   filter: IteratorFilter; <4>
+// }
+// ----
+// <1> define the resource type; see xref:ROOT:integrator-guide/index.adoc#resources-events[resources and events] for details.
+// <2> define the event type; see xref:ROOT:integrator-guide/index.adoc#resources-events[resources and events] for details.
+// <3> define what action the script performs; see <<extensions:automation-iterators:actions>> for details,
+// <4> define the filter to use.
 
-`i.at`::
-    Defines that the automation script is executed at a specific time, defined as a ISO 8601 timestamp.
+// [source,typescript]
+// ----
+// interface IteratorFilter {
+//   query: string; <1>
+//   sort: string; <2>
+//   limit: number | string; <3>
+//   offset: number | string; <4>
+//   [_: string]: number | string; <5>
+// }
+// ----
+// <1> SQL like query filter to use (`WHERE <query>`).
+// <2> SQL like sort to use (`ORDER BY <sort>`).
+// <3> Maximum number of resource.
+// <4> Offset from first record.
+// <5> additional non-standard resource specific parameters.
 
-`i.every`::
-    Defines the interval in which the automation script is executed, defined as a cron expression.
+// `i.at`::
+//     Defines that the automation script is executed at a specific time, defined as a ISO 8601 timestamp.
 
-[#extensions:automation-iterators:actions]
-== Iterator actions
+// `i.every`::
+//     Defines the interval in which the automation script is executed, defined as a cron expression.
 
-[IMPORTANT]
-====
-Iterator script doesn't perform any operation on the resource except if explicitly specified by the `action` property.
-====
+// [#extensions:automation-iterators:actions]
+// == Iterator actions
 
-update::
-    The result of the automation script will be used to update the original resource.
+// [IMPORTANT]
+// ====
+// Iterator script doesn't perform any operation on the resource except if explicitly specified by the `action` property.
+// ====
 
-delete::
-    The result of the automation script will be used to delete the original resource.
+// update::
+//     The result of the automation script will be used to update the original resource.
 
-clone::
-    The result of the automation script will be used to create a new resource with updated values; original resource is left unchanged.
+// delete::
+//     The result of the automation script will be used to delete the original resource.
+
+// clone::
+//     The result of the automation script will be used to create a new resource with updated values; original resource is left unchanged.
+
+
+// == Automation iterators
+
+// *Automation iterators* let you define *when* something should *run* over a *set of things*.
+
+// [NOTE]
+// ====
+// .This lets you simplify scripts that are in the lines of:
+// . Get *all things* that belong to the user,
+// . do something to *the thing*.
+
+// .into just:
+// . Do something to *the thing*.
+// ====
+
+// An *iterator definition* is more *complex* to allow *flexibility*, and it *looks like this*:
+
+// [source,ts]
+// ----
+// export interface Iterator {
+//   // What resource will we be working with
+//   resourceType: string;
+//   // What event we should react to
+//   eventType: 'onManual' | 'onInterval' | 'onTimestamp' = 'onManual';
+//   // What will we do
+//   action: 'update' | 'delete' | 'clone' | '' = '';
+//   // What things do we wish to work on.
+//   // This is the same filter structure we use all over Corteza.
+//   filter: {
+//     query: string;
+//     sort: string;
+//     limit: number | string;
+//     offset: number | string;
+//   }
+// }
+// ----
+
+// Notice the *above `action` property* that is one of the 'update', 'delete', 'clone', or nothing.
+// Iterators by default *will not alter the resource*; we will iterate over it.
+// If we *wish to* also *change the resource*, we need to *explicitly specify* what we would like to do.
+

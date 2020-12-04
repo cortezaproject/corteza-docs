@@ -1,0 +1,14 @@
+| Record organizer
+| *Record organizer page blocks* let you define a series for columns (_stages_) that a record is in.
+
+Imagine a kanban board -- you can build one with record organizers.
+
+[TIP]
+====
+The columns define a  drag 'n drop interface.
+====
+
+[NOTE]
+====
+*DevNote* link to QL.
+====

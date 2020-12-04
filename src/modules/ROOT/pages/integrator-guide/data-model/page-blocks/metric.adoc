@@ -1,0 +1,40 @@
+| Metric
+| *Metric page blocks* display some *calculated number* based on the *data in your namespace*.
+
+You can use metric page blocks to show things like the *total number of leads* or the * months' revenue*.
+
+.Configuration options:
+Label::
+    *Metric label* specifies what the metric shows; this is not visible to the user.
+
+Dimension module::
+    *Dimension module* specifies what module will be used as a data source.
+
+Dimension filter::
+    *The dimension filter* allows you to *filter the data source* to include only the records you wish to have.
+
+Metric field::
+    *Metric field* specifies what field will be used to calculate the metric.
+    This can be one of the *numeric fields* or the general *record count*.
+
+Metric aggregation operation::
+    *Metric aggregation operation* specifies how the value is generated.
+    You can pick one of the `count`, `sum`, `max`, `min`, or `avg` functions.
+
+Metric transform value::
+    *Metric transform value* specifies how the *calculated value* is transformed *before displayed* to the user.
+    You can implement things like *rounding*, and *percentage calculations*.
+    See some xref:ROOT:integrator-guide/samples/page-blocks/metrics.adoc[examples].
+
+Metric number format::
+    *Metric number format* specifies how to format the final result.
+    See https://numeraljs.com/#format[Numeral.js] for available number formatting options.
+
+Metric prefix::
+    *Metric prefix* specifies the prefix to be used when displaying the final result.
+
+Metric suffix::
+    *Metric suffix* specifies the suffix to be used when displaying the final result.
+
+Style::
+    The *style* section specifies how to *style the metric* when showing it to the user.

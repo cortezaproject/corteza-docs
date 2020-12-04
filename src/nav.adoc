@@ -27,10 +27,13 @@ include::modules/ROOT/pages/variables.adoc[]
 ** xref:administrator-guide/messaging/index.adoc[]{APP_NAME_MESSAGING}
 
 * xref:integrator-guide/index.adoc[Integrator Guide]
-** xref:integrator-guide/development-process.adoc[Development Process]
+** xref:integrator-guide/terminology.adoc[Terminology]
 ** xref:integrator-guide/security.adoc[Security]
+** xref:integrator-guide/data-model/index.adoc[Data Model]
 ** xref:integrator-guide/extensions/index.adoc[Extensions]
-** xref:integrator-guide/resources-events.adoc[Resources and Events]
+** xref:integrator-guide/resource-events-reference/index.adoc[Resource Events]
+** xref:integrator-guide/resource-constraints-reference/index.adoc[Resource Constraints]
+** xref:integrator-guide/samples/index.adoc[Samples]
 
 * xref:developer-guide/index.adoc[Developer Guide]
 ** xref:developer-guide/building.adoc[Build Pipelines]

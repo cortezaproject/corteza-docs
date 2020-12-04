@@ -2,9 +2,7 @@ include::../../variables.adoc[]
 
 = Configuration
 
-To use the Pexels extension:
-
-1. Obtain the PexelsAPI production `apiKey`
-2. Place the extensions in a directory where it can be imported into an automation script
-3. Initialize the Pexels client
-
+.To use the Pexels extension:
+. Obtain the PexelsAPI production `apiKey`.
+. Place the extensions in a directory where it can be imported into an automation script.
+. Initialize the Pexels client.

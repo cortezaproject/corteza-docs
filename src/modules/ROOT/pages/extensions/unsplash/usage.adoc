@@ -1,5 +1,3 @@
-include::../../variables.adoc[]
-
 = Usage
 
 [source,js]
@@ -14,32 +12,38 @@ const unsplashClient = new UnsplashClient(accessKey, secret)
 const images = await unsplashClient.search({ query: 'Example', perPage: 10, page: 1 })
 ----
 
-
-== Available querries
+== Available queries
 
 search(query: '', perPage: 10, page: 1)::
-    Fetches images that match the query base on the provided pagination data
+    Fetches images that match the query base on the provided pagination data.
 
 getPhotoByID(photoID: '')::
-    Fetches the image under the provided Unsplash photoID
-
+    Fetches the image under the provided Unsplash photoID.
 
 == Example response for images
 
 [source,js]
 ----
 {
-  id, // Unsplash image ID
+  // Unsplash image ID
+  id,
   preview: {
-    original, // URL to original image,
-    regular, // URL to regular sized image,
-    large, // URL to large size image
-    thumbnail, // URL to the thumbnail size image
+    // URL to original image
+    original,
+    // URL to regular sized image
+    regular,
+    // URL to large size image
+    large,
+    // URL to the thumbnail size image
+    thumbnail,
   },
   author: {
-    name, // Image author name
-    url, // URL to the Unsplash author profile
+    // Image author name
+    name,
+    // URL to the Unsplash author profile
+    url,
   },
-  origin: 'Unsplash', // Origin of the image
+  // Origin of the image
+  origin: 'Unsplash',
 }
 ----

@@ -1,12 +1,12 @@
-include::../../variables.adoc[]
 = Service Solution
+:doctype: book
+
+The Service Solution extension implements the *Service Solution* application.
+
+Refer to the xref:ROOT:end-user-guide/service-solution/index.adoc[*end-user guide*] on how to *use the extension*.
 
 :leveloffset: +1
 
-include::about.adoc[]
-
 include::config.adoc[]
-
-include::usage.adoc[]
 
 :leveloffset: -1

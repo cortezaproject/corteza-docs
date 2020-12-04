@@ -1,7 +1,0 @@
-include::../../variables.adoc[]
-
-= About
-
-The CRM extension provides a fully configured namespace in {PRODUCT_NAME} {APP_NAME_COMPOSE} +
-It includes all the modules, pages and charts neccesary for a complete CRM experience. +
-Since a CRM system needs to be efficient and fast, a set of automation scripts is also included.

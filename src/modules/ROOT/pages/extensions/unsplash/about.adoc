@@ -1,14 +1,9 @@
-include::../../variables.adoc[]
-
 = About
 
-https://www.unsplash.com/[Unsplash] is a third party service that provides stock image assets. +
-This extensions is available in the form of a Javascript client.
-
-It is currently intended for the use in automation scripts. +
-For example if you need to attach a stock image to a certain record.
+https://www.unsplash.com/[Unsplash] is a third-party service that provides *stock image assets*.
+This extension *implements an SDK* to access the service.
 
 [IMPORTANT]
 ====
-To use the Unsplash client in production, you will need a production ready Unsplash account.
+To use the Unsplash client in production, you will need a *production-ready Unsplash account*.
 ====

@@ -1,5 +1,0 @@
-include::../../variables.adoc[]
-
-= Usage
-
-The guide is available xref:ROOT:end-user-guide/service-solution/index.adoc[here]

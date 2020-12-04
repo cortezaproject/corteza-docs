@@ -2,9 +2,7 @@ include::../../variables.adoc[]
 
 = Configuration
 
-To begin using {PRODUCT_NAME} Service Solution:
-
-1. Configure the Service Solution {APP_NAME_COMPOSE} namespace according to the .yaml config files
-2. Include the server and client scripts so that they are registered by {APP_AUTOMATION}
-3. All of the Service Solution pages, modules and charts are now accessible under the Service Solution namespace
-
+.To begin using {PRODUCT_NAME} Service Solution:
+. Configure the Service Solution {APP_NAME_COMPOSE} namespace according to the .yaml config files.
+. Include the server and client scripts so that they are registered by {APP_AUTOMATION}.
+. All of the Service Solution pages, modules and charts are now accessible under the Service Solution namespace.

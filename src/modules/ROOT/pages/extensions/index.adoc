@@ -1,27 +1,49 @@
 include::../variables.adoc[]
 
-[#extensions]
 = Extensions
-
 :doctype: book
 
-This guide introduces all the official {PRODUCT_NAME} extensions developed and maintained by the core team and all of our contributors.
+These extensions are *developed and maintained* by the *core {PRODUCT_NAME} team*.
+You can use these in *your instances* or *extensions*.
 
-Extensions provide a way to add certain features to {PRODUCT_NAME} on demand. +
-Since not all extensions are useful for every instance of {PRODUCT_NAME}, they have to be hand picked.
+[NOTE]
+====
+*{PRODUCT_NAME} ships* with the xref:ROOT:extensions/crm/index.adoc[*CRM*], and the xref:ROOT:extensions/service-solution/index.adoc[*Service Solution*] extensions.
+====
 
-:leveloffset: +1
+== CRM (built-in)
 
-include::crm/index.adoc[]
+The CRM extension implements the xref:ROOT:extensions/crm/index.adoc[*CRM*] application.
 
-include::service-solution/index.adoc[]
+== Service Solution (built-in)
 
-include::renderer/index.adoc[]
+The Service Solution extension implements the xref:ROOT:extensions/crm/index.adoc[*Service Solution*] application.
 
-include::phone-burner/index.adoc[]
+// @todo
+// == PhoneBurner
 
-include::docusign/index.adoc[]
+// The xref:ROOT:extensions/phone-burner/index.adoc[*PhoneBurner extension*] implements the interaction with the https://www.phoneburner.com/[PhoneBurner] service.
 
-include::pexels/index.adoc[]
+== DocuSign
 
-:leveloffset: -1
+The xref:ROOT:extensions/docusign/index.adoc[*DocuSign extension*] implements the interaction with the https://www.docusign.com/[DocuSign] service.
+
+== Pexels
+
+The xref:ROOT:extensions/pexels/index.adoc[*Pexels extension*] implements an SDK to interact with the https://www.pexels.com/[Pexles] service.
+
+[IMPORTANT]
+====
+This is not a {APP_NAME_COMPOSE} extension, but *an SDK*.
+====
+
+== Document renderer
+
+The xref:ROOT:extensions/renderer/index.adoc[*renderer*] is an *experimental* document rendering engine.
+
+You can use the https://www.npmjs.com/package/@cortezaproject/corteza-ext-renderer[Node.js module].
+
+[IMPORTANT]
+====
+This is not a {APP_NAME_COMPOSE} extension, but *a library*.
+====

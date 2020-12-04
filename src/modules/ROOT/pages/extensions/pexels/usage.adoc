@@ -14,36 +14,42 @@ const pexelsClient = new PexelsClient(apiKey)
 const images = await pexelsClient.searchPhotos({ query: 'Example', perPage: 10, page: 1 })
 ----
 
-== Available querries
+== Available queries
 
 searchPhotos(query: '', perPage: 10, page: 1)::
-    Fetches images that match the query base on the provided pagination data
+    Fetches images that match the query base on the provided pagination data.
 
 getPhotoByID(photoID: '')::
-    Fetches the image under the provided Pexels photoID
+    Fetches the image under the provided Pexels photoID.
 
 searchVideos(query: '', perPage: 10, page: 1)::
-    Fetches images that match the query base on the provided pagination data
-
-
+    Fetches images that match the query base on the provided pagination data.
 
 == Example response for images
 
 [source,js]
 ----
 {
-  id, // Pexels image ID
+  // Pexels image ID
+  id,
   preview: {
-    original, // URL to original image,
-    regular, // URL to regular sized image,
-    large, // URL to large size image
-    thumbnail, // URL to the thumbnail size image
+    // URL to original image,
+    original,
+    // URL to regular sized image,
+    regular,
+    // URL to large size image
+    large,
+    // URL to the thumbnail size image
+    thumbnail,
   },
   author: {
-    name, // Image author name
-    url, // URL to the Pexels author profile
+    // Image author name
+    name,
+    // URL to the Pexels author profile
+    url,
   },
-  origin: 'Pexels', // Origin of the image
+  // Origin of the image
+  origin: 'Pexels',
 }
 ----
 
@@ -52,16 +58,21 @@ searchVideos(query: '', perPage: 10, page: 1)::
 [source,js]
 ----
 {
-  id, // Pexels video ID
-  // Thumbnail
+  id,
+  // Pexels video ID
   preview: {
-    thumbnail, // URL to the video thumbnail size image
+    // URL to the video thumbnail size image
+    thumbnail,
   },
-  video, // Actual video URL on Pexels
+  // Actual video URL on Pexels
+  video,
   author: {
-    name, // Image author name
-    url, // URL to the Pexels author profile
+    // Image author name
+    name,
+    // URL to the Pexels author profile
+    url,
   },
-  origin: 'Pexels',  // Origin of the video
+  // Origin of the video
+  origin: 'Pexels',
 }
 ----

@@ -1,5 +1,6 @@
 include::../../variables.adoc[]
 = DocuSign
+:doctype: book
 
 :leveloffset: +1
 

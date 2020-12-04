@@ -1,5 +1,6 @@
 include::../../variables.adoc[]
 = Phone Burner
+:doctype: book
 
 :leveloffset: +1
 

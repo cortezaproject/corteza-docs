@@ -1,53 +1,53 @@
 include::../../pages/variables.adoc[]
 
 Extension::
-    A collection of automation scripts, corresponding libraries and other assets,
+    A collection of automation scripts, corresponding libraries and other assets.
 
 Script or Automation Script::
-    Combination of automation triggers, metadata and the code itself,
+    Combination of automation triggers, metadata and the code itself.
 
 Client scripts::
-    Automation scripts executed within a client's browser,
+    Automation scripts executed within a client's browser.
 
 Server scripts::
-    Automation scripts executed inside the {APP_AUTOMATION} server,
+    Automation scripts executed inside the {APP_AUTOMATION} server.
 
 Triggers or Automation Triggers::
-    A set of rules, constraints and options to define when, where and how an automation script is executed,
+    A set of rules, constraints and options to define when, where and how an automation script is executed.
 
 Resource Type::
     Defines the resource that this automation script is compatible with.
-    It also defines the input and output of the automation script,
+    It also defines the input and output of the automation script.
 
 Event Type::
     Defines what event causes this automation script to execute.
 
 Trigger constraints::
-    A set of constraints that must be truthy for the automation script to be available and executable,
+    A set of constraints that must be truthy for the automation script to be available and executable.
 
 Trigger weight::
-    Allows us to specify the order of automation script execution for the given event,
+    Allows us to specify the order of automation script execution for the given event.
 
 User interface properties or UIProps::
-    Determine front-end aspects of the automation script invocation component; such as placement, label and colour (see UIHooks),
+    Determine front-end aspects of the automation script invocation component; such as placement, label and colour (see UIHooks).
 
 Explicitly triggered or manual scripts::
-    Automation scripts that are executed explicitly, such as a button press or an API endpoint call,
+    Automation scripts that are executed explicitly, such as a button press or an API endpoint call.
 
 Implicitly triggered scripts::
-    Automation scripts that are executed implicitly as collateral to an event, such as record creation and form submission,
+    Automation scripts that are executed implicitly as collateral to an event, such as record creation and form submission.
 
 Deferred or scheduled scripts::
-    Automation scripts that are executed at a specified time or on a configured interval,
+    Automation scripts that are executed at a specified time or on a configured interval.
 
 Batch or iterator scripts::
     Automation scripts that are executed over a more extensive set of resources at the same time (used for batch processing).
 
 Sink scripts::
-    Automation scripts that are executed on HTTP requests and allow the implementation of new endpoints,
+    Automation scripts that are executed on HTTP requests and allow the implementation of new endpoints.
 
 Event bus::
-    Event handling system inside client web applications and on the server,
+    Event handling system inside client web applications and on the server.
 
 UIHooks::
     Define front-end components that are used to execute explicit (manual) automation scripts (see UIProps).

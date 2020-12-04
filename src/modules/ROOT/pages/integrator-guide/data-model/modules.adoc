@@ -130,7 +130,7 @@ If you wish to change the *disabled properties*, we suggest you create a *new fi
 ====
 
 .To edit an existing field:
-. Navigate to the {PRODUCT_NAME} {APP_NAME_COMPOSE} page and enter the namespace you wish to edit,
+. navigate to the {PRODUCT_NAME} {APP_NAME_COMPOSE} page and enter the namespace you wish to edit,
 . click on the "Admin panel" in the top right corner,
 . navigate to the "Modules" subpage,
 . click on the edit icon next to the module you wish to edit,

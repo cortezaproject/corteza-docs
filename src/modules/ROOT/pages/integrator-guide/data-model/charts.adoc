@@ -95,7 +95,7 @@ Chart module::
 
 Chart filters::
     *Chart filters* allows you to *filter the data source* to include only the records you wish to have.
-    The dropdown provides a set of *most common filter*, but you are free to *edit or define your own* by checking the "Customize filter" option.
+    The dropdown provides a set of the *most common filters*, but you are free to *edit or define your own* by checking the "Customize filter" option.
 
 [NOTE]
 ====

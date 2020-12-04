@@ -13,16 +13,16 @@ Manage all settings::
     Determines if the role is allowed to manage and edit any setting defined under the system,
 
 Create new organization::
-    Determines if the role is allowed to create a new organization,
+    Determines if the role is allowed to create a new organization.
 
 Create new role::
-    Determines if the role is allowed to create a new role,
+    Determines if the role is allowed to create a new role.
 
 Create new user::
-    Determines if the role is allowed to create a new user,
+    Determines if the role is allowed to create a new user.
 
 Create new application::
-    Determines if the role is allowed to create a new application,
+    Determines if the role is allowed to create a new application.
 
 Allow reminder assignment::
     Determines if the role is allowed to assign reminders to other users.

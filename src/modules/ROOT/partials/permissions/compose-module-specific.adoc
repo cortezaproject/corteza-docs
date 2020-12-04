@@ -1,22 +1,22 @@
 include::../../pages/variables.adoc[]
 
 Read module "(module name)"::
-  Determines if the role is allowed to access the given module,
+  Determines if the role is allowed to access the given module.
 
 Update module "(module name)"::
-  Determines if the role is allowed to update the properties of the given module,
+  Determines if the role is allowed to update the properties of the given module.
 
 Delete module "(module name)"::
-  Determines if the role is allowed to delete the given module,
+  Determines if the role is allowed to delete the given module.
 
 Create record of module "(module name)"::
-  Determines if the role is allowed to create record entries for the given module,
+  Determines if the role is allowed to create record entries for the given module.
 
 Read records of module "(module name)"::
-  Determines if the role is allowed to access the records of the given module,
+  Determines if the role is allowed to access the records of the given module.
 
 Update records of module "(module name)"::
-  Determines if the role is allowed to update the records of the given module,
+  Determines if the role is allowed to update the records of the given module.
 
 Delete records of module "(module name)"::
   Determines if the role is allowed to delete the records of the given module.

@@ -120,25 +120,25 @@ The *context* (`ctx`) is *static* for all events.
     Auth user is a reference to the invoking user.
 
 `ctx.SystemAPI`::
-    API client for {PRODUCT_NAME} System interaction,
+    API client for {PRODUCT_NAME} System interaction.
 
 `ctx.ComposeAPI`::
-    API client for {PRODUCT_NAME} {APP_NAME_COMPOSE} interaction,
+    API client for {PRODUCT_NAME} {APP_NAME_COMPOSE} interaction.
 
 `ctx.MessagingAPI`::
-    API client for {PRODUCT_NAME} {APP_NAME_MESSAGING} interaction,
+    API client for {PRODUCT_NAME} {APP_NAME_MESSAGING} interaction.
 
 `ctx.System`::
-    {APP_AUTOMATION} helper for the {PRODUCT_NAME} System,
+    {APP_AUTOMATION} helper for the {PRODUCT_NAME} System.
 
 `ctx.Compose`::
-    {APP_AUTOMATION} helper for the {PRODUCT_NAME} {APP_NAME_COMPOSE},
+    {APP_AUTOMATION} helper for the {PRODUCT_NAME} {APP_NAME_COMPOSE}.
 
 `ctx.ComposeUI`::
-    {APP_AUTOMATION} helper for the {PRODUCT_NAME} {APP_NAME_COMPOSE} user interface,
+    {APP_AUTOMATION} helper for the {PRODUCT_NAME} {APP_NAME_COMPOSE} user interface.
 
 `ctx.Messaging`::
-    {APP_AUTOMATION} helper for the {PRODUCT_NAME} {APP_NAME_MESSAGING},
+    {APP_AUTOMATION} helper for the {PRODUCT_NAME} {APP_NAME_MESSAGING}.
 
 `ctx.frontendBaseURL`::
     Base URL used by front-end web applications.
@@ -156,7 +156,7 @@ Aborted Error::
     The event *is able to trigger* any additional automation scripts.
 
 `false`::
-    Same as *Aborted Error*
+    Same as *Aborted Error*.
 
 unknown::
     Any other result indicates that the *execution was successful* and the next script can be triggered.

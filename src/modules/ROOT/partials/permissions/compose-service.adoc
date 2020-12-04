@@ -1,16 +1,16 @@
 include::../../pages/variables.adoc[]
 
 Access to compose::
-    Determines if the role is allowed to access {PRODUCT_NAME} {APP_NAME_COMPOSE},
+    Determines if the role is allowed to access {PRODUCT_NAME} {APP_NAME_COMPOSE}.
 
 Create namespaces::
-    Determines if the role is allowed to create namespaces for {PRODUCT_NAME} {APP_NAME_COMPOSE},
+    Determines if the role is allowed to create namespaces for {PRODUCT_NAME} {APP_NAME_COMPOSE}.
 
 Grant permissions on compose service::
-    Determines if the role is allowed to manage permissions for {PRODUCT_NAME} {APP_NAME_COMPOSE},
+    Determines if the role is allowed to manage permissions for {PRODUCT_NAME} {APP_NAME_COMPOSE}.
 
 Access all settings::
-    Determines if the role is allowed to read any setting for {PRODUCT_NAME} {APP_NAME_COMPOSE},
+    Determines if the role is allowed to read any setting for {PRODUCT_NAME} {APP_NAME_COMPOSE}.
 
 Manage all settings::
     Determines if the role is allowed to manage any setting for {PRODUCT_NAME} {APP_NAME_COMPOSE}.

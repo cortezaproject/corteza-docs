@@ -3,75 +3,116 @@ include::../../variables.adoc[]
 [#admin-panel-user]
 = Users
 
+The *users* interface provides an overview of *system users*; you can *inspect*, *edit*, and *delete* them.
+
+You can use the users' interface to *manually register users* that are allowed to access the system.
+
+[IMPORTANT]
+====
+For privacy reasons, personal information (name and email) is masked by default.
+You can configure this with <<user-permissions-all>> or <<user-permissions-specific>>.
+====
+
+== Listing users
+
+.To list current system users:
+. navigate to the {PRODUCT_NAME} {APP_NAME_ADMIN},
+. click on the "Users" in the navigation drawer,
+. optionally insert the filtering parameters.
+
 [NOTE]
 ====
-The users interface can be accessed by clicking on the "Users" navigation item on the left navigation drawer under the system item group.
+The list is *filtered automatically*.
 ====
 
-**A user** is someone who can log in to the {PRODUCT_NAME} system.
+== Creating users
 
-Each user has Email, Full name and Nickname (handle).
-Additionally, each user has a username (=email) and password to enable them to log in to the system (referred as credentials).
+.To create a new user:
+. navigate to the {PRODUCT_NAME} {APP_NAME_ADMIN},
+. click on the "Users" in the navigation drawer,
+. click on the "New" button in the top right corner,
+. provide the requested data (see <<user-parameters>>),
+. press the "Submit" button.
 
-The interface allows you to:
+[IMPORTANT]
+====
+You can only define permissions for existing users.
+After you save the user, the option becomes available.
+====
 
-* Edit permissions regarding the user resource (see <<admin-panel-user-permissions>>),
-* add new users (see <<admin-panel-user-add>>),
-* list system users (see <<admin-panel-user-list>>),
-* edit users (see <<admin-panel-user-edit>>).
+== Editing users
 
-[#admin-panel-user-permissions]
-== Managing permissions
+.To edit an existing user:
+. navigate to the {PRODUCT_NAME} {APP_NAME_ADMIN},
+. click on the "Users" in the navigation drawer,
+. click on the edit icon next to the user you wish to edit,
+. provide the requested data (see <<user-parameters>>),
+. press the "Submit" button.
 
-To manage permissions related to the user resource, click on the "Permissions" button on the top right corner of the page.
-You can define:
+[#suspending-users]
+== Suspending users
 
-Read any user::
-    Determines if the given role is allowed to access information of any user,
-Update any user::
-    Determines if the given role is allowed to update the information of any user,
-Delete any user::
-    Determines if the given role is allowed to delete any user,
-Suspend any user::
-    Determines if the given role is allowed to suspend any user,
-Unsuspend any user::
-    Determines if the given role is allowed to unsuspend any user,
-Show email details for any user::
-    Determines if the given role is allowed to see the email corresponding to any user,
-Show name details for any user::
-    Determines if the given role is allowed to see the name corresponding to any user,
+.To suspend an existing user:
+. navigate to the {PRODUCT_NAME} {APP_NAME_ADMIN},
+. click on the "Users" in the navigation drawer,
+. click on the edit icon next to the user you wish to edit,
+. click and confirm the "Suspend" button in the "Basic information" section.
+
+== Deleting users
 
 [TIP]
 ====
-The ability to manage the visibility of emails and names was introduced with the user masking privacy feature.
-It allows a specific role to know about other users but they can't necessarily know of their private information.
+You can <<suspending-users,suspend the user>>.
 ====
 
-[#admin-panel-user-add]
-== Adding users
+.To delete an existing user:
+. navigate to the {PRODUCT_NAME} {APP_NAME_ADMIN},
+. click on the "Users" in the navigation drawer,
+. click on the edit icon next to the user you wish to edit,
+. click and confirm the "Delete" button in the "Basic information" section.
 
-To add a new user, click on the "New" button on the top right corner of the page.
+== Assign role
 
-This opens a new interface where you can insert the basic information regarding the user.
+[IMPORTANT]
+====
+Each user is *automatically a member of the "Everyone"* role.
+====
 
-* Email address,
-* full name,
-* handle (sort of like a nickname).
+.To assign a role to an existing user:
+. navigate to the {PRODUCT_NAME} {APP_NAME_ADMIN},
+. click on the "Users" in the navigation drawer,
+. click on the edit icon next to the user you wish to edit,
+. select the roles in the "Role membership" section,
+. press the "Submit" button.
 
-After saving the user, a new interface is provided where you can edit the newly created user.
+[IMPORTANT]
+====
+You can only assign roles to existing users.
+====
 
-include::./partials/user-edit.adoc[]
+[#user-parameters]
+== User parameters
 
-[#admin-panel-user-list]
-== Listing users
+Basic information::
+    *The basic user information* such as their email, name and a handle (username of a sort).
 
-Users can be viewed on the table in the middle of the interface.
-The system supports a powerful search engine, from partial searching, finding only non-suspended users and so on.
-It also supports pagination and sorting.
+Password::
+    *The password* section lets you set the user's password.
 
-[#admin-panel-user-edit]
-== Editing users
+Role membership::
+    *Role membership* lets you assign roles to a specific user.
 
-Users can be edited by pressing on the edit icon next to each row in the user list, that opens up a new interface.
+[IMPORTANT]
+====
+The *Password* and *Role membership* sections are available only *for existing users*.
+====
 
-include::./partials/user-edit.adoc[]
+[#user-permissions-all]
+== Permissions for all users
+
+include::ROOT:partial$permissions/system-users.adoc[]
+
+[#user-permissions-specific]
+== Permissions for a specific user
+
+include::ROOT:partial$permissions/system-user-specific.adoc[]

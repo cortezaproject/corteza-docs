@@ -1,40 +1,47 @@
 include::../../variables.adoc[]
 
-= Action Log
+= Action log
+
+The *action log* interface provides an overview of *events* that *occurred* in your system, such as *accessing user information*, *inspecting records*, and *updating modules*.
+
+The action log can be *used for debugging*, as it provides quite a *rich insight* into a specific event.
+You can see the *exact error*, *when it occurred* and *who caused it*.
+
+The action log can be *used for administration*, as you can *see who accessed* specific information if there are any privacy complaints or similar.
+
+== Action state
+
+An action can be in *one of three states* depending on the *action*.
+
+.The states:
+* *Info*: an *informative log* that something occurred; such as *record created*, *user authenticated*, and *user information accessed*.
+* *Warning*: a *warning log* that something failed to complete, but it was not fatal to the operation; such as an *invalid login attempt* or *expired authentication token*.
+* *Error*: an *error occurred*, an indication that something failed to complete.
+
+[TIP]
+====
+Errors reported by the *{APP_AUTOMATION} server* are also visible in the *action log*.
+====
+
+== Listing actions
+
+.To list current actions:
+. navigate to the {PRODUCT_NAME} {APP_NAME_ADMIN},
+. click on the "Action log" in the navigation drawer,
+. optionally insert the filtering parameters,
+. press the "Search" button.
 
 [NOTE]
 ====
-The action log interface can be accessed by clicking on the "Action log" navigation item on the left navigation drawer under the system item group.
+*DevNote* more insight into the filtering options.
 ====
 
-The interface provides an insight into the actions registered by a system, such as accessing users, fetching records, creating modules and much more.
-
-The action log comes in handy when debugging the system as it provides a rich insight into the system without the need of low-level system understanding.
-
-The interface allows you to:
-
-* List registered actions (see <<actionlog-list>>),
-* see action's details (see <<actionlog-read>>).
-
-[#actionlog-list]
-== Listing actions
-
-Registered actions are displayed in a table in the middle of the interface.
-The table provides a brief overview of the action:
-
-* The timestamp of when the action was registered,
-* the user that caused the action to be registered,
-* what part of the exposed system caused the action to be registered (eg. `api/rest`),
-* what resource was involved when registering the action,
-* what action was being performed,
-* some additional description to help understand the action,
-* the status of the action:
-** *info*: an informative log that something happened successfully,
-** *warning*: a warning that something did not go as expected but was not fatal, such as an invalid login attempt,
-** *error*: there was an error either in the internal system or in one of the extensions.
-
-[#actionlog-read]
 == Inspecting actions
 
-To inspect an action, click on the action (table row).
-This expands the row and provides more insight into the action.
+.To inspect a specific action:
+.To list current actions:
+. navigate to the {PRODUCT_NAME} {APP_NAME_ADMIN},
+. click on the "Action log" in the navigation drawer,
+. optionally insert the filtering parameters,
+. press the "Search" button,
+. click on the action you wish to inspect.

@@ -1,5 +1,0 @@
-=== Content
-
-A content page block is designed to present some static content to the user, such as important announcements, help text, etc.
-
-The content is defined by using the rich-text editor, powered by https://tiptap.scrumpy.io/[TipTap].

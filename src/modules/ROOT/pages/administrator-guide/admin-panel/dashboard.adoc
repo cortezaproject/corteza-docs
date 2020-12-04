@@ -2,10 +2,12 @@ include::../../variables.adoc[]
 
 = Dashboard
 
+The dashboard section can be accessed by *clicking on the "Dashboard"* navigation item on the left *navigation drawer*.
+
+The *dashboard* provides a *quick overview* of the system.
+It shows some simple *user*, *role*, and *application* statistics.
+
 [NOTE]
 ====
-The dashboard section can be accessed by clicking on the "Dashboard" navigation item on the left navigation drawer.
+This will be *expanded and improved* in the near future.
 ====
-
-The dashboard provides a quick overview over the system.
-It provides an overview of system resource statistics, such as the number of users, number of active roles and applications.

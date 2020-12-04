@@ -2,83 +2,82 @@ include::../../variables.adoc[]
 
 = Permissions
 
-[NOTE]
-====
-The permissions interfaces can be accessed by clicking on the "Permissions" navigation item on the left navigation drawer in each one of the available {PRODUCT_NAME} systems.
-====
-
-This interface allows you to define some of the more general permissions such as the actual access to a specific service.
-Refer to ... for a more fine-grained overview over all the possibilities.
-
-== {PRODUCT_NAME} system
-
-== System service permissions
-
-include::../../../partials/permissions/system-service.adoc[]
+The *permissions* interface allows you to configure *core system-level permissions*.
 
 [IMPORTANT]
 ====
-When denying access to system settings, this also prevents their usage from inside automation scripts or any other operation that might read these settings.
+There is a separate view for <<permissions-system,*system*>>, <<permissions-messaging,*{APP_NAME_MESSAGING}*>>, and <<permissions-compose,*{APP_NAME_COMPOSE}*>>.
 ====
 
-== Organizations
-
-include::../../../partials/permissions/system-organisations.adoc[]
-
-== Applications
-
-include::../../../partials/permissions/system-applications.adoc[]
-
-== Users
-
-include::../../../partials/permissions/system-users.adoc[]
-
-[NOTE]
+[IMPORTANT]
 ====
-The ability to show/hide email address/name can be useful when defining a community instance and we wish to keep some privacy.
+These rules also *apply to automation scripts*.
+If a user is *not allowed to access* {APP_NAME_COMPOSE}, the triggered *automation script* is also *prevented access*.
 ====
 
-== Roles
+[#permissions-system]
+== {PRODUCT_NAME} system
 
-include::../../../partials/permissions/system-roles.adoc[]
+=== System service permissions
+
+include::ROOT:partial$permissions/system-service.adoc[]
+
+=== Organizations
+
+include::ROOT:partial$permissions/system-organisations.adoc[]
+
+=== Applications
+
+include::ROOT:partial$permissions/system-applications.adoc[]
+
+=== Users
+
+include::ROOT:partial$permissions/system-users.adoc[]
+
+=== Roles
+
+include::ROOT:partial$permissions/system-roles.adoc[]
+
+[#permissions-compose]
 
 == {PRODUCT_NAME} {APP_NAME_COMPOSE}
 
-== Service permissions
+=== Service permissions
 
-include::../../../partials/permissions/compose-service.adoc[]
+include::ROOT:partial$permissions/compose-service.adoc[]
 
 [IMPORTANT]
 ====
 If a role doesn't have access to the {PRODUCT_NAME} {APP_NAME_COMPOSE}, they will also *not* be able to access any application defined as a {PRODUCT_NAME} {APP_NAME_COMPOSE} namespace.
 ====
 
-== Namespaces permissions
+=== Namespaces permissions
 
-include::../../../partials/permissions/compose-namespaces.adoc[]
+include::ROOT:partial$permissions/compose-namespaces.adoc[]
 
-== Modules permissions
+=== Modules permissions
 
-include::../../../partials/permissions/compose-modules.adoc[]
+include::ROOT:partial$permissions/compose-modules.adoc[]
 
-== Module fields permissions
+=== Module fields permissions
 
-include::../../../partials/permissions/compose-module-fields.adoc[]
+include::ROOT:partial$permissions/compose-module-fields.adoc[]
 
-== Charts permissions
+=== Charts permissions
 
-include::../../../partials/permissions/compose-charts.adoc[]
+include::ROOT:partial$permissions/compose-charts.adoc[]
 
-== Pages permissions
+=== Pages permissions
 
-include::../../../partials/permissions/compose-pages.adoc[]
+include::ROOT:partial$permissions/compose-pages.adoc[]
 
+[#permissions-messaging]
 == {PRODUCT_NAME} {APP_NAME_MESSAGING}
 
-== Service permissions
+=== Service permissions
 
-include::../../../partials/permissions/messaging-service.adoc[]
+include::ROOT:partial$permissions/messaging-service.adoc[]
 
-== Channels permissions
+=== Channels permissions
 
-include::../../../partials/permissions/messaging-channels.adoc[]
+include::ROOT:partial$permissions/messaging-channels.adoc[]

@@ -20,3 +20,6 @@ Show email details::
 
 Show name details::
     Determines if the role is allowed to see the name of any user.
+
+Impersonate any user::
+    Determines if the role is allowed to impersonate any users.

@@ -2,17 +2,36 @@ include::../../variables.adoc[]
 
 = Automation
 
+The *automation* interface provides an overview of *processed automation scripts*.
+
+The automation interface can be used to *debug* any issues *regarding invalid* or *missing automation scripts*.
+
 [NOTE]
 ====
-The automation interface can be accessed by clicking on the "Automation" navigation item on the left navigation drawer.
+Refer to xref:ROOT:integrator-guide/extensions/index.adoc#extension-deploy[deploying extensions] for details on *how to deploy extensions*.
 ====
 
-This interface provides an overview of all registered automation scripts.
-It provides a user-friendly list that defines the automation script's label, description, triggers and issues when processing the code.
+== Listing automation scripts
 
-There are currently two different interfaces for System (shows `system` resource scripts) and {APP_NAME_COMPOSE} (shows `compose` resource scripts).
+.To list current automation scripts:
+. navigate to the {PRODUCT_NAME} {APP_NAME_ADMIN},
+. click on the "Automation" in the navigation drawer,
+. optionally insert the filtering parameters.
 
-[TIP]
+*Invalid automation scripts* provide an *error message*.
+
+[NOTE]
 ====
-Use this interface to validate, that the extension was correctly registered.
+The list is *filter(ted automatically*.
 ====
+
+== Inspecting automation scripts
+
+.To inspect specific automation scripts:
+. navigate to the {PRODUCT_NAME} {APP_NAME_ADMIN},
+. click on the "Automation" in the navigation drawer,
+. click on the blue button next to the label.
+
+You can inspect the automation script *triggers*, *iterators*, and *security context*.
+
+*Invalid automation scripts* provide an *error message*.

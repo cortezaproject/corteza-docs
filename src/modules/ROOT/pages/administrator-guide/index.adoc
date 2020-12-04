@@ -3,24 +3,23 @@ include::../variables.adoc[]
 = Administrator Guide
 :doctype: book
 
-This guide is tailored to system administrators that need to know enough about the system internals, how to configure different parts of the system so that you will be confident in taking the role.
-It provides a fairly low-level overview over the entire {PRODUCT_NAME} while omitting technical details, not relevant to the administration.
+The *administrator guide* will help you maintain the security-related aspects of your applications.
 
 [NOTE]
 ====
-If you are an integrator and wish to also take on the administrator role, the information from the xref:ROOT:integrator-guide/index.adoc[integrator guide] is sufficient.
-If you wish to simply refresh your memory, go ahead.
+The integrator guide focuses on the *security-related aspects*, like defining roles, setting permissions, and adding users.
+If you are interested about developing applications, refer to the xref:ROOT:/integrator-guide/index.adoc[integrator guide].
 ====
 
-:leveloffset: +1
+== Overview the security system
 
-include::security.adoc[]
+xref:ROOT:administrator-guide/security.adoc[*Reviewing the security system*] will provide you with an overview of our *access control* systems.
+It will help you define a more *secure application*; better define the *role hierarchy* and *their permission*.
 
-include::admin-panel/index.adoc[]
+== The administrator panel
 
-include::compose/index.adoc[]
+The xref:ROOT:administrator-guide/admin-panel/index.adoc[*administrator panel*] provides a quick *overview of the system*, xref:ROOT:administrator-guide/admin-panel/index.adoc#admin-panel-user[*user*] and xref:ROOT:administrator-guide/admin-panel/index.adoc#admin-panel-system-roles[*role*] management, permission and settings overview.
 
-include::messaging/index.adoc[]
+== System administration
 
-:leveloffset: -1
-
+See our guides for xref:ROOT:administrator-guide/compose/index.adoc[*{PRODUCT_NAME} {APP_NAME_COMPOSE}*] and xref:ROOT:administrator-guide/messaging/index.adoc[*{PRODUCT_NAME} {APP_NAME_MESSAGING}*] administration.

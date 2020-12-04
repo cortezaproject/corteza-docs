@@ -3,62 +3,67 @@ include::../../variables.adoc[]
 [#admin-panel-applications]
 = Applications
 
-The applications interface can be accessed by clicking on the "Applications" navigation item on the left navigation drawer under the system item group.
+The *applications* interface provides an overview of your *applications*; you can *inspect*, *edit*, and *delete them*.
 
-The interface allows you to:
+The applications are *listed in the {PRODUCT_NAME} {APP_NAME_SHELL}*.
 
-* Edit permissions regarding the applications (see <<admin-panel-application-permission>>),
-* add new applications (see <<admin-panel-application-add>>),
-* list applications (see <<admin-panel-application-list>>),
-* edit applications (see <<admin-panel-application-edit>>).
-
-[#admin-panel-application-permission]
-== Managing permissions
-
-To manage permissions related to the application resource, click on the "Permissions" button on the top right corner of the page.
-You can define:
-
-Read any application::
-    Determines if the given role is allowed to access any application,
-
-Update any application::
-    Determines if the given role is allowed to update any application,
-
-Delete any application::
-    Determines if the given role is allowed to delete any application,
-
-[#admin-panel-application-add]
-== Adding applications
-
-To add a new application, click on the "New" button on the top right corner of the page.
-
-This opens a new interface where you can insert the basic information regarding the application.
-
-* Name,
-* if active.
-
-After saving the application, a new interface is provided where you can edit the newly created application.
-
-include::./partials/application-edit.adoc[]
-
-[#admin-panel-application-list]
 == Listing applications
 
-Applications can be viewed on the table in the middle of the interface.
-The system supports a powerful search engine, from partial searching, finding only active applications and so on.
-It also supports pagination and sorting.
-Out of the box, these applications are already configured:
+.To list current applications:
+. navigate to the {PRODUCT_NAME} {APP_NAME_ADMIN},
+. click on the "Applications" in the navigation drawer,
+. optionally insert the filtering parameters.
 
-* {APP_NAME_MESSAGING},
-* {APP_NAME_COMPOSE},
-* CRM,
-* Jitsi Video,
-* {PRODUCT_NAME} Admin Area,
-* Google Maps.
+[NOTE]
+====
+The list is *filtered automatically*.
+====
 
-[#admin-panel-application-edit]
+== Creating applications
+
+.To create a new applications:
+. navigate to the {PRODUCT_NAME} {APP_NAME_ADMIN},
+. click on the "Applications" in the navigation drawer,
+. click on the "New" button in the top right corner,
+. provide the requested data (see <<application-parameters>>),
+. press the "Submit" button.
+
+[IMPORTANT]
+====
+You can only define permissions for existing applications.
+After you save the application, the option becomes available.
+====
+
 == Editing applications
 
-Applications can be edited by pressing on the edit icon next to each row in the role list, that opens up a new interface,
+.To edit existing applications:
+. navigate to the {PRODUCT_NAME} {APP_NAME_ADMIN},
+. click on the "Applications" in the navigation drawer,
+. click on the edit icon next to the application you wish to edit,
+. provide the requested data (see <<application-parameters>>),
+. press the "Submit" button.
 
-include::./partials/application-edit.adoc[]
+== Deleting applications
+
+.To delete an existing application:
+. navigate to the {PRODUCT_NAME} {APP_NAME_ADMIN},
+. click on the "Applications" in the navigation drawer,
+. click on the edit icon next to the application you wish to edit,
+. click and confirm the "Delete" button in the "Basic information" section.
+
+[#application-parameters]
+== Application parameters
+
+Basic information::
+    *The necessary application information* such as the name and its status.
+
+Unify app selector::
+    *Specifies how the application is displayed* such as the icon and what {APP_NAME_COMPOSE} namespace to use.
+
+== Permissions for all applications
+
+include::ROOT:partial$permissions/system-applications.adoc[]
+
+== Permissions for a specific application
+
+include::ROOT:partial$permissions/system-application-specific.adoc[]

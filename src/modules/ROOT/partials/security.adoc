@@ -2,80 +2,61 @@ include::../pages/variables.adoc[]
 
 = Security
 
-// @todo clean this up...
+One of the *main focus* when working with data in the enterprise environment is the *data integrity* and *security*.
 
-One of the main focuses when working with any kind of data in the enterprise environment is the data integrity and security, especially when working with sensitive information.
-{PRODUCT_NAME} takes this seriously and defines a powerful permission system that allows you to control access to any resource, being an application or a single module field.
+{PRODUCT_NAME} takes this seriously and defines a *powerful permission system* that allows you to *control access to any resource*, being an application or a single module field.
 
-[NOTE]
-====
-Resource level permissions are described in detail in the following sections.
-This section merely outlines the system.
-====
+== Roles
 
-{PRODUCT_NAME} uses Role-based access control (RBAC) as a method of restricting access based on the roles of individual users within the system.
-RBAC lets users have access rights only to the parts of the system/application they need and prevents them from accessing information that doesn't pertain to them.
-By default, a user is assigned to "Everyone" role which is very limited due to security (in case someone uninvited registers to your system, they won't see any data, {APP_NAME_MESSAGING} channels, list of applications, etc.).
+{PRODUCT_NAME} uses *Role-based access control* (RBAC), meaning that we can specify *what roles* are allowed to *access specific resources*.
+When a user is *assigned a role*, they automatically *inherit the permissions* defined by the role.
 
 [NOTE]
 ====
-The first registered user is granted admin rights by default.
+Every user is *automatically a member* of the "*Everyone*" role.
+The role is *restricting*.
 ====
 
-Each permission can be in one of the following states:
+[IMPORTANT]
+====
+The *first registered user* (usually the one responsible for setting up a {PRODUCT_NAME} instance) is assigned an "*Administrator*" role.
+====
 
-Inherit::
-    To check the setting in the layer above.
-    For example: if an individual application has access permissions set to "Inherit", it will use the permission set for _All_ applications (default: "Deny").
-    Explicit "Allow" or "Deny" always override the Inherit value,
+.Each permission rule can be in one of the three states:
 Allow::
-    To allow the role to perform the operation over a specified resource,
+    The role is allowed to access the specified resource.
 Deny::
-    To deny the role to perform the operation over a specified resource.
+    The role is *not* allowed to access the specified resource.
+Inherit::
+    The role is allowed to access the specific resource, *if* they are permitted to access *all resources of that type*.
+    The same applies to denying access.
+    For example:
+    `Role A` wishes to access `namespace A` with an *inherit* permission.
+    If `role A` can *access any namespace*, they are allowed access.
 
 [TIP]
 ====
-It's good practice to limit system users a much as possible to avoid potential security breaches.
+It's good practice to *limit your users* a much as possible to *avoid security breaches*.
 ====
-
-Permissions setting is fine-grained, meaning the system administrator can control permissions on several layers, for example:
-
-* which role can access applications
-* which role can read the data
-* which role can edit the data
-* which role can access admin area, etc.
 
 == Access control check flow
 
-The overall flow of verifications if a role has access to perform an operation on a resource is the following:
+.The flow of determining if a role is allowed to perform an operation:
+. Can this role perform the requested operation *for a specific resource*?
+. Can this role perform the requested operation *for all resource of the given type*?
+. Can anyone perform the requested operation *for a specific resource*?
+. Can anyone perform the requested operation *for all resource of the given type*?
 
-* Can this combination of roles perform an operation on this specific resource
-* Can this combination of roles perform an operation on any resource of the type (wildcard)
-* Can anyone/everyone perform an operation on this specific resource
-* Can anyone/everyone perform an operation on any resource of the type (wildcard)
+A *step is negative* when there is a role that is *explicitly denied* access.
 
-The check will return:
+A *step is positive* when there is at least one role that is *explicitly allowed* access.
 
-* Inherit when:
-** No roles are given
-** More than 1 role is given and one of the given roles is Everyone
+If a *step is undetermined* (inherit), *the checking continues*.
+If *all steps are undetermined*, the *system default* is used -- in most cases this is *deny*.
 
-* Deny when:
-** There is one rule with Deny value
+== Modular approach
 
-* Allow when:
-** There is at least one rule with Allow value (and no Deny rules)
-
-[NOTE]
-====
-Permissions in the Admin Panel are general and can be overwritten.
-====
-
-== Tips and tricks
-
-=== Modular approach
-
-We suggest a modular role design, where we define multiple roles with a smaller set of permissions.
+We suggest a *modular role design*, where we define *multiple roles* with a *smaller set* of permissions.
 For example:
 
 * **CRM admin**: only provides administration privileges for the CRM,
@@ -86,5 +67,5 @@ Then we can easily "stick" these roles together when creating users.
 
 [NOTE]
 ====
-There is no limit to the number of available roles or to the amount of members a role can have.
+There is *no limit* to the number of available roles or to the number of members a role can have.
 ====

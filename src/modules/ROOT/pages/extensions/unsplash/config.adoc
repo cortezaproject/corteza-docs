@@ -1,0 +1,6 @@
+= Configuration
+
+.To use the Unsplash extension:
+. Obtain the UnsplashAPI production `accessKey` and `secret`.
+. Place the extensions in a directory where it can be imported into an automation script.
+. Initialize the Unsplash client.

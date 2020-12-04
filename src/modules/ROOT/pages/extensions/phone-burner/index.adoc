@@ -1,5 +1,5 @@
 include::../../variables.adoc[]
-= DocuSign
+= Phone Burner
 :doctype: book
 
 :leveloffset: +1
@@ -7,5 +7,7 @@ include::../../variables.adoc[]
 include::about.adoc[]
 
 include::config.adoc[]
+
+include::usage.adoc[]
 
 :leveloffset: -1

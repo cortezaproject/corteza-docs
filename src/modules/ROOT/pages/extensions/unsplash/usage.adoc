@@ -1,0 +1,49 @@
+= Usage
+
+[source,js]
+----
+// To use the Unsplash client, first import the client into the desired automation script
+import Unsplash from 'unsplash/lib/'
+
+// Next step is to initialize the Unsplash client with the `accessKey` and `secret`
+const unsplashClient = new UnsplashClient(accessKey, secret)
+
+// The client is now ready to accept querries, for example
+const images = await unsplashClient.search({ query: 'Example', perPage: 10, page: 1 })
+----
+
+== Available queries
+
+search(query: '', perPage: 10, page: 1)::
+    Fetches images that match the query base on the provided pagination data.
+
+getPhotoByID(photoID: '')::
+    Fetches the image under the provided Unsplash photoID.
+
+== Example response for images
+
+[source,js]
+----
+{
+  // Unsplash image ID
+  id,
+  preview: {
+    // URL to original image
+    original,
+    // URL to regular sized image
+    regular,
+    // URL to large size image
+    large,
+    // URL to the thumbnail size image
+    thumbnail,
+  },
+  author: {
+    // Image author name
+    name,
+    // URL to the Unsplash author profile
+    url,
+  },
+  // Origin of the image
+  origin: 'Unsplash',
+}
+----

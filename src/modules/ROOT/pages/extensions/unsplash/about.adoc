@@ -1,0 +1,9 @@
+= About
+
+https://www.unsplash.com/[Unsplash] is a third-party service that provides *stock image assets*.
+This extension *implements an SDK* to access the service.
+
+[IMPORTANT]
+====
+To use the Unsplash client in production, you will need a *production-ready Unsplash account*.
+====

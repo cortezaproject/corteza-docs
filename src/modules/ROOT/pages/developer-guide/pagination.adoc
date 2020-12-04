@@ -1,56 +1,78 @@
 include::../../variables.adoc[]
 
-= Key-based pagination
+= Pagination
 
 With version `2020.12` {PRODUCT_NAME} moved away from offset pagination to the *key-based* pagination.
 
-== Quick explanation of offset-based pagination
+== Offset-based pagination
 
-Pagination is done with one of the two parameter pairs: `limit` and `offset` or `page` and `per page`.
-When a specific page is requested a simple formula is used (`per page` * `page`) to calculate the offset parameter.
+[IMPORTANT]
+====
+From `2020.12` on, this is *no longer supported*.
+====
+
+Pagination is done with two parameters: `page` and `per page` (sometimes `offset` and `limit`).
+When a specific page is requested, a simple formula is used (`per page * page`) to calculate the offset parameter.
 This parameter is then used to fetch results from the database.
-Database always starts with the 1st row, checks it and if can be returned (offset=0) it skips it.
-If offset is set to 100 then this step is repeated 100-times and with offset = 100k, it is repeated 100k-times.
 
-WARNING: From `2020.12` on, this is no longer supported.
+The database always starts with the 1st row, checks it and if can be returned (offset=0) it skips it.
+If the offset is 100, this step is repeated 100-times; if the offset is 100k, this step is repeated 100k-times.
 
 == Key-based pagination
 
-This is also known as pagination with relative cursors.
-We are operating with `limit` and `page cursor` parameters and with `next page` and `prev page` cursor values.
-Cursor values are opaque. Changing internal values could lead to empty result pages.
-Cursor is created from the first and last item in the returned set with some extra attributes that aids its internal process.
+[TIP]
+====
+Also known as pagination with relative cursors.
+====
 
-Sorting also has a major effect on how cursors values are collected.
-System needs to know about direction of data and all keys used in the sorting.
+[IMPORTANT]
+====
+Cursor values are *opaque*; changing internal values *could lead to anomalies*, such as empty results.
+====
 
-For example, if data is sorted by `column-one` and `id`, cursor for the next page contains values for both these fields from the first and last item in the returned set.
-When using the cursor for the next page, only items with values greater than the one from `column-one` and `id` are returned.
+We are working with `limit`, `next page`, and `prev page` cursors.
+The cursor gets calculated from the *first* and the *last* item in the returned set of resources.
+The cursor receives some additional metadata (used *indexes* and *sorting direction*).
 
-In general, all resources are sorted by the primary-key, ascending. That also provides the most optimal performance.
+When fetching the next page, only the items with greater values are returned; when fetching the previous page, only the items with lesser values are returned.
 
-When request with a `limit` parameter is made, {PRODUCT_NAME} collects as many items as possible to fulfill that limit.
-If there are fewer items than the requested limit, `next page` cursor is not returned.
-If `page cursor` is used, system knows that it's serving non-first page.
+For example, if we *sort the data* by `column-one` and `id`, the cursor for the *next page* contains values for both fields from the *last item*; the cursor for the *previous page* includes values for both fields from the *first item*.
 
+When we request a *limited set of resources* (we provide a `limit` parameter), the system *collects as many items* as possible to *fulfil that limit*.
+
+.The page cursors are provided in the response:
+* If the resulting set has fewer items then the requested limit, the *next page* cursor is omitted.
+* If the *page cursor* parameter is *not provided*, we are accessing the *first page*, so the *previous page* cursor is omitted.
+
+[NOTE]
+====
+In general, all resources are sorted by the primary-key, ascending (this also provides the most optimal performance).
+====
 
 === Performance
-With key-based pagination (when index are used optimally) response is in most cases fixed.
-That means that even if you request results from the 1000th page response time is within the same magnitude as for the 1st page.
 
-=== Filtering
-Resource collecting code is written in the way that it can perform multiple fetches to the database until it fills the whole page.
-This is needed in cases when application level filtering (security) removes items from the result set.
+With key-based pagination (when index are used optimally) response times (for most cases) remain *consistent* -- the access time for the *n-th page* is the same as the access time for the *1st page*.
 
-Handling pagination with relative cursor means we can skip as many items as required on a database or application level.
-In practice this means that extra (dynamic) security constraints can be applied when accessing resources.
+[NOTE]
+====
+*DevNote* provide some references, benchmarks, ...
+====
 
-== Handicapped page navigation and counting total items
-With relative cursors, it's currently not possible to jump on a specific page.
-Only moving back to 1st page is possible or accessing the last page with reverting the sort or order.
+=== Collecting resources
 
-While page navigation is technical possible it might result in a decreased performance.
-Similar issues are with generating number total items that can be returned.
+Resource collecting code is written in the way that it can *perform multiple fetches* to the database until it *satisfies the page*.
+This is needed in cases when *application-level filtering* (security) *removes items* from the result set.
 
-Both this issues might be solved in future release provided with the result set when explicitly requested.
+This allows us to implement *additional security logic* on the application level when accessing resources.
 
+== _Handicapped page navigation and item counting_
+
+With relative cursors, it's currently *not possible* to jump on a *specific page* -- only *next page*, *previous page*, *back to the 1st-page*, and *go to the last page* (reversed sort) are possible.
+Similar issues are with generating the *total number of items* in the dataset.
+
+We will attempt to address both issues in future releases.
+
+[NOTE]
+====
+Page navigation is technically possible, but it might result in decreased performance.
+====

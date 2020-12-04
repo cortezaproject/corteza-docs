@@ -17,8 +17,6 @@ include::documentation/index.adoc[]
 
 include::store/index.adoc[]
 
-include::database/index.adoc[]
-
 include::compose/index.adoc[]
 
 include::extensions/index.adoc[]

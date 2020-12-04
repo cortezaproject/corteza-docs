@@ -37,7 +37,6 @@ include::modules/ROOT/pages/variables.adoc[]
 ** xref:developer-guide/release-cycle/index.adoc[Release Cycle]
 ** xref:developer-guide/documentation/index.adoc[Documentation]
 ** xref:developer-guide/store/index.adoc[]{PRODUCT_NAME} Store
-** xref:developer-guide/database/index.adoc[]{PRODUCT_NAME} Database
 ** xref:developer-guide/compose/index.adoc[]{PRODUCT_NAME} {APP_NAME_COMPOSE}
 ** xref:developer-guide/extensions/index.adoc[Extensions]
 

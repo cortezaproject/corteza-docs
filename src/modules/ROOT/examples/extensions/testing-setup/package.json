@@ -1,0 +1,40 @@
+{
+  "scripts": {
+    "lint": "eslint {server-scripts,client-scripts}/**/* --ignore-pattern *.test.js",
+    "test:unit": "mocha",
+    "test:unit:cc": "nyc mocha"
+  },
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "eslint": "^6.8.0",
+    "eslint-config-standard": "^14.1.0",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-node": "^10.0.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-standard": "^4.0.1",
+    "esm": "^3.2.25",
+    "mocha": "^7.0.1",
+    "nyc": "^14.1.1",
+    "sinon": "^8.1.1"
+  },
+  "nyc": {
+    "all": true,
+    "reporter": [
+      "lcov",
+      "text"
+    ],
+    "include": [
+      "client-scripts/**/*.js",
+      "server-scripts/**/*.js"
+    ],
+    "exclude": [
+      "**/*.test.js"
+    ],
+    "check-coverage": true,
+    "per-file": true,
+    "branches": 0,
+    "lines": 0,
+    "functions": 0,
+    "statements": 0
+  }
+}

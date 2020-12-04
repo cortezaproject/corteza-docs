@@ -1,0 +1,49 @@
+| Record list
+| *Record list page blocks* display the *contents of a module* as a table.
+Record lists also provide a way of *adding new*, and *editing or removing existing* records.
+
+[TIP]
+====
+You can trigger *explicit automation scripts* within the record list's header.
+Click the "Automation" tab to *select the automation scripts*.
+====
+
+.Configuration options:
+Module::
+    The *module* specifies what module will be used as a data source.
+
+Hide the add record button::
+    Hide the "Add" button; disabling the ability to add new records *from this record list*.
+
+Allow inline record editing::
+    *Inline record editing* is only available in *record pages*.
+    It lets you *edit*, *add*, or *remove* records from the _child_ *record list* when editing a _parent_ record.
+    Imagine a *quote* as a parent record, and a record list of *quote line items* as a child record list.
+
+Prefilter records::
+    *Prefiltering* allows you to *filter the data source* to include only the records you wish to have.
+    See some xref:ROOT:integrator-guide/samples/page-blocks/record-lists.adoc#record-list-sample-filtering[examples].
+
+Hide search box::
+    Disables the search box.
+
+Presort records::
+    *Presorting* allows you to specify *the initial sorting*.
+    Use standard SQL syntax.
+    See some xref:ROOT:integrator-guide/samples/page-blocks/record-lists.adoc#record-list-sample-sorting[examples].
+
+Hide paging::
+    Hides the record list paging section.
+
+Allow records export::
+    *Allow records export* show an "Export" button on the record list to export your data.
+
+Enable record selection::
+    *Enables record selection* by providing a selection checkbox next to each row.
+
+[IMPORTANT]
+====
+When using the search box on the record list, the system only includes the selected fields.
+
+*DevNote*: move this somewhere else?
+====

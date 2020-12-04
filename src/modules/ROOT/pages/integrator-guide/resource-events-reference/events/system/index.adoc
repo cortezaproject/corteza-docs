@@ -1,0 +1,13 @@
+= System
+
+:leveloffset: +1
+
+include::system.gen.adoc[]
+include::sink.gen.adoc[]
+include::auth.gen.adoc[]
+include::user.gen.adoc[]
+include::role.gen.adoc[]
+include::role_member.gen.adoc[]
+include::application.gen.adoc[]
+
+:leveloffset: -1

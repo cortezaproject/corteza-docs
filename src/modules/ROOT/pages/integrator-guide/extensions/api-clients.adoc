@@ -2,12 +2,21 @@ include::../../variables.adoc[]
 
 = API clients
 
-API clients simplify the process of accessing information stored inside {PRODUCT_NAME} via the API.
-API clients can be found in the https://github.com/cortezaproject/corteza-js/tree/develop/src/api-clients[GitHub corteza-js repository].
+*API clients* define an SDK to work with {PRODUCT_NAME} API.
+They are provided in the *execution context* (here: `exec(args, ctx)` -- see <<script-execution>>).
 
-When writing automation scripts, these API clients are automatically provided via the execution context.
+.Available {PRODUCT_NAME} API clients:
+* https://github.com/cortezaproject/corteza-js/blob/2020.12.x/src/api-clients/system.ts[System]
+* https://github.com/cortezaproject/corteza-js/blob/2020.12.x/src/api-clients/messaging.ts[Messaging]
+* https://github.com/cortezaproject/corteza-js/blob/2020.12.x/src/api-clients/compose.ts[Compose]
+* https://github.com/cortezaproject/corteza-js/blob/2020.12.x/src/api-clients/federation.ts[Federation]
 
-[IMPORTANT]
+[TIP]
 ====
-These API clients greatly simplify the code so you should *always* use these instead of writing your own.
+*All API operations* are achievable via these clients.
+====
+
+[NOTE]
+====
+*DevNote* extract methods here?
 ====

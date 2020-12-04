@@ -1,0 +1,281 @@
+include::../../variables.adoc[]
+
+= Automation scripts
+
+An automation is a piece of *JavaScript code* that implements some *business logic* and *conforms to* this interface:
+
+[source,ts]
+----
+export interface Script {
+  label?: string;
+
+  description?: string;
+
+  security?: {
+    runAs?: string;
+    deny: string[];
+    allow: string[];
+  }|string;
+
+  triggers?: Trigger[];
+
+  iterator?: Iterator;
+
+  exec?: ScriptFn;
+}
+----
+
+[IMPORTANT]
+====
+*One automation* script *per file*.
+====
+
+.You can use this template for the most common operations:
+[source,js]
+----
+include::ROOT:example$extensions/server-script-sample/implicit-generic.js[]
+----
+
+[NOTE]
+====
+See xref:ROOT:integrator-guide/samples/server-scripts/index.adoc[server script samples], and xref:ROOT:integrator-guide/samples/client-scripts/index.adoc[client script samples] for more.
+====
+
+There are two main categories of automation scripts; *server scripts* and *client scripts*.
+
+[cols="1,5"]
+|===
+| *Server scripts*
+a| These are executed in the *{PRODUCT_NAME} {APP_AUTOMATION} server*.
+
+.Use server scripts when:
+* working with *sensitive data*,
+* communicating with *external APIs*,
+* they *shouldn't be interruptible* by the user.
+
+.Example use cases:
+* *create additional records* based on the current data,
+* *send email* notifications,
+* run *statistic analysis*.
+
+| *Client scripts*
+a| These are executed in the client's browser (user agent, if you will).
+
+.Use client scripts when:
+* we need to *interact with the user*,
+* we are performing *data validation*,
+* *inserting* default *values*.
+
+.Example use cases:
+* *prompt the user* to confirm the form submission,
+* *validate the form* submitted by the user,
+* *redirect the user* after they've submitted the form,
+* open an external webpage.
+|===
+
+*A rule of thumb* -- if we need to interact with the user (show notification, request confirmations), use *client scripts*.
+Else, use *server scripts*.
+
+[IMPORTANT]
+====
+Treat client scripts as *less secure* (you can freely inspect their contents from the browser) and *less reliable* (a user can manually terminate their execution -- closes the page).
+====
+
+[#script-execution]
+== Script execution
+
+The *execution function* (`exec`) *implements the business logic* that the automation script should perform.
+
+Any code that you want to *execute* should be *directly in the execution function* or *referenced via importing*.
+
+.The execution function's signature looks like this:
+[source,ts]
+----
+interface ScriptFn {
+  (args: exec.Args, ctx?: exec.Ctx): unknown;
+}
+----
+
+== Execution arguments
+
+The *arguments* (`args`) differ based on the *event that triggered* the automation script.
+Refer to xref:ROOT:integrator-guide/resource-events-reference/index.adoc[resources and events] for a complete list.
+
+Arguments to a client-script are provided via *references* to the original objects, meaning that *any change* to the argument parameter *will reflect* to the original object.
+
+Arguments to a server-script are provided as *a copy* of the original object, meaning that the changes will *not be reflected* on the original object.
+
+== Execution context
+
+The *context* (`ctx`) is *static* for all events.
+
+`ctx.console`::
+    `console` provides a logger.
+    Client scripts refer to the `window.console` objects; server scripts refer to a `Pino` instance.
+
+`ctx.log`::
+    Shortcut for `ctx.console.log`.
+
+`ctx.$authUser`::
+    Auth user is a reference to the invoking user.
+
+`ctx.SystemAPI`::
+    API client for {PRODUCT_NAME} System interaction,
+
+`ctx.ComposeAPI`::
+    API client for {PRODUCT_NAME} {APP_NAME_COMPOSE} interaction,
+
+`ctx.MessagingAPI`::
+    API client for {PRODUCT_NAME} {APP_NAME_MESSAGING} interaction,
+
+`ctx.System`::
+    {APP_AUTOMATION} helper for the {PRODUCT_NAME} System,
+
+`ctx.Compose`::
+    {APP_AUTOMATION} helper for the {PRODUCT_NAME} {APP_NAME_COMPOSE},
+
+`ctx.ComposeUI`::
+    {APP_AUTOMATION} helper for the {PRODUCT_NAME} {APP_NAME_COMPOSE} user interface,
+
+`ctx.Messaging`::
+    {APP_AUTOMATION} helper for the {PRODUCT_NAME} {APP_NAME_MESSAGING},
+
+`ctx.frontendBaseURL`::
+    Base URL used by front-end web applications.
+    This is useful when generating URL's that point to the {PRODUCT_NAME} applications.
+
+== Execution result
+
+The *execution result* determines what should happen next.
+
+Unknown Error::
+    Any unknown error (other than `Aborted`) *terminates the current script* execution and prevents the event from triggering *any additional automation scripts*.
+
+Aborted Error::
+    An error with the value of `'Aborted'` stops the execution of the *current automation script*.
+    The event *is able to trigger* any additional automation scripts.
+
+`false`::
+    Same as *Aborted Error*
+
+unknown::
+    Any other result indicates that the *execution was successful* and the next script can be triggered.
+    What should happen next is relative to the automation script; see below sections for more details.
+
+[NOTE]
+====
+`undefined` and `null` also count as unknown.
+====
+
+== Implicit script execution result
+
+[IMPORTANT]
+====
+The following only applies for *before events*.
+====
+
+When a *value is returned*, that value is used *instead of the original* value.
+
+.Let's look at the following example:
+[source,js]
+----
+export default {
+  // Use the ones you need, delete the rest
+  triggers ({ before }) {
+    return before('create', 'update')
+      .where('module','contact')
+  },
+
+  exec({ $record }, ctx) {
+    $record.values.FullName = `${$record.values.FirstName} ${$record.values.LastName}`
+    return $record
+  },
+}
+----
+
+The above example *calculates the `FullName`* property from the `FirstName` and `LastName`.
+The `return $record` instructs that the *new version* of the `$record` *should be used* (the one with the `FullName` calculated).
+
+If we *didn't return anything* (`null` or `undefined` for example) the change would be *reverted*.
+
+[IMPORTANT]
+====
+The return value for *after* events is *discarded* (can not be updated).
+====
+
+== Sink script execution result
+
+When a *value is returned*, that value is used as an *HTTP response*.
+
+.Let's look at the following example:
+[source,js]
+----
+export default {
+  security: 'super-secret-user',
+
+  triggers ({ on }) {
+    return on('request')
+      .where('request.path', '/some/extension')
+      .where('request.method', 'GET')
+      .for('system:sink')
+  },
+
+  exec ({ $request, $response }, { Compose }) {
+    $response.status = 200
+    $response.header = { 'Content-Type': ['text/html; charset=UTF-8'] }
+    $response.body = `<h1>Hello World!</h1>`
+
+    return $response
+  },
+}
+----
+
+The above example returns a *simple static HTML* document with a `Hello World!` written over it.
+You can use this to implement the *OAuth protocol* or a *confirmation page*.
+
+This isn't limited to simple HTML documents.
+
+[IMPORTANT]
+====
+Just make sure that your responses are *properly structured* (content type, status, and body).
+====
+
+.You could do something like this:
+[source,js]
+----
+export default {
+  security: 'super-secret-user',
+
+  triggers ({ on }) {
+    return on('request')
+      .where('request.path', '/model/roi')
+      .where('request.method', 'GET')
+      .for('system:sink')
+  },
+
+  async exec ({ $request, $response }, { Compose }) {
+    $response.status = 200
+    $response.header = { 'Content-Type': ['application/json'] }
+
+    let pl = {}
+    try {
+      pl.product = await fetchProduct($request.query.productCode[0])
+      pl.roi = await calculateRoi(pl.product)
+    } catch ({ message }) {
+      $response.status = 500
+      $response.body = JSON.stringify({
+        error: message,
+      })
+      return $response
+    }
+
+    $response.body = JSON.stringify(pl)
+    return $response
+  },
+}
+----
+
+[NOTE]
+====
+*DevNote* include other trigger types.
+====

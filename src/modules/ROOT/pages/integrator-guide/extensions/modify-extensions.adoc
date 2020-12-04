@@ -1,0 +1,70 @@
+include::../../variables.adoc[]
+
+= Modifying existing extensions
+
+== Create a modified copy
+
+.To modify the extension:
+. copy the extension source (*clone* the repository, or *copy* the files),
+. modify the source as you see fit,
+. deploy your version instead of the original version.
+
+== Overwrite the scripts
+
+When the *{APP_AUTOMATION} processes* your automation scripts, they are *assigned* an auto-generated *name*, generated from the source file path.
+
+.For example:
+[source,bash]
+----
+# The CRM extension
+/ server-scripts
+  / crm
+    / Lead
+      / SetLabel.js
+----
+
+The `SetLabel.js` script is *assigned* `/server-scripts/crm/Lead/SetLabel.js:default` as *the name*.
+
+To overwrite *the `SetLabel.js` script*, you must define a script that will be assigned *the same name* (has *the same path*).
+
+.For example:
+[source,bash]
+----
+# The CRM extension
+/ package.json
+/ node_modules
+/ server-scripts
+  / crm
+    / Lead
+      / SetLabel.js # <- We're targeting this one
+      / AnotherScript.js
+
+# Your extension
+/ package.json
+/ node_modules
+/ server-scripts
+  # To overwrite something in the CRM extension
+  / crm
+    / Lead
+      / SetLabel.js # <- This version will replace the CRM version
+
+  # The rest of your code goes here
+  / extension
+    / Lead
+      / SomeScript.js
+----
+
+[IMPORTANT]
+====
+For this to work, you must make sure that your extension is *included after* the extension you wish to modify.
+
+.For example:
+[source,.env]
+----
+# This will NOT work; the CRM is included after
+CORREDOR_EXT_SEARCH_PATHS="/your-ext:/crm"
+
+# This will work; the CRM is included before
+CORREDOR_EXT_SEARCH_PATHS="/crm:/your-ext"
+----
+====

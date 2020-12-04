@@ -1,0 +1,22 @@
+| Calendar
+| A *calendar page block* lets you show records on a calendar.
+
+.Supported calendar views:
+* month view,
+* week view,
+* day view,
+* agenda view.
+
+*Record event source* uses a module as the *data source*, where each *record* specifies *event parameters*; the label, start, and end dates.
+
+[TIP]
+====
+Calendar event sources enable *pre-filtering*.
+====
+
+[NOTE]
+====
+*DevNote*: link QL; enable value interpolation?
+====
+
+*Reminder event source* uses your system reminders as the *data source*, where each *reminder* specifies *event parameters*; the label, start, and end dates.

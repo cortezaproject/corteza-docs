@@ -1,0 +1,26 @@
+== Metric page block samples
+
+Divide the result by 1000 to show cost in thousands::
+  `v / 1000`
+
+Round result to remove decimal places::
+  `Math.round(v)`
+
+Round result to remove decimal places (round up)::
+  `Math.ceil(v)`
+
+Round result to remove decimal places (round down)::
+  `Math.floor(v)`
+
+Round result to two decimal places::
+  `Math.round(v * 100) / 100`
+
+[IMPORTANT]
+====
+Expressions use *standard JavaScript syntax*, so you can use any standard JavaScript expression.
+====
+
+[TIP]
+====
+You can specify rounding with the value formatting.
+====

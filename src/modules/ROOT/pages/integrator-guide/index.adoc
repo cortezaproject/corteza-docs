@@ -3,21 +3,52 @@ include::../variables.adoc[]
 = Integrator Guide
 :doctype: book
 
-This guide is tailored to the integrators; the people that wish to build upon {PRODUCT_NAME} to build new solutions.
-This guide will give you enough insight to the entire system that you will be confident into creating an entire application from scratch!
+The *integrator guide* will help you through the integration process; building amazing things using {PRODUCT_NAME}!
 
-:leveloffset: +1
+You will receive enough knowledge about *the system*; *the development*, *and maintenance* processes to be a match for any integration.
 
-include::terminology.adoc[]
+[IMPORTANT]
+====
+If you can not access a specific part of {PRODUCT_NAME}, you don't have sufficient permissions.
+Contact your system administrator.
+====
 
-include::development-process.adoc[]
+== Review the terminology
 
-include::security.adoc[]
+Before starting our journey, we strongly recommend you *xref:ROOT:integrator-guide/terminology.adoc[review our terminology]*.
 
-include::extensions/index.adoc[]
+It will help you keep up with what we are *talking about*, help you *understand the system*, and *help with consistency*.
 
-include::resources-events.adoc[]
+== Overview the security system
 
-include::constraint-resources/index.adoc[]
+*xref:ROOT:integrator-guide/security.adoc[Reviewing the security system]* will provide you with an overview of our *access control* systems.
 
-:leveloffset: -1
+It will help you define a more *secure application*; better define the *role hierarchy* and *their permission*.
+
+== Define the data model
+
+The data model is the *first step in the integration*; it defines *the skeleton* of your application, just like an HTML document defines the page structure.
+If the structure is lacking, future development will be challenging.
+
+See the *xref:ROOT:integrator-guide/data-model/index.adoc[data model section]* to get a good understanding on how you can *define a good foundation* for your application.
+
+== Define an extension
+
+An extension is the *second step in the integration*; it defines *the business logic* of your application, just like a JS document completes an HTML document.
+
+See the *xref:ROOT:integrator-guide/extensions/index.adoc[extensions section]* to get a good understanding on how you can *define a good extension* for your application.
+
+.We also go into details for the most common questions:
+* xref:ROOT:integrator-guide/extensions/index.adoc#extension-deploy[deploying your extensions],
+* xref:ROOT:integrator-guide/extensions/index.adoc#extension-test[testing your extensions],
+* xref:ROOT:integrator-guide/extensions/index.adoc#extension-debug[debugging your extensions].
+
+== References
+
+*Refer to xref:ROOT:integrator-guide/resource-events-reference/index.adoc[resource events]* for a complete *list of events* your scripts *can listen for*.
+
+*Refer to xref:ROOT:integrator-guide/resource-constraints-reference/index.adoc[resource constraints]* for a complete *list of resource constraints* you can use.
+
+== Samples
+
+Use xref:ROOT:integrator-guide/samples/index.adoc[these samples] as *a starting point* for your integrations; such as *xref:ROOT:integrator-guide/samples/server-scripts/index.adoc[server script]*, and *xref:ROOT:integrator-guide/samples/client-scripts/index.adoc[client script]* samples.

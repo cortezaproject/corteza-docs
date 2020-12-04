@@ -1,188 +1,121 @@
 include::../../variables.adoc[]
 
-[#extensions:automation-triggers]
 = Automation triggers
 
-An automation trigger (later refereed as "trigger") specifies under what conditions an automation script should execute and part of the execution context.
+*Automation triggers* (*trigger*) let you define *when* the script should *run* (along with some extra bits).
+
+See xref:ROOT:integrator-guide/samples/triggers/index.adoc[trigger samples].
 
 [IMPORTANT]
 ====
-The main difference between triggers and iterators is, that an *iterator* is executed for multiple resources defined by the constraints, one after another.
-
-A *trigger* is executed for a single resource defined by the constraints.
-====
-
-Triggers are defined by the `triggers (t) {...}` method defined by the automation script.
-
-[IMPORTANT]
-====
-Triggers are evaluated in an isolated context, outside of the actual automation script.
-This prevents use of any constants or other symbols defiled outside of the trigger.
-
-For example, the following trigger will *not* work:
+Triggers are evaluated in an *isolated context*, outside of any *imports* or *variable definitions*.
+The following example will *not* work:
 
 [source,js]
 ----
-const modName = 'Contact'
+const MOD_NAME = 'Contact'
+
 export default {
   triggers ({ on }) {
     return on('manual')
-      .for(modName)
+      .for(MOD_NAME) // <- we're referencing the constant here
   },
-  exec (args, ctx) {...}
+  exec (args, ctx) {...},
 }
 ----
 ====
 
-[IMPORTANT]
+.{PRODUCT_NAME} defines *explicit*, *implicit*, *deferred*, and *sink* triggers:
+[cols="1,5"]
+|===
+| *Explicit*
+a| These are *explicitly triggered* by pressing a *button*.
+
+Use explicit triggers when you wish to *manually initiate something*, such as an OAuth authentication flow, redirection to an external resource, or data export.
+
+| *Implicit*
+a| These are *implicitly triggered* based on *system events*.
+
+Use implicit triggers when you wish to *automatically do something* when another thing occurs; such as sending an email when you register a new user; or adding a changelog entry when the content changes.
+
+Refer to xref:ROOT:integrator-guide/resource-events-reference/index.adoc[resources and events] for a complete list.
+
+| *Deferred*
+
+_Server script only_, _requires explicit security context_
+a | The system triggers these *sometime in the future*; either *periodically* (define with *cron expressions*), or *at a timestamp* (use *ISO 8601*; this one: `YYYY-MM-DDThh:mm:ssZ`).
+
+Use deferred triggers when you want to *repeat something* or *do something in the future*; such as recurring payments or sending holiday newsletters to your subscribers.
+
+[NOTE]
 ====
-Trigger and iterator are not compatible; you can only use one or the other within the same automation script.
-====
-
-== Conventions
-
-include::partials/conventions-triggers.adoc[]
-
-== Trigger interface
-
-`t.on`::
-    Defines the event type, such as `'manual'`, `'request'` (see xref:ROOT:integrator-guide/index.adoc#resources-events[resources and events]).
-
-[IMPORTANT]
-====
-Not compatible with `t.before`, `t.after`, `t.on`, `t.at`.
-====
-
-`t.before`::
-    Defines that the automation script is executed before a specific operation occurs.
-
-[TIP]
-====
-You can define multiple event types for the given resource.
-
-For example:
-`before('create', 'update', 'delete')`
+The scheduler acts *once per minute*, so that is the maximum accuracy {PRODUCT_NAME} supports.
 ====
 
-[IMPORTANT]
-====
-Not compatible with `t.on`
-====
+| *Sink*
 
-`t.after`::
-    Defines that the automation script is executed after a specific operation occurs.
+_Server script only_, _requires explicit security context_
+a| These are triggered by the system *when it receives a request*; either *HTTP*, or *email*.
 
-[TIP]
-====
-You can define multiple event types for the given resource.
+Use sink triggers when you want to *respond to requests*; such as webhooks or custom API endpoints.
 
-For example:
-`after('create', 'update', 'delete')`
-====
+|===
 
-[IMPORTANT]
-====
-Not compatable with `t.on`
-====
+== Defining the resource
 
-`t.at`::
-    Defines that the automation script is executed at a specific time, defined as a ISO 8601 timestamp.
+The defined resource specifies *the resource* the automation *script is executed* for; for example a *record*, *module*, and *user*.
+Refer to xref:ROOT:integrator-guide/resource-events-reference/index.adoc[resources and events] for a complete list.
 
-[IMPORTANT]
-====
-Not compatable with `t.on`
-====
+This is done by specifying *a single `.for(...)`* call.
 
-`t.every`::
-    Defines the interval in which the automation script is executed, defined as a cron expression.
-
-[IMPORTANT]
-====
-Not compatable with `t.on`
-====
-
-`t.for`::
-    Defines the resource type, such as `'compose:record'` (see xref:ROOT:integrator-guide/index.adoc#resources-events[resources and events]).
-
-`t.where`::
-    Defines the constraints that must match in order for the automation script to be executed (eg. `t.where('module', 'Lead')`).
-    Refer to xref:ROOT:integrator-guide/index.adoc#constraint-resources[constraint resources] for the full list of available resources and constraint options.
-    See <<extensions:development:defining-constraints>> for extra bits on this.
-
-[TIP]
-====
-You can define multiple constraints inside the same trigger.
-
-For example:
-`.where('module', 'super_secret_module').where('namespace', 'super_secret_namespace')`
-====
-
-`t.uiProp`::
-    Defines the visual representation of the manual automation trigger, such as its color and label.
-
-[IMPORTANT]
-====
-Only available for explicit scripts.
-====
-
-== Trigger types
-
-=== Explicit
-
-Explicit triggers execute on a specific user invocation, such as a button press.
-These include:
-
-Manual::
-    They most commonly appear inside {APP_NAME_COMPOSE} automation page blocks or inside {APP_NAME_COMPOSE} record list toolbars.
-
-=== Implicit
-
-Implicit triggers execute as a collateral to another system event such as record creation.
-These triggers include before/after events.
-For a full list of available events refer to xref:ROOT:integrator-guide/index.adoc#resources-events[resources and events].
-
-=== Deferred
-
-[IMPORTANT]
-====
-Deferred automation triggers are executed at most once every minute, so you *should not* define an interval or timestamp that uses higher precision (seconds or milliseconds).
-====
-
-Deferred automation triggers are executed at a specific point in time; once or multiple times, such as a reminder.
-These include:
-
-Scheduled::
-    scheduled triggers are executed at an exact time specified by a time stamp in ISO 8601 format (This one -- `YYYY-MM-DDTHH:mm:ss.sssZ`).
-    This trigger is executed *exactly once*.
-
-Interval::
-    interval triggers are executed periodically in an interval defined by a cron expression (see https://godoc.org/github.com/robfig/cron[robfig/cron package] for details).
-
-
-=== Sink
-
-Sink automation triggers are executed on a specific http request.
-They can be used to implement new routes on the API, such as a web hook to some external service.
-
-[#extensions:development:defining-constraints]
-== Trigger constraints
-
-Trigger constraints allow you to specify when the script should be executed based on the resource that would like to execute it.
-Constraints take 2 + 1 arguments:
-
+.It should look like this:
 [source,js]
 ----
-t.where(
+.for('ResourceGoesHere')
+----
+
+.An example of specifying a resource:
+[source,js]
+----
+triggers ({ before }) {
+  return before('create', 'update')
+    // This will trigger for a compose record resource
+    .for('compose:record')
+},
+----
+
+== Defining constraints
+
+*Constraints* let you define precisely when the automation *script should execute*.
+
+This is done by chaining a *series of `.where(...)`* calls.
+
+.Each call should look like this:
+[source,js]
+----
+.where(
   resourceAttribute,<1>
-  comparator/value,<2>
+  comparator|value,<2>
   [value],<3>
 )
 ----
-<1> The resource attribute that the constraint should check against.
-Refer to xref:ROOT:integrator-guide/index.adoc#resources-events[resources and events] for a complete list of available things.
-<2> When 2 arguments are provided, this is the value to check against; when 3 arguments are provided, this is the comparison operator; see below.
-<3> When provided, this is the value to check against.
+<1> The *resource attribute* that the constraint should check; xref:ROOT:integrator-guide/resource-constraints-reference/index.adoc[resource constraints] for a complete list.
+<2> When *2 arguments* are provided, this is the *value to check against*; when *3 arguments* are provided, this is the *<<trigger-comparison-operators>>*.
+<3> When provided, this is the *value to check against*.
 
+.An example of chaining constraints:
+[source,js]
+----
+triggers ({ before }) {
+  return before('create', 'update')
+    .for('compose:record')
+    // vv these two vv
+    .where('module', 'Lead')
+    .where('namespace', 'crm')
+},
+----
+
+[#trigger-comparison-operators]
 === Available comparison operators:
 
 Equals (default)::
@@ -222,3 +155,51 @@ Regex comparison::
 
 Regex comparison; negated::
     * `!~`
+
+== Automation trigger conventions
+
+Use object destructuring::
+    This helps you shorten the entire thing.
+
+.For example:
+[source,js]
+----
+// Instead of using:
+triggers (t) {
+  return t.after('create')
+    .for('compose:record')
+    .where('module', 'super_secret_module')
+},
+
+// you can do:
+triggers ({ after }) {
+  return after('create')
+    .for('compose:record')
+    .where('module', 'super_secret_module')
+},
+
+// Neat, right?!
+----
+
+Make trigger constraints as strict as possible::
+    Having loose constraints can cause *unwanted issues* when there are *multiple namespaces* under the same instance.
+    Two namespaces could easily define a module with the same handle, which would cause both of them to execute the given script.
+
+.For example:
+[source,js]
+----
+// Instead of using:
+triggers (t) {
+  return t.after('create')
+    .for('compose:record')
+    .where('module', 'super_secret_module')
+},
+
+// you can do:
+triggers ({ after }) {
+  return after('create')
+    .for('compose:record')
+    .where('module', 'super_secret_module')
+    .where('namespace', 'super_secret_namespace')
+},
+----

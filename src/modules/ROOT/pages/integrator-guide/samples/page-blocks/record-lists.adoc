@@ -1,0 +1,36 @@
+== Record list samples
+
+[#record-list-sample-filtering]
+=== Filtering
+
+[TIP]
+====
+Record list pre-filtering supports *value interpolation* that is *relative to the content*; such as a record.
+
+.Available variables:
+* **record**: current record (when available)
+* **recordID**: current record's recordID (when available)
+* **ownerID**: current record's owner (when available)
+* **userID**: current user's userID
+====
+
+Show only records created this year::
+    `YEAR(created_at) = YEAR()`,
+
+Show only records linked to the viewed record::
+    `related_contact = $\{recordID\}`,
+
+Show only active contacts::
+    `is_active = '1'`,
+
+Show lost opportunities::
+    `status = 'closed/lost'`,
+
+[#record-list-sample-sorting]
+=== Sorting
+
+Sort by latest::
+    `created_at DESC`
+
+Sort by latest and opportunity stage::
+    `created_at DESC, stage DESC`

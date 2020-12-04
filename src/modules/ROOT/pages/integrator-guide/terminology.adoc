@@ -1,4 +1,3 @@
 = Terminology
 
-== Extension terminology
 include::../../partials/extensions/terminology.adoc[]

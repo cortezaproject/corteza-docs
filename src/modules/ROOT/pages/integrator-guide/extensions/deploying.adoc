@@ -1,0 +1,86 @@
+include::../../variables.adoc[]
+
+[#extension-deploy]
+= Deploying extensions
+
+== Setting up
+
+*To use the extension*, it must be available to the {APP_AUTOMATION} server, either locally or on the server.
+
+[IMPORTANT]
+====
+If you are running the *{APP_AUTOMATION} without Docker* (from source code), you can skip any *Docker related steps*.
+====
+
+.We'll assume that:
+* your *current working directory* is where your *extension is*,
+* your *server deploy directory* is `/opt/deploy/test-project`,
+* your *file structure* looks like this (where your {PRODUCT_NAME} is running):
+
+[source,txt]
+----
+data/
+docker-compose.yml
+.env
+----
+
+.To use the extension:
+. *Create a new directory for the extension*; we'll name it `corredor`, but the name doesn't matter.
+. Somehow *transport the extension source files* into the newly created directory (see below sections for tips).
+. Add a *new volume* to the `docker-compose.yaml` file that will *contain the extension*.
+For example, under the `corredor` service, `volumes: [ "./corredor:/corredor/test-extension", ...other volumes you might have... ]`
+. Edit the `.env` (`CORREDOR_EXT_SEARCH_PATHS` variable) file to *register the new extension*.
+For example `CORREDOR_EXT_SEARCH_PATHS=/extensions:/extensions/*:/corredor/test-extension`.
+. *Reload the configurations* (`docker-compose up -d`).
+
+At the end, your file structure should look like this:
+[source,txt]
+----
+data/
+docker-compose.yml
+.env
+corredor/
+  test-extension/
+    server-scripts/
+      /...
+    client-scripts/
+      /...
+----
+
+[IMPORTANT]
+====
+`CORREDOR_EXT_SEARCH_PATHS` can contain *multiple paths* separated by *colon* (`:`).
+====
+
+[TIP]
+====
+You can use `docker-compose logs -t --tail 100 -f corredor` to see if the extension was registered and processed correctly.
+====
+
+== Upload using git
+
+If you are using *git and a repository*, we suggest you use that.
+*Clone* the repository *onto your server* (into the volume mentioned above).
+You can then *pull the changes*.
+
+[NOTE]
+====
+If it is a *private repository*, make sure that your *git client* on your server *has access* to it.
+====
+
+== Upload manually
+
+You can use `scp`, `rsync`, or any other client.
+*Upload* the extension's source *into the volume* mentioned above.
+
+[NOTE]
+====
+I usually use `rsync` as it makes things a bit easier.
+====
+
+[TIP]
+====
+An example `rsync` command *following the above assumptions*; make sure to *change the parameters*:
+
+`rsync -av -e ssh --exclude="node_modules/*" ./* SSH_USERNAME_HERE@ssh.remote.tld:/opt/deploy/test-project/corredor --delete;`
+====

@@ -1,0 +1,20 @@
+| Record
+| 
+[IMPORTANT]
+====
+This page block type is only available for record pages.
+====
+
+*Record page blocks* let you access and change data related to a specific record.
+
+[TIP]
+====
+You can define multiple record page blocks for a nicer field grouping.
+
+For example, you can put contact-related information in one block, shipping-related information in another, and so on.
+====
+
+[TIP]
+====
+When selecting fields, you can rearrange these by dragging them around.
+====

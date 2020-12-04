@@ -1,3 +1,112 @@
 include::../../variables.adoc[]
 
+[#extension-test]
 = Testing
+
+Extensions are essentially  *Node.js projects* with some extra bits; meaning that the extensions can be *tested in the same way*.
+
+You are free to use *any testing framework* and any testing methodology you wish.
+
+[NOTE]
+====
+We usually use https://www.chaijs.com/[Chai], https://mochajs.org/[Mocha], https://www.npmjs.com/package/nyc[Nyc], and https://sinonjs.org/[Sinon].
+====
+
+[NOTE]
+====
+*DevNote* provide some more examples for other frameworks?
+====
+
+== An example setup
+
+.The file structure (yes, yes; the sources are below):
+[source,text]
+----
+/ .gitignore
+/ .eslintrc.js
+/ .mocharc.js
+/ package.json
+
+/ server-scripts
+    / Sample.js
+    / Sample.test.js
+    / ...
+/ client-scripts
+    / ....
+----
+
+.gitignore:
+[source,gitignore]
+----
+include::ROOT:example$extensions/testing-setup/dotgitignore.txt[]
+----
+
+.eslintrc.js:
+[source,js]
+----
+include::ROOT:example$extensions/testing-setup/doteslintrc.js[]
+----
+
+.mocharc.js:
+[source,js]
+----
+include::ROOT:example$extensions/testing-setup/dotmocharc.js[]
+----
+
+.package.json:
+[source,json]
+----
+include::ROOT:example$extensions/testing-setup/package.json[]
+----
+
+.Sample.js
+[source,js]
+----
+include::ROOT:example$extensions/testing-setup/server-scripts/example/Sample.js[]
+----
+
+[TIP]
+====
+Note this part:
+
+[source,js]
+----
+// vv this line here vv
+/* istanbul ignore next */
+trigger ({ before }) {
+  return before('create')
+},
+----
+
+`istanbul ignore next` excludes the *next function* from the *coverage report*.
+====
+
+.Sample.test.js
+[source,js]
+----
+include::ROOT:example$extensions/testing-setup/server-scripts/example/Sample.test.js[]
+----
+
+.The above `package.json` defines three scripts:
+* `lint`: *lint the code* using the default ES6 standard (can be configured; see https://eslint.org/docs/rules/[here]),
+* `test:unit`: *unit test the code* with your `.test.js` files (can be configured in the `.mocharc.js` file)
+* `test:unit:cc`: *unit test the code* and return a *code coverage* report.
+
+[NOTE]
+====
+The code coverage report gets generated into the `coverage` directory.
+====
+
+[TIP]
+====
+Inspect the `coverage/lcov-report` directory for a HTML report.
+
+I usually use the https://www.npmjs.com/package/http-server[http-server] package to help with this, but a simple "Open in <browser name here>" will do.
+
+`http-server coverage/lcov-report`
+====
+
+[NOTE]
+====
+*DevNote*: provide some complex examples using Sinon and promises.
+====

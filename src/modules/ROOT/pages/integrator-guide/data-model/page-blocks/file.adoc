@@ -1,0 +1,2 @@
+| File
+| A *file page block* is used to contain a set of files (attachments), such as TOS, schedule, or a brochure.

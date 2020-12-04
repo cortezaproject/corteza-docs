@@ -1,0 +1,17 @@
+| Automation
+| An *automation page block* allows your users to trigger explicit automation scripts.
+
+When specifying what buttons to show, you are also able to set *the label* and the *button variant*.
+
+[IMPORTANT]
+====
+Refer to the xref:ROOT:integrator-guide/extensions/index.adoc[extensions section] for details.
+====
+
+[TIP]
+====
+.If you can't see your automation scripts:
+* make sure there were no compilation errors,
+* you refreshed your page after you've added the scripts,
+* the trigger defined a `.uiProp('app', 'compose')` constraint.
+====

@@ -1,3 +1,1 @@
-
-[#security]
 include::../../partials/security.adoc[]

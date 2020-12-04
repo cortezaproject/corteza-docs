@@ -2,24 +2,75 @@ include::../../variables.adoc[]
 
 = Extensions
 
+We define a set of *automation scripts*, *resources* and *other assets* (*data model definitions* and *configurations*) as an extension.
+
+.To define a new extension, firstly *initialize a new node.js project* and define the *appropriate file structure*:
+[source,text]
+----
+/package.json
+/...
+/server-scripts
+  /...
+/client-scripts
+  /auth
+      /...
+  /admin
+      /...
+  /compose 
+      /...
+  /messaging
+      /...
+  /shared
+      /...
+----
+
+`/...` indicates that you are *free to structure* your files as you see fit.
+
+`/auth`, `/admin`, `/compose`, and `/messaging` contain scripts specific to each *web application*.
+
+`/shared` contains code that *client scripts can reuse*.
+
+[NOTE]
+====
+We recommend *grouping automation scripts* based on their *context*.
+For example, scripts working over *leads* could go into a *`/lead/` sub-directory*.
+====
+
+[IMPORTANT]
+====
+When defining *utilities* (and other _tool functions_) inside the `/server-scripts` or `/server-scripts` (*excluding* `/shared`), {APP_AUTOMATION} will *treat* those *as automation scripts* as well.
+
+Most of the time, they will be *invalid*.
+Use the `/shared` directories, or define a `/lib` (or similar) at the *root of the extension*.
+====
+
+[TIP]
+====
+You can use our xref:ROOT:integrator-guide/samples/index.adoc[*samples*], and <<extension-test,*testing template*>> to get setup faster.
+====
+
 :leveloffset: +1
 
-include::tl-dr.adoc[]
+include::automation-scripts.adoc[]
 
 include::automation-triggers.adoc[]
 
-include::automation-iterators.adoc[]
+// include::automation-iterators.adoc[]
+
+include::security-context.adoc[]
 
 include::api-clients.adoc[]
 
 include::corredor-helpers.adoc[]
 
-include::security-context.adoc[]
+include::modify-extensions.adoc[]
 
-include::script-execution.adoc[]
-
-include::debugging.adoc[]
+include::npm-packages.adoc[]
 
 include::testing.adoc[]
+
+include::deploying.adoc[]
+
+include::debugging.adoc[]
 
 :leveloffset: -1

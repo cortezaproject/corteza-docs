@@ -1,0 +1,549 @@
+// This file is auto-generated.
+//
+// Changes to this file may cause incorrect behavior and will be lost if
+// the code is regenerated.
+//
+// Definitions file that controls how this file is generated:
+//  - compose/service/event/events.yaml
+//  - messaging/service/event/events.yaml
+//  - system/service/event/events.yaml
+
+= compose
+
+== Events
+
+.Events:
+* `on('manual')`
+* `on('interval')`
+* `on('timestamp')`
+
+== Argument properties
+
+.Argument properties:
+[%header, cols=3*]
+|===
+|Name|Type|Immutable
+| `invoker`
+| `auth.Identifiable`
+| no
+|===
+
+= compose:module
+
+== Events
+
+.Events:
+* `before('create')`
+* `before('update')`
+* `before('delete')`
+* `after('create')`
+* `after('update')`
+* `after('delete')`
+* `on('manual')`
+
+== Argument properties
+
+.Argument properties:
+[%header, cols=3*]
+|===
+|Name|Type|Immutable
+| `module`
+| `*types.Module`
+| no
+
+| `oldModule`
+| `*types.Module`
+| yes
+
+| `namespace`
+| `*types.Namespace`
+| yes
+
+| `invoker`
+| `auth.Identifiable`
+| no
+|===
+
+= compose:namespace
+
+== Events
+
+.Events:
+* `before('create')`
+* `before('update')`
+* `before('delete')`
+* `after('create')`
+* `after('update')`
+* `after('delete')`
+* `on('manual')`
+
+== Argument properties
+
+.Argument properties:
+[%header, cols=3*]
+|===
+|Name|Type|Immutable
+| `namespace`
+| `*types.Namespace`
+| no
+
+| `oldNamespace`
+| `*types.Namespace`
+| yes
+
+| `invoker`
+| `auth.Identifiable`
+| no
+|===
+
+= compose:page
+
+== Events
+
+.Events:
+* `before('create')`
+* `before('update')`
+* `before('delete')`
+* `after('create')`
+* `after('update')`
+* `after('delete')`
+* `on('manual')`
+
+== Argument properties
+
+.Argument properties:
+[%header, cols=3*]
+|===
+|Name|Type|Immutable
+| `page`
+| `*types.Page`
+| no
+
+| `oldPage`
+| `*types.Page`
+| yes
+
+| `namespace`
+| `*types.Namespace`
+| yes
+
+| `invoker`
+| `auth.Identifiable`
+| no
+|===
+
+= compose:record
+
+== Events
+
+.Events:
+* `before('create')`
+* `before('update')`
+* `before('delete')`
+* `after('create')`
+* `after('update')`
+* `after('delete')`
+* `on('manual')`
+* `on('iteration')`
+
+== Argument properties
+
+.Argument properties:
+[%header, cols=3*]
+|===
+|Name|Type|Immutable
+| `record`
+| `*types.Record`
+| no
+
+| `oldRecord`
+| `*types.Record`
+| yes
+
+| `module`
+| `*types.Module`
+| yes
+
+| `namespace`
+| `*types.Namespace`
+| yes
+
+| `recordValueErrors`
+| `*types.RecordValueErrorSet`
+| no
+
+| `invoker`
+| `auth.Identifiable`
+| no
+|===
+
+= messaging
+
+== Events
+
+.Events:
+* `on('manual')`
+* `on('interval')`
+* `on('timestamp')`
+
+== Argument properties
+
+.Argument properties:
+[%header, cols=3*]
+|===
+|Name|Type|Immutable
+| `invoker`
+| `auth.Identifiable`
+| no
+|===
+
+= messaging:channel
+
+== Events
+
+.Events:
+* `before('create')`
+* `before('update')`
+* `before('delete')`
+* `after('create')`
+* `after('update')`
+* `after('delete')`
+* `on('manual')`
+
+== Argument properties
+
+.Argument properties:
+[%header, cols=3*]
+|===
+|Name|Type|Immutable
+| `channel`
+| `*types.Channel`
+| no
+
+| `oldChannel`
+| `*types.Channel`
+| yes
+
+| `invoker`
+| `auth.Identifiable`
+| no
+|===
+
+= messaging:channel:member
+
+== Events
+
+.Events:
+* `before('join')`
+* `before('part')`
+* `before('add')`
+* `before('remove')`
+* `after('join')`
+* `after('part')`
+* `after('add')`
+* `after('remove')`
+
+== Argument properties
+
+.Argument properties:
+[%header, cols=3*]
+|===
+|Name|Type|Immutable
+| `member`
+| `*types.ChannelMember`
+| no
+
+| `channel`
+| `*types.Channel`
+| no
+
+| `invoker`
+| `auth.Identifiable`
+| no
+|===
+
+= messaging:command
+
+== Events
+
+.Events:
+* `on('invoke')`
+
+== Argument properties
+
+.Argument properties:
+[%header, cols=3*]
+|===
+|Name|Type|Immutable
+| `command`
+| `*types.Command`
+| yes
+
+| `channel`
+| `*types.Channel`
+| yes
+
+| `invoker`
+| `auth.Identifiable`
+| no
+|===
+
+= messaging:message
+
+== Events
+
+.Events:
+* `before('create')`
+* `before('update')`
+* `before('delete')`
+* `after('create')`
+* `after('update')`
+* `after('delete')`
+* `on('manual')`
+
+== Argument properties
+
+.Argument properties:
+[%header, cols=3*]
+|===
+|Name|Type|Immutable
+| `message`
+| `*types.Message`
+| no
+
+| `oldMessage`
+| `*types.Message`
+| yes
+
+| `channel`
+| `*types.Channel`
+| no
+
+| `invoker`
+| `auth.Identifiable`
+| no
+|===
+
+= system
+
+== Events
+
+.Events:
+* `on('manual')`
+* `on('interval')`
+* `on('timestamp')`
+
+== Argument properties
+
+.Argument properties:
+[%header, cols=3*]
+|===
+|Name|Type|Immutable
+| `invoker`
+| `auth.Identifiable`
+| no
+|===
+
+= system:application
+
+== Events
+
+.Events:
+* `before('create')`
+* `before('update')`
+* `before('delete')`
+* `after('create')`
+* `after('update')`
+* `after('delete')`
+* `on('manual')`
+
+== Argument properties
+
+.Argument properties:
+[%header, cols=3*]
+|===
+|Name|Type|Immutable
+| `application`
+| `*types.Application`
+| no
+
+| `oldApplication`
+| `*types.Application`
+| yes
+
+| `invoker`
+| `auth.Identifiable`
+| no
+|===
+
+= system:auth
+
+== Events
+
+.Events:
+* `before('login')`
+* `before('signup')`
+* `after('login')`
+* `after('signup')`
+
+== Argument properties
+
+.Argument properties:
+[%header, cols=3*]
+|===
+|Name|Type|Immutable
+| `user`
+| `*types.User`
+| no
+
+| `provider`
+| `*types.AuthProvider`
+| no
+
+| `invoker`
+| `auth.Identifiable`
+| no
+|===
+
+= system:mail
+
+== Events
+
+.Events:
+* `on('manual')`
+* `on('receive')`
+* `on('send')`
+
+== Argument properties
+
+.Argument properties:
+[%header, cols=3*]
+|===
+|Name|Type|Immutable
+| `message`
+| `*types.MailMessage`
+| no
+
+| `invoker`
+| `auth.Identifiable`
+| no
+|===
+
+= system:role
+
+== Events
+
+.Events:
+* `before('create')`
+* `before('update')`
+* `before('delete')`
+* `after('create')`
+* `after('update')`
+* `after('delete')`
+* `on('manual')`
+
+== Argument properties
+
+.Argument properties:
+[%header, cols=3*]
+|===
+|Name|Type|Immutable
+| `role`
+| `*types.Role`
+| no
+
+| `oldRole`
+| `*types.Role`
+| yes
+
+| `invoker`
+| `auth.Identifiable`
+| no
+|===
+
+= system:role:member
+
+== Events
+
+.Events:
+* `before('add')`
+* `before('remove')`
+* `after('add')`
+* `after('remove')`
+
+== Argument properties
+
+.Argument properties:
+[%header, cols=3*]
+|===
+|Name|Type|Immutable
+| `user`
+| `*types.User`
+| no
+
+| `role`
+| `*types.Role`
+| no
+
+| `invoker`
+| `auth.Identifiable`
+| no
+|===
+
+= system:sink
+
+== Events
+
+.Events:
+* `on('request')`
+
+== Argument properties
+
+.Argument properties:
+[%header, cols=3*]
+|===
+|Name|Type|Immutable
+| `response`
+| `*types.SinkResponse`
+| no
+
+| `request`
+| `*types.SinkRequest`
+| yes
+
+| `invoker`
+| `auth.Identifiable`
+| no
+|===
+
+= system:user
+
+== Events
+
+.Events:
+* `before('create')`
+* `before('update')`
+* `before('delete')`
+* `after('create')`
+* `after('update')`
+* `after('delete')`
+* `on('manual')`
+
+== Argument properties
+
+.Argument properties:
+[%header, cols=3*]
+|===
+|Name|Type|Immutable
+| `user`
+| `*types.User`
+| no
+
+| `oldUser`
+| `*types.User`
+| yes
+
+| `invoker`
+| `auth.Identifiable`
+| no
+|===

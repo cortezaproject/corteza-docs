@@ -3,30 +3,39 @@ include::../variables.adoc[]
 = DevOps Guide
 :doctype: book
 
-This guide is tailored to DevOps engineers that are responsible for {PRODUCT_NAME} instance deploys and it's maintenance on a system level; such as configuring the environment and setting up email notifications.
+The *DevOps guide* will help you through the deployment and setup process.
+You will know how to *deploy*, *configure*, and *maintain {PRODUCT_NAME}*.
 
-:leveloffset: +1
+== Structure overview
 
-include::architecture-overview.adoc[]
+The xref:ROOT:dev-ops-guide/architecture-overview.adoc[*structure overview*] section provides a quick *overview of our repositories* and how they are *connected*.
 
-include::system-requirements.adoc[]
+== System requirements
 
-include::docker-compose.adoc[]
+[IMPORTANT]
+====
+The numbers may *differ for your use-case*, but you can still use them as a base.
+====
 
-include::server-configuration/index.adoc[]
+xref:ROOT:dev-ops-guide/system-requirements.adoc[*System requirements*] help you determine the server configuration that best suits your use-case.
 
-include::corredor-configuration.adoc[]
+== Deploying {PRODUCT_NAME}
 
-include::cli.adoc[]
+See our *example setup sections* for a quick step-by-step on how to deploy to different environments.
+Refer to the xref:ROOT:dev-ops-guide/health-check.adoc[*health check*] section to test your deploy.
 
-include::setup-local-demo.adoc[]
+Use the xref:ROOT:dev-ops-guide/setup-local-demo.adoc[*local setup*] for any local development or demonstration.
 
-include::nginx-proxy.adoc[]
+Use the xref:ROOT:dev-ops-guide/setup-production.adoc[*production setup*] for any live deployments (*production* or *staging/testing*).
 
-include::setup-production.adoc[]
+Refer to the xref:ROOT:dev-ops-guide/docker-compose.adoc[*docker compose*] section, if you need help with Docker.
 
-include::email-relay.adoc[]
+See the *configuration* sections (xref:ROOT:dev-ops-guide/server-configuration/index.adoc[*server*] and xref:ROOT:dev-ops-guide/corredor-configuration.adoc[*Corredor server*]) for available *configuration options*.
 
-include::backup.adoc[]
+== Post-deployment bits
 
-:leveloffset: -1
+Use the xref:ROOT:dev-ops-guide/cli.adoc[*CLI tool*] to perform some base maintenance tasks.
+
+Setup xref:ROOT:dev-ops-guide/backup.adoc[*system backups*].
+
+Allow automation scripts to xref:ROOT:dev-ops-guide/email-relay.adoc[*respond on emails*].

@@ -1,12 +1,16 @@
 = Impersonation
 
-Users with permissions can act as use impersonation feature to log-in as another user without knowing their password.
+[NOTE]
+====
+*DevNote* this will be improved with the developer-guide refactor.
+====
+
+Users with sufficient permissions use the impersonation feature to log-in as another user without knowing their password.
 A particular role can be allowed to impersonate all users or a particular one.
 
-This action is recorded to actionlog.
+All impersonations *are recorded* in the *action log*.
 
 [NOTE]
 ====
-This is currently only available via the API.
+The impersonation feature is currently only available via the API.
 ====
-

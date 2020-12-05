@@ -3,21 +3,24 @@ include::../variables.adoc[]
 = End-User Guide
 :doctype: book
 
-This guide is tailored to end-users that need to know how to use the entire {PRODUCT_NAME}.
-It provides a high-level overview of all the features while keeping it simple and understandable to non-techy people.
+The *end-user guide* will help you understand *{PRODUCT_NAME} applications*, the *user interface*, and how to use *different features* from an end-user perspective.
 
-:leveloffset: +1
+We've designed the end-user guide to be easily understandable by non-techy people, so you don't need to be a field expert.
 
-// include::./getting-started.adoc[]
+== {PRODUCT_NAME} CRM
 
-include::./messaging/index.adoc[]
+xref:ROOT:end-user-guide/crm/index.adoc[*{PRODUCT_NAME} CRM*] is a highly flexible, scalable and open source Customer Relationship Management solution.
 
-include::./shell/index.adoc[]
+== {PRODUCT_NAME} Service Solution
 
-// @todo cleanup these two vv
+xref:ROOT:end-user-guide/service-solution/index.adoc[*{PRODUCT_NAME} Service Solution*] is a highly flexible, scalable and open source solution for keeping up with customer cases.
 
-include::./crm/index.adoc[]
+== {PRODUCT_NAME} {APP_NAME_MESSAGING}
 
-include::./service-solution/index.adoc[]
+xref:ROOT:end-user-guide/messaging/index.adoc[*{PRODUCT_NAME} {APP_NAME_MESSAGING}*] is a modern, private, secure messaging system which integrates seamlessly with the rest of the system.
 
-:leveloffset: -1
+== {PRODUCT_NAME} {APP_NAME_SHELL}
+
+xref:ROOT:end-user-guide/shell/index.adoc[*{PRODUCT_NAME} {APP_NAME_SHELL}*] brings all of the {PRODUCT_NAME} applications under a single user interface.
+
+It let's you customize your work environment just the way you want it!

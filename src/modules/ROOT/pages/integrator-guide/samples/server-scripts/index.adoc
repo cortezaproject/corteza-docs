@@ -89,3 +89,24 @@ include::ROOT:example$extensions/server-script-sample/button-generic.js[]
 ----
 include::ROOT:example$extensions/server-script-sample/button-record.js[]
 ----
+
+== Respond to an HTTP request
+
+[TIP]
+====
+.Example use-cases:
+* *creating records from an external form*
+* *document approval/signature tracking*
+* *credit card payment capturing*
+====
+
+[IMPORTANT]
+====
+You will need to *add the `base-64` package*.
+====
+
+.Respond to an HTTP request:
+[source,js]
+----
+include::ROOT:example$extensions/server-script-sample/sink-generic.js[]
+----

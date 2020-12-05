@@ -1,5 +1,6 @@
 include::../../variables.adoc[]
 
+[#admin-panel-role]
 = Roles
 
 The *roles* interface provides an overview of *system roles*; you can *inspect*, *edit*, and *delete* them.

@@ -18,7 +18,7 @@ It will help you define a more *secure application*; better define the *role hie
 
 == The administrator panel
 
-The xref:ROOT:administrator-guide/admin-panel/index.adoc[*administrator panel*] provides a quick *overview of the system*, xref:ROOT:administrator-guide/admin-panel/index.adoc#admin-panel-user[*user*] and xref:ROOT:administrator-guide/admin-panel/index.adoc#admin-panel-system-roles[*role*] management, permission and settings overview.
+The xref:ROOT:administrator-guide/admin-panel/index.adoc[*administrator panel*] provides a quick *overview of the system*, xref:ROOT:administrator-guide/admin-panel/index.adoc#admin-panel-user[*user*] and xref:ROOT:administrator-guide/admin-panel/index.adoc#admin-panel-role[*role*] management, permission and settings overview.
 
 == System administration
 

@@ -8,7 +8,7 @@ Main features include a Low-Code Platform, CRM, Service Solution, Enterprise Mes
 The platform is *secure* with a powerful *RBAC access control facility*, that allows you to configure your users just the way you want to!
 
 {PRODUCT_NAME} aims to be *indisputably trustworthy* in its motivations and its approach to design, development and maintenance of the platform.
-Organisations should feel that their chosen digital work platform is always *under their control*, always *protected* and always *developed in their best interests*.
+Organisations should feel that their chosen digital work platform is always *under their control*, always *protected* and continuously *developed in their best interests*.
 
 [NOTE]
 ====
@@ -16,57 +16,62 @@ Questions?
 Check out https://{DOMAIN}[our homepage], or https://latest.{DOMAIN}[get in touch with us]!
 ====
 
-== I'm interested! What's next?!
+== Deploying {PRODUCT_NAME}
 
-=== I need to deploy my own {PRODUCT_NAME} instance
+Take a look at the xref:ROOT:dev-ops-guide/index.adoc[*DevOps guide*]!
 
-Take a look at the xref:ROOT:dev-ops-guide/index.adoc[DevOps guide]!
+The guide walks you through xref:dev-ops-guide/server-configuration/index.adoc[*server*] and xref:dev-ops-guide/corredor-configuration.adoc[*{APP_AUTOMATION} server*] configuration.
 
-It covers everything you need to know about xref:ROOT:dev-ops-guide/index.adoc#server-configuration[{PRODUCT_NAME} server configuration], xref:ROOT:dev-ops-guide/index.adoc#nginx-proxy[Nginx proxy configuration] and xref:ROOT:dev-ops-guide/index.adoc#setup-production[production deploys].
+We also provide an example for a xref:dev-ops-guide/setup-local-demo.adoc[*local*] and xref:dev-ops-guide/setup-production.adoc[*production*] setup.
 
-We also provide some miscellanies, such as xref:dev-ops-guide/index.adoc#setup-local-demo[Setting up a local demo], xref:dev-ops-guide/index.adoc#email-relay[relaying inbound emails], xref:dev-ops-guide/index.adoc#backup[data backups].
+We also provide some miscellanies, xref:dev-ops-guide/email-relay.adoc[*relaying inbound emails*], xref:dev-ops-guide/health-check.adoc[*health check*], and xref:dev-ops-guide/backup.adoc[*data backups*].
 
-=== I need to learn how to use different {PRODUCT_NAME} applications
+== Learning {PRODUCT_NAME}
 
-Take a look at the xref:ROOT:end-user-guide/index.adoc[end-user guide]!
+Take a look at the xref:ROOT:end-user-guide/index.adoc[*end-user guide*]!
 
-It covers all of the {PRODUCT_NAME} applications, what features they provide and how to use them.
-It's designed to be easily understandable by non-techy people, so you don't need to be a field expert.
+It covers *all {PRODUCT_NAME} applications*, their *features*, and *how to use* them.
+We've designed the end-user guide to be easily understandable by non-techy people, so you don't need to be a field expert.
 
 .Here are a few shortcuts:
-* xref:ROOT:administrator-guide/compose/index.adoc[{PRODUCT_NAME} {APP_NAME_COMPOSE}],
-* xref:ROOT:end-user-guide/crm/index.adoc[{PRODUCT_NAME} CRM],
-* xref:ROOT:end-user-guide/service-solution/index.adoc[{PRODUCT_NAME} Service Solution].
-* xref:ROOT:end-user-guide/messaging/index.adoc[{PRODUCT_NAME} {APP_NAME_MESSAGING}],
-* xref:ROOT:end-user-guide/shell/index.adoc[{PRODUCT_NAME} {APP_NAME_SHELL}],
+* xref:ROOT:administrator-guide/compose/index.adoc[*{PRODUCT_NAME} {APP_NAME_COMPOSE}*]
+* xref:ROOT:end-user-guide/crm/index.adoc[*{PRODUCT_NAME} CRM*]
+* xref:ROOT:end-user-guide/service-solution/index.adoc[*{PRODUCT_NAME} Service Solution*]
+* xref:ROOT:end-user-guide/messaging/index.adoc[*{PRODUCT_NAME} {APP_NAME_MESSAGING}*]
+* xref:ROOT:end-user-guide/shell/index.adoc[*{PRODUCT_NAME} {APP_NAME_SHELL}*]
 
+== {PRODUCT_NAME} administration
 
-=== I need to know how to take on the administrator role
+Take a look at the xref:ROOT:administrator-guide/index.adoc[*administrator guide*]!
 
-Take a look at the xref:ROOT:administrator-guide/index.adoc[administrator guide]!
+The guide covers xref:administrator-guide/security.adoc[*the security*] system, the xref:administrator-guide/admin-panel/index.adoc[*administration panel*], and the *application administration* (xref:administrator-guide/compose/index.adoc[*{APP_NAME_COMPOSE}*] and xref:administrator-guide/messaging/index.adoc[*{APP_NAME_MESSAGING}*])
 
-It covers all aspects of {PRODUCT_NAME} administration, such as xref:ROOT:administrator-guide/index.adoc#security[system security], xref:ROOT:administrator-guide/index.adoc#admin-panel[administration panel], and xref:ROOT:administrator-guide/index.adoc#compose[{PRODUCT_NAME} {APP_NAME_COMPOSE} configuration].
+== Create integrations
 
-=== I want to create something with {PRODUCT_NAME}
+Take a look at the xref:ROOT:integrator-guide/index.adoc[*integrator guide*]!
 
-Take a look at the xref:ROOT:integrator-guide/index.adoc[integrator guide]!
+The guide walks you *through the integration process*; from xref:integrator-guide/security.adoc[*the security*] system, xref:integrator-guide/data-model/index.adoc[*data model*] definition, and xref:integrator-guide/extensions/index.adoc[*extension*] development.
 
-It takes you step-by-step over the entire integration process, from designing a datamodel, configuring users their roles, to creating extensions.
+We also offer some copy-pastable xref:integrator-guide/samples/index.adoc[*samples*], tips for xref:integrator-guide/extensions/index.adoc#extension-deploy[*deploying*], xref:integrator-guide/extensions/index.adoc#extension-debug[*debugging*] and xref:integrator-guide/extensions/index.adoc#extension-test[*testing*] (yes, there is a xref:integrator-guide/extensions/index.adoc#_an_example_setup[*working setup*]).
 
-=== I love open source -- Let me contribute!!
+== Contribution things
 
-Welcome aboard!
-Take a look at the xref:ROOT:developer-guide/index.adoc[developer guide]!
+Take a look at the xref:ROOT:developer-guide/index.adoc[*developer guide*]!
 
-It provides a fairly abstract overview of each feature provided by each {PRODUCT_NAME} application.
-It covers everything from xref:ROOT:developer-guide/index.adoc#documentation[writing documentation] to xref:ROOT:developer-guide/index.adoc#compose[{PRODUCT_NAME} {APP_NAME_COMPOSE}], and it should give you enough knowledge to help you get started with helping out.
+[NOTE]
+====
+The guide gives a fairly *abstract overview* of the {PRODUCT_NAME}.
+The documentation *compliments the source code*.
+====
+
+We cover things from xref:developer-guide/documentation/index.adoc[*writing documentation*], to xref:developer-guide/building.adoc[*build pipelines*], and *core system features*.
 
 [NOTE]
 ====
 If you have any questions or are stuck, don't hesitate to get in touch with us on the https://latest.{DOMAIN}[community {PRODUCT_NAME} instance]!
 ====
 
-// === I need something, but it's not in the core
+// == I need something, but it's not in the core
 
 // {PRODUCT_NAME} provides a set of link:extensions/index.html[official extensions] that are developed and maintained by the {PRODUCT_NAME} team.
 
@@ -76,35 +81,45 @@ If you have any questions or are stuck, don't hesitate to get in touch with us o
 // Take a look at the link:integrator-guide/index.html[integrator guide] to make it yourself, or get in touch with us -- we'll figure something out!
 // ====
 
-== I am stuck... I need some examples
+== Samples and examples
 
-Take a look at our xref:ROOT:examples/index.adoc[examples]!
+[WARNING]
+====
+Learning from examples is *completely valid*, but we recommend that you *firstly study the guides* that are relevant to you.
+*Assuming what something does* can be *dangerous*.
+====
 
-We have examples for working with the xref:ROOT:examples/system-api/index.adoc[System API], xref:ROOT:examples/system-api/index.adoc[Compose API], and automation script development.
-They should give you enough knowledge to help you get started.
+Take a look at our *examples*!
+
+We have examples for working with the xref:ROOT:examples/system-api/index.adoc[*System API*], xref:ROOT:examples/compose-api/index.adoc[*Compose API*], and automation script development.
+
+We also have some xref:integrator-guide/samples/index.adoc[*extension development samples*] in the integrator guide.
+
+To top it off, some examples for xref:dev-ops-guide/setup-local-demo.adoc[*local*] and xref:dev-ops-guide/setup-production.adoc[*production*] *{PRODUCT_NAME} deployment*.
 
 [NOTE]
 ====
-Still stuck?
+Do you need help?
 Get in touch with us on the https://latest.{DOMAIN}[community {PRODUCT_NAME} instance]!
 ====
 
-== I would like to upgrade my instance -- what do I need to do?
+== Upgrading {PRODUCT_NAME}
 
 [IMPORTANT]
 ====
-When upgrading, you should always firstly go over the xref:ROOT:changelog/index.adoc[changelog] and the xref:ROOT:upgrade-guide/index.adoc[upgrade guide].
-Versions may not be backwards compatible and may need some additional work to get setup.
+When upgrading, you should always firstly go over the xref:ROOT:changelog/index.adoc[*changelog*] and the xref:ROOT:upgrade-guide/index.adoc[*upgrade guide*].
+
+Versions may *not be backwards compatible* and may need some additional work to get setup.
 ====
 
-To upgrade from 2020.6, you can use xref:ROOT:changelog/202009.adoc[this changelog] and xref:ROOT:upgrade-guide/202009.adoc[this upgrade guide].
+To upgrade from 2020.6, you can use xref:ROOT:changelog/202009.adoc[*this changelog*] and xref:ROOT:upgrade-guide/202009.adoc[*this upgrade guide*].
 
-You can find all of the changelogs xref:ROOT:changelog/index.adoc[here], and all of the upgrade guides xref:ROOT:upgrade-guide/index.adoc[here].
+You can find all of the changelogs xref:ROOT:changelog/index.adoc[*here*], and all of the upgrade guides xref:ROOT:upgrade-guide/index.adoc[*here*].
 
-== This is exciting! What's in store for the future?!
+// == What's in store for the future?
 
-We're glad you asked!
-Here are the big xref:ROOT:rfc/index.adoc[features we are working on].
+// We're glad you asked!
+// Here are the big xref:ROOT:rfc/index.adoc[*features we are working on*].
 
 // This is our roadmap for the near future:
 

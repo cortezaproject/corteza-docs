@@ -1,24 +1,27 @@
 include::modules/ROOT/pages/variables.adoc[]
 
 * xref:dev-ops-guide/index.adoc[DevOps Guide]
-** xref:dev-ops-guide/structure-overview.adoc[Structure Overview]
+** xref:dev-ops-guide/architecture-overview.adoc[Structure Overview]
 ** xref:dev-ops-guide/system-requirements.adoc[System Requirements]
 ** xref:dev-ops-guide/docker-compose.adoc[Docker Compose]
-** xref:dev-ops-guide/server-configuration/index.adoc[]{PRODUCT_NAME} Server Configuration
-** xref:dev-ops-guide/corredor-configuration.adoc[]{APP_AUTOMATION} Server Configuration
+** Configuration
+*** xref:dev-ops-guide/server-configuration/index.adoc[Server]
+*** xref:dev-ops-guide/corredor-configuration.adoc[Corredor Server]
 ** xref:dev-ops-guide/cli.adoc[CLI Tool]
-** xref:dev-ops-guide/setup-local-demo.adoc[Local Setup]
-** xref:dev-ops-guide/nginx-proxy.adoc[Nginx Proxy Configuration]
-** xref:dev-ops-guide/setup-production.adoc[Production setup]
-** xref:dev-ops-guide/email-relay.adoc[Relaying Inbound Emails]
+** Example Setup
+*** xref:dev-ops-guide/setup-local-demo.adoc[Local Setup]
+*** xref:dev-ops-guide/nginx-proxy.adoc[Nginx Proxy Configuration]
+*** xref:dev-ops-guide/setup-production.adoc[Production setup]
+** xref:dev-ops-guide/health-check.adoc[Health Check]
+** Automation Scripts
+*** xref:dev-ops-guide/email-relay.adoc[Relaying Inbound Emails]
 ** xref:dev-ops-guide/backup.adoc[Backups]
 
 * xref:end-user-guide/index.adoc[End-user Guide]
-// ** xref:end-user-guide/getting-started.adoc[Getting started]
-** xref:end-user-guide/messaging/index.adoc[]{PRODUCT_NAME} {APP_NAME_MESSAGING}
-** xref:end-user-guide/shell/index.adoc[]{PRODUCT_NAME} {APP_NAME_SHELL}
 ** xref:end-user-guide/crm/index.adoc[]{PRODUCT_NAME} CRM
 ** xref:end-user-guide/service-solution/index.adoc[]{PRODUCT_NAME} {CRM} Service Solution
+** xref:end-user-guide/messaging/index.adoc[]{PRODUCT_NAME} {APP_NAME_MESSAGING}
+** xref:end-user-guide/shell/index.adoc[]{PRODUCT_NAME} {APP_NAME_SHELL}
 
 * xref:administrator-guide/index.adoc[Administrator Guide]
 ** xref:administrator-guide/security.adoc[Security]
@@ -36,10 +39,16 @@ include::modules/ROOT/pages/variables.adoc[]
 ** xref:integrator-guide/samples/index.adoc[Samples]
 
 * xref:developer-guide/index.adoc[Developer Guide]
+** xref:developer-guide/documentation/index.adoc[Documentation]
 ** xref:developer-guide/building.adoc[Build Pipelines]
 ** xref:developer-guide/release-cycle/index.adoc[Release Cycle]
-** xref:developer-guide/documentation/index.adoc[Documentation]
-** xref:developer-guide/store/index.adoc[]{PRODUCT_NAME} Store
+** HTTP API
+*** xref:developer-guide/sink-routes.adoc[Sink Routes]
+** Data and Storage
+*** xref:developer-guide/store/index.adoc[]{PRODUCT_NAME} Store
+*** xref:developer-guide/pagination.adoc[Pagination]
+** Security and Access
+*** xref:developer-guide/impersonation.adoc[Impersonation]
 ** xref:developer-guide/compose/index.adoc[]{PRODUCT_NAME} {APP_NAME_COMPOSE}
 ** xref:developer-guide/extensions/index.adoc[Extensions]
 
@@ -55,14 +64,13 @@ include::modules/ROOT/pages/variables.adoc[]
 ** xref:extensions/pexels/index.adoc[Pexels]
 ** xref:extensions/unsplash/index.adoc[Unsplash]
 
-* xref:examples/index.adoc[Examples]
-** xref:examples/system-api/index.adoc[System API]
-** xref:examples/compose-api/index.adoc[Compose API]
-** xref:examples/server-scripts/index.adoc[Server Scripts]
-** xref:examples/client-scripts/index.adoc[Client Scripts]
-
-* xref:rfc/index.adoc[RFC]
-** xref:rfc/federation/index.adoc[Federation]
+* Examples
+** Working with APIs
+*** xref:examples/system-api/index.adoc[System API]
+*** xref:examples/compose-api/index.adoc[Compose API]
+** Extensions
+*** xref:examples/server-scripts/index.adoc[Server Scripts]
+*** xref:examples/client-scripts/index.adoc[Client Scripts]
 
 ---
 

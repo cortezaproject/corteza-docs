@@ -17,7 +17,7 @@ The CRM extension implements the xref:ROOT:extensions/crm/index.adoc[*CRM*] appl
 
 == Service Solution (built-in)
 
-The Service Solution extension implements the xref:ROOT:extensions/crm/index.adoc[*Service Solution*] application.
+The Service Solution extension implements the xref:ROOT:extensions/service-solution/index.adoc[*Service Solution*] application.
 
 // @todo
 // == PhoneBurner

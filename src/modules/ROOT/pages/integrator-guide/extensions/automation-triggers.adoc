@@ -43,7 +43,7 @@ Refer to xref:ROOT:integrator-guide/resource-events-reference.adoc[resources and
 | *Deferred*
 
 _Server script only_, _requires explicit security context_
-a | The system triggers these *sometime in the future*; either *periodically* (define with *cron expressions*), or *at a timestamp* (use *ISO 8601*; this one: `YYYY-MM-DDThh:mm:ssZ`).
+a| The system triggers these *sometime in the future*; either *periodically* (define with *cron expressions*), or *at a timestamp* (use *ISO 8601*; this one: `YYYY-MM-DDThh:mm:ssZ`).
 
 Use deferred triggers when you want to *repeat something* or *do something in the future*; such as recurring payments or sending holiday newsletters to your subscribers.
 
@@ -57,8 +57,13 @@ The scheduler acts *once per minute*, so that is the maximum accuracy {PRODUCT_N
 _Server script only_, _requires explicit security context_
 a| These are triggered by the system *when it receives a request*; either *HTTP*, or *email*.
 
-Use sink triggers when you want to *respond to requests*; such as webhooks or custom API endpoints.
+Use sink triggers when you want to *respond to requests*; such as *webhooks for external services* or *custom API endpoints*.
+For example *capturing data from external forms*, *tracking external document changes*, and *capturing payments*.
 
+[NOTE]
+====
+We recommend you use the *REST API* whenever possible.
+====
 |===
 
 == Defining the resource

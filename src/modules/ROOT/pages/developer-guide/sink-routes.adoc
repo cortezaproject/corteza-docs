@@ -1,30 +1,41 @@
 include::../variables.adoc[]
 
-= Sink routes, inbound webhooks or incoming HTTP requests
+= Sink routes -- inbound webhooks
 
-Besides responding to events, triggered when resource is created or changed, {PRODUCT_NAME} can handle incoming HTTP requests.
+A special resource type that {PRODUCT_NAME} supports is xref:ROOT:integrator-guide/resource-events-reference.adoc#_systemsink[system sink (`system:sink`)] that is used to *respond to API requests*.
+You can use the sink route to *implement webhooks*; for example, the OAuth flow.
+
+[NOTE]
+====
+This *document focuses* mainly on the HTTP *request handling*.
+Script *invocation and execution* are covered in the xref:developer-guide/extensions/index.adoc[extensions] section.
+====
 
 == Security model
 
 === Authentication with signature
 
-Sink URL MUST be signed for security. Signature is based on the sink parameters and constraints.
-It's salted with secret used for JWT tokens.
+Each sink URL *must be signed* for security purposes.
+The signature is generated based on the parameters (*path* and *constraints*) and salted with the xref:ROOT:dev-ops-guide/server-configuration/index.adoc#_auth_jwt_secret[JWT secret].
 
-See the described procedure for  xref:ROOT:dev-ops-guide/cli.adoc#_create_sink_signature[sink signature creation].
+Refer to the xref:ROOT:dev-ops-guide/cli.adoc#_sink_signature[CLI command] for details.
 
 [NOTE]
 ====
-Alternative ways to secure sink URLs will be provided in the future.
+{PRODUCT_NAME} will provide alternative ways of securing sink URLs.
 ====
 
 === Automation script security context
 
-Automation scripts triggered by HTTP request must have run-as user defined in the trigger definition.
-Without it {PRODUCT_NAME} does not know who is running the script and what permissions apply.
-See how xref:ROOT:integrator-guide/extensions/security-context.adoc[security context] works in automation scripts.
+When an HTTP request triggers a script, we are *unable to determine* who is the *invoking user*.
+Because of this, you *need to specify* the invoking user for the security context (the `runAs` parameter).
 
-.request flow when invoking sink endpoint from HTTP layer to Corredor
+[NOTE]
+====
+See how xref:ROOT:integrator-guide/extensions/security-context.adoc[security context] works in automation scripts.
+====
+
+.The diagram outlines the complete event life cycle from it's invocation to script execution.
 [plantuml,diagram-name-here,svg,role=sink-request]
 ----
 @startuml
@@ -76,43 +87,27 @@ deactivate Ext
 @enduml
 ----
 
-[NOTE]
-====
-This document focuses on HTTP and sink request handlers and on Corredor automation scripts.
-Eventbus and event handler do not have any special effect or influence over how sink requests are handled.
-====
-
 == HTTP request handler
 
-HTTP request is validate and converted into Sink request.
+The HTTP request handler *validates the request* and *converts* it into a *sink request*.
 
-Validation process steps:
+.The flow outline:
+. check if the signature is provided,
+. check if the signature is valid,
+. check if *enforced constraints* match the request parameters:
+** HTTP method,
+** content-type,
+** expiration time,
+** maximum body size, and so on.
 
-. Is signatue provided?
-. Is signature is valid?
-. Is HTTP method enforced and does the used method match?
-. Is `Content-Type` header enforced and does it match?
-. Is path part of the URL enforced and does it match?
-. Is expiration time set and is it expired?
-. Is max request body size enforced and does the request fit?
+If the above *validation passes*, the request *becomes a sink request* and is processed as any other event.
+
 == Sink processor
 
-Creates a new event from sink request.
+The sink processor takes the HTTP request and converts it *into an event* that can trigger automation script on the {APP_AUTOMATION} server.
 
-When request sent with `message/rfc822`, `rfc822`, `email` or `mail` as `Content-Type` header `OnReceive` on `system:mail` event is raised.
-In any other case `OnRequest` event on `system:sink` resource is raised.
+The most important thing to *note here*, is that there are *slight deviations* based on the *content-type of the request*.
+When the request *indicates an email* (`message/rfc822`, `rfc822`, `email` or `mail` as the `Content-Type`), the `OnReceive` xref:ROOT:integrator-guide/resource-events-reference.adoc#_systemmail[system mail (`system:mail`)] event is raised.
+Any other case, the `OnRequest` xref:ROOT:integrator-guide/resource-events-reference.adoc#_systemsink[system sink (`system:sink`)] event is raised.
 
-When response is returned from the event handler, sink processor can use it to configure the response headers and body
-
-== Event Handler
-
-When new automation script is registered it creates an event handlers that connect event to the automation script.
-Additional constraints can be configured that filter the events that actually trigger the script, like path, request method (GET, POST) and headers.
-See xref:ROOT:integrator-guide/constraint-resources/system/mail.adoc[mail] and xref:ROOT:integrator-guide/constraint-resources/system/sink.adoc[sink] constraints for the complete list.
-
-== Corredor automation scripts
-
-Automation scripts, triggered by sink request can process it and return a response.
-Although it's not recommended, a fully functional web application could be built using only sink request/response capabilities.
-
-Please refer to the xref:ROOT:integrator-guide/sink-scripts.adoc#_sink_scripts[integration guide] to learn more about automation scripts for handling sink requests.
+The sink processor also *constructs the proper response* (headers and body) *based on the request*.

@@ -31,7 +31,7 @@ include::modules/ROOT/pages/variables.adoc[]
 ** xref:integrator-guide/security.adoc[Security]
 ** xref:integrator-guide/data-model/index.adoc[Data Model]
 ** xref:integrator-guide/extensions/index.adoc[Extensions]
-** xref:integrator-guide/resource-events-reference/index.adoc[Resource Events]
+** xref:integrator-guide/resource-events-reference.adoc[Resource Events]
 ** xref:integrator-guide/resource-constraints-reference/index.adoc[Resource Constraints]
 ** xref:integrator-guide/samples/index.adoc[Samples]
 

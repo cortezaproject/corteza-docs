@@ -45,9 +45,9 @@ See the *xref:ROOT:integrator-guide/extensions/index.adoc[extensions section]* t
 
 == References
 
-*Refer to xref:ROOT:integrator-guide/resource-events-reference/index.adoc[resource events]* for a complete *list of events* your scripts *can listen for*.
+Refer to xref:ROOT:integrator-guide/resource-events-reference.adoc[*resource events*] for a complete *list of events* your scripts *can listen for*.
 
-*Refer to xref:ROOT:integrator-guide/resource-constraints-reference/index.adoc[resource constraints]* for a complete *list of resource constraints* you can use.
+Refer to xref:ROOT:integrator-guide/resource-constraints-reference/index.adoc[*resource constraints*] for a complete *list of resource constraints* you can use.
 
 == Samples
 

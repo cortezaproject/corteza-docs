@@ -99,7 +99,7 @@ interface ScriptFn {
 == Execution arguments
 
 The *arguments* (`args`) differ based on the *event that triggered* the automation script.
-Refer to xref:ROOT:integrator-guide/resource-events-reference/index.adoc[resources and events] for a complete list.
+Refer to xref:ROOT:integrator-guide/resource-events-reference.adoc[resources and events] for a complete list.
 
 Arguments to a client-script are provided via *references* to the original objects, meaning that *any change* to the argument parameter *will reflect* to the original object.
 

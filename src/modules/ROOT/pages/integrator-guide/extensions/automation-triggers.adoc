@@ -38,7 +38,7 @@ a| These are *implicitly triggered* based on *system events*.
 
 Use implicit triggers when you wish to *automatically do something* when another thing occurs; such as sending an email when you register a new user; or adding a changelog entry when the content changes.
 
-Refer to xref:ROOT:integrator-guide/resource-events-reference/index.adoc[resources and events] for a complete list.
+Refer to xref:ROOT:integrator-guide/resource-events-reference.adoc[resources and events] for a complete list.
 
 | *Deferred*
 
@@ -64,7 +64,7 @@ Use sink triggers when you want to *respond to requests*; such as webhooks or cu
 == Defining the resource
 
 The defined resource specifies *the resource* the automation *script is executed* for; for example a *record*, *module*, and *user*.
-Refer to xref:ROOT:integrator-guide/resource-events-reference/index.adoc[resources and events] for a complete list.
+Refer to xref:ROOT:integrator-guide/resource-events-reference.adoc[resources and events] for a complete list.
 
 This is done by specifying *a single `.for(...)`* call.
 

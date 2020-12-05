@@ -17,7 +17,7 @@ include::documentation/index.adoc[]
 
 include::store/index.adoc[]
 
-include::pagination/index.adoc[]
+include::pagination.adoc[]
 
 include::compose/index.adoc[]
 

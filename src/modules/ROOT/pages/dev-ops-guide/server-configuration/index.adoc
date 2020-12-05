@@ -27,37 +27,6 @@ When you are using Docker Compose, you must explicitly reference the environment
 You can use variables defined in the `.env` inside your `docker-compose.yaml` file; for example `$\{VERSION\}`.
 ====
 
-== Base configuration
-
-These variables control the base {PRODUCT_NAME} configurations, such as the port and the database DSN.
-
 :leveloffset: +1
-include::option_env_variables_gen.adoc[]
+include::ROOT:partial$generated/env-options.gen.adoc[]
 :leveloffset: +-
-
-== Provisioning
-
-Provisioning allows you to configure a {PRODUCT_NAME} instance when deployed.
-It occurs automatically after the {PRODUCT_NAME} server starts.
-
-[IMPORTANT]
-====
-We recommend you to keep provisioning enabled as it simplifies version updates by updating the database and updating settings.
-
-If you're doing local development or some debugging, you can disable this.
-====
-
-include::env-provision-base.adoc[]
-
-=== Provision authentication settings
-
-include::env-provision-auth.adoc[]
-
-=== Provision OIDC providers
-
-include::env-provision-oidc.adoc[]
-
-=== Provision other external provider
-
-include::env-provision-external.adoc[]
-

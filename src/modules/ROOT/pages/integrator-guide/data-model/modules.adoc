@@ -325,6 +325,115 @@ When editing, the field is a file uploader; when viewing, it's one of the config
 
 |===
 
+[#compose-module-field-expressions]
+== Module field expressions
+
+*Module field expressions* let you define *value expressions* (formula fields), *custom sanitizers*, and *custom validators*.
+
+[TIP]
+====
+Use *value expressions* instead of automation scripts *when you need simple calculations*.
+It is *much faster* and *simpler to maintain*.
+====
+
+[cols="1s,5a"]
+|===
+| [#field-expr-value-expr]#<<field-expr-value-expr,Value expressions>>#
+| Value expressions *calculate the field value* based on the rest of the field values.
+
+[NOTE]
+====
+Currently, you can only use values *of the current record*.
+References are not yet supported.
+====
+
+If the value expression *evaluation results in an error*, the errors are appended to the *field error set* (in the *web application* they are shown *under the field*).
+
+[IMPORTANT]
+====
+Use the <<field-expr-validators,custom validators>> for value validation.
+====
+
+If your field is a *multi-value field*, you need to return *an array of items*.
+
+.Available variables in the evaluation context:
+* `old`: record object with old values (empty when creating).
+* `new`: record object with current field values.
+* `<field-name>`: a string or array of strings with current field values.
+
+If *field name collides with* (they have the same name) any of *reserved variables* you can access them via `old.values.<field-name>`.
+
+.Example expression that calculates the price with tax:
+[source]
+----
+price * 1.25
+----
+
+.Example expression that generates a full name:
+[source]
+----
+trim(firstName + " " + lastName)
+----
+
+.Example of a multi-value expression evaluation:
+[source]
+----
+["foo", "bar", "baz"]
+----
+
+| [#field-expr-sanitizers]#<<field-expr-sanitizers,Sanitizers>>#
+| Sanitizers *modify the field value* to cleanup (sanitize) the data before it is saved.
+
+If the sanitizer *evaluation results in an error*, the error is logged in the action log.
+
+If you define *multiple sanitizers*, they are *run in the defined order*.
+
+.Example sanitizer that limits the text length:
+[source]
+----
+length(value) > 5 ? substr(value, 0, 5) + "..." : value
+----
+
+.Available variables in the evaluation context:
+* `value`: the current field value.
+
+| [#field-expr-validators]#<<field-expr-validators,Validators>>#
+| Validators *validate the field value* by *raising errors* when the value is not valid.
+Validators *can not change the value*.
+
+*Built-in field validators* can be disabled; *required and unique-multi-value validators* can not be disabled.
+
+If you define *multiple validators*, they are *run in the defined order*.
+
+[IMPORTANT]
+====
+The field validation step errors out when *first error occurs*.
+
+If we define validators `A`, `B`, and `C`, and the validator `A` raises an error; validators `B` and `C` are not evaluated.
+====
+
+.Validation expressions are not executed when:
+* the value is not changed,
+* the value is missing.
+
+[TIP]
+====
+Use the required flag to check for required values.
+====
+
+.Available variables in the evaluation context:
+* `value`: the current field value,
+* `oldValue`: the old field value,
+* `values`: all current field values (`values.<field-name>`).
+
+.Example validator to check the text length:
+[source]
+----
+length(title) < 5
+----
+
+|===
+
 == Permissions for all modules
 
 include::ROOT:partial$permissions/compose-modules.adoc[]

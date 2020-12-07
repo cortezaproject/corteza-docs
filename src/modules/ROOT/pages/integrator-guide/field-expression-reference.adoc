@@ -1,0 +1,180 @@
+= Field expression function reference
+
+== General functions
+
+=== `coalesce`
+
+Signature::
+    `coalesce(arg1, arg2, ...argN)`
+Description::
+    The function returns the first non `null` value.
+Example::
+    `coalesce(null, 0, 1, 2)` results in 0
+
+== Number functions
+
+=== `min`
+
+Signature::
+    `min(arg1, arg2, ...argN)`
+Description::
+    The function returns item with the lowest value.
+Example::
+    `min(0, 1, 2)` results in 0
+
+=== `max`
+
+Signature::
+    `max(arg1, arg2, ...argN)`
+Description::
+    The function returns item with the highest value.
+Example::
+    `max(0, 1, 2)` results in 2
+
+=== `round`
+
+Signature::
+    `round(number, digits)`
+Description::
+    The function rounds a floating point number to the specified number of digits.
+Example::
+    `round(3.14, 1)` results in 3.1
+
+=== `floor`
+
+Signature::
+    `floor(number)`
+Description::
+    The function rounds number down to the nearest integer.
+Example::
+    `floor(3.14)` results in 3
+
+=== `ceil`
+
+Signature::
+    `ceil(number)`
+Description::
+    The function rounds number up to the nearest integer.
+Example::
+    `ceil(3.14)` results in 4
+
+== Text functions
+
+=== `trim`
+
+Signature::
+    `trim(string)`
+Description::
+    The function removes spaces at the beginning and at the end of the string.
+Example::
+    `trim(" foo ")` results in "foo"
+
+=== `trimLeft`
+
+Signature::
+    `trimLeft(string, character)`
+Description::
+    The function removes character from the beginning of the string.
+Example::
+    `trim(" foo ", " ")` results in "foo "
+
+=== `trimRight`
+
+Signature::
+    `trimRight(string, character)`
+Description::
+    The function removes character from the end of the string.
+Example::
+    `trim(" foo ", " ")` results in " foo"
+
+=== `toLower`
+
+Signature::
+    `toLower(string)`
+Description::
+    The function converts all characters to lowercase.
+Example::
+    `toLower("FOO")` results in "foo"
+
+=== `toUpper`
+
+Signature::
+    `toUpper(string)`
+Description::
+    The function converts all characters to uppercase.
+Example::
+    `toUpper("foo")` results in "FOO"
+
+=== `shortest`
+
+Signature::
+    `shortest(arg1, arg2, ...argN)`
+Description::
+    The function returns the shortest string.
+Example::
+    `shortest("foo", "foobar")` results in "foo"
+
+=== `longest`
+
+Signature::
+    `longest(arg1, arg2, ...argN)`
+Description::
+    The function returns the longest string.
+Example::
+    `longest("foo", "foobar")` results in "foobar"
+
+== Date time functions
+
+=== `strftime`
+
+Signature::
+    `strftime(datetime, format)`
+Description::
+    The function returns DateTime string for the specified date and format.
+Example::
+    `strftime(datefield, "%Y-%m-%d")` results in "1970-01-01"
+
+=== `modTime`
+
+Signature::
+    `modTime(datetime, duration)`
+Description::
+    The function returns modified DateTime string.
+Example::
+    `modTime(datefield, "+30m")` results in "1970-01-01T00:30:00"
+
+=== `parseISOTime`
+
+Signature::
+    `parseISOTime(datetime)`
+Description::
+    The function returns parsed ISO DateTime string.
+Example::
+    `parseISOTime(datefield)` results in "1970-01-01T00:00:00+00:00"
+
+=== `parseDuration`
+
+Signature::
+    `parseDuration(duration)`
+Description::
+    The function returns parsed duration.
+Example::
+    `parseDuration("2h")` results in "2h0m0s"
+
+=== `earliest`
+
+Signature::
+    `earliest(arg1, arg2, ...argN)`
+Description::
+    The function returns earliest DateTime.
+Example::
+    `earliest(datefield1, datefield2)` results in "1970-01-01T00:00:00"
+
+=== `latest`
+
+Signature::
+    `latest(arg1, arg2, ...argN)`
+Description::
+    The function returns latest DateTime.
+Example::
+    `latest(datefield1, datefield2)` results in "1970-01-01T00:30:00"

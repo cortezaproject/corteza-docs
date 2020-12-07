@@ -34,8 +34,10 @@ include::modules/ROOT/pages/variables.adoc[]
 ** xref:integrator-guide/security.adoc[Security]
 ** xref:integrator-guide/data-model/index.adoc[Data Model]
 ** xref:integrator-guide/extensions/index.adoc[Extensions]
-** xref:integrator-guide/resource-events-reference.adoc[Resource Events]
-** xref:integrator-guide/resource-constraints-reference/index.adoc[Resource Constraints]
+** References
+*** xref:integrator-guide/resource-events-reference.adoc[Resource Events]
+*** xref:integrator-guide/resource-constraints-reference/index.adoc[Resource Constraints]
+*** xref:integrator-guide/field-expression-reference.adoc[Field Expression Functions]
 ** xref:integrator-guide/samples/index.adoc[Samples]
 
 * xref:developer-guide/index.adoc[Developer Guide]
@@ -50,7 +52,8 @@ include::modules/ROOT/pages/variables.adoc[]
 *** xref:developer-guide/resource-labeling.adoc[Resource Labelling]
 ** Security and Access
 *** xref:developer-guide/impersonation.adoc[Impersonation]
-** xref:developer-guide/compose/index.adoc[]{PRODUCT_NAME} {APP_NAME_COMPOSE}
+** Corteza Compose
+*** xref:developer-guide/compose/module-field-expressions.adoc[Module Field Expressions]
 ** xref:developer-guide/extensions/index.adoc[Extensions]
 
 * xref:extensions/index.adoc[Extensions]

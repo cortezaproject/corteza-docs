@@ -5,7 +5,7 @@ include::../../variables.adoc[]
 
 [NOTE]
 ====
-*DevNote* Add some insight in debugging failing scripts.
+*DevNote*: Add some insight in debugging failing scripts.
 ====
 
 == Why is this script not valid?

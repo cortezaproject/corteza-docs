@@ -1,7 +1,7 @@
-| Metric
+| [#page-block-metric]#<<page-block-metric,Metric>>#
 | *Metric page blocks* display some *calculated number* based on the *data in your namespace*.
 
-You can use metric page blocks to show things like the *total number of leads* or the * months' revenue*.
+You can use metric page blocks to show things like the *total number of leads* or the *months' revenue*.
 
 .Configuration options:
 Label::

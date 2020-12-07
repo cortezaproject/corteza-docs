@@ -2,14 +2,9 @@ include::../../variables.adoc[]
 
 = {PRODUCT_NAME} {APP_NAME_ADMIN}
 
-The *administrator panel* provides a quick *overview of the system*, <<admin-panel-user,*user*>> and <<admin-panel-system-roles,*role*>> management, permission and settings overview.
+The *administrator panel* provides a quick *overview of the system*; <<admin-panel-user,*user*>> and <<admin-panel-system-roles,*role*>> management; *permission* and *settings* overview.
 
 To access {PRODUCT_NAME} {APP_NAME_ADMIN}, click on a new tab and select it from the list of available applications.
-
-[IMPORTANT]
-====
-You must have *Administrator rights* to access and edit this part of the system.
-====
 
 :leveloffset: +1
 
@@ -28,5 +23,7 @@ include::settings.adoc[]
 include::permissions.adoc[]
 
 include::automation.adoc[]
+
+include::external-auth-providers.adoc[]
 
 :leveloffset: -1

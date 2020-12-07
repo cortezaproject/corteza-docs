@@ -61,7 +61,7 @@ You can use `docker-compose logs -t --tail 100 -f corredor` to see if the extens
 
 If you are using *git and a repository*, we suggest you use that.
 *Clone* the repository *onto your server* (into the volume mentioned above).
-You can then *pull the changes*.
+You can then *pull the changes* whenever the source code changes.
 
 [NOTE]
 ====

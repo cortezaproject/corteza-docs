@@ -27,7 +27,7 @@ export interface Script {
 
 [IMPORTANT]
 ====
-*One automation* script *per file*.
+One automation script per file.
 ====
 
 .You can use this template for the most common operations:

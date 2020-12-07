@@ -6,37 +6,34 @@ One of the *main focus* when working with data in the enterprise environment is 
 
 {PRODUCT_NAME} takes this seriously and defines a *powerful permission system* that allows you to *control access to any resource*, being an application or a single module field.
 
-== Roles
+== Users and Roles
 
-{PRODUCT_NAME} uses *Role-based access control* (RBAC), meaning that we can specify *what roles* are allowed to *access specific resources*.
-When a user is *assigned a role*, they automatically *inherit the permissions* defined by the role.
+{PRODUCT_NAME} uses *Role-based access control* (RBAC), meaning that we define access control *permissions to roles* (we specify *what roles* are allowed to access *what resources*).
+
+When a *role is assigned to a user*, the user inherits the permissions defined on the roles.
 
 [NOTE]
 ====
 Every user is *automatically a member* of the "*Everyone*" role.
-The role is *restricting*.
 ====
 
 [IMPORTANT]
 ====
-The *first registered user* (usually the one responsible for setting up a {PRODUCT_NAME} instance) is assigned an "*Administrator*" role.
+The *first registered user* is assigned an "*Administrator*" role.
 ====
 
 .Each permission rule can be in one of the three states:
-Allow::
-    The role is allowed to access the specified resource.
-Deny::
-    The role is *not* allowed to access the specified resource.
-Inherit::
-    The role is allowed to access the specific resource, *if* they are permitted to access *all resources of that type*.
-    The same applies to denying access.
-    For example:
-    `Role A` wishes to access `namespace A` with an *inherit* permission.
-    If `role A` can *access any namespace*, they are allowed access.
+* *allow*: the role is *allowed to access* the specified resource.
+* *deny*: the role is *not allowed to access* the specified resource.
+* *inherit*: the role is *allowed to access* the specific resource when they are permitted to access *all resources of that type*.
+The same applies to denying access.
+For example:
+`Role A` wishes to access `namespace A` with an *inherit* permission.
+If `role A` can *access any namespace*, they are allowed access.
 
 [TIP]
 ====
-It's good practice to *limit your users* a much as possible to *avoid security breaches*.
+It's good practice to *limit your users* a much as possible to help *avoid security breaches*.
 ====
 
 == Access control check flow
@@ -54,7 +51,7 @@ A *step is positive* when there is at least one role that is *explicitly allowed
 If a *step is undetermined* (inherit), *the checking continues*.
 If *all steps are undetermined*, the *system default* is used -- in most cases this is *deny*.
 
-== Modular approach
+== Modular design
 
 We suggest a *modular role design*, where we define *multiple roles* with a *smaller set* of permissions.
 For example:
@@ -67,5 +64,6 @@ Then we can easily "stick" these roles together when creating users.
 
 [NOTE]
 ====
-There is *no limit* to the number of available roles or to the number of members a role can have.
+There are no limitations to how many roles we can have, but *don't go overboard*.
+Having a new *role for each rule* will be a *nightmare for maintaining*.
 ====

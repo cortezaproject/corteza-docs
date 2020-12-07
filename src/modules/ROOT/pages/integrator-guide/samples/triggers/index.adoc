@@ -32,6 +32,7 @@ triggers ({ after }) {
 },
 ----
 
+[#sample-trigger-deferred-interval]
 == Deferred (interval)
 
 [source,js]
@@ -43,7 +44,8 @@ triggers ({ on }) {
 },
 ----
 
-== Deferred (interval)
+[#sample-trigger-deferred-timestamp]
+== Deferred (timestamp)
 
 [source,js]
 ----

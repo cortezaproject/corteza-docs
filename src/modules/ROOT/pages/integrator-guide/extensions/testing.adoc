@@ -17,6 +17,7 @@ We usually use https://www.chaijs.com/[Chai], https://mochajs.org/[Mocha], https
 *DevNote* provide some more examples for other frameworks?
 ====
 
+[#extension-test-setup-mc]
 == An example setup
 
 .The file structure (yes, yes; the sources are below):

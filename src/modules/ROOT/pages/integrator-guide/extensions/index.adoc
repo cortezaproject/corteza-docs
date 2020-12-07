@@ -4,6 +4,11 @@ include::../../variables.adoc[]
 
 We define a set of *automation scripts*, *resources* and *other assets* (*data model definitions* and *configurations*) as an extension.
 
+[TIP]
+====
+You can use our xref:ROOT:integrator-guide/samples/index.adoc[*samples*], and <<extension-test,*testing template*>> to get setup faster.
+====
+
 .To define a new extension, firstly *initialize a new node.js project* and define the *appropriate file structure*:
 [source,text]
 ----
@@ -42,11 +47,6 @@ When defining *utilities* (and other _tool functions_) inside the `/server-scrip
 
 Most of the time, they will be *invalid*.
 Use the `/shared` directories, or define a `/lib` (or similar) at the *root of the extension*.
-====
-
-[TIP]
-====
-You can use our xref:ROOT:integrator-guide/samples/index.adoc[*samples*], and <<extension-test,*testing template*>> to get setup faster.
 ====
 
 :leveloffset: +1

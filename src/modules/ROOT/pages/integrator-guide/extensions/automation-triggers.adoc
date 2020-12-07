@@ -2,13 +2,13 @@ include::../../variables.adoc[]
 
 = Automation triggers
 
-*Automation triggers* (*trigger*) let you define *when* the script should *run* (along with some extra bits).
+*Automation triggers* (*trigger*) let you define *when* the script should be *executed* (along with some extra bits).
 
 See xref:ROOT:integrator-guide/samples/triggers/index.adoc[trigger samples].
 
 [IMPORTANT]
 ====
-Triggers are evaluated in an *isolated context*, outside of any *imports* or *variable definitions*.
+The {APP_AUTOMATION} server evaluates the triggers in an *isolated context*, outside of any *imports* or *variable definitions*.
 The following example will *not* work:
 
 [source,js]
@@ -25,7 +25,7 @@ export default {
 ----
 ====
 
-.{PRODUCT_NAME} defines *explicit*, *implicit*, *deferred*, and *sink* triggers:
+.Available trigger types:
 [cols="1,5"]
 |===
 | *Explicit*
@@ -38,12 +38,14 @@ a| These are *implicitly triggered* based on *system events*.
 
 Use implicit triggers when you wish to *automatically do something* when another thing occurs; such as sending an email when you register a new user; or adding a changelog entry when the content changes.
 
-Refer to xref:ROOT:integrator-guide/resource-events-reference.adoc[resources and events] for a complete list.
+Refer to xref:ROOT:integrator-guide/resource-events-reference.adoc[resources and events] for a complete list of events you can listen for.
 
 | *Deferred*
 
 _Server script only_, _requires explicit security context_
 a| The system triggers these *sometime in the future*; either *periodically* (define with *cron expressions*), or *at a timestamp* (use *ISO 8601*; this one: `YYYY-MM-DDThh:mm:ssZ`).
+
+A sample for an xref:ROOT:integrator-guide/samples/triggers/index.adoc#sample-trigger-deferred-interval[interval], and a xref:ROOT:integrator-guide/samples/triggers/index.adoc#sample-trigger-deferred-timestamp[timestamp].
 
 Use deferred triggers when you want to *repeat something* or *do something in the future*; such as recurring payments or sending holiday newsletters to your subscribers.
 
@@ -69,7 +71,7 @@ We recommend you use the *REST API* whenever possible.
 == Defining the resource
 
 The defined resource specifies *the resource* the automation *script is executed* for; for example a *record*, *module*, and *user*.
-Refer to xref:ROOT:integrator-guide/resource-events-reference.adoc[resources and events] for a complete list.
+Refer to xref:ROOT:integrator-guide/resource-events-reference.adoc[resources and events] for a complete list of available resources.
 
 This is done by specifying *a single `.for(...)`* call.
 
@@ -105,7 +107,7 @@ This is done by chaining a *series of `.where(...)`* calls.
 )
 ----
 <1> The *resource attribute* that the constraint should check; xref:ROOT:integrator-guide/resource-constraints-reference/index.adoc[resource constraints] for a complete list.
-<2> When *2 arguments* are provided, this is the *value to check against*; when *3 arguments* are provided, this is the *<<trigger-comparison-operators>>*.
+<2> When *2 arguments* are provided, this is the *value to check against*; when *3 arguments* are provided, this is the *<<trigger-comparison-operators,comparison operator>>*.
 <3> When provided, this is the *value to check against*.
 
 .An example of chaining constraints:
@@ -121,22 +123,37 @@ triggers ({ before }) {
 ----
 
 [#trigger-comparison-operators]
-=== Available comparison operators:
+.Available comparison operators:
+[cols="1s,5a"]
+|===
+| [#constraint-operator-eq]#<<constraint-operator-eq,Equals (default)>>#
+|
+`eq`, `=`, `==`, `===`
 
-Equals (default)::
-    * `eq`
-    * `=`
-    * `==`
-    * `===`
+[NOTE]
+====
+All of the above operators *work the same*.
+You are free to use whichever you prefer.
+====
 
-Not equals::
-    * `not eq`
-    * `ne`
-    * `!=`
-    * `!==`
+[TIP]
+====
+If you're *checking for equality*, you can *omit the operator*.
+====
 
-Partial comparison::
-    * `like`
+| [#constraint-operator-neq]#<<constraint-operator-neq,Not equals>>#
+|
+`not eq`, `ne`, `!=`, `!==`
+
+[NOTE]
+====
+All of the above operators *work the same*.
+You are free to use whichever you prefer.
+====
+
+| [#constraint-operator-prt]#<<constraint-operator-prt,Partial equals>>#
+|
+`like`
 
 [TIP]
 ====
@@ -145,8 +162,9 @@ Partial comparison::
 * *one character*: `_`, `?`.
 ====
 
-Partial comparison; negated::
-    * `not like`
+| [#constraint-operator-nprt]#<<constraint-operator-nprt,Partial not equals>>#
+|
+`not like`
 
 [TIP]
 ====
@@ -155,16 +173,21 @@ Partial comparison; negated::
 * *one character*: `_`, `?`.
 ====
 
-Regex comparison::
-    * `~`
+| [#constraint-operator-regex]#<<constraint-operator-regex,Regex equals>>#
+|
+`~`
 
-Regex comparison; negated::
-    * `!~`
+
+| [#constraint-operator-nregex]#<<constraint-operator-nregex,Regex not equals>>#
+|
+`!~`
+
+|===
 
 == Automation trigger conventions
 
 Use object destructuring::
-    This helps you shorten the entire thing.
+    Object destructuring helps you shorten the entire thing.
 
 .For example:
 [source,js]

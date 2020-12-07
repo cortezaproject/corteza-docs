@@ -4,7 +4,7 @@ include::../../variables.adoc[]
 
 The *automation* interface provides an overview of *processed automation scripts*.
 
-The automation interface can be used to *debug* any issues *regarding invalid* or *missing automation scripts*.
+The automation interface can be used to *debug* issues *regarding invalid* or *missing automation scripts*.
 
 [NOTE]
 ====
@@ -16,13 +16,11 @@ Refer to xref:ROOT:integrator-guide/extensions/index.adoc#extension-deploy[deplo
 .To list current automation scripts:
 . navigate to the {PRODUCT_NAME} {APP_NAME_ADMIN},
 . click on the "Automation" in the navigation drawer,
-. optionally insert the filtering parameters.
-
-*Invalid automation scripts* provide an *error message*.
+. optionally insert the filtering parameters; the list refreshes automatically.
 
 [NOTE]
 ====
-The list is *filter(ted automatically*.
+*Invalid automation scripts* show an *error message*.
 ====
 
 == Inspecting automation scripts
@@ -34,4 +32,7 @@ The list is *filter(ted automatically*.
 
 You can inspect the automation script *triggers*, *iterators*, and *security context*.
 
-*Invalid automation scripts* provide an *error message*.
+[NOTE]
+====
+*Invalid automation scripts* show an *error message*.
+====

@@ -4,33 +4,36 @@ include::../variables.adoc[]
 
 == {PRODUCT_NAME} Server
 
-.Changes
- - Central importing and exporting subsystem "Envoy" with capabilities to resolve conflicts, dependencies and tak in various data formats
- - Provisioning (based on Envoy) now allows full customization of content to be provisioned
- - Field value expressions (formula fields, custom validators)
- - Resource labels (key-value meta data for filtering and tagging resource with arbitraty strings)
- - Frontend web applications can now be served directly from server (reduces number of containers)
- - API documentation (now as OpenAPI 3) is now served directly from server
- - Upgrade to go v1.15
- - Simplified architecture and internal cross-service comm (no more support for spearated builds for system, messaging and compose)
- - Error creation and handling now allows more verbosity and detail in dev and production mode
- - Cleanup codegen tools and unified all codegen under one package and single strategy
- - Replaced rebuild-on-change dev tool (`realize`) with gin (`github.com/codegangsta/gin`)
- - Replace internal node.js dev tools for reloading (where not gin) with fswatch
- - Moved and refactored RBAC package (was "permissions")
- - Rewritten store ([.line-through]#repository#) layer for flexibility
- - Add support for PostgreSQL and MySQL
- - SQLite3 in-memory replaces MySQL as a default database Corteza
- - Removed organizations data structures, references and (db) tables
- - Ported `pkg/rh` to  `pkg/filters`, removed obsolete "repository-handler" code
- - Moved from SQL based database migrations to code-based migrations
- - Replace offset with key-based pagination
- - Experimental support for federated compose records
- - Experimental support for SCIM protocol
+.Changes:
+* Central importing and exporting subsystem "Envoy" with capabilities to resolve conflicts, dependencies and tak in various data formats.
+* Provisioning (based on Envoy) now allows full customization of content to be provisioned.
+* Field value expressions (formula fields, custom validators).
+* Resource labels (key-value meta data for filtering and tagging resource with arbitraty strings).
+* Frontend web applications can now be served directly from server (reduces number of containers).
+* API documentation (now as OpenAPI 3) is now served directly from server.
+* Upgrade to go v1.15.
+* Simplified architecture and internal cross-service comm (no more support for spearated builds for system, messaging and compose).
+* Error creation and handling now allows more verbosity and detail in dev and production mode.
+* Cleanup codegen tools and unified all codegen under one package and single strategy.
+* Replaced rebuild-on-change dev tool (`realize`) with gin (`github.com/codegangsta/gin`).
+* Replace internal node.js dev tools for reloading (where not gin) with fswatch.
+* Moved and refactored RBAC package (was "permissions").
+* Rewritten store ([.line-through]#repository#) layer for flexibility.
+* Add support for PostgreSQL and MySQL.
+* SQLite3 in-memory replaces MySQL as a default database Corteza.
+* Removed organizations data structures, references and (db) tables.
+* Ported `pkg/rh` to  `pkg/filters`, removed obsolete "repository-handler" code.
+* Moved from SQL based database migrations to code-based migrations.
+* Replace offset with key-based pagination.
+* Experimental support for federated compose records.
+* Experimental support for SCIM protocol.
 
-WARNING: Database tables (`\*\_settings`, `*_permissions`, `sys_*`) are renamed, merged and/or removed.
+[WARNING]
+====
+Database tables (`\*\_settings`, `*_permissions`, `sys_*`) are renamed, merged and/or removed.
 Database schema upgrade is irreversible.
 Make sure you backup your data before doing an upgrade.
+====
 
 .Contributors:
 . Denis Arh

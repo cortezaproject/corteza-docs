@@ -1,4 +1,4 @@
-| Automation
+| [#page-block-automation]#<<page-block-automation,Automation>>#
 | An *automation page block* allows your users to trigger explicit automation scripts.
 
 When specifying what buttons to show, you are also able to set *the label* and the *button variant*.

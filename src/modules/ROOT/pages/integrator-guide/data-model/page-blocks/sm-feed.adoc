@@ -1,4 +1,4 @@
-| Social media feed
+| [#page-block-sm]#<<page-block-sm,Social media feed>>#
 | 
 [NOTE]
 ====

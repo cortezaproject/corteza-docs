@@ -2,21 +2,20 @@ include::../../variables.adoc[]
 
 = Action log
 
-The *action log* interface provides an overview of *events* that *occurred* in your system, such as *accessing user information*, *inspecting records*, and *updating modules*.
+The *action log* interface provides an overview of *events* (actions) that *occurred* in your system, such as *accessing user information*, *inspecting records*, and *updating modules*.
 
 The action log can be *used for debugging*, as it provides quite a *rich insight* into a specific event.
 You can see the *exact error*, *when it occurred* and *who caused it*.
 
-The action log can be *used for administration*, as you can *see who accessed* specific information if there are any privacy complaints or similar.
+The action log can be *used for administration*.
+For example, you can *see who accessed* specific information if there was a privacy breach.
 
 == Action state
 
-An action can be in *one of three states* depending on the *action*.
-
-.The states:
+.An action can be in *one of three states* depending on the *action*:
 * *Info*: an *informative log* that something occurred; such as *record created*, *user authenticated*, and *user information accessed*.
-* *Warning*: a *warning log* that something failed to complete, but it was not fatal to the operation; such as an *invalid login attempt* or *expired authentication token*.
-* *Error*: an *error occurred*, an indication that something failed to complete.
+* *Warning*: a *warning log* that *something failed*, but it _was not fatal_ to the operation; such as an *invalid login attempt* or *expired authentication token*.
+* *Error*: an *error log* that *something failed* and it should be *considered as fatal*.
 
 [TIP]
 ====
@@ -33,7 +32,7 @@ Errors reported by the *{APP_AUTOMATION} server* are also visible in the *action
 
 [NOTE]
 ====
-*DevNote* more insight into the filtering options.
+*DevNote*: Provide more insight into the filtering options.
 ====
 
 == Inspecting actions

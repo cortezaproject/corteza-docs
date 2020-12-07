@@ -12,12 +12,7 @@ The applications are *listed in the {PRODUCT_NAME} {APP_NAME_SHELL}*.
 .To list current applications:
 . navigate to the {PRODUCT_NAME} {APP_NAME_ADMIN},
 . click on the "Applications" in the navigation drawer,
-. optionally insert the filtering parameters.
-
-[NOTE]
-====
-The list is *filtered automatically*.
-====
+. optionally insert the filtering parameters; the list refreshes automatically.
 
 == Creating applications
 
@@ -25,13 +20,12 @@ The list is *filtered automatically*.
 . navigate to the {PRODUCT_NAME} {APP_NAME_ADMIN},
 . click on the "Applications" in the navigation drawer,
 . click on the "New" button in the top right corner,
-. provide the requested data (see <<application-parameters>>),
+. provide the requested data (see <<application-parameters,application parameters>>),
 . press the "Submit" button.
 
 [IMPORTANT]
 ====
 You can only define permissions for existing applications.
-After you save the application, the option becomes available.
 ====
 
 == Editing applications
@@ -40,7 +34,7 @@ After you save the application, the option becomes available.
 . navigate to the {PRODUCT_NAME} {APP_NAME_ADMIN},
 . click on the "Applications" in the navigation drawer,
 . click on the edit icon next to the application you wish to edit,
-. provide the requested data (see <<application-parameters>>),
+. provide the requested data (see <<application-parameters,application parameters>>),
 . press the "Submit" button.
 
 == Deleting applications
@@ -48,14 +42,14 @@ After you save the application, the option becomes available.
 .To delete an existing application:
 . navigate to the {PRODUCT_NAME} {APP_NAME_ADMIN},
 . click on the "Applications" in the navigation drawer,
-. click on the edit icon next to the application you wish to edit,
+. click on the edit icon next to the application you wish to delete,
 . click and confirm the "Delete" button in the "Basic information" section.
 
 [#application-parameters]
 == Application parameters
 
 Basic information::
-    *The necessary application information* such as the name and its status.
+    *The basic application information* such as the name and its status.
 
 Unify app selector::
     *Specifies how the application is displayed* such as the icon and what {APP_NAME_COMPOSE} namespace to use.

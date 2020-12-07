@@ -53,8 +53,8 @@ Security context lets you *prevent specific users* from performing *specific ope
 For example, you can *prevent regular users* from signing documents or sending quotes.
 
 .Use these properties when defining the context:
-* *allow*: specifies what *roles are permitted to trigger* the automation script.
-* *deny*: specifies what *roles are not allowed to trigger* the automation script.
+* `allow`: specifies what *roles are permitted to trigger* the automation script.
+* `deny`: specifies what *roles are not allowed to trigger* the automation script.
 
 [NOTE]
 ====

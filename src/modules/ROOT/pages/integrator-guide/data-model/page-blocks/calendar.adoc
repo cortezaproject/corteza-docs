@@ -1,4 +1,4 @@
-| Calendar
+| [#page-block-calendar]#<<page-block-calendar,Calendar>>#
 | A *calendar page block* lets you show records on a calendar.
 
 .Supported calendar views:

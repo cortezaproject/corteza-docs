@@ -15,7 +15,7 @@ include::../../variables.adoc[]
 
 When you register and *load the extension* in the {APP_AUTOMATION} server, it will *automatically resolve* any changed *dependency* from the `package.json` file.
 
-[IMPORTANT]
+[WARNING]
 ====
 We're observing some anomalies when running *Yarn inside a docker container*.
 

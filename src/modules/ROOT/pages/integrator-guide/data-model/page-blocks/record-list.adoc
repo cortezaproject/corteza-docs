@@ -1,4 +1,4 @@
-| Record list
+| [#page-block-record-list]#<<page-block-record-list,Record list>>#
 | *Record list page blocks* display the *contents of a module* as a table.
 Record lists also provide a way of *adding new*, and *editing or removing existing* records.
 

@@ -15,13 +15,10 @@ It lets you define everything from *simple case-specific* charts, to complex *da
 . enter the chart name and press the "Add chart" button,
 . select one of the chart groups.
 
-[NOTE]
-====
 .Refer to below sections on how to configure specific chart groups:
 * <<chart-config-generic>>,
 * <<chart-config-funnel>>,
 * <<chart-config-gauge>>.
-====
 
 [IMPORTANT]
 ====
@@ -32,7 +29,6 @@ You will need to *create a new chart*.
 [IMPORTANT]
 ====
 You can only define permissions for existing charts.
-After you save the chart, the option becomes available.
 ====
 
 == Edit a chart
@@ -41,15 +37,12 @@ After you save the chart, the option becomes available.
 . navigate to the {PRODUCT_NAME} {APP_NAME_COMPOSE} page and enter the namespace you wish to edit,
 . click on the "Admin panel" in the top right corner,
 . navigate to the "Charts" subpage,
-. press on the edit button.
+. press on the edit button next to the chart you wish to edit.
 
-[NOTE]
-====
 .Refer to below sections on how to configure specific chart groups:
 * <<chart-config-generic>>,
 * <<chart-config-funnel>>,
 * <<chart-config-gauge>>.
-====
 
 == Delete a chart
 
@@ -57,17 +50,17 @@ After you save the chart, the option becomes available.
 . navigate to the {PRODUCT_NAME} {APP_NAME_COMPOSE} page and enter the namespace you wish to edit,
 . click on the "Admin panel" in the top right corner,
 . navigate to the "Charts" subpage,
-. press on the edit button,
+. press on the edit button next to the chart you wish to delete,
 . press the "Delete" button and confirm the operation.
 
 [#chart-config-generic]
-== Generic charts configuration
+== Generic chart configuration
 
-.List of generic charts:
-* bar charts,
-* line charts,
-* pie charts,
-* doughnut charts.
+.Generic charts include:
+* bar chart,
+* line chart,
+* pie chart,
+* doughnut chart.
 
 .Properties:
 Chart name::
@@ -85,7 +78,7 @@ include::ROOT:partial$handle-constraints.adoc[]
 Colour theme::
     *Color theme* allows you to style the data quickly.
 
-[TIP]
+[NOTE]
 ====
 Make sure that the selected colour theme *provides enough colours* for your dataset.
 ====
@@ -139,7 +132,7 @@ When defining a *post-processing function*, the previous value (`m`) is *undefin
 ====
 
 [#chart-config-funnel]
-== Funnel charts configuration
+== Funnel chart configuration
 
 Chart name::
     *Chart name* defines a user-friendly label for the chart.
@@ -180,7 +173,7 @@ Report metrics::
     For example, *count the records* for the given month and *display a line*.
 
 [#chart-config-gauge]
-== Gauge charts configuration
+== Gauge chart configuration
 
 Chart name::
     *Chart name* defines a user-friendly label for the chart.

@@ -1,0 +1,7 @@
+include::../variables.adoc[]
+
+= Upgrading to 2020.12
+
+== After upgrade
+
+// ...

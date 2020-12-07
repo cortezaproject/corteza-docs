@@ -2,15 +2,7 @@ include::../../variables.adoc[]
 
 = {PRODUCT_NAME} {APP_NAME_MESSAGING}
 
-Here, we cover *{PRODUCT_NAME} {APP_NAME_MESSAGING} administration*; defining permissions and such.
-
-[NOTE]
-====
-*DevNote* refactor this section.
-====
-
-// Refer to the xref:ROOT:integrator-guide/index.adoc[*integrator guide*] for details regarding *application implementation*.
-
+Here, we cover *{PRODUCT_NAME} {APP_NAME_MESSAGING} administration*; *configuring channels* and *managing channel membership*.
 
 :leveloffset: +1
 

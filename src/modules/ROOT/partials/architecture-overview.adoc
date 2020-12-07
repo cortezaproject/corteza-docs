@@ -1,0 +1,31 @@
+include::../pages/variables.adoc[]
+
+= Architecture overview
+
+.Mayor component or services in {PRODUCT_NAME}:
+* Frontend applications (WebApps)
+* {PRODUCT_NAME} server
+* {PRODUCT_NAME} {APP_AUTOMATION} server
+
+.Auxiliary services:
+* log storage,
+* error tracking,
+* email sending,
+* object storage,
+* store layer.
+
+.{PRODUCT_NAME} libraries and utilities:
+* {GIT_REPO_LINK_PREFIX}-js[*{PRODUCT_NAME} JS*] (https://www.npmjs.com/package/@cortezaproject/corteza-js[NPM package]) defines a set of *libraries and utilities* that are used across the *entire {PRODUCT_NAME} ecosystem*; from frontend applications to extensions.
+* {GIT_REPO_LINK_PREFIX}-vue[*{PRODUCT_NAME} Vue*] (https://www.npmjs.com/package/@cortezaproject/corteza-vue[NPM package]) defines a set of *Vue.js components* that are used across {PRODUCT_NAME} frontend applications.
+* {GIT_REPO_LINK_PREFIX}-ext[*{PRODUCT_NAME} ext*] defines a set of *{PRODUCT_NAME} extensions* that are either *stand-alone applications*, or automation script *utilities*.
+
+.Frontend applications:
+* {GIT_REPO_LINK_PREFIX}-webapp-auth[*{PRODUCT_NAME} {APP_NAME_AUTH}*] handles all flows related to *user authentication*; such as sign-up, login, and password recovery.
+* {GIT_REPO_LINK_PREFIX}-webapp-admin[*{PRODUCT_NAME} {APP_NAME_ADMIN}*] handles *administration aspects* of your {PRODUCT_NAME} instance; such as configuring settings, defining roles, and managing general permissions.
+* {GIT_REPO_LINK_PREFIX}-webapp-compose[*{PRODUCT_NAME} {APP_NAME_COMPOSE}*] is a https://en.wikipedia.org/wiki/Low-code_development_platform[*low-code development platform*] and allows creation of *record-absed business applications*.
+* {GIT_REPO_LINK_PREFIX}-webapp-messaging[*{PRODUCT_NAME} {APP_NAME_MESSAGING}*] collaboration platform that allows teams to *collaborate more efficiently* and communicate safely with other organizations or customers.
+* {GIT_REPO_LINK_PREFIX}-webapp-one[*{PRODUCT_NAME} {APP_NAME_SHELL}*] is a unified workspace to access and run *third-party* web *and {PRODUCT_NAME} applications*.
+Centralized access management from a single console enables administrative control over who can see or access applications.
+
+.The diagram outlines the entire system architecture.
+image::arch-overview.png[{PRODUCT_NAME} architectural overview]

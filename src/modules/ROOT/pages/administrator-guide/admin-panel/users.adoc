@@ -5,12 +5,15 @@ include::../../variables.adoc[]
 
 The *users* interface provides an overview of *system users*; you can *inspect*, *edit*, and *delete* them.
 
+[TIP]
+====
 You can use the users' interface to *manually register users* that are allowed to access the system.
+====
 
 [IMPORTANT]
 ====
 For privacy reasons, personal information (name and email) is masked by default.
-You can configure this with <<user-permissions-all>> or <<user-permissions-specific>>.
+You can configure this with <<user-permissions-all,permissions for all users>> or <<user-permissions-specific,permissions for specific users>>.
 ====
 
 == Listing users
@@ -18,12 +21,7 @@ You can configure this with <<user-permissions-all>> or <<user-permissions-speci
 .To list current system users:
 . navigate to the {PRODUCT_NAME} {APP_NAME_ADMIN},
 . click on the "Users" in the navigation drawer,
-. optionally insert the filtering parameters.
-
-[NOTE]
-====
-The list is *filtered automatically*.
-====
+. optionally insert the filtering parameters; the list refreshes automatically.
 
 == Creating users
 
@@ -31,13 +29,12 @@ The list is *filtered automatically*.
 . navigate to the {PRODUCT_NAME} {APP_NAME_ADMIN},
 . click on the "Users" in the navigation drawer,
 . click on the "New" button in the top right corner,
-. provide the requested data (see <<user-parameters>>),
+. provide the requested data (see <<user-parameters,user parameters>>),
 . press the "Submit" button.
 
 [IMPORTANT]
 ====
 You can only define permissions for existing users.
-After you save the user, the option becomes available.
 ====
 
 == Editing users
@@ -46,7 +43,7 @@ After you save the user, the option becomes available.
 . navigate to the {PRODUCT_NAME} {APP_NAME_ADMIN},
 . click on the "Users" in the navigation drawer,
 . click on the edit icon next to the user you wish to edit,
-. provide the requested data (see <<user-parameters>>),
+. provide the requested data (see <<user-parameters,user parameters>>),
 . press the "Submit" button.
 
 [#suspending-users]
@@ -55,27 +52,27 @@ After you save the user, the option becomes available.
 .To suspend an existing user:
 . navigate to the {PRODUCT_NAME} {APP_NAME_ADMIN},
 . click on the "Users" in the navigation drawer,
-. click on the edit icon next to the user you wish to edit,
+. click on the edit icon next to the user you wish to suspend,
 . click and confirm the "Suspend" button in the "Basic information" section.
 
 == Deleting users
 
 [TIP]
 ====
-You can <<suspending-users,suspend the user>>.
+You can instead <<suspending-users,suspend the user>>.
 ====
 
 .To delete an existing user:
 . navigate to the {PRODUCT_NAME} {APP_NAME_ADMIN},
 . click on the "Users" in the navigation drawer,
-. click on the edit icon next to the user you wish to edit,
+. click on the edit icon next to the user you wish to delete,
 . click and confirm the "Delete" button in the "Basic information" section.
 
 == Assign role
 
 [IMPORTANT]
 ====
-Each user is *automatically a member of the "Everyone"* role.
+*Each user* is automatically *a member of the "Everyone" role*.
 ====
 
 .To assign a role to an existing user:

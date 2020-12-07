@@ -1,4 +1,4 @@
-| Record
+| [#page-block-record]#<<page-block-record,Record>>#
 | 
 [IMPORTANT]
 ====

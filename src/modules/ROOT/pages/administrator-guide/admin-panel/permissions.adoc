@@ -6,13 +6,13 @@ The *permissions* interface allows you to configure *core system-level permissio
 
 [IMPORTANT]
 ====
-There is a separate view for <<permissions-system,*system*>>, <<permissions-messaging,*{APP_NAME_MESSAGING}*>>, and <<permissions-compose,*{APP_NAME_COMPOSE}*>>.
+There is a separate view for <<permissions-system,*system*>>, <<permissions-messaging,*{PRODUCT_NAME} {APP_NAME_MESSAGING}*>>, and <<permissions-compose,*{PRODUCT_NAME} {APP_NAME_COMPOSE}*>>.
 ====
 
 [IMPORTANT]
 ====
-These rules also *apply to automation scripts*.
-If a user is *not allowed to access* {APP_NAME_COMPOSE}, the triggered *automation script* is also *prevented access*.
+These rules *apply to automation scripts*.
+If a user is *not allowed to access {APP_NAME_COMPOSE}*, the triggered *automation script* is also *not allowed to access {APP_NAME_COMPOSE}*.
 ====
 
 [#permissions-system]
@@ -44,12 +44,12 @@ include::ROOT:partial$permissions/system-roles.adoc[]
 
 === Service permissions
 
-include::ROOT:partial$permissions/compose-service.adoc[]
-
 [IMPORTANT]
 ====
-If a role doesn't have access to the {PRODUCT_NAME} {APP_NAME_COMPOSE}, they will also *not* be able to access any application defined as a {PRODUCT_NAME} {APP_NAME_COMPOSE} namespace.
+If a role doesn't have access to the {PRODUCT_NAME} {APP_NAME_COMPOSE}, they will also *not be able* to access any application defined as a {PRODUCT_NAME} {APP_NAME_COMPOSE} namespace.
 ====
+
+include::ROOT:partial$permissions/compose-service.adoc[]
 
 === Namespaces permissions
 

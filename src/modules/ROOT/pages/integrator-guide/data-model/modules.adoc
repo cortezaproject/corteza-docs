@@ -2,8 +2,8 @@ include::../../variables.adoc[]
 
 = Modules
 
-A *module stores and shapes* your data (records).
-The data within a module is *specific to the namespace* -- that data *cannot* be accessed *from other namespaces*.
+A *module stores and shapes* your data (*records*) for a *given namespace*.
+The data from `namespace A` *can not* be referenced by `namespace B`.
 
 [TIP]
 ====
@@ -68,14 +68,13 @@ Type::
 [IMPORTANT]
 ====
 You can only define permissions for existing modules.
-After you save the module, the option becomes available.
 ====
 
 == Importing modules
 
 [IMPORTANT]
 ====
-The current *module importing system* is unable to resolve *relations between different modules* via record fields.
+The current module importing system is unable to resolve *relations between different modules* via record fields.
 References must be *fixed manually* after the system finishes *with the import*.
 ====
 
@@ -119,7 +118,7 @@ Currently, only the JSON format is supported.
 . navigate to the "Modules" subpage,
 . click on the edit icon next to the module you wish to edit,
 . click on the "+ Add new field" button,
-. configure the field as you see fit and save the changes (see <<compose-module-field-properties>>).
+. configure the field as you see fit and save the changes (see <<compose-module-field-properties,module field properties>>).
 
 == Editing module fields
 
@@ -134,14 +133,15 @@ If you wish to change the *disabled properties*, we suggest you create a *new fi
 . click on the "Admin panel" in the top right corner,
 . navigate to the "Modules" subpage,
 . click on the edit icon next to the module you wish to edit,
-. configure the field as you see fit and save changes (see <<compose-module-field-properties>>).
+. configure the field as you see fit and save the changes (see <<compose-module-field-properties,module field properties>>).
 
 == Deleting a module field
 
 [IMPORTANT]
 ====
-* When deleting *existing fields*, the change will *not* take effect unless you *explicitly save* the changes.
-* When deleting *new fields*, the changes take effect *immediately*.
+When deleting *existing fields*, the change will *not* take effect unless you *explicitly save* the changes.
+
+When deleting *new fields*, the changes take effect *immediately*.
 ====
 
 .To delete an existing field:
@@ -149,14 +149,14 @@ If you wish to change the *disabled properties*, we suggest you create a *new fi
 . click on the "Admin panel" in the top right corner,
 . navigate to the "Modules" subpage,
 . click on the edit icon next to the module you wish to edit,
-. click on the trashcan icon next to the field you wish to delete and save changes.
+. click on the trashcan icon next to the field you wish to delete and save the changes.
 
 [#compose-module-field-properties]
 == Module field properties
 
 Name::
-    *The name for the field*; defines how the values are stored.
-    The name is *not visible to the user* if you've provided the title.
+    *The name for the field* defines how the values are stored.
+    If you don't provide a title, the field name is used as the title.
 
 [IMPORTANT]
 ====
@@ -165,13 +165,13 @@ include::ROOT:partial$handle-constraints.adoc[]
 ====
 
 Title::
-    *A human-friendly label* shown when interacting with the data.
+    *A human-friendly field title* shown when interacting with the data.
     It should be *short*, *descriptive* and *limited to 64 characters*.
     No other restrictions apply.
 
 Type::
     The module *field type* defines the *type of the stored data*.
-    Make sure to *use appropriate types*.
+    Make sure to *use the appropriate type*.
 
 Multi value:: 
     *Multi value fields* allow you to store *multiple entries* under the *same field*.
@@ -196,17 +196,17 @@ Private::
 Access *additional configuration options*, by pressing on the *wrench icon* next to the field type.
 ====
 
-=== Checkbox (Y/N)
-
-The *checkbox field type* represents a *true/false* (yes/no) vale; *a boolean*.
+[cols="1s,5a"]
+|===
+| [#field-type-checkbox]#<<field-type-checkbox,Checkbox (Y/N)>>#
+| The *checkbox field type* represents a *true/false* (yes/no) value; *a boolean*.
 When editing, the field is a checkbox; when viewing, it's the value label.
 
 .Additional configurations:
 * *true/false label*: the *label to show* when the value is true or false.
 
-=== Date and time
-
-The *date and time field type* represents a *temporal value* (date and/or time); *a timestamp*.
+| [#field-type-datetime]#<<field-type-datetime,Date and time>>#
+| The *date and time field type* represents a *temporal value* (date and/or time); *a timestamp*.
 When editing, the field is a date-time picker; when viewing, it's a text string.
 
 .Additional configurations:
@@ -222,9 +222,8 @@ When editing, the field is a date-time picker; when viewing, it's a text string.
 See https://momentjs.com/docs/#/displaying/format/[Moment.js format] for available date-time formatting.
 ====
 
-=== Email
-
-The *email field type* represents an *email address* (the field has some built-in value validation).
+| [#field-type-email]#<<field-type-email,Email>>#
+| The *email field type* represents an *email address* (the field has some built-in value validation).
 When editing, the field is an email input box; when viewing, it's either a link or a text string.
 
 .Additional configurations:
@@ -236,9 +235,8 @@ The email is *stored as plain text* regardless of the configuration options.
 The email is *converted* to a link *before it is shown* on the user interface.
 ====
 
-=== Select / dropdown
-
-The *select / dropdown field type* represents a *text value* that is limited to the specified set of options.
+| [#field-type-select]#<<field-type-select,Select / dropdown>>#
+| The *select / dropdown field type* represents a *text value* that is limited to the specified set of options.
 When editing, the field is a native dropdown; when viewing, it's a text string.
 
 .Additional configurations:
@@ -246,9 +244,8 @@ When editing, the field is a native dropdown; when viewing, it's a text string.
 The *value* part defines how the data is *stored internally*; the *label* part describes how the *data is presented* to the user (defaults to the value).
 * *Multiple value input type*: specify how multiple values are selected.
 
-=== Number
-
-The *number field type* represents a *numerical value*.
+| [#field-type-number]#<<field-type-number,Number>>#
+| The *number field type* represents a *numerical value*.
 When editing, the field is a number input; when viewing, it's a formatted text string.
 
 [NOTE]
@@ -267,9 +264,8 @@ The same field can store *both full* and *fractional numbers*.
 See https://numeraljs.com/#format[Numeral.js format] for available number formatting.
 ====
 
-=== Record
-
-The *record field type* represents a *reference to another record*.
+| [#field-type-record]#<<field-type-record,Record>>#
+| The *record field type* represents a *reference to another record*.
 When editing, the field is a searchable dropdown select field; when editing, it's a clickable link.
 
 [IMPORTANT]
@@ -281,20 +277,18 @@ You can only reference records *in the same namespace*.
 * *module*: specify what module this field will be linked to,
 * *record label field*: specify what field should be used when showing the linked record,
 * *query fields on search*: specify the fields that should be included in the search,
-* * pre-filter records*: specify the pre-filtering.
+* *pre-filter records*: specify the pre-filtering.
 
-=== String
-
-The *string field type* represents a *text string value*.
+| [#field-type-string]#<<field-type-string,String>>#
+| The *string field type* represents a *text string value*.
 When editing, the fields are either regular text input or a rich-text input; when viewing, it's a formatted text string.
 
 .Additional configurations:
 * *multi-line*: specify that the value can span over multiple lines,
 * *use rich text editor*: use the rich text editor instead of the simple plain text editor.
 
-=== URL
-
-The *URL field type* represents a *URL value* (the field has some built-in value validation).
+| [#field-type-url]#<<field-type-url,URL>>#
+| The *URL field type* represents a *URL value* (the field has some built-in value validation).
 When editing, the field is an URL input box; when viewing, it's either a link or a text string.
 
 .Additional configurations:
@@ -314,22 +308,22 @@ The URL is *stored as plain text* regardless of the configuration options.
 The URL is *converted* to a link *before it is shown* on the user interface.
 ====
 
-=== User
-
-The *user field type* represents a *reference to a user*.
+| [#field-type-user]#<<field-type-user,User>>#
+| The *user field type* represents a *reference to a user*.
 When editing, the field is a searchable dropdown; when viewing its a text string (the registered name).
 
 .Additional configurations:
 * *preset with current user*: default to the user that created/updated the record,
 * *multiple value input type*: determine how multiple values are selected.
 
-=== File upload
-
-The *file field type* represents a *reference to a file* uploaded to the record.
+| [#field-type-file-upload]#<<field-type-file-upload,File upload>>#
+| The *file field type* represents a *reference to a file* uploaded to the record.
 When editing, the field is a file uploader; when viewing, it's one of the configured displays.
 
 .Additional configurations:
 * *view mode*: specify how the files are presented when viewing the value.
+
+|===
 
 == Permissions for all modules
 

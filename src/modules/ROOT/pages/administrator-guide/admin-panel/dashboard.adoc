@@ -9,5 +9,5 @@ It shows some simple *user*, *role*, and *application* statistics.
 
 [NOTE]
 ====
-This will be *expanded and improved* in the near future.
+The dashboard will be *expanded and improved* in the future.
 ====

@@ -52,9 +52,6 @@ include::modules/ROOT/pages/variables.adoc[]
 ** xref:developer-guide/compose/index.adoc[]{PRODUCT_NAME} {APP_NAME_COMPOSE}
 ** xref:developer-guide/extensions/index.adoc[Extensions]
 
-* xref:upgrade-guide/index.adoc[Upgrade Guide]
-** xref:upgrade-guide/202003.adoc[Upgrade to 2020.3]
-
 * xref:extensions/index.adoc[Extensions]
 ** xref:extensions/crm/index.adoc[CRM (built-in)]
 ** xref:extensions/service-solution/index.adoc[Service Solution (built-in)]
@@ -75,3 +72,13 @@ include::modules/ROOT/pages/variables.adoc[]
 ---
 
 * xref:changelog/index.adoc[Changelog]
+** xref:changelog/index.adoc[Latest (2020.12)]
+** Archive
+*** xref:changelog/202009.adoc[2020.9]
+*** xref:changelog/202006.adoc[2020.6]
+
+* xref:upgrade-guide/index.adoc[Upgrade Guide]
+** xref:upgrade-guide/index.adoc[Latest (2020.9 -> 2020.12)]
+** Archive
+*** xref:upgrade-guide/202009.adoc[2020.3 -> 2020.9]
+*** xref:upgrade-guide/202003.adoc[2020.3]

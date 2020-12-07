@@ -3,22 +3,22 @@ include::../variables.adoc[]
 = Administrator Guide
 :doctype: book
 
-The *administrator guide* will help you maintain the security-related aspects of your applications.
+The *administrator guide* will help you perform your administrator role.
+We cover everything from *creating and configuring users* to *defining permissions*
 
 [NOTE]
 ====
-The integrator guide focuses on the *security-related aspects*, like defining roles, setting permissions, and adding users.
-If you are interested about developing applications, refer to the xref:ROOT:/integrator-guide/index.adoc[integrator guide].
+If you are interested about *application development*, refer to the xref:ROOT:/integrator-guide/index.adoc[integrator guide].
 ====
 
 == Overview the security system
 
-xref:ROOT:administrator-guide/security.adoc[*Reviewing the security system*] will provide you with an overview of our *access control* systems.
-It will help you define a more *secure application*; better define the *role hierarchy* and *their permission*.
+xref:ROOT:administrator-guide/security.adoc[*Reviewing the security system*] will provide you with an overview of our *access control* system.
+It will help with developing *secure applications* and defining *role hierarchies*.
 
 == The administrator panel
 
-The xref:ROOT:administrator-guide/admin-panel/index.adoc[*administrator panel*] provides a quick *overview of the system*, xref:ROOT:administrator-guide/admin-panel/index.adoc#admin-panel-user[*user*] and xref:ROOT:administrator-guide/admin-panel/index.adoc#admin-panel-role[*role*] management, permission and settings overview.
+The xref:ROOT:administrator-guide/admin-panel/index.adoc[*administrator panel*] provides a quick *overview of the system*, xref:ROOT:administrator-guide/admin-panel/index.adoc#admin-panel-user[*user*] and xref:ROOT:administrator-guide/admin-panel/index.adoc#admin-panel-role[*role*] management; *permission and settings* overview.
 
 == System administration
 

@@ -3,52 +3,55 @@ include::../variables.adoc[]
 = Integrator Guide
 :doctype: book
 
-The *integrator guide* will help you through the integration process; building amazing things using {PRODUCT_NAME}!
+The *integrator guide* will help you with the process of creating applications using {PRODUCT_NAME} -- the integration process.
 
-You will receive enough knowledge about *the system*; *the development*, *and maintenance* processes to be a match for any integration.
+You will receive enough knowledge about *the system*; *the development and maintenance* process to be a match for any integration.
 
 [IMPORTANT]
 ====
-If you can not access a specific part of {PRODUCT_NAME}, you don't have sufficient permissions.
+If you can not access specific parts of {PRODUCT_NAME}, you don't have sufficient permissions.
 Contact your system administrator.
 ====
 
 == Review the terminology
 
-Before starting our journey, we strongly recommend you *xref:ROOT:integrator-guide/terminology.adoc[review our terminology]*.
+Before starting our journey, we strongly recommend you xref:ROOT:integrator-guide/terminology.adoc[*review our terminology*].
 
-It will help you keep up with what we are *talking about*, help you *understand the system*, and *help with consistency*.
+It will help you keep up with what we are *talking about*, help you *understand the system*, and *keep you consistent*.
 
 == Overview the security system
 
-*xref:ROOT:integrator-guide/security.adoc[Reviewing the security system]* will provide you with an overview of our *access control* systems.
+xref:ROOT:integrator-guide/security.adoc[*Reviewing the security system*] will provide you with an overview of our *access control* system.
 
-It will help you define a more *secure application*; better define the *role hierarchy* and *their permission*.
+It will help with developing *secure applications* and defining *role hierarchies*.
 
 == Define the data model
 
-The data model is the *first step in the integration*; it defines *the skeleton* of your application, just like an HTML document defines the page structure.
+The data model is the *first step of the integration*; it defines *the skeleton* of your application (just like an HTML document defines the page structure).
 If the structure is lacking, future development will be challenging.
 
-See the *xref:ROOT:integrator-guide/data-model/index.adoc[data model section]* to get a good understanding on how you can *define a good foundation* for your application.
+See the xref:ROOT:integrator-guide/data-model/index.adoc[*data model section*] to get a good understanding on how you can *define a good foundation* for your application.
 
 == Define an extension
 
-An extension is the *second step in the integration*; it defines *the business logic* of your application, just like a JS document completes an HTML document.
+An extension is the *second step of the integration*; it defines *the business logic* of your application (just like a JavaScript document completes a web application).
 
-See the *xref:ROOT:integrator-guide/extensions/index.adoc[extensions section]* to get a good understanding on how you can *define a good extension* for your application.
+See the xref:ROOT:integrator-guide/extensions/index.adoc[*extensions section*] to get a good understanding on how you can *define a good extension* for your application.
 
 .We also go into details for the most common questions:
-* xref:ROOT:integrator-guide/extensions/index.adoc#extension-deploy[deploying your extensions],
-* xref:ROOT:integrator-guide/extensions/index.adoc#extension-test[testing your extensions],
-* xref:ROOT:integrator-guide/extensions/index.adoc#extension-debug[debugging your extensions].
+* xref:ROOT:integrator-guide/extensions/index.adoc#extension-deploy[deploying your extensions]
+* xref:ROOT:integrator-guide/extensions/index.adoc#extension-test[testing your extensions]
+* xref:ROOT:integrator-guide/extensions/index.adoc#extension-debug[debugging your extensions]
 
 == References
 
-Refer to xref:ROOT:integrator-guide/resource-events-reference.adoc[*resource events*] for a complete *list of events* your scripts *can listen for*.
+Refer to xref:ROOT:integrator-guide/resource-events-reference.adoc[*resource events*] for a complete *list of events* your automation scripts *can listen for*.
 
-Refer to xref:ROOT:integrator-guide/resource-constraints-reference/index.adoc[*resource constraints*] for a complete *list of resource constraints* you can use.
+Refer to xref:ROOT:integrator-guide/resource-constraints-reference/index.adoc[*resource constraints*] for a complete *list of resource constraints* you can use in your automation script triggers.
 
 == Samples
 
-Use xref:ROOT:integrator-guide/samples/index.adoc[these samples] as *a starting point* for your integrations; such as *xref:ROOT:integrator-guide/samples/server-scripts/index.adoc[server script]*, and *xref:ROOT:integrator-guide/samples/client-scripts/index.adoc[client script]* samples.
+Use xref:ROOT:integrator-guide/samples/index.adoc[these samples] as *a starting point* for your integrations; such as xref:ROOT:integrator-guide/samples/server-scripts/index.adoc[*server script*], and xref:ROOT:integrator-guide/samples/client-scripts/index.adoc[*client script*] samples.
+
+You can use xref:ROOT:integrator-guide/extensions/index.adoc#extension-test-setup-mc[*this project configuration*] as a base for your extension.
+The sample project implements *unit testing* along with *code coverage reports*.

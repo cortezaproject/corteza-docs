@@ -19,7 +19,7 @@ Their definition via the <<page-builder,page builder>> *remain the same*.
 
 Record page::
     *Record pages* are used when *viewing specific records*.
-    A record page *is required*, if you want to *interact with a module*.
+    If you wish to *interact with records*, you need to create a *record page for that module*.
 
 List page::
     *List pages* are used when viewing aggregated data *from different sources*.
@@ -37,7 +37,6 @@ List page::
 [IMPORTANT]
 ====
 You can only define permissions for existing pages.
-After you save the page, the option becomes available.
 ====
 
 == Create/edit a record page
@@ -59,7 +58,7 @@ After you save the page, the option becomes available.
 
 [IMPORTANT]
 ====
-To change the structure of your page, see the <<page-builder>> section.
+To change the structure of your page, see the <<page-builder,page builder>> section.
 ====
 
 == Delete a page
@@ -68,7 +67,7 @@ To change the structure of your page, see the <<page-builder>> section.
 . navigate to the {PRODUCT_NAME} {APP_NAME_COMPOSE} page and enter the namespace you wish to delete,
 . click on the "Admin panel" in the top right corner,
 . navigate to the "Pages" subpage,
-. click on the edit icon next to the page you wish to edit,
+. click on the edit icon next to the page you wish to delete,
 . press the "Delete" button on the bottom of the page and confirm the operation.
 
 [#page-builder]
@@ -85,7 +84,7 @@ The page block can be *moved and resized* on the grid mentioned above.
 The grid is *not limited* in height.
 ====
 
-Page blocks differ by the *type* and what *page type* they can be used on (see the <<page-blocks>> section).
+Page blocks differ by the *type* and what *page type* they can be used on (see the <<page-blocks,page blocks>> section).
 
 .To enter the page builder:
 . navigate to the {PRODUCT_NAME} {APP_NAME_COMPOSE} page and enter the namespace you wish to edit,
@@ -97,7 +96,7 @@ When *finished*, click on the "Save" or the "Save and close" button on the *bott
 
 *Discard* your changes by clicking on the "Back (without saving changes)" on the *bottom left of the toolbar*.
 
-[#page-block]
+[#page-blocks]
 == Page blocks
 
 include::./page-blocks/index.adoc[]
@@ -105,22 +104,17 @@ include::./page-blocks/index.adoc[]
 == Navigation
 
 You can freely define your *page hierarchy* by reordering your pages in the *page tree*.
-The *page order* (the *nesting* also) defines the *navigation structure*.
+The *page order* and the *nesting* defines the *navigation structure*.
 
 .To change the navigation:
 . navigate to the {PRODUCT_NAME} {APP_NAME_COMPOSE} page and enter the namespace you wish to edit,
 . click on the "Admin panel" in the top right corner,
 . navigate to the "Pages" subpage,
-. reorder your pages by dragging them around.
+. drag and drop your pages to define the order; the order is *automatically updated*
 
 [TIP]
 ====
-Create a * subpage* (nesting), by dragging the page *into another page*.
-====
-
-[IMPORTANT]
-====
-The changes are *saved automatically*.
+Create a *subpage* (nesting), by dragging the page *into another page*.
 ====
 
 == Permissions for all pages

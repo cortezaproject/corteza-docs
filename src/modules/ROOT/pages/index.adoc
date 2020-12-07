@@ -4,8 +4,8 @@ include::variables.adoc[]
 {PRODUCT_NAME} is an *open source*, *self-hosted cloud-based* Digital Work Platform.
 Main features include a Low-Code Platform, CRM, Service Solution, Enterprise Messaging, and End-to-End Business Automation.
 
-{PRODUCT_NAME} is built upon modern technologies, using https://golang.org/[Golang] as a back-end and https://vuejs.org/[Vue.js] as a front-end.
-The platform is *secure* with a powerful *RBAC access control facility*, that allows you to configure your users just the way you want to!
+{PRODUCT_NAME} is built upon modern technologies, using https://golang.org/[Golang] and https://vuejs.org/[Vue.js].
+The platform is *secure* with a powerful *RBAC access control facility*, that allows you to configure your permissions just the way you want to!
 
 {PRODUCT_NAME} aims to be *indisputably trustworthy* in its motivations and its approach to design, development and maintenance of the platform.
 Organisations should feel that their chosen digital work platform is always *under their control*, always *protected* and continuously *developed in their best interests*.
@@ -13,7 +13,7 @@ Organisations should feel that their chosen digital work platform is always *und
 [NOTE]
 ====
 Questions?
-Check out https://{DOMAIN}[our homepage], or https://latest.{DOMAIN}[get in touch with us]!
+Check out https://{DOMAIN}[our homepage] or https://latest.{DOMAIN}[get in touch with us].
 ====
 
 == Deploying {PRODUCT_NAME}
@@ -22,9 +22,9 @@ Take a look at the xref:ROOT:dev-ops-guide/index.adoc[*DevOps guide*]!
 
 The guide walks you through xref:dev-ops-guide/server-configuration/index.adoc[*server*] and xref:dev-ops-guide/corredor-configuration.adoc[*{APP_AUTOMATION} server*] configuration.
 
-We also provide an example for a xref:dev-ops-guide/setup-local-demo.adoc[*local*] and xref:dev-ops-guide/setup-production.adoc[*production*] setup.
+You can find an example for a xref:dev-ops-guide/setup-local-demo.adoc[*local*] and xref:dev-ops-guide/setup-production.adoc[*production*] deployment.
 
-We also provide some miscellanies, xref:dev-ops-guide/email-relay.adoc[*relaying inbound emails*], xref:dev-ops-guide/health-check.adoc[*health check*], and xref:dev-ops-guide/backup.adoc[*data backups*].
+We also have some miscellanies, such as xref:dev-ops-guide/email-relay.adoc[*relaying inbound emails*], xref:dev-ops-guide/health-check.adoc[*health check*], and xref:dev-ops-guide/backup.adoc[*data backups*].
 
 == Learning {PRODUCT_NAME}
 
@@ -40,21 +40,21 @@ We've designed the end-user guide to be easily understandable by non-techy peopl
 * xref:ROOT:end-user-guide/messaging/index.adoc[*{PRODUCT_NAME} {APP_NAME_MESSAGING}*]
 * xref:ROOT:end-user-guide/shell/index.adoc[*{PRODUCT_NAME} {APP_NAME_SHELL}*]
 
-== {PRODUCT_NAME} administration
+== System administration
 
 Take a look at the xref:ROOT:administrator-guide/index.adoc[*administrator guide*]!
 
 The guide covers xref:administrator-guide/security.adoc[*the security*] system, the xref:administrator-guide/admin-panel/index.adoc[*administration panel*], and the *application administration* (xref:administrator-guide/compose/index.adoc[*{APP_NAME_COMPOSE}*] and xref:administrator-guide/messaging/index.adoc[*{APP_NAME_MESSAGING}*])
 
-== Create integrations
+== Create with {PRODUCT_NAME}
 
 Take a look at the xref:ROOT:integrator-guide/index.adoc[*integrator guide*]!
 
 The guide walks you *through the integration process*; from xref:integrator-guide/security.adoc[*the security*] system, xref:integrator-guide/data-model/index.adoc[*data model*] definition, and xref:integrator-guide/extensions/index.adoc[*extension*] development.
 
-We also offer some copy-pastable xref:integrator-guide/samples/index.adoc[*samples*], tips for xref:integrator-guide/extensions/index.adoc#extension-deploy[*deploying*], xref:integrator-guide/extensions/index.adoc#extension-debug[*debugging*] and xref:integrator-guide/extensions/index.adoc#extension-test[*testing*] (yes, there is a xref:integrator-guide/extensions/index.adoc#_an_example_setup[*working setup*]).
+We also offer some copy-pastable xref:integrator-guide/samples/index.adoc[*samples*], instructions for xref:integrator-guide/extensions/index.adoc#extension-deploy[*deploying*], xref:integrator-guide/extensions/index.adoc#extension-debug[*debugging*] and xref:integrator-guide/extensions/index.adoc#extension-test[*testing*] (yes, there is a xref:integrator-guide/extensions/index.adoc#extension-test-setup-mc[*working setup*] with *unit tests* and *coverage reporting*).
 
-== Contribution things
+== Core developers
 
 Take a look at the xref:ROOT:developer-guide/index.adoc[*developer guide*]!
 
@@ -89,8 +89,6 @@ Learning from examples is *completely valid*, but we recommend that you *firstly
 *Assuming what something does* can be *dangerous*.
 ====
 
-Take a look at our *examples*!
-
 We have examples for working with the xref:ROOT:examples/system-api/index.adoc[*System API*], xref:ROOT:examples/compose-api/index.adoc[*Compose API*], and automation script development.
 
 We also have some xref:integrator-guide/samples/index.adoc[*extension development samples*] in the integrator guide.
@@ -112,7 +110,7 @@ When upgrading, you should always firstly go over the xref:ROOT:changelog/index.
 Versions may *not be backwards compatible* and may need some additional work to get setup.
 ====
 
-To upgrade from 2020.6, you can use xref:ROOT:changelog/202009.adoc[*this changelog*] and xref:ROOT:upgrade-guide/202009.adoc[*this upgrade guide*].
+To upgrade from 2020.9, you can use xref:ROOT:changelog/202012.adoc[*this changelog*] and xref:ROOT:upgrade-guide/202012.adoc[*this upgrade guide*].
 
 You can find all of the changelogs xref:ROOT:changelog/index.adoc[*here*], and all of the upgrade guides xref:ROOT:upgrade-guide/index.adoc[*here*].
 

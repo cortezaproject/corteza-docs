@@ -12,14 +12,6 @@ If you are upgrading multiple versions at the same time; for example from 2019.1
 
 :leveloffset: +1
 
-include::202009.adoc[]
+include::202012.adoc[]
 
 :leveloffset: -1
-
-== Archive
-
-:leveloffset: +2
-
-include::202003.adoc[]
-
-:leveloffset: -2

@@ -1,0 +1,103 @@
+include::../variables.adoc[]
+
+= Resource labelling
+
+A *resource label* is a simple, arbitrary *key-value* structure, that we can use to *enrich {PRODUCT_NAME} resources*.
+Labels can be used for things like *Categorization*, *resource grouping*, *data migration references*, and *marking federated resources*.
+
+.Supported resources:
+* Users
+* Roles
+* Compose namespace
+* Compose page
+* Compose chart
+* Compose module
+* Compose module field
+* Compose record
+
+[IMPORTANT]
+====
+{PRODUCT_NAME} {APP_NAME_MESSAGING} resources *will not* support resource labeling.
+====
+
+== Core logic
+
+Resource labels are *flexible* and compatible with *any {PRODUCT_NAME} resource*.
+If we want a resource to be able to use resource labels, it must *conform to the `pkg/label.LabeledResource` interface*.
+
+The core logic that works with the *centralized label store* is implemented in a dedicated package (`pkg/label`).
+Services can trivially include the package *into the request cycle*.
+
+[NOTE]
+====
+Use the system/user (`system/service/user.go`) service as a reference.
+====
+
+.Resource labels are defined by a simple key-value structure (`pkg/label/types.Label`):
+[source,go]
+----
+Label struct {
+  // Kind of the labelled resource
+  Kind string
+
+  // ID of the labelled resource
+  ResourceID uint64
+
+  // Other parameters
+  // ...
+}
+----
+
+[NOTE]
+====
+Resource labels define a simple key-value structure to simplify the underlying logic for label management.
+
+The simple structure also helps us not to _abuse_ the feature.
+====
+
+== Resource label structure
+
+.Resource labels define a simple `key: value` structure:
+`key`::
+    Label key is *a simple `string`* that is limited to 512 characters.
+    Keys are *unique per specific resources* (a resource can have a single value for the given `key`).
+
+[NOTE]
+====
+The `key` must pass this regex: `^[A-Za-z][0-9A-Za-z_\-.]\*[A-Za-z0-9]$`
+====
+
+`value`::
+    The label values is *a regular `string`* value with no other constraints.
+
+== Assigning labels
+
+.When a `label` is provided, the resource must support the following cases:
+* If the `label` parameter is *empty*, *remove all labels* from the given *resource*.
+* If the `label` parameter is *not empty*, *remove missing* labels and *add new labels*.
+
+If the `label` parameter is *not provided*, no modifications are performed.
+
+== Retrieving resources
+
+.The resource must support the following cases:
+* *Existence filter*: collect the resources *where the key exists*.
+* *!Existence filter*: collect the resources *where the key does not exist*.
+* *Key-value filter*: collect the resources *where the key exists* and the *value matches*.
+
+== Access control
+
+Label access control *inherits* from *resource access control*; resource labels *do not* put in place any *additional access control*.
+
+.Access control:
+* *Read access* inherits the resource's `read` operation.
+* *Create access* inherits the resource's `create` operation.
+* *Update access* inherits the resource's `update` operation.
+* *Delete access* inherits the resource's `delete` operation.
+
+== Note on deleting
+
+In most cases, {PRODUCT_NAME} performs a soft-delete.
+For simplicity on the implementation, labels *do not* support soft delete.
+
+When a *resource is deleted*, related *labels remain unchanged* to cover cases where we restore it.

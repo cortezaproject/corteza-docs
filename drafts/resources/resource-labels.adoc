@@ -1,6 +1,8 @@
-include::../../variables.adoc[]
-
 = Resource labelling
+
+// https://github.com/cortezaproject/corteza-docs/pull/110/files
+// The developer-guide was already updated.
+// The integrator-guide should be updated when our webapps implement this.
 
 [NOTE]
 ====

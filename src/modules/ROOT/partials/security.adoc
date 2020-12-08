@@ -9,9 +9,9 @@ One of the *main focus* when working with data in the enterprise environment is 
 == Users and Roles
 
 {PRODUCT_NAME} uses *Role-based access control* (RBAC), meaning we define access control *permissions to roles* (we specify *what roles* are allowed to access *what resources*).
-While users cannot have permissions set to them they can become members of one or more roles.
-When a *users becomes members of a role*, they inherit permissions defined on all those roles.
-See <<_access_control_check_flow>> for details on how permissions are checked on multiple roles.
+When a user is *assigned a set of roles* (becomes a role member) the user *inherits the permissions* that the assigned roles define.
+
+See <<security-ac-flow,access control check flow>> for details on how the access control functions.
 
 [NOTE]
 ====
@@ -20,7 +20,7 @@ Every user is *automatically a member* of the "*Everyone*" role.
 
 [IMPORTANT]
 ====
-The *first registered user* in the system is automatically promoted to an "*Administrator*" role.
+The *first registered user* is automatically promoted to an "*Administrator*" role.
 ====
 
 .Each permission rule can be in one of the two access states:
@@ -32,22 +32,21 @@ The *first registered user* in the system is automatically promoted to an "*Admi
 It's good practice to *limit your users* a much as possible to help *avoid security breaches*.
 ====
 
+[#security-ac-flow]
 == Access control check flow
 
-When checking if user can perform a specific operation on a resource RBAC rules are checked in the following order:
-
-. Can set of roles perform the requested operation *for a specific resource*?
-. Can set of roles perform the requested operation *for all resource of the given type*?
+.When checking if a user can perform a specific operation, the following check occurs:
+. Can the assigned roles perform the requested operation *for a specific resource*?
+. Can the assigned roles perform the requested operation *for all resource of the given type*?
 . Can everyone perform the requested operation *for a specific resource*?
 . Can everyone perform the requested operation *for all resource of the given type*?
 
-For each step:
+.For each step:
+. If *any role* (or everyone) in the 1st or 2nd step has an *explicit deny*, the check ends and *disallows* the operation.
+. If *at least one role* (or everyone) has an *explicit allow*, the check ends and *allows* the operation.
+. If there is *no explicit* allow or deny, *continue* to the next step.
 
-. If any of roles (or everyone) in the 1st or 2nd step has been explicitly denied access to operation RBAC short circuits the check and *disallows* the operation.
-. If at least one of the roles (or everyone) has an explicit allow RBAC short circuits the check and *allows* the operation.
-. Continue with the next step.
-
-If check completes all four steps without an explicit allow or deny, the *system default* is used -- in most cases this is *deny*.
+If all four steps complete without an explicit allow or deny, the *system default* is used which is *deny for most cases*.
 
 == Modular design
 

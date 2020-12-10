@@ -48,5 +48,5 @@ PROVISION_SETTINGS_AUTH_INTERNAL_SIGNUP_EMAIL_CONFIRMATION_REQUIRED=false
 #SMTP_HOST=smtp-server.example.tld:587
 #SMTP_USER=postmaster@smtp-server.example.tld
 #SMTP_PASS=this-is-your-smtp-password
-#SMTP_FROM="Demo" <info@your-demo.example.tld>
+#SMTP_FROM='"Demo" <info@your-demo.example.tld>'
 

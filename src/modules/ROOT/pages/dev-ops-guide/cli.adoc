@@ -205,6 +205,27 @@ Flags:
   -h, --help   help for password
 ----
 
+== Sync
+
+.There are two commands to handle federation sync:
+ * Data sync
+ * Structure sync
+
+These are running automatically in the background, but if you have a longer sync delay or just want to test it, you can do it manually via sync cli command.
+
+[source,shell]
+----
+Usage:
+  corteza-server sync [command]
+
+Available Commands:
+  data        Sync data
+  structure   Sync structure
+
+Flags:
+  -h, --help   help for sync
+----
+
 == Version
 
 [source,shell]

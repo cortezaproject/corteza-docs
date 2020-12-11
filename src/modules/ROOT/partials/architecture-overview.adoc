@@ -2,7 +2,7 @@ include::../pages/variables.adoc[]
 
 = Architecture overview
 
-.Mayor component or services in {PRODUCT_NAME}:
+.Major component or services in {PRODUCT_NAME}:
 * Frontend applications (WebApps)
 * {PRODUCT_NAME} server
 * {PRODUCT_NAME} {APP_AUTOMATION} server
@@ -12,6 +12,7 @@ include::../pages/variables.adoc[]
 * error tracking,
 * email sending,
 * object storage,
+* data federation,
 * store layer.
 
 .{PRODUCT_NAME} libraries and utilities:

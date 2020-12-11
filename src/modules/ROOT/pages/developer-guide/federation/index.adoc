@@ -1,6 +1,7 @@
 include::../../variables.adoc[]
 
-= Federation
+[#federation]
+= {PRODUCT_NAME} {APP_NAME_FEDERATION}
 
 .An abstract overview over the entire federation system.
 [plantuml,federation-overview,svg,role=sequence]
@@ -37,18 +38,18 @@ NodeA -> NodeB: Data sync
 Node pairing::
     The process of establishing a federated network between two nodes.
     After they are paired, they are able to securely exchange data.
-    Refer to <<rfc:federation:node-pair>> and <<rfc:federation:security:authentication>> for details.
+    Refer to <<federation:node-pair>> and <<federation:security:authentication>> for details.
 
 Structure syncing::
     The process of determining what structures on the origin node (the one that contains the data), is exposed to it's destination node (the one that wishes to access the data).
     The origin node has full control over what data the destination node is allowed to access.
     This can be as simple as allowing access to only specific modules; and as complex as allowing access to only specific module fields.
-    Refer to <<rfc:federation:structure-sync>> and <<rfc:federation:security:access-control>> for details.
+    Refer to <<federation:structure-sync>> and <<federation:security:access-control>> for details.
 
 Data syncing::
     The process of updating data on the destination node, based on the updated data source.
     The destination node has the ability to determine what field from the origin node maps into what field in the destination node.
-    Refer to <<rfc:federation:data-sync>> for details.
+    Refer to <<federation:data-sync>> for details.
 
 :leveloffset: +1
 
@@ -65,8 +66,6 @@ include::structure_sync.adoc[]
 include::data_sync.adoc[]
 
 include::api/index.adoc[]
-
-include::store/index.adoc[]
 
 :leveloffset: -1
 

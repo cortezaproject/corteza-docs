@@ -1,6 +1,6 @@
 = Security
 
-[#rfc:federation:security:authentication]
+[#federation:security:authentication]
 == Authentication
 
 Federated nodes leverage Corteza's already established authentication facility that uses *system user* and *JWT tokens* (later referred as a *token*).
@@ -22,7 +22,7 @@ When a new node is added to the federated network, a new pair of system users an
 Token A and token B *are not the same*.
 ====
 
-[#rfc:federation:security:access-control]
+[#federation:security:access-control]
 == Access control
 
 The federation service uses Corteza's already established RBAC access control facility that operates over *user roles*, *system resources* and *operations* over given resources.
@@ -34,4 +34,4 @@ This can be as simple as controlling access to records belonging to specific mod
 * Passes the request through the access control facility to check if we are allowed to access the resource,
 * collects the requested data, following the defined RBAC permissions, excluding data that the destination node is not allowed to access.
 
-The federation service then performs some additional operations, see <<rfc:federation:data-sync>>, and sends it over to the destination node.
+The federation service then performs some additional operations, see <<federation:data-sync>>, and sends it over to the destination node.

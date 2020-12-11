@@ -24,4 +24,5 @@ curl -X DELETE "$BASE_URL/federation/nodes/$NODE_ID/modules/$MODULE_ID" \
 .Example response
 [source,bash]
 ----
+{}
 ----

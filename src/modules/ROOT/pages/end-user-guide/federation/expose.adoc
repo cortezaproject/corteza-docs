@@ -1,0 +1,26 @@
+[#federation:module:expose]
+= Exposing fields
+
+Exposing fields to federated network::
+    Once the pairing with a node is done, we can choose to expose fields, map them or both. Should we decide to expose our data, we can do so via the compose module administration.
+
+image::federation-expose-module.png[expose module]
+
+.Once the nodes are paired, the fields on the originating node can be exposed:
+. Go to module administration in Compose
+. Click the edit icon on the specific module
+. Go to *_Expose_* tab
+. Click on the node of choice
+. Choose the fields that you wish to expose to that node
+. Changes are persisted once you click *_Save and close_*
+
+[NOTE]
+====
+Only successfuly paired nodes will appear here.
+====
+
+[IMPORTANT]
+====
+User needs specific role permissions in order to manage federation settings and mapping of the modules. Refer to 
+<<../../administrator-guide/admin-panel/roles.adoc#admin-panel-role,role administration>>
+====

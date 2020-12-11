@@ -1,0 +1,16 @@
+= Modules
+    
+Exposed and shared modules specify the structure of the federated data.
+
+== Exposed modules
+
+These keep the information on the originating node (in term of data flow - destination node can also have exposed modules) about the fields of a specific node that is to be shared to other node (these settings are node-specific). You can look at it as in terms of whitelisting the data that can be served to another node.
+
+== Shared modules
+
+These modules specify the structure of the data on the destination node once the structure synchronisation is done. This is a representation of the exposed module, but on the destination node.
+
+[NOTE]
+====
+Shared modules are only created via structure synchronisation and cannot be removed or updated in administration.
+====

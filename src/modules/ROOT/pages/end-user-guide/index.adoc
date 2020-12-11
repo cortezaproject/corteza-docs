@@ -19,6 +19,10 @@ xref:ROOT:end-user-guide/service-solution/index.adoc[*{PRODUCT_NAME} Service Sol
 
 xref:ROOT:end-user-guide/messaging/index.adoc[*{PRODUCT_NAME} {APP_NAME_MESSAGING}*] is a modern, private, secure messaging system which integrates seamlessly with the rest of the system.
 
+== {PRODUCT_NAME} {APP_NAME_FEDERATION}
+
+xref:ROOT:end-user-guide/federation/index.adoc[*{PRODUCT_NAME} {APP_NAME_FEDERATION}*] aims to connect different Corteza instances into a federated network, where they can freely exchange information.
+
 == {PRODUCT_NAME} {APP_NAME_SHELL}
 
 xref:ROOT:end-user-guide/shell/index.adoc[*{PRODUCT_NAME} {APP_NAME_SHELL}*] brings all of the {PRODUCT_NAME} applications under a single user interface.

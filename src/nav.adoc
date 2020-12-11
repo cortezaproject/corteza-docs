@@ -21,6 +21,7 @@ include::modules/ROOT/pages/variables.adoc[]
 ** xref:end-user-guide/crm/index.adoc[]{PRODUCT_NAME} CRM
 ** xref:end-user-guide/service-solution/index.adoc[]{PRODUCT_NAME} {CRM} Service Solution
 ** xref:end-user-guide/messaging/index.adoc[]{PRODUCT_NAME} {APP_NAME_MESSAGING}
+** xref:end-user-guide/federation/index.adoc[]{PRODUCT_NAME} {APP_NAME_FEDERATION}
 ** xref:end-user-guide/shell/index.adoc[]{PRODUCT_NAME} {APP_NAME_SHELL}
 
 * xref:administrator-guide/index.adoc[Administrator Guide]
@@ -54,6 +55,7 @@ include::modules/ROOT/pages/variables.adoc[]
 *** xref:developer-guide/impersonation.adoc[Impersonation]
 ** Corteza Compose
 *** xref:developer-guide/compose/module-field-expressions.adoc[Module Field Expressions]
+** xref:developer-guide/federation/index.adoc[Corteza Federation]
 ** xref:developer-guide/extensions/index.adoc[Extensions]
 
 * xref:extensions/index.adoc[Extensions]

@@ -1,4 +1,4 @@
-[#rfc:federation:data-sync]
+[#federation:data-sync]
 = Syncing data
 
 The process of updating data on the destination node, based on the updated data source.
@@ -9,12 +9,12 @@ Data sync operates directly on compose services and storage layers, but is desig
 [IMPORTANT]
 ====
 The two nodes must be paired prior to this.
-See <<rfc:federation:node-pair>>.
+See <<federation:node-pair>>.
 ====
 
 == Syncing data
 
-After the two nodes are paired and the <<rfc:federation:structure-sync,structure syncing>> has finished, we can proceed with the data sync.
+After the two nodes are paired and the <<federation:structure-sync,structure syncing>> has finished, we can proceed with the data sync.
 
 [IMPORTANT]
 ====
@@ -140,14 +140,8 @@ end box
 @enduml
 ----
 
-Destination node requests the information about any data changes::
-    Origin node provides a set of endpoints that the destination node can use to fetch newly created, updated, and deleted data.
-    The destination node provides some additional filtering parameters; such as last sync timestamp; to exclude any unchanged data.
-
-include::api/data_sync__data_changes.adoc[]
-
 Destination node requests changed data::
-    The destination node fetches the data on per-module basis from the above provided set of endpoints.
+    The destination node fetches the data on per-module basis from the fixed endpoint url.
 
 include::api/data_sync__exposed_records.adoc[]
 
@@ -157,7 +151,7 @@ Origin node provides changed data for the requested structure::
     The response also includes any additional filtering and pagination related parameters so the data can be fetched in chunks, or re-fetched if it any issues occurred.
 
 Destination node transforms the provided data into internal resource structures::
-    The destination node uses data manipulation systems, along with module mapping definitions (see <<rfc:federation:structure-sync:field-mapping>>) to transform the provided data set into internal resource structures.
+    The destination node uses data manipulation systems, along with module mapping definitions (see <<federation:structure-sync:field-mapping>>) to transform the provided data set into internal resource structures.
     These are then used to update the destination node's storage.
 
 Destination node updates the nodes status::

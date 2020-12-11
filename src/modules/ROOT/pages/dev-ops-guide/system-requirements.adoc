@@ -114,6 +114,8 @@ Depending on your configuration, {PRODUCT_NAME} may need some access to outside 
 
 If you intend to use any email communication; such as sending confirmation emails, password reset emails, or sending emails from automation scripts; you must configure your SMTP servers to be accessible.
 
+Should you enable federation, the nodes must be visible and allow traffic between them on the designated HTTP ports.
+
 If you enable OAuth2 or OIDC sign-up, or you are accessing external services via automation scripts, you should allow HTTP traffic.
 
 == Domain and hostname

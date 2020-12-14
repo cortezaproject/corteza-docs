@@ -1,0 +1,57 @@
+= Resources and events
+
+== compose
+
+=== Events
+.On events:
+* `on('manual')`
+
+== compose:namespace
+
+.On events:
+* `on('manual')`
+
+== compose:module
+
+=== Events
+.On events:
+* `on('manual')`
+
+== compose:record
+
+=== Events
+.On events:
+* `on('manual')`
+
+== ui:compose:record-page
+
+=== Events
+.Before/after events:
+* `before('formSubmit')`
+* `before('delete')`
+* `after('formSubmit')`
+* `after('delete')`
+
+.On events:
+* `on('manual')`
+* `on('formSubmitError')`
+
+== ui:compose:admin-record-page
+
+=== Events
+
+.Before/after events:
+* `before('formSubmit')`
+* `before('delete')`
+* `after('formSubmit')`
+* `after('delete')`
+
+.On events:
+* `on('manual')`
+* `on('formSubmitError')`
+
+== ui:compose
+
+=== Events
+.On events:
+* `on('manual')`

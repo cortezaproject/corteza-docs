@@ -40,12 +40,9 @@ services:
     networks: [ internal ]
     restart: on-failure
     env_file: [ .env ]
-    environment:
-      # API host will replace {host} in 'https://api.{host}/{service}' template
-      # You can change the template with CORREDOR_EXEC_CSERVERS_API_BASEURL_TEMPLATE
-      # (best if you can set this variable inside .env)
-      CORREDOR_EXEC_CSERVERS_API_HOST: api.${DOMAIN}
-
+    # In case you do not follow the usual setup with $DOMAIN and api.$DOMAIN, please see the
+    # Documentation on how you can configure Corredor API endpoints with CORREDOR_EXEC_CSERVERS_API_BASEURL_TEMPLATE,
+    # CORREDOR_EXEC_CSERVERS_API_HOST and other CORREDOR_EXEC_CSERVERS_* variables.
 
   db:
     # MySQL Database

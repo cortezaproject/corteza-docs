@@ -15,7 +15,7 @@ For example, you can *permit regular users* to access records via automation scr
 
 [IMPORTANT]
 ====
-*Deferred*, *sink*, and *iterator* scripts *require* you to specify the *security context* as the *invoker is not known*.
+*Deferred* and *sink* scripts *require* you to specify the *security context* as the *invoker is not known*.
 ====
 
 .An example of defining an invoking user:

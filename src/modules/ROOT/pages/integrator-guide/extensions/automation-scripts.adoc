@@ -17,9 +17,7 @@ export interface Script {
     allow: string[];
   }|string;
 
-  triggers?: Trigger[];
-
-  iterator?: Iterator;
+  triggers: Trigger[];
 
   exec?: ScriptFn;
 }

@@ -40,9 +40,9 @@ Implicitly triggered scripts::
 Deferred or scheduled scripts::
     Automation scripts that are executed at a specified time or on a configured interval.
 
-Batch or iterator scripts::
-    Automation scripts that are executed over a more extensive set of resources at the same time (used for batch processing).
-
+// Batch or iterator scripts::
+//     Automation scripts that are executed over a more extensive set of resources at the same time (used for batch processing).
+// 
 Sink scripts::
     Automation scripts that are executed on HTTP requests and allow the implementation of new endpoints.
 

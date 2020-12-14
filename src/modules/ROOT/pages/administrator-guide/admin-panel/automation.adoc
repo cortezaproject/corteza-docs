@@ -30,7 +30,7 @@ Refer to xref:ROOT:integrator-guide/extensions/index.adoc#extension-deploy[deplo
 . click on the "Automation" in the navigation drawer,
 . click on the blue button next to the label.
 
-You can inspect the automation script *triggers*, *iterators*, and *security context*.
+You can inspect the automation script properties, such as the *trigger* and *security context*.
 
 [NOTE]
 ====

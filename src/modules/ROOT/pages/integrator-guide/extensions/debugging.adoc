@@ -14,7 +14,7 @@ include::../../variables.adoc[]
 * it is defined in a `.js` file,
 * it is located under `client-scripts` or `server-scripts`,
 * it defines an `export default {...}`,
-* defines at least one valid trigger *or* iterator,
+* defines at least one valid trigger,
 * defines a security context if it the script is a sink or deferred,
 * conforms to the script signature.
 

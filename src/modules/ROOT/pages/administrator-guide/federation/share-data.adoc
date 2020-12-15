@@ -26,10 +26,16 @@ You can only share data with nodes that were paired successfully.
 . enter the namespace administration area,
 . navigate to the "Modules" subpage,
 . click on the edit icon next to the module you wish to share,
+. click on "Federation Settings",
 . go to the "Expose" tab,
 . select a node you wish to share the module to,
 . select the fields you wish to share with the module,
 . save the changes.
+
+[TIP]
+====
+You can copy "Exposed" settings from other nodes by selecting the desired node from the "Copy settings from" dropdown.
+====
 
 .A screenshot showing the module sharing interface.
 image::federation/expose-module.png[Screenshot of the configuration window.]
@@ -51,6 +57,7 @@ You can only consume data from nodes that were successfully paired.
 . enter the namespace administration area,
 . navigate to the "Modules" subpage,
 . click on the edit icon next to the module you wish to consume data into,
+. click on "Federation Settings",
 . go to the "Map" tab,
 . select a node you wish to consume the data from,
 . select what shared fields map into what module fields,

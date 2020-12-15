@@ -1,6 +1,0 @@
-        Name                       Command                  State              Ports
--------------------------------------------------------------------------------------------
-production_corredor_1   docker-entrypoint.sh node  ...   Up (healthy)   80/tcp
-production_db_1         /docker-entrypoint.sh mysqld     Up             3306/tcp, 33060/tcp
-production_server_1     /bin/corteza-server serve-api    Up (healthy)   80/tcp
-production_webapp_1     /entrypoint.sh                   Up (healthy)   80/tcp

@@ -1,0 +1,47 @@
+########################################################################################################################
+# docker-compose supports environment variable interpolation/substitution in compose configuraiton file
+# (more info: https://docs.docker.com/compose/environment-variables)
+
+########################################################################################################################
+# General settings
+DOMAIN=your-demo.example.tld
+VERSION=2020.12
+
+########################################################################################################################
+# Database connection
+
+DB_DSN=dbuser:dbpass@tcp(db:3306)/dbname?collation=utf8mb4_general_ci
+
+########################################################################################################################
+# Server settings
+
+# Serve Corteza webapps alongside API
+HTTP_WEBAPP_ENABLED=true
+
+# Disable actionlong for local demo
+ACTIONLOG_ENABLED=false
+# Send actionlog to container logs as well
+# ACTIONLOG_DEBUG=true
+
+# Uncomment for extra debug info if something goes wrong
+# LOG_LEVEL=debug
+
+# Use nicer and colorful log instead of JSON
+# LOG_DEBUG=true
+
+########################################################################################################################
+# Authentication
+
+# Secret to use for JWT token
+# Make sure you change it (>30 random characters) if
+# you expose your deployment to outside traffic
+# AUTH_JWT_SECRET=this-is-only-for-demo-purpose--make-sure-you-change-it-for-production
+
+########################################################################################################################
+# SMTP (mail sending) settings
+
+# Point this to your local or external SMTP server
+#SMTP_HOST=smtp-server.example.tld:587
+#SMTP_USER=postmaster@smtp-server.example.tld
+#SMTP_PASS=this-is-your-smtp-password
+#SMTP_FROM='"Demo" <info@your-demo.example.tld>'

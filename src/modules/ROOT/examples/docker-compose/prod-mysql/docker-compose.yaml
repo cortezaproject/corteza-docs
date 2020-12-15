@@ -1,11 +1,14 @@
 version: '3.5'
 
 services:
-  webapp:
-    image: cortezaproject/corteza-webapp:${VERSION}
+  server:
+    image: cortezaproject/corteza-server:${VERSION}
     restart: on-failure
-    depends_on: [ server ]
-    networks: [ proxy ]
+    env_file: [ .env ]
+    depends_on: [ db, corredor ]
+    networks: [ proxy, internal ]
+    # Uncomment to use local fs for data persistence
+    volumes: [ "./data/server:/data" ]
     environment:
       # VIRTUAL_HOST helps NginX proxy route trafic for specific virtual host to
       # this container
@@ -14,40 +17,18 @@ services:
       # (see docs.cortezaproject.org for details)
       LETSENCRYPT_HOST: ${DOMAIN}
 
-  server:
-    image: cortezaproject/corteza-server:${VERSION}
-    restart: on-failure
-    env_file: [ .env ]
-    depends_on: [ db, corredor ]
-    networks: [ proxy, internal ]
-    # Uncomment to use local fs for data persistence
-    # volumes: [ "./data/server:/data" ]
-    environment:
-      # VIRTUAL_HOST helps NginX proxy route traffic for specific virtual host to
-      # this container
-      # This value is also picked up by initial boot auto-configuration procedure
-      # If this is changed, make sure you change settings accordingly
-      VIRTUAL_HOST: api.${DOMAIN}
-      # This is needed only if you are using NginX Lets-Encrypt companion
-      # (see docs.cortezaproject.org for details)
-      LETSENCRYPT_HOST: api.${DOMAIN}
-
   corredor:
     image: cortezaproject/corteza-server-corredor:${VERSION}
     networks: [ internal ]
     restart: on-failure
     env_file: [ .env ]
-    # In case you do not follow the usual setup with $DOMAIN and api.$DOMAIN, please see the
-    # Documentation on how you can configure Corredor API endpoints with CORREDOR_EXEC_CSERVERS_API_BASEURL_TEMPLATE,
-    # CORREDOR_EXEC_CSERVERS_API_HOST and other CORREDOR_EXEC_CSERVERS_* variables.
 
   db:
     # MySQL Database
     # See https://hub.docker.com/r/percona/percona-server for details
     image: percona:8.0
     restart: on-failure
-    # Uncomment to use local fs for data persistence
-    # volumes: [ "./data/db:/var/lib/mysql" ]
+    volumes: [ "./data/db:/var/lib/mysql" ]
     environment:
       # To be picked up by percona image when creating the database
       # Must match with DB_DSN settings inside .env
@@ -61,8 +42,6 @@ services:
       MYSQL_RANDOM_ROOT_PASSWORD: random # docker-compose logs db |grep "GENERATED ROOT PASSWORD"
     healthcheck: { test: ["CMD", "mysqladmin" ,"ping", "-h", "localhost"], timeout: 20s, retries: 10 }
     networks: [ internal ]
-
-
 
 networks:
   internal: {}

@@ -1,0 +1,42 @@
+.The diagram outlines the entire data syncing process from the API request to field mapping and storage from the destination node perspective.
+[plantuml,data-sync-destination,svg,role=sequence]
+----
+@startuml
+skinparam responseMessageBelowArrow true
+actor "Origin Node" as NodeOrigin
+
+box "Destination Node" #f7f7f7
+
+participant "Federation Service" as FederationService
+participant "Compose Record Service" as ComposeRS
+database Store
+participant "Federation Data Service" as FDataService
+participant Decoder
+
+activate FederationService
+
+NodeOrigin <-> FederationService: Get federated records.
+
+Store <-> FederationService: Get module M properties and field mapping definitions.
+
+note over Decoder
+The decoder converts federated records
+from a specific format into the internal
+format used by Corteza.
+end note
+Decoder <-> FederationService: Decode federated records into the internal structure.
+
+FDataService <-> FederationService: Apply field mapping to obtain the final set of records to create or update.
+
+FederationService -> ComposeRS: Create or update records
+activate ComposeRS
+ComposeRS -> Store: Write data to the store layer.
+
+ComposeRS -> FederationService: status
+deactivate ComposeRS
+
+FederationService -> Store: Update data sync status
+deactivate FederationService
+end box
+@enduml
+----

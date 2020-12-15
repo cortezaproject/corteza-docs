@@ -205,6 +205,27 @@ Flags:
   -h, --help   help for password
 ----
 
+== Federation sync
+
+.There are two commands to handle federation sync:
+* data sync,
+* structure sync.
+
+The two commands (`corteza-server sync data` and `corteza-server sync structure`) force the background watcher to run.
+
+[source,shell]
+----
+Usage:
+  corteza-server sync [command]
+
+Available Commands:
+  data        Sync data
+  structure   Sync structure
+
+Flags:
+  -h, --help   help for sync
+----
+
 == Version
 
 [source,shell]

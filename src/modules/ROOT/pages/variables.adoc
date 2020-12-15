@@ -3,6 +3,7 @@
 :APP_NAME_ADMIN: Admin
 :APP_NAME_COMPOSE: Low Code
 :APP_NAME_MESSAGING: Messaging
+:APP_NAME_FEDERATION: Federation
 :APP_AUTOMATION: Corredor
 :PRODUCT_NAME: Corteza
 :DOMAIN: cortezaproject.org
@@ -14,13 +15,14 @@
 :CLI_CMD_MESSAGING:  {CLI_CMD_PREFIX} messaging
 :CLI_CMD_COMPOSE:    {CLI_CMD_PREFIX} compose
 
-:API_DOMAIN:             your-corteza-instance.tld
-:API_SYSTEM_BASE_URL:    https://api.{API_DOMAIN}/system
-:API_MESSAGING_BASE_URL: https://api.{API_DOMAIN}/messagig
-:API_COMPOSE_BASE_URL:   https://api.{API_DOMAIN}/compose
+:API_DOMAIN:                your-corteza-instance.tld
+:API_SYSTEM_BASE_URL:       https://api.{API_DOMAIN}/system
+:API_MESSAGING_BASE_URL:    https://api.{API_DOMAIN}/messagig
+:API_COMPOSE_BASE_URL:      https://api.{API_DOMAIN}/compose
+:API_FEDERATION_BASE_URL:   https://api.{API_DOMAIN}/federation
 
 :APP_DOMAIN:             your-corteza-instance.tld
-:APP_MESSAGING_BASE_URL: https://{APP_DOMAIN}/messagig
+:APP_MESSAGING_BASE_URL: https://{APP_DOMAIN}/messaging
 :APP_COMPOSE_BASE_URL:   https://{APP_DOMAIN}/compose
 
 :GIT_REPO_GROUP:        cortezaproject

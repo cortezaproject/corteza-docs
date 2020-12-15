@@ -13,6 +13,7 @@
 //  - pkg/options/corredor.yaml
 //  - pkg/options/environment.yaml
 //  - pkg/options/eventbus.yaml
+//  - pkg/options/federation.yaml
 //  - pkg/options/monitor.yaml
 //  - pkg/options/objectStore.yaml
 //  - pkg/options/provision.yaml
@@ -644,6 +645,106 @@ Enable eventbus sheduler.
 === Description
 
 Set time interval for `eventbus` scheduler.
+
+= federation
+
+== *FEDERATION_ENABLED*
+
+=== Type
+
+`bool`
+
+=== Default
+
+`false`
+
+=== Description
+
+Federation enabled on system, it toggles rest API endpoints, possibility to map modules in Compose and sync itself
+
+== *FEDERATION_LABEL*
+
+=== Type
+
+`string`
+
+=== Default
+
+`"Federation label"`
+
+=== Description
+
+Federation label
+
+== *FEDERATION_HOST*
+
+=== Type
+
+`string`
+
+=== Default
+
+`"Federation host"`
+
+=== Description
+
+Host that is used during node pairing, also included in invitation
+
+== *FEDERATION_SYNC_STRUCTURE_MONITOR_INTERVAL*
+
+=== Type
+
+`time.Duration`
+
+=== Default
+
+`time.Minute * 2`
+
+=== Description
+
+Delay in seconds for structure sync
+
+== *FEDERATION_SYNC_STRUCTURE_PAGE_SIZE*
+
+=== Type
+
+`int`
+
+=== Default
+
+`1`
+
+=== Description
+
+Bulk size in fetching for structure sync
+
+== *FEDERATION_SYNC_DATA_MONITOR_INTERVAL*
+
+=== Type
+
+`time.Duration`
+
+=== Default
+
+`time.Second * 60`
+
+=== Description
+
+Delay in seconds for data sync
+
+== *FEDERATION_SYNC_DATA_PAGE_SIZE*
+
+=== Type
+
+`int`
+
+=== Default
+
+`100`
+
+=== Description
+
+Bulk size in fetching for data sync
 
 = Monitoring
 

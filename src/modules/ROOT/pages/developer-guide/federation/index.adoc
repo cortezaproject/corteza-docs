@@ -1,0 +1,104 @@
+include::../../variables.adoc[]
+
+[#federation]
+= {PRODUCT_NAME} {APP_NAME_FEDERATION}
+
+{PRODUCT_NAME} {APP_NAME_FEDERATION} enables different *{PRODUCT_NAME} instances* to establish a *federated network* to *freely and securely* exchange information.
+
+A federated network consists of *origin* and *destination* nodes, where each node can fulfil both roles.
+Take a look at the xref:ROOT:developer-guide/federation/glossary.adoc[glossary] for a reference on our terminology.
+
+.The diagram provides an abstract overview of the entire {PRODUCT_NAME} {APP_NAME_FEDERATION} system. It consists of three major parts -- node pairing (the nodes establish a federated network), structure syncing (the nodes agree on what will be shared), and data syncing (the destination node accesses the data on the origin node).
+[plantuml,federation-overview,svg,role=sequence]
+----
+@startuml
+skinparam ParticipantPadding 50
+participant "Node A\n(Origin Node)" as NodeA
+participant "Node B\n(Destination Node)" as NodeB
+
+== Node pairing ==
+NodeA <-> NodeB: Pair nodes.
+note over NodeA, NodeB: The two nodes are identified and exchange authentication credentials via a node handshake.
+...
+== Structure syncing ==
+NodeA -> NodeA: Expose structures.
+note over NodeA
+The origin node determines what structures
+it wishes to expose to the destination node.
+end note
+NodeA -> NodeB: Structure sync
+
+NodeB -> NodeB: Module mapping.
+note over NodeB
+The destination node determines what fields
+from the origin structure it wishes to consume.
+The destination node also specifies where
+the data should be stored (field mapping).
+end note
+...
+== Data syncing ==
+NodeA -> NodeB: Data sync.
+
+@enduml
+----
+
+== Glossary
+
+We recommend you firstly go over xref:ROOT:developer-guide/federation/glossary.adoc[*the glossary*] so you will understand our terminology.
+
+== Security & logging
+
+xref:ROOT:developer-guide/federation/security-logging.adoc[*The security & logging*] goes over the *RBAC access control* integration, and the *action log logging* integration.
+
+== Node pairing
+
+xref:ROOT:developer-guide/federation/node-pair.adoc[*Node pairing*] is the process of *establishing a federated network* between two {PRODUCT_NAME} instances (nodes).
+
+{PRODUCT_NAME} {APP_NAME_FEDERATION} defines a *node pairing handshake* which enables two nodes to securely exchange authentication credentials.
+
+== Node syncing
+
+xref:ROOT:developer-guide/federation/node-sync.adoc[*Node syncing*] is the process of determining *what data should be shared* and the *actual data sharing*.
+
+.Node syncing consists of two parts:
+* xref:ROOT:developer-guide/federation/node-sync.adoc#structure-sync[*structure sync*]: determines what data should be shared,
+* xref:ROOT:developer-guide/federation/node-sync.adoc#data-sync[*data sync*]: syncs the data between the two nodes.
+
+== API reference
+
+xref:ROOT:developer-guide/federation/api/index.adoc[*The API reference*] provides a complete list of *available API endpoints with working cURL examples*.
+
+// Node pairing::
+//     The process of establishing a federated network between two nodes.
+//     After they are paired, they are able to securely exchange data.
+//     Refer to <<federation:node-pair>> and <<federation:security:authentication>> for details.
+
+// Structure syncing::
+//     The process of determining what structures on the origin node (the one that contains the data), is exposed to it's destination node (the one that wishes to access the data).
+//     The origin node has full control over what data the destination node is allowed to access.
+//     This can be as simple as allowing access to only specific modules; and as complex as allowing access to only specific module fields.
+//     Refer to <<federation:structure-sync>> and <<federation:security:access-control>> for details.
+
+// Data syncing::
+//     The process of updating data on the destination node, based on the updated data source.
+//     The destination node has the ability to determine what field from the origin node maps into what field in the destination node.
+//     Refer to <<federation:data-sync>> for details.
+
+// :leveloffset: +1
+
+// include::glossary.adoc[]
+
+// include::security.adoc[]
+
+// include::logging.adoc[]
+
+// include::node_pair.adoc[]
+
+// include::structure_sync.adoc[]
+
+// include::data_sync.adoc[]
+
+// include::api/index.adoc[]
+
+// :leveloffset: -1
+

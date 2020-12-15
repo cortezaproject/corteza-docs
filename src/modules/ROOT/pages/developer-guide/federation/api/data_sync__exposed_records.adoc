@@ -25,7 +25,7 @@ $TOKEN_B
 .Example request
 [source,bash]
 ----
-curl -X GET "$BASE_URL/exposed/modules/$MODULE_ID/records?after=$AFTER_TIMESTAMP" \
+curl -X GET "$BASE_URL/federation/nodes/$NODE_ID/modules/$MODULE_ID/records?lastSync=$AFTER_TIMESTAMP" \
   -H "Authorization: Bearer $TOKEN_B";
 ----
 
@@ -45,8 +45,8 @@ curl -X GET "$BASE_URL/exposed/modules/$MODULE_ID/records?after=$AFTER_TIMESTAMP
         },
         "set": [
             {
-                "recordID": "161135411379307175",
-                "moduleID": "132954639472525355",
+                "recordID": "$COMPOSE_RECORD_ID",
+                "moduleID": "$FEDERATION_MODULE_ID",
                 "values": [
                     {
                         "name": "name",
@@ -59,22 +59,6 @@ curl -X GET "$BASE_URL/exposed/modules/$MODULE_ID/records?after=$AFTER_TIMESTAMP
                 ],
                 "createdAt": "2020-09-08T19:56:14Z",
                 "updatedAt": "2020-09-09T18:05:33Z"
-            },
-            {
-                "recordID": "161134990657061543",
-                "moduleID": "132954639472525355",
-                "values": [
-                    {
-                        "name": "name",
-                        "value": "Walter"
-                    },
-                    {
-                        "name": "surname",
-                        "value": "White"
-                    }
-                ],
-                "createdAt": "2020-09-08T19:52:03Z",
-                "updatedAt": "2020-09-11T19:44:03Z"
             }
         ]
     }

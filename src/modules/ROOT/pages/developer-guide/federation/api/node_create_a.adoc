@@ -29,14 +29,13 @@ $NODE_URI
 .Example request
 [source,bash]
 ----
-curl -X POST "$API_A_BASE/federation/nodes" \
+curl -X POST "$API_A_BASE/federation/nodes/" \
   -H "authorization: Bearer $MAIN_JWT_A" \
   --header "Content-Type: application/json" \
   --data "{
-    \"myDomain\": \"$DOMAIN_A\",
-    \"domain\": \"$DOMAIN_B\",
-    \"name\": \"$NODE_NAME\"
-  }";
+    \"baseURL\": \"$DOMAIN_A_BASE_URL\",
+    \"name\": \"$DOMAIN_A_NAME\"
+}";
 ----
 
 .Example response
@@ -45,11 +44,12 @@ curl -X POST "$API_A_BASE/federation/nodes" \
 {
   "response": {
     "nodeID": "$NODE_ID_A",
-    "sharedNodeID": "$NODE_ID_B",
-    "name": "\"$NODE_NAME\"",
-    "domain": "\"$DOMAIN_B\"",
-    "status": "\"pending\"",
-    "nodeURI": "\"$NODE_URI\""
+    "name": "$DOMAIN_A_NAME",
+    "status": "pending",
+    "baseURL": "$DOMAIN_A_BASE_URL",
+    "sharedNodeID": "$NODE_ID_A",
+    "createdAt": "2020-12-01T14:24:47.246145938Z",
+    "createdBy": "0"
   }
 }
 ----

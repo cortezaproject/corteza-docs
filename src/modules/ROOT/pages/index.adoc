@@ -46,6 +46,8 @@ Take a look at the xref:ROOT:administrator-guide/index.adoc[*administrator guide
 
 The guide covers xref:administrator-guide/security.adoc[*the security*] system, the xref:administrator-guide/admin-panel/index.adoc[*administration panel*], and the *application administration* (xref:administrator-guide/compose/index.adoc[*{APP_NAME_COMPOSE}*] and xref:administrator-guide/messaging/index.adoc[*{APP_NAME_MESSAGING}*])
 
+The guide also covers xref:administrator-guide/federation/index.adoc[*{PRODUCT_NAME} {APP_NAME_FEDERATION}*] -- a brand new feature which lets you *connect different {PRODUCT_NAME} instances* to securely *share data*.
+
 == Create with {PRODUCT_NAME}
 
 Take a look at the xref:ROOT:integrator-guide/index.adoc[*integrator guide*]!

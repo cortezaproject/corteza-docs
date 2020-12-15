@@ -16,7 +16,7 @@ Document your major modifications::
     * changed the interface for data export; and
     * new features.
 
-All relevant guides must me updated::
+All relevant guides must be updated::
     When a modification affects multiple guides, *each* of them needs to be taken care of (see the <<structure-overview>> section for more details).
     If the change is *not backwards compatible*, make sure to take note in the *upgrade guide*.
     For example, your feature introduces *a new application* with a new *API* and a *user interface*.

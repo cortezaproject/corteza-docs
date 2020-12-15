@@ -1,0 +1,4 @@
+       Name                      Command                  State                Ports
+---------------------------------------------------------------------------------------------
+basic-2c_corredor_1   /corredor/node_modules/.bi ...   Up (healthy)   80/tcp
+basic-2c_server_1     bin/server serve-api             Up (healthy)   127.0.0.1:18080->80/tcp

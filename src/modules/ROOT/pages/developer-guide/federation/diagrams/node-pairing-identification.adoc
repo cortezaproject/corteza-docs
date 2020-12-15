@@ -1,0 +1,25 @@
+.The diagram outlines the node identification step which exchanges the information that are required to establish a connection.
+[plantuml,node-pair,svg,role=sequence]
+----
+@startuml
+skinparam responseMessageBelowArrow true
+
+actor "Administrator A" as AdministratorA
+participant "Node A" as NodeA
+participant "Node B" as NodeB
+actor "Administrator B" as AdministratorB
+
+AdministratorA->NodeA: Register federated node B.
+AdministratorA-->AdministratorB: Send node URI.
+note right of AdministratorA
+Administrator A sends the node URI
+to administrator B via a secure channel.
+end note
+...
+AdministratorB->NodeB: Register federated node A.
+note left of AdministratorB
+Administrator B registers node A
+using the node URI.
+end note
+@enduml
+----

@@ -1,0 +1,63 @@
+.The diagram outlines the entire data syncing process from the API request to field mapping and storage from the origin node perspective.
+[plantuml,data-sync-origin,svg,role=sequence]
+----
+@startuml
+skinparam responseMessageBelowArrow true
+actor "Destination Node" as NodeDestination
+
+box "Origin Node" #f7f7f7
+
+participant "Federation Rest Controller" as FRestController
+participant "Federation Service" as FederationService
+participant "Compose Record Service" as ComposeRS
+database Store
+participant "Federation Data Service" as FDataService
+participant Encoder
+
+activate NodeDestination
+NodeDestination -> FRestController: Get federated records.
+note over NodeDestination
+This will only provide the data
+that was updated after the last
+successful data sync.
+end note
+activate FRestController
+
+FRestController -> FederationService: Get federated records.
+activate FederationService
+
+FederationService <-> Store: Get module M properties and mapped fields.
+
+FederationService -> ComposeRS: Get filtered Compose records.
+
+activate ComposeRS
+ComposeRS <-> Store: Get filtered Compose records.
+
+ComposeRS -> FederationService: List of filtered Compose records.
+deactivate ComposeRS
+
+FederationService <-> FDataService: Prepare final list of records to share.
+note over FDataService
+This step removes fields
+we do not wish to share.
+end note
+
+
+note over Encoder
+The encoder converts records
+from a specific format into the
+requested format.
+end note
+FederationService <-> Encoder: Encode records into the requested format.
+
+
+FederationService -> FRestController: Final list of federated records.
+deactivate FederationService
+
+FRestController -> NodeDestination: Final list of federated records.
+deactivate FRestController
+deactivate NodeDestination
+
+end box
+@enduml
+----

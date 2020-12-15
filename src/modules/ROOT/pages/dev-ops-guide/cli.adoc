@@ -205,13 +205,13 @@ Flags:
   -h, --help   help for password
 ----
 
-== Sync
+== Federation sync
 
 .There are two commands to handle federation sync:
- * Data sync
- * Structure sync
+* data sync,
+* structure sync.
 
-These are running automatically in the background, but if you have a longer sync delay or just want to test it, you can do it manually via sync cli command.
+The two commands (`corteza-server sync data` and `corteza-server sync structure`) force the background watcher to run.
 
 [source,shell]
 ----

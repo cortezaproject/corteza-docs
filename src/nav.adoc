@@ -21,7 +21,6 @@ include::modules/ROOT/pages/variables.adoc[]
 ** xref:end-user-guide/crm/index.adoc[]{PRODUCT_NAME} CRM
 ** xref:end-user-guide/service-solution/index.adoc[]{PRODUCT_NAME} {CRM} Service Solution
 ** xref:end-user-guide/messaging/index.adoc[]{PRODUCT_NAME} {APP_NAME_MESSAGING}
-** xref:end-user-guide/federation/index.adoc[]{PRODUCT_NAME} {APP_NAME_FEDERATION}
 ** xref:end-user-guide/shell/index.adoc[]{PRODUCT_NAME} {APP_NAME_SHELL}
 
 * xref:administrator-guide/index.adoc[Administrator Guide]
@@ -29,6 +28,7 @@ include::modules/ROOT/pages/variables.adoc[]
 ** xref:administrator-guide/admin-panel/index.adoc[Admin Panel]
 ** xref:administrator-guide/compose/index.adoc[]{APP_NAME_COMPOSE}
 ** xref:administrator-guide/messaging/index.adoc[]{APP_NAME_MESSAGING}
+** xref:administrator-guide/federation/index.adoc[]{PRODUCT_NAME} {APP_NAME_FEDERATION}
 
 * xref:integrator-guide/index.adoc[Integrator Guide]
 ** xref:integrator-guide/terminology.adoc[Terminology]
@@ -55,7 +55,12 @@ include::modules/ROOT/pages/variables.adoc[]
 *** xref:developer-guide/impersonation.adoc[Impersonation]
 ** Corteza Compose
 *** xref:developer-guide/compose/module-field-expressions.adoc[Module Field Expressions]
-** xref:developer-guide/federation/index.adoc[Corteza Federation]
+** xref:developer-guide/federation/index.adoc[]
+*** xref:developer-guide/federation/glossary.adoc[Glossary]
+*** xref:developer-guide/federation/security-logging.adoc[Security & Logging]
+*** xref:developer-guide/federation/node-pair.adoc[Node Pairing]
+*** xref:developer-guide/federation/node-sync.adoc[Node Syncing]
+*** xref:developer-guide/federation/api/index.adoc[API Reference]
 ** xref:developer-guide/extensions/index.adoc[Extensions]
 
 * xref:extensions/index.adoc[Extensions]

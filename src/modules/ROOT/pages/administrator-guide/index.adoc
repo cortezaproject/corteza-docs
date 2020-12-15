@@ -23,3 +23,7 @@ The xref:ROOT:administrator-guide/admin-panel/index.adoc[*administrator panel*] 
 == System administration
 
 See our guides for xref:ROOT:administrator-guide/compose/index.adoc[*{PRODUCT_NAME} {APP_NAME_COMPOSE}*] and xref:ROOT:administrator-guide/messaging/index.adoc[*{PRODUCT_NAME} {APP_NAME_MESSAGING}*] administration.
+
+== {PRODUCT_NAME} {APP_NAME_FEDERATION}
+
+xref:ROOT:administrator-guide/federation/index.adoc[*{PRODUCT_NAME} {APP_NAME_FEDERATION}*] enables different *{PRODUCT_NAME} instances* to establish a *federated network* to *freely and securely* exchange information.

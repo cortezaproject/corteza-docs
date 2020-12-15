@@ -1,6 +1,6 @@
 = API
 
-== Node pair
+== Node pairing
 
 === Create a federated node from a series of parameters
 
@@ -68,9 +68,9 @@ include::structure_sync__remove_module_federation_mapping.adoc[]
 
 == Structure sync
 
-=== Get master changes
+=== Get origin changes
 
-include::structure_sync__master_changes.adoc[]
+include::structure_sync__origin_changes.adoc[]
 
 === Sync shared module structure
 

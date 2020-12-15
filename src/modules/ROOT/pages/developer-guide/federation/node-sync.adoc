@@ -5,22 +5,22 @@ include::../../variables.adoc[]
 *Node syncing* is the process of determining what *data the origin node wishes to share*, and the actual *data syncing between the two nodes*.
 
 .Node syncing consists of two parts:
-* <<structure-sync,*Structure sync*>> determines the structures that the destination node can access,
-* <<data-sync,*Data sync*>> syncs the data from the origin node onto the destination node.
+* <<structure-sync,*structure sync*>> determines the structures that the destination node can access,
+* <<data-sync,*data sync*>> syncs the data from the origin node onto the destination node.
 
 [NOTE]
 ====
-The two nodes must go through xref:ROOT:developer-guide/federation/node-pair.adoc[node pairing] before they can perform any node syncing.
+The two nodes must go through xref:ROOT:developer-guide/federation/node-pair.adoc[node pairing] before they can perform any syncing.
 ====
 
 [#structure-sync]
 == Structure sync
 
 *Structure sync* is the process of determining *what structures* the destination node is *allowed to access*.
-In our case, we specify modules and module fields.
+In our case, we specify *modules and module fields*.
 
 The origin node has *full control over what data* the destination node is *allowed to access*.
-This can be as simple as allowing access to specific modules and as complex as allowing access to only specific module fields (configured in the xref:ROOT:administrator-guide/federation/index.adoc#@TODO[{PRODUCT_NAME} {APP_NAME_COMPOSE} administration panel], or via the API).
+This can be as simple as allowing access to specific modules and as complex as allowing access to only specific module fields (configured in the xref:ROOT:administrator-guide/federation/index.adoc#expose-module[{PRODUCT_NAME} {APP_NAME_COMPOSE} administration panel], or via the API).
 
 // @todo diagrams
 
@@ -35,8 +35,8 @@ The destination node consumes shared structures::
 [#data-sync]
 == Data sync
 
-*Data sync* is the process of syncing the data from the origin node onto the destination node.
-In our case, we sync {APP_NAME_COMPOSE} records.
+*Data sync* is the process of syncing the data *from the origin node onto the destination node*.
+In our case, we sync records.
 
 The destination node has *full control* over *how the data is stored* (if at all) via field mappings.
 
@@ -46,6 +46,8 @@ The data syncing uses {APP_NAME_COMPOSE} services and storage layer, which simpl
 
 The system design allows {APP_NAME_FEDERATION} to be decoupled and moved elsewhere.
 ====
+
+This part of the node sync is lengthy and complicated, so we provide two diagrams to help you visualize it.
 
 include::diagrams/data-sync-destination.adoc[]
 

@@ -2,7 +2,7 @@ include::../../variables.adoc[]
 
 = Data synchronization
 
-When two nodes have *successfully performed the <<node-pairing,node pairing>>* process, we are able to *share the data between the two nodes*.
+When two nodes have *successfully performed the <<node-pairing,node pairing>>* process, we can *share the data between the two nodes*.
 
 [NOTE]
 ====
@@ -12,13 +12,13 @@ Shared modules are created by the {APP_NAME_FEDERATION} system and can not be ma
 [#expose-module]
 == Share data
 
-An *origin node* is able to *share data* with it's *paired destination nodes*.
+An *origin node* can *share data* with it's *paired destination nodes*.
 
 An origin node *defines what modules* a specific destination node is *allowed to access*.
 
 [NOTE]
 ====
-You can only share data with nodes that were paired successfully.
+You can only share data with nodes that we successfully paired.
 ====
 
 .Share a new module:
@@ -43,13 +43,13 @@ image::federation/expose-module.png[Screenshot of the configuration window.]
 [#module-mapping]
 == Consume shared data
 
-A *destination node* is able to *consume shared data* from it's *paired origin node*.
+A *destination node* can *consume shared data* from it's *paired origin node*.
 
 A destination node *defines what modules* it wishes to access and how *values map in the destination module*.
 
 [NOTE]
 ====
-You can only consume data from nodes that were successfully paired.
+You can only consume data from nodes that we successfully paired.
 ====
 
 .Consuming data:

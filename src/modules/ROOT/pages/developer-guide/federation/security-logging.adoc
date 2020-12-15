@@ -4,9 +4,9 @@ include::../../variables.adoc[]
 
 == Security
 
-{PRODUCT_NAME} {APP_NAME_FEDERATION} leverages {PRODUCT_NAME}'s already established authentication facility, using system users and JWT tokens (later referred as a *token*).
+{PRODUCT_NAME} {APP_NAME_FEDERATION} leverages {PRODUCT_NAME}'s already established authentication facility, using *system users and JWT tokens* (later referred as a token).
 
-This enables us to *speed up the development process*, *reduce potential security holes*, and *leverage our RBAC access control facility*.
+This enables us to *reduce potential security holes* and *leverage our RBAC access control facility*.
 
 During the xref:ROOT:developer-guide/federation/node-pair.adoc[*node pairing*], each node creates a *system user* with an *authentication token* that can be used to access the node's protected resources.
 
@@ -15,7 +15,7 @@ During the xref:ROOT:developer-guide/federation/node-pair.adoc[*node pairing*], 
 The two tokens in a node pair are not the same.
 ====
 
-*After the nodes are paired* and the system users are created, the *origin node* can define *access control rules* that prevent the destination node from accessing information it is not allowed to access.
+*After the nodes are paired* and the system users are created, we can *assign roles to the federated user*, further restricting what data the destination node *is allowed to access* using the RBAC access control facility
 
 [NOTE]
 ====

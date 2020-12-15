@@ -4,7 +4,7 @@ include::../../variables.adoc[]
 
 A *federated node* is a *{PRODUCT_NAME} instance* (server) with the {APP_NAME_FEDERATION} feature enabled.
 
-A node can *expose data to it's destination* nodes (acts as an origin), or *consume shared data from it's origin* nodes (acts as a destination).
+A node can *expose data to its destination* nodes (acts as an origin), or *consume shared data from its origin* nodes (acts as a destination).
 
 [NOTE]
 ====
@@ -44,7 +44,7 @@ You can start the node pairing process from any node.
 
 [WARNING]
 ====
-The generated url includes a secure OTT token, so the federation link must be sent to the other party via a secure channel.
+The generated invite URL includes a secure OTT token, so make sure to send it over a secure channel.
 ====
 
 .[#node-pairing-accept-invite]#<<node-pairing-accept-invite,Accept the email invitation:>>#
@@ -75,5 +75,5 @@ The node pairing will not proceed until you insert the pairing URL, and the othe
 
 [NOTE]
 ====
-This final step needs to be done on the origin server (the one that initiated the handshake).
+This final step is done on the origin server (the one that initiated the handshake).
 ====

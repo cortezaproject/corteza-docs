@@ -18,7 +18,7 @@ participant "Node B\n(Destination Node)" as NodeB
 
 == Node pairing ==
 NodeA <-> NodeB: Pair nodes.
-note over NodeA, NodeB: The two nodes are identified and exchange authentication credentials via a node handshake.
+note over NodeA, NodeB: The two nodes identify and exchange authentication credentials via a node handshake.
 ...
 == Structure syncing ==
 NodeA -> NodeA: Expose structures.
@@ -26,7 +26,7 @@ note over NodeA
 The origin node determines what structures
 it wishes to expose to the destination node.
 end note
-NodeA -> NodeB: Structure sync
+NodeA -> NodeB: Structure sync.
 
 NodeB -> NodeB: Module mapping.
 note over NodeB
@@ -45,60 +45,26 @@ NodeA -> NodeB: Data sync.
 == Glossary
 
 We recommend you firstly go over xref:ROOT:developer-guide/federation/glossary.adoc[*the glossary*] so you will understand our terminology.
+It will help you follow along and understand what we're talking about.
 
 == Security & logging
 
-xref:ROOT:developer-guide/federation/security-logging.adoc[*The security & logging*] goes over the *RBAC access control* integration, and the *action log logging* integration.
+xref:ROOT:developer-guide/federation/security-logging.adoc[*The security & logging*] covers how {PRODUCT_NAME} {APP_NAME_FEDERATION} handles *node authentication and protected resource access*, *RBAC access control* facility integration and the *action log* logging integration.
 
 == Node pairing
 
 xref:ROOT:developer-guide/federation/node-pair.adoc[*Node pairing*] is the process of *establishing a federated network* between two {PRODUCT_NAME} instances (nodes).
 
-{PRODUCT_NAME} {APP_NAME_FEDERATION} defines a *node pairing handshake* which enables two nodes to securely exchange authentication credentials.
+{PRODUCT_NAME} {APP_NAME_FEDERATION} defines a *node pairing handshake* which enables the two nodes to exchange authentication credentials securely.
 
 == Node syncing
 
-xref:ROOT:developer-guide/federation/node-sync.adoc[*Node syncing*] is the process of determining *what data should be shared* and the *actual data sharing*.
+xref:ROOT:developer-guide/federation/node-sync.adoc[*Node syncing*] is the process of determining what *data the origin node wishes to share*, and the actual *data syncing between the two nodes*.
 
 .Node syncing consists of two parts:
-* xref:ROOT:developer-guide/federation/node-sync.adoc#structure-sync[*structure sync*]: determines what data should be shared,
-* xref:ROOT:developer-guide/federation/node-sync.adoc#data-sync[*data sync*]: syncs the data between the two nodes.
+* xref:ROOT:developer-guide/federation/node-sync.adoc#structure-sync[*structure sync*] determines the structures that the destination node can access,
+* xref:ROOT:developer-guide/federation/node-sync.adoc#data-sync[*data sync*] syncs the data from the origin node onto the destination node.
 
 == API reference
 
-xref:ROOT:developer-guide/federation/api/index.adoc[*The API reference*] provides a complete list of *available API endpoints with working cURL examples*.
-
-// Node pairing::
-//     The process of establishing a federated network between two nodes.
-//     After they are paired, they are able to securely exchange data.
-//     Refer to <<federation:node-pair>> and <<federation:security:authentication>> for details.
-
-// Structure syncing::
-//     The process of determining what structures on the origin node (the one that contains the data), is exposed to it's destination node (the one that wishes to access the data).
-//     The origin node has full control over what data the destination node is allowed to access.
-//     This can be as simple as allowing access to only specific modules; and as complex as allowing access to only specific module fields.
-//     Refer to <<federation:structure-sync>> and <<federation:security:access-control>> for details.
-
-// Data syncing::
-//     The process of updating data on the destination node, based on the updated data source.
-//     The destination node has the ability to determine what field from the origin node maps into what field in the destination node.
-//     Refer to <<federation:data-sync>> for details.
-
-// :leveloffset: +1
-
-// include::glossary.adoc[]
-
-// include::security.adoc[]
-
-// include::logging.adoc[]
-
-// include::node_pair.adoc[]
-
-// include::structure_sync.adoc[]
-
-// include::data_sync.adoc[]
-
-// include::api/index.adoc[]
-
-// :leveloffset: -1
-
+xref:ROOT:developer-guide/federation/api/index.adoc[*The API reference*] provides a complete list of *available API endpoints* with working *cURL examples*.

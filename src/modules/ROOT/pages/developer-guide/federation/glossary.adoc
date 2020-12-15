@@ -4,7 +4,7 @@
 
 [IMPORTANT]
 ====
-Before the two nodes are paired, we are unable to determine what node is the data source and what node is the destination.
+Before we pair the two nodes, we are unable to determine what node is the source and what node is the destination.
 To avoid confusion, we use _node A_ and _node B_ when referring to the two nodes.
 ====
 
@@ -12,45 +12,45 @@ Node URI::
     The URI that identifies a federation node.
 
 Node A::
-    The node that wishes to include another node in it's federated network -- the node that initialized the pairing process.
+    Node A is the node that initializes the process of creating a federated network with another node (node B).
 
 Node B::
-    The node that wishes to join the federated network.
+    Node B is the node that wishes to join a federated network, initialized by node A.
 
 NodeID A::
-    Node ID of the federated node A.
+    NodeID A is the node A identifier.
 
 NodeID B::
-    Node ID of the federated node B.
+    NodeID B is the node B identifier.
 
 Token A::
-    The authentication token to access protected resources on node A.
+    Token A is the authentication token used to access protected resources on node A.
 
 Token B::
-    The authentication token to access protected resources on node B.
+    Token B is the authentication token used to access protected resources on node B.
 
 == Node sync
 
 Origin node::
-    The node that *shares the data* to the other node.
-    If node A requests data from node B, node B is origin, as it contains the data.
+    The *origin node* is the node that *shares the data* to the other node.
+    If node A requests data from node B, node B is the origin, as it contains the data.
 
 Destination node::
-    The node that *receives the data* from the origin node.
-    If node A requests data from node B, node A is destination as it receives the data.
+    The *destination node* is the node that *receives the data* from the origin node.
+    If node A requests data from node B, node A is the destination as it receives the data.
 
 == Federated node
 
 Node status::
-    The current status of the federated node.
+    Node status defines the current status of the federated node.
     Can be one of the following:
 
     * *pairing*: the node is in the pairing process,
-    * *paired*: the node has been paired successfully,
-    * *failed*: the node failed to pair.
+    * *paired*: the nodes were successfully paired,
+    * *failed*: the node was unable to pair.
 
 Structure sync status::
-    The current status of the structure sync.
+    Structure sync status defines the current status of the federation node structure syncing.
     Can be one of the following:
 
     * *syncing*: the node is currently syncing structures from the origin node,
@@ -58,7 +58,7 @@ Structure sync status::
     * *failed*: there was an error while syncing.
 
 Data sync status::
-    The current status of the data sync.
+    Data sync status defines the current status of the federated node data syncing.
     Can be one of the following:
 
     * *syncing*: the node is currently syncing data from the origin node,

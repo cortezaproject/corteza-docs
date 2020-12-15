@@ -1,4 +1,4 @@
-.The diagram outlines the entire node pairing process. This is later broken down into node identification and node handshake and described in detail.
+.The diagram outlines the node handshake step which exchanges the authentication tokens used to access protected resources.
 [plantuml,node-pair,svg,role=sequence]
 ----
 @startuml

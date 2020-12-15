@@ -27,3 +27,9 @@ See our guides for xref:ROOT:administrator-guide/compose/index.adoc[*{PRODUCT_NA
 == {PRODUCT_NAME} {APP_NAME_FEDERATION}
 
 xref:ROOT:administrator-guide/federation/index.adoc[*{PRODUCT_NAME} {APP_NAME_FEDERATION}*] enables different *{PRODUCT_NAME} instances* to establish a *federated network* to *freely and securely* exchange information.
+
+[NOTE]
+====
+{PRODUCT_NAME} {APP_NAME_FEDERATION} is disabled by default.
+Set the `FEDERATION_ENABLED` `.env` variable to `true` if you wish to enable it.
+====

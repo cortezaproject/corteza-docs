@@ -9,14 +9,14 @@ include::../../variables.adoc[]
 Set the `FEDERATION_ENABLED` `.env` variable to `true` if you wish to enable it.
 ====
 
-{PRODUCT_NAME} {APP_NAME_MESSAGING} aims to connect different Corteza instances into a federated network, where they can freely exchange information.
+{PRODUCT_NAME} {APP_NAME_FEDERATION} enables different *{PRODUCT_NAME} instances* to establish a *federated network* to *freely and securely* exchange information.
 
-This document will help you through the process of *setting up your federated network* and *configuring access control* for data sharing.
+This document will help you through the process of *setting up your federated network* and *configure data sharing*.
 
 .Quick access:
-* <<node-pairing,Adding new federated nodes>>,
-* <<expose-module,Configuring data sharing>>,
-* <<module-mapping,Consuming shared data>>.
+* <<node-pairing,adding new federated nodes>>,
+* <<expose-module,configuring data sharing>>,
+* <<module-mapping,consuming shared data>>.
 
 :leveloffset: +1
 

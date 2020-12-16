@@ -16,7 +16,7 @@ Questions?
 Check out https://{DOMAIN}[our homepage] or https://latest.{DOMAIN}[get in touch with us].
 ====
 
-== Deploying {PRODUCT_NAME}
+== Install {PRODUCT_NAME} on your server, laptop or workstation with Docker
 
 Take a look at the xref:ROOT:dev-ops-guide/index.adoc[*DevOps guide*]!
 

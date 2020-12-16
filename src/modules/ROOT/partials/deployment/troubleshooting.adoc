@@ -1,0 +1,44 @@
+include::../../pages/variables.adoc[]
+
+== Troubleshooting
+
+=== Ports are not available
+
+In case something else on your machine is using ports configured ports you will see error like this:
+[source,text]
+----
+Cannot start service server: Ports are not available: listen tcp 127.0.0.1:18080: bind: address already in use
+----
+
+You can safely change the port to any number between `1024` and `65535`.
+You can also replace value for `services.server.ports` in `docker-compose.yaml` to `[ "80" ]` and docker will pick an available port for you.
+
+=== Connection to {APP_AUTOMATION}
+
+You might see one or more connection refused errors in server container logs (`docker-compose logs -f server`):
+[source,text]
+----
+{"level":"error","ts":1608125024.4714684,"logger":"corredor","caller":"corredor/service.go:427","msg":"could not load corredor server scripts","error":"rpc error: code = DeadlineExceeded desc = latest balancer error: connection error: desc = \"transport: Error while dialing dial tcp 172.23.0.2:80: connect: connection refused\"","stacktrace":"github.com/cortezaproject/corteza-server/pkg/corredor.(*service).loadServerScripts\n\t/drone/src/pkg/corredor/service.go:427"}----
+----
+
+If there are a couple of errors when server is starting up that's ok.
+Sometimes it takes more time to start up {APP_AUTOMATION} server and {PRODUCT_NAME} server can not yet connect to it.
+
+If problem persists, and you can see {APP_AUTOMATION} state as healthy please verify changes you might have made to the configuration.
+
+=== Network proxy declared as external
+
+[source,text]
+----
+ERROR: Network proxy declared as external, but could not be found. Please create the network manually using `docker network create proxy` and try again.
+----
+
+Make sure your nginx-proxy service is up and running before running {PRODUCT_NAME}.
+
+=== Further troubleshooting
+
+If you’re continuing to have issues with {PRODUCT_NAME}, we encourage you to make contact with other users on our https://latest.cortezaproject.org[community server].
+You’ll more than likely find someone who can help you out.
+You can also open an issue on our https://github.com/cortezaproject/corteza-server[cortezaproject/corteza-server] GitHub repository.
+
+

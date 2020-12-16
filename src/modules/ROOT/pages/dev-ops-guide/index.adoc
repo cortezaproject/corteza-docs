@@ -18,7 +18,15 @@ The numbers may *differ for your needs*, but you can still use them as a base.
 
 xref:ROOT:dev-ops-guide/system-requirements.adoc[*System requirements*] help you determine the server configuration that best suits your needs.
 
-== Deploying {PRODUCT_NAME}
+== {PRODUCT_NAME} demo in your local environment
+
+See our *example setup sections* for a quick step-by-step on how to test {PRODUCT_NAME} on your laptop or workstation.
+
+Refer to the xref:ROOT:dev-ops-guide/docker-compose.adoc[*docker compose*] section, if you need help with Docker.
+
+
+
+== Deploying {PRODUCT_NAME} for production
 
 See our *example setup sections* for a quick step-by-step on how to deploy to different environments.
 Use the xref:ROOT:dev-ops-guide/setup-local-demo.adoc[*local setup*] for any local development or demonstration.

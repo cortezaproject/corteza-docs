@@ -1,4 +1,4 @@
-include::../variables.adoc[]
+include::../../variables.adoc[]
 
 [#nginx-proxy]
 = Nginx proxy
@@ -6,7 +6,7 @@ include::../variables.adoc[]
 [NOTE]
 ====
 This is not needed when working on local instances.
-Following the xref:ROOT:dev-ops-guide/index.adoc#setup-local-demo[setup local demo section] is enough to get a local instance up and running.
+Following the xref:ROOT:dev-ops-guide/deployment/demo-in-mem.adoc[in-memory demo] or xref:ROOT:dev-ops-guide/deployment/demo-mysql.adoc[demo with MySQL] are enough to get a local instance up and running.
 ====
 
 [WARNING]
@@ -46,13 +46,13 @@ https://github.com/JrCs/docker-letsencrypt-nginx-proxy-companion[LetsEncrypt Ngi
 .`docker-compose.yaml`
 [source,yaml]
 ----
-include::ROOT:example$docker-compose/nginx-proxy/docker-compose.yaml[]
+include::ROOT:example$docker-compose/prod-proxy-nginx/docker-compose.yaml[]
 ----
 
 .`custom.conf`
 [source]
 ----
-include::ROOT:example$docker-compose/nginx-proxy/custom.conf[]
+include::ROOT:example$docker-compose/prod-proxy-nginx/custom.conf[]
 ----
 
 [IMPORTANT]
@@ -72,5 +72,5 @@ The output should be similar to this one:
 
 [source,shell]
 ----
-include::ROOT:example$docker-compose/nginx-proxy/output-ps.txt[]
+include::ROOT:example$docker-compose/prod-proxy-nginx/output-ps.txt[]
 ----

@@ -8,10 +8,12 @@ include::modules/ROOT/pages/variables.adoc[]
 *** xref:dev-ops-guide/server-configuration/index.adoc[Server]
 *** xref:dev-ops-guide/corredor-configuration.adoc[Corredor Server]
 ** xref:dev-ops-guide/cli.adoc[CLI Tool]
-** Example Setup
-*** xref:dev-ops-guide/setup-local-demo.adoc[Local Setup]
-*** xref:dev-ops-guide/nginx-proxy.adoc[Nginx Proxy Configuration]
-*** xref:dev-ops-guide/setup-production.adoc[Production setup]
+** Example deployment
+*** xref:dev-ops-guide/deployment/demo-in-mem.adoc[Local demo with in-memory storage]
+*** xref:dev-ops-guide/deployment/demo-mysql.adoc[Local demo with MySQL storage]
+*** xref:dev-ops-guide/deployment/prod-proxy-nginx.adoc[Nginx Proxy for production deployments]
+*** xref:dev-ops-guide/deployment/prod-pgsql.adoc[Production ready with PostgreSQL storage]
+*** xref:dev-ops-guide/deployment/prod-mysql.adoc[Production ready with MySQL storage]
 ** xref:dev-ops-guide/health-check.adoc[Health Check]
 ** Automation Scripts
 *** xref:dev-ops-guide/email-relay.adoc[Relaying Inbound Emails]

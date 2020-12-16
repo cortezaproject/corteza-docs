@@ -1,17 +1,20 @@
-include::../variables.adoc[]
+include::../../variables.adoc[]
 
-[#setup-local-demo-2c]
-= Simplified two-container setup for a local demo
+[#docker-compose-demo-in-mem-deployment]
+= Local {PRODUCT_NAME} demo setup with in-memory database and automation server
 
-[IMPORTANT]
-====
 The section covers configuration files that are only suitable for a demo on a local environment.
 All services are on the same network, ports are bound to the host's network, etc.
 We're using a minimum setup with corredor automation server, no persistent storage using in-memory SQLite3.
-Restarting server give you a fresh database.
 
+[IMPORTANT]
+====
+Restarting server gives you a fresh database, and you'll lose all your records, users and uploaded files.
+====
+
+[IMPORTANT]
+====
 This is *not* an optimal setup for a production environment.
-See xref:ROOT:dev-ops-guide/index.adoc#nginx-proxy[Nginx proxy] and xref:ROOT:dev-ops-guide/index.adoc#setup-production[production setup] guides for a production deploy.
 ====
 
 == Configurations
@@ -19,7 +22,7 @@ See xref:ROOT:dev-ops-guide/index.adoc#nginx-proxy[Nginx proxy] and xref:ROOT:de
 .`docker-compose.yaml`
 [source,yaml]
 ----
-include::ROOT:example$docker-compose/basic-2c/docker-compose.yaml[]
+include::ROOT:example$docker-compose/demo-in-mem/docker-compose.yaml[]
 ----
 
 Create an empty directory with the `docker-compose.yaml` file.
@@ -40,22 +43,31 @@ The output should be similar to this one:
 
 [source,shell]
 ----
-include::ROOT:example$docker-compose/basic-2c/output-ps.txt[]
+include::ROOT:example$docker-compose/demo-in-mem/output-ps.txt[]
 ----
 
-You can see 2 services up and running.
+You can see 2 services up and running. On a modern machine {PRODUCT_NAME} initializes and configures itself in under 10 seconds.
 
+== Testing the demo
 
-== Finishing the setup
-
-. Direct your browser to `http://localhost:18080`.
+. Direct your browser to http://localhost:18080.
 If you used other ports in your configurations, use those.
 On your first visit, you should be redirected to the authentication page (`/auth`),
 . create your account through the sign-up form.
+. check the server version http://localhost:18080/version
+. check the server's health http://localhost:18080/healthcheck
+. check the API documentation http://localhost:18080/api/docs/
 
 [NOTE]
 ====
 The first user gets automatically promoted to an administrator.
 You can add additional users by using the sign-up form or by adding them in the administration panel.
 ====
+
+[NOTE]
+====
+With disabled email capabilities (unconfigured `SMTP_*` options) all email sending is offline and with it, email confirmation on sign-up.
+====
+
+include::ROOT:partial$deployment/troubleshooting.adoc[]
 

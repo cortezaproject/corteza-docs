@@ -2,6 +2,159 @@ include::../variables.adoc[]
 
 = Upgrading to 2020.12
 
+[IMPORTANT]
+====
+Due to *database schema changes* it's not possible to downgrade or revert your installation after upgrading to `2020.12`.
+Please be extra careful, backup your database and follow recommended steps.
+====
+
+[IMPORTANT]
+====
+If you use {PRODUCT_NAME} REST API, please note that paging parameters on certain endpoints have changed.
+Refer to xref:ROOT:developer-guide/pagination.adoc#_pagination[developers guide] for details.
+====
+
 == After upgrade
 
-// ...
+With introduction of field expressions some {APP_AUTOMATION} automations scripts became obsolete and were removed from the 2020.12.
+This affects existing deployments that use CRM and Service Solution applications.
+
+We did not want to make an automated upgrade and change your module fields on those applications (namespaces).
+It's not possible to know what kind of changes you might have made in your modules.
+
+
+|===
+
+|Module|Field|Value expression|Sanitizer|Validators
+
+|Account
+|BillingStreet
+|
+|
+|`trim(value)`
+
+|Account
+|BillingCity
+|
+|
+|`trim(value)`
+
+|Account
+|BillingState
+|
+|
+|`trim(value)`
+
+|Account
+|BillingPostalCode
+|
+|
+|`trim(value)`
+
+|Account
+|ShippingStreet
+|
+|
+|`trim(value)`
+
+|Account
+|ShippingCity
+|
+|
+|`trim(value)`
+
+|Account
+|ShippingState
+|
+|
+|`trim(value)`
+
+|Account
+|ShippingPostalCode
+|
+|
+|`trim(value)`
+
+|Account
+|GeneratedBillingAddress
+|`trim(trim(trim(BillingStreet?BillingStreet:"") + "\n" + trim(trim(trim(BillingPostalCode?BillingPostalCode:"") + " " + trim(BillingCity?BillingCity:"")) + " " + trim(BillingState?BillingState:""))) + "\n" + trim(BillingCountry?BillingCountry:""))`
+|
+|
+
+|Account
+|GeneratedShippingAddress
+|`trim(trim(trim(BillingStreet?BillingStreet:"") + "\n" + trim(trim(trim(BillingPostalCode?BillingPostalCode:"") + " " + trim(BillingCity?BillingCity:"")) + " " + trim(BillingState?BillingState:""))) + "\n" + trim(BillingCountry?BillingCountry:""))`
+|
+|
+
+|Lead
+|Street
+|
+|
+|`trim(value)`
+
+|Lead
+|City
+|
+|
+|`trim(value)`
+
+|Lead
+|State
+|
+|
+|`trim(value)`
+
+|Lead
+|PostalCode
+|
+|
+|`trim(value)`
+
+|Lead
+|GeneratedAddress
+|`trim(trim(trim(BillingStreet?BillingStreet:"") + "\n" + trim(trim(trim(BillingPostalCode?BillingPostalCode:"") + " " + trim(BillingCity?BillingCity:"")) + " " + trim(BillingState?BillingState:""))) + "\n" + trim(BillingCountry?BillingCountry:""))`
+|
+|
+
+|Lead
+|RecordLabel
+|`trim(FirstName + " " + LastName)`
+|
+|
+
+|Quote
+|Discount
+|
+|
+|`value < 0`: "Discount can not be a negative number"
+
+
+|Quote
+|Subtotal
+|
+|
+|`value < 0`: "Sub total can not be a negative number"
+
+
+|Quote
+|Tax
+|
+|
+|`value < 0`: "Tax can not be a negative number"
+
+
+|Quote
+|TotalPrice
+|`max(max((Subtotal?Subtotal:0) - (Discount?Discount:0), 0) + (ShippingHandling?ShippingHandling:0))`
+|
+|
+
+
+|Quote
+|GrandTotal
+|`TotalPrice * (Tax ? 1+Tax/100 : 1)`
+|
+|
+
+|===

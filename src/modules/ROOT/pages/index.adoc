@@ -103,6 +103,18 @@ Do you need help?
 Get in touch with us on the https://latest.{DOMAIN}[community {PRODUCT_NAME} instance]!
 ====
 
+== API reference
+
+*Each {PRODUCT_NAME} instance* has its own *API reference built-in* so that the reference is always there and always valid.
+Navigate to the `/docs/` API sub-page; for example `https://api.{API_DOMAIN}/docs`.
+
+Alternatively, you can use our community instance https://api.latest.cortezaproject.org/docs/
+
+[NOTE]
+====
+Our community instance is always on the *latest stable version* so the *reference may not be compatible*.
+====
+
 == Upgrading {PRODUCT_NAME}
 
 [IMPORTANT]

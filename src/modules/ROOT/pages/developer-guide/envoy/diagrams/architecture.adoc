@@ -1,0 +1,83 @@
+.The diagram outlines Envoy's architecture; the main layers.
+[plantuml,envoy-arch,svg,role=sequence]
+----
+@startuml
+' ---------------
+' Decoder layer
+' ---------------
+package "Decoder layer" as dc {
+  [yaml] as dcyml
+  [csv] as dccsv
+  [store] as dcstore
+  note as ndc
+  A decoder takes in a set of sources
+  and returns a set of resource and
+  template nodes.
+  end note
+}
+
+interface "Decoded data source" as dcDataSrc
+
+dcyml -down-> dcDataSrc
+dccsv -down-> dcDataSrc
+dcstore -down-> dcDataSrc
+
+' ---------------
+' Data shaping
+' ---------------
+
+package "Data shaping layer" as shaperLayer {
+  [Shaper] as shaper
+
+  note as nshaperLayer
+  The data shaping layer takes in raw datasets
+  and resource template and produces actual
+  resources.
+  end note
+}
+
+interface "Envoy resource set" as eNodeSet
+
+dcDataSrc -down-> shaper
+shaper -down-> eNodeSet
+
+' ---------------
+' Graph builder
+' ---------------
+
+package "Graph builder" as g {
+  [Graph builder] as gbld
+
+  note as ng
+  The graph builder performs additional data
+  transformations and pre-processing in order
+  to construct a final dependency graph.
+  end note
+}
+
+interface "Dependency graph" as depG
+
+eNodeSet -down-> gbld
+gbld -down-> depG
+
+' ---------------
+' Encoder layer
+' ---------------
+
+package "Encoder" as enc {
+  [yaml] as encyml
+  [csv] as enccsv
+  [store] as encstore
+
+  note as nenc
+  The encoder layer takes in a dependency graph
+  and encodes the data to the specified destination.
+  end note
+}
+
+depG -down-> encyml
+depG -down-> enccsv
+depG -down-> encstore
+
+@enduml
+----

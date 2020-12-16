@@ -1,0 +1,12 @@
+include::../../variables.adoc[]
+
+= Data shaping
+
+*Data shaping* lets us *define templates* how some input source should be *shaped* (processed) before being encoded.
+
+The data shaping layer takes in a generic `ResourceDataset` structure and a *resource template* structure and produces an actual resource structure.
+
+For example, we provide a `ResourceDataset` structure and a `ComposeRecordTemplate` structure.
+The data shaping layer creates a proper `ComposeRecord` structure based on the provided template
+
+Data shaping is useful for *unstructured sources* (such as .csv) where we *can't automatically extract* contextual information (such as what module and namespace to use).

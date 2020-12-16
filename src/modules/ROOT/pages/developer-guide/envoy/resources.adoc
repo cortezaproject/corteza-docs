@@ -1,0 +1,16 @@
+include::../../variables.adoc[]
+
+= Resources
+
+*A resource* is some *generic intermediate structure* that represents the provided source data with some additional context to enable further processing (things like dependency management via the xref:ROOT:developer-guide/envoy/dependency-graph.adoc[dependency graph]).
+
+To avoid needless complexity and improve flexibility, *each {PRODUCT_NAME} resource* defines a *resource structure*.
+The resource structure can be as simple as the `ComposeNamespace`, or as complex as the `ComposeRecord` resource.
+
+== Large datasets
+
+Smaller datasets (for example modules and namespaces) should be in the range of << 500 entries.
+
+Larger datasets, however, can be in the millions (for example records).
+
+These resources (let's call them resource sets for now) need to define a *resource set*, where *multiple source entries* are represented as a single *resource set* (for example the `ComposeRecord` resource).

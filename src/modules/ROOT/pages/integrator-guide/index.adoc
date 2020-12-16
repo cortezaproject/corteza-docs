@@ -25,12 +25,12 @@ xref:ROOT:integrator-guide/security.adoc[*Reviewing the security system*] will p
 
 It will help with developing *secure applications* and defining *role hierarchies*.
 
-== Define the data model
+== {APP_NAME_COMPOSE} configuration
 
-The data model is the *first step of the integration*; it defines *the skeleton* of your application (just like an HTML document defines the page structure).
+The {APP_NAME_COMPOSE} configuration is the *first step of the integration*; it defines *the skeleton* of your application (just like an HTML document represents the page structure).
 If the structure is lacking, future development will be challenging.
 
-See the xref:ROOT:integrator-guide/data-model/index.adoc[*data model section*] to get a good understanding on how you can *define a good foundation* for your application.
+See the xref:ROOT:integrator-guide/data-model/index.adoc[*{APP_NAME_COMPOSE} configuration section*] to get a good understanding on how you can *define a good foundation* for your application.
 
 == Define an extension
 

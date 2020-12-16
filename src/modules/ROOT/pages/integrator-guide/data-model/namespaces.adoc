@@ -2,7 +2,7 @@ include::../../variables.adoc[]
 
 = Namespaces
 
-A *namespace* is the *root* of your *data model*, as it *encapsulates the components* that make up a *specific application*.
+A *namespace* is the *root* of your *{APP_NAME_COMPOSE}* application, as it *encapsulates the components* that make up a *specific application*.
 For example, *CRM related things* go under the *CRM namespace*; *call centre things* go under the *call centre namespace*.
 
 [TIP]

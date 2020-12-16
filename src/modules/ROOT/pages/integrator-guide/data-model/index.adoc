@@ -1,8 +1,8 @@
 include::../../variables.adoc[]
 
-= Data model
+= {APP_NAME_COMPOSE} configuration
 
-The *data model* defines the *logical structure* (the skeleton) of your data, how it is *stored*, and how it can be *manipulated*.
+The *{APP_NAME_COMPOSE} configuration* defines the *logical structure* (the skeleton) of your data, how it is *stored*, and how it can be *manipulated*.
 
 :leveloffset: +1
 

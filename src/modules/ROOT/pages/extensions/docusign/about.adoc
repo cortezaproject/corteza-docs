@@ -6,8 +6,8 @@ https://www.docusign.com/[DocuSign] is a service that allows our clients to sign
 
 The extension implements three main components:
 
-The data model::
-    Follow the data model definition provided in the YAML files to configure your {APP_NAME_COMPOSE} namespace.
+{APP_NAME_COMPOSE} configuration::
+    Follow the {APP_NAME_COMPOSE} configuration provided in the YAML files to configure your {APP_NAME_COMPOSE} namespace.
 
 Authentication::
     The OAuth 2 authentication flow authorizes your application to access DocuSign.

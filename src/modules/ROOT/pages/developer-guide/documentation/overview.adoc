@@ -115,7 +115,7 @@ The document should be written for *field experts*, so we needn't worry about th
 It should provide enough insight into *the system*, *terminology* and other bits such as *extension development* so that the reader can extend the base {PRODUCT_NAME} for either themselves or a client.
 
 We should define multiple sections where each section focuses on a specific aspect of the integration.
-From *defining a data model*, to *deploying extensions*.
+From *configuring {APP_NAME_COMPOSE}*, to *deploying extensions*.
 Each section should solely focus on its context.
 
 Make sure to keep the content *somewhat abstract*, but provide *enough low-level knowledge* so the integrator knows what something does.

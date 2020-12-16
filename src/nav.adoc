@@ -33,7 +33,7 @@ include::modules/ROOT/pages/variables.adoc[]
 * xref:integrator-guide/index.adoc[Integrator Guide]
 ** xref:integrator-guide/terminology.adoc[Terminology]
 ** xref:integrator-guide/security.adoc[Security]
-** xref:integrator-guide/data-model/index.adoc[Data Model]
+** xref:integrator-guide/data-model/index.adoc[]{APP_NAME_COMPOSE} Configuration
 ** xref:integrator-guide/extensions/index.adoc[Extensions]
 ** References
 *** xref:integrator-guide/resource-events-reference.adoc[Resource Events]

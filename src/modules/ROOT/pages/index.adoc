@@ -52,7 +52,7 @@ The guide also covers xref:administrator-guide/federation/index.adoc[*{PRODUCT_N
 
 Take a look at the xref:ROOT:integrator-guide/index.adoc[*integrator guide*]!
 
-The guide walks you *through the integration process*; from xref:integrator-guide/security.adoc[*the security*] system, xref:integrator-guide/data-model/index.adoc[*data model*] definition, and xref:integrator-guide/extensions/index.adoc[*extension*] development.
+The guide walks you *through the integration process*; from xref:integrator-guide/security.adoc[*the security*] system, xref:integrator-guide/data-model/index.adoc[*{APP_NAME_COMPOSE} configuration*], and xref:integrator-guide/extensions/index.adoc[*extension*] development.
 
 We also offer some copy-pastable xref:integrator-guide/samples/index.adoc[*samples*], instructions for xref:integrator-guide/extensions/index.adoc#extension-deploy[*deploying*], xref:integrator-guide/extensions/index.adoc#extension-debug[*debugging*] and xref:integrator-guide/extensions/index.adoc#extension-test[*testing*] (yes, there is a xref:integrator-guide/extensions/index.adoc#extension-test-setup-mc[*working setup*] with *unit tests* and *coverage reporting*).
 

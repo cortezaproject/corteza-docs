@@ -2,7 +2,7 @@ include::../../variables.adoc[]
 
 = Extensions
 
-We define a set of *automation scripts*, *resources* and *other assets* (*data model definitions* and *configurations*) as an extension.
+We define a set of *automation scripts*, *resources* and *other assets* (system and {APP_NAME_COMPOSE} configurations) as an extension.
 
 [TIP]
 ====

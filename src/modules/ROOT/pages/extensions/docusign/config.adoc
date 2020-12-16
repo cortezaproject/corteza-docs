@@ -28,7 +28,7 @@ Enter the URI in the form of `{{$BASE_URL}}/system/sink/ext_oauth/callback/__sig
 https://www.my-crm.com/system/sink/ext_oauth/callback/__sign=d6df0f3...RydWV9
 ----
 
-== Configure the data model
+== {APP_NAME_COMPOSE} configuration
 
 [NOTE]
 ====

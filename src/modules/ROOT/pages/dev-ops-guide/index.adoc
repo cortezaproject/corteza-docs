@@ -28,6 +28,11 @@ Refer to the xref:ROOT:dev-ops-guide/docker-compose.adoc[*docker compose*] secti
 
 == Deploying {PRODUCT_NAME} for production
 
+[WARNING]
+====
+include::ROOT:partial$warnings/sqlite.adoc[]
+====
+
 See our *example setup sections* for a quick step-by-step on how to deploy to different environments.
 Use the xref:ROOT:dev-ops-guide/setup-local-demo.adoc[*local setup*] for any local development or demonstration.
 Use the xref:ROOT:dev-ops-guide/setup-production.adoc[*production setup*] for any live deployments (*production* or *staging/testing*).

@@ -18,6 +18,11 @@ Check out https://{DOMAIN}[our homepage] or https://latest.{DOMAIN}[get in touch
 
 == Install {PRODUCT_NAME} on your server, laptop or workstation with Docker
 
+[WARNING]
+====
+include::ROOT:partial$warnings/sqlite.adoc[]
+====
+
 Take a look at the xref:ROOT:dev-ops-guide/index.adoc[*DevOps guide*]!
 
 The guide walks you through xref:dev-ops-guide/server-configuration/index.adoc[*server*] and xref:dev-ops-guide/corredor-configuration.adoc[*{APP_AUTOMATION} server*] configuration.

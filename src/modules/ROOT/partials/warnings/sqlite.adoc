@@ -1,0 +1,9 @@
+*Potential data loss when using SQLite in memory.*
+
+We strongly recommend you use other DB engines (PostgreSQL or MySQL).
+If you are set on using SQLite, make sure to use persistent storage.
+
+The used SQLite driver https://pkg.go.dev/github.com/mattn/go-sqlite3[mattn/go-sqlite3] re-creates the entire database whenever a new connection is established and drops the whole database when the last connection is closed.
+
+We use SQLite primarily for testing, so this isn't an issue for us.
+We will work on a more robust solution in future releases.

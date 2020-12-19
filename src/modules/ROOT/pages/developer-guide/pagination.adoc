@@ -65,14 +65,18 @@ This is needed in cases when *application-level filtering* (security) *removes i
 
 This allows us to implement *additional security logic* on the application level when accessing resources.
 
-== _Handicapped page navigation and item counting_
+== Changed approach to page navigation and total item count
 
-With relative cursors, it's currently *not possible* to jump on a *specific page* -- only *next page*, *previous page*, *back to the 1st-page*, and *go to the last page* (reversed sort) are possible.
-Similar issues are with generating the *total number of items* in the dataset.
+With the described changes it's not possible to jump on an arbitrary page without a known cursor.
+Page navigation need to be generated and cursors for each page collected.
+Same for total item count.
 
-We will attempt to address both issues in future releases.
+We've extended {PRODUCT_NAME} REST API and added two new flags:
+include page navigation (`incPageNavgitation`) and include total number of items (`incTotal`).
 
-[NOTE]
+When any of these two is enabled, {PRODUCT_NAME} walks through *entire* matching dataset of records counts it and/or collects pointers to pages.
+
+[WARNING]
 ====
-Page navigation is technically possible, but it might result in decreased performance.
+Use this carefully on a bigger datasets as it can hurt performance of the entire deployment.
 ====

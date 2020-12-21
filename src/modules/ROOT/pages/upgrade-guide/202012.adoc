@@ -120,7 +120,7 @@ It's not possible to know what kind of changes you might have made in your modul
 
 | Lead
 | RecordLabel
-| `trim(FirstName + " " + LastName)`
+| `trim((FirstName ? FirstName : "") + " " + (LastName ? LastName : ""))`
 |
 |
 

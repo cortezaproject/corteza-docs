@@ -1,7 +1,7 @@
 include::../../variables.adoc[]
 
 [#setup-production]
-= Production setup with MySQL database
+= Production setup with PostgreSQL database
 
 The section covers configuration files suitable for production environment.
 Services are separated into two networks (internal and proxy) so that database and automation server can not be accessed from the public network.

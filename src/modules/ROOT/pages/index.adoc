@@ -27,7 +27,7 @@ Take a look at the xref:ROOT:dev-ops-guide/index.adoc[*DevOps guide*]!
 
 The guide walks you through xref:dev-ops-guide/server-configuration/index.adoc[*server*] and xref:dev-ops-guide/corredor-configuration.adoc[*{APP_AUTOMATION} server*] configuration.
 
-You can find an example for a xref:dev-ops-guide/setup-local-demo.adoc[*local*] and xref:dev-ops-guide/setup-production.adoc[*production*] deployment.
+You can find an example for a xref:dev-ops-guide/deployment/demo-mysql.adoc[*local MySQL*] and *production* deployments for xref:dev-ops-guide/deployment/prod-pgsql.adoc[*PostgreSQL*] and xref:dev-ops-guide/deployment/prod-mysql.adoc[*MySQL*].
 
 We also have some miscellanies, such as xref:dev-ops-guide/email-relay.adoc[*relaying inbound emails*], xref:dev-ops-guide/health-check.adoc[*health check*], and xref:dev-ops-guide/backup.adoc[*data backups*].
 

@@ -9,7 +9,8 @@ include::modules/ROOT/pages/variables.adoc[]
 *** xref:dev-ops-guide/corredor-configuration.adoc[Corredor Server]
 ** xref:dev-ops-guide/cli.adoc[CLI Tool]
 ** Example deployment
-*** xref:dev-ops-guide/deployment/demo-in-mem.adoc[Local demo with in-memory storage]
+// in-memory is not production-ready
+// *** xref:dev-ops-guide/deployment/demo-in-mem.adoc[Local demo with in-memory storage]
 *** xref:dev-ops-guide/deployment/demo-mysql.adoc[Local demo with MySQL storage]
 *** xref:dev-ops-guide/deployment/prod-proxy-nginx.adoc[Nginx Proxy for production deployments]
 *** xref:dev-ops-guide/deployment/prod-pgsql.adoc[Production ready with PostgreSQL storage]

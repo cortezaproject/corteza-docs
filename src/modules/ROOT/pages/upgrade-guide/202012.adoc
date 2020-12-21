@@ -18,156 +18,150 @@ Refer to xref:ROOT:developer-guide/pagination.adoc#_pagination[developers guide]
 
 === Field expressions and automation scripts
 
-With introduction of field expressions some {APP_AUTOMATION} automations scripts became obsolete and were removed from the 2020.12.
+With the introduction of field expressions, some {APP_AUTOMATION} automation scripts became obsolete and were removed from the 2020.12 release.
 This affects existing deployments that use CRM and Service Solution applications.
 
 We did not want to make an automated upgrade and change your module fields on those applications (namespaces).
 It's not possible to know what kind of changes you might have made in your modules.
 
-
+.Module modifications:
 |===
+| Module| Field| Value expression| Sanitizer| Validators
 
-|Module|Field|Value expression|Sanitizer|Validators
+| Account
+| BillingStreet
+|
+|
+| `trim(value)`
 
-|Account
-|BillingStreet
+| Account
+| BillingCity
 |
 |
-|`trim(value)`
+| `trim(value)`
 
-|Account
-|BillingCity
+| Account
+| BillingState
 |
 |
-|`trim(value)`
+| `trim(value)`
 
-|Account
-|BillingState
+| Account
+| BillingPostalCode
 |
 |
-|`trim(value)`
+| `trim(value)`
 
-|Account
-|BillingPostalCode
+| Account
+| ShippingStreet
 |
 |
-|`trim(value)`
+| `trim(value)`
 
-|Account
-|ShippingStreet
+| Account
+| ShippingCity
 |
 |
-|`trim(value)`
+| `trim(value)`
 
-|Account
-|ShippingCity
+| Account
+| ShippingState
 |
 |
-|`trim(value)`
+| `trim(value)`
 
-|Account
-|ShippingState
+| Account
+| ShippingPostalCode
 |
 |
-|`trim(value)`
+| `trim(value)`
 
-|Account
-|ShippingPostalCode
-|
-|
-|`trim(value)`
-
-|Account
-|GeneratedBillingAddress
-|`trim(trim(trim(BillingStreet?BillingStreet:"") + "\n" + trim(trim(trim(BillingPostalCode?BillingPostalCode:"") + " " + trim(BillingCity?BillingCity:"")) + " " + trim(BillingState?BillingState:""))) + "\n" + trim(BillingCountry?BillingCountry:""))`
-|
-|
-
-|Account
-|GeneratedShippingAddress
-|`trim(trim(trim(BillingStreet?BillingStreet:"") + "\n" + trim(trim(trim(BillingPostalCode?BillingPostalCode:"") + " " + trim(BillingCity?BillingCity:"")) + " " + trim(BillingState?BillingState:""))) + "\n" + trim(BillingCountry?BillingCountry:""))`
+| Account
+| GeneratedBillingAddress
+| `trim(trim(trim(BillingStreet?BillingStreet:"") + "\n" + trim(trim(trim(BillingPostalCode?BillingPostalCode:"") + " " + trim(BillingCity?BillingCity:"")) + " " + trim(BillingState?BillingState:""))) + "\n" + trim(BillingCountry?BillingCountry:""))`
 |
 |
 
-|Lead
-|Street
-|
-|
-|`trim(value)`
-
-|Lead
-|City
-|
-|
-|`trim(value)`
-
-|Lead
-|State
-|
-|
-|`trim(value)`
-
-|Lead
-|PostalCode
-|
-|
-|`trim(value)`
-
-|Lead
-|GeneratedAddress
-|`trim(trim(trim(BillingStreet?BillingStreet:"") + "\n" + trim(trim(trim(BillingPostalCode?BillingPostalCode:"") + " " + trim(BillingCity?BillingCity:"")) + " " + trim(BillingState?BillingState:""))) + "\n" + trim(BillingCountry?BillingCountry:""))`
+| Account
+| GeneratedShippingAddress
+| `trim(trim(trim(BillingStreet?BillingStreet:"") + "\n" + trim(trim(trim(BillingPostalCode?BillingPostalCode:"") + " " + trim(BillingCity?BillingCity:"")) + " " + trim(BillingState?BillingState:""))) + "\n" + trim(BillingCountry?BillingCountry:""))`
 |
 |
 
-|Lead
-|RecordLabel
-|`trim(FirstName + " " + LastName)`
+| Lead
+| Street
+|
+|
+| `trim(value)`
+
+| Lead
+| City
+|
+|
+| `trim(value)`
+
+| Lead
+| State
+|
+|
+| `trim(value)`
+
+| Lead
+| PostalCode
+|
+|
+| `trim(value)`
+
+| Lead
+| GeneratedAddress
+| `trim(trim(trim(BillingStreet?BillingStreet:"") + "\n" + trim(trim(trim(BillingPostalCode?BillingPostalCode:"") + " " + trim(BillingCity?BillingCity:"")) + " " + trim(BillingState?BillingState:""))) + "\n" + trim(BillingCountry?BillingCountry:""))`
 |
 |
 
-|Quote
-|Discount
-|
-|
-|`value < 0`: "Discount can not be a negative number"
-
-
-|Quote
-|Subtotal
-|
-|
-|`value < 0`: "Sub total can not be a negative number"
-
-
-|Quote
-|Tax
-|
-|
-|`value < 0`: "Tax can not be a negative number"
-
-
-|Quote
-|TotalPrice
-|`max(max((Subtotal?Subtotal:0) - (Discount?Discount:0), 0) + (ShippingHandling?ShippingHandling:0))`
+| Lead
+| RecordLabel
+| `trim(FirstName + " " + LastName)`
 |
 |
 
+| Quote
+| Discount
+|
+|
+| `value < 0`: "Discount can not be a negative number"
 
-|Quote
-|GrandTotal
-|`TotalPrice * (Tax ? 1+Tax/100 : 1)`
+| Quote
+| Subtotal
+|
+|
+| `value < 0`: "Sub total can not be a negative number"
+
+| Quote
+| Tax
+|
+|
+| `value < 0`: "Tax can not be a negative number"
+
+| Quote
+| TotalPrice
+| `max(max((Subtotal?Subtotal:0) - (Discount?Discount:0), 0) + (ShippingHandling?ShippingHandling:0))`
+|
+|
+
+| Quote
+| GrandTotal
+| `TotalPrice * (Tax ? 1+Tax/100 : 1)`
 |
 |
 
 |===
-
 
 === Federation (experimental feature)
 
 Currently {PRODUCT_NAME} does not import Federation roles and RBAC rules when upgrading existing database.
 This can be done manually by running the following command:
 
-[shell]
+[source,shell]
 ----
 docker-compose exec server corteza-server import /corteza/provision/200_federation
 ----

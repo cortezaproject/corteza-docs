@@ -16,6 +16,8 @@ Refer to xref:ROOT:developer-guide/pagination.adoc#_pagination[developers guide]
 
 == After upgrade
 
+=== Field expressions and automation scripts
+
 With introduction of field expressions some {APP_AUTOMATION} automations scripts became obsolete and were removed from the 2020.12.
 This affects existing deployments that use CRM and Service Solution applications.
 
@@ -158,3 +160,14 @@ It's not possible to know what kind of changes you might have made in your modul
 |
 
 |===
+
+
+=== Federation (experimental feature)
+
+Currently {PRODUCT_NAME} does not import Federation roles and RBAC rules when upgrading existing database.
+This can be done manually by running the following command:
+
+[shell]
+----
+docker-compose exec server corteza-server import /corteza/provision/200_federation
+----

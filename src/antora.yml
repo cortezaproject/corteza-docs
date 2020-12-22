@@ -1,7 +1,6 @@
 name: corteza-docs
 title: Corteza Guides
 version: '2020.12'
-prerelease: -develop
-display_version: '2020.12-develop'
+display_version: '2020.12'
 nav:
   - nav.adoc

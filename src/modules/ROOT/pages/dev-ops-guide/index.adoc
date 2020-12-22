@@ -34,8 +34,8 @@ include::ROOT:partial$warnings/sqlite.adoc[]
 ====
 
 See our *example setup sections* for a quick step-by-step on how to deploy to different environments.
-Use the xref:ROOT:dev-ops-guide/setup-local-demo.adoc[*local setup*] for any local development or demonstration.
-Use the xref:ROOT:dev-ops-guide/setup-production.adoc[*production setup*] for any live deployments (*production* or *staging/testing*).
+Use the xref:dev-ops-guide/deployment/demo-mysql.adoc[*local MySQL*] for any local development or demonstration.
+Use the xref:dev-ops-guide/deployment/prod-pgsql.adoc[*PostgreSQL*] or xref:dev-ops-guide/deployment/prod-mysql.adoc[*MySQL*] setup for any live deployments (*production* or *staging/testing*).
 
 Refer to the xref:ROOT:dev-ops-guide/health-check.adoc[*health check*] section to test your deploy.
 

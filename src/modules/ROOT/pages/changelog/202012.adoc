@@ -1,5 +1,6 @@
 include::../variables.adoc[]
 
+[#2020-12-x]
 = 2020.12
 
 == {PRODUCT_NAME} Server
@@ -41,3 +42,19 @@ Make sure you backup your data before doing an upgrade.
 . Jože Fortun
 . Peter Grlica
 . Urban Klinc
+
+== Patches
+
+[cols="1s,5a,2a"]
+|===
+|Version |Description |Contributors
+
+| [#2020-12-1]#<<2020-12-1,2020.12.1>>#
+| Stability and performance update.
+|
+. Jože Fortun
+. Denis Arh
+. Peter Grlica
+
+
+|===

@@ -1,7 +1,7 @@
 include::../variables.adoc[]
-= Changelog
 
-== Latest stable
+= Changelog
+:doctype: book
 
 :leveloffset: +1
 

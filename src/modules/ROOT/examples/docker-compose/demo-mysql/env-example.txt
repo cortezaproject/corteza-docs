@@ -1,5 +1,5 @@
 ########################################################################################################################
-# docker-compose supports environment variable interpolation/substitution in compose configuraiton file
+# docker-compose supports environment variable interpolation/substitution in compose configuration file
 # (more info: https://docs.docker.com/compose/environment-variables)
 
 ########################################################################################################################

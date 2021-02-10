@@ -1,0 +1,59 @@
+= Swagger/OpenAPI
+
+OpenAPI syntax provides a way to document the API automaticially by generating the OpenAPI definition directly from corteza-js API clients.
+Swagger is a tool that understands the OpenAPI syntax and can use that syntax to generate a static HTML page that visualizes said API.
+
+1. Navigate to the https://github.com/cortezaproject/openapi3-converter/tree/develop[openapi3-converter] directory.
+2. Run `yarn convert:yaml`
+3. The <resource>.yaml files have been generated in the `openapi3-converter/swagger` directory
+4. To include these files in the documentation, move them to `corteza-server/docs` directory and run `make docs` from the `corteza-server` root.
+5. The static HTML file has now been generated and will be served along with the api under `/api/docs/`
+
+== Extending the converter
+The openAPI converter can be tweaked so it can support future needs. All of the converting work is done under `openapi3-converter/tools/convert.js`
+
+=== Adding a new resource(system, compose...)
+Simply add the resource to the array of namespaces in `convert.js line 16`, based on the other resources defined.
+After that, run the conver command again `openapi3-converter/tools/convert.js`. 
+The new resource API should now have been generated.
+
+[NOTE]
+====
+Make sure that the related rest.yaml file exists for all the resources that are defined in `tools/convert.js` `corteza-server/`.
+For example, make sure `corteza-server/compose/rest.yaml` exists when converting.
+====
+
+
+Example for new resource foo::
+[source,js]
+----
+const namespaces = [
+  {
+    path: `${path}/system/rest.yaml`,
+    namespace: 'system',
+    className: 'System',
+  },
+  {
+    path: `${path}/compose/rest.yaml`,
+    namespace: 'compose',
+    className: 'Compose',
+  },
+  {
+    path: `${path}/messaging/rest.yaml`,
+    namespace: 'messaging',
+    className: 'Messaging',
+  },
+  {
+    path: `${path}/federation/rest.yaml`,
+    namespace: 'federation',
+    className: 'Federation',
+  },
+  {
+    path: `${path}/foo/rest.yaml`,
+    namespace: 'foo',
+    className: 'Foo',
+  },
+]
+----
+
+

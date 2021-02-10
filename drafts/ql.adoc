@@ -1,0 +1,76 @@
+= Corteza Query Language
+
+Corteza uses SQL-like query language for basic filtering and sorting records.
+
+Corteza QL allows you to filter records by their values.
+
+In the following example we have module with 2 numeric fields `quantity` and `price`, string field `name` and boolean field `visible`:
+
+To query for records with zero quantity or zero price:
+
+====
+quantity = 0 or price = zero
+====
+
+To query all visible records starting with the letter "a"
+
+====
+visible AND name LIKE 'a%'
+====
+
+To order records, descending by price and ascending by quantity:
+====
+price DESC, quantity
+====
+
+
+== Supported filtering operators:
+
+.Comparison operators
+|===
+| `=`       | Equal
+| `!=`      | Not equal
+| `<>`      | Not equal
+| `<`       | Less
+| `\<=`     | Less or equal
+| `>`       | Greater
+| `>=`      | Greater or equal
+| `LIKE`    | Matches the pattern (`"example%`)
+| `NOT LIKE`| Does not match the pattern (`"example%`)
+|===
+
+.Arithmetic operators
+|===
+| `+`       | Addition
+| `-`       | Subtraction
+| `*`       | Multiplication
+| `/`       | Division
+|===
+
+.Boolean operators
+|===
+| `AND`     | True when left and right are true
+| `OR`      | True when left or right are true
+|===
+
+== Supported sorting operators:
+
+|===
+| `,`        | Delimiter between sorting expressions or columns
+| `ASC`      | Sort by expression or column in ascending order, lower values first (null/missing values are first)
+| `DESC`     | Sort by expression or column in ascending order, lower values last (null/missing values are last)
+|===
+
+
+== Limited set of supported date-operation functions:
+
+|===
+| `QUARTER`     | Returns quarter from the given date/datetime
+| `YEAR`        | Returns year from the given date/datetime
+| `DATE_FORMAT` | Returns formatted date the given date/datetime
+| `DATE`        | Returns date from the given datetime
+|===
+
+
+== Plans for the future
+. Improved filtering, similar to MongoDB query filters. This will allow more flexibility and safer execution.

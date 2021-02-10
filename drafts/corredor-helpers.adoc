@@ -1,0 +1,88 @@
+= Corredor helper examples
+This can be added to `corteza-js/corredor/helpers/resource.ts`
+
+== Duplicate record
+
+[source,js]
+----
+async duplicateRecord (values: Values = {}, module: Module|null = null) {
+  return this.makeRecord(values, module).then(record => {
+    return this.saveRecord(record)
+  })
+}
+----
+
+== Create record, and create auditlog record
+
+[source,js]
+----
+async createRecordWithLog (values: Values = {}, module: Module|null = null) {
+  const record = await this.makeRecord(values, module).then(record => {
+    return this.saveRecord(record)
+  })
+
+  const values = {
+    timestamp: new Date().now(),
+    relatedRecord: record.recordID,
+  }
+
+  const auditLog = await this.makeRecord(values, 'auditLogModule').then(record => {
+    return this.saveRecord(record)
+  })
+}
+----
+
+== Create record, send email
+
+[source,js]
+----
+async createRecordWithEmail (values: Values = {}, module: Module|null = null, to: string|string[]) {
+  const record = await this.makeRecord(values, module).then(record => {
+    return this.saveRecord(record)
+  })
+
+  const values = {
+    timestamp: new Date().now(),
+    relatedRecord: record.recordID,
+  }
+
+  const subject = 'New record created'
+  const options = {}
+
+  return sendRecordToMail(to, subject, {}, record)
+}
+----
+
+== Populate new namespace with demo module & page
+
+[source,js]
+----
+async populateNamespace (namespace: string|Namespace|Record|undefined) {
+  namespace = await this.findNamespaceByID(namespace)
+
+  // Make demo module
+  const newModule = {
+    name: 'Demo Module',
+    handle: 'demo_module',
+    fields: [
+      new ModuleFieldString({ fieldID: '0', name: 'Sample' }),
+    ],
+  }
+
+  await this.makeModule(newModule, namespace).then(module => {
+    return this.saveModule(module)
+  })
+
+
+  // Make demo page
+  const newPage = {
+    title: 'Demo Page',
+    handle: demoPageHandle,
+    blocks: [],
+  }
+
+  return await this.makePage(newPage, namespace).then(page => {
+    return this.savePage(page)
+  })
+}
+----

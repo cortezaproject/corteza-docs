@@ -11,6 +11,16 @@ triggers ({ on }) {
 },
 ----
 
+[source,js]
+----
+triggers ({ on }) {
+  return on('manual')
+    .for('compose:record')
+    .where('module', 'Module1')
+    .uiProp('app', 'compose')
+},
+----
+
 == Implicit trigger (automatic)
 
 [source,js]
@@ -30,7 +40,22 @@ triggers ({ after }) {
       .for('compose:record')
       .where('module', 'Module1')
 },
+
+// After where record value 'Name' is 'John'
+triggers ({ after }) {
+  return after('create', 'update')
+      .where('module', 'Module1')
+      .where('record.values.Name', 'John')
+},
+
+// After user is created/updated, where email ends with @corteza.com
+triggers ({ after }) {
+  return after('create', 'update')
+      .for('system:user')
+      .where('user.email', '^[a-zA-Z0-9]{1,20}@corteza.com$')
+},
 ----
+
 
 [#sample-trigger-deferred-interval]
 == Deferred (interval)
@@ -42,6 +67,13 @@ triggers ({ on }) {
   return on('interval')
     .every('0 2 * * *')
 },
+
+// Every 4th month at 12:00 AM
+triggers ({ on }) {
+  return on('interval')
+    .every('00 12 1 */4 *')
+},
+
 ----
 
 [#sample-trigger-deferred-timestamp]
@@ -60,12 +92,21 @@ triggers ({ at }) {
 
 [source,js]
 ----
-// On christmas eve
+// When POST request on a certain path is recieved
 triggers ({ on }) {
   return on('request')
     .where('request.path', '/some/path/here')
     // HTTP protocol; GET, POST, PUT, PATCH, DELETE
     .where('request.method', 'POST')
+    .for('system:sink'),
+},
+
+// If request.headers authorization is empty
+triggers ({ on }) {
+  return on('request')
+    .where('request.path', '/some/path/here')
+    // HTTP protocol; GET, POST, PUT, PATCH, DELETE
+    .where('request.headers.authorization', '')
     .for('system:sink'),
 },
 ----

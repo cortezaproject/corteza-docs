@@ -1,0 +1,79 @@
+= Corteza server start procedure
+
+Corteza main start procedure is located on root in the `app` package.
+Package contains orchestrating structures and functions that initialize, configure and start different parts of the system that are needed for full Corteza functionality.
+
+== Command line interface
+
+Corteza's command line interface commands run boot procedure from the first (setup) up to the level required by a specific command.
+
+When running `serve api` command, Corteza executes entire boot procedure and initializes all HTTP routes and starts serving HTTP requests.
+
+== Boot procedure levels
+
+=== Setup
+
+Initializes and configures low-level services and facilities.
+These are needed right away and throughout the entire Corteza.
+
+Logging::
+Root logging facility.
+Can run with human (formatted, coloured) or machine (JSON) readable format.
+
+Health check::
+
+Initialized here with scheduler, mail and corredor checks
+
+Sentry::
+
+Sentry is an error reporting service.
+Critical internal routines use its error and panic/exception catching functionality.
+
+Mail (SMTP)::
+
+Configure SMTP service for relaying sent email messages.
+This can be disabled (when no SMTP host is configured) but with consequences:
+- user signup procedure now runs without email address validation,
+- password reset procedures will be disabled,
+- automation scripts that send emails will be disabled or fail on execution.
+
+Monitoring::
+
+Starts primitive resource usage logging.
+
+Scheduler::
+
+Runner for scheduled automation scripts.
+
+Corredor::
+
+Client for corredor automation server.
+
+=== InitStore
+
+Connects to configured store backend (database).
+It runs all needed upgrades that updates database schema into current, stable version.
+
+
+=== InitServices
+
+It asynchronously connects to Corredor server and initializes RBAC service and reloads RBAC rules.
+
+Then it initializes Corteza services:
+. system
+. automation
+. compose
+. messaging
+. federation (if enabled)
+
+
+=== Provision
+
+Corteza provisioning step where initial resources (users, roles, modules, namespaces) are imported from configuration files.
+
+After successful provision, auth-autodiscovery of authentication related settings.
+
+=== Activate
+
+In this step all previously initialized and configured services are started/activated.
+Watchers on all services are executed.

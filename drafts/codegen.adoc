@@ -1,0 +1,127 @@
+= Code generator
+
+Corteza utilizes code generation on multiple places to avoid repetition, ensure consistency and allow documentation creation.
+
+YAML files are placed in the differnt location across the project file structure.
+Template files are located under `pkg/codegen/assets`.
+
+== Running codegen
+
+You can run single generation by executing:
+[source]
+====
+make codegen
+====
+
+To continously watch for changes in YAML files and templates:
+[source]
+====
+make watch.codegen
+====
+
+If you made any changes in the codegen's source, you need to remove codegen binary:
+[source]
+====
+make clean.codegen
+====
+
+== Generated code
+
+=== Rest endpoints
+REST API endpoints, methods, parameters
+
+YAML defintions::
+* `*/rest.yaml`
+
+Template files::
+* `rest_handler.go.tpl`
+* `rest_request.go.tpl`
+
+
+
+=== Types
+Which `*Set` types are generated and how. Are labels supported and what's label resource type.
+
+YAML defintions::
+* `\*/*/types.yaml`
+
+Template files::
+* `type_labels.gen.go.tpl`
+* `type_set.gen.go.tpl`
+* `type_set.gen_test.go.tpl`
+
+
+=== Actions
+List of actions, action properties and errors that accompany each service.
+
+YAML defintions::
+* `*/services/*_actions.yaml`
+
+Template files::
+* `actions.gen.go.tpl`
+
+
+
+=== Events
+All supported events that are emitted from services
+
+YAML defintions::
+* `*/service/event/events.yaml`
+
+Template files::
+* `events.gen.adoc.tpl`
+* `events.gen.go.tpl`
+* `events.go.tpl`
+
+
+
+=== Store interface and implementations
+Definition of entire store interface and implementation (currently just RDBMS)
+
+YAML defintions::
+* `store/*.yaml`
+
+Template files::
+* `store_base.gen.go.tpl`
+* `store_interfaces_joined.gen.go.tpl`
+* `store_partials.go.tpl`
+* `store_rdbms.gen.go.tpl`
+* `store_test_all.gen.go.tpl`
+
+
+=== Options
+All known Corteza options, accompanying ENV variables, defaults and descriptions
+
+YAML defintions::
+* `pkg/options/*.yaml`
+
+Template files::
+* `options.gen.adoc.tpl`
+* `options.gen.go.tpl`
+
+
+=== Automation function handlers
+Creates automation functions definitions and wrappers around function handlers
+
+YAML defintions::
+* `*/automation/*_handler.yaml`
+
+Template files::
+* `afunc.gen.go.tpl`
+
+
+
+=== Expression types
+Workflow expression types and casting rules
+
+YAML defintions::
+* `\*/*/expr_types.yaml`
+
+Template files::
+* `expr_types.gen.go.tpl`
+
+
+=== Plans for the future
+* Improved type definition by extending it (define entire resource structure in yaml), adding expression types and events to it
+* Improved referencing for better validation and reuse of definitions
+(e.g.: when defining store for user we could omit fields, unique, sortable flags should be defined on type etc...)

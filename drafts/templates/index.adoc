@@ -1,0 +1,326 @@
+= Template system
+
+== Developer perspective
+
+- template management is part of the core system (/system/template)
+- standard set of read, list, create, update endpoints
+- RBAC; CanAccess, CanCreateTemplate, CanReadTemplate, CanUpdateTemplate, CanDeleteTemplate, CanRenderTemplate
+
+- template rendering in a `system/renderer` package
+- renderer defines a sub set of drivers
+  - each driver knows how to render a specific template type into some document type
+  - generic drivers are baked in
+  - special (like Gotenberg) are somehow connected (rest usually)
+
+- templates are managed in the corteza-webapp-admin
+
+=== TODO
+
+- revisions (tbd how exactly we'll handle this)
+- attachments (tbd after we rework internal attachment handling)
+
+== Integrator perspective
+
+- managed inside corteza-webapp-admin under templates section
+- use the `/system/template/\{templateID\}/render/\{docname\}.\{ext\}` to render it
+- supported HTML and plaintext templates
+
+=== Template syntax
+
+- below lists outline the vast majority of what you will ever need.
+- plain text template full reference: https://golang.org/pkg/text/template/
+- html template full reference: https://golang.org/pkg/html/template/
+- extended function docs: https://masterminds.github.io/sprig/
+
+.Logic operators
+[cols="1s,5a"]
+|===
+
+| [#tpl-syntax-and]#<<tpl-syntax-and,AND>>#
+|
+* *syntax*: `a && b`
+* *notes*: Results as truthy if both `a` and `b` evaluate to `true`.
+
+| [#tpl-syntax-or]#<<tpl-syntax-or,OR>>#
+|
+* *syntax*: `a || b`
+* *notes*: Results as truthy if either `a` or `b` evaluates to `true`.
+
+| [#tpl-syntax-not]#<<tpl-syntax-not,NOT>>#
+|
+* *syntax*: `!a`
+* *notes*: Results as truthy if `a` is `false` and vice-versa.
+
+| [#tpl-syntax-eq]#<<tpl-syntax-eq,EQUAL>>#
+|
+* *syntax*: `a == b`
+* *notes*: Results as truthy if `a` is equal to `b`.
+
+| [#tpl-syntax-neq]#<<tpl-syntax-neq,NOT EQUAL>>#
+|
+* *syntax*: `a != b`
+* *notes*: Results as truthy if `a` is not equal to `b`.
+
+| [#tpl-syntax-lt]#<<tpl-syntax-lt,LESS THEN>>#
+|
+* *syntax*: `a < b`
+* *notes*: Results as truthy if `a` is less then `b`.
+
+| [#tpl-syntax-gt]#<<tpl-syntax-gt,GREATER THEN>>#
+|
+* *syntax*: `a > b`
+* *notes*: Results as truthy if `a` is greater then `b`.
+
+| [#tpl-syntax-let]#<<tpl-syntax-let,LESS EQUAL THEN>>#
+|
+* *syntax*: `a <= b`
+* *notes*: Results as truthy if `a` is less or equal to `b`.
+
+| [#tpl-syntax-get]#<<tpl-syntax-get,GREATER EQUAL THEN>>#
+|
+* *syntax*: `a >= b`
+* *notes*: Results as truthy if `a` is greater or equal to `b`.
+
+|===
+
+.Basic operations
+[cols="1s,5a"]
+|===
+
+| [#tpl-syntax-comment]#<<tpl-syntax-comment,Comment>>#
+|
+* *syntax*: `{{/* comment text goes here */}}`
+* *notes*: A comment can span over multiple lines
+
+| [#tpl-syntax-interpolate]#<<tpl-syntax-interpolate,Interpolation>>#
+|
+* *syntax*: `{{variableToUse}}`
+* *notes*: any variable that is provided to the render request.
+If variables are nested, separate with a dot (for example `a.b`).
+
+| [#tpl-syntax-conditional-1]#<<tpl-syntax-conditional-1,Conditional rendering #1>>#
+|
+* *syntax*: `{{if condition}} #1 {{end}}`
+* *notes*: if `condition` is truthy, use `#1`, else use nothing.
+
+| [#tpl-syntax-conditional-2]#<<tpl-syntax-conditional-2,Conditional rendering #2>>#
+|
+* *syntax*: `{{if condition}} #1 {{else}} #2 {{end}}`
+* *notes*: if `condition` is truthy, use `#1`, else use `#2`.
+
+| [#tpl-syntax-conditional-3]#<<tpl-syntax-conditional-3,Conditional rendering #3>>#
+|
+* *syntax*: `{{if condition1}} #1 {{else if condition2}} #2 {{end}}`
+* *notes*: if `condition1` is truthy, use `#1`; else if condition 2 is truthy use `#2`; else use nothing.
+
+| [#tpl-syntax-conditional-4]#<<tpl-syntax-conditional-4,Conditional rendering #4>>#
+|
+* *syntax*: `{{if condition1}} #1 {{else if condition2}} #2 {{else}} #3 {{end}}`
+* *notes*: if `condition1` is truthy, use `#1`; else if condition 2 is truthy use `#2`; else use `#3`.
+
+| [#tpl-syntax-range]#<<tpl-syntax-range,Iterate over items>>#
+|
+* *syntax*: `{{range listOfThings}} #1 {{end}}`
+* *notes*: iterate over items inside a `listOfThings` in the provided order.
+The item can be accessed by using a dot (for example `{{.}}`).
+
+| [#tpl-syntax-partial-use]#<<tpl-syntax-partial-use,Use a partial>>#
+|
+* *syntax*: `{{template "partial_handle"}}`
+* *notes*: interpolate the partial defined as `partial_handle`.
+
+| [#tpl-syntax-partial-define]#<<tpl-syntax-partial-define,Define a partial>>#
+|
+* *syntax*: `{{define "partial_handle"}} #1 {{end}}`
+* *notes*: define a new partial as `partial_handle`.
+
+| [#tpl-syntax-func-call]#<<tpl-syntax-func-call,Call a function>>#
+|
+* *syntax*: `{{functionName arg1 arg2 ... argN}}`
+* *notes*: call the function `functionName` with arguments `arg1`, `arg2`, and `argN`.
+
+|===
+
+.Advanced operations
+[cols="1s,5a"]
+|===
+
+| [#tpl-syntax-func-chain]#<<tpl-syntax-func-chain,Chaining functions>>#
+|
+* *syntax*: `{{funcA \| funcB \| ... \| funcN}}`
+* *notes*: pass the result of `funcA` into `funcB`; and the result of `funcB` into `funcN`.
+
+| [#tpl-syntax-var-define]#<<tpl-syntax-var-define,Defining variables>>#
+|
+* *syntax*: `{{$var = operation}}`
+* *notes*: store the result of `operation` into variable `var`.
+The operation can be anything from simple variable reference to a function call.
+
+| [#tpl-syntax-var-use]#<<tpl-syntax-var-use,Using variables>>#
+|
+* *syntax*: `{{$var}}`
+* *notes*: Interpolate the value inside variable `var`.
+
+[IMPORTANT]
+====
+This doesn't affect the variables passed into the render call.
+====
+
+|===
+
+.Functions
+[cols="1s,5a"]
+|===
+
+| [#tpl-syntax-func-chain]#<<tpl-syntax-func-chain,Chaining functions>>#
+|
+* *syntax*: `{{funcA \| funcB \| ... \| funcN}}`
+* *notes*: pass the result of `funcA` into `funcB`; and the result of `funcB` into `funcN`.
+
+| [#tpl-syntax-var-define]#<<tpl-syntax-var-define,Defining variables>>#
+|
+* *syntax*: `{{$var = operation}}`
+* *notes*: store the result of `operation` into variable `var`.
+The operation can be anything from simple variable reference to a function call.
+
+| [#tpl-syntax-var-use]#<<tpl-syntax-var-use,Using variables>>#
+|
+* *syntax*: `{{$var}}`
+* *notes*: Interpolate the value inside variable `var`.
+
+[IMPORTANT]
+====
+This doesn't affect the variables passed into the render call.
+====
+
+|===
+
+.Function reference
+[cols="1s,5a"]
+|===
+
+| [#tpl-syntax-fref-len]#<<tpl-syntax-fref-len,Length of>>#
+|
+* *syntax*: `{{len listOfThings}}`
+* *notes*: returns the number of items in the given `listOfThings`.
+
+| [#tpl-syntax-fref-printf]#<<tpl-syntax-fref-printf,Format string>>#
+|
+* *syntax*: `{{printf "pattern goes here" arg1 arg2 ... argn}}`
+* *notes*: returns the formatted string, following the provided pattern using the values provided as arguments.
+
+| [#tpl-syntax-fref-inlineRemote]#<<tpl-syntax-fref-inlineRemote,Inline remote file>>#
+|
+* *syntax*: `{{inlineRemote "url goes here"}}`
+* *notes*: returns the base64 encoded file denoted by the URL.
+The string is formatted in the form of `data:{mime-type};base64,{encoded remote file}`.
+Useful when attaching images to PDF documents.
+
+| [#tpl-syntax-fref-trim]#<<tpl-syntax-fref-trim,Trim string>>#
+|
+* *syntax*: `{{trim "string goes here"}}`
+* *notes*: removes any spaces from the start/end of the provided string.
+
+| [#tpl-syntax-fref-trimSuffix]#<<tpl-syntax-fref-trimSuffix,Trim suffix from a string>>#
+|
+* *syntax*: `{{trimSuffix "suffix to remove here" "string goes here"}}`
+* *notes*: removes the suffix from the given string.
+
+| [#tpl-syntax-fref-trimPrefix]#<<tpl-syntax-fref-trimPrefix,Trim prefix from a string>>#
+|
+* *syntax*: `{{trimPrefix "prefix to remove here" "string goes here"}}`
+* *notes*: removes the prefix from the given string.
+
+| [#tpl-syntax-fref-upper]#<<tpl-syntax-fref-upper,To uppercase>>#
+|
+* *syntax*: `{{upper "string goes here"}}`
+* *notes*: converts string to upper case.
+
+| [#tpl-syntax-fref-lower]#<<tpl-syntax-fref-lower,To lowercase>>#
+|
+* *syntax*: `{{lower "string goes here"}}`
+* *notes*: converts string to lower case.
+
+|===
+
+=== Render document
+
+- call the `POST /system/template/$TEMPLATE_ID/render/$DOC_NAME.$DOC_EXT` endpoint
+- response is either a `blob` with a specified `Content-Type` header or a standard JSON error object.
+
+.Request body params:
+[cols="1s,5a"]
+|===
+
+| [#tpl-render-variables]#<<tpl-render-variables,`variables`>>#
+|
+* *type*: `Object<any>`
+* *description*: the variables you wish to apply to the template.
+For example, if you wish `{{testing}}` to work, you must pass `{"variables": {"testing": "some value"}}`.
+
+| [#tpl-render-options_marginBottom]#<<tpl-render-options_marginBottom,`options.marginBottom` ##PDF only##>>#
+|
+* *type*: `string< float; 0 >= n; inches >`
+* *description*: controls the margin on the bottom of the page.
+
+| [#tpl-render-options_marginLeft]#<<tpl-render-options_marginLeft,`options.marginLeft` ##PDF only##>>#
+|
+* *type*: `string< float; 0 >= n; inches >`
+* *description*: controls the margin on the left of the page.
+
+| [#tpl-render-options_marginRight]#<<tpl-render-options_marginRight,`options.marginRight` ##PDF only##>>#
+|
+* *type*: `string< float; 0 >= n; inches >`
+* *description*: controls the margin on the right of the page.
+
+| [#tpl-render-options_marginTop]#<<tpl-render-options_marginTop,`options.marginTop` ##PDF only##>>#
+|
+* *type*: `string< float; 0 >= n; inches >`
+* *description*: controls the margin on the top of the page.
+
+| [#tpl-render-options_marginY]#<<tpl-render-options_marginY,`options.marginY` ##PDF only##>>#
+|
+* *type*: `string< float; 0 >= n; inches >`
+* *description*: controls the margin on the top and bottom of the page.
+
+| [#tpl-render-options_marginX]#<<tpl-render-options_marginX,`options.marginX` ##PDF only##>>#
+|
+* *type*: `string< float; 0 >= n; inches >`
+* *description*: controls the margin on the left and right of the page.
+
+| [#tpl-render-options_margin]#<<tpl-render-options_margin,`options.margin` ##PDF only##>>#
+|
+* *type*: `string< float; 0 >= n; inches >`
+* *description*: controls the margin on the left, right, top, and bottom of the page.
+
+| [#tpl-render-options_documentSize]#<<tpl-render-options_documentSize,`options.documentSize` ##PDF only##>>#
+|
+* *type*: `string<A0...A10, B0...B10, C0...C10, ANSI A, ANSI B, ANSI C, ANSI D, ANSI E, junior legal, letter, legal, tabloid>`
+* *description*: The size of the document following the ISO216 standard for the A, B, and C series; ANSI standard for ANSI A, B, C, and D; and NA standards for the last few.
+
+| [#tpl-render-options_documentWidth]#<<tpl-render-options_documentWidth,`options.documentWidth` ##PDF only##>>#
+|
+* *type*: `string< float; 0 >= n; inches >`
+* *description*: specifies the document width if none of the presets fit your needs.
+
+| [#tpl-render-options_documentHeight]#<<tpl-render-options_documentHeight,`options.documentHeight` ##PDF only##>>#
+|
+* *type*: `string< float; 0 >= n; inches >`
+* *description*: specifies the document height if none of the presets fit your needs.
+
+| [#tpl-render-options_contentScale]#<<tpl-render-options_contentScale,`options.contentScale` ##PDF only##>>#
+|
+* *type*: `string< float; 0 >= n >`
+* *description*: at what scale the document should be rendered; bigger number => bigger content.
+
+[NOTE]
+====
+PDF documents are limited to `0 >= n <= 8`
+====
+
+| [#tpl-render-options_orientation]#<<tpl-render-options_orientation,`options.orientation` ##PDF only##>>#
+|
+* *type*: `string<landscape,portrait>`
+* *description*: what orientation to render the document in.
+
+|===

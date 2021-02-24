@@ -5,9 +5,10 @@ Swagger is a tool that understands the OpenAPI syntax and can use that syntax to
 
 1. Navigate to the https://github.com/cortezaproject/openapi3-converter/tree/develop[openapi3-converter] directory.
 2. Run `yarn convert:yaml`
-3. The <resource>.yaml files have been generated in the `openapi3-converter/swagger` directory
-4. To include these files in the documentation, move them to `corteza-server/docs` directory and run `make docs` from the `corteza-server` root.
-5. The static HTML file has now been generated and will be served along with the api under `/api/docs/`
+3. The <resource>.yaml files have been generated in the `openapi3-converter/swagger`directory.
+4. If corteza-server is in the same directory as openapi3-converter. The files are also moved to to `corteza-server/docs`, otherwise copy them manually from the `openapi3-converter/swagger`directory.
+5. To include these files in the documentation run `make docs` from the `corteza-server` root.
+6. The static HTML file has now been generated and will be served along with the api under `/api/docs/`
 
 == Extending the converter
 The openAPI converter can be tweaked so it can support future needs. All of the converting work is done under `openapi3-converter/tools/convert.js`

@@ -1,0 +1,233 @@
+include::ROOT:partial$variables.adoc[]
+
+= Automation triggers
+
+*Automation triggers* (*trigger*) let you define *when* the script should be *executed* (along with some extra bits).
+
+See xref:ROOT:integrator-guide/samples/triggers/index.adoc[trigger samples].
+
+[IMPORTANT]
+====
+The {APP_AUTOMATION} server evaluates the triggers in an *isolated context*, outside of any *imports* or *variable definitions*.
+The following example will *not* work:
+
+[source,js]
+----
+const MOD_NAME = 'Contact'
+
+export default {
+  triggers ({ on }) {
+    return on('manual')
+      .for(MOD_NAME) // <- we're referencing the constant here
+  },
+  exec (args, ctx) {...},
+}
+----
+====
+
+.Available trigger types:
+[cols="1,5"]
+|===
+| *Explicit*
+a| These are *explicitly triggered* by pressing a *button*.
+
+Use explicit triggers when you wish to *manually initiate something*, such as an OAuth authentication flow, redirection to an external resource, or data export.
+
+| *Implicit*
+a| These are *implicitly triggered* based on *system events*.
+
+Use implicit triggers when you wish to *automatically do something* when another thing occurs; such as sending an email when you register a new user; or adding a changelog entry when the content changes.
+
+Refer to xref:ROOT:integrator-guide/resource-events-reference.adoc[resources and events] for a complete list of events you can listen for.
+
+| *Deferred*
+
+_Server script only_, _requires explicit security context_
+a| The system triggers these *sometime in the future*; either *periodically* (define with *cron expressions*), or *at a timestamp* (use *ISO 8601*; this one: `YYYY-MM-DDThh:mm:ssZ`).
+
+A sample for an xref:ROOT:integrator-guide/samples/triggers/index.adoc#sample-trigger-deferred-interval[interval], and a xref:ROOT:integrator-guide/samples/triggers/index.adoc#sample-trigger-deferred-timestamp[timestamp].
+
+Use deferred triggers when you want to *repeat something* or *do something in the future*; such as recurring payments or sending holiday newsletters to your subscribers.
+
+[NOTE]
+====
+The scheduler acts *once per minute*, so that is the maximum accuracy {PRODUCT_NAME} supports.
+====
+
+| *Sink*
+
+_Server script only_, _requires explicit security context_
+a| These are triggered by the system *when it receives a request*; either *HTTP*, or *email*.
+
+Use sink triggers when you want to *respond to requests*; such as *webhooks for external services* or *custom API endpoints*.
+For example *capturing data from external forms*, *tracking external document changes*, and *capturing payments*.
+
+[NOTE]
+====
+We recommend you use the *REST API* whenever possible.
+====
+|===
+
+== Defining the resource
+
+The defined resource specifies *the resource* the automation *script is executed* for; for example a *record*, *module*, and *user*.
+Refer to xref:ROOT:integrator-guide/resource-events-reference.adoc[resources and events] for a complete list of available resources.
+
+This is done by specifying *a single `.for(...)`* call.
+
+.It should look like this:
+[source,js]
+----
+.for('ResourceGoesHere')
+----
+
+.An example of specifying a resource:
+[source,js]
+----
+triggers ({ before }) {
+  return before('create', 'update')
+    // This will trigger for a compose record resource
+    .for('compose:record')
+},
+----
+
+== Defining constraints
+
+*Constraints* let you define precisely when the automation *script should execute*.
+
+This is done by chaining a *series of `.where(...)`* calls.
+
+.Each call should look like this:
+[source,js]
+----
+.where(
+  resourceAttribute,<1>
+  comparator|value,<2>
+  [value],<3>
+)
+----
+<1> The *resource attribute* that the constraint should check; xref:ROOT:integrator-guide/resource-constraints-reference/index.adoc[resource constraints] for a complete list.
+<2> When *2 arguments* are provided, this is the *value to check against*; when *3 arguments* are provided, this is the *<<trigger-comparison-operators,comparison operator>>*.
+<3> When provided, this is the *value to check against*.
+
+.An example of chaining constraints:
+[source,js]
+----
+triggers ({ before }) {
+  return before('create', 'update')
+    .for('compose:record')
+    // vv these two vv
+    .where('module', 'Lead')
+    .where('namespace', 'crm')
+},
+----
+
+[#trigger-comparison-operators]
+.Available comparison operators:
+[cols="1s,5a"]
+|===
+| [#constraint-operator-eq]#<<constraint-operator-eq,Equals (default)>>#
+|
+`eq`, `=`, `==`, `===`
+
+[NOTE]
+====
+All of the above operators *work the same*.
+You are free to use whichever you prefer.
+====
+
+[TIP]
+====
+If you're *checking for equality*, you can *omit the operator*.
+====
+
+| [#constraint-operator-neq]#<<constraint-operator-neq,Not equals>>#
+|
+`not eq`, `ne`, `!=`, `!==`
+
+[NOTE]
+====
+All of the above operators *work the same*.
+You are free to use whichever you prefer.
+====
+
+| [#constraint-operator-prt]#<<constraint-operator-prt,Partial equals>>#
+|
+`like`
+
+[TIP]
+====
+.Supported wildcards:
+* *one or more characters*: `%`, `*`,
+* *one character*: `_`, `?`.
+====
+
+| [#constraint-operator-nprt]#<<constraint-operator-nprt,Partial not equals>>#
+|
+`not like`
+
+[TIP]
+====
+.Supported wildcards:
+* *one or more characters*: `%`, `*`,
+* *one character*: `_`, `?`.
+====
+
+| [#constraint-operator-regex]#<<constraint-operator-regex,Regex equals>>#
+|
+`~`
+
+
+| [#constraint-operator-nregex]#<<constraint-operator-nregex,Regex not equals>>#
+|
+`!~`
+
+|===
+
+== Automation trigger conventions
+
+Use object destructuring::
+    Object destructuring helps you shorten the entire thing.
+
+.For example:
+[source,js]
+----
+// Instead of using:
+triggers (t) {
+  return t.after('create')
+    .for('compose:record')
+    .where('module', 'super_secret_module')
+},
+
+// you can do:
+triggers ({ after }) {
+  return after('create')
+    .for('compose:record')
+    .where('module', 'super_secret_module')
+},
+
+// Neat, right?!
+----
+
+Make trigger constraints as strict as possible::
+    Having loose constraints can cause *unwanted issues* when there are *multiple namespaces* under the same instance.
+    Two namespaces could easily define a module with the same handle, which would cause both of them to execute the given script.
+
+.For example:
+[source,js]
+----
+// Instead of using:
+triggers (t) {
+  return t.after('create')
+    .for('compose:record')
+    .where('module', 'super_secret_module')
+},
+
+// you can do:
+triggers ({ after }) {
+  return after('create')
+    .for('compose:record')
+    .where('module', 'super_secret_module')
+    .where('namespace', 'super_secret_namespace')
+},
+----

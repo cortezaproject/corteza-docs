@@ -1,0 +1,248 @@
+include::ROOT:partial$variables.adoc[]
+
+[#data-model-charts]
+= Charts
+
+*Charts* let you create beautiful *data visualization*.
+It lets you define everything from *simple case-specific* charts, to complex *dashboards*.
+
+== Create a new chart
+
+.To create a new chart:
+. navigate to the {PRODUCT_NAME} {APP_NAME_COMPOSE} page and enter the namespace you wish to edit,
+. click on the "Admin panel" in the top right corner,
+. navigate to the "Charts" subpage,
+. enter the chart name and press the "Add chart" button,
+. select one of the chart groups.
+
+.Refer to below sections on how to configure specific chart groups:
+* <<chart-config-generic>>,
+* <<chart-config-funnel>>,
+* <<chart-config-gauge>>.
+
+[IMPORTANT]
+====
+You *can not change* the chart group once it is selected.
+You will need to *create a new chart*.
+====
+
+[IMPORTANT]
+====
+You can only define permissions for existing charts.
+====
+
+== Edit a chart
+
+.To edit an existing chart:
+. navigate to the {PRODUCT_NAME} {APP_NAME_COMPOSE} page and enter the namespace you wish to edit,
+. click on the "Admin panel" in the top right corner,
+. navigate to the "Charts" subpage,
+. press on the edit button next to the chart you wish to edit.
+
+.Refer to below sections on how to configure specific chart groups:
+* <<chart-config-generic>>,
+* <<chart-config-funnel>>,
+* <<chart-config-gauge>>.
+
+== Delete a chart
+
+.To delete an existing chart:
+. navigate to the {PRODUCT_NAME} {APP_NAME_COMPOSE} page and enter the namespace you wish to edit,
+. click on the "Admin panel" in the top right corner,
+. navigate to the "Charts" subpage,
+. press on the edit button next to the chart you wish to delete,
+. press the "Delete" button and confirm the operation.
+
+[#chart-config-generic]
+== Generic chart configuration
+
+.Generic charts include:
+* bar chart,
+* line chart,
+* pie chart,
+* doughnut chart.
+
+.Properties:
+Chart name::
+    *Chart name* defines a user-friendly label for the chart.
+
+Chart handle::
+    *Chart handle* defines a system label that is used for internal referencing.
+
+[IMPORTANT]
+====
+.The provided handle must:
+include::ROOT:partial$handle-constraints.adoc[]
+====
+
+Colour theme::
+    *Color theme* allows you to style the data quickly.
+
+[NOTE]
+====
+Make sure that the selected colour theme *provides enough colours* for your dataset.
+====
+
+Chart module::
+    *Chart module* defines the *module* that will be used as a *data source* (the records).
+
+Chart filters::
+    *Chart filters* allows you to *filter the data source* to include only the records you wish to have.
+    The dropdown provides a set of the *most common filters*, but you are free to *edit or define your own* by checking the "Customize filter" option.
+
+[NOTE]
+====
+*Dev note*: reference QL.
+====
+
+Y-axis::
+    *Y-axis* allows you to *customize the y-axis*.
+
+Dimensions::
+    *Dimensions* specify *the data* that will be shown in the graph.
+    For example, all of the *records bucketed by month* based on their creation date.
+
+[IMPORTANT]
+====
+At the moment you can only define *a single dimension*.
+====
+
+Metrics::
+    *Metrics* specify *the values* that will be shown in the graph.
+    For example, *count the records* for the given month and *display a line*.
+
+[TIP]
+====
+Metrics define a *post-processing function* that lets you do some additional transformations on the outputted values.
+
+.This is a simple JavaScript expression that *must* return a *number* based on two variables:
+* `m`: the *previous value*,
+* `n`: the *current value*.
+
+.An example that creates an aggregated chart:
+[source,js]
+----
+m ? m + n : n
+----
+====
+
+[IMPORTANT]
+====
+When defining a *post-processing function*, the previous value (`m`) is *undefined* for the *first element* of the chart.
+====
+
+[#chart-config-funnel]
+== Funnel chart configuration
+
+Chart name::
+    *Chart name* defines a user-friendly label for the chart.
+
+Chart handle::
+    *Chart handle* defines a system label that is used for internal referencing.
+
+[IMPORTANT]
+====
+.The provided handle must:
+include::ROOT:partial$handle-constraints.adoc[]
+====
+
+Colour theme::
+    *Color theme* allows you to style the data quickly.
+
+Chart reports::
+    A *chart report* defines a series of *items to show* in the funnel.
+
+Report module::
+    The *report module* defines the *module* that will be used as a *data source* (the records).
+
+Report filter::
+    The *report filter* allows you to *filter the data source* to include only the records you wish to have.
+    The dropdown provides a set of *most common filter*, but you are free to *edit or define your own* by checking the "Customize filter" option.
+
+[NOTE]
+====
+*DevNote*: reference QL.
+====
+
+Report dimension::
+    The *report dimension* specify *the data* that will be shown in the graph.
+    For example, all of the records bucketed by month based on their creation date.
+
+Report metrics::
+    The *report metrics* specify *the values* that will be shown in the graph.
+    For example, *count the records* for the given month and *display a line*.
+
+[#chart-config-gauge]
+== Gauge chart configuration
+
+Chart name::
+    *Chart name* defines a user-friendly label for the chart.
+
+Chart handle::
+    *Chart handle* defines a system label that is used for internal referencing.
+
+[IMPORTANT]
+====
+.The provided handle must:
+include::ROOT:partial$handle-constraints.adoc[]
+====
+
+Colour theme::
+    *Color theme* allows you to style the data quickly.
+
+Chart module::
+    *Chart module* defines the *module* that will be used as a *data source* (the records).
+
+Chart filters::
+    *Chart filters* allows you to *filter the data source* to include only the records you wish to have.
+    The dropdown provides a set of *most common filter*, but you are free to *edit or define your own* by checking the "Customize filter" option.
+
+[NOTE]
+====
+*DevNote*: reference QL.
+====
+
+Y-axis::
+    *Y-axis* allows you to *customize the y-axis*.
+
+Dimensions::
+    *Dimensions* specify *the data* that will be shown in the graph.
+    For example, all of the records bucketed by month based on their creation date.
+    *The steps* define the *breakpoints* in the gauge.
+
+[IMPORTANT]
+====
+Gauge charts can only show a *single dimension*.
+====
+
+Metrics::
+    *Metrics* specify *the values* that will be shown in the graph.
+    For example, *count the records* for the given month and *display a line*.
+
+[TIP]
+====
+Metrics define a *post-processing function* that lets you do some additional transformations on the outputted values.
+
+.This is a simple JavaScript expression that *must* return a *number* based on two variables:
+* `m`: the *previous value*,
+* `n`: the *current value*.
+
+.An example that creates an aggregated chart:
+[source,js]
+----
+m ? m + n : n
+----
+====
+
+[IMPORTANT]
+====
+When defining a *post-processing function*, the previous value (`m`) is *undefined* for the *first element* of the chart.
+====
+
+== Permissions for all charts
+
+include::ROOT:partial$permissions/compose-charts.adoc[]
+
+== Permissions for a specific chart
+
+include::ROOT:partial$permissions/compose-chart-specific.adoc[]

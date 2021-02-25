@@ -1,0 +1,28 @@
+* xref:index.adoc[]
+
+** xref:prerequisites.adoc[]
+*** xref:prerequisites.adoc#docker[Docker]
+*** xref:prerequisites.adoc#docker-compose[Docker Compose]
+
+** System configuration
+*** xref:configuration/server.adoc[]
+*** xref:configuration/corredor.adoc[]
+
+** Offline deployment
+*** xref:offline-deployment/multi-mysql.adoc[]
+*** xref:offline-deployment/single-sqlite-inmem.adoc[]
+
+** Online deployment
+*** xref:online-deployment/multi-mysql.adoc[]
+*** xref:online-deployment/single-mysql.adoc[]
+*** xref:online-deployment/multi-pgsql.adoc[]
+*** xref:online-deployment/single-pgsql.adoc[]
+
+** Maintenance
+*** xref:maintenance/cli-reference.adoc[]
+*** xref:maintenance/backups.adoc[]
+*** xref:maintenance/health-check.adoc[]
+*** xref:maintenance/troubleshooting.adoc[]
+
+** Extension requirements
+*** xref:extension-requirements/email-relay.adoc[]

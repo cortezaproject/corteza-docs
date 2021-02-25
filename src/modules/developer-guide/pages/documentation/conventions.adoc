@@ -1,0 +1,259 @@
+include::ROOT:partial$variables.adoc[]
+
+[#documentation-conventions]
+= Conventions
+
+Use the following conventions as a *reference* when you wish to do some extra *formatting* to your documents.
+
+The bellow list is aggregated from https://asciidoctor.org/docs/asciidoc-syntax-quick-reference/[AsciiDoc], shortened and adjusted to our needs.
+
+Please *follow the* below *conventions* when contributing to the documentation.
+
+== Composition
+
+When composing documents that will be *consumed from a device*, it is essential to *define a stable*, *easy to understand*, and *compact structure*.
+Here are a few tips to help you out:
+
+Visually group things::
+    Use *paragraphs*, *lists*, *admonition blocks*, and other blocks to visually group things that fit together.
+    If something is not relevant in this section but is appropriate in the next one, move it there.
+
+Use formatting to break monotone text::
+    Use *bold*, *italic*, *links*, *inline code blocks*, and other formatting to expose the crucial bits for that paragraph.
+    *Do not go overboard*.
+
+== Lists
+
+Use lists to give the document some *additional structure*, *outline* the * essential bits*, or show a *sequence* of things.
+
+.General rules:
+* Try to keep them *as short as possible*, as they can make it harder to read.
+* If a list item is a *proper sentence*, start with a *capital letter*, and end with a *period*.
+* If a list item is *not* a *proper sentence*, start with a *lowercase letter*, and (optionally) end with a *comma*.
+* Do not mix proper sentences and non-proper sentences.
+
+.Example of a proper sentence; the outline of our documents:
+* The *end-user guide* talks about things relevant to the end-users.
+* The *integrator guide* talks about creating new things based on the {PRODUCT_NAME}.
+* The *developer guide* helps the core developers keep track on how to maintain different features.
+
+.Example of a not-proper sentence; you should know how to use:
+* Golang,
+* JavaScript,
+* VueJS.
+
+=== Ordered lists
+
+List items in an *ordered list* should *start with a dot* (`. ...content here...`) instead of an actual number (it gets assigned at compile-time).
+For example:
+
+[source,adoc]
+----
+.Here we can see:
+. list item 1,
+. list item 2.
+----
+
+=== Unordered lists
+
+List items in an *unordered list* should *start with a star* (`* ...content here...`).
+For example:
+
+[source,adoc]
+----
+.Here we can see:
+* list item 1,
+* list item 2.
+----
+
+[TIP]
+====
+If your list items are long, try to restructure your section, or use multi-line description blocks.
+====
+
+=== Multi-line description blocks
+
+Use description blocks when your *lists* start *getting long*.
+They firstly present the *key point* of the block, followed by a more *detailed description*.
+
+[source,adoc]
+----
+// Make the key point outline the full description.
+// Use four spaces to indent the description.
+[Key point here]::
+    [Description here].
+----
+
+For example:
+
+[source,adoc]
+----
+== Corteza documentation structure
+
+DevOps guide::
+    The DevOps guide covers all of the DevOps related bits, such as deploying and maintaining.
+    ...
+
+End-user guide::
+    The end-user guide serves as a reference for end-users that need help with using the Corteza's user interface.
+    ...
+
+Integrator guide::
+    The integrator guide serves as a reference for integrators -- people that want to build things with Corteza.
+    ...
+
+----
+
+[IMPORTANT]
+====
+Try not to overuse this.
+If your descriptions are *getting long* and feel like they should be in a *new sub-section* -- do that instead.
+====
+
+== Code snippets
+
+=== Short one-liners
+
+Use *short one-liners* when you wish to show specific *things inline*, such as *CLI commands*, object *properties*, and *variables*.
+
+=== Longer code snippets
+
+When working on examples or longer code snippets, use the source code syntax; `[source,{language here}]`; blocked with four dashes `----`.
+For example:
+
+// We'll allow this exception here
+```
+[source,adoc]
+----
+// Things go here
+----
+```
+
+== Admonition
+
+Use the *admonition block* syntax when wanting to create admonitions; where you want *extra attention*.
+For example:
+
+[source,adoc]
+----
+[IMPORTANT]
+====
+This is *very* important!
+====
+----
+
+.You can use; they are self-explanatory:
+* `NOTE`
+* `TIP`
+* `IMPORTANT`
+* `WARNING`
+* `CAUTION`
+
+== Diagrams
+
+*Use the https://plantuml.com/[PlantUML]* framework for any diagrams (unless there is an explicit reason why not).
+This allows us to *keep things consistent*, *easy to maintain*, and *preserve version history*.
+
+[TIP]
+====
+Move *larger diagrams* into *separate files* to avoid clutter and unreadable source.
+====
+
+// This here is also an exception
+```
+.Provide a good caption to summarize the *entire* diagram. You can't multi-line captions, so we'll allow it like this here.
+[plantuml,diagram-name-here,svg,role=diagram-name]
+----
+@startuml
+
+' Diagram definition goes here
+
+@enduml
+----
+```
+
+[TIP]
+====
+Larger diagrams can get a bit messy to understand what is going on, so do your best to *group elements together*, and use a nice *comment* to indicate it.
+====
+
+Diagram captions::
+    A caption *must be enough* for the reader to know *what's going on* in the diagram.
+    Make sure that the caption gives the reader enough insight to have an idea *what they can expect* to learn *from the diagram*.
+
+[IMPORTANT]
+====
+We are quite strict in having *1 sentence per line* to have nicer version history.
+Here, however, I am unable to figure out how/if this is possible.
+You are *free to inline your captions* (for now).
+====
+
+Comments::
+    A PlantUML comment starts with `'` (single line), or is enclosed between `/'`, and `'/`.
+    We'll use the following notation to be consistent:
+
+[source,adoc]
+----
+' ---------------
+' Define comments like so.
+' Multiple lines are fine.
+' ---------------
+----
+
+Diagram structure::
+    You are free to use any diagram, and any component defined by the diagram.
+    *Avoid visual customization* using *Skinparam*.
+
+== Referencing
+
+Use referencing to *link different bits* of information.
+We use *two different types* of references:
+
+Page cross-references::
+    *Page cross-references* allow us to link *between different documentations*, or even different versions.
+    Use the `xref` macro (https://docs.antora.org/antora/2.2/asciidoc/page-to-page-xref/[The Antora documentation]):
+
+[source,adoc]
+----
+// Template
+xref:ROOT:guide-goes-here/path-to-source.adoc[label-goes-here]
+
+// For example:
+xref:ROOT:end-user-guide/messaging/index.adoc[{PRODUCT_NAME} {APP_NAME_MESSAGING}]
+----
+
+[TIP]
+====
+You can also use *anchors* in your `xref`s.
+====
+
+Same page references::
+    *Same page references* allow us to link in the same documentation section.
+    use the simple page ID reference syntax (https://docs.antora.org/antora/2.2/asciidoc/in-page-xref/[The Antora documentation]):
+
+[source,adoc]
+----
+// Define a section ID (make sure that it starts with a #)
+[#id-goes-here]
+
+// Reference the section ID (there is no # here)
+<<id-goes-here>>
+
+// Reference the section ID with a custom label (no space after the comma)
+<<id-goes-here,custom-label-goes-here>>
+----
+
+=== Important notes
+
+Same page references are simple::
+    Same page references can *only link* to things that are *on the current page*.
+    If you try to link to something that is *not on the screen*, the link *will not work*.
+    Use *page cross-references*.
+
+Keep section ID's simple::
+    Section ID's are relevant *only for the given page*.
+    They don't need to be *unique* across the entire documentation, just *for the current page*.
+    Example: `[#extension-deployment]`
+
+Don't go overboard::
+    If somesomething is *required for the understanding* of the given section, add a *quick summary* and link to the complete document afterwards.

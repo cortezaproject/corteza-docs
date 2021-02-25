@@ -1,0 +1,115 @@
+include::ROOT:partial$variables.adoc[]
+
+[#admin-panel-user]
+= Users
+
+The *users* interface provides an overview of *system users*; you can *inspect*, *edit*, and *delete* them.
+
+[TIP]
+====
+You can use the users' interface to *manually register users* that are allowed to access the system.
+====
+
+[IMPORTANT]
+====
+For privacy reasons, personal information (name and email) is masked by default.
+You can configure this with <<user-permissions-all,permissions for all users>> or <<user-permissions-specific,permissions for specific users>>.
+====
+
+== Listing users
+
+.To list current system users:
+. navigate to the {PRODUCT_NAME} {APP_NAME_ADMIN},
+. click on the "Users" in the navigation drawer,
+. optionally insert the filtering parameters; the list refreshes automatically.
+
+== Creating users
+
+.To create a new user:
+. navigate to the {PRODUCT_NAME} {APP_NAME_ADMIN},
+. click on the "Users" in the navigation drawer,
+. click on the "New" button in the top right corner,
+. provide the requested data (see <<user-parameters,user parameters>>),
+. press the "Submit" button.
+
+[IMPORTANT]
+====
+You can only define permissions for existing users.
+====
+
+== Editing users
+
+.To edit an existing user:
+. navigate to the {PRODUCT_NAME} {APP_NAME_ADMIN},
+. click on the "Users" in the navigation drawer,
+. click on the edit icon next to the user you wish to edit,
+. provide the requested data (see <<user-parameters,user parameters>>),
+. press the "Submit" button.
+
+[#suspending-users]
+== Suspending users
+
+.To suspend an existing user:
+. navigate to the {PRODUCT_NAME} {APP_NAME_ADMIN},
+. click on the "Users" in the navigation drawer,
+. click on the edit icon next to the user you wish to suspend,
+. click and confirm the "Suspend" button in the "Basic information" section.
+
+== Deleting users
+
+[TIP]
+====
+You can instead <<suspending-users,suspend the user>>.
+====
+
+.To delete an existing user:
+. navigate to the {PRODUCT_NAME} {APP_NAME_ADMIN},
+. click on the "Users" in the navigation drawer,
+. click on the edit icon next to the user you wish to delete,
+. click and confirm the "Delete" button in the "Basic information" section.
+
+== Assign role
+
+[IMPORTANT]
+====
+*Each user* is automatically *a member of the "Everyone" role*.
+====
+
+.To assign a role to an existing user:
+. navigate to the {PRODUCT_NAME} {APP_NAME_ADMIN},
+. click on the "Users" in the navigation drawer,
+. click on the edit icon next to the user you wish to edit,
+. select the roles in the "Role membership" section,
+. press the "Submit" button.
+
+[IMPORTANT]
+====
+You can only assign roles to existing users.
+====
+
+[#user-parameters]
+== User parameters
+
+Basic information::
+    *The basic user information* such as their email, name and a handle (username of a sort).
+
+Password::
+    *The password* section lets you set the user's password.
+
+Role membership::
+    *Role membership* lets you assign roles to a specific user.
+
+[IMPORTANT]
+====
+The *Password* and *Role membership* sections are available only *for existing users*.
+====
+
+[#user-permissions-all]
+== Permissions for all users
+
+include::ROOT:partial$permissions/system-users.adoc[]
+
+[#user-permissions-specific]
+== Permissions for a specific user
+
+include::ROOT:partial$permissions/system-user-specific.adoc[]

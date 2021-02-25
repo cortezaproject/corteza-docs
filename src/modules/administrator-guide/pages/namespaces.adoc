@@ -1,0 +1,20 @@
+include::ROOT:partial$variables.adoc[]
+
+= Namespace permissions
+
+== Any namespace
+
+.To set permissions for any namespace:
+. navigate to {PRODUCT_NAME} {APP_NAME_COMPOSE},
+. click on the *lock icon* on the top of the *namespace list*.
+
+include::ROOT:partial$permissions/compose-namespaces.adoc[]
+
+== Specific namespace
+
+.To set permissions for a specific namespace:
+. navigate to {PRODUCT_NAME} {APP_NAME_COMPOSE},
+. click on the edit icon when hovering over a namespace,
+. click on the *lock icon* on the top of the *namespace list*.
+
+include::ROOT:partial$permissions/compose-namespace-specific.adoc[]

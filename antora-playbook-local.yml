@@ -21,6 +21,8 @@ output:
   dir: dist
 
 asciidoc:
+  attributes:
+    experimental: true
+    doctype: book
   extensions:
     - asciidoctor-kroki
-  

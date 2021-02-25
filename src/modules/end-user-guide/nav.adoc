@@ -1,0 +1,7 @@
+* xref:index.adoc[]
+
+** xref:crm/index.adoc[]
+** xref:service-solution/index.adoc[]
+** xref:messaging/index.adoc[]
+** xref:shell/index.adoc[]
+

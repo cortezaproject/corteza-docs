@@ -1,0 +1,113 @@
+include::ROOT:partial$variables.adoc[]
+
+[#data-model-channels]
+= {APP_NAME_MESSAGING} channels
+
+A channel *enables communication* between users that are related to a specific topic, such as project management and sales.
+
+.{PRODUCT_NAME} {APP_NAME_MESSAGING} defines three channel types:
+Public channels::
+    *Public channels* are visible and accessible to *all {PRODUCT_NAME} users* that *can access {PRODUCT_NAME} {APP_NAME_MESSAGING}*.
+    Public channels *should not be used* to exchange any *sensitive information*.
+
+Private channels::
+    *Private channels* are visible and accessible by the {PRODUCT_NAME} users that *can access {PRODUCT_NAME} {APP_NAME_MESSAGING}* and were *invited to the channel*.
+
+Direct channels::
+    *Direct channels* are visible and accessible by the {PRODUCT_NAME} users that *can access {PRODUCT_NAME} {APP_NAME_MESSAGING}* and were *invited to the channel*.
+    Direct channels are designed for one-on-one conversations or smaller groups of people.
+
+== Create a channel
+
+.To create a new channel:
+. navigate to the {PRODUCT_NAME} {APP_NAME_MESSAGING},
+. click on the "+" icon next to the *Public, Private channels; or Direct messages*,
+. provide all the requested data (see <<data-model-channel-properties,channel properties>>),
+. press the "Create" button.
+
+[#data-model-channel-edit]
+== Edit a channel
+
+[NOTE]
+====
+Not available for *direct messages*.
+====
+
+.To edit an existing channel:
+. navigate to the {PRODUCT_NAME} {APP_NAME_MESSAGING},
+. open the channel and hover over the three dots in the top right corner,
+. click on the "Edit channel" option,
+. provide all the requested data (see <<data-model-channel-properties,channel properties>>),
+. press the "Update" button.
+
+[#data-model-channel-archive]
+== Archive a channel
+
+.To archive an existing channel:
+. navigate to the {PRODUCT_NAME} {APP_NAME_MESSAGING},
+. open the channel and hover over the three dots in the top right corner,
+. click on the "Edit channel" option,
+. click and confirm the "Archive" option.
+
+[#data-model-channel-delete]
+== Delete a channel
+
+[TIP]
+====
+You can instead <<data-model-channel-archive,archive the channel>>.
+====
+
+.To delete an existing channel:
+. navigate to the {PRODUCT_NAME} {APP_NAME_MESSAGING},
+. open the channel and hover over the three dots in the top right corner,
+. click on the "Edit channel" option,
+. click and confirm the "Delete" option.
+
+== Manage a channel
+
+Open the channel and hover over the three dots in the top right corner.
+
+Member list::
+    *Member list* shows a list of current channel members.
+    It also provides an interface to *add or remove members*.
+
+Edit channel::
+    Refer to the <<data-model-channel-edit,channel editing>> for details.
+
+Channel flags::
+    Options to *hide the channel*, *ignore the channel*, or *remove the flags*.
+
+Bookmarked and Pinned messages::
+    Opens a list of bookmarked and pinned messages.
+
+Leave channel::
+    The *leave channel* option removes you from the channel.
+
+[#data-model-channel-properties]
+== Channel properties
+
+Name::
+    The *name* property specifies the *channel name* that is shown to the users.
+
+Topic::
+    The *topic* property lets you specify *what the conversation is about*, such as marketing or project management.
+
+Privacy::
+    The *privacy* flag lets you change the public channel to a private channel, and vice-versa.
+
+Featured::
+    The *featured* flag automatically *includes any new user* as the channel member and *shows the channel* in the channel list.
+
+[TIP]
+====
+Use this flag for any *introduction channels*.
+====
+
+Members::
+    The * members'* list shows what *users entered the channel*.
+    In the case of *private channels*, only the listed users are *allowed to access the channel*.
+
+[NOTE]
+====
+Not available for *direct messages*.
+====

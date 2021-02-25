@@ -1,0 +1,5 @@
+include::ROOT:partial$variables.adoc[]
+
+= Workflows
+
+*DevNote* todo

@@ -1,4 +1,4 @@
-include::../pages/variables.adoc[]
+include::./variables.adoc[]
 
 = Security
 

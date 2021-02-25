@@ -1,0 +1,44 @@
+include::ROOT:partial$variables.adoc[]
+
+= Source Decoder
+
+The *source decoding* layer *takes in different data formats* (such as json and yaml) and outputs a set of xref:ROOT:developer-guide/envoy/resources.adoc[*resource structures*].
+
+The source decoder is *usually the first layer* but we can also omit it if we construct resource structures manually.
+
+The generated resources are then used in xref:ROOT:developer-guide/envoy/data-shaping.adoc[*data shaping*], xref:ROOT:developer-guide/envoy/dependency-graph.adoc[*dependency graph*], and the xref:ROOT:developer-guide/envoy/encoder.adoc[*resource encoder*].
+
+.A list of predefined decoders:
+[cols="1s,5a"]
+|===
+| [#yaml-decoder]#<<yaml-decoder,YAML decoder>>#
+| The *YAML decoder* knows how to work with files that are in the YAML format.
+
+All of the {PRODUCT_NAME} provisionings are in the YAML format, so all of the system resources are supported here.
+Take a look at the https://github.com/cortezaproject/corteza-ext/tree/2020.12.x/crm/config[CRM configuration] for an example.
+
+| [#csv-decoder]#<<csv-decoder,CSV decoder>>#
+| The *CSV decoder* knows how to work with files that are in the CSV format.
+
+We consider CSV data as *unstructured* as we are not able to extract most of the *contextual information* required by system resources.
+
+The CSV decoder provides a generic `ResourceDataset` structure, that we use in xref:ROOT:developer-guide/envoy/data-shaping.adoc[*data shaping*] to construct the actual resource.
+
+| [#json-decoder]#<<json-decoder,JSON decoder>>#
+| The *JSON decoder* knows how to work with files that are in the JSON format.
+
+[NOTE]
+====
+Currently, we only really support JSONL (lines) format to import records.
+====
+
+We consider JSONL data as *unstructured* as we are not able to extract most of the *contextual information* required by system resources.
+
+The JSON decoder provides a generic `ResourceDataset` structure, that we use in xref:ROOT:developer-guide/envoy/data-shaping.adoc[*data shaping*] to construct the actual resource.
+
+| [#directory-decoder]#<<directory-decoder,directory decoder>>#
+| The *directory decoder* knows how to work with a series of files nested under an *arbitrary file structure*.
+
+The directory decoder attempts to *determine the source type*, and then uses the *pre-defined decoders* to do the actual decoding.
+
+|===

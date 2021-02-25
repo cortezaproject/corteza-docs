@@ -1,0 +1,19 @@
+include::ROOT:partial$variables.adoc[]
+
+= {APP_NAME_COMPOSE} configuration
+
+The *{APP_NAME_COMPOSE} configuration* defines the *logical structure* (the skeleton) of your data, how it is *stored*, and how it can be *manipulated*.
+
+:leveloffset: +1
+
+include::namespaces.adoc[]
+
+include::modules.adoc[]
+
+include::pages.adoc[]
+
+include::charts.adoc[]
+
+include::channels.adoc[]
+
+:leveloffset: -1

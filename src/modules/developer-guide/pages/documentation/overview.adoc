@@ -1,0 +1,190 @@
+include::ROOT:partial$variables.adoc[]
+
+[#structure-overview]
+= Structure Overview
+
+A few notes before we get into the fun bits:
+
+There is no "cookie-cutter" solution::
+    When it comes to such systems, there are multiple *different types of users* involved.
+    From the *end-users* who usually aren't techy people, to *administrators* that worry about the system's integrity, to *developers* that maintain existing features and implement new features.
+    That is why *there can't be* a "one fits all" kind of solutions.
+
+Tell me everything!!::
+    Let's not make our readers jump from one doc to another just because it's easier that way or it shortens the thing.
+    As a reader of the "Integrator Guide" I want to have *all the relevant information* without the need reading up on another one.
+
+Copy-paste is ok (sometimes)::
+    If different roles are *interested in the same thing*, for example, module field types, let's not make them jump to another documentation just to read up on that and get lost in the process.
+    Let's *have it in both places*.
+    If we are smart about it, we can *define smaller snippets* that can be included in both parts.
+
+Onto the fun stuff!
+
+== Homepage
+
+The *homepage* should provide a high-level overview of the entire thing.
+Quickly outline what {PRODUCT_NAME} is and reference all of the different documentation and relevant resources.
+
+You can also provide some *references to subsections* within specific documents to get the reader to where they want to be faster.
+
+[NOTE]
+====
+Consider your reader as a *non-techy end-user*, so use *simple terminology* until they get to the guide they are interested in.
+====
+
+== DevOps guide
+
+Provide a fairly *high-level overview* over all parts that a DevOps person cares about -- from deploying to maintaining.
+
+Here, we don't define a strict structure, so you are allowed to *structure as you see fit*.
+
+== End-User Guide
+
+Provide a *high-level overview* over all features from the *end-user perspective*.
+
+It should be as *short and condensed* as possible, as the end-user doesn't care of all the technical details such as what protocols and frameworks we use.
+All they wish to know is
+
+> How do I achieve this while using {PRODUCT_NAME}?!
+
+For consistency we define the *following structure*:
+
+[source,adoc]
+----
+= {APPLICATION_NAME}
+
+// Provide a quick TL;DR of the application.
+// What is the purpose; who can use it
+
+== {APPLICATION_FEATURE_NAME}
+
+// Describe the feature as abstractly as possible while giving the end-user the confidence to use this feature.
+//
+// Here, we should combine multiple smaller features into one (make sure they are related).
+// This allows us to create shorter documentation that is much friendlier to the end-user.
+// For example, instead of creating multiple sections for Sending messages, Editing messages, and Deleting messages; we can define a single Messages section that gives the user enough knowledge to work with messages.
+//
+// Then to give them more insight into mentioning users and text formatting (the complicated bits), we define new sections Formatting text and Tagging users that focus solely on that.
+----
+
+Here, we should also cover:
+
+Getting Started::
+    Cover the first steps that the user should take.
+    For example, how to register, how to log in, how to change their username/email, and so on.
+
+== Administrator Guide
+
+Provide a *relatively high-level* overview from the *system administrators perspective*.
+
+Provide an overview of *the configuration*, *administration and management* of the system; such as *defining permissions*, *managing users*, and *managing roles*.
+
+The section should define multiple subsections where each *describes an application* that {PRODUCT_NAME} defines; such as {PRODUCT_NAME} {APP_NAME_MESSAGING}.
+For consistency we define the following structure:
+
+[source,adoc]
+----
+= {APPLICATION_NAME}
+
+// Provide a quick TL;DR of the application.
+
+== {APPLICATION_FEATURE_NAME}
+
+// Describe the feature to the extent where an administrator will be confident with using it.
+// Keep it as short as possible but do provide all the important details!
+//
+// Here, we should cover multiple smaller features into one (just make sure they are related).
+// This allows us to create shorter documentation that is much friendlier to the administrator.
+//
+// For example, instead of creating multiple sections for Creating users, Deleting users, and Editing users; we can define a single Users section that gives the user enough knowledge to perform any user-related operation.
+// Then to give them more insight into managing roles, we define a new section Membership that focuses solely on that.
+----
+
+Here, we should also cover:
+
+Security::
+    Describe in detail *how the security system works* - users, roles, access control, permissions and permission states (allow, deny and inherit).
+    Aggregate all the available permissions for each system.
+
+== Integrator Guide
+
+Provide a *detailed overview* of the entire *integration process*.
+The document should be written for *field experts*, so we needn't worry about their limited knowledge on the subject.
+
+It should provide enough insight into *the system*, *terminology* and other bits such as *extension development* so that the reader can extend the base {PRODUCT_NAME} for either themselves or a client.
+
+We should define multiple sections where each section focuses on a specific aspect of the integration.
+From *configuring {APP_NAME_COMPOSE}*, to *deploying extensions*.
+Each section should solely focus on its context.
+
+Make sure to keep the content *somewhat abstract*, but provide *enough low-level knowledge* so the integrator knows what something does.
+
+Here, we should also cover:
+
+Security::
+    Describe in detail *how the security system works* - users, roles, access control, permissions and permission states (allow, deny and inherit).
+    Aggregate all the available permissions for each system.
+
+Tips and Tricks::
+    Hack down some *findings* and *good practices* discovered from past projects, such as creating a portal for end-users.
+
+== Developer Guide
+
+Provide a *low-level overview* over the entire system and all the available features.
+
+It should *focus on how a feature functions*, what parts (endpoints, services, ...) of the system are included to *provide a general idea of the internal logic*.
+It should **not** focus on implementation details (what functions are called and their arguments, what libraries are used) as it is visible from the source code.
+
+The section should describe multiple subsections where each describes an application that {PRODUCT_NAME} defines; such as {PRODUCT_NAME} {APP_NAME_MESSAGING}.
+For consistency we define the following structure:
+
+[source,adoc]
+----
+= {APPLICATION_NAME}
+
+// Provide a quick TL;DR of the application.
+
+== {APPLICATION_FEATURE_NAME}
+
+// Describe the feature to the extent where a maintainer understands what parts of the system are involved when working on this feature (improvements, bugfixes, ...).
+//
+// Here, we should cover multiple smaller features into one (just make sure they are related).
+// This allows us to create shorter documentation that is much friendlier to the reader.
+//
+// For example, instead of creating multiple sections for Creating users, Deleting users, and Editing users; we can define a single Users section that gives the reader enough knowledge to understand what parts are involved.
+----
+
+Here, we should also cover:
+
+Documentation::
+    Well... this is it.
+    If you're reading this, then hi!
+    Describe the different documentations, provide some guidelines and describe the process of contributing documentation.
+
+== Upgrade Guide
+
+Provide a *step-by-step guide* on the steps you need to take to upgrade to a newer version of {PRODUCT_NAME}.
+
+*Each version* should be in its *section*, with *free structure* underneath.
+The latest version should be presented on the top, with the past versions *under the Archive*.
+
+== Extensions
+
+The purpose is to provide an *overview of all available extensions* from the integrators perspective.
+
+Each extension should define its section where it is described in detail.
+For consistency we define the following structure:
+
+[source,adoc]
+----
+= {EXTENSION_NAME}
+
+// Provide a quick TL;DR of the extension.
+// Split this subsection further as you see fit.
+----
+
+[IMPORTANT]
+====
+If you are developing your extensions, provide your documentation and don't merge it here *unless* we agree on making it an official extension.
+====

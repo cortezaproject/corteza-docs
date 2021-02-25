@@ -1,0 +1,39 @@
+include::ROOT:partial$variables.adoc[]
+
+= Corredor helpers
+
+*Corredor helpers* implement the most common automation script operations, such as *creating new records*, *registering users*, and *sending emails*.
+They are provided in the *execution context* (here: `exec(args, ctx)` -- see <<script-execution>>).
+
+Corredor helpers are *context-aware*, meaning that they can automatically determine some arguments.
+For example; when creating a record, Corredor helpers will know what *namespace*, *module*, and *record* you are using.
+
+.Available {PRODUCT_NAME} Corredor helpers:
+* https://github.com/cortezaproject/corteza-js/tree/2020.12.x/src/corredor/helpers/system.ts[System]
+* https://github.com/cortezaproject/corteza-js/tree/2020.12.x/src/corredor/helpers/messaging.ts[Messaging]
+* https://github.com/cortezaproject/corteza-js/tree/2020.12.x/src/corredor/helpers/compose.ts[Compose]
+* https://github.com/cortezaproject/corteza-vue/blob/2020.12.x/src/corredor/compose-ui.ts[Compose UI]
+
+[TIP]
+====
+Corredor helpers can be *used outside* of your automation scripts.
+If your application needs to *interact with {PRODUCT_NAME}*, you can use them.
+====
+
+[NOTE]
+====
+*DevNote* extract methods here?
+====
+
+https://github.com/cortezaproject/corteza-js/tree/2020.12.x/src/corredor/helpers[Corredor helpers] define a set of context-aware utility functions that are used to simplify common, repetitive operations, such as creating or updating records.
+
+The helper sources resides in the https://github.com/cortezaproject/corteza-js/tree/2020.12.x/src/corredor/helpers[corteza-js], and the https://github.com/cortezaproject/corteza-vue/blob/2020.12.x/src/corredor/compose-ui.ts[corteza-vue] repositories.
+They are available under `corredor` in the https://www.npmjs.com/package/@cortezaproject/corteza-js[corteza-js] and the https://www.npmjs.com/package/@cortezaproject/corteza-vue[corteza-vue] NPM packages.
+
+* `corredor.system`: provides a helper to work with *the core system*
+* `corredor.compose`: provides a helper to work with *compose*
+* `corredor.composeUI`: provides a helper to work with *compose user interface*
+* `corredor.messaging`: provides a helper to work with *messaging*
+* `corredor.federation`: provides a helper to work with *federation*
+
+The context-aware part removes the need of explicitly specifying things like what namespace and module we are working with.

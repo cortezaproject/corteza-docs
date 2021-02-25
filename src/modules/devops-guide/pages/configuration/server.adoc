@@ -1,0 +1,30 @@
+= Server configuration
+
+:leveloffset: +1
+
+include::partial$generated/env-options.gen.adoc[]
+
+:leveloffset: -1
+
+// Will probably refactor the list to this:
+// [cols="2a,6a"]
+// |===
+// | [#DB_DSN]#<<DB_DSN,*DB_DSN*>>#
+// |
+// * *type*: string,
+// * *descriptions*: Database connection string
+// * *default*: `sqlite3://file::memory:?cache=shared&mode=memory`
+
+// | [#DB_DSN]#<<DB_DSN,*DB_DSN*>>#
+// |
+// * *type*: string,
+// * *descriptions*: Database connection string
+// * *default*: `sqlite3://file::memory:?cache=shared&mode=memory`
+
+// | [#DB_DSN]#<<DB_DSN,*DB_DSN*>>#
+// |
+// * *type*: string,
+// * *descriptions*: Database connection string
+// * *default*: `sqlite3://file::memory:?cache=shared&mode=memory`
+
+// |===

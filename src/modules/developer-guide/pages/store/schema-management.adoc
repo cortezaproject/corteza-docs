@@ -1,0 +1,106 @@
+include::ROOT:partial$variables.adoc[]
+
+= Schema management
+
+== Store .yaml files
+
+- Take note of this
+
+== Define new schemas
+
+You can define a new schema in the `store/rdbms/rdbms_schema.go` file.
+The system goes over all definitions and assures that all of the tables are present in the connected database.
+
+[IMPORTANT]
+====
+This step doesn't take into account any potential schema manipulations.
+See <<store-update-schema>> for details.
+====
+
+.The following example defines a table for {PRODUCT_NAME} {APP_NAME_MESSAGING} messages:
+[source,go]
+----
+// General bits regarding the package
+// ...
+
+func (s Schema) Tables() []*Table {
+  return []*Table{
+    // Other schema definitions
+    // ...
+
+    s.MessagingMessage(),
+
+    // Other schema definitions
+    // ...
+  }
+}
+
+// Other schema definitions
+// ...
+
+func (Schema) MessagingMessage() *Table {
+  return TableDef("messaging_message",
+    ID,
+    ColumnDef("type", ColumnTypeText),
+    ColumnDef("message", ColumnTypeText),
+    ColumnDef("meta", ColumnTypeJson),
+    ColumnDef("rel_channel", ColumnTypeIdentifier),
+    ColumnDef("rel_user", ColumnTypeIdentifier),
+    ColumnDef("reply_to", ColumnTypeIdentifier, DefaultValue("0")),
+    ColumnDef("replies", ColumnTypeInteger, DefaultValue("0")),
+
+    CUDTimestamps,
+  )
+}
+
+// Other schema definitions
+// ...
+----
+
+[#store-update-schema]
+== Update existing schemas
+
+[IMPORTANT]
+====
+When developing new features that require new store definitions, don't clutter the `generic_upgrades.go` file.
+Either drop the original table and re-create it or manually apply the updates.
+
+If you are working with others, make sure to also coordinate this with them.
+====
+
+You can define schema altering in the `store/rdbms/generic_upgrades.go` file.
+The system will go over all of the definitions and assure that everything is up-to-date.
+
+[NOTE]
+====
+This is an idempotent operation, meaning that the result will always be the same.
+
+Using plain human words -- the system will only apply the changes that have not yet been applied.
+The result is the same, no matter how many times you run it.
+====
+
+.The following example renames the actionlog table:
+[source,go]
+----
+// General bits regarding the package
+// ...
+
+func (g genericUpgrades) Before(ctx context.Context) error {
+  return g.all(ctx,
+    g.RenameActionlog,
+
+    // Other operations
+    // ...
+  )
+}
+
+// Other definitions
+// ...
+
+func (g genericUpgrades) RenameActionlog(ctx context.Context) error {
+  return g.RenameTable(ctx, "sys_actionlog", "actionlog")
+}
+
+// Other definitions
+// ...
+----

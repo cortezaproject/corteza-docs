@@ -1,0 +1,5 @@
+= Page blocks
+
+include::record-lists.adoc[]
+
+include::metrics.adoc[]

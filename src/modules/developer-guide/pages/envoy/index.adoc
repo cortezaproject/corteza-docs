@@ -1,0 +1,41 @@
+include::ROOT:partial$variables.adoc[]
+
+= {PRODUCT_NAME} Envoy
+
+*{PRODUCT_NAME} Envoy* defines a *data transportation framework* that we use when working with complex data with lots of dependencies.
+The goal is to *simplify data-related operations* as much as possible.
+
+Envoy consists of a series of *layers* which allow *flexibility* while preserving fairly *trivial basic implementation*.
+
+include::diagrams/architecture.adoc[]
+
+== Resources
+
+xref:ROOT:developer-guide/envoy/resources.adoc[*A resource*] is some *generic intermediate structure* that represents the provided source data with some additional context to enable further processing (things like dependency management via the xref:ROOT:developer-guide/envoy/dependency-graph.adoc[dependency graph]).
+
+== Data shaping
+
+xref:ROOT:developer-guide/envoy/data-shaping.adoc[*Data shaping*] lets us *define templates* how some input source should be *shaped* (processed) before being encoded.
+
+Data shaping is useful for *unstructured sources* (such as .csv) where we *can't automatically extract* contextual information (such as what module and namespace to use).
+
+== Source decoder
+
+The xref:ROOT:developer-guide/envoy/decoder.adoc[*source decoding*] layer *takes in different data formats* (such as json and yaml) and outputs a set of xref:ROOT:developer-guide/envoy/resources.adoc[*resource structures*].
+
+The source decoder is *usually the first layer* but we can also omit it if we construct resource structures manually.
+
+== Source encoder
+
+The xref:ROOT:developer-guide/envoy/encoder.adoc[*resource encoding*] layer takes in xref:ROOT:developer-guide/envoy/resources.adoc[*resources structures*] and encodes them to *different destinations* (such as the store layer).
+
+[NOTE]
+====
+Different encoders (YAML, JSON, and CSV) are on their way.
+====
+
+== Dependency graph
+
+The xref:ROOT:developer-guide/envoy/dependency-graph.adoc[*dependency graph*] is the heart of the system, as it lets us *determine the order* in which the *resources should be processed in*.
+
+It is a result of the xref:ROOT:developer-guide/envoy/dependency-graph.adoc#graph-builder[*graph building flow*] that enables you to do any *pre-processing* to the raw data.

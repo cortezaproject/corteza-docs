@@ -1,1 +1,0 @@
-include::ROOT:partial$generated/resource-events.gen.adoc[]

@@ -1,0 +1,35 @@
+* xref:index.adoc[]
+
+** xref:documentation/index.adoc[]
+** xref:building.adoc[]
+** xref:release-cycle/index.adoc[]
+
+** HTTP API
+*** xref:sink-routes.adoc[]
+
+** Data and Storage
+*** xref:store/index.adoc[]
+*** xref:pagination.adoc[]
+*** xref:resource-labeling.adoc[]
+
+** Security and Access
+*** xref:impersonation.adoc[]
+
+** Corteza Compose
+*** xref:compose/module-field-expressions.adoc[]
+
+** xref:federation/index.adoc[]
+*** xref:federation/glossary.adoc[]
+*** xref:federation/security-logging.adoc[]
+*** xref:federation/node-pair.adoc[]
+*** xref:federation/node-sync.adoc[]
+*** xref:federation/api/index.adoc[]
+
+** xref:envoy/index.adoc[]
+*** xref:envoy/resources.adoc[]
+*** xref:envoy/data-shaping.adoc[]
+*** xref:envoy/decoder.adoc[]
+*** xref:envoy/encoder.adoc[]
+*** xref:envoy/dependency-graph.adoc[]
+
+** xref:extensions/index.adoc[]

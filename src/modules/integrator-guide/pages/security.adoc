@@ -1,0 +1,6 @@
+include::ROOT:partial$security.adoc[]
+
+[NOTE]
+====
+*DevNote* take note of the xref:developer-guide:impersonation.adoc[impersonation feature].
+====

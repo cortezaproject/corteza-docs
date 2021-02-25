@@ -1,0 +1,21 @@
+* xref:index.adoc[]
+
+** xref:actionlog.adoc[]
+** xref:users.adoc[]
+** xref:roles.adoc[]
+** xref:applications.adoc[]
+** xref:settings.adoc[]
+** xref:permissions.adoc[]
+** xref:automation.adoc[]
+** xref:federation-nodes.adoc[]
+
+** Authentication providers
+*** xref:authentication-provider/google.adoc[]
+*** xref:authentication-provider/facebook.adoc[]
+*** xref:authentication-provider/github.adoc[]
+*** xref:authentication-provider/linkedin.adoc[]
+
+** xref:namespaces.adoc[]
+** xref:modules.adoc[]
+** xref:pages.adoc[]
+** xref:charts.adoc[]

@@ -1,0 +1,19 @@
+include::ROOT:partial$variables.adoc[]
+
+= Pexels
+:doctype: book
+
+[IMPORTANT]
+====
+This is not a {APP_NAME_COMPOSE} extension, but *a library*.
+====
+
+:leveloffset: +1
+
+include::about.adoc[]
+
+include::config.adoc[]
+
+include::usage.adoc[]
+
+:leveloffset: -1

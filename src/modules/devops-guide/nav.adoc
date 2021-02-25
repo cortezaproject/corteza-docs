@@ -1,5 +1,7 @@
 * xref:index.adoc[]
 
+** xref:system-requirements.adoc[]
+
 ** xref:prerequisites.adoc[]
 *** xref:prerequisites.adoc#docker[Docker]
 *** xref:prerequisites.adoc#docker-compose[Docker Compose]
@@ -26,3 +28,4 @@
 
 ** Extension requirements
 *** xref:extension-requirements/email-relay.adoc[]
+*** xref:extension-requirements/sink-route.adoc[]

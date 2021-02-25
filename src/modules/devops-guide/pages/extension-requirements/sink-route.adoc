@@ -1,0 +1,73 @@
+include::ROOT:partial$variables.adoc[]
+
+= Sink routes
+:description: {PRODUCT_NAME} allows you to detect incoming HTTP requests via automation scripts.
+:keywords: dev-ops, DevOps, webhook, automation scripts
+
+{PRODUCT_NAME} allows you to detect incoming HTTP requests via automation scripts -- sink routes.
+Sink routes allow you to implement custom API endpoints to add support for things like webhooks.
+
+[NOTE]
+====
+Here, we only cover how to setup a sink route.
+Refer to the xref:integrator-guide:index.adoc[] for details on how to use them.
+====
+
+== Generate a signature
+
+A *sink signature* is used to authorize incoming HTTP requests to the `/sink` route.
+
+[IMPORTANT]
+====
+Sink signatures should be treated as passwords.
+====
+
+A sink signature is generated using the xref:maintenance/cli-reference.adoc#sink-signature[sink signature] CLI command.
+
+For example `{CLI_CMD_SYSTEM} sink signature` returns something in the lines of:
+
+[source]
+----
+/system/sink?__sign=187...3D
+Sink request constraints:
+ - signature should be part of query-string
+ - body size is not limited
+----
+
+The generated sink signature (the thing after `__sign`) is unconstrained and ready to accept any HTTP requests.
+This is bad.
+We suggest you try to constraint your signatures as much as possible (refer to the CLI help sub-command).
+
+[CAUTION]
+====
+Some services (when implementing the OAuth2 flow) may not allow the use of query parameters.
+See <<sign-in-path>> to bypass the restriction.
+====
+
+== Use the sink route
+
+When you wish to use the sink route (you wish to define a webhook for example), all inbound requests must specify the sink signature generated above.
+
+For example:
+[source,bash]
+----
+curl '$BASE_API_URL/system/sink?__sign=$SINK_SIGNATURE' \
+  --data-binary '{
+    "a": "b"
+  }';
+----
+
+[#sign-in-path]
+== Unable to use query parameters
+
+If you can't use a query parameter to authenticate the request, add the `--signature-in-path` argument tho the xref:maintenance/cli-reference.adoc#sink-signature[sink signature] CLI command.
+
+For example `{CLI_CMD_SYSTEM} sink signature --signature-in-path` returns something in the lines of:
+
+[source]
+----
+/system/sink/ext_mautic/lead/__sign=7a9...==
+Sink request constraints:
+ - signature should be part of path
+ - body size is not limited
+----

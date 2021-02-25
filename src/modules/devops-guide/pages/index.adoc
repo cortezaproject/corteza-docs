@@ -1,145 +1,55 @@
 include::ROOT:partial$variables.adoc[]
 
 = DevOps guide
-:doctype: book
 :description: {PRODUCT_NAME} DevOpsGuide covers all aspects of deploying and maintaining your own {PRODUCT_NAME} instance.
 :keywords: dev-ops, devops, {PRODUCT_NAME}
 
 The *DevOps guide* is designed to help you *deploy and maintain* your {PRODUCT_NAME} instance from start to finish.
 The guide provides enough out of the box working examples to help you get started in no time!
 
-This page contains all of the information required to setup your own {PRODUCT_NAME} instance, but if you want to know more, there are some extra sections hidden in the documentation navigation.
-
-== Overview
-
-.The diagram outlines the architecture, how different components connect and interact.
-image::arch-overview.png[{PRODUCT_NAME} architectural overview]
-
-.Major {PRODUCT_NAME} components:
-* Frontend applications ({GIT_REPO_LINK_PREFIX}-webapp-auth[*{PRODUCT_NAME} {APP_NAME_AUTH}*], {GIT_REPO_LINK_PREFIX}-webapp-admin[*{PRODUCT_NAME} {APP_NAME_ADMIN}*], {GIT_REPO_LINK_PREFIX}-webapp-compose[*{PRODUCT_NAME} {APP_NAME_COMPOSE}*], {GIT_REPO_LINK_PREFIX}-webapp-messaging[*{PRODUCT_NAME} {APP_NAME_MESSAGING}*], {GIT_REPO_LINK_PREFIX}-webapp-one[*{PRODUCT_NAME} {APP_NAME_SHELL}*]),
-* {GIT_REPO_LINK_PREFIX}-server[*{PRODUCT_NAME} server*],
-* {GIT_REPO_LINK_PREFIX}-server-corredor[*{PRODUCT_NAME} {APP_AUTOMATION} server*].
-
-.Auxiliary services:
-* log storage,
-* error tracking,
-* email sending,
-* object storage,
-* data federation,
-* store layer.
-
-== System requirements
-
-=== Supported web clients
+[NOTE]
+====
+This page provides all of the information to run your {PRODUCT_NAME} using our prebuilt docker images.
+If you need additional information regarding specific topics, refer to the menu:DevOps guide[] sub-sections.
+====
 
 [IMPORTANT]
 ====
-Our WebApp images don't support older browsers.
-If you wish to support older browsers, feel free to build your own images.
+{PRODUCT_NAME} is compiled, developed, and tested for modern browsers.
+If you need to support older browsers, such as InternetExplorer, you will need to build your images.
+
+Refer to xref:system-requirements.adoc[] for more details.
 ====
 
-.Supported web clients:
-[cols=","]
-|===
-|Client |Version
-
-|Chrome| v78+
-|Firefox| v68+
-|Safari| v12+
-|Edge| v44+
-|iOS| iPhone 5s devices and later with iOS 12+
-|Android| Android 7+
-|===
-
-=== Operating System
-
-Any Docker-compatible operating system is supported.
+== Architecture and repository overview
 
 [NOTE]
 ====
-We recommend a Linux-based operating system; preferably Ubuntu LTS.
+*DevNote* update diagram; rewrite to PlantUML.
 ====
 
-=== Docker
+.The diagram visually describes where various components reside and how they interact.
+image::arch-overview.png[{PRODUCT_NAME} architectural overview]
 
-The minimum Docker Engine version is 1.12.x
+.{PRODUCT_NAME} defines a series of web applications defined by our `corteza-webapp-*` repositories:
+* {GIT_REPO_LINK_PREFIX}-webapp-compose[*{PRODUCT_NAME} {APP_NAME_COMPOSE}*]
+* {GIT_REPO_LINK_PREFIX}-webapp-admin[*{PRODUCT_NAME} {APP_NAME_ADMIN}*]
+* {GIT_REPO_LINK_PREFIX}-webapp-one[*{PRODUCT_NAME} {APP_NAME_SHELL}*]
 
-=== Hardware
+The web applications communicate with our back-end system ({GIT_REPO_LINK_PREFIX}-server[*{PRODUCT_NAME} server*]) which further interacts with the automation script runner ({GIT_REPO_LINK_PREFIX}-server-corredor[*{PRODUCT_NAME} {APP_AUTOMATION} server*]) and various auxiliary services primarily provided by external services/projects.
 
-[NOTE]
-====
-Rough estimations calculated from our community instance.
-The numbers may vary depending on your use case.
-====
-
-.Hardware:
-[cols=",,"]
-|===
-| Number of Users | Number of processors | Memory
-
-| 1 - 500 | 1 vCPU/cores | 2 GB RAM
-| 500 - 1000 | 2 vCPU/cores | 4 GB RAM
-| 1000 - 2000 | 4 vCPU/cores | 8 GB RAM
-| 2000 - 5000 | 8 vCPU/cores | 16 GB RAM
-| 5000+ | 16 vCPU/cores | 32 GB RAM
-|===
-
-=== Storage
-
-[NOTE]
-====
-Rough estimations calculated from our community instance.
-The numbers may vary depending on your use case.
-====
-
-.Estimated storage per user per month:
-[cols="2,4,2"]
-|===
-| Volume | Description | Recommended Storage
-
-| Low volume | Plain text data without attachments. | 5 MB/user/month
-| Medium volume | Plain text with occasional attachments. | 25 MB/user/month
-| High volume | Plain text with regular (and larger) attachments. | 100 MB/user/month
-|===
-
-.Annual storage calculation:
-* Base storage (operating system and core components) of 10 GB.
-* Recommended storage per user per month based on the matrix above (multiplied by 12 to get the yearly amount).
-* Average number of users in a year.
-* Apply a safety factor; we recommend at least `2.0`.
-
-.The formula:
-----
-total = (nr. of users * recommended storage * 12 * safety factor) + base storage
-----
-
-.Example calculation for 30 medium usage users:
-----
-Recommended storage = (30 * 25 MB * 12 * 2) + 10 GB = 28 GB / year
-----
-
-=== Networking
-
-Depending on your configuration, {PRODUCT_NAME} may need some access to outside services.
-
-If you intend to use any email communication; such as sending confirmation emails, password reset emails, or sending emails from automation scripts; you must configure your SMTP servers to be accessible.
-
-If you enable federation, the nodes ({PRODUCT_NAME} instances) must be *visible and allow traffic* between them on the designated HTTP ports.
-
-If you enable OAuth2 or OIDC sign-up, or you are accessing external services via automation scripts, you should allow HTTP traffic.
-
-=== Domain and hostname
-
-.The most common setup involves two domains -- API and web app:
-* Hostname for Web application,
-* hostname for API server.
-
-If you already own a domain, you can add two or more hosts and use them to access your {PRODUCT_NAME} instance.
+.Some of the auxiliary services include:
+* data federation,
+* data storage,
+* logger,
+* email sender.
 
 == System configuration
 
-Core {PRODUCT_NAME} services are configured via the environment (`.env`) file.
-It allows a quick deploy to another platform, along with fine-tuning the system's behavious and enabled features.
+{PRODUCT_NAME} is configured via the environment (`.env`) file.
+It allows you to quickly deploy to another system and tweak how the system should behave.
+
+Our examples are configured to work as is, but feel free to tweak xref:configuration/server.adoc[{PRODUCT_NAME} server] and xref:configuration/corredor.adoc[{APP_AUTOMATION} server] as you see fit.
 
 [NOTE]
 ====
@@ -147,39 +57,26 @@ The `.env` file is at the root of the application.
 In the context of Docker Compose, it is next to the `docker-compose.yaml` file.
 ====
 
-.The `.env` file affects three levels:
-. Implicit Docker Compose configuration,
-. variable substitution in Docker configuration,
-. service configuration.
+The `.env` file performs *implicit Docker Compose configuration*, *variable substitution for Docker configurations*, and *service configurations*.
 
-[NOTE]
-====
-When you are using Docker Compose, you must explicitly reference the environment file for each service in the `docker-compose.yaml` file (`env_file: [.env]`).
-====
-
-[TIP]
-====
-You can use variables defined in the `.env` inside your `docker-compose.yaml` file; for example `$\{VERSION\}`.
-====
-
-Refer to xref:configuration/server.adoc[*server configuration*] and xref:configuration/corredor.adoc[*{APP_AUTOMATION} server configuration*] for a complete reference.
+You can use variables defined in the `.env` file inside your `docker-compose.yaml` files using `$\{VARIABLE_HERE}`.
 
 [#deploy-offline]
 == Deploy offline
 
-[TIP]
+[NOTE]
 ====
-We have a few extra ready-to-go offline configurations available under menu:DevOps guide[Offline deployment]
+*DevNote* provide a quick rundown of what each deploy config enables you to do; automation scripts, workflows, persistent storage, ...
 ====
 
-This is only suitable only for local (demo and development) environments.
+The setup runs all services on the same network where the ports are bound to the host's network.
+This is a minimum setup with MySQL as the persistent database storage with {APP_AUTOMATION} server enabled.
 
-All services are on the same network, ports are bound to the host's network, etc.
-We're using a minimum setup with {APP_AUTOMATION} automation server, and MySQL database with persistent storage.
+See menu:DevOps guide[Offline deployment] for additional offline deployment configurations.
 
-[WARNING]
+[IMPORTANT]
 ====
-include::partial$warnings/sqlite.adoc[]
+Offline deployments are suitable only for local development and demos (environments that are not accessible from the outside).
 ====
 
 === Setup your file structure
@@ -217,62 +114,45 @@ include::example$deploy/local-mysql/env-example.txt[]
 
 === Run the services
 
-Run this command in the same directory as your `docker-compose.yaml` file.
-The command starts all of the services configured in the `docker-compose.yaml` file.
+In the root of your project (next to your `docker-compose.yaml` and `.env` files), run `docker-compose up -d` (the execution can take a few seconds).
 
-.Run the services:
-[source,bash]
-----
-docker-compose up -d
-----
+The command mentioned above (downloads and) runs all of the services configured in your `docker-compose.yaml` file.
 
-You can check if everything is running correctly, by executing the `docker-compose ps` command.
-The output should be similar to this one:
+Check if everything started correctly by running `docker-compose ps`.
+The output should look something like this:
 
-[source,shell]
+[source]
 ----
 include::example$deploy/local-mysql/output-ps.txt[]
 ----
 
-Something failed?
-Take a look at xref:maintenance/troubleshooting.adoc[*troubleshooting*].
+See xref:maintenance/troubleshooting.adoc[] if something went wrong/failed to start.
 
 === Test the deploy
 
-. Direct your browser to http://localhost:18080.
-If you used other ports in your configurations, use those.
-On your first visit, you should be redirected to the authentication page (`/auth`),
-. create your account through the sign-up form.
-. check the server version http://localhost:18080/version
-. check the server's health http://localhost:18080/healthcheck
-. check the API documentation http://localhost:18080/api/docs/
+. Direct your browser to http://localhost:18080 (change the port if you used a different port).
+You will be redirected to the authentication page (`/auth`).
+. Create your account through the sign-up form (the first created account is an administrator by default).
+. Check the server version http://localhost:18080/version
+. Check the server's health http://localhost:18080/healthcheck
+. Check the API documentation http://localhost:18080/api/docs/
 
 [NOTE]
 ====
-The first user gets automatically promoted to an administrator.
-You can add additional users by using the sign-up form or by adding them in the administration panel.
-====
-
-[NOTE]
-====
-With disabled email capabilities (unconfigured `SMTP_*` options) all email sending is offline and with it, email confirmation on sign-up.
+If you did not configure your SMTP settings, all sign-ups are marked as confirmed.
 ====
 
 [#deploy-online]
 == Deploy online
 
+This setup separates your services into two networks (internal and proxy) so that internal services are protected from the scary internet.
+This is a minimum setup with MySQL as the persistent database storage with {APP_AUTOMATION} server enabled.
+
+See menu:DevOps guide[Online deployment] for additional online deployment configurations.
+
 [TIP]
 ====
-We have a few extra ready-to-go online configurations available under menu:DevOps guide[Online deployment]
-====
-
 You can use the same steps to configure multiple online deployments, such as staging and a production environment.
-
-Services are separated into two networks (internal and proxy) so that database and automation server can not be accessed from the public network.
-
-[WARNING]
-====
-include::partial$warnings/sqlite.adoc[]
 ====
 
 === Setup your file structure
@@ -282,43 +162,37 @@ include::partial$warnings/sqlite.adoc[]
 ----
 📁 my-proxy <1>
   📄 docker-compose.yaml
-  📄 custom.conf
+  📄 custom.conf <2>
 📁 my-corteza
   📄 .env
   📄 docker-compose.yaml
-  📁 data <2>
-    📁 server <3>
-    📁 db <4>
+  📁 data <3>
+    📁 server <4>
+    📁 db <5>
 ----
 <1> Omit this if you're not planning on using Nginx reverse proxy or if it's already setup.
-<2> Make sure to change the owner to the Docker container (you can use `chown 1001:1001 data/db` and `chown 4242:4242 data/server`).
+<2> `custom.conf` must be placed next to the `docker-compose.yaml` file.
+<3> Make sure to change the owner to the Docker container (you can use `chown 1001:1001 data/db` and `chown 4242:4242 data/server`).
 Omit if you won't use persistent storage.
-<3> Here is where all of the server stuff is stored, such as uploaded attachments.
-<4> Here is where the database can store the data.
+<4> Here is where all of the server stuff is stored, such as uploaded attachments.
+<5> Here is where the database can store the data.
 
 === Setup your Nginx reverse proxy
 
-Here, we will be using https://github.com/jwilder/nginx-proxy[Nginx Proxy] and https://github.com/JrCs/docker-letsencrypt-nginx-proxy-companion[LetsEncrypt Nginx Proxy Companion].
+⚠️ We are inside the `my-proxy` directory.
 
-These two Docker images automate Let's Encrypt TLS certificate creation and renewal; forward traffic to our containers; and simplify the complicated firewall configuration.
-
-[WARNING]
-====
-We advise against merging/mixing {PRODUCT_NAME} and `nginx-proxy` in the same directory.
-
-It can be done but requires some experience with Docker Compose.
-====
+This part automates the creation and renewal of Let's Encrypt TLS certificates, forward traffic to Docker containers, and simplifies complicated firewall configurations.
 
 [IMPORTANT]
 ====
-The following instructions assume that you *don't* have anything similar setup on your current environment.
+The following instructions assume that you don't have anything similar setup in your current environment.
+
 If you are using other means of providing traffic forwarding or SSL certificate handling, proceed with caution.
 ====
 
-[IMPORTANT]
-====
-Containers *must* be on the same network as `nginx-proxy` (in the examples we're using network named `proxy`).
-====
+We will be using https://github.com/jwilder/nginx-proxy[Nginx Proxy] and https://github.com/JrCs/docker-letsencrypt-nginx-proxy-companion[LetsEncrypt Nginx Proxy Companion].
+If you wish to use or are using something else, feel free to skip this section.
+
 
 .Your `docker-compose.yaml` should look something like this:
 [source,yaml]
@@ -332,23 +206,24 @@ include::example$deploy/prod-proxy-nginx/docker-compose.yaml[]
 include::example$deploy/prod-proxy-nginx/custom.conf[]
 ----
 
-[IMPORTANT]
-====
-`custom.conf` *must* be placed next to `docker-compose.yaml`.
-====
+Inside your `my-proxy` directory, run `docker-compose up -d` (the execution can take a few seconds) to start the reverse proxy.
 
-[NOTE]
-====
-Don't forget to run your services; use `docker-compose up -d` to run your services and `docker-compose ps` to check if its running correctly.
+Check if everything started correctly by running `docker-compose ps`.
 The output should look something like this:
 
 [source]
 ----
 include::example$deploy/prod-proxy-nginx/output-ps.txt[]
 ----
-====
 
 === Configure docker-compose.yaml
+
+⚠️ We are inside the `my-corteza` directory.
+
+[IMPORTANT]
+====
+Containers *must* be on the same network as `nginx-proxy` (in the examples, we're using a network named `proxy`).
+====
 
 .Your configuration should look something like this:
 [source,yaml]
@@ -358,6 +233,8 @@ include::example$deploy/prod-mysql/docker-compose.yaml[]
 
 === Configure .env
 
+⚠️ We are inside the `my-corteza` directory.
+
 .Your configuration should look something like this:
 [source,.env]
 ----
@@ -366,37 +243,25 @@ include::example$deploy/prod-mysql/env-example.txt[]
 
 === Run the services
 
-Run this command in the same directory as your `docker-compose.yaml` file.
-The command starts all of the services configured in the `docker-compose.yaml` file.
+Inside your `my-corteza` directory (next to your `docker-compose.yaml` and `.env` files), run `docker-compose up -d` (the execution can take a few seconds).
 
-.Run the services:
-[source,bash]
-----
-docker-compose up -d
-----
+The command mentioned above (downloads and) runs all of the services configured in your `docker-compose.yaml` file.
 
-You can check if everything is running correctly, by executing the `docker-compose ps` command.
-The output should be similar to this one:
+Check if everything started correctly by running `docker-compose ps`.
+The output should look something like this:
 
-[source,shell]
+[source]
 ----
 include::example$deploy/prod-mysql/output-ps.txt[]
 ----
 
-Something failed?
-Take a look at xref:maintenance/troubleshooting.adoc[*troubleshooting*].
+See xref:maintenance/troubleshooting.adoc[] if something went wrong/failed to start.
 
 === Test the deploy
 
 . Direct your browser to `http://your-demo.example.tld`.
-On your first visit, {PRODUCT_NAME} redirects you to the authentication page (`/auth`),
-. create your account through the sign-up form.
-. check the server version http://your-demo.example.tld/version
-. check the server's health http://your-demo.example.tld/healthcheck
-. check the API documentation http://your-demo.example.tld/api/docs/
-
-[NOTE]
-====
-The first user gets automatically promoted to an administrator.
-You can add additional users by using the sign-up form or by adding them in the administration panel.
-====
+You will be redirected to the authentication page (`/auth`).
+. Create your account through the sign-up form (the first created account is an administrator by default).
+. Check the server version http://your-demo.example.tld/version
+. Check the server's health http://your-demo.example.tld/healthcheck
+. Check the API documentation http://your-demo.example.tld/api/docs/

@@ -6,7 +6,6 @@ services:
     restart: on-failure
     env_file: [ .env ]
     depends_on: [ db, corredor ]
-    # Direct your browser to http://localhost:18080
     ports: [ "127.0.0.1:18080:80" ]
 
   corredor:
@@ -20,14 +19,9 @@ services:
     image: percona:8.0
     restart: on-failure
     environment:
-      # To be picked up by percona image when creating the database
-      # Must match with DB_DSN settings inside .env
-      #
-      # Warning: these are values that are only used on 1st start
-      #          if you want to change it later, you need to do that
-      #          manually inside db container
       MYSQL_DATABASE: dbname
       MYSQL_USER:     dbuser
       MYSQL_PASSWORD: dbpass
-      MYSQL_RANDOM_ROOT_PASSWORD: random # docker-compose logs db |grep "GENERATED ROOT PASSWORD"
+      # get the random generated password by running: docker-compose logs db | grep "GENERATED ROOT PASSWORD"
+      MYSQL_RANDOM_ROOT_PASSWORD: random 
     healthcheck: { test: ["CMD", "mysqladmin" ,"ping", "-h", "localhost"], timeout: 20s, retries: 10 }

@@ -1,17 +1,18 @@
 include::ROOT:partial$variables.adoc[]
 
 = CLI reference
+:description: {PRODUCT_NAME} command-line interface tool allows you to quickly interact with different parts of the system -- from changing the settings to assigning roles to users.
+:keywords: dev-ops, devops, cli, command-line interface, maintenance
 
 [NOTE]
 ====
 *DevNote*: think about adding some more examples/usecases?
+Update/assure the commands are still as are and valid.
 ====
 
 {PRODUCT_NAME} command-line interface tool allows you to quickly interact with different parts of the system -- from changing the settings to assigning roles to users.
 
 == Authentication
-
-External authentication
 
 === Auto discovery
 
@@ -133,6 +134,7 @@ Flags:
   -h, --help   help for serve-api
 ----
 
+[#sink-signature]
 == Sink signature
 
 Creates signature for sink HTTP endpoint

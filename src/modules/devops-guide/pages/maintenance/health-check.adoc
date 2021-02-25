@@ -1,24 +1,29 @@
 = Health check
+:description: A health check is a series of steps you should take to verify that everything is set up and working correctly.
+:keywords: dev-ops, DevOps, CLI, health check, maintenance
+
+A health check is a series of steps you should take to verify that everything is set up and working correctly.
+
+[NOTE]
+====
+*DevNote*: expand this with extra steps for all of the different bits.
+====
 
 == SMTP configuration
 
-To verify your xref:ROOT:dev-ops-guide/server-configuration/index.adoc#_email_sending[SMTP configuration], you can use this command:
+You can use this command to verify that your SMTP configuration is working correctly.
+The command sends a test email to the provided email address.
 
 [source,bash]
 ----
 corteza-server auth test-notifications your-email@example.tld
 ----
 
-The command sends a test email to the specified email address.
-If your setup is valid and email sending was successful, you'll receive an email to the provided inbox.
-
-[NOTE]
-====
-If you can't see the email, check the *spam folder* and *server logs*.
-====
+⚠️ Depending on your provider, the email can take a bit to be delivered.
+If you can't see the email, make sure to check your spam folder and server logs.
 
 .Connection/authentication errors look like this:
-[source,text]
+[source]
 ----
 could not send email: dial tcp [::1]:25: connect: connection refused
 ----

@@ -1,87 +1,53 @@
 include::ROOT:partial$variables.adoc[]
 
 = Email relay
+:description: {PRODUCT_NAME} allows you to detect and react to incoming emails via automation scripts.
+:keywords: dev-ops, DevOps, email relay, automation scripts
 
 {PRODUCT_NAME} allows you to detect and react to incoming emails via automation scripts.
 You can implement automatic responses, create records based on the email content, and forward the email to a {APP_NAME_MESSAGING} channel.
 
-[IMPORTANT]
+[NOTE]
 ====
-All further sections assume that the system is configured by following these instructions.
-If you've used anything else, such as MailGun, the examples might not work correctly.
-====
-
-[IMPORTANT]
-====
-This section doesn't cover any script development related topics, such as detecting sink routes.
-Refer to the xref:ROOT:integrator-guide/index.adoc[integrator guide] for more information regarding script development.
+Here, we only cover how to setup an email relay.
+Refer to the xref:integrator-guide:index.adoc[] for details on how to use this.
 ====
 
-.Flow outline:
-. Postfix; or similar; forwards the email to the sink API endpoint,
-. {PRODUCT_NAME} sink service extracts header and body data from received email,
-. `onReceive` triggers are filtered for a match (you can configure your triggers to only respond to specific conditions),
-. automation scripts are executed.
+// Move this to the integrator guide
+//
+// [IMPORTANT]
+// ====
+// Automation script examples that cover email relays assume that you've followed these instructions.
 
-== {PRODUCT_NAME} setup
-
-For a sink route to work, you must generate a sink signature.
-
-[IMPORTANT]
-====
-Consider your sink signatures as passwords that allow access to some parts of the system.
-Make sure they are kept safe and sound.
-====
+// If not, the example may not work as expected.
+// ====
 
 [NOTE]
 ====
-We recommend constraining sink signatures as much as possible to help with system security.
-For example, if we only care about POST requests, let the signature only allow POST requests.
-
-Run `{CLI_CMD_SYSTEM} sink signature -h` for all available options:
-
-[source,text]
-----
-    --content-type string   Content type (optional)
-    --expires string        Date of expiration (YYYY-MM-DD, optional)
--h, --help                  help for signature
-    --max-body-size int     Max allowed body size
-    --method string         HTTP method that will be used (optional)
-    --origin string         Origin of the request (arbitrary string, optional)
-    --path string           Full sink request path (do not include /sink prefix, add / for just root)
-    --signature-in-path     Include signature in a path instead of query string
-----
+*DevNote* provide a nice little diagram outlining this.
 ====
 
-For example:
+.Flow outline:
+. Postfix (or similar) forwards the email to the sink API endpoint,
+. {PRODUCT_NAME} sink service processes the payload to prepare an automation script event,
+. the event is dispatched on the event bus, executing any automation scripts that match the event constraints.
 
-[source,bash,subs=attributes]
-----
-{CLI_CMD_SYSTEM} sink signature --content-type email
-----
+== {PRODUCT_NAME} setup
 
-Should output something in the lines of:
-
-[source,text]
-----
-/system/sink?__sign=187...3D
-Sink request constraints:
- - signature should be part of query-string
- - body size is not limited
- - expecting content type to be "email"
-----
+Under the hood, email relays use sink routes, so we need to generate a sink route signature.
+See xref:extension-requirements/sink-route.adoc[] on how to set that up.
 
 [IMPORTANT]
 ====
 Make sure to specify a `--content-type email`.
 ====
 
+== Postfix setup
+
 [IMPORTANT]
 ====
-Take note of the above `__sign=...` parameter; we will need it later.
+Make sure to change the parameters to fit your environment.
 ====
-
-== Postfix setup
 
 .Edit `/etc/postfix/main.cf`:
 [source,text]
@@ -89,16 +55,10 @@ Take note of the above `__sign=...` parameter; we will need it later.
 virtual_alias_maps = pcre:/etc/postfix/virtual_alias
 ----
 
-[IMPORTANT]
-====
-Make sure to change the domain in the below snippet.
-====
-
 .Add virtual alias to `/etc/postfix/virtual_alias`:
 [source,text]
 ----
 # Catch-all for corteza.domain.tld and redirect it to corteza_sink mailbox
-#     vv change this vv
 /.+@corteza\.domain\.tld$/ corteza_sink
 ----
 
@@ -109,11 +69,6 @@ postmap /etc/postfix/virtual_alias
 postfix reload
 ----
 
-[IMPORTANT]
-====
-Make sure to change the domain and the sink signature to match your parameters.
-====
-
 .Add entry to `/etc/aliases`
 [source,bash,subs="attributes"]
 ----
@@ -122,7 +77,7 @@ corteza_sink: "| curl --data-binary @- '{API_SYSTEM_BASE_URL}/sink?content-type=
 
 [NOTE]
 ====
-The above will forward any email for a specific mailbox to a curl command, which then pushes that raw email to the sink endpoint on the {PRODUCT_NAME} API.
+The above forwards any email for a specific mailbox to a curl command, which then pushes that raw email to the sink endpoint on the {PRODUCT_NAME} API.
 ====
 
 .Update aliases

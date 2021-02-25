@@ -1,90 +1,50 @@
+include::ROOT:partial$variables.adoc[]
+
 = Prerequisites
+:description: These prerequisites cover the most important bits required.
+:keywords: dev-ops, DevOps, {PRODUCT_NAME}
 
 [#docker]
 == Docker
 
-[NOTE]
-====
-*DevNote*: do we want any more content here?
-====
+To use our pre-built Docker images, you will need to have Docker setup and running on every system you wish to set up Corteza.
+You can follow https://docs.docker.com/get-docker/[the official documentation] to get it setup.
 
-[TIP]
-====
-Running and executing with Docker Compose should be easier and simpler because all required options and settings
-for the container are packed in the `docker-compose.yaml` file.
-====
+=== Useful Commands
 
-=== Some useful Commands
+[cols="2s,2m"]
+|===
+| [#docker-exec]#<<docker-exec,Run commands inside a container (started)>>#
+| docker exec -it <container name> help
 
-==== Executing with docker (when a container is running)
-
-[source,bash]
-----
-docker exec -it <container name> help
-----
-
-==== Running with Docker Compose (when service is not started)
-
-[source,bash]
-----
-docker run -it --rm <container name> help
-----
-
-==== Executing with Docker (when container is not running)
-
-[source,bash]
-----
-docker run -it --rm [docker run options] <container name> help
-----
+| [#docker-exec-stopped]#<<docker-exec-stopped,Run commands inside a container (not started)>>#
+| docker run -it --rm <container name> help
+|===
 
 [#docker-compose]
 == Docker Compose
 
-[NOTE]
-====
-If you are not planning on using Docker you can skip this section entirely.
-====
-
-=== Environment setup
+Docker Compose makes your life easier when running multiple Docker images where each can be arbitrarily configured.
+You can follow https://docs.docker.com/compose/install/[the official documentation] to get it setup.
 
 [NOTE]
 ====
-If your system already has Docker (we recommend at least version 18.0) and Docker Compose installed, you can safely skip this.
-
-You can checkout your Docker version by entering `docker -v` in your CLI.
+When using `.env` files, you need to explicitly specify this inside the `docker-compose.yaml` file (`env_file: [.env]`).
 ====
 
-If you don't have Docker installed, or the version is below the recommended version, download and install a Docker community edition for https://www.docker.com/products/docker-desktop[desktop] or https://hub.docker.com/search?offering=community&type=edition[server or cloud] that fits your environment.
+=== Useful Commands
 
-* https://docs.docker.com/install/#server[Docker installation guide],
-* https://docs.docker.com/compose/install/[Docker Compose installation guide].
+[cols="2s,2m"]
+|===
+| [#docker-compose-stop-rm]#<<docker-compose-stop-rm,Stop and remove containers along with their volumes without confirmation>>#
+| docker-compose rm --force --stop -v
 
-=== docker-compose file
+| [#docker-compose-logs-full]#<<docker-compose-logs-full,View logs for all running containers>>#
+| docker-compose logs --follow --tail 20
 
-The `docker-compose.yaml` file describes the different services, networks and storage configurations, used to configure your Docker containers.
-Refer to the https://docs.docker.com/compose/compose-file/[Docker Compose documentation] for a complete reference.
+| [#docker-compose-logs-specific]#<<docker-compose-logs-specific,View logs for a specific container>>#
+| docker-compose logs --follow --tail 20 <service name>
 
-=== Some useful commands
-
-==== Stop and remove containers along with their volumes without confirmation
-
-[source,bash]
-----
-docker-compose rm --force --stop -v
-----
-
-==== View container logs
-
-[source,bash]
-----
-docker-compose logs --follow --tail 20
-# You can additionally filter by service; for example:
-docker-compose logs --follow --tail 20 server
-----
-
-==== Executing with Docker Compose (when service is started)
-
-[source,bash]
-----
-docker-compose exec <service name> help
-----
+| [#docker-compose-exec]#<<docker-compose-exec,Execute with Docker Compose>>#
+| docker-compose exec <service name> help
+|===

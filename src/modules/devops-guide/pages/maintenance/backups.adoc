@@ -1,40 +1,41 @@
 include::ROOT:partial$variables.adoc[]
 
 = Backups
-
-[NOTE]
-====
-*DevNote*: add some example setups; like we have now with a CRON job?
-====
+:description: An example of how to perform data backups and restore the state based on the backup.
+:keywords: dev-ops, DevOps, CLI, command-line interface, maintenance
 
 We recommend updating your database and uploaded files regularly.
-It is also highly recommended to do a database backup before you upgrade to a newer {PRODUCT_NAME} version.
+It is also highly recommended to do a database backup before you upgrade to a more recent {PRODUCT_NAME} version.
 
 [TIP]
 ====
 You can define a cron job that backups your data to some external storage.
 ====
 
-== Backup the database
-
-We recommend the use of `mysqldump` tool.
-It's builtin to the `db` container (`percona:8.0` image).
-
 [NOTE]
 ====
-If you want to use a different tool to create your backup, you will need to connect to the container or publish MySQL ports.
+*DevNote*: add some example setups, as we have now with a CRON job?
 ====
 
-[WARNING]
-====
-By default, `mysqldump` locks the tables when you run the export.
-Table locks might cause issues when running in production, so do keep this in mind.
-====
+== Backup the database
+
+We recommend you use the `mysqldump` tool.
+It's builtin into the `db` container (`percona:8.0` image).
 
 [CAUTION]
 ====
 Do not try to copy raw database files to perform a backup.
 It might lead to corrupted data.
+====
+
+If you want to use a different tool to create your backup, you will need to connect to the container or publish MySQL ports.
+
+If you're using a different database engine, refer to their documentation on how to perform backups.
+
+[WARNING]
+====
+By default, `mysqldump` locks the tables when you run the export.
+Table locks might cause issues when running in production, so do keep this in mind.
 ====
 
 .Database dump command:
@@ -46,12 +47,14 @@ docker-compose exec -T \
     mysqldump your-db-name --add-drop-database -u your-username > dump.sql
 ----
 
-[TIP]
-====
-You can backup your data without shutting down {PRODUCT_NAME} server.
-====
+⚠️ If you've changed the database service name (`db`) inside your `docker-compose.yaml`, make sure to change it in the above command.
 
 == Restore the database
+
+[NOTE]
+====
+We recommend that {PRODUCT_NAME} server is shut-down until the restore procedure finishes.
+====
 
 .Database restore command:
 [source,bash]
@@ -62,19 +65,16 @@ docker-compose exec -T \
     mysql your-db-name -u your-username < dump.sql
 ----
 
-[IMPORTANT]
-====
-We recommend that {PRODUCT_NAME} server is shut-down until the restore procedure finishes.
-====
+⚠️ If you've changed the database service name (`db`) inside your `docker-compose.yaml`, make sure to change it in the above command.
 
 == Backup uploaded files
 
 Without object storage service like Min.io, uploaded files are stored directly on the filesystem.
-{PRODUCT_NAME} server is storing data to the `/data` directory (if not configured differently with `*_STORAGE_PATH` environmental variables).
+{PRODUCT_NAME} server stores data to the `/data` directory (if not configured differently with `*_STORAGE_PATH` environmental variables).
 
-You can use any one of the standard file management tools to make a backup copy of the files.
+You can use any standard file management tools to make a backup copy of the files.
 
-.Compressing files with tar command:
+.Compressing files with the `tar` command:
 [source,bash]
 ----
 # This will compress all your uploaded files into the backup.tar.bz2 archive
@@ -83,9 +83,9 @@ tar -cjf backup.tar.bz2 data/server/
 
 == Restore uploaded files
 
-.Uncompromising files from the archive with tar command:
+.Uncompromising files from the archive with the `tar` command:
 [source,bash]
 ----
 # This will restore your backup.tar.bz2 archive
-tar -xjf foo.tar.bz2
+tar -xjf backup.tar.bz2
 ----

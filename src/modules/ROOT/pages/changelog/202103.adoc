@@ -1,0 +1,38 @@
+include::../variables.adoc[]
+
+[#2020-3-x]
+= 2020.3
+
+
+
+== {PRODUCT_NAME} Server
+
+.Changes:
+* Upgraded to Go 1.16
+* Removed obsolete asset embedding and move to //go:embed
+* Corteza Workflow with support for Low Code / No Code
+* Messaging code and endpoints removed
+* Authorization server capabilities added
+* OAuth2 server with Authorization code and client credentials flows
+* Compose record federation now supports Activity Stream protocol
+* Codebase cleanup and removed `With(ctx)` anti-pattern
+* Pagination & sorting fixes
+* #TODO# Renderer
+* #TODO# Envoy
+* Fixed UserBeforeUpdate/UserBeforeDelete
+
+== {PRODUCT_NAME} Web applications (clients)
+
+.Changes:
+* Auth web application is now deprecated
+* Messaging application is now deprecated
+* Workflow UI with canvas for drawing complex flows and automation logic
+* #TODO# Renderer
+
+
+.Contributors:
+. Jože Fortun
+. Tomaž Jerman
+. Denis Arh
+. Mia Arh
+. Peter Grlica

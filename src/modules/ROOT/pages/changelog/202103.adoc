@@ -1,9 +1,7 @@
-include::../variables.adoc[]
+include::ROOT:partial$variables.adoc[]
 
-[#2020-3-x]
-= 2020.3
-
-
+[#2021-3-x]
+= 2021.3
 
 == {PRODUCT_NAME} Server
 
@@ -17,8 +15,9 @@ include::../variables.adoc[]
 * Compose record federation now supports Activity Stream protocol
 * Codebase cleanup and removed `With(ctx)` anti-pattern
 * Pagination & sorting fixes
-* #TODO# Renderer
-* #TODO# Envoy
+* Added base support for document templating and rendering (HTML & PDF)
+* Added Envoy file encoders (export support)
+* Reworked {APP_NAME_COMPOSE} record export using envoy
 * Fixed UserBeforeUpdate/UserBeforeDelete
 
 == {PRODUCT_NAME} Web applications (clients)
@@ -27,8 +26,7 @@ include::../variables.adoc[]
 * Auth web application is now deprecated
 * Messaging application is now deprecated
 * Workflow UI with canvas for drawing complex flows and automation logic
-* #TODO# Renderer
-
+* Admin web application added support for template management.
 
 .Contributors:
 . Jože Fortun

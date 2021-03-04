@@ -29,7 +29,7 @@ docker-compose.yml
 .In order to deploy your automation scripts:
 . Create a new directory for your extension; we name it `corredor`, but the name is inconsequential.
 . *Transfer the extension* into the newly created directory (see below sections for tips).
-. Add a *new volume* to the `docker-compose.yaml` file, which *contains the extension*, under the `corredor` service, `volumes: [ "./corredor:/corredor/test-extension", ...other volumes you might have... ]`.
+. Add a *new volume* to the `docker-compose.yaml` file, which *contains the extension*, under the `corredor` service, `volumes: [ "./corredor/test-extension:/corredor/test-extension", ...other volumes you might have... ]`.
 . Edit the `.env` (`CORREDOR_EXT_SEARCH_PATHS` variable) file in order to *register the new extension* `CORREDOR_EXT_SEARCH_PATHS=/extensions:/extensions/*:/corredor/test-extension`.
 . *Reload the configurations* (`docker-compose up -d`).
 

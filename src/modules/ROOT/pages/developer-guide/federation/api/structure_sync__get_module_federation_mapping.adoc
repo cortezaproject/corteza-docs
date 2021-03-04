@@ -17,31 +17,55 @@ $MODULE_ID
 .Example request
 [source,bash]
 ----
-curl -X GET "$BASE_URL/federation/nodes/$NODE_ID/modules/$MODULE_ID/mapped" \
+curl -X GET "$BASE_URL/federation/nodes/$NODE_ID/modules/$MODULE_ID/mapped?composeModuleID=212492028292890627" \
   -H "Authorization: Bearer $JWT";
 ----
+
+.Query parameters
+[Attributes]
+|===
+|Parameter name|Parameter value|Description
+
+|composeModuleID|uint64|Filter by compose Module ID
+|===
+
 
 .Example response
 [source,bash]
 ----
 {
     "response": {
-        "moduleID": "122709113267335170",
-        "handle": "Account",
-        "name": "Account",
-        "createdAt": "2019-12-18T17:45:15Z",
-        "updatedAt": "2020-05-26T13:29:36Z",
-        "mapping": [
+        "nodeID": "218931887727443971",
+        "federationModuleID": "220434607579922435",
+        "composeModuleID": "212492028292890627",
+        "composeNamespaceID": "212492019702956035",
+        "fields": [
             {
                 "origin": {
-                    "name": "LinkedIn",
-                    "kind": "Url",
-                    "is_multi": 0
+                    "kind": "String",
+                    "name": "AccountName",
+                    "label": "Account Name",
+                    "isMulti": false
                 },
                 "destination": {
-                    "name": "Social",
                     "kind": "String",
-                    "is_multi": 0
+                    "name": "AccountName",
+                    "label": "Account Name",
+                    "isMulti": false
+                }
+            },
+            {
+                "origin": {
+                    "kind": "String",
+                    "name": "BillingCity",
+                    "label": "Billing City",
+                    "isMulti": false
+                },
+                "destination": {
+                    "kind": "String",
+                    "name": "BillingCity",
+                    "label": "Billing City",
+                    "isMulti": false
                 }
             }
         ]

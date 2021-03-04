@@ -12,7 +12,7 @@ $BASE_URL
 # JWT of the user
 $JWT
 
-# Node id of the destination node (?exposed) or the origin node (?shared)
+# Node id of the destination node
 $NODE_ID
 
 # Federation module id
@@ -21,6 +21,18 @@ $MODULE_ID
 # Node B auth token
 $TOKEN_B
 ----
+
+.Query parameters
+[Attributes]
+|===
+|Parameter name|Parameter value|Description
+
+|exposed|1|Show exposed modules
+|shared|1|Show shared modules
+|mapped|1|Show module mappings
+|===
+
+
 
 .Example request
 [source,bash]

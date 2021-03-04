@@ -20,18 +20,40 @@ $MODULE_ID
 curl -X PUT "$BASE_URL/federation/nodes/$NODE_ID/modules/$MODULE_ID/mapped" \
   -H "Authorization: Bearer $JWT"
   -H "Content-Type: application/json" \
-  --data "[{
-      \"origin\":{
-          \"name\":\"LinkedIn\",
-          \"kind\":\"Url\",
-          \"is_multi\":0
+  --data "{
+    \"composeModuleID\": \"212492028292890627\",
+    \"composeNamespaceID\": \"212492019702956035\",
+    \"fields\": [
+        {
+            \"origin\": {
+                \"kind\": \"String\",
+                \"name\": \"AccountName\",
+                \"label\": \"Account Name\",
+                \"isMulti\": false
+            },
+            \"destination\": {
+                \"kind\": \"String\",
+                \"name\": \"AccountName\",
+                \"label\": \"Account Name\",
+                \"isMulti\": false
+            }
         },
-        \"destination\":{
-            \"name\":\"Social\",
-            \"kind\":\"String\",
-            \"is_multi\":0
+        {
+            \"origin\": {
+                \"kind\": \"String\",
+                \"name\": \"BillingCity\",
+                \"label\": \"Billing City\",
+                \"isMulti\": false
+            },
+            \"destination\": {
+                \"kind\": \"String\",
+                \"name\": \"BillingCity\",
+                \"label\": \"Billing City\",
+                \"isMulti\": false
+            }
         }
-    }]";
+    ]
+}";
 ----
 
 .Example response
@@ -39,22 +61,37 @@ curl -X PUT "$BASE_URL/federation/nodes/$NODE_ID/modules/$MODULE_ID/mapped" \
 ----
 {
     "response": {
-        "moduleID": "122709113267335170",
-        "handle": "Account",
-        "name": "Account",
-        "createdAt": "2019-12-18T17:45:15Z",
-        "updatedAt": "2020-05-26T13:29:36Z",
-        "mapping": [
+        "nodeID": "218931887727443971",
+        "federationModuleID": "220434607579922435",
+        "composeModuleID": "212492028292890627",
+        "composeNamespaceID": "212492019702956035",
+        "fields": [
             {
                 "origin": {
-                    "name": "LinkedIn",
-                    "kind": "Url",
-                    "is_multi": 0
+                    "kind": "String",
+                    "name": "AccountName",
+                    "label": "Account Name",
+                    "isMulti": false
                 },
                 "destination": {
-                    "name": "Social",
                     "kind": "String",
-                    "is_multi": 0
+                    "name": "AccountName",
+                    "label": "Account Name",
+                    "isMulti": false
+                }
+            },
+            {
+                "origin": {
+                    "kind": "String",
+                    "name": "BillingCity",
+                    "label": "Billing City",
+                    "isMulti": false
+                },
+                "destination": {
+                    "kind": "String",
+                    "name": "BillingCity",
+                    "label": "Billing City",
+                    "isMulti": false
                 }
             }
         ]

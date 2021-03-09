@@ -15,9 +15,7 @@ Product repositories follow https://calver.org/[calendar versioning] and produce
 .List of product repositories that follow versioning
 - {GIT_REPO_LINK_PREFIX}-server[{GIT_REPO_PREFIX}-server]
 - {GIT_REPO_LINK_PREFIX}-server-corredor[{GIT_REPO_PREFIX}-server-corredor]
-- {GIT_REPO_LINK_PREFIX}-webapp-auth[{GIT_REPO_PREFIX}-webapp-auth]
 - {GIT_REPO_LINK_PREFIX}-webapp-admin[{GIT_REPO_PREFIX}-webapp-admin]
-- {GIT_REPO_LINK_PREFIX}-webapp-messaging[{GIT_REPO_PREFIX}-webapp-messaging]
 - {GIT_REPO_LINK_PREFIX}-webapp-compose[{GIT_REPO_PREFIX}-webapp-compose]
 - {GIT_REPO_LINK_PREFIX}-webapp-one[{GIT_REPO_PREFIX}-webapp-one]
 

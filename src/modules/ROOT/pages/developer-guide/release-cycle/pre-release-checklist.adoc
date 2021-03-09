@@ -18,10 +18,8 @@ GitHub provides a friendly system for this, so that shouldn't be an issue.
 . corteza-js: ({GIT_REPO_LINK_PREFIX}-js)
 . corteza-vue: ({GIT_REPO_LINK_PREFIX}-vue)
 . corteza-server-corredor: ({GIT_REPO_LINK_PREFIX}-server-corredor)
-. corteza-webapp-auth: ({GIT_REPO_LINK_PREFIX}-webapp-auth)
 . corteza-webapp-one: ({GIT_REPO_LINK_PREFIX}-webapp-one)
 . corteza-webapp-admin: ({GIT_REPO_LINK_PREFIX}-webapp-admin)
-. corteza-webapp-messaging: ({GIT_REPO_LINK_PREFIX}-webapp-messaging)
 . corteza-webapp-compose: ({GIT_REPO_LINK_PREFIX}-webapp-compose)
 
 == Bump version, build and publish packages
@@ -40,10 +38,8 @@ Go over all repositories that use these and make sure they are up to date.
 You can use the `yarn cdeps` command to speed it up.
 
 . corteza-server-corredor: ({GIT_REPO_LINK_PREFIX}-server-corredor)
-. corteza-webapp-auth: ({GIT_REPO_LINK_PREFIX}-webapp-auth)
 . corteza-webapp-one: ({GIT_REPO_LINK_PREFIX}-webapp-one)
 . corteza-webapp-admin: ({GIT_REPO_LINK_PREFIX}-webapp-admin)
-. corteza-webapp-messaging: ({GIT_REPO_LINK_PREFIX}-webapp-messaging)
 . corteza-webapp-compose: ({GIT_REPO_LINK_PREFIX}-webapp-compose)
 
 == Bump core repo version
@@ -52,8 +48,6 @@ Go over all of the remaining repositories and update their version, following th
 
 . corteza-server: ({GIT_REPO_LINK_PREFIX}-server)
 . corteza-server-corredor: ({GIT_REPO_LINK_PREFIX}-server-corredor)
-. corteza-webapp-auth: ({GIT_REPO_LINK_PREFIX}-webapp-auth)
 . corteza-webapp-one: ({GIT_REPO_LINK_PREFIX}-webapp-one)
 . corteza-webapp-admin: ({GIT_REPO_LINK_PREFIX}-webapp-admin)
-. corteza-webapp-messaging: ({GIT_REPO_LINK_PREFIX}-webapp-messaging)
 . corteza-webapp-compose: ({GIT_REPO_LINK_PREFIX}-webapp-compose)

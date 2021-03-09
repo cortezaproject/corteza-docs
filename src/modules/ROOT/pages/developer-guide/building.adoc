@@ -16,14 +16,20 @@ image::build-pipelines.png[{PRODUCT_NAME} build pipelines]
 
 `corteza-js` and `corteza-vue` are bundled using Rollup and released to the npm repository.
 
-== Releasing
+== Builds and bundles
 
 All of the main {PRODUCT_NAME} applications are tested and build using Drone CI.
-The resulted binaries, bundles - in case of webapp projects - and other assets are placed on https://release.{DOMAIN}.
+Each repository has `.drone.yml` file on the root that orchestrates integration and build/bundle process.
+Binaries and bundles - in case of webapp projects - and other assets are placed on https://releases.{DOMAIN}/files.
+
+
 
 == Packaging
 
 At the moment we officially only support packing into Docker images.
+
+=== Docker images
+
 Built docker images are then pushed to the https://hub.docker.com/u/cortezaproject[DockerHub].
 
 Unofficially, you can use the released packages with a Vagrant box {GIT_REPO_LINK_PREFIX}-vagrant.

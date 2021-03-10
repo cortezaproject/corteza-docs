@@ -4,7 +4,7 @@ include::../../variables.adoc[]
 = {PRODUCT_NAME} {APP_NAME_MESSAGING}
 
 {PRODUCT_NAME} {APP_NAME_MESSAGING} is a modern, private, secure messaging system which integrates seamlessly with {PRODUCT_NAME} {APP_NAME_SHELL}, {PRODUCT_NAME} CRM and {PRODUCT_NAME} {APP_NAME_COMPOSE}.
-It allows you to easily communicate with other tem members to get the work done!
+It allows you to easily communicate with other team members to get the work done!
 
 .The basic structure of the {APP_NAME_MESSAGING} app:
 * Left sidebar showing list of available channels,

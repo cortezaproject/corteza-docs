@@ -1,196 +1,88 @@
 = Field expression functions
 
-== General functions
-
-=== `coalesce`
-
-Signature::
-    `coalesce(arg1, arg2, ...argN)`
-Description::
-    The function returns the first non `null` value.
-Example::
-    `coalesce(null, 0, 1, 2)` results in 0
-
-== Number functions
-
-=== `min`
-
-Signature::
-    `min(arg1, arg2, ...argN)`
-Description::
-    The function returns item with the lowest value.
-Example::
-    `min(0, 1, 2)` results in 0
-
-=== `max`
-
-Signature::
-    `max(arg1, arg2, ...argN)`
-Description::
-    The function returns item with the highest value.
-Example::
-    `max(0, 1, 2)` results in 2
-
-=== `round`
-
-Signature::
-    `round(number, digits)`
-Description::
-    The function rounds a floating point number to the specified number of digits.
-Example::
-    `round(3.14, 1)` results in 3.1
-
-=== `floor`
-
-Signature::
-    `floor(number)`
-Description::
-    The function rounds number down to the nearest integer.
-Example::
-    `floor(3.14)` results in 3
-
-=== `ceil`
-
-Signature::
-    `ceil(number)`
-Description::
-    The function rounds number up to the nearest integer.
-Example::
-    `ceil(3.14)` results in 4
-
 == Text functions
+|===
+|Function |Signature |Description |Example
 
-=== `trim`
+|*trim*         |`trim(string)`|The function removes the leading and trailing whitespaces, see link:https://golang.org/pkg/strings/#TrimSpace[strings.TrimSpace]|`trim(" foo ")` results in "foo"
+|*trimLeft*     |`trimLeft(string, chars)`|The function removes the leading occurence of characters|`trimLeft("!!foo", "!1")` results in "foo"
+|*trimRight*    |`trimRight(string, chars)`|The function removes the trailing occurence of characters|`trimRight("foo!!", "!1")` results in "foo"
+|*length*       |`length(string)`|The function returns the length of the string|`length("")` returns 0
+|*toLower*      |`toLower(string)`|The function converts all characters to lowercase.|`toLower("FOO")` results in "foo"
+|*toUpper*      |`toUpper(string)`|The function converts all characters to uppercase.|`toLower("fOo")` toUpper in "FOO"
+|*shortest*     |`shortest(arg1, arg2, ...argN)`|The function returns the shortest string.|`shortest("foo", "foobar")` results in "foo"
+|*longest*      |`longest(arg1, arg2, ...argN)`|The function returns the longest string.|`longest("foo", "foobar")` results in "foobar"
+|*format*       |`format(format, arg1, arg2, ...argN)`|Returns the formatted string., see <<string-formatting>> for available formatting options.|`format("test %d", 10)` results in "test 10"
+|*title*        |`title(string)`|The function returns the first character uppercased in line of strings.|`title("this SHOULD be titled")` results in "This SHOULD be titled"
+|*untitle*      |`untitle(string)`|The function returns the first character lowercased in line of strings.|`untitle("This SHOULDnt Be Titled")` results in "this SHOULDnt Be Titled"
+|*repeat*       |`repeat(string, count)`|The function repeats string n times, see link:https://golang.org/pkg/strings/#Repeat[strings.Repeat]|`repeat("! ", 3)` results in "! ! ! "
+|*replace*      |`replace(string, old, new, count)`|The function returns a copy of the string s with the first n non-overlapping instances of old replaced by new, see link:https://golang.org/pkg/strings/#Replace[strings.Replace]|`replace(" foo foo foo", "foo", "bar", 1)` results in " bar foo foo"
+|*split*        |`split(string, separator)`|The function slices s into all substrings separated by sep and returns a slice of the substrings between those separators, see link:https://golang.org/pkg/strings/#Split[strings.Split]|`split("foo-bar", "-")` results in `[foo bar]`
+|*join*         |`join(strings, separator)`|The function concatenates the elements of its first argument to create a single string, see link:https://golang.org/pkg/strings/#Join[strings.Join]|`join(["foo", "bar"], "-")` results in "foo-bar"
+|*substring*    |`substring(string, start, end)`|The function extracts a substring from original string specifying end value will not match till end of string|`substring("foobar", 1, -1)` results in "oobar"
+|*shorten*      |`shorten(string, type, count)`|The function shortens by type (char / word) to \{count\} occurences followed by ellipsis|`shorten("This is a whole sentence", "word", 4)` results in "This is a whole …"
+|*camelize*     |`camelize(string)`|The function camelizes string|`camelize("Foo bar")` results in "fooBar"
+|*snakify*      |`snakify(string)`|The function snakifies string|`snakify("Foo bar baz")` results in "foo_bar_baz"
+|*isUrl*        |`isUrl(string)`|The function returns true if url is valid|`isUrl("//not-valid")` results in `false`
+|*isEmail*      |`isEmail(string)`|The function returns true if an email is valid|`isEmail("@cortezaproject.)` results in `false`
+|*hasSubstring* |`hasSubstring(string, substring, case)|The function checks if a substring exists in original string use watchCase if need case sensitivity|`hasSubstring(" foobar ", "Bar", true)` results in `false`
+|*hasPrefix*    |`hasPrefix(string)`|The function tests whether the string s begins with prefix, see link:https://golang.org/pkg/strings/#HasPrefix[strings.HasPrefix]|`hasPrefix(" foobar", " foo")` results in `true`
+|*hasSuffix*    |`hasSuffix(string)`|The function tests whether the string s ends with suffix, see link:https://golang.org/pkg/strings/#hasSuffix[strings.hasSuffix]|`hasSuffix(" foobar", " ar")` results in `false`
+|===
 
-Signature::
-    `trim(string)`
-Description::
-    The function removes spaces at the beginning and at the end of the string.
-Example::
-    `trim(" foo ")` results in "foo"
+== Numeric functions
+|===
+|Function |Signature |Description |Example
 
-=== `trimLeft`
+|*min*     |`min(arg1, arg2, ...argN)`|The function returns item with the lowest value.|`min(0, 1, 2)` results in 0
+|*max*     |`max(arg1, arg2, ...argN)`|The function returns item with the highest value.|`max(0, 1, 2)` results in 2
+|*round*   |`round(number, digits)`|The function rounds a floating point number to the specified number of digits.|`round(3.14, 1)` results in 3.1
+|*floor*   |`floor(number)`|The function rounds number down to the nearest integer.|`floor(3.14)` results in 3
+|*ceil*    |`ceil(number)`|The function rounds number up to the nearest integer.|`ceil(3.14)` results in 4
+|*abs*     |`abs(number)`|The function returns the absolute value of x, see link:https://golang.org/pkg/math/#Abs[math.Abs]|`avs(-13)` results in 13.0
+|*log*     |`log(number)`|The function returns the decimal logarithm of x, see link:https://golang.org/pkg/math/#Log10[math.Log10]|`log(100)` results in 10.0
+|*pow*     |`pow(number, number)`|The function returns x**y, the base-x exponential of y, see link:https://golang.org/pkg/math/#Pow[math.Pow]|`pow(2, 3)` results in 8
+|*sqrt*    |`sqrt(number)`|The function returns correctly rounded sqrt, see link:https://golang.org/pkg/math/#Sqrt[math.Sqrt]|`sqrt(4)` results in 2
+|*sum*     |`sum(...argN)`|The function returns the sum of all arguments|`sum(1, 2, 3)` results in 6
+|*average* |`sum(...argN)`|The function returns the average of all arguments|`average(1, 2)` returns 1.5
+|===
 
-Signature::
-    `trimLeft(string, character)`
-Description::
-    The function removes character from the beginning of the string.
-Example::
-    `trim(" foo ", " ")` results in "foo "
+== List functions
+|===
+|Function |Signature |Description |Example
 
-=== `trimRight`
+|*push*     |`push(arg1, ...argN)`|The function adds an element to the end of list and returns the list.|`push(strings, str1, str2)` results in `[str0, str1, str2]`
+|*pop*      |`pop(arg)`|The function returns the last element off the list.|`pop([1,2,3])` results in `3`
+|*shift*    |`shift(arg)`|The function returns the first element of the list.|`shift([1,2,3])` results in `1`
+|*count*    |`count(arg)`|The function returns the length of the countable element.|`count([])` results in `0`
+|*has*      |`has(arg, ...argN)`|The function returns true if any of the values exist in first element|`has([1,2], 2)` results in `true`
+|*hasAll*   |`hasAll(arg, ...argN)`|The function returns true if all of the values exist in first element|`hasAll([1,2], 2)` results in `false`
+|===
 
-Signature::
-    `trimRight(string, character)`
-Description::
-    The function removes character from the end of the string.
-Example::
-    `trim(" foo ", " ")` results in " foo"
 
-=== `toLower`
+== General functions
+|===
+|Function |Signature |Description |Example
 
-Signature::
-    `toLower(string)`
-Description::
-    The function converts all characters to lowercase.
-Example::
-    `toLower("FOO")` results in "foo"
+|*coalesce* |`coalesce(arg1, arg2, ...argN)`|The function returns the first non `null` value|`coalesce(null, 0, 1, 2)` results in 0
+|*isEmpty*  |`isEmpty(arg)`|The function returns true if the value is empty|`isEmpty("")` results in `true`
+|*isNil*    |`isNil(arg)`|The function returns true if the value is Nil|`isNil(emptyVar)` results in `true`
+|===
 
-=== `toUpper`
+== Date Time functions
+|===
+|Function |Signature |Description |Example
 
-Signature::
-    `toUpper(string)`
-Description::
-    The function converts all characters to uppercase.
-Example::
-    `toUpper("foo")` results in "FOO"
-
-=== `shortest`
-
-Signature::
-    `shortest(arg1, arg2, ...argN)`
-Description::
-    The function returns the shortest string.
-Example::
-    `shortest("foo", "foobar")` results in "foo"
-
-=== `longest`
-
-Signature::
-    `longest(arg1, arg2, ...argN)`
-Description::
-    The function returns the longest string.
-Example::
-    `longest("foo", "foobar")` results in "foobar"
-
-=== `format`
-
-See <<string-formatting>> for available formatting options.
-
-Signature::
-    `format(format, arg1, arg2, ...argN)`
-Description::
-    Returns the formatted string.
-Example::
-    `format("test %d", 10)` results in "test 10"
-
-== Date time functions
-
-=== `strftime`
-
-See <<datetime-formatting>> for available formatting options.
-
-Signature::
-    `strftime(datetime, format)`
-Description::
-    The function returns DateTime string for the specified date and format.
-Example::
-    `strftime(datefield, "%Y-%m-%d")` results in "1970-01-01"
-
-=== `modTime`
-
-Signature::
-    `modTime(datetime, duration)`
-Description::
-    The function returns modified DateTime string.
-Example::
-    `modTime(datefield, "+30m")` results in "1970-01-01T00:30:00"
-
-=== `parseISOTime`
-
-Signature::
-    `parseISOTime(datetime)`
-Description::
-    The function returns parsed ISO DateTime string.
-Example::
-    `parseISOTime(datefield)` results in "1970-01-01T00:00:00+00:00"
-
-=== `parseDuration`
-
-Signature::
-    `parseDuration(duration)`
-Description::
-    The function returns parsed duration.
-Example::
-    `parseDuration("2h")` results in "2h0m0s"
-
-=== `earliest`
-
-Signature::
-    `earliest(arg1, arg2, ...argN)`
-Description::
-    The function returns earliest DateTime.
-Example::
-    `earliest(datefield1, datefield2)` results in "1970-01-01T00:00:00"
-
-=== `latest`
-
-Signature::
-    `latest(arg1, arg2, ...argN)`
-Description::
-    The function returns latest DateTime.
-Example::
-    `latest(datefield1, datefield2)` results in "1970-01-01T00:30:00"
+|*earliest*         |`earliest(arg1, arg2, ...argN)`|The function returns earliest DateTime.|`earliest(datefield1, datefield2)` results in "1970-01-01T00:00:00"
+|*latest*           |`latest(arg1, arg2, ...argN)`|The function returns latest DateTime.|`latest(datefield1, datefield2)` results in "1970-01-01T00:30:00"
+|*parseISOTime*     |`parseISOTime(datetime)`|The function returns parsed ISO DateTime string.|`parseISOTime(datefield)` results in "1970-01-01T00:00:00+00:00"
+|*modTime*          |`modTime(datetime, duration)`|The function returns modified DateTime string.|`modTime(datefield, "+30m")` results in "1970-01-01T00:30:00"
+|*parseDuration*    |`parseDuration(duration)`|The function returns parsed duration.|`parseDuration("2h")` results in "2h0m0s"
+|*strftime*         |`strftime(datetime, format)`|The function returns DateTime string for the specified date and format, see <<datetime-formatting>> for available formatting options.| `strftime(datefield, "%Y-%m-%d")` results in "1970-01-01"
+|*now*              |`now(datetime)`|The function returns current DateTime string.|`now()` results in "1970-01-01T00:00:00+00:00"
+|*isLeapYear*       |`isLeapYear(datetime)`|The function returns true if the specified year is leap year.|`isLeapYear(datefield)` results in `true`
+|*isWeekDay*        |`isWeekDay(datetime)`|The function returns true if the specified day is week day.|`isWeekDay(datefield)` results in `true`
+|===
 
 [#string-formatting]
 == String formatting

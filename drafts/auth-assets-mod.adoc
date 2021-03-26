@@ -1,0 +1,64 @@
+= Authentication styling and template modification
+
+All authentication interfaces and assets (templates, images, styles and scripts) used in Corteza Server can be fully modified and styled to your needs.
+
+There are two server options that enable development and use of alternate assets.
+
+`AUTH_DEVELOPMENT_MODE`::
+Enables development mode, template reloading without server restarts and developer UI tool
+
+`AUTH_ASSETS_PATH`::
+Location of auth assets
+
+== Exporting embedded assets
+Before exporing assets, create the directory where the assets will be and configure `AUTH_ASSETS_PATH` to point to it (absolute path or relative to location of the server binary).
+Also, make sure you have `AUTH_DEVELOPMENT_MODE=true`.
+
+To export assets embedded in the corteza server use the following command:
+----
+./corteza-server auth assets export [path]
+----
+
+Path argument is optional, when not provided `AUTH_ASSETS_PATH` option is used.
+
+When command executes it auto-creates `public` and `templates` directory and fills it with all template and public files embeded in the server binary.
+
+== Asset types and subdirectories:
+
+=== Publicly accessible files
+
+Publicly accessible files like images, CSS styles and JavaScript are stored and served from `public/`.
+
+You can add, rename and remove files freely.
+All files stored here will be served unconditionally and directly from the server.
+
+Please note that Corteza does not use any automated style pre-processing, JavaScript transpiling or image minimization and only serves raw files.
+You can prepare and optimize CSS, JavaScript and image files with your own tools if needed.
+
+Please note that default templates use Bootstrap styles and script that are loaded from CDN.
+You can change this in the templates.
+
+=== Templates
+HTML template files (go template syntax) are stored and loaded from `templates/`.
+
+Make sure you familiarize with the template syntax before doing any major changes to the templates beyond simple text rewrites.
+
+Names of files are important and should not be changed as they are referenced from internal application logic when rendering authentication flow screens.
+
+You can, however add template files that are then included into one or more files.
+Similar to how header, navigation and footer sub-templates work
+
+== Authentication interface development helper tool
+
+Tool is accessible under `/auth/dev` URL.
+It features list of all templates and scenarios on the side and allows you to preview how Corteza authentication screens look like under different conditions.
+
+=== Changing scenarios
+
+Scenarios can only be changed in the `/auth/assets/templates/scenarios.yaml` when running in full corteza-server development mode.
+
+== Deploying changed files
+
+There is no need to recompile the binary just disable the development mode by setting it to `false` and keep the assets in the configured (`AUTH_ASSETS_PATH`) location.
+
+When using docker containers you can provide assets through mounted volume or by rebuilding a custom image on top of the default image with the changed assets.

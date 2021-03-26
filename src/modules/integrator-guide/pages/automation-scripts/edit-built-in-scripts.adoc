@@ -2,16 +2,21 @@ include::ROOT:partial$variables.adoc[]
 
 = Modifying built-in scripts
 
-== Create a modified copy
+== Modify built-in scripts
+
+If you wish to modify an automation script that is defined by some other extension (such as CRM scripts) you have two options.
+
+=== Create a modified copy
 
 .To modify the extension:
 . copy the extension source (*clone* the repository, or *copy* the files),
 . modify the source as you see fit,
 . deploy your version instead of the original version.
 
-== Overwrite the scripts
+=== Overwrite the scripts
 
-When the *{APP_AUTOMATION} processes* your automation scripts, they are *assigned* an auto-generated *name*, generated from the source file path.
+{APP_AUTOMATION} assigns unique names to each automation script.
+The name is generated from the file path.
 
 .For example:
 [source,bash]
@@ -23,9 +28,9 @@ When the *{APP_AUTOMATION} processes* your automation scripts, they are *assigne
       / SetLabel.js
 ----
 
-The `SetLabel.js` script is *assigned* `/server-scripts/crm/Lead/SetLabel.js:default` as *the name*.
+The `SetLabel.js` script script is assigned `/server-scripts/crm/Lead/SetLabel.js:default` as the name.
 
-To overwrite *the `SetLabel.js` script*, you must define a script that will be assigned *the same name* (has *the same path*).
+To overwrite the `SetLabel.js` script, you must define a script that will be assigned the same name (essentially has the same path).
 
 .For example:
 [source,bash]
@@ -36,7 +41,7 @@ To overwrite *the `SetLabel.js` script*, you must define a script that will be a
 / server-scripts
   / crm
     / Lead
-      / SetLabel.js # <- We're targeting this one
+      / SetLabel.js # 👈 We're targeting this one
       / AnotherScript.js
 
 # Your extension
@@ -46,7 +51,7 @@ To overwrite *the `SetLabel.js` script*, you must define a script that will be a
   # To overwrite something in the CRM extension
   / crm
     / Lead
-      / SetLabel.js # <- This version will replace the CRM version
+      / SetLabel.js # 👈 This version will replace the CRM version
 
   # The rest of your code goes here
   / extension

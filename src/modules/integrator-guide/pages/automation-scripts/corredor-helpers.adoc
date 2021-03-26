@@ -1,0 +1,37 @@
+include::ROOT:partial$variables.adoc[]
+
+= Corredor helpers
+
+Corredor helpers implement the most common operations, such as creating records and sending emails.
+
+[TIP]
+====
+Corredor helpers come pre-configured in the xref:integrator-guide:automation-scripts/script-context.adoc#execution-context[execution context].
+====
+
+Corredor helpers are context-aware, meaning that they can automatically determine the base parameters required by the operation.
+For example, when creating a record, Corredor helpers will know what namespace, module, and record you are using.
+
+[TIP]
+====
+You can use Corredor helpers outside automation scripts.
+====
+
+You can find the source code on https://github.com/cortezaproject/corteza-js[GitHub/cortezaproject/corteza-js].
+NPM packages can be found on https://www.npmjs.com/package/@cortezaproject/corteza-js[NPM/@cortezaproject/corteza-js].
+
+[IMPORTANT]
+====
+Make sure to use the same `@cortezaproject/corteza-js` package version as your {PRODUCT_NAME} instance.
+====
+
+When using our `corteza-js` package, the API clients can be imported using `import { corredor } from '@cortezaproject/corteza-js'`.
+
+.Available {PRODUCT_NAME} Corredor helpers:
+* https://github.com/cortezaproject/corteza-js/blob/2021.3.x/src/corredor/helpers/system.ts[`corredor.SystemHelper`]
+* https://github.com/cortezaproject/corteza-js/blob/2021.3.x/src/corredor/helpers/compose.ts[`corredor.ComposeHelper`]
+
+[NOTE]
+====
+*DevNote* take note of the compose-ui helper.
+====

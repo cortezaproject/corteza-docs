@@ -1,105 +1,169 @@
-= Script context
+include::ROOT:partial$variables.adoc[]
 
-[#script-execution]
-== Script execution
+= Script execution and execution result
 
-The *execution function* (`exec`) *implements the business logic* that the automation script should perform.
-
-Any code that you want to *execute* should be *directly in the execution function* or *referenced via importing*.
-
-.The execution function's signature looks like this:
-[source,ts]
+[#automation-script-signature]
+****
+.To refresh your memory, this is how an automation script looks like:
+[source,js]
 ----
-interface ScriptFn {
-  (args: exec.Args, ctx?: exec.Ctx): unknown;
+export default {
+  trigger (t) {...}
+
+  // Here, we will focus on this part
+  exec (args, ctx) {...}
 }
 ----
+****
 
 == Execution arguments
 
-The *arguments* (`args`) differ based on the *event that triggered* the automation script.
-Refer to xref:ROOT:integrator-guide/resource-events-reference.adoc[resources and events] for a complete list.
-
-Arguments to a client-script are provided via *references* to the original objects, meaning that *any change* to the argument parameter *will reflect* to the original object.
-
-Arguments to a server-script are provided as *a copy* of the original object, meaning that the changes will *not be reflected* on the original object.
-
-== Execution context
-
-The *context* (`ctx`) is *static* for all events.
-
-`ctx.console`::
-    `console` provides a logger.
-    Client scripts refer to the `window.console` objects; server scripts refer to a `Pino` instance.
-
-`ctx.log`::
-    Shortcut for `ctx.console.log`.
-
-`ctx.$authUser`::
-    Auth user is a reference to the invoking user.
-
-`ctx.SystemAPI`::
-    API client for {PRODUCT_NAME} System interaction.
-
-`ctx.ComposeAPI`::
-    API client for {PRODUCT_NAME} {APP_NAME_COMPOSE} interaction.
-
-`ctx.MessagingAPI`::
-    API client for {PRODUCT_NAME} {APP_NAME_MESSAGING} interaction.
-
-`ctx.System`::
-    {APP_AUTOMATION} helper for the {PRODUCT_NAME} System.
-
-`ctx.Compose`::
-    {APP_AUTOMATION} helper for the {PRODUCT_NAME} {APP_NAME_COMPOSE}.
-
-`ctx.ComposeUI`::
-    {APP_AUTOMATION} helper for the {PRODUCT_NAME} {APP_NAME_COMPOSE} user interface.
-
-`ctx.Messaging`::
-    {APP_AUTOMATION} helper for the {PRODUCT_NAME} {APP_NAME_MESSAGING}.
-
-`ctx.frontendBaseURL`::
-    Base URL used by front-end web applications.
-    This is useful when generating URL's that point to the {PRODUCT_NAME} applications.
-
-== Execution result
-
-The *execution result* determines what should happen next.
-
-Unknown Error::
-    Any unknown error (other than `Aborted`) *terminates the current script* execution and prevents the event from triggering *any additional automation scripts*.
-
-Aborted Error::
-    An error with the value of `'Aborted'` stops the execution of the *current automation script*.
-    The event *is able to trigger* any additional automation scripts.
-
-`false`::
-    Same as *Aborted Error*.
-
-unknown::
-    Any other result indicates that the *execution was successful* and the next script can be triggered.
-    What should happen next is relative to the automation script; see below sections for more details.
+Execution arguments (the `args` parameter of the <<automation-script-signature,`exec` function>>) contains the core data that your logic is able to work with.
+The data differs based on the event that triggered the automation script.
+For example; user related events define what user was involved, while record related events define the involved record and module.
 
 [NOTE]
 ====
-`undefined` and `null` also count as unknown.
+Refer to xref:automation-scripts/references/resource-events.adoc[] for a complete reference of what data each event exposes.
 ====
 
-== Implicit script execution result
+[IMPORTANT]
+====
+Arguments to a client-script are provided via *references* to the original objects, meaning that *any change* to the argument parameter *will reflect* to the original object.
+
+Arguments to a server-script are provided as *a copy* of the original object, meaning that the changes will *not be reflected* on the original object.
+====
+
+[#execution-context]
+== Execution context
+
+Execution context (the `ctx` parameter of the <<automation-script-signature,`exec` function>>) contains contextual information and utilities that can be used within script execution.
+The context is static between all events.
+
+.Execution context parameters:
+[cols="1m,5a"]
+|===
+| [#context-console]#<<context-console,ctx.console>>#
+|
+The `console` parameter defines a logger.
+
+[NOTE]
+====
+When executing client scripts, this is the built-in `window.console`; when executing server secripts, this is a `Pino` logger.
+====
+
+| [#context-log]#<<context-log,ctx.log>>#
+|
+`ctx.log` is an alias for <<context-console,`ctx.console`>>
+
+| [#context-authuser]#<<context-authuser,ctx.$authUser>>#
+|
+`$authUser` is a reference to the xref:automation-scripts/index.adoc#involing-user[invoking user].
+
+| [#context-systemapi]#<<context-systemapi,ctx.SystemAPI>>#
+|
+`SystemAPI` is the {PRODUCT_NAME} API client.
+
+| [#context-composeapi]#<<context-composeapi,ctx.ComposeAPI>>#
+|
+`ComposeAPI` is the {PRODUCT_NAME} {APP_NAME_COMPOSE} API client.
+
+| [#context-system]#<<context-system,ctx.System>>#
+|
+`System` defines a set of helper methods to work with the core system
+
+| [#context-compose]#<<context-compose,ctx.Compose>>#
+|
+`Compose` defines a set of helper methods to work with {PRODUCT_NAME} {APP_NAME_COMPOSE} resources.
+
+| [#context-composeui]#<<context-composeui,ctx.ComposeUI>>#
+|
+`ComposeUI` defines a set of helper methods to work with {PRODUCT_NAME} {APP_NAME_COMPOSE} user interface.
+
+| [#context-frontendbaseurl]#<<context-frontendbaseurl,ctx.frontendBaseURL>>#
+|
+`frontendBaseURL` defines the base URL address that the front-end web applications are running.
+This is useful when generating URL addresses that point to the {PRODUCT_NAME} applications (such as a link to the newly created lead).
+
+|===
+
+== Execution result
+
+[NOTE]
+====
+*DevNote* expand this section.
+====
+
+The execution result (the final output of the <<automation-script-signature,`exec` function>>) implicitly determines what happens next.
+
+.There are three possibilities:
+[cols="1s,5a"]
+|===
+| [#exec-result-terminate]#<<exec-result-terminate,The execution was terminated>>#
+|
+When an automation script execution is *terminated* (any error other then `Aborted` occurs), the operation that triggered the script execution is also terminated and no further steps are taken.
+
+.An example:
+[source,js]
+----
+export default {
+  trigger (t) {...}
+
+  exec (args, ctx) {
+    throw new Error('Oh no, something went wrong')
+  }
+}
+----
+
+| [#exec-result-abort]#<<exec-result-abort,The execution was aborted>>#
+|
+When an automation script execution is *aborted* (an error with the value of `Aborted` occurs, or the value of `false` is returned), the current automation script is canceled but any further automation scripts; as well as the initial operation; are still allowed to continue.
+
+.An example:
+[source,js]
+----
+export default {
+  trigger (t) {...}
+
+  exec (args, ctx) {
+    throw new Error('Aborted')
+    // OR
+    return false
+  }
+}
+----
+
+| [#exec-result-unknown]#<<exec-result-unknown,The execution was successful>>#
+|
+Any other execution result is considered as successful and the value implicitly affects the result of the invoking operation; what exactly this means is correlated with the event, discussed in the following sub-sections.
+
+[source,js]
+----
+export default {
+  trigger (t) {...}
+
+  exec ({ $record }, ctx) {
+    return $record
+  }
+}
+----
+|===
+
+=== Implicit script execution result
 
 [IMPORTANT]
 ====
 The following only applies for *before events*.
 ====
 
-When a *value is returned*, that value is used *instead of the original* value.
+When a non-zero value is returned, that value is used *instead of the original* value.
+For example; if we change the name of our contact, the changed name will be used instead of the original one.
+If we didn't return anything; for example `null` or `undefined`, the change would be reverted.
 
-.Let's look at the following example:
+.An example:
 [source,js]
 ----
 export default {
-  // Use the ones you need, delete the rest
   triggers ({ before }) {
     return before('create', 'update')
       .where('module','contact')
@@ -112,21 +176,23 @@ export default {
 }
 ----
 
-The above example *calculates the `FullName`* property from the `FirstName` and `LastName`.
-The `return $record` instructs that the *new version* of the `$record` *should be used* (the one with the `FullName` calculated).
+[IMPORTANT]
+====
+The return values for *after* events are discarded (the value was already saved).
+====
 
-If we *didn't return anything* (`null` or `undefined` for example) the change would be *reverted*.
+=== Sink script execution result
+
+The returned value of a sink script is used to construct the HTTP response.
+This can be as simple as returning static HTML pages (the <<sink-result-static-html,below example>> does this); or as complex as implementing OAuth authentication flows or fetching <<sink-result-external-json,data from external sources>>.
 
 [IMPORTANT]
 ====
-The return value for *after* events is *discarded* (can not be updated).
+Just make sure that your responses define appropriate headers, such as the content type, status code, and body.
 ====
 
-== Sink script execution result
-
-When a *value is returned*, that value is used as an *HTTP response*.
-
-.Let's look at the following example:
+[#sink-result-static-html]
+.A basic example:
 [source,js]
 ----
 export default {
@@ -149,17 +215,8 @@ export default {
 }
 ----
 
-The above example returns a *simple static HTML* document with a `Hello World!` written over it.
-You can use this to implement the *OAuth protocol* or a *confirmation page*.
-
-This isn't limited to simple HTML documents.
-
-[IMPORTANT]
-====
-Just make sure that your responses are *properly structured* (content type, status, and body).
-====
-
-.You could do something like this:
+[#sink-result-external-json]
+.A complex example:
 [source,js]
 ----
 export default {
@@ -193,8 +250,3 @@ export default {
   },
 }
 ----
-
-[NOTE]
-====
-*DevNote* include other trigger types.
-====

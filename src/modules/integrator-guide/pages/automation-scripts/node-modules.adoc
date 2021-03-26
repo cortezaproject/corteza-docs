@@ -1,34 +1,39 @@
 include::ROOT:partial$variables.adoc[]
 
-= Using node modules
+= Node modules
 
-{PRODUCT_NAME} {APP_AUTOMATION} supports the use of *external node modules*, both on the *server-scripts and client-scripts*.
+[IMPORTANT]
+====
+Different extensions *do not share* their dependencies.
+If two extensions use *the same dependency*, they both need to *define it*.
+====
+
+{PRODUCT_NAME} {APP_AUTOMATION} supports internal and external node modules, both on the server-scripts and client-scripts.
 
 [NOTE]
 ====
-{PRODUCT_NAME} {APP_AUTOMATION} uses the *Yarn package manager*.
+Internally we use the Yarn package manager, so we suggest you do the same.
 ====
 
 .To add a new node module either:
-* *manually insert* it into the `package.json` file,
-* run the *`yarn add NAME_GOES_HERE`*.
+* manually insert it into the `package.json` file, or
+* run the `yarn add NAME_GOES_HERE`.
 
-When you register and *load the extension* in the {APP_AUTOMATION} server, it will *automatically resolve* any changed *dependency* from the `package.json` file.
+When ran, the {APP_AUTOMATION} server will attempt to automatically resolve and install the requested dependencies.
 
-[WARNING]
+[CAUTION]
 ====
 We're observing some anomalies when running *Yarn inside a docker container*.
 
 If you're getting an error message similar to the one below, it means that Yarn was not able to *install the dependencies*.
 This error occurs when Yarn is unable to store its cache.
 
-[source,log]
-----
+****
 {
   "type": "error",
   "data": "https://registry.yarnpkg.com/rxjs/-/rxjs-6.6.3.tgz: Extracting tar content of undefined failed, the file appears to be corrupt: \\"ENOSPC: no space left on device, write\\""
 }
-----
+****
 
 .To fix this, you need to:
 . ssh *into the {APP_AUTOMATION} container* (`docker-compose exec -u root corredor sh`),
@@ -66,9 +71,3 @@ export default {
   }
 }
 ----
-
-[IMPORTANT]
-====
-Different extensions *do not share* their dependencies.
-If two extensions use *the same dependency*, they both need to *define it*.
-====

@@ -20,7 +20,7 @@ You can set the default value for a field in the module editor.
 .Before submitting the form:
 [source,js]
 ----
-include::ROOT:example$extensions/client-script-sample/before-form-record.js[]
+include::example$client-script-sample/before-form-record.js[]
 ----
 
 == Generic on click action
@@ -36,7 +36,7 @@ include::ROOT:example$extensions/client-script-sample/before-form-record.js[]
 .Generic on click action:
 [source,js]
 ----
-include::ROOT:example$extensions/client-script-sample/button-generic.js[]
+include::example$client-script-sample/button-generic.js[]
 ----
 
 == Process record on click
@@ -52,5 +52,5 @@ include::ROOT:example$extensions/client-script-sample/button-generic.js[]
 .Process record on click:
 [source,js]
 ----
-include::ROOT:example$extensions/client-script-sample/button-record.js[]
+include::example$client-script-sample/button-record.js[]
 ----

@@ -10,7 +10,7 @@ Use this generic template to cover 90% of use-cases.
 .Generic implicit script:
 [source,js]
 ----
-include::ROOT:example$extensions/server-script-sample/implicit-generic.js[]
+include::example$server-script-sample/implicit-generic.js[]
 ----
 
 [#ss-before-record]
@@ -34,7 +34,7 @@ It would be best if you used field expressions for most field validations and va
 .Before saving a record:
 [source,js]
 ----
-include::ROOT:example$extensions/server-script-sample/before-record.js[]
+include::example$server-script-sample/before-record.js[]
 ----
 
 == After saving a record
@@ -55,7 +55,7 @@ If you want to *change the value*, you should use <<ss-before-record>> instead.
 .After saving a record:
 [source,js]
 ----
-include::ROOT:example$extensions/server-script-sample/after-record.js[]
+include::example$server-script-sample/after-record.js[]
 ----
 
 == Generic on click action
@@ -71,7 +71,7 @@ include::ROOT:example$extensions/server-script-sample/after-record.js[]
 .Generic on click action:
 [source,js]
 ----
-include::ROOT:example$extensions/server-script-sample/button-generic.js[]
+include::example$server-script-sample/button-generic.js[]
 ----
 
 == Process record on click
@@ -87,7 +87,7 @@ include::ROOT:example$extensions/server-script-sample/button-generic.js[]
 .Process record on click:
 [source,js]
 ----
-include::ROOT:example$extensions/server-script-sample/button-record.js[]
+include::example$server-script-sample/button-record.js[]
 ----
 
 == Respond to an HTTP request
@@ -108,5 +108,5 @@ You will need to *add the `base-64` package*.
 .Respond to an HTTP request:
 [source,js]
 ----
-include::ROOT:example$extensions/server-script-sample/sink-generic.js[]
+include::example$server-script-sample/sink-generic.js[]
 ----

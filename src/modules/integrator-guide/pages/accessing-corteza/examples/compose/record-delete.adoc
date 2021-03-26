@@ -1,8 +1,10 @@
-include::../../variables.adoc[]
+include::ROOT:partial$variables.adoc[]
 
-= Deleting a record
+= Delete a record
 
-To delete a specific record for a specific module, use the `DELETE $ComposeAPI/namespace/$NAMESPACE_ID/module/$MODULE_ID/record/$RECORD_ID` endpoint.
+include::partial$api-example-note.adoc[]
+
+To delete a record, use the `DELETE $ComposeAPI/namespace/$NAMESPACE_ID/module/$MODULE_ID/record/$RECORD_ID` API endpoint.
 
 == Example request
 

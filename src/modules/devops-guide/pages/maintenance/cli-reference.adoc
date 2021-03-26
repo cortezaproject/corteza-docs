@@ -29,6 +29,7 @@ Flags:
       --skip-validation   Skip validation
 ----
 
+[#auth-jwt]
 === JWT
 
 Generates a new JWT for a user

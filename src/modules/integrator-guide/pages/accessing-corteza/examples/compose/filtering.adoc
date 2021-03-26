@@ -1,0 +1,30 @@
+// Filters allow you to define...
+
+// Filter by data::
+//     Use the `query=...` query property to specify what items should be included in the response.
+
+// [NOTE]
+// ====
+// We provide a SQL-like query language in the form of `$PROPERTY_NAME=$VALUE [$BITWISE_OPERATOR $PROPERTY_NAME=$VALUE [...]]`.
+// ====
+
+// Sorting::
+//     Use the `sort=...` query property to specify how to the response items should be sorted.
+
+// [NOTE]
+// ====
+// We provide a SQL-like sorting language in the form of `$PROPERTY_NAME $ORDER [, $PROPERTY_NAME $ORDER[, ...]]`.
+// ====
+
+// Pagination::
+//     Use the `page=...` and `perPage=...` query properties to specify the pagination properties of the response.
+
+// [IMPORTANT]
+// ====
+// Pagination is 1-based, meaning the first page index is 1.
+// ====
+
+// [TIP]
+// ====
+// If you wish to list all items, define `perPage=0`.
+// ====

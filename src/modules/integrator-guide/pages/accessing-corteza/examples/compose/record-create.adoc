@@ -1,20 +1,16 @@
-include::../../variables.adoc[]
+include::ROOT:partial$variables.adoc[]
 
-= Updating a record
+= Create a record
 
-To update a specific record for a specific module, use the `POST $ComposeAPI/namespace/$NAMESPACE_ID/module/$MODULE_ID/record/$RECORD_ID` endpoint.
+include::partial$api-example-note.adoc[]
 
-[IMPORTANT]
-====
-The new record values will be *as provided* in the update request.
-The values that are omitted in the update request will be removed from the given record.
-====
+To create a new record, use the `POST $ComposeAPI/namespace/$NAMESPACE_ID/module/$MODULE_ID/record` API endpoint.
 
 == Example request
 
 [source,bash]
 ----
-curl "$ComposeAPI/namespace/$NAMESPACE_ID/module/$MODULE_ID/record/$RECORD_ID" \
+curl "$ComposeAPI/namespace/$NAMESPACE_ID/module/$MODULE_ID/record/" \
   -H "Authorization: Bearer $JWT" \
   -H 'Content-Type: application/json' \
   --data-binary "{

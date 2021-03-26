@@ -1,0 +1,57 @@
+include::ROOT:partial$variables.adoc[]
+
+= Download an attachment
+
+include::partial$api-example-note.adoc[]
+
+== Obtain a signed download URL
+
+.Obtain signed URL using attachment read or attachment list endpoints:
+* attachment read: `GET $ComposeAPI/namespace/$NAMESPACE_ID/attachment/record/$ATTACHMENT_ID`
+* attachment list: `GET $ComposeAPI/namespace/$NAMESPACE_ID/attachment/record`
+
+.Response object structure:
+[source,json]
+----
+{
+  "attachmentID": "$ATTACHMENT_ID",
+  "ownerID": "$USER_ID",
+  "url": "$ATTACHMENT_ORIGINAL_URL",<1>
+  "previewUrl": "$ATTACHMENT_PREVIEW_URL",<2>
+  "name": "$FILENAME_ORIGINAL",
+  "meta": {...},
+  "namespaceID": "$NAMESPACE_ID"
+}
+----
+<1> `url` contains a signed URL to the attachment.
+<2> `previewUrl` contains a signed URL to the preview version of the attachment (when available).
+
+=== Example request
+
+[source,bash]
+----
+curl "$ComposeAPI/namespace/$NAMESPACE_ID/attachment/record/$ATTACHMENT_ID" \
+ -H "Authorization: Bearer $JWT";
+----
+
+=== Example response
+
+[source,json]
+----
+{
+  "response": {
+    "attachmentID": "$ATTACHMENT_ID",
+    "ownerID": "$USER_ID",
+    "url": "$ATTACHMENT_ORIGINAL_URL",
+    "previewUrl": "$ATTACHMENT_PREVIEW_URL",
+    "name": "$FILENAME_ORIGINAL",
+    "meta": {...},
+    "namespaceID": "$NAMESPACE_ID"
+  }
+}
+----
+
+== Access the attachment
+
+Use the `$ATTACHMENT_ORIGINAL_URL` to access the downloadable attachment.
+You can either download the attachment manually, use some HTTP client (such as Axios), or display the attachment using `<img src="..."` of similar.

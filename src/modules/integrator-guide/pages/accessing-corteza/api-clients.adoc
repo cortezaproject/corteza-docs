@@ -1,0 +1,31 @@
+include::ROOT:partial$variables.adoc[]
+
+= API clients
+
+{PRODUCT_NAME} defines a series of JavaScript API clients (SDK's) to work with our API.
+
+[TIP]
+====
+When writing automation scripts, they are provided in the xref:integrator-guide:automation-scripts/script-context.adoc#execution-context[execution context].
+====
+
+You can find the source code on https://github.com/cortezaproject/corteza-js[GitHub/cortezaproject/corteza-js].
+NPM packages can be found on https://www.npmjs.com/package/@cortezaproject/corteza-js[NPM/@cortezaproject/corteza-js].
+
+[IMPORTANT]
+====
+Make sure to use the same `@cortezaproject/corteza-js` package version as your {PRODUCT_NAME} instance.
+====
+
+When using our `corteza-js` package, the API clients can be imported using `import { apiClients } from '@cortezaproject/corteza-js'`.
+
+.Available {PRODUCT_NAME} API clients:
+* https://github.com/cortezaproject/corteza-js/blob/2021.3.x/src/api-clients/system.ts[`apiClients.System`]
+* https://github.com/cortezaproject/corteza-js/blob/2021.3.x/src/api-clients/compose.ts[`apiClients.Compose`]
+* https://github.com/cortezaproject/corteza-js/blob/2021.3.x/src/api-clients/automation.ts[`apiClients.Automation`]
+* https://github.com/cortezaproject/corteza-js/blob/2021.3.x/src/api-clients/federation.ts[`apiClients.Federation`]
+
+[NOTE]
+====
+Please refer to the source code for a complete reference.
+====

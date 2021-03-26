@@ -1,3 +1,0 @@
-| [#page-block-chart]#<<page-block-chart,Chart>>#
-| A *chart page block* allows you to show your charts on the page.
-Refer to <<data-model-charts>> for more details.

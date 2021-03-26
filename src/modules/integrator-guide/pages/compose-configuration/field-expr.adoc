@@ -1,0 +1,137 @@
+include::ROOT:partial$variables.adoc[]
+
+= Field expressions
+
+== Value expressions
+
+Value expressions calculate the fields' value based on the provided expression.
+A value expression is a simple expression that results in a single value
+If your field is a multi-value field, you need to return an array of items.
+
+Refer to the xref:expr/index.adoc[] for details on writing expressions.
+
+[IMPORTANT]
+====
+Currently, you can only use values of the current record.
+References are not yet supported.
+====
+
+.Available variables in the evaluation context:
+[cols="1s,5a"]
+|===
+
+| [#values-ctx-old]#<<values-ctx-old,`old`>>#
+|
+The `old` variable refers to the original record.
+Only set when the field is being updated.
+
+| [#values-ctx-new]#<<values-ctx-new,`new`>>#
+|
+The `new` variable refers to the current record.
+
+| [#values-ctx-value]#<<values-ctx-value,`<field-name>`>>#
+|
+A string or an array of strings with current field values.
+If the field name collides with any of the system-defined variables, access the value via the <<values-ctx-new,new["field_name_here"]>>.
+
+|===
+
+.Example expression that calculates the price with tax:
+[source]
+----
+price * 1.25
+----
+
+.Example expression that generates a full name:
+[source]
+----
+trim(firstName + " " + lastName)
+----
+
+.Example of a multi-value expression evaluation:
+[source]
+----
+["foo", "bar", "baz"]
+----
+
+== Sanitizers
+
+Sanitizers modify the field value to cleanup (sanitize) the data before it is saved.
+A sanitizer is a simple expression that results a single value.
+
+Refer to the xref:expr/index.adoc[] for details on writing expressions.
+
+By their nature, sanitizers *should not* result in an error.
+If an error occurs, it is logged in the action log and the operation continues.
+
+If you define multiple sanitizers, they are run in the defined order.
+
+.Example sanitizer that limits the text length:
+[source]
+----
+length(value) > 5 ? substr(value, 0, 5) + "..." : value
+----
+
+.Available variables in the evaluation context:
+[cols="1s,5a"]
+|===
+
+| [#sanitizer-ctx-value]#<<sanitizer-ctx-value,`value`>>#
+|
+The `value` variable refers to the current value.
+
+|===
+
+== Validators
+
+Validators validate the field value by raising errors when the value is not valid.
+A validator is a simple expression that results a single value; either `true` or `false`.
+The value validation is considered as invalid when the expression results in `true`.
+
+Validators can not change the value.
+
+Built-in field validators can be disabled; required and unique-multi-value validators can not be disabled.
+
+If you define multiple validators, they are run in the defined order.
+
+[IMPORTANT]
+====
+The field validator stops when the first error occurs.
+For example; if we define validators `A`, `B`, and `C`, and the validator `A` raises an error; validators `B` and `C` are not evaluated.
+====
+
+.Validation expressions are not executed when:
+* the value is not changed,
+* the value is missing.
+
+[TIP]
+====
+Use the required flag to check for required values.
+====
+
+.Available variables in the evaluation context:
+[cols="1s,5a"]
+|===
+
+| [#validator-ctx-value]#<<validator-ctx-value,`value`>>#
+|
+The `value` variable refers to the current value.
+
+| [#validator-ctx-oldvalue]#<<validator-ctx-oldvalue,`oldValue`>>#
+|
+The `oldValue` variable refers to the original value.
+Only set when the field is being updated.
+
+| [#validator-ctx-values]#<<validator-ctx-values,`values`>>#
+|
+The `values` variable refers to all of the record values (`values.<field-name>`).
+You can use this to write validators that are context-aware.
+
+|===
+
+.Example validator to check the text length:
+[source]
+----
+length(title) < 5
+----
+

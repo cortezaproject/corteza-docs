@@ -1,0 +1,327 @@
+include::ROOT:partial$variables.adoc[]
+
+= Module field types
+
+[#field-type-checkbox]
+== Checkbox (Y/N)
+
+A `Checkbox` field type represents a true/false (truthy/faulty) value (a boolean).
+The `Checkbox` field type should be used when you wish to store either a positive or a negative value.
+For example; was the subscription paid or is the contact subscribed.
+
+A field of type `Checkbox` is represented as a label when it is being viewed.
+When the field is being edited, it is represented as a checkbox.
+
+.Additional configurations:
+[cols="1s,5a"]
+|===
+
+| [#field-type-checkbox-label]#<<field-type-checkbox-label,true/false label>>#
+|
+Allows you to specify what label is shown when the value is truthy or faulty when viewing the field.
+
+|===
+
+[#field-type-datetime]
+== Date and time
+
+A `Date and time` field type represents a temporal value (a timestamp).
+The `Date and time` field type should be used when you wish to store some temporal information; a date, a time, or both.
+For example; the time that the lead was converted.
+
+A field of type `Date and time` is represented as a formatted label when it is being viewed.
+When the field is being edited, it is represented as a date input, time input, or as a date time input.
+
+.Additional configurations:
+[cols="1s,5a"]
+|===
+
+| [#field-type-datetime-do]#<<field-type-datetime-do,Date only>>#
+|
+Removes the time and only keeps the date in of the provided value.
+When editing the field, only the date input is shown.
+
+| [#field-type-datetime-to]#<<field-type-datetime-to,Time only>>#
+|
+Removes the date and only keeps the time in of the provided value.
+When editing the field, only the time input is shown.
+
+| [#field-type-datetime-pvo]#<<field-type-datetime-pvo,Past values only>>#
+|
+Configures the field input to only permit past values.
+
+| [#field-type-datetime-fvo]#<<field-type-datetime-fvo,Future values only>>#
+|
+Configures the field input to only permit future values.
+
+| [#field-type-datetime-relative]#<<field-type-datetime-relative,Output relative value>>#
+|
+Displays the value relative to the time when the field is viewed.
+For example; `10min ago`, or `last month`.
+
+| [#field-type-datetime-fmt]#<<field-type-datetime-fmt,Output format>>#
+|
+Allows you to define the format in which the value is shown.
+Use the formatting options defined by https://momentjs.com/docs/#/displaying/format/[moment.js].
+
+|===
+
+[#field-type-email]
+== Email
+
+A `Email` field type represents an email address.
+The `Email` field type should be used when you wish to store an email.
+For example; the primary email address of the client.
+
+A field of type `Email` is represented as a label or a clickable link when it is being viewed.
+When the field is being edited, it is represented as a email input box.
+
+[IMPORTANT]
+====
+The email is stored as plain text regardless of the configuration options.
+The email is converted to a link before it is shown on the user interface.
+====
+
+.Additional configurations:
+[cols="1s,5a"]
+|===
+
+| [#field-type-email-plain]#<<field-type-email-plain,Don't turn email into a link>>#
+|
+The email address is shown as a regular label instead of a clickable link.
+
+|===
+
+[#field-type-select]
+== Select / dropdown
+
+A `select / dropdown` field type represents a limited value set for the given field.
+The `select / dropdown` field type should be used when you wish to store one of the before defined values.
+For example; the stage of a case or the stage of a lead.
+
+A field of type `select / dropdown` is represented as a label when it is being viewed.
+When the field is being edited, it is represented as a dropdown input box.
+
+.Additional configurations:
+[cols="1s,5a"]
+|===
+
+| [#field-type-select-options]#<<field-type-select-options,Options>>#
+|
+A set of available options that this field can have.
+An option is provided as a key-value pair.
+The value defines how the data is stored internally, the label defines how the data is shown on the user interface.
+
+[IMPORTANT]
+====
+When working with selects inside automation scripts or workflows, use the value when working with values.
+====
+
+| [#field-type-select-select]#<<field-type-select-select,Multiple value input type>>#
+|
+Defines how the multi-value variant of the field is represented.
+
+[NOTE]
+====
+*DevNote* list and describe the options?
+====
+
+|===
+
+[#field-type-number]
+== Number
+
+A `Number` field type represents a numeric value.
+The `Number` field type should be used when you wish to store any numeric values.
+For example; the cost of a subscription or the cost of a lead.
+
+A field of type `Number` is represented as a formatted label when it is being viewed.
+When the field is being edited, it is represented as a number input box.
+
+.Additional configurations:
+[cols="1s,5a"]
+|===
+
+| [#field-type-number-prefix]#<<field-type-number-prefix,Prefix>>#
+|
+The prefix to the formatted label.
+For example; the prefix of `$` and the value of `1000` would result in the label of `$1000`.
+
+| [#field-type-number-suffix]#<<field-type-number-suffix,Suffix>>#
+|
+The suffix to the formatted label.
+For example; the suffix of `USD/h` and the value of `1000` would result in the label of `1000 USD/h`.
+
+| [#field-type-number-precision]#<<field-type-number-precision,Precision>>#
+|
+The precision of the numbers stored under this field.
+The precision is limited to 6.
+For example; the precision of 3 would allow you to store numbers with up to three decimal places.
+
+| [#field-type-number-format]#<<field-type-number-format,Format>>#
+|
+The formatting that should be applied to the displayed value.
+Use the formatting options defined by https://numeraljs.com/#format[numeral.js].
+
+|===
+
+[#field-type-record]
+== Record
+
+A `Record` field type represents a *reference* to another record.
+The `Record` field type should be used when you wish to define a relation between two modules.
+For example; the parent transaction, or the account owner.
+
+[NOTE]
+====
+*DevNote* disclaimer about working with these values.
+====
+
+[IMPORTANT]
+====
+You can only reference records *in the same namespace*.
+====
+
+A field of type `Record` is represented as a clickable link to the related record when it is being viewed.
+When the field is being edited, it is represented as a searchable dropdown box.
+
+.Additional configurations:
+[cols="1s,5a"]
+|===
+
+| [#field-type-record-module]#<<field-type-record-module,Module>>#
+|
+Specifies what module this field will be linked to.
+
+| [#field-type-record-label]#<<field-type-record-label,Record label field>>#
+|
+Specifies what field should be used when generating the link to the related record.
+
+| [#field-type-record-prefilter]#<<field-type-record-prefilter,Pre-filter records>>#
+|
+Specifies the pre-filter that will be applied to the user-defined search in the dropdown.
+Refer to the xref:ql.adoc[] for details.
+
+| [#field-type-record-ff]#<<field-type-record-ff,Query fields on search>>#
+|
+Specifies what field should be included when searching over the available records.
+
+|===
+
+[#field-type-string]
+== String
+
+A `String` field type represents a generic text value.
+The `String` field type should be used when you wish to store some text.
+For example; the name of a contact or the TOS that should be shown to the client.
+
+A field of type `String` is represented as a text when it is being viewed.
+When the field is being edited, it is represented as a text input box or a rich text input box.
+
+.Additional configurations:
+[cols="1s,5a"]
+|===
+
+| [#field-type-string-multi]#<<field-type-string-multi,Multi-line>>#
+|
+Expands the text input box to be a multi-line text input box.
+
+| [#field-type-string-rte]#<<field-type-string-rte,Use rich text editor>>#
+|
+Expands the text input box to be a multi-line rich tex input box.
+The text is stored as a valid HTML so the value can be used in emails or other HTML accepted places.
+
+|===
+
+
+[#field-type-url]
+== URL
+
+A `URL` field type represents a URL address.
+The `URL` field type should be used when you wish to store a URL address.
+For example; the link to the clients' homepage.
+
+A field of type `URL` is represented as a label or a clickable link when it is being viewed.
+When the field is being edited, it is represented as a URL input box.
+
+[IMPORTANT]
+====
+The URL is stored as plain text regardless of the configuration options.
+The URL is converted to a link before it is shown on the user interface.
+====
+
+.Additional configurations:
+[cols="1s,5a"]
+|===
+
+| [#field-type-url-trimh]#<<field-type-url-trimh,Trim # from the URL>>#
+|
+Removes the URL fragment (the text after the `#`).
+
+| [#field-type-url-trimq]#<<field-type-url-trimq,Trim ? from the URL>>#
+|
+Removes the URL query (the text after the `?`).
+
+| [#field-type-url-ssl]#<<field-type-url-ssl,only allow SSL (HTTPS) URLs>>#
+|
+Only allows secure (HTTPS) URL addresses.
+
+| [#field-type-url-plain]#<<field-type-url-plain,Don't turn URL into a link>>#
+|
+The URL address is shown as a regular label instead of a clickable link.
+
+|===
+
+[#field-type-user]
+== User
+
+A `User` field type represents a *reference* to a system user.
+The `User` field type should be used when you wish to define a relation between a record and a system user.
+For example; the owner of the record or the task assignee.
+
+[NOTE]
+====
+*DevNote* disclaimer about working with these values.
+====
+
+A field of type `User` is represented as label when it is being viewed.
+When the field is being edited, it is represented as a searchable dropdown box.
+
+.Additional configurations:
+[cols="1s,5a"]
+|===
+
+| [#field-type-user-prefil]#<<field-type-user-prefil,Preset with current user>>#
+|
+Preselects the current user when you are creating/updating a record where that value doesn't yet exist.
+
+| [#field-type-user-select]#<<field-type-user-select,multiple value input type>>#
+|
+Defines how the multi-value variant of the field is represented.
+
+|===
+
+[#field-type-file-upload]
+== File upload
+
+A `File upload` field type represents a *reference* to an uploaded attachment.
+The `File upload` field type should be used when you wish to attach some document to the record.
+For example; the clients' quote or a legal document.
+
+A field of type `File upload` is represented as clickable link when it is being viewed.
+When the field is being edited, it is represented as a drag'n drop file upload box.
+
+.Additional configurations:
+[cols="1s,5a"]
+|===
+
+| [#field-type-file-vm]#<<field-type-file-vm,View mode>>#
+|
+Specify how the files are presented when they are being viewed.
+
+[NOTE]
+====
+*DevNote* list & describe the available options.
+====
+
+|===

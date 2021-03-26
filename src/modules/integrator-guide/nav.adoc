@@ -1,35 +1,40 @@
 * xref:index.adoc[]
 
-** xref:terminology.adoc[]
 ** xref:security.adoc[]
+// ** xref:terminology.adoc[]
 
-** xref:corteza-api/index.adoc[]
-*** xref:corteza-api/api-clients.adoc[]
-*** xref:corteza-api/corredor-helpers.adoc[]
-*** Samples
-**** xref:corteza-api/samples/compose/index.adoc[]
-**** xref:corteza-api/samples/system/index.adoc[]
+** xref:accessing-corteza/index.adoc[]
+*** xref:accessing-corteza/api-clients.adoc[]
+*** xref:accessing-corteza/pagination.adoc[]
+*** xref:accessing-corteza/ql.adoc[]
+// @todo cleanup
+// *** Examples
+// **** CortezaAPI/compose
+// ***** xref:accessing-corteza/examples/compose/sending-emails.adoc[]
+// ***** xref:accessing-corteza/examples/compose/record-list.adoc[]
+// ***** xref:accessing-corteza/examples/compose/record-read.adoc[]
+// ***** xref:accessing-corteza/examples/compose/record-create.adoc[]
+// ***** xref:accessing-corteza/examples/compose/record-update.adoc[]
+// ***** xref:accessing-corteza/examples/compose/record-delete.adoc[]
+// ***** xref:accessing-corteza/examples/compose/download-attachment.adoc[]
 
 ** xref:compose-configuration/index.adoc[]
-*** xref:compose-configuration/namespaces.adoc[]
-*** xref:compose-configuration/modules.adoc[]
-*** xref:compose-configuration/pages.adoc[]
-*** xref:compose-configuration/charts.adoc[]
-*** References
-**** xref:compose-configuration/references/field-expressions.adoc[]
-*** Samples
-**** xref:compose-configuration/samples/page-blocks/index.adoc[]
-**** xref:compose-configuration/samples/field-expressions.adoc[]
+*** xref:compose-configuration/field-types.adoc[]
+*** xref:compose-configuration/field-expr.adoc[]
+*** xref:compose-configuration/page-blocks.adoc[]
+// @todo cleanup
+// *** Examples
+// **** xref:compose-configuration/examples/page-blocks/index.adoc[]
+// **** xref:compose-configuration/examples/field-expressions.adoc[]
 
 ** xref:automation-scripts/index.adoc[]
 *** xref:automation-scripts/script-context.adoc[]
-*** xref:automation-scripts/automation-triggers.adoc[]
-*** xref:automation-scripts/security-context.adoc[]
 *** xref:automation-scripts/node-modules.adoc[]
 *** xref:automation-scripts/edit-built-in-scripts.adoc[]
 *** xref:automation-scripts/testing.adoc[]
 *** xref:automation-scripts/deploying.adoc[]
 *** xref:automation-scripts/debugging.adoc[]
+*** xref:automation-scripts/corredor-helpers.adoc[]
 *** References
 **** xref:automation-scripts/references/resource-events.adoc[]
 **** xref:automation-scripts/references/resource-constraints/index.adoc[]
@@ -38,17 +43,26 @@
 **** xref:automation-scripts/samples/server-scripts/index.adoc[]
 **** xref:automation-scripts/samples/client-scripts/index.adoc[]
 
+** xref:expr/index.adoc[]
+*** xref:expr/fnc-reference.adoc[]
+
 ** xref:workflows/index.adoc[]
-*** ...
-*** Samples
-**** ...
+*** xref:workflows/organizing-workflows.adoc[]
+*** xref:workflows/delaying-scheduling.adoc[]
+*** xref:workflows/style-guide-best-practices.adoc[]
+*** xref:workflows/scope-in-depth.adoc[]
+*** xref:workflows/testing-debugging.adoc[]
+*** xref:workflows/types.adoc[]
+// *** Examples
+// **** ...
+// *** xref:workflows/pdf.adoc[]
 
 ** xref:templates/index.adoc[]
-*** ...
-*** Samples
-**** ...
+*** xref:templates/variables.adoc[]
+// *** Examples
+// **** ...
 
-** xref:provisioning/index.adoc[]
-*** ...
-*** Samples
-**** ...
+// ** xref:provisioning/index.adoc[]
+// *** ...
+// *** Samples
+// **** ...

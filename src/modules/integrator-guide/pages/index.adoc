@@ -1,10 +1,13 @@
 include::ROOT:partial$variables.adoc[]
 
 = Integrator Guide
-:description: {PRODUCT_NAME} Integrator guide covers all aspects of developing and maintaining custom {PRODUCT_NAME} integrations.
+:description: The integrator guide will help you through the entire integration process; from configuring your {PRODUCT_NAME} {APP_NAME_COMPOSE}, defining custom document templates and process automation using workflows.
 :keywords: integration, integrator, app, application, {PRODUCT_NAME}
 
-The *integrator guide* will help you with the process of creating applications using {PRODUCT_NAME} -- the integration process.
+The *integrator guide* will help you through the entire integration process; from configuring your {PRODUCT_NAME} {APP_NAME_COMPOSE}, defining custom document templates and process automation using workflows.
+
+The integrator guide 
+
 
 You will receive enough knowledge about *the system*; *the development and maintenance* process to be a match for any integration.
 

@@ -1,4 +1,4 @@
-include::../../pages/variables.adoc[]
+include::ROOT:partial$variables.adoc[]
 
 Extension::
     A collection of automation scripts, corresponding libraries and other assets.

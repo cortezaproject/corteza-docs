@@ -1,0 +1,6 @@
+[NOTE]
+====
+We omit most of the data returned by these endpoints.
+
+We replace the important data with variables, such as `$RECORD_ID`.
+====

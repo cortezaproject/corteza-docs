@@ -2,7 +2,7 @@ include::ROOT:partial$variables.adoc[]
 
 = Organizing your workflows
 
-A workflow can quite easily grow in size as the business grows, the client wants a change or the market changes.
+A workflow can quite easily grow in size as the business grows and requirements change.
 
 To help you maintain and expand on larger projects, we've prepared a document outlining the xref:workflows/style-guide-best-practices.adoc[style guide and best practices].
 In addition to the document, you can use the *swimlane* image:workflow/swimlane.svg[width=20px] visual element to group steps based on their purpose.

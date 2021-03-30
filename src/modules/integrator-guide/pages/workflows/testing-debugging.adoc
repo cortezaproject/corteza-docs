@@ -7,6 +7,12 @@ include::ROOT:partial$variables.adoc[]
 
 Testing is a powerful and essential component of any project.
 
+[CAUTION]
+====
+The testing approach mentioned below doesn't sandbox your data in any way.
+Any changes performed by the workflow are reflected to the system itself.
+====
+
 At the moment, our workflows don't implement any sophisticated testing framework, therefore it must be done manually.
 You can expect a powerful and flexible testing facility in the near future.
 

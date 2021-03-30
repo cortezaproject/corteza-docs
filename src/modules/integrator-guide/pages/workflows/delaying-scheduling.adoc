@@ -2,19 +2,21 @@ include::ROOT:partial$variables.adoc[]
 
 = Delaying and scheduling workflows
 
-Another amazing feature of a workflow is that it allows you to schedule or delay its execution.
+{PRODUCT_NAME} workflow allows you to schedule or delay its execution.
 This can be a powerful tool when working with external services that throttle their API usage or when we want to perform some task in an interval, such as monthly subscription renewal.
 
 To achieve this, we provide a delay step image:workflow/delay.svg[width=20px] and a deferred trigger image:workflow/trigger.svg[width=20px].
 
-== Delay step
+****
+When you use a delay or a prompt step the workflow becomes asynchronous and can no longer invalidate actions like create, update, or delete record.
+
+Operations such as "confirm record creation" are currently not possible with workflows.
+If you need to perform some value validation or sanitization, use xref:compose-configuration/index.adoc#module-field-expr[field expressions] instead.
+****
+
+== Delaying execution
 
 The delay step image:workflow/delay.svg[width=20px] allows you to explicitly pause the workflows' execution for a set period of time.
-
-[CAUTION]
-====
-The delay step can cause the workflow to time out.
-====
 
 This type of delaying is common when working with APIs that throttle their access.
 To examplify; let's say that the API allows 10 calls per minute and we wish to fetch 100 items.
@@ -75,7 +77,7 @@ The workflow would aggregate all of the completed tickets into an email and send
 
 image:workflow/schedule-example.svg[]
 
-A timestamps is defined in the https://en.wikipedia.org/wiki/ISO_8601[ISO 8601, `YYYY-MM-DDThh:mm:ssZ` format].
+Timestamps are defined in the https://en.wikipedia.org/wiki/ISO_8601[ISO 8601, `YYYY-MM-DDThh:mm:ssZ` format].
 
 [TIP]
 ====
@@ -83,3 +85,52 @@ You can define multiple timestamps under the same trigger.
 ====
 
 |===
+
+== Execution timeout
+
+{PRODUCT_NAME} workflows' execution does not timeout by default (the workflow can run indefinitely).
+
+If your use-case requires you to define a timeout, you can implement this manually.
+
+.The below example does two things:
+* Schedule a timeout after 10sec of execution,
+* Repeat the iterator indefinitely.
+
+image:workflow/manual-timeout.png[]
+
+.Workflow step details:
+[%collapsible.result]
+====
+1. *(1) Test trigger*:
+** *resource*: `System`
+** *event*: `onManual`
+** *enabled*: checked
+2. *(2) Fork*:
+** *gateway*: `Inclusive`
+** *conditions*:
+*** `true`
+*** `true`
+3. *(3) Wait 10sec*:
+** *offset*: `10`
+4. *(4) Log context timeout*:
+** *type*: `Log debug message`
+** *arguments*:
+*** *message*:
+**** *value type*:  constant
+**** *value*: `Context timeout`
+5. *(5) Context timeout*: /
+6. *(6) Repeat indefinitely*:
+** *type*: `Condition`
+** *arguments*:
+*** *while*:
+**** *value type*: expression
+**** *value*: `true`
+7. *(7) Log iteration*:
+** *type*: `Log debug message`
+** *arguments*:
+*** *message*:
+**** *value type*:  constant
+**** *value*: `Iterator loop`
+8. *(8) Done*: /
+9. *(9) Completed*: /
+====

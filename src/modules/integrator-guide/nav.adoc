@@ -3,6 +3,9 @@
 ** xref:security.adoc[]
 // ** xref:terminology.adoc[]
 
+** Personalization
+*** xref:personalization/auth.adoc[]
+
 ** xref:accessing-corteza/index.adoc[]
 *** xref:accessing-corteza/api-clients.adoc[]
 *** xref:accessing-corteza/pagination.adoc[]

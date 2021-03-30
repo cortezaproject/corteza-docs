@@ -1,0 +1,158 @@
+include::ROOT:partial$variables.adoc[]
+
+= Authentication
+
+All authentication interfaces used by {PRODUCT_NAME} can be fully modified and styled to your needs.
+The personalization is performed by defining a series of templates and assets (e.g. images and JavaScript code).
+
+[TIP]
+====
+It is often a good idea to make the authentication screen match the company style guide.
+====
+
+.The outline of the personalization flow:
+. configure {PRODUCT_NAME} to allow personalization,
+. export the current assets into a working directory,
+. modify the authentication assets,
+. deploy the changed assets.
+
+== The personalization flow
+
+=== Enable personalization
+
+To enable the personalization of the authentication interfaces you must define the following variables in your `.env` file:
+
+[#env-devmode]#<<env-devmode,`AUTH_DEVELOPMENT_MODE`>>#::
+  The `AUTH_DEVELOPMENT_MODE` variable enables development tool to help with personalize the interfaces.
+  The tools include automatic template reloading and developer UI.
+
+[#env-path]#<<env-path,`AUTH_ASSETS_PATH`>>#::
+  The `AUTH_ASSETS_PATH` variable defines where the modified authentication interfaces should be read from.
+  Point the `AUTH_ASSETS_PATH` variable to the directory that will contain the modified assets.
+  To examplify; `AUTH_ASSETS_PATH=/opt/deploy/corteza/auth-assets`.
+
+[NOTE]
+====
+The path for the `AUTH_ASSETS_PATH` variable can be absolute relative to the `corteza-server` binary.
+====
+
+=== Export current assets
+
+To export the current authentication assets, run the auth assets export command.
+
+[source]
+----
+Exports embedded assets into provided path (must exists)
+
+Usage:
+  corteza-server auth assets export [flags]
+
+Flags:
+  -h, --help   help for export
+----
+
+If you've already defined the <<env-path,`AUTH_ASSETS_PATH`>> `.env` variable, you can omit the path when running the command.
+
+To examplify; assuming that we will use the `/opt/deploy/corteza/auth-assets` directory, run:
+
+[source]
+----
+corteza-server auth assets export /opt/deploy/corteza/auth-assets
+----
+
+The produced output looks like this:
+
+[source]
+----
+exporting auth assets to public
+directory created
+exporting asset /opt/deploy/corteza/auth-assets/public/background.jpeg: ok
+exporting asset /opt/deploy/corteza/auth-assets/public/logo.png: ok
+exporting asset /opt/deploy/corteza/auth-assets/public/script.js: ok
+exporting asset /opt/deploy/corteza/auth-assets/public/style.css: ok
+exporting auth assets to templates
+directory created
+exporting asset /opt/deploy/corteza/auth-assets/templates/authorized-clients.html.tpl: ok
+exporting asset /opt/deploy/corteza/auth-assets/templates/change-password.html.tpl: ok
+exporting asset /opt/deploy/corteza/auth-assets/templates/error-internal.html.tpl: ok
+exporting asset /opt/deploy/corteza/auth-assets/templates/inc_footer.html.tpl: ok
+exporting asset /opt/deploy/corteza/auth-assets/templates/inc_header.html.tpl: ok
+exporting asset /opt/deploy/corteza/auth-assets/templates/inc_nav.html.tpl: ok
+exporting asset /opt/deploy/corteza/auth-assets/templates/inc_toasts.html.tpl: ok
+exporting asset /opt/deploy/corteza/auth-assets/templates/login.html.tpl: ok
+exporting asset /opt/deploy/corteza/auth-assets/templates/logout.html.tpl: ok
+exporting asset /opt/deploy/corteza/auth-assets/templates/mfa-totp-disable.html.tpl: ok
+exporting asset /opt/deploy/corteza/auth-assets/templates/mfa-totp.html.tpl: ok
+exporting asset /opt/deploy/corteza/auth-assets/templates/mfa.html.tpl: ok
+exporting asset /opt/deploy/corteza/auth-assets/templates/oauth2-authorize-client.html.tpl: ok
+exporting asset /opt/deploy/corteza/auth-assets/templates/password-reset-requested.html.tpl: ok
+exporting asset /opt/deploy/corteza/auth-assets/templates/pending-email-confirmation.html.tpl: ok
+exporting asset /opt/deploy/corteza/auth-assets/templates/profile.html.tpl: ok
+exporting asset /opt/deploy/corteza/auth-assets/templates/request-password-reset.html.tpl: ok
+exporting asset /opt/deploy/corteza/auth-assets/templates/reset-password.html.tpl: ok
+exporting asset /opt/deploy/corteza/auth-assets/templates/security.html.tpl: ok
+exporting asset /opt/deploy/corteza/auth-assets/templates/sessions.html.tpl: ok
+exporting asset /opt/deploy/corteza/auth-assets/templates/signup.html.tpl: ok
+exporting asset /opt/deploy/corteza/auth-assets/templates/template-dev.html.tpl: ok
+----
+
+[NOTE]
+====
+Rerunning the command will not overwrite the existing files.
+If you want a fresh start, delete the exported assets and reexport them.
+====
+
+=== Modify the authentication assets
+
+[source]
+----
+/ public
+  / ...
+/ templates
+  / ---
+----
+
+The `/public` subdirectory contains all of the assets that should be included in your authentication screens, such as images and stylesheets.
+You are free to remove, add or change all of the files in the `/public` sub directory.
+The public files are served in the same format they are defined here.
+
+The `/templates` subdirectory contains all of the the HTML templates that are used when displaying the authentication screens.
+The templates are written in https://golang.org/pkg/html/template/[go's template syntax].
+The syntax is the same as with our xref:templates/index.adoc[document templates].
+
+[IMPORTANT]
+====
+The template file names are important and should not be changed.
+You can define additional template files (such as the `inc_header.html.tpl` and the `inc_footer.html.tpl`) that are reused across other templates.
+====
+
+=== Deploy the changed assets
+
+If you've enabled the <<env-devmode,`AUTH_DEVELOPMENT_MODE`>> `.env` variable, the changed assets are already deployed.
+Simply disable the variable after you're done with the personalizations.
+
+[IMPORTANT]
+====
+Do not change the <<env-path,`AUTH_ASSETS_PATH`>> `.env` variable as the templates are read directly from the filesystem.
+====
+
+When using docker make sure to either mount the assets' source as a volume, or rebuild a custom image on top of the default image.
+
+== Styling
+
+
+The default stylesheet is included from the Bootstrap CDN in the `inc_header.html.tpl` template.
+You are free to change the stylesheet source.
+
+[NOTE]
+====
+The system doesn't implement automatic style preprocessing or JavaScript transpiling.
+You can pre-process the assets with your own tools before using them in the authentication.
+====
+
+== Development tool
+
+When you enable the <<env-devmode,`AUTH_DEVELOPMENT_MODE`>> `.env` variable, you gain access the development tool accessible under the `$BASE_API_URL/auth/dev` URL.
+The development tool displays all of the templates with all of the scenarios.
+
+image:personalization/devtool.png[]

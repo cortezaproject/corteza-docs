@@ -1,3 +1,5 @@
+include::ROOT:partial$variables.adoc[]
+
 = Google
 
 .To enable Google authentication, you need to retrieve your application credentials:

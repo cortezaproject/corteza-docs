@@ -3,7 +3,7 @@
 
 The CRM extension implements the *CRM* application.
 
-Refer to the xref:ROOT:end-user-guide/crm/index.adoc[*end-user guide*] on how to *use the extension*.
+Refer to the xref:crm/index.adoc[*end-user guide*] on how to *use the extension*.
 
 :leveloffset: +1
 

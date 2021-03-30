@@ -6,7 +6,7 @@ A health check is a series of steps you should take to verify that everything is
 
 [NOTE]
 ====
-*DevNote*: expand this with extra steps for all of the different bits.
+*DevNote* expand this with extra steps for all of the different bits.
 ====
 
 == SMTP configuration
@@ -19,7 +19,7 @@ The command sends a test email to the provided email address.
 corteza-server auth test-notifications your-email@example.tld
 ----
 
-⚠️ Depending on your provider, the email can take a bit to be delivered.
+Depending on your provider, the email can take a bit to be delivered.
 If you can't see the email, make sure to check your spam folder and server logs.
 
 .Connection/authentication errors look like this:

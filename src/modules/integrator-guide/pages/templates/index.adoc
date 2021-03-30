@@ -488,7 +488,7 @@ The structure is not defined.
 |
 * *type*: `Object<any>`
 * *description*: the variables you wish to apply to the template.
-For example, if you wish `{{testing}}` to work, you must pass `{"variables": {"testing": "some value"}}`.
+For example, if you wish `\{\{testing}}` to work, you must pass `{"variables": {"testing": "some value"}}`.
 
 | [#tpl-render-options_marginBottom]#<<tpl-render-options_marginBottom,`options.marginBottom`>>#
 |

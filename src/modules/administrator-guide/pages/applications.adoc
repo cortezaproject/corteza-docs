@@ -56,8 +56,8 @@ Unify app selector::
 
 == Permissions for all applications
 
-include::ROOT:partial$permissions/system-applications.adoc[]
+include::partial$permissions/system-applications.adoc[]
 
 == Permissions for a specific application
 
-include::ROOT:partial$permissions/system-application-specific.adoc[]
+include::partial$permissions/system-application-specific.adoc[]

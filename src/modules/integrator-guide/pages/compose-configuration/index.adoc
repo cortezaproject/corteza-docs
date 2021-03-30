@@ -122,7 +122,7 @@ Built-in sanitizers *can not be disabled*.
 The custom sanitizers are ran before the built-in sanitizers.
 ====
 
-Refer to the xref:compose-configuration/sanitization-validation.adoc[] for more details.
+Refer to the xref:compose-configuration/field-expr.adoc[] for more details.
 
 |===
 
@@ -209,7 +209,7 @@ For example, we wish to aggregate the leads that were created in the last month.
 
 The dropdown menu provides you with a selection of the most common filters.
 If you wish to write something completely custom, tick on the customize filter checkbox and write your own filter.
-Refer to the xref:ql.adoc[QL reference] for details regarding filter definition.
+Refer to the xref:accessing-corteza/ql.adoc[QL reference] for details regarding filter definition.
 
 | [#chart-config-generic-yxs]#<<chart-config-generic-yxs,Y-axis>>#
 |
@@ -275,7 +275,7 @@ For example, we wish to only use leads that are in a specific stage.
 
 The dropdown menu provides you with a selection of the most common filters.
 If you wish to write something completely custom, tick on the customize filter checkbox and write your own filter.
-Refer to the xref:ql.adoc[QL reference] for details regarding filter definition.
+Refer to the xref:accessing-corteza/ql.adoc[QL reference] for details regarding filter definition.
 
 | [#chart-config-funnel-dimension]#<<chart-config-funnel-dimension,Dimensions>>#
 |
@@ -310,7 +310,7 @@ For example, we wish to only use leads that are in a specific stage.
 
 The dropdown menu provides you with a selection of the most common filters.
 If you wish to write something completely custom, tick on the customize filter checkbox and write your own filter.
-Refer to the xref:ql.adoc[QL reference] for details regarding filter definition.
+Refer to the xref:accessing-corteza/ql.adoc[QL reference] for details regarding filter definition.
 
 | [#chart-config-gauge-dimension]#<<chart-config-gauge-dimension,Dimensions>>#
 |

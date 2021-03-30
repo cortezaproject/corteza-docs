@@ -10,7 +10,7 @@ include::ROOT:partial$variables.adoc[]
 . navigate to the "Pages" subpage,
 . click on the *lock icon* on top of the *page list*.
 
-include::ROOT:partial$permissions/compose-pages.adoc[]
+include::partial$permissions/compose-pages.adoc[]
 
 == Specific page
 
@@ -20,4 +20,4 @@ include::ROOT:partial$permissions/compose-pages.adoc[]
 . navigate to the "Pages" subpage,
 . click on the *lock icon* next to a page.
 
-include::ROOT:partial$permissions/compose-page-specific.adoc[]
+include::partial$permissions/compose-page-specific.adoc[]

@@ -200,7 +200,7 @@ Specifies what field should be used when generating the link to the related reco
 | [#field-type-record-prefilter]#<<field-type-record-prefilter,Pre-filter records>>#
 |
 Specifies the pre-filter that will be applied to the user-defined search in the dropdown.
-Refer to the xref:ql.adoc[] for details.
+Refer to the xref:accessing-corteza/ql.adoc[QL reference] for details.
 
 | [#field-type-record-ff]#<<field-type-record-ff,Query fields on search>>#
 |

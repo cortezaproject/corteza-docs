@@ -28,4 +28,8 @@ When you perform an operation that supports pagination (such as fetching records
 When you wish to access a specific page, you must provide the `pageCursor=$PAGE_CURSOR` query parameter.
 When accessing the next page, `$PAGE_CURSOR` is `filter.nextPage`; when accessing the previous page, `$PAGE_CURSOR` is `filter.prevPage`.
 
-For example `curl -X GET "$API_BASE/compose/namespace/$NAMESPACE_ID/module/$MODULE_ID/record/?pageCursor=$PAGE_CURSOR";`
+.For example:
+[source,bash]
+----
+curl -X GET "$API_BASE/compose/namespace/$NAMESPACE_ID/module/$MODULE_ID/record/?pageCursor=$PAGE_CURSOR";
+----

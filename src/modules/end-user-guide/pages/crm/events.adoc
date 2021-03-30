@@ -1,4 +1,4 @@
-include::../../variables.adoc[]
+include::ROOT:partial$variables.adoc[][]
 
 = Events
 

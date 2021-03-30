@@ -42,43 +42,6 @@ include::./compose/module.adoc[]
 include::./compose/namespace.adoc[]
 |===
 
-== {APP_NAME_MESSAGING}
-
-=== channel member (`messaging:channel-member`)
-
-[cols="2m,5"]
-|===
-|property|Description
-include::./messaging/channel-member.adoc[]
-include::./messaging/channel.adoc[]
-|===
-
-=== channel (`messaging:channel`)
-
-[cols="2m,5"]
-|===
-|property|Description
-include::./messaging/channel.adoc[]
-|===
-
-=== command (`messaging:command`)
-
-[cols="2m,5"]
-|===
-|property|Description
-include::./messaging/command.adoc[]
-include::./messaging/channel.adoc[]
-|===
-
-=== message (`messaging:message`)
-
-[cols="2m,5"]
-|===
-|property|Description
-include::./messaging/message.adoc[]
-include::./messaging/channel.adoc[]
-|===
-
 // System
 
 == System

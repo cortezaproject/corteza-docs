@@ -1,4 +1,4 @@
-include::../../pages/variables.adoc[]
+include::ROOT:partial$variables.adoc[][]
 
 Access to compose::
     Determines if the role is allowed to access {PRODUCT_NAME} {APP_NAME_COMPOSE}.

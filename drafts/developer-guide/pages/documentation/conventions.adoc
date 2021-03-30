@@ -219,7 +219,7 @@ Page cross-references::
 xref:ROOT:guide-goes-here/path-to-source.adoc[label-goes-here]
 
 // For example:
-xref:ROOT:end-user-guide/messaging/index.adoc[{PRODUCT_NAME} {APP_NAME_MESSAGING}]
+xref:messaging/index.adoc[{PRODUCT_NAME} {APP_NAME_MESSAGING}]
 ----
 
 [TIP]

@@ -4,8 +4,8 @@ include::ROOT:partial$variables.adoc[]
 :description: {PRODUCT_NAME} DevOpsGuide covers all aspects of deploying and maintaining your own {PRODUCT_NAME} instance.
 :keywords: dev-ops, devops, {PRODUCT_NAME}
 
-The *DevOps guide* is designed to help you *deploy and maintain* your {PRODUCT_NAME} instance from start to finish.
-The guide provides enough out of the box working examples to help you get started in no time!
+The *DevOps guide* is designed to help you *deploy and maintain* your {PRODUCT_NAME} instance.
+The guide provides enough out of the box working examples to get you up and running.
 
 [NOTE]
 ====
@@ -17,7 +17,6 @@ If you need additional information regarding specific topics, refer to the menu:
 ====
 {PRODUCT_NAME} is compiled, developed, and tested for modern browsers.
 If you need to support older browsers, such as InternetExplorer, you will need to build your images.
-
 Refer to xref:system-requirements.adoc[] for more details.
 ====
 
@@ -26,13 +25,14 @@ Refer to xref:system-requirements.adoc[] for more details.
 [NOTE]
 ====
 *DevNote* update diagram; rewrite to PlantUML.
-====
 
-.The diagram visually describes where various components reside and how they interact.
-image::arch-overview.png[{PRODUCT_NAME} architectural overview]
+// .The diagram visually describes where various components reside and how they interact.
+// image::arch-overview.png[{PRODUCT_NAME} architectural overview]
+====
 
 .{PRODUCT_NAME} defines a series of web applications defined by our `corteza-webapp-*` repositories:
 * {GIT_REPO_LINK_PREFIX}-webapp-compose[*{PRODUCT_NAME} {APP_NAME_COMPOSE}*]
+* {GIT_REPO_LINK_PREFIX}-webapp-workflow[*{PRODUCT_NAME} Workflow*]
 * {GIT_REPO_LINK_PREFIX}-webapp-admin[*{PRODUCT_NAME} {APP_NAME_ADMIN}*]
 * {GIT_REPO_LINK_PREFIX}-webapp-one[*{PRODUCT_NAME} {APP_NAME_SHELL}*]
 
@@ -47,13 +47,13 @@ The web applications communicate with our back-end system ({GIT_REPO_LINK_PREFIX
 == System configuration
 
 {PRODUCT_NAME} is configured via the environment (`.env`) file.
-It allows you to quickly deploy to another system and tweak how the system should behave.
+It allows you to quickly deploy and configure how {PRODUCT_NAME} should behave on another system.
 
-Our examples are configured to work as is, but feel free to tweak xref:configuration/server.adoc[{PRODUCT_NAME} server] and xref:configuration/corredor.adoc[{APP_AUTOMATION} server] as you see fit.
+Our examples are configured to work as is, but feel free to tweak the xref:configuration/server.adoc[server] and the xref:configuration/corredor.adoc[{APP_AUTOMATION} server] as you see fit.
 
 [NOTE]
 ====
-The `.env` file is at the root of the application.
+The `.env` file is at the root of the project folder.
 In the context of Docker Compose, it is next to the `docker-compose.yaml` file.
 ====
 
@@ -69,8 +69,8 @@ You can use variables defined in the `.env` file inside your `docker-compose.yam
 *DevNote* provide a quick rundown of what each deploy config enables you to do; automation scripts, workflows, persistent storage, ...
 ====
 
-The setup runs all services on the same network where the ports are bound to the host's network.
-This is a minimum setup with MySQL as the persistent database storage with {APP_AUTOMATION} server enabled.
+Offline setups run all services on the same network where the ports are bound to the host's network.
+This section provides a minimum setup with MySQL as the persistent database storage with {APP_AUTOMATION} server enabled.
 
 See menu:DevOps guide[Offline deployment] for additional offline deployment configurations.
 
@@ -81,7 +81,7 @@ Offline deployments are suitable only for local development and demos (environme
 
 === Setup your file structure
 
-.Your file structure should look something like this:
+.Your file structure should look like this:
 [source]
 ----
 📁 my-corteza
@@ -93,12 +93,12 @@ Offline deployments are suitable only for local development and demos (environme
 ----
 <1> Make sure to change the owner to the Docker container (you can use `chown 1001:1001 data/db` and `chown 4242:4242 data/server`).
 Omit if you won't use persistent storage.
-<2> Here is where all of the server stuff is stored, such as uploaded attachments.
-<3> Here is where the database can store the data.
+<2> Here is where all of the server data is stored, such as uploaded attachments.
+<3> Here is where the database data is stored.
 
 === Configure docker-compose.yaml
 
-.Your configuration should look something like this:
+.Your configuration should look like this:
 [source,yaml]
 ----
 include::example$deploy/local-mysql/docker-compose.yaml[]
@@ -106,7 +106,7 @@ include::example$deploy/local-mysql/docker-compose.yaml[]
 
 === Configure .env
 
-.Your configuration should look something like this:
+.Your configuration should look like this:
 [source,.env]
 ----
 include::example$deploy/local-mysql/env-example.txt[]
@@ -114,12 +114,16 @@ include::example$deploy/local-mysql/env-example.txt[]
 
 === Run the services
 
-In the root of your project (next to your `docker-compose.yaml` and `.env` files), run `docker-compose up -d` (the execution can take a few seconds).
+In the root of your project (next to your `docker-compose.yaml` and `.env` files), run the docker compose (the execution can take a few seconds).
+The command (downloads and) runs all of the services configured in your `docker-compose.yaml` file.
 
-The command mentioned above (downloads and) runs all of the services configured in your `docker-compose.yaml` file.
+[source,bash]
+----
+docker-compose up -d
+----
 
 Check if everything started correctly by running `docker-compose ps`.
-The output should look something like this:
+The output should look like this:
 
 [source]
 ----
@@ -145,19 +149,20 @@ If you did not configure your SMTP settings, all sign-ups are marked as confirme
 [#deploy-online]
 == Deploy online
 
-This setup separates your services into two networks (internal and proxy) so that internal services are protected from the scary internet.
-This is a minimum setup with MySQL as the persistent database storage with {APP_AUTOMATION} server enabled.
+Online setups separate your services into two networks; internal and proxy.
+The internal network hides most of the system from the internet.
+This section provides a minimum setup with MySQL as the persistent database storage with {APP_AUTOMATION} server enabled.
 
 See menu:DevOps guide[Online deployment] for additional online deployment configurations.
 
 [TIP]
 ====
-You can use the same steps to configure multiple online deployments, such as staging and a production environment.
+You can use the same steps to configure multiple online deployments, such as a staging and a production environment.
 ====
 
 === Setup your file structure
 
-.Your file structure should look something like this:
+.Your file structure should look like this:
 [source]
 ----
 📁 my-proxy <1>
@@ -194,13 +199,13 @@ We will be using https://github.com/jwilder/nginx-proxy[Nginx Proxy] and https:/
 If you wish to use or are using something else, feel free to skip this section.
 
 
-.Your `docker-compose.yaml` should look something like this:
+.Your `docker-compose.yaml` should look like this:
 [source,yaml]
 ----
 include::example$deploy/prod-proxy-nginx/docker-compose.yaml[]
 ----
 
-.Your `custom.conf` should look something like this:
+.Your `custom.conf` should look like this:
 [source,yaml]
 ----
 include::example$deploy/prod-proxy-nginx/custom.conf[]
@@ -209,7 +214,7 @@ include::example$deploy/prod-proxy-nginx/custom.conf[]
 Inside your `my-proxy` directory, run `docker-compose up -d` (the execution can take a few seconds) to start the reverse proxy.
 
 Check if everything started correctly by running `docker-compose ps`.
-The output should look something like this:
+The output should look like this:
 
 [source]
 ----
@@ -225,7 +230,7 @@ include::example$deploy/prod-proxy-nginx/output-ps.txt[]
 Containers *must* be on the same network as `nginx-proxy` (in the examples, we're using a network named `proxy`).
 ====
 
-.Your configuration should look something like this:
+.Your configuration should look like this:
 [source,yaml]
 ----
 include::example$deploy/prod-mysql/docker-compose.yaml[]
@@ -235,7 +240,7 @@ include::example$deploy/prod-mysql/docker-compose.yaml[]
 
 ⚠️ We are inside the `my-corteza` directory.
 
-.Your configuration should look something like this:
+.Your configuration should look like this:
 [source,.env]
 ----
 include::example$deploy/prod-mysql/env-example.txt[]
@@ -243,12 +248,16 @@ include::example$deploy/prod-mysql/env-example.txt[]
 
 === Run the services
 
-Inside your `my-corteza` directory (next to your `docker-compose.yaml` and `.env` files), run `docker-compose up -d` (the execution can take a few seconds).
+Inside your `my-corteza` directory (next to your `docker-compose.yaml` and `.env` files), run the docker compose (the execution can take a few seconds).
+The command (downloads and) runs all of the services configured in your `docker-compose.yaml` file.
 
-The command mentioned above (downloads and) runs all of the services configured in your `docker-compose.yaml` file.
+[source,bash]
+----
+docker-compose up -d
+----
 
 Check if everything started correctly by running `docker-compose ps`.
-The output should look something like this:
+The output should look like this:
 
 [source]
 ----

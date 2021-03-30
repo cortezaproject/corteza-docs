@@ -1,4 +1,4 @@
-include::../../pages/variables.adoc[]
+include::ROOT:partial$variables.adoc[][]
 
 Read module "(module name)"::
   Determines if the role is allowed to access the given module.

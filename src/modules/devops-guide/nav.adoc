@@ -3,8 +3,6 @@
 ** xref:system-requirements.adoc[]
 
 ** xref:prerequisites.adoc[]
-*** xref:prerequisites.adoc#docker[Docker]
-*** xref:prerequisites.adoc#docker-compose[Docker Compose]
 
 ** System configuration
 *** xref:configuration/server.adoc[]

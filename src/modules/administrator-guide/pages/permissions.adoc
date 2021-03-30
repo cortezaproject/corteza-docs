@@ -2,17 +2,17 @@ include::ROOT:partial$variables.adoc[]
 
 = Permissions
 
-The *permissions* interface allows you to configure *core system-level permissions*.
+The permissions interface allows you to configure core system-level permissions.
 
 [IMPORTANT]
 ====
-There is a separate view for <<permissions-system,*system*>>, <<permissions-messaging,*{PRODUCT_NAME} {APP_NAME_MESSAGING}*>>, and <<permissions-compose,*{PRODUCT_NAME} {APP_NAME_COMPOSE}*>>.
+There is a separate view for <<permissions-system,system>>, <<permissions-automation,automation>> and <<permissions-compose,{PRODUCT_NAME} {APP_NAME_COMPOSE}>>.
 ====
 
 [IMPORTANT]
 ====
-These rules *apply to automation scripts*.
-If a user is *not allowed to access {APP_NAME_COMPOSE}*, the triggered *automation script* is also *not allowed to access {APP_NAME_COMPOSE}*.
+These rules apply to automation (automation scripts and workflows).
+If a user is not allowed to access {APP_NAME_COMPOSE}, nor will the automation.
 ====
 
 [#permissions-system]
@@ -20,64 +20,60 @@ If a user is *not allowed to access {APP_NAME_COMPOSE}*, the triggered *automati
 
 === System service permissions
 
-include::ROOT:partial$permissions/system-service.adoc[]
+include::partial$permissions/system-service.adoc[]
 
 === Organizations
 
-include::ROOT:partial$permissions/system-organisations.adoc[]
+include::partial$permissions/system-organisations.adoc[]
 
 === Applications
 
-include::ROOT:partial$permissions/system-applications.adoc[]
+include::partial$permissions/system-applications.adoc[]
 
 === Users
 
-include::ROOT:partial$permissions/system-users.adoc[]
+include::partial$permissions/system-users.adoc[]
 
 === Roles
 
-include::ROOT:partial$permissions/system-roles.adoc[]
+include::partial$permissions/system-roles.adoc[]
 
 [#permissions-compose]
-
 == {PRODUCT_NAME} {APP_NAME_COMPOSE}
 
 === Service permissions
 
-[IMPORTANT]
-====
-If a role doesn't have access to the {PRODUCT_NAME} {APP_NAME_COMPOSE}, they will also *not be able* to access any application defined as a {PRODUCT_NAME} {APP_NAME_COMPOSE} namespace.
-====
-
-include::ROOT:partial$permissions/compose-service.adoc[]
+include::partial$permissions/compose-service.adoc[]
 
 === Namespaces permissions
 
-include::ROOT:partial$permissions/compose-namespaces.adoc[]
+include::partial$permissions/compose-namespaces.adoc[]
 
 === Modules permissions
 
-include::ROOT:partial$permissions/compose-modules.adoc[]
+include::partial$permissions/compose-modules.adoc[]
 
 === Module fields permissions
 
-include::ROOT:partial$permissions/compose-module-fields.adoc[]
+include::partial$permissions/compose-module-fields.adoc[]
 
 === Charts permissions
 
-include::ROOT:partial$permissions/compose-charts.adoc[]
+include::partial$permissions/compose-charts.adoc[]
 
 === Pages permissions
 
-include::ROOT:partial$permissions/compose-pages.adoc[]
+include::partial$permissions/compose-pages.adoc[]
 
-[#permissions-messaging]
-== {PRODUCT_NAME} {APP_NAME_MESSAGING}
+[#permissions-automation]
+== Automation
 
 === Service permissions
 
-include::ROOT:partial$permissions/messaging-service.adoc[]
+include::partial$permissions/automation-service.adoc[]
 
-=== Channels permissions
+=== Namespaces permissions
 
-include::ROOT:partial$permissions/messaging-channels.adoc[]
+include::partial$permissions/automation-workflows.adoc[]
+
+=== {APP_NAME_WORKFLOW} permissions

@@ -2,13 +2,13 @@ include::ROOT:partial$variables.adoc[]
 
 = Automation
 
-The *automation* interface provides an overview of *processed automation scripts*.
+The automation interface provides an overview of processed automation scripts.
 
-The automation interface can be used to *debug* issues *regarding invalid* or *missing automation scripts*.
+The automation interface can be used to debug issues regarding invalid or missing automation scripts.
 
 [NOTE]
 ====
-Refer to xref:ROOT:integrator-guide/extensions/index.adoc#extension-deploy[deploying extensions] for details on *how to deploy extensions*.
+Refer to xref:integrator-guide:automation-scripts/deploying.adoc[deploying automation scripts] for details on how to deploy extensions.
 ====
 
 == Listing automation scripts
@@ -20,7 +20,7 @@ Refer to xref:ROOT:integrator-guide/extensions/index.adoc#extension-deploy[deplo
 
 [NOTE]
 ====
-*Invalid automation scripts* show an *error message*.
+Invalid automation scripts show an error message.
 ====
 
 == Inspecting automation scripts
@@ -30,9 +30,9 @@ Refer to xref:ROOT:integrator-guide/extensions/index.adoc#extension-deploy[deplo
 . click on the "Automation" in the navigation drawer,
 . click on the blue button next to the label.
 
-You can inspect the automation script properties, such as the *trigger* and *security context*.
+You can inspect the automation script properties, such as the trigger and security context.
 
 [NOTE]
 ====
-*Invalid automation scripts* show an *error message*.
+Invalid automation scripts show an error message.
 ====

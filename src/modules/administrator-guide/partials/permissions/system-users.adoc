@@ -1,4 +1,4 @@
-include::../../pages/variables.adoc[]
+include::ROOT:partial$variables.adoc[][]
 
 Read any user::
     Determines if the role is allowed to access any user.

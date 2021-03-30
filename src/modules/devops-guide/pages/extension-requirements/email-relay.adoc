@@ -5,12 +5,12 @@ include::ROOT:partial$variables.adoc[]
 :keywords: dev-ops, DevOps, email relay, automation scripts
 
 {PRODUCT_NAME} allows you to detect and react to incoming emails via automation scripts.
-You can implement automatic responses, create records based on the email content, and forward the email to a {APP_NAME_MESSAGING} channel.
+You can implement automatic responses, create records based on the email content, and forward the email to our supervisor.
 
 [NOTE]
 ====
 Here, we only cover how to setup an email relay.
-Refer to the xref:integrator-guide:index.adoc[] for details on how to use this.
+Refer to the xref:integrator-guide:index.adoc[integrator guide] for details on using this feature.
 ====
 
 // Move this to the integrator guide

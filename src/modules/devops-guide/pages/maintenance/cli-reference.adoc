@@ -6,7 +6,7 @@ include::ROOT:partial$variables.adoc[]
 
 [NOTE]
 ====
-*DevNote*: think about adding some more examples/usecases?
+*DevNote* think about adding some more examples/usecases?
 Update/assure the commands are still as are and valid.
 ====
 

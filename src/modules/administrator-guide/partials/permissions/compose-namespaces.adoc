@@ -1,4 +1,4 @@
-include::../../pages/variables.adoc[]
+include::ROOT:partial$variables.adoc[][]
 
 Access any namespace::
     Determines if the role is allowed to access any {PRODUCT_NAME} {APP_NAME_COMPOSE} namespace.

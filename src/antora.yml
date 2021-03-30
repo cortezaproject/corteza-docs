@@ -4,7 +4,7 @@ version: '2020.12'
 display_version: '2020.12'
 nav:
   - modules/devops-guide/nav.adoc
-  - modules/end-user-guide/nav.adoc
+  # - modules/end-user-guide/nav.adoc
   - modules/administrator-guide/nav.adoc
   - modules/integrator-guide/nav.adoc
   - modules/developer-guide/nav.adoc

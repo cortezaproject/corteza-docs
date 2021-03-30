@@ -2,68 +2,7 @@ include::ROOT:partial$variables.adoc[]
 
 = Administrator Guide
 
-The *administrator guide* will help you perform your administrator role.
-We cover everything from *creating and configuring users* to *defining permissions*
-
-[NOTE]
-====
-If you are interested about *application development*, refer to the xref:ROOT:/integrator-guide/index.adoc[integrator guide].
-====
-
-== Overview the security system
-
-xref:ROOT:administrator-guide/security.adoc[*Reviewing the security system*] will provide you with an overview of our *access control* system.
-It will help with developing *secure applications* and defining *role hierarchies*.
-
-== The administrator panel
-
-The xref:ROOT:administrator-guide/admin-panel/index.adoc[*administrator panel*] provides a quick *overview of the system*, xref:ROOT:administrator-guide/admin-panel/index.adoc#admin-panel-user[*user*] and xref:ROOT:administrator-guide/admin-panel/index.adoc#admin-panel-role[*role*] management; *permission and settings* overview.
-
-== System administration
-
-See our guides for xref:ROOT:administrator-guide/compose/index.adoc[*{PRODUCT_NAME} {APP_NAME_COMPOSE}*] and xref:ROOT:administrator-guide/messaging/index.adoc[*{PRODUCT_NAME} {APP_NAME_MESSAGING}*] administration.
-
-== {PRODUCT_NAME} {APP_NAME_FEDERATION}
-
-xref:ROOT:administrator-guide/federation/index.adoc[*{PRODUCT_NAME} {APP_NAME_FEDERATION}*] enables different *{PRODUCT_NAME} instances* to establish a *federated network* to *freely and securely* exchange information.
-
-[NOTE]
-====
-{PRODUCT_NAME} {APP_NAME_FEDERATION} is disabled by default.
-Set the `FEDERATION_ENABLED` `.env` variable to `true` if you wish to enable it.
-====
-
-// ---
-
-include::ROOT:partial$security.adoc[]
-
-// ---
-
-=== Admin panel
-
-The *administrator panel* provides a quick *overview of the system*; <<admin-panel-user,*user*>> and <<admin-panel-system-roles,*role*>> management; *permission* and *settings* overview.
-
-To access {PRODUCT_NAME} {APP_NAME_ADMIN}, click on a new tab and select it from the list of available applications.
-
-=== Compose
-
-Here, we cover *{PRODUCT_NAME} {APP_NAME_COMPOSE} administration*; defining permissions and such.
-
-Refer to the xref:ROOT:integrator-guide/index.adoc[*integrator guide*] if you wish to *develop applications*
-
-=== Federation
-
-[NOTE]
-====
-{PRODUCT_NAME} {APP_NAME_FEDERATION} is disabled by default.
-Set the `FEDERATION_ENABLED` `.env` variable to `true` if you wish to enable it.
-====
-
-{PRODUCT_NAME} {APP_NAME_FEDERATION} enables different *{PRODUCT_NAME} instances* to establish a *federated network* to *freely and securely* exchange information.
-
-This document will help you through the process of *setting up your federated network* and *configure data sharing*.
-
-.Quick access:
-* <<node-pairing,adding new federated nodes>>,
-* <<expose-module,configuring data sharing>>,
-* <<module-mapping,consuming shared data>>.
+****
+The landing page for the administrator guide is under construction.
+Please refer to the side navigation menu:Administrator Guide[] to access the topic you are curious about.
+****

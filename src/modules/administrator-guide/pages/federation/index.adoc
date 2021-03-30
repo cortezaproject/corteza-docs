@@ -1,0 +1,27 @@
+include::ROOT:partial$variables.adoc[]
+
+[#federation]
+= {PRODUCT_NAME} {APP_NAME_FEDERATION}
+
+[NOTE]
+====
+{PRODUCT_NAME} {APP_NAME_FEDERATION} is disabled by default.
+Set the `FEDERATION_ENABLED` `.env` variable to `true` if you wish to enable it.
+====
+
+{PRODUCT_NAME} {APP_NAME_FEDERATION} enables different *{PRODUCT_NAME} instances* to establish a *federated network* to *freely and securely* exchange information.
+
+This document will help you through the process of *setting up your federated network* and *configure data sharing*.
+
+.Quick access:
+* <<node-pairing,adding new federated nodes>>,
+* <<expose-module,configuring data sharing>>,
+* <<module-mapping,consuming shared data>>.
+
+:leveloffset: +1
+
+include::nodes.adoc[]
+
+include::share-data.adoc[]
+
+:leveloffset: -1

@@ -3,7 +3,7 @@
 
 The Service Solution extension implements the *Service Solution* application.
 
-Refer to the xref:ROOT:end-user-guide/service-solution/index.adoc[*end-user guide*] on how to *use the extension*.
+Refer to the xref:service-solution/index.adoc[*end-user guide*] on how to *use the extension*.
 
 :leveloffset: +1
 

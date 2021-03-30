@@ -1,4 +1,4 @@
-include::../../pages/variables.adoc[]
+include::ROOT:partial$variables.adoc[][]
 
 Read page "(page title)"::
     Determines if the role is allowed to access the given page of the namespace.

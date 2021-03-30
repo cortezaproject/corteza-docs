@@ -107,9 +107,9 @@ The *Password* and *Role membership* sections are available only *for existing u
 [#user-permissions-all]
 == Permissions for all users
 
-include::ROOT:partial$permissions/system-users.adoc[]
+include::partial$permissions/system-users.adoc[]
 
 [#user-permissions-specific]
 == Permissions for a specific user
 
-include::ROOT:partial$permissions/system-user-specific.adoc[]
+include::partial$permissions/system-user-specific.adoc[]

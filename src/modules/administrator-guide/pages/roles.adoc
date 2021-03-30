@@ -89,9 +89,9 @@ The *Role members* section is available only *for existing roles*.
 
 == Permissions for all roles
 
-include::ROOT:partial$permissions/system-roles.adoc[]
+include::partial$permissions/system-roles.adoc[]
 
 [#role-permissions-specific]
 == Permissions for a specific role
 
-include::ROOT:partial$permissions/system-role-specific.adoc[]
+include::partial$permissions/system-role-specific.adoc[]

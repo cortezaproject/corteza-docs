@@ -1,4 +1,4 @@
-include::../../variables.adoc[]
+include::ROOT:partial$variables.adoc[][]
 
 = Settings
 
@@ -36,15 +36,6 @@ This is the default time that is used when working on case updates.
 You can calculate the average consumed time and use that value here.
 ====
 
-=== Default support channel id
-
-{PRODUCT_NAME} Service Solution integrates into the {PRODUCT_NAME} {APP_NAME_MESSAGING} application.
-Specific events, such as a case update, are sent to the {PRODUCT_NAME} {APP_NAME_MESSAGING} channel that is defined in this field.
-
-Here is an example of an automated message update:
-
-> Automatic update. "Ticket#20200914101549730" has been updated: Email: Case: [Ticket#20200914101549730] "Cannot connect the cable to the screen" (type: Outgoing email). Direct link: https://latest.cortezaproject.org/compose/ns/service-solution/pages/111502308285612036/record/161946717564960772
-
 === Default case link
 
 This is the base URL that will be used when generating links to cases.
@@ -77,17 +68,6 @@ If you don't see any departments, you should first create it.
 === Default time for a case update
 
 Enter a default time that should be used when working on a case update.
-
-=== Default support channel id
-
-[NOTE]
-====
-If you don't wish to send automated messages to the {PRODUCT_NAME} {APP_NAME_MESSAGING} application, you can skip this.
-====
-
-. Open {PRODUCT_NAME} {APP_NAME_MESSAGING}, select a channel you wish to use, or create a new one,
-. take note of the channel ID (this is the long number at the end of the URL address),
-. paste the channel ID into this field.
 
 === Default case link
 

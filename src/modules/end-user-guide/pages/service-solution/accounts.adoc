@@ -1,4 +1,4 @@
-include::../../variables.adoc[]
+include::ROOT:partial$variables.adoc[][]
 
 = Accounts
 
@@ -22,5 +22,5 @@ An account stores essential data regarding the company, along with a set of cont
 
 [NOTE]
 ====
-Refer to xref:ROOT:end-user-guide/service-solution/index.adoc#cases[the cases section] for additional details.
+Refer to xref:service-solution/index.adoc#cases[the cases section] for additional details.
 ====

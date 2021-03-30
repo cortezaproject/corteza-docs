@@ -49,10 +49,10 @@ curl "$CORTEZA_URL" \
 // |===
 // | Endpoint | Other authentication methods
 
-// | `GET /attachment/{kind}/{attachmentID}/original/{name}`
+// | `GET /attachment/\{kind}/\{attachmentID}/original/\{name}`
 // | System generated signature.
 
-// | `GET /attachment/{kind}/{attachmentID}/preview.{ext}`
+// | `GET /attachment/\{kind}/\{attachmentID}/preview.\{ext}`
 // | System generated signature.
 
 // // ----
@@ -99,10 +99,10 @@ curl "$CORTEZA_URL" \
 |===
 | Endpoint | Other authentication methods
 
-| `GET /namespace/{namespaceID}/attachment/{kind}/{attachmentID}/original/{name}`
+| `GET /namespace/\{namespaceID}/attachment/\{kind}/\{attachmentID}/original/\{name}`
 | System generated signature.
 
-| `GET /namespace/{namespaceID}/attachment/{kind}/{attachmentID}/preview.{ext}`
+| `GET /namespace/\{namespaceID}/attachment/\{kind}/\{attachmentID}/preview.\{ext}`
 | System generated signature.
 
 |===
@@ -112,7 +112,7 @@ curl "$CORTEZA_URL" \
 |===
 | Endpoint | Other authentication methods
 
-| `POST /nodes/{nodeID}/handshake`
+| `POST /nodes/\{nodeID}/handshake`
 | System generated OTT token.
 
 |===

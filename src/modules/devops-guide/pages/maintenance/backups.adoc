@@ -4,8 +4,8 @@ include::ROOT:partial$variables.adoc[]
 :description: An example of how to perform data backups and restore the state based on the backup.
 :keywords: dev-ops, DevOps, CLI, command-line interface, maintenance
 
-We recommend updating your database and uploaded files regularly.
-It is also highly recommended to do a database backup before you upgrade to a more recent {PRODUCT_NAME} version.
+We recommend backing up your database and uploaded files regularly.
+It is also highly recommended to do a backup before you upgrade to a more recent {PRODUCT_NAME} version.
 
 [TIP]
 ====
@@ -14,10 +14,12 @@ You can define a cron job that backups your data to some external storage.
 
 [NOTE]
 ====
-*DevNote*: add some example setups, as we have now with a CRON job?
+*DevNote* add some example setups, as we have now with a CRON job?
 ====
 
-== Backup the database
+== Database
+
+=== Backup
 
 We recommend you use the `mysqldump` tool.
 It's builtin into the `db` container (`percona:8.0` image).
@@ -47,9 +49,12 @@ docker-compose exec -T \
     mysqldump your-db-name --add-drop-database -u your-username > dump.sql
 ----
 
-⚠️ If you've changed the database service name (`db`) inside your `docker-compose.yaml`, make sure to change it in the above command.
+[CAUTION]
+====
+If you've changed the database service name (`db`) inside your `docker-compose.yaml`, make sure to change it in the above command.
+====
 
-== Restore the database
+=== Restore
 
 [NOTE]
 ====
@@ -65,9 +70,14 @@ docker-compose exec -T \
     mysql your-db-name -u your-username < dump.sql
 ----
 
-⚠️ If you've changed the database service name (`db`) inside your `docker-compose.yaml`, make sure to change it in the above command.
+[CAUTION]
+====
+If you've changed the database service name (`db`) inside your `docker-compose.yaml`, make sure to change it in the above command.
+====
 
-== Backup uploaded files
+== Files
+
+=== Backup
 
 Without object storage service like Min.io, uploaded files are stored directly on the filesystem.
 {PRODUCT_NAME} server stores data to the `/data` directory (if not configured differently with `*_STORAGE_PATH` environmental variables).
@@ -81,7 +91,7 @@ You can use any standard file management tools to make a backup copy of the file
 tar -cjf backup.tar.bz2 data/server/
 ----
 
-== Restore uploaded files
+=== Restore
 
 .Uncompromising files from the archive with the `tar` command:
 [source,bash]

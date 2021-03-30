@@ -7,7 +7,7 @@ This guide will help you upgrade your {PRODUCT_NAME} to the newest version in no
 [IMPORTANT]
 ====
 While there are internal safeguards in place that can prevent data loss or other kinds of disasters, make sure you backup your database before you do an upgrade.
-Refer to xref:ROOT:dev-ops-guide/backup.adoc[devops guide on backup procedure] for details.
+Refer to xref:devops-guide:maintenance/backups.adoc[devops guide on backup procedure] for details.
 ====
 
 [IMPORTANT]

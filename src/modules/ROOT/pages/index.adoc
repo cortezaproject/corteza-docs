@@ -4,11 +4,6 @@ include::partial$variables.adoc[]
 :description: {PRODUCT_NAME} is an open-source, self-hosted Low-Code Development Platform.
 :keywords: {PRODUCT_NAME}, documentation, open-source, self-hosted, low-code platform
 
-[source,txt]
-----
-- project repository structure overview
-----
-
 {PRODUCT_NAME} is an open-source, self-hosted Low-Code Development Platform built upon modern technologies.
 {PRODUCT_NAME} is secure with a powerful access control system, allowing fine-grained permission definition.
 
@@ -18,18 +13,10 @@ Organisations should feel that their chosen digital work platform is always *und
 [NOTE]
 ====
 Questions?
-Check out https://{DOMAIN}[our homepage] or https://latest.{DOMAIN}[get in touch with us].
+Check out https://{DOMAIN}[our homepage] or https://forum.{DOMAIN}[get in touch with us].
 ====
 
-== About the documentation
-
-=== How to read the documentation
-
-*DevNote* todo...
-
-== Getting started
-
-=== Installing {PRODUCT_NAME}
+== Installing {PRODUCT_NAME}
 
 [WARNING]
 ====
@@ -48,42 +35,41 @@ If you wish to deploy {PRODUCT_NAME} elsewhere (for example, bare metal) you wil
 *DevNote* add some documentation regarding source compiling.
 ====
 
-=== Learning {PRODUCT_NAME}
+// == Learning {PRODUCT_NAME}
 
-The xref:end-user-guide:index.adoc[] covers *all {PRODUCT_NAME} applications*, their *features*, and *how to use* them.
-We've designed the end-user guide to be easily understandable by non-techy people, so you don't need to be a field expert.
+// The xref:end-user-guide:index.adoc[] covers *all {PRODUCT_NAME} applications*, their *features*, and *how to use* them.
+// We've designed the end-user guide to be easily understandable by non-techy people, so you don't need to be a field expert.
 
-.Here are a few shortcuts:
-* xref:end-user-guide:crm/index.adoc[]
-* xref:end-user-guide:service-solution/index.adoc[]
-* xref:end-user-guide:messaging/index.adoc[]
-* xref:end-user-guide:shell/index.adoc[]
+// .Here are a few shortcuts:
+// * xref:end-user-guide:crm/index.adoc[]
+// * xref:end-user-guide:service-solution/index.adoc[]
+// * xref:end-user-guide:shell/index.adoc[]
 
-=== System administration
+== System administration
 
 The xref:administrator-guide:index.adoc[] covers core system security and core system resources; such as xref:administrator-guide:users.adoc[], xref:administrator-guide:roles.adoc[], and xref:administrator-guide:applications.adoc[].
 
 If you're interested in developing custom applications using {PRODUCT_NAME}, refer to xref:integrator-guide:index.adoc[].
 
-=== Create with {PRODUCT_NAME}
+== Create with {PRODUCT_NAME}
 
 The xref:integrator-guide:index.adoc[] walks you *through the integration process*; from the xref:integrator-guide:security.adoc[] system, xref:integrator-guide:compose-configuration/index.adoc[], and xref:integrator-guide:automation-scripts/index.adoc[] development.
 
-There are also a bunch of copy-pastable examples, and miscellaneous bits such as xref:integrator-guide:automation-scripts/deploying.adoc[], xref:integrator-guide:automation-scripts/debugging.adoc[automation script debugging] and tips for xref:integrator-guide:corteza-api/index.adoc[].
+There are also a bunch of copy-pastable examples, and miscellaneous bits such as xref:integrator-guide:automation-scripts/deploying.adoc[], xref:integrator-guide:automation-scripts/debugging.adoc[automation script debugging] and tips for xref:integrator-guide:accessing-corteza/index.adoc[].
 
-=== Core developers
+// == Core developers
 
-Hi -- xref:developer-guide:index.adoc[]
+// Hi -- xref:developer-guide:index.adoc[]
 
-[NOTE]
-====
-The developer guide should provide enough abstract overview to help you get started.
-The guide is fairly... !complete so feel free to get in touch with us if you're stuck.
-====
+// [NOTE]
+// ====
+// The developer guide should provide enough abstract overview to help you get started.
+// The guide is fairly... !complete so feel free to get in touch with us if you're stuck.
+// ====
 
-*DevNode* link the new messaging platform
+// *DevNode* link the new messaging platform
 
-=== Upgrading {PRODUCT_NAME}
+== Upgrading {PRODUCT_NAME}
 
 [IMPORTANT]
 ====
@@ -92,6 +78,6 @@ When upgrading, you should always firstly go over the xref:ROOT:changelog/index.
 Versions may *not be backwards compatible* and may need some additional work to get setup.
 ====
 
-To upgrade from 2020.12, you can use xref:ROOT:changelog/202103.adoc[*this changelog*] and xref:ROOT:upgrade-guide/202103.adoc[*this upgrade guide*].
+To upgrade from 2020.12, you can use xref:ROOT:changelog/202103.adoc[this changelog] and xref:upgrade-guide:index.adoc[this upgrade guide].
 
-You can find all of the changelogs xref:ROOT:changelog/index.adoc[*here*], and all of the upgrade guides xref:ROOT:upgrade-guide/index.adoc[*here*].
+You can find all of the changelogs xref:ROOT:changelog/index.adoc[here], and all of the upgrade guides xref:upgrade-guide:index.adoc[here].

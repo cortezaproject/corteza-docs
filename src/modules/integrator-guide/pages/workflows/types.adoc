@@ -17,7 +17,7 @@ A `Boolean` indicates wether a variable is truthy (`true`) or faulty (`false`).
 | Yes
 |
 A `DateTime` contains an absolute temporal value.
-A `DateTime` can easily be manipulated using xref:expressions.adoc#datetime[date-time functions].
+A `DateTime` can easily be manipulated using xref:expr/fnc-reference.adoc#datetime[date-time functions].
 
 | [#datatype-duration]#<<datatype-duration,Duration>>#
 | Yes

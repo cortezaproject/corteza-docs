@@ -8,20 +8,7 @@ The *end-user guide* will help you understand *{PRODUCT_NAME} applications*, the
 
 We've designed the end-user guide to be easily understandable by non-techy people, so you don't need to be a field expert.
 
-== {PRODUCT_NAME} CRM
-
-xref:ROOT:end-user-guide/crm/index.adoc[*{PRODUCT_NAME} CRM*] is a highly flexible, scalable and open source Customer Relationship Management solution.
-
-== {PRODUCT_NAME} Service Solution
-
-xref:ROOT:end-user-guide/service-solution/index.adoc[*{PRODUCT_NAME} Service Solution*] is a highly flexible, scalable and open source solution for keeping up with customer cases.
-
-== {PRODUCT_NAME} {APP_NAME_MESSAGING}
-
-xref:ROOT:end-user-guide/messaging/index.adoc[*{PRODUCT_NAME} {APP_NAME_MESSAGING}*] is a modern, private, secure messaging system which integrates seamlessly with the rest of the system.
-
-== {PRODUCT_NAME} {APP_NAME_SHELL}
-
-xref:ROOT:end-user-guide/shell/index.adoc[*{PRODUCT_NAME} {APP_NAME_SHELL}*] brings all of the {PRODUCT_NAME} applications under a single user interface.
-
-It let's you customize your work environment just the way you want it!
+[NOTE]
+====
+The landing page is under construction
+====

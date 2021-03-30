@@ -1,4 +1,4 @@
-include::../../pages/variables.adoc[]
+include::ROOT:partial$variables.adoc[][]
 
 Read "(field name)" record fields::
   Determines if the role is allowed to access the given value inside the module.

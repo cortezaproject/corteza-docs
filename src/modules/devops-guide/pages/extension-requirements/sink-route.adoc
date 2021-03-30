@@ -24,7 +24,7 @@ Sink signatures should be treated as passwords.
 
 A sink signature is generated using the xref:maintenance/cli-reference.adoc#sink-signature[sink signature] CLI command.
 
-For example `{CLI_CMD_SYSTEM} sink signature` returns something in the lines of:
+For example `{CLI_CMD} sink signature` returns such an output (the signature will be different):
 
 [source]
 ----
@@ -34,9 +34,16 @@ Sink request constraints:
  - body size is not limited
 ----
 
-The generated sink signature (the thing after `__sign`) is unconstrained and ready to accept any HTTP requests.
-This is bad.
-We suggest you try to constraint your signatures as much as possible (refer to the CLI help sub-command).
+[IMPORTANT]
+====
+Refer to the CLI command reference for details on available options (`{CLI_CMD} sink signature -h`).
+The above command creates an unconstrained signature (any request is considered as valid).
+====
+
+The signature can be found at the end of the `__sign` query parameter.
+This signature should be stored somewhere safe as it is required to authenticate any request to the sink route.
+
+Each request to the sink route must specify the sink signature we generated above.
 
 [CAUTION]
 ====
@@ -46,7 +53,8 @@ See <<sign-in-path>> to bypass the restriction.
 
 == Use the sink route
 
-When you wish to use the sink route (you wish to define a webhook for example), all inbound requests must specify the sink signature generated above.
+When you need to use the sink route (e.g. you wish to define a webhook), all inbound requests must specify the sink signature generated above.
+Either in the query parameter or in the path (depending on the provided CLI parameters).
 
 For example:
 [source,bash]
@@ -62,7 +70,7 @@ curl '$BASE_API_URL/system/sink?__sign=$SINK_SIGNATURE' \
 
 If you can't use a query parameter to authenticate the request, add the `--signature-in-path` argument tho the xref:maintenance/cli-reference.adoc#sink-signature[sink signature] CLI command.
 
-For example `{CLI_CMD_SYSTEM} sink signature --signature-in-path` returns something in the lines of:
+For example `{CLI_CMD} sink signature --signature-in-path` returns such an output (the signature will be different):
 
 [source]
 ----
@@ -71,3 +79,8 @@ Sink request constraints:
  - signature should be part of path
  - body size is not limited
 ----
+
+[CAUTION]
+====
+The "in path" signature *can not be used* inside a query parameter and vice-versa.
+====

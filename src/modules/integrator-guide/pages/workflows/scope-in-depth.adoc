@@ -8,7 +8,7 @@ For the most common use-cases this doesn't really matter, but it can come in han
 
 [IMPORTANT]
 ====
-Non-primitive data types (more can be found xref:workflows/variables.adoc[here]) are passed around using pointers, meaning that any change to one reflects to all of the copies.
+Non-primitive data types (more can be found xref:workflows/types.adoc[here]) are passed around using pointers, meaning that any change to one reflects to all of the copies.
 
 To examplify; we have a user in two different scopes.
 If a change of name in one of the scopes is made, all of the scopes are affected.

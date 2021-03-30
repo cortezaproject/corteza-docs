@@ -10,7 +10,7 @@ include::ROOT:partial$variables.adoc[]
 . navigate to the "Charts" subpage,
 . click on the *lock icon* on top of the *chart list*.
 
-include::ROOT:partial$permissions/compose-charts.adoc[]
+include::partial$permissions/compose-charts.adoc[]
 
 == Specific chart
 
@@ -20,4 +20,4 @@ include::ROOT:partial$permissions/compose-charts.adoc[]
 . navigate to the "Charts" subpage,
 . click on the *lock icon* next to a chart.
 
-include::ROOT:partial$permissions/compose-chart-specific.adoc[]
+include::partial$permissions/compose-chart-specific.adoc[]

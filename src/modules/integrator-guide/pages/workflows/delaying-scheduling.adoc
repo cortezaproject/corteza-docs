@@ -98,6 +98,7 @@ If your use-case requires you to define a timeout, you can implement this manual
 
 image:workflow/manual-timeout.png[]
 
+****
 .Workflow step details:
 [%collapsible.result]
 ====
@@ -129,8 +130,9 @@ image:workflow/manual-timeout.png[]
 ** *type*: `Log debug message`
 ** *arguments*:
 *** *message*:
-**** *value type*:  constant
+**** *value type*: constant
 **** *value*: `Iterator loop`
 8. *(8) Done*: /
 9. *(9) Completed*: /
 ====
+****

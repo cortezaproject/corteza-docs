@@ -24,5 +24,7 @@ asciidoc:
   attributes:
     experimental: true
     doctype: book
+    collapsible: true
   extensions:
     - asciidoctor-kroki
+    - ./lib/collapsible-block-tree-processor.js

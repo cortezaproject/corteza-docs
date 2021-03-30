@@ -4,7 +4,7 @@ include::ROOT:partial$variables.adoc[]
 
 [#automation-script-signature]
 ****
-.To refresh your memory, this is how an automation script looks like:
+.To refresh your memory, this is what an automation script looks like:
 [source,js]
 ----
 export default {
@@ -18,9 +18,9 @@ export default {
 
 == Execution arguments
 
-Execution arguments (the `args` parameter of the <<automation-script-signature,`exec` function>>) contains the core data that your logic is able to work with.
+Execution arguments (the `args` parameter of the <<automation-script-signature,`exec` function>>) contain the core data that your logic is able to work with.
 The data differs based on the event that triggered the automation script.
-For example; user related events define what user was involved, while record related events define the involved record and module.
+To examplify; user related events define what user is involved, while record related events define the involved record and the module.
 
 [NOTE]
 ====
@@ -29,18 +29,17 @@ Refer to xref:automation-scripts/references/resource-events.adoc[] for a complet
 
 [IMPORTANT]
 ====
-Arguments to a client-script are provided via *references* to the original objects, meaning that *any change* to the argument parameter *will reflect* to the original object.
+Arguments to a client-script are provided via *references* to the original objects, meaning that *any change* to the argument parameter *reflects* back to the original object.
 
-Arguments to a server-script are provided as *a copy* of the original object, meaning that the changes will *not be reflected* on the original object.
+Arguments to a server-script are provided as *a copy* of the original object, meaning that the changes are *not reflected* on the original object.
 ====
 
-[#execution-context]
 == Execution context
 
 Execution context (the `ctx` parameter of the <<automation-script-signature,`exec` function>>) contains contextual information and utilities that can be used within script execution.
-The context is static between all events.
+The context between all of the events is static.
 
-.Execution context parameters:
+.Execution of context parameters:
 [cols="1m,5a"]
 |===
 | [#context-console]#<<context-console,ctx.console>>#
@@ -94,14 +93,15 @@ This is useful when generating URL addresses that point to the {PRODUCT_NAME} ap
 *DevNote* expand this section.
 ====
 
-The execution result (the final output of the <<automation-script-signature,`exec` function>>) implicitly determines what happens next.
+The execution result (the final output of the <<automation-script-signature,`exec` function>>) implicitly determines what is to follow.
 
 .There are three possibilities:
 [cols="1s,5a"]
 |===
-| [#exec-result-terminate]#<<exec-result-terminate,The execution was terminated>>#
+| [#exec-result-terminate]#<<exec-result-terminate,The execution is terminated>>#
 |
-When an automation script execution is *terminated* (any error other then `Aborted` occurs), the operation that triggered the script execution is also terminated and no further steps are taken.
+When an automation script execution is *terminated* (when any error other then `Aborted` occurs or the value of `false` is returned), the operation that triggered the script execution is also terminated.
+No further actions are performed.
 
 .An example:
 [source,js]
@@ -115,9 +115,9 @@ export default {
 }
 ----
 
-| [#exec-result-abort]#<<exec-result-abort,The execution was aborted>>#
+| [#exec-result-abort]#<<exec-result-abort,The execution is aborted>>#
 |
-When an automation script execution is *aborted* (an error with the value of `Aborted` occurs, or the value of `false` is returned), the current automation script is canceled but any further automation scripts; as well as the initial operation; are still allowed to continue.
+When an automation script execution is *aborted* (an error with the value of `Aborted` occurs, or the value of `false` is returned), the current automation script is canceled, while any further automation scripts (in addition to the initial operation) are allowed to continue.
 
 .An example:
 [source,js]
@@ -133,9 +133,10 @@ export default {
 }
 ----
 
-| [#exec-result-unknown]#<<exec-result-unknown,The execution was successful>>#
+| [#exec-result-unknown]#<<exec-result-unknown,The execution is successful>>#
 |
-Any other execution result is considered as successful and the value implicitly affects the result of the invoking operation; what exactly this means is correlated with the event, discussed in the following sub-sections.
+Any other execution result is considered as successful.
+The value implicitly affects the result of the invoking operation; what this means correlates the event as discussed in the following sub-sections.
 
 [source,js]
 ----
@@ -156,9 +157,8 @@ export default {
 The following only applies for *before events*.
 ====
 
-When a non-zero value is returned, that value is used *instead of the original* value.
-For example; if we change the name of our contact, the changed name will be used instead of the original one.
-If we didn't return anything; for example `null` or `undefined`, the change would be reverted.
+When a non-zero value is returned, that value is used *instead of the original* value, for example; when we change the name of a contact, the changed name will be used instead of the original one.
+If we do not return anything (e.g. `null` or `undefined`), the change is reverted.
 
 .An example:
 [source,js]
@@ -178,21 +178,21 @@ export default {
 
 [IMPORTANT]
 ====
-The return values for *after* events are discarded (the value was already saved).
+The return values for *after events* are discarded (the value was already saved).
 ====
 
 === Sink script execution result
 
 The returned value of a sink script is used to construct the HTTP response.
-This can be as simple as returning static HTML pages (the <<sink-result-static-html,below example>> does this); or as complex as implementing OAuth authentication flows or fetching <<sink-result-external-json,data from external sources>>.
+This can be as simple as returning static HTML pages (the <<sink-result-static-html,below example>> does this) or as complex as implementing OAuth authentication flows or fetching <<sink-result-external-json,data from external sources>>.
 
 [IMPORTANT]
 ====
-Just make sure that your responses define appropriate headers, such as the content type, status code, and body.
+Make sure that your responses define appropriate headers, such as the content type, status code, and body.
 ====
 
 [#sink-result-static-html]
-.A basic example:
+.A simple example:
 [source,js]
 ----
 export default {

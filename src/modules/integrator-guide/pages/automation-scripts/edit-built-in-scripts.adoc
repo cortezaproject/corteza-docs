@@ -2,14 +2,14 @@ include::ROOT:partial$variables.adoc[]
 
 = Modifying built-in scripts
 
-== Modify built-in scripts
+== Modification of built-in scripts
 
-If you wish to modify an automation script that is defined by some other extension (such as CRM scripts) you have two options.
+If you wish to modify an automation script that is defined by another extension (such as CRM scripts) you have two options; to create a modified copy or overwrite scripts.
 
 === Create a modified copy
 
 .To modify the extension:
-. copy the extension source (*clone* the repository, or *copy* the files),
+. copy the extension source (*clone* the repository or *copy* the files),
 . modify the source as you see fit,
 . deploy your version instead of the original version.
 

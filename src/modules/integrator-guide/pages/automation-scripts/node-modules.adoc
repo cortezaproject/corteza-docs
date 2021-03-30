@@ -12,20 +12,21 @@ If two extensions use *the same dependency*, they both need to *define it*.
 
 [NOTE]
 ====
-Internally we use the Yarn package manager, so we suggest you do the same.
+Internally, we use the Yarn package manager.
+We suggest you do the same.
 ====
 
 .To add a new node module either:
-* manually insert it into the `package.json` file, or
+* manually insert it into the `package.json` file or
 * run the `yarn add NAME_GOES_HERE`.
 
-When ran, the {APP_AUTOMATION} server will attempt to automatically resolve and install the requested dependencies.
+When ran, the {APP_AUTOMATION} server attempts to automatically resolve and install the requested dependencies.
 
 [CAUTION]
 ====
-We're observing some anomalies when running *Yarn inside a docker container*.
+We are observing some anomalies when running *Yarn inside a docker container*.
 
-If you're getting an error message similar to the one below, it means that Yarn was not able to *install the dependencies*.
+If you're getting an error message similar to the one below, it means that Yarn is not able to *install the dependencies*.
 This error occurs when Yarn is unable to store its cache.
 
 ****
@@ -35,16 +36,16 @@ This error occurs when Yarn is unable to store its cache.
 }
 ****
 
-.To fix this, you need to:
-. ssh *into the {APP_AUTOMATION} container* (`docker-compose exec -u root corredor sh`),
+.To fix the anomaly, you need to:
+. SSH *into the {APP_AUTOMATION} container* (`docker-compose exec -u root corredor sh`),
 . `cd` *into the mounted volume*,
 . run *`yarn --cache-folder /tmp`*.
 
 The dependencies should now be *installed and available* for use.
-The above `yarn` command *manually runs the install* process, *discarding the cache*.
+The above `yarn` command *manually runs the installing* process, *discarding the cache*.
 ====
 
-Node modules can then be used *just like anywhere else*.
+Node modules can then be used *just like in any other situation*.
 
 .Example package.json:
 [source,json]

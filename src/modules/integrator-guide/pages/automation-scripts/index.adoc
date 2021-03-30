@@ -4,23 +4,17 @@ include::ROOT:partial$variables.adoc[]
 :description: An automation script is a piece of code that lets you implement custom business logic. Automation scripts are written in plain JavaScript with support for node packages.
 :keywords: business logic, automation, automation scripts, {PRODUCT_NAME}
 
-An automation script (script) is a piece of code that lets you implement custom business logic.
-Automation scripts are written in plain JavaScript with support for node packages.
+An automation script (further referred to as script) is a piece of code that allows you to implement custom business logic.
+Automation scripts are written in plain JavaScript with the support for node packages.
 
-Take a look at oru samples (menu:Integrator Guide[Automation scripts,Samples]) and <<sample-project,sample project>> to get started faster.
+Take a look at our samples (menu:Integrator Guide[Automation scripts,Samples]) and <<sample-project,the sample project>> to get started.
 
 [TIP]
 ====
-See if you can implement your logic using xref:workflows/index.adoc[].
+See whether you can implement your logic using xref:workflows/index.adoc[].
 ====
 
-[NOTE]
-====
-*DevNote*: should the below thing be in a new section?
-I think it would make sense to have here.
-====
-
-There are two categories of automation scripts -- *server scripts* and *client scripts*.
+There are two categories of automation scripts; *server scripts* and *client scripts*.
 
 [cols="1a,5a"]
 |===
@@ -30,22 +24,22 @@ There are two categories of automation scripts -- *server scripts* and *client s
 .Use server scripts when:
 * working with *sensitive data*,
 * communicating with *external APIs*,
-* they *shouldn't be interruptible* by the user.
+* it *shouldn't be possible for the script to be interrupted* by the user.
 
-.Example use cases:
+.Examples of usage:
 * *create additional records* based on the current data,
 * *send email* notifications,
 * run *statistic analysis*.
 
 | [#automation-scripts-client]#<<automation-scripts-client,Client scripts>>#
-| These are executed in the client's browser (user agent, if you will).
+| These are executed in the client's browser (user agent).
 
 .Use client scripts when:
-* we need to *interact with the user*,
-* we are performing *data validation*,
+* you need to *interact with the user*,
+* are performing *data validation*,
 * *inserting* default *values*.
 
-.Example use cases:
+.Examples of usage:
 * *prompt the user* to confirm the form submission,
 * *validate the form* submitted by the user,
 * *redirect the user* after they've submitted the form,
@@ -53,34 +47,30 @@ There are two categories of automation scripts -- *server scripts* and *client s
 
 [IMPORTANT]
 ====
-Client scripts are less secure as they run by the mercy of a user.
+Client scripts are less secure as they run in the users browser.
 Any baked-in credentials are easily accessible, the execution is easily terminated.
 ====
 |===
 
-Which one should I use?
-If we need to interact with the user (show notification, request confirmations), use *client scripts*.
-Else, use *server scripts*.
+Which one should you use?
+If you need to interact with the user (show notification, request confirmations), use *client scripts*, elsewhere use *server scripts*.
 
 == File structure
 
-To start writing automation scripts, you must firstly define the appropriate file structure.
+To start writing automation scripts, you must first define the appropriate file structure.
 
-.The three main bits:
-. `package.json` defines some metadata aswell as your dependencies.
-. `/server-scripts` contains a set of automation scripts that will be executed on the {APP_AUTOMATION} server.
+.The three main parts:
+. `package.json` defines metadata aswell as your dependencies.
+. `/server-scripts` contains a set of automation scripts that are executed on the {APP_AUTOMATION} server.
 . `/client-scripts` contains a set of automation scripts that will be executed inside the web application.
+** Each sub-directory inside `/client-scripts` defines a bundle.
+When a web application loads, it fetches the bundle that is assigned to it (this is done automtically).
 
 Both `/server-scripts` and `/client-scripts` assume that all underlying files are automation scripts with valid signatures.
-If you're defining a file with utility functions, move it under `/shared` or define a `/util` (or similar) at the root of the project.
+When defining a file with utility functions, move it under `/shared` or define a `/util` (or similar) at the root of the project.
 
-The `/client-scripts` directory is a little special.
-In order for client-scripts to work properly with node packages, we need to process them using forbidden pages from the webdev grimoire.
 
-Each sub-directory inside `/client-scripts` defines a bundle.
-When a web application loads, it fetches the bundle that is assigned to it (this is done automagically).Z
-
-.An example filestructure containing all of the available bits:
+.An example filestructure containing all of the available parts:
 [source,text]
 ----
 package.json
@@ -101,10 +91,9 @@ package.json
 ----
 
 `...` indicates that you are free to structure your files as you see fit.
-We do recommend you group your automation scripts based on their context.
-For example, scripts working with Leads should go under the `/Lead` directory.
+We do recommend you group your automation scripts based on their content, for example, scripts working with leads should go under the `/Lead` directory.
 
-`/auth`, `/admin`, `/compose`, and `/messaging` contain scripts specific to each web application (this is the thing we talked about a bit earlier).
+`/auth`, `/admin`, `/compose`, and `/messaging` contain scripts specific to each web application (as discussed earlier).
 
 `/shared` contains code that client scripts can reuse.
 
@@ -112,7 +101,7 @@ For example, scripts working with Leads should go under the `/Lead` directory.
 
 [IMPORTANT]
 ====
-One automation script per file.
+It is only possible to define one automation script per file.
 ====
 
 .This is how a valid automation script looks like:
@@ -139,7 +128,7 @@ One automation script per file.
 }
 ----
 
-.You can use this template to cover most cases:
+.You can use this template to cover most cases of usage:
 [source,js]
 ----
 include::example$server-script-sample/implicit-generic.js[]
@@ -150,11 +139,9 @@ include::example$server-script-sample/implicit-generic.js[]
 See xref:automation-scripts/samples/server-scripts/index.adoc[server script samples], and xref:automation-scripts/samples/client-scripts/index.adoc[client script samples] for more.
 ====
 
-[#automation-trigger]
 == Automation triggers
 
-Automation triggers (triggers) control when a specific automation script is executed.
-
+Automation triggers (further referred to as triggers) control the timing of the execution of a specific automation script.
 [IMPORTANT]
 ====
 Automation triggers are evaluated in an isolated context that doesn't allow any external data (variables or imports).
@@ -174,10 +161,10 @@ export default {
 ----
 ====
 
-.The three main bits of a trigger:
-. an event specifies what system events this trigger will react to,
-. a <<trigger-define-resource,resource>> specifies what system resource the trigger will react for,
-. a <<trigger-define-constraint,constraint>> specifies how the event needs to look like in order for the trigger to react.
+.The three main parts of a trigger:
+. an event that specifies what system events the trigger reacts to,
+. a <<trigger-define-resource,resource>> that specifies what system resource the trigger reacts for,
+. a <<trigger-define-constraint,constraint>> that specifies how the event needs be presented as in order for the trigger to react.
 
 .Available trigger types:
 [cols="1a,5a"]
@@ -185,45 +172,41 @@ export default {
 | [#trigger-type-explicit]#<<trigger-type-explicit,Explicit>>#
 | These are *explicitly triggered* by pressing a *button*.
 
-Use explicit triggers when you wish to *manually initiate something*, such as an OAuth authentication flow, redirection to an external resource, or data export.
+Use explicit triggers when you wish to *manually initiate an action*, for example an OAuth authentication flow, redirection to an external resource, or data export.
 
 | [#trigger-type-implicit]#<<trigger-type-implicit,Implicit>>#
-| These are *implicitly triggered* based on *system events*.
+| These are *implicitly triggered* and based on *system events*.
 
-Use implicit triggers when you wish to *automatically do something* when another thing occurs; such as sending an email when you register a new user; or adding a changelog entry when the content changes.
+Use implicit triggers when you wish for an action to be *automatically performed* when triggered by another action or process; such as sending an email when you register a new user or adding a changelog entry when the content changes.
 
 Refer to xref:ROOT:integrator-guide/resource-events-reference.adoc[resources and events] for a complete list of events you can listen for.
 
 | [#trigger-type-deferred]#<<trigger-type-deferred,Deferred>>#
+Deferred triggers can only be used in server scripts and require explicit security context.
+| The system triggers these *at a certain point in the future*; either *periodically* (define with *cron expressions*), or *at a timestamp* (use *ISO 8601*, `YYYY-MM-DDThh:mm:ssZ` format).
 
-_Server script only_, _requires explicit security context_
-| The system triggers these *sometime in the future*; either *periodically* (define with *cron expressions*), or *at a timestamp* (use *ISO 8601*; this one: `YYYY-MM-DDThh:mm:ssZ`).
 
-A sample for an xref:ROOT:integrator-guide/samples/triggers/index.adoc#sample-trigger-deferred-interval[interval], and a xref:ROOT:integrator-guide/samples/triggers/index.adoc#sample-trigger-deferred-timestamp[timestamp].
-
-Use deferred triggers when you want to *repeat something* or *do something in the future*; such as recurring payments or sending holiday newsletters to your subscribers.
+Use deferred triggers when you want an action to *periodically repeat* or *be performed at a certain point in the future*. Examples of such use are  recurring payments or sending holiday newsletters to your subscribers.
 
 [NOTE]
 ====
-The scheduler acts *once per minute*, so that is the maximum accuracy {PRODUCT_NAME} supports.
+The scheduler acts *once per minute*, therefore that is the maximum accuracy {PRODUCT_NAME} supports.
 ====
 
 | [#trigger-type-sink]#<<trigger-type-sink,Sink>>#
+Sink triggers can only be used in server scripts and require explicit security context.
+| These are triggered by the system *when it receives a request*; either *HTTP* or *email*.
 
-_Server script only_, _requires explicit security context_
-| These are triggered by the system *when it receives a request*; either *HTTP*, or *email*.
-
-Use sink triggers when you want to *respond to requests*; such as *webhooks for external services* or *custom API endpoints*.
-For example *capturing data from external forms*, *tracking external document changes*, and *capturing payments*.
+Use sink triggers when you want to *respond to requests*; such as *webhooks for external services* or *custom API endpoints*, f1or example *capturing data from external forms*, *tracking external document changes*, and *capturing payments*.
 
 [NOTE]
 ====
-We recommend you use the *REST API* whenever possible.
+It is recommended you use the REST API interface whenever possible.
 ====
 |===
 
 [#trigger-define-resource]
-=== Define a resource
+=== Defining a resource
 
 To define what resource the trigger should react for (such as module, user, role), we use the conveniently named `.for('resource:goes:here')` method.
 
@@ -240,19 +223,19 @@ triggers ({ before }) {
 Refer to xref:ROOT:integrator-guide/resource-events-reference.adoc[resources and events] for a complete list of available resources and supported events.
 
 [#trigger-define-constraint]
-=== Define a constraint
+=== Defining a constraint
 
 [NOTE]
 ====
 Refer to xref:ROOT:integrator-guide/resource-constraints.adoc[resource constraints] for a list of available constraint properties for each resource.
 ====
 
-To define how an event needs to look like (such as the module name, user email, role handle), we use the `.where(property, operator, value)` method, or a variation of it.
+To define how an event should be presented as (such as the module name, user email, role handle), we use the `.where(property, operator, value)` method or a variation of it.
 
-.Let me explain:
-* When you provide two arguments to the method, the first one specifies the *property* and the second one specifies the *value*.
+.To elaborate:
+* When applying two arguments to the method, the first one specifies the *property* and the second one specifies the *value*.
 The default <<constraint-operator-eq,equality operator>> is used.
-* When you specify three arguments to the method, the first one specifies the *property*, the second one specifies the <<trigger-comparison-operators,comparison *operator*>> and the third one specifies the *value*.
+* When specifying three arguments to the method, the first one specifies the *property*, the second one specifies the <<trigger-comparison-operators,comparison *operator*>> and the third one specifies the *value*.
 
 .An example of chaining constraints:
 [source,js]
@@ -322,9 +305,9 @@ triggers ({ before }) {
 |===
 | [#trigger-destructuring]#<<trigger-destructuring,Use object destructuring>>#
 |
-Object destructuring helps you shorten the entire thing.
+Object destructuring helps you shorten the code.
 
-.For example:
+.Example:
 [source,js]
 ----
 // Instead of using:
@@ -342,13 +325,11 @@ triggers ({ after }) { // 👈 this thing
 },
 ----
 
-Neat, right?!
-
 | [#constrained-constraints]#<<constrained-constraints,Use constraints>>#
 |
-Loose constraints can lead to unwanted side effects such as running the script when a record in a different namespace is created.
+Loose constraints may lead to unwanted side effects such as running the script when a record in a different namespace is created.
 
-.For example:
+.Example:
 [source,js]
 ----
 // Instead of using:
@@ -377,18 +358,18 @@ triggers ({ after }) {
 Automation scripts are no exception to the access control system.
 ====
 
-The security context lets you control who can invoke the automation script as well as what access the script should have.
+The security context allows you to control who can invoke the automation script as well as what access the script should have.
 
 [#involing-user]
-=== Invoking user
+=== The invoking user
 
 [IMPORTANT]
 ====
 *Deferred* and *sink* scripts require you to specify the security context as the invoker is not known.
 ====
 
-The invoking user is someone who performed an action that triggered the script execution.
-For example; you pressed a button, so you are the invoking user.
+The invoking user is a person who performes an action that triggers the script execution.
+To examplify; you press a button, therefore you are the invoking user.
 
 By specifying the invoking user, the automation script may access some resources that the actual invoking user may not have access to, such as personal client information.
 
@@ -413,28 +394,27 @@ export default {
 [IMPORTANT]
 ====
 You can use the user's handle, email or ID as the user identifier.
-We suggest you use an email or handle.
+We suggest you use an email or a handle.
 ====
 
 [TIP]
 ====
-A good practice is to create a new system user that is dedicated for script execution wherever you need this.
+It is a good idea to create a new system user the purpose of which is that of script execution wherever that is needed.
 ====
 
 === Allowing and denying script execution
 
-Security context lets you prevent specific users from performing specific operations.
-For example, you can prevent regular users from signing documents or sending quotes.
+Security context lets you prevent specific users from performing specific operations. Each user is attributed a role that specifies the degree of control they can operate with.
+To examplify; you can prevent regular users from signing documents or sending quotes.
 
 .Use these properties when defining the context:
-* `allow` specifies what *roles are permitted to trigger* the automation script.
-* `deny` specifies what *roles are not allowed to trigger* the automation script.
+* `allow` specifies which roles are permitted to access the automation script,
+* `deny` specifies which roles are not permitted to access the automation script,
 
 [IMPORTANT]
 ====
-*DevNote* fact-check this bit.
-
-This is only available for explicit scripts (buttons).
+This is only available for explicit scripts.
+It is ignored for any other script types
 ====
 
 .An example of permitting access:
@@ -468,7 +448,7 @@ export default {
 [#sample-project]
 == An example setup
 
-.The file structure (yes, yes; the sources are below):
+.The file structure (the sources are listed below):
 [source,text]
 ----
 / .gitignore
@@ -516,7 +496,7 @@ include::example$testing-setup/server-scripts/example/Sample.js[]
 
 [TIP]
 ====
-Note this part:
+Pay attention to the following part:
 
 [source,js]
 ----
@@ -527,7 +507,7 @@ trigger ({ before }) {
 },
 ----
 
-`istanbul ignore next` excludes the next function from the coverage report.
+`istanbul ignore next` excludes the following function from the coverage report.
 ====
 
 .Sample.test.js
@@ -538,15 +518,15 @@ include::example$testing-setup/server-scripts/example/Sample.test.js[]
 
 .The above `package.json` defines three scripts:
 * `lint` lints the code using the default ES6 standard (can be configured; see https://eslint.org/docs/rules/[here]),
-* `test:unit` runs your unit tests defined inside `.test.js` files (can be configured in the `.mocharc.js` file),
-* `test:unit:cc` runs your unit tests with code coverage.
+* `test:unit` runs unit tests defined inside `.test.js` files (can be configured in the `.mocharc.js` file),
+* `test:unit:cc` runs unit tests with code coverage.
 
 [NOTE]
 ====
 The code coverage report gets generated into the `coverage` directory.
-Inspect the `coverage/lcov-report` directory for a HTML report.
+For a HTML report inspect the `coverage/lcov-report` directory.
 
-I usually use the https://www.npmjs.com/package/http-server[http-server] package to help with this, but a simple "Open in <browser name here>" will do.
+Usually the https://www.npmjs.com/package/http-server[http-server] package is used to help with this, but a simple "Open in <browser name here>" suffices.
 
 [source,bash]
 ----

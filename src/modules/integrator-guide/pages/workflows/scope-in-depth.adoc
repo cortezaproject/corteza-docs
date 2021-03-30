@@ -2,15 +2,16 @@ include::ROOT:partial$variables.adoc[]
 
 = Workflow scope in-depth
 
-In short, a scope defines what data the current step can access and manipulate.
+In short, a scope defines what data the ongoing step can access and manipulate.
 
-For the most common use-cases this doesn't really matter, but it can come in handy when defining larger and complicated workflows.
+For the most common use-cases this doesn't really matter, but it can come in handy when defining larger and more complicated workflows.
 
 [IMPORTANT]
 ====
-Non primitive data types (more can be found xref:workflows/variables.adoc[here]) are passed around using pointers, meaning that any change to one reflects to all copies.
+Non-primitive data types (more can be found xref:workflows/variables.adoc[here]) are passed around using pointers, meaning that any change to one reflects to all of the copies.
 
-For example; if we have a user in two different scopes and we change the name in one of the scopes, all scopes are affected.
+To examplify; we have a user in two different scopes.
+If a change of name in one of the scopes is made, all of the scopes are affected.
 
 .The two expression steps interact with the same user:
 image:workflow/scope_object_pointers.svg[]
@@ -18,27 +19,30 @@ image:workflow/scope_object_pointers.svg[]
 
 == Gateways
 
-When the workflow execution reaches a gateway, a new scope is created for each connector (branch) based on the parent scope (usually the `global` scope).
+When the workflow execution reaches a gateway, a new scope is created for each connector (branch) based on the parent scope (usually that is the `global` scope).
 
-When the branches are joined (they reach the join gateway step), the scope of all branches are merged back into the parent scope in the initially defined order (all changes and new variables in the branch scopes will be reflected in the parent scope).
+When the branches are joined (they reach the join gateway step), the scopes of all of the branches are merged back into the parent scope in the initially defined order (all changes and new variables in the branch scopes will be reflected in the parent scope).
 
 [IMPORTANT]
 ====
-The order in which the branches are merged is defined when you first defined the connectors.
+The order in which the branches are merged is defined when you first define the connectors.
 Visually changing the order of the connectors doesn't affect the merging logic.
 ====
 
-.Lets look at an example:
+.Let's take a look at an example:
 image:workflow/gw_scope_base.png[]
 
-.On the above example we see a couple of important steps:
+.A couple of important steps can be seen in the above example:
 * *Set global scope* initializes the `global_v1` variable to be 1.
 * *Set local (branch 1) scope* initializes the `local_v1` variable to be 1.
 * *Set local (branch 2) scope* initializes the `local_v2` variable to be 1.
-* *Log scope* log our variables in the current scope.
+* *Log scope* logs the variables in the ongoing scope.
+// * *Setting the global scope* initializes the `global_v1` variable to be 1.
+// * *Setting the local (branch 1) scope* initializes the `local_v1` variable to be 1.
+// * *Setting the local (branch 2) scope* initializes the `local_v2` variable to be 1.
+// * *Logging the scope* logs the variables in the ongoing scope.
 
-Let's break this down a bit.
-The below image show the stack trace of the entire execution with annotated scopes at the important parts (darkened numbered blocks).
+To break this down; the below image shows the stack trace of the entire execution with annotated scopes at the important parts (darkened numbered blocks).
 
 image:workflow/gw_scope.svg[]
 
@@ -47,13 +51,13 @@ image:workflow/gw_scope.svg[]
 For this example we used the xref:workflows/index.adoc#step-gateway-fork[fork gateway].
 ====
 
-. When the workflow starts, we initialize the current (`global`) scope to have a variable `global_v1` with the value of 1.
-When we reach the gateway step, two new scopes are created; one for each branch (`branch 1 scope` and `branch 2 scope`).
-. When we reach the first branch, the workflow executes it using its scope (`branch 1 scope`).
-. When we interact with the current scope by initializing the `local_v1` variable to the value of `1`, only the current scope is changed (the `global` state remains unchanged).
-. When we reach the second branch, the workflow executes it using its scope (`branch 2 scope`).
-. When we interact with the current scope by initializing the `local_v2` variable to the value of `1`, only the current scope is changed (the `global` state remains unchanged).
-. When both branches are executed and we reach the join step, both of the branches and their scopes are merged into the parent scope (in this case the `global` scope) in the initially defined order.
+. When the workflow starts, you initialise the ongoing (`global`) scope to have a variable `global_v1` with the value of 1.
+When you reach the gateway step, two new scopes are created; one for each branch (`branch 1 scope` and `branch 2 scope`).
+. When you reach the first branch, the workflow executes it using its scope (`branch 1 scope`).
+. When you interact with the ongoing scope by initializing the `local_v1` variable to the value of `1`, only the ongoing scope is changed (the `global` state remains unchanged).
+. Upon the reach of the second branch, the workflow executes it using its scope (`branch 2 scope`).
+. When interacting with the ongoing scope by initializing the `local_v2` variable to the value of `1`, only the ongoing scope is changed (the `global` state remains unchanged).
+. When both branches are executed and the join step is reached, both of the branches and their scopes are merged into the parent scope (in this case the `global` scope) in the initially defined order.
 If the first branch was "joined" before the second branch, the scope of the first branch is merged first.
 
 == Iterators
@@ -62,28 +66,33 @@ When the workflow execution reaches an iterator, a new scope is created based on
 
 When the iterator has finished executing (all iterations are completed or it was aborted), the iterators' scope is merged back into the parent scope (all changes and new variables in the iterator scope will be reflected in the parent scope).
 
-.Lets look at an example:
+.Let's take a look at an example:
 image:workflow/loop_scope_base.png[]
 
-.On the above example we see a couple of important steps:
+.A couple of important steps can be seen in the above example:
 * *Set global scope* initializes the `global_v1` variable to be 1.
 * *Iterator 1* repeats 1 time.
 * *Set local (iterator 1) scope* increments the `global_v1` variable by 1 and initializes the `local_v1` variable to be 1.
 * *Iterator 2* repeats 1 time.
 * *Set local (iterator 2) scope* increments the `global_v1` variable by 1 and initializes the `local_v2` variable to be 1.
-* *Log scope* log our variables in the current scope.
+* *Log scope* logs the variables from the ongoing scope.
+// * *Setting the global scope* initializes the `global_v1` variable to be 1.
+// * *Iterator 1* repeats 1 time.
+// * *Setting the local (iterator 1) scope* increments the `global_v1` variable by 1 and initializes the `local_v1` variable to be 1.
+// * *Iterator 2* repeats 1 time.
+// * *Setting the local (iterator 2) scope* increments the `global_v1` variable by 1 and initializes the `local_v2` variable to be 1.
+// * *Logging the scope* logs the variables into the ongoing scope.
 
-Let's break this down a bit.
-The below image show the stack trace of the entire execution with annotated scopes at the important parts (darkened numbered blocks).
+To break this down; the below image shows the stack trace of the entire execution with annotated scopes at the important parts (darkened numbered blocks).
 
 image:workflow/loop_scope.svg[]
 
-. When the workflow starts, we initialize the current (`global`) scope to have a variable `global_v1` with the value of 1.
-. When we reach the first iterator, we prepare a new scope (`iterator 1 scope`) for this iterator based on the parent scope (`global`).
-. When we interact with the current scope by incrementing the `global_v1` and by setting the `local_v1` variable to the value of `1`, only the current scope is changed (the `global` state remains unchanged).
-. When we reach the second iterator, we prepare a new scope (`iterator 2 scope`) for this iterator based on the parent scope (`iterator 1 scope`).
-. When we interact with the current scope by incrementing the `global_v1` and by setting the `local_v2` variable to the value of `1`, only the current scope is changed (the `iterator 1 scope` state remains unchanged).
+. When the workflow starts, you initialize the ongoing (`global`) scope to have a variable `global_v1` with the value of 1.
+. When you reach the first iterator, you prepare a new scope (`iterator 1 scope`) for this iterator based on the parent scope (`global`).
+. When you interact with the ongoing scope by incrementing the `global_v1` and by setting the `local_v1` variable to the value of `1`, only the ongoing scope is changed (the `global` state remains unchanged).
+. When you reach the second iterator, you prepare a new scope (`iterator 2 scope`) for this iterator based on the parent scope (`iterator 1 scope`).
+. When you interact with the ongoing scope by incrementing the `global_v1` and by setting the `local_v2` variable to the value of `1`, only the ongoing scope is changed (the `iterator 1 scope` state remains unchanged).
 . After the second iterator has finished executing (all of the iterations were handled), the scopes from the second and first iterator are merged.
-The current scope (`iterator 1 scope`) is updated with the merged scope.
-. After the first iterator has finished executing (all of the iterations were handled), the global scope and the first iterator scope are merged.
-The current scope (`global`) is updated with the merged scope.
+The ongoing scope (`iterator 1 scope`) is updated with the merged scope.
+. After the first iterator has finished the execution (all of the iterations were handled), the global scope and the first iterator scope are merged.
+The ongoing scope (`global`) is updated with the merged scope.

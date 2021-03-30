@@ -35,5 +35,5 @@ image-push:
 	docker push $(DOCKER_IMAGE_TAG)
 
 # Can be used to compile docs from current (HEAD) version
-run:
+dev:
 	docker run -it --rm --volume $(CURDIR):/antora --entrypoint /antora/dev-docker-entryfile.sh antora/antora

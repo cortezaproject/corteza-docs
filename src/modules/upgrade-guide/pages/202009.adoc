@@ -1,0 +1,16 @@
+include::ROOT:partial$variables.adoc[]
+
+= Upgrading to 2020.9
+
+== After upgrade
+
+=== {PRODUCT_NAME} Service Cloud
+
+{PRODUCT_NAME} 2020.9 renames {PRODUCT_NAME} Service Cloud to {PRODUCT_NAME} Service Solution.
+The new automation scripts are *not* compatible with the previous namespace.
+
+.Follow this set of steps to properly update your instance:
+. Rename the Service Cloud namespace name to {PRODUCT_NAME} Service Solution
+. Change the service-cloud namespace slug to service-solution
+. Go over each page in the {PRODUCT_NAME} Service Solution namespace and replace the old service-cloud automation buttons with new service-solution buttons
+. Test your changes to assure everything works as expected

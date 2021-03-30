@@ -1,0 +1,402 @@
+include::ROOT:partial$variables.adoc[]
+
+= {APP_NAME_COMPOSE} configuration
+:description: @todo
+:keywords: low code, no code, automation, workflow, workflows, {PRODUCT_NAME}
+
+By configuring your {APP_NAME_COMPOSE}, you define the logical structure of your data and how it is displayed to the user.
+This page focuses on the most important aspects of the configuration process.
+If you wish to learn more about a specific topic, refer to the subsections under menu:Integrator Guide[{PRODUCT_NAME} {APP_NAME_COMPOSE} configuration].
+
+== Namespaces
+
+Before we can configure anything, we need to create a new namespace.
+
+A namespace encapsulates all of the data that is specific to some area (such as a CRM).
+The namespace also defines how the data is <<modules,structured>>, any relations between the data, and how the data is <<pages,displayed>>.
+
+[NOTE]
+====
+A namespace can not directly access data from another namespace.
+If this is needed, consider implementing this using xref:workflows/index.adoc[workflows] or xref:automation-scripts/index.adoc[automation scripts].
+====
+
+.To create a new namespace:
+. navigate to the {PRODUCT_NAME} {APP_NAME_COMPOSE},
+. click on the btn:[Create namespace] button at the bottom of the page,
+. provide all the requested data,
+. press the btn:[Save] or the btn:[Save and close] button.
+
+When you enter the newly created namespace, you will see that there is nothing there.
+Let us change this.
+
+== Modules
+
+We now need to create a few modules to define the shape of the data and any data relations (for example, a contact is related to an account).
+This consists of two parts; the module itself and a a series of module fields.
+
+Enter the menu:Admin panel[Modules] sub page and click on the btn:[New Module] button.
+
+Define the name and the handle for the module.
+The handle defines a unique identifier that can be used instead of the system generated ID.
+We recommend you define a handle for all modules.
+
+Next you need to define a set of module fields.
+Click on the btn:[+ Add new field] button on the bottom of the page to add a new field.
+
+A module field is fairly complicated, so let's break it down:
+
+[cols="1s,5a"]
+|===
+
+| [#module-field-name]#<<module-field-name,Name>>#
+|
+A field name defines how the system stores the related value internally.
+Module field names are mostly used within automation scripts and workflows, so we recommend that a field name is short, descriptive and consistent.
+
+Use the value of the name field when accessing records of the `ComposeRecord` type.
+
+.The name field must:
+include::partial$handle-constraints.adoc[]
+
+| [#module-field-title]#<<module-field-title,Title>>#
+|
+A field title defines how the field is shown to the user.
+Field titles can be written in any format and any language; they do not affect the internals.
+We recommend that the title is short, descriptive and consistent with the handle.
+
+[NOTE]
+====
+A title is limited to 64 characters; no other constraints apply.
+====
+
+| [#module-field-type]#<<module-field-type,Type>>#
+|
+A field type defines what type of data the field will contain.
+For example, if we wish to store the users' email, the field type will be `Email`.
+
+Refer to the xref:compose-configuration/field-types.adoc[] subsection for more details regarding field types.
+
+| [#module-field-settings-base]#<<module-field-settings-base,Base field settings>>#
+|
+The base field settings control the general behavior of the module field.
+
+Base field settings can be viewed directly under the "Attributes" column of the module field list.
+
+[IMPORTANT]
+====
+When exporting multi-value fields into the CSV format, only the *first value* is exported.
+====
+
+| [#module-field-settings-ts]#<<module-field-settings-ts,Type specific field settings>>#
+|
+Type specific field setting control the behavior of the module field based on the <<module-field-type,field type>>.
+
+To access type specific settings, click on the btn:[settings icon] next to the field type and navigate to the second tab (the one with the same name as the field type).
+
+| [#module-field-expr]#<<module-field-expr,Field expressions>>#
+|
+A field expression allows you to implement a formula (calculated) field.
+When you define an expression, the field can no longer be directly manipulated; the value can only change when the expressions' result changes.
+
+Click on the btn:[settings icon] next to the field type and navigate to the "General" tab.
+Check the "Field value expression" checkbox and insert the formula into the new input box.
+
+Refer to the xref:expr/index.adoc[] for more details.
+
+| [#module-field-validation]#<<module-field-validation,Field validation>>#
+|
+Custom field validation allows you to implement custom user-provided value validation and sanitization.
+
+Click on the btn:[settings icon] next to the field type and navigate to the "Validation" tab.
+
+.You will see two sections:
+* *Value sanitization* allows you to write custom sanitization rules.
+This allows you to transform the data before it is saved.
+* *Value validation* allows you to write custom validation rules.
+This allows you to write additional validation rules or replace the built-in rules.
+
+[IMPORTANT]
+====
+Built-in sanitizers *can not be disabled*.
+The custom sanitizers are ran before the built-in sanitizers.
+====
+
+Refer to the xref:compose-configuration/field-expr.adoc[] for more details.
+
+|===
+
+== Pages
+
+The next step is to define how the data is displayed.
+To do this, we need to define some pages.
+There are two types of pages:
+
+[#page-type-record]#<<page-type-record,Record pages>>#::
+  A record page allows you to define how your users will interact with the given module.
+  The record page is used when you want to create or edit records.
+  A record page is created directly from the module list by clicking on the btn:[Create record page] or on the btn:[Page builder] in case the record page already exists.
+
+[IMPORTANT]
+====
+If a module does not have a record page defined, you will not be able to create or update it's records through the user interface.
+
+xref:workflows/index.adoc[Workflows] and xref:automation-scripts/index.adoc[automation scripts] can still interact with such modules.
+====
+
+[#page-type-list]#<<page-type-list,List pages>>#::
+  A list page allows you to display aggregated data from different sources (modules, external websites, ...).
+  List pages can be used to implement simple record lists for a single module, or a complex dashboard showing multiple record lists and charts.
+  A list page is created in menu:Admin panel[Pages] section.
+
+=== Page builder
+
+The page builder allows you to define the shape of your page using page blocks and an intuitive drag'n drop interface.
+Refer to the xref:compose-configuration/page-blocks.adoc[] sub-section for details regarding specific page blocks.
+
+Each page defines a grid of 12 columns that can be populated by page blocks.
+Each page block has it's specific purpose; from showing records to showing charts and attached files.
+
+To add a new page block, click on the btn:[+ Add block] button on the bottom of the page.
+A new popup opens up where you can select what page block you wish to use.
+
+Existing page blocks can be edited, moved, resized, or removed.
+
+=== Navigation
+
+The navigation on the {PRODUCT_NAME} {APP_NAME_COMPOSE} changes dynamically based on the defined pages, their visibility, and their hierarchy.
+We call this a page tree and it's accessible directly in the menu:Admin panel[Pages] section.
+
+The order of the pages can easily be changed by dragging them around.
+
+To create a sub-page (a dropdown menu), nest the page by dropping it into another page.
+
+[#charts]
+== Charts
+
+The last major component of the {APP_NAME_COMPOSE} configuration are charts.
+Charts allow you to visualize your data and create beautiful dashboards.
+
+Go to the menu:Admin panel[Charts] subsection, click on the btn:[New Chart] button, and select one of the available categories (let's start by making a generic chart)
+
+Insert the initial parameters that define the chart; name, handle, and color scheme.
+The rest of the configuration depends on the selected category and are discussed in the following sub-sections.
+
+[NOTE]
+====
+Make sure that the selected color scheme provides enough colors for your dataset (the number of colors is written next to the color scheme name).
+====
+
+=== Generic chart configuration
+
+.Generic charts include:
+* bar chart,
+* line chart,
+* pie chart,
+* doughnut chart.
+
+[cols="1s,5a"]
+|===
+
+| [#chart-config-generic-module]#<<chart-config-generic-module,Module>>#
+|
+The chart module specifies the data source (the records) for the chart.
+
+| [#chart-config-generic-filter]#<<chart-config-generic-filter,Filter>>#
+|
+The filter allows you to filter over the <<chart-config-generic-module,data source>> in order to include only specific entries.
+For example, we wish to aggregate the leads that were created in the last month.
+
+The dropdown menu provides you with a selection of the most common filters.
+If you wish to write something completely custom, tick on the customize filter checkbox and write your own filter.
+Refer to the xref:accessing-corteza/ql.adoc[QL reference] for details regarding filter definition.
+
+| [#chart-config-generic-yxs]#<<chart-config-generic-yxs,Y-axis>>#
+|
+The y-axis section allows you to configure the position of the axis (left or right), the label, and min-max values.
+
+| [#chart-config-generic-dimension]#<<chart-config-generic-dimension,Dimensions>>#
+|
+The dimensions section allows you to specify what field will be used to plot the dimension; the x-axis.
+
+[NOTE]
+====
+The current implementation only permits one dimension per chart.
+====
+
+.You may only use "simple", single-value fields as dimension fields:
+* `DateTime`
+* `Select`
+* `Number`
+* `Bool`
+* `String` with rich-text editor disabled.
+
+Field of type `DateTime` also allow you to define the grouping function.
+
+| [#chart-config-generic-metric]#<<chart-config-generic-metric,Metrics>>#
+|
+The metric section allows you to specify what field will be used to determine the value of each dimension, and how it will be plotted.
+
+You may only use numeric fields as dimension fields.
+A special `count` field returns the number of records that match the parameters defined in the configuration.
+
+****
+There is a special post processing function input that allows you to additionally transform the values that were returned by the reporting system.
+They are written as simple JavaScript expressions that return a single number based on the two variables.
+
+* `m`: the value of the previous dimension entry (the value is `undefined` for the first entry),
+* `n`: the value of the current dimension entry.
+
+.An example that creates an aggregated chart:
+[source,js]
+----
+m ? m + n : n
+----
+****
+
+|===
+
+=== Funnel chart configuration
+
+A funnel chart is constructed from a series of reports where each report may define it's own dimension and metric.
+This allows you to piece together reports from different modules, allowing you to visualize the data between multiple modules.
+
+[cols="1s,5a"]
+|===
+
+| [#chart-config-funnel-module]#<<chart-config-funnel-module,Module>>#
+|
+The report module specifies the data source (the records) for the given report.
+
+| [#chart-config-funnel-filter]#<<chart-config-funnel-filter,Filter>>#
+|
+The filter allows you to filter over the <<chart-config-funnel-module,data source>> in order to include only specific entries.
+For example, we wish to only use leads that are in a specific stage.
+
+The dropdown menu provides you with a selection of the most common filters.
+If you wish to write something completely custom, tick on the customize filter checkbox and write your own filter.
+Refer to the xref:accessing-corteza/ql.adoc[QL reference] for details regarding filter definition.
+
+| [#chart-config-funnel-dimension]#<<chart-config-funnel-dimension,Dimensions>>#
+|
+The dimensions section allows you to specify what field will be used to plot the dimension.
+
+Only fields of type `Select` may be used as the dimension field.
+When you select a field, all of the field options are presented to you.
+Select which values you wish to show and their order.
+
+| [#chart-config-funnel-metric]#<<chart-config-funnel-metric,Metrics>>#
+|
+The metric section allows you to specify what field will be used to determine the value of each dimension.
+
+You may only use numeric fields as dimension fields.
+A special `count` field returns the number of records that match the parameters defined in the configuration.
+
+|===
+
+=== Gauge chart configuration
+
+[cols="1s,5a"]
+|===
+
+| [#chart-config-gauge-module]#<<chart-config-gauge-module,Module>>#
+|
+The report module specifies the data source (the records) for the given report.
+
+| [#chart-config-gauge-filter]#<<chart-config-gauge-filter,Filter>>#
+|
+The filter allows you to filter over the <<chart-config-gauge-module,data source>> in order to include only specific entries.
+For example, we wish to only use leads that are in a specific stage.
+
+The dropdown menu provides you with a selection of the most common filters.
+If you wish to write something completely custom, tick on the customize filter checkbox and write your own filter.
+Refer to the xref:accessing-corteza/ql.adoc[QL reference] for details regarding filter definition.
+
+| [#chart-config-gauge-dimension]#<<chart-config-gauge-dimension,Dimensions>>#
+|
+The dimensions section allows you to specify what field will be represented on the gauge.
+Only fields of type `Select` may be used as the dimension field.
+
+Each dimension has a series of steps that can be added by clicking on the btn:[+ Add] button.
+Each step defines a label and the maximum value for the step.
+The colors are defined based on the color scheme.
+
+| [#chart-config-gauge-metric]#<<chart-config-gauge-metric,Metrics>>#
+|
+The metric section allows you to specify how the value of the gauge is calculated.
+
+You may only use numeric fields as dimension fields.
+A special `count` field returns the number of records that match the parameters defined in the configuration.
+
+****
+There is a special post processing function input that allows you to additionally transform the values that were returned by the reporting system.
+They are written as simple JavaScript expressions that return a single number based on the two variables.
+
+* `m`: the value of the previous dimension entry (the value is `undefined` for the first entry),
+* `n`: the value of the current dimension entry.
+
+.An example of a chart that converts the price to be in thousands:
+[source,js]
+----
+n / 1000
+----
+****
+
+|===
+
+== Configuring permissions
+
+Our flexible RBAC access control system allows you to allow or deny access for all resources except for records (this will be added in the future).
+
+=== Namespaces
+
+.To configure permissions for all namespaces:
+. go to menu:{PRODUCT_NAME} {APP_NAME_COMPOSE}[],
+. click on the btn:[Permissions] button.
+
+.To configure permissions for a specific namespace:
+. go to menu:{PRODUCT_NAME} {APP_NAME_COMPOSE}[],
+. click on the btn:[edit icon] button on the namespace,
+. click on the btn:[lock icon] in the top right.
+
+=== Modules and module fields
+
+Enter the namespace you wish to manage.
+
+.To configure permissions for all modules:
+. go to menu:Admin panel[Modules],
+. click on the btn:[Permissions] button.
+
+.To configure permissions for a specific module:
+. go to menu:Admin panel[Modules],
+. click on the btn:[lock icon] next to the module,
+// When in the module editor, click on the btn:[Permissions] button.
+
+.To configure permissions for a specific module field:
+. go to menu:Admin panel[Modules],
+. click on a module to open the editor,
+. click on the btn:[edit icon] next to the module field.
+
+=== Pages
+
+Enter the namespace you wish to manage.
+
+.To configure permissions for all pages:
+. go to menu:Admin panel[Pages],
+. click on the btn:[Permissions] button.
+
+.To configure permissions for a specific page:
+. go to menu:Admin panel[Pages],
+. click on the btn:[lock icon] next to the page,
+
+=== Charts
+
+Enter the namespace you wish to manage.
+
+.To configure permissions for all charts:
+. go to menu:Admin panel[Charts],
+. click on the btn:[Permissions] button.
+
+.To configure permissions for a specific chart:
+. go to menu:Admin panel[Charts],
+. click on the btn:[lock icon] next to the chart,

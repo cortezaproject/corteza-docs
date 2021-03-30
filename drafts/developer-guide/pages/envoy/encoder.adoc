@@ -1,0 +1,24 @@
+include::ROOT:partial$variables.adoc[]
+
+= Source Encoder
+
+The *resource encoding* layer takes in xref:ROOT:developer-guide/envoy/resources.adoc[*resources structures*] and encodes them to *different destinations* (such as the store layer).
+
+[NOTE]
+====
+Currently, only the store encoder is pre-defined.
+Other encoders (YAML, JSON, and CSV) are on their way.
+====
+
+The resource encoding can be used to *save data to the store layer*, *export the data to the YAML file*, *convert a JSON file to a YAML file*, and any other case you might wish to have.
+
+.A list of predefined encoders:
+[cols="1s,5a"]
+|===
+| [#store-encoder]#<<store-encoder,store encoder>>#
+| The *Store encoder* knows how to store the provider resources into the store layer.
+
+The store layer defines a *series of intermediate state* structures that are used to *hold contextual information* such as the resource's ID and any references.
+State structures let us trivially perform create/update tasks and resolve dependent resource ID.
+
+|===

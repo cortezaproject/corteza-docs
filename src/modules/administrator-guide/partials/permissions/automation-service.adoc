@@ -1,0 +1,16 @@
+include::ROOT:partial$variables.adoc[][]
+
+Access to automation::
+    Determines if the role is allowed to access {PRODUCT_NAME} automation.
+
+Grant permissions on automation::
+    Determines if the role is allowed to manage permissions for {PRODUCT_NAME} automation.
+
+Create new workflow::
+    Determines if the role is allowed to create workflows for {PRODUCT_NAME} automation.
+
+Search triggers::
+    Determines if the role is allowed to search for automation triggers.
+
+Search sessions::
+    Determines if the role is allowed to search for automation sessions.

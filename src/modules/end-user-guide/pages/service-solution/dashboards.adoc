@@ -1,0 +1,12 @@
+include::ROOT:partial$variables.adoc[][]
+
+= Dashboards
+
+The Dashboards page is accessible by clicking on the "Dashboards" in the main navigation bar on the top of the screen.
+
+Dashboards help you to visually understand changing business conditions so you can make decisions based on the real-time data of your Service Solution.
+
+[TIP]
+====
+You can easily define new dashboards to expose the data you care about the most.
+====

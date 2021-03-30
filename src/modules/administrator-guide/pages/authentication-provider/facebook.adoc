@@ -1,0 +1,10 @@
+include::ROOT:partial$variables.adoc[]
+
+= Facebook
+
+.To enable Facebook authentication, you need to retrieve your application credentials:
+. Go to https://developers.facebook.com/apps/[Facebook for developers] website, click on *"Add a new app"* or *select an existing app*.
+. In the list of available products search for "Facebook Login" and click on the "Set Up" button.
+. Select "Web" platform and paste the URL where your {PRODUCT_NAME} system is running.
+. Go to "Settings" and then "Basic" in the left sidebar.
+. Copy and paste both *App ID* and *App Secret* fields to {PRODUCT_NAME} {APP_NAME_ADMIN}; *app ID* maps to *client key*, *app secret* maps to *secret*.

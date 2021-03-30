@@ -1,0 +1,88 @@
+include::ROOT:partial$variables.adoc[][]
+
+= Settings
+
+The Settings page is accessible by clicking on the "Settings" in the main navigation bar on the top of the screen.
+
+In the settings page, we can configure some parts of the system to suit our needs better.
+Let's go over them.
+
+== Available settings
+
+=== Next number for a KB item
+
+This indicates the next ID that is used for the next KB item (entry).
+Unless you are migrating from another system, this value doesn't need to be changed.
+
+=== Default cost per hour
+
+This is used if a department doesn't define its hourly cost or if we don't assign a department to the case update.
+
+[NOTE]
+====
+We strongly advise that each department explicitly specifies an hourly cost.
+====
+
+=== Default department for new ticket
+
+This is the default department that will be assigned to a ticket if no other department is selected.
+
+=== Default time for a case update
+
+This is the default time that is used when working on case updates.
+
+[TIP]
+====
+You can calculate the average consumed time and use that value here.
+====
+
+=== Default case link
+
+This is the base URL that will be used when generating links to cases.
+
+[TIP]
+====
+If you have an external portal that is able to display cases stored by {PRODUCT_NAME}, you can change this link to point to that portal.
+====
+
+=== Default case email template
+
+This is the default email template that will be used when generating case emails.
+
+== Step by step configuration
+
+=== Next number for a KB item
+
+If you've migrated from another system, insert the next number that should be used.
+If not, you can leave this as it is.
+
+=== Default cost per hour
+
+Enter a default cost that should be used when working on a case update.
+
+=== Default department for new ticket
+
+Select the default department.
+If you don't see any departments, you should first create it.
+
+=== Default time for a case update
+
+Enter a default time that should be used when working on a case update.
+
+=== Default case link
+
+. Navigate to the "Pages" of your admin panel,
+. find the page called `Record page for module "Case"`,
+. copy the page ID (this is the long number at the end of the address -- similar to the above channel ID),
+. insert `{APP_COMPOSE_BASE_URL}/ns/service-solution/pages/<page_ID_here>/record`.
+For example: `{APP_COMPOSE_BASE_URL}/ns/service-solution/pages/111502308285612036/record`
+
+[TIP]
+====
+If you have an external portal that is able to display cases stored by {PRODUCT_NAME}, you can change this link to point to that portal.
+====
+
+=== Default case email template
+
+Select a default email template that should be used when working on cases.
+If you don't see any email templates, you should first create it.

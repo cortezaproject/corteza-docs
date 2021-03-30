@@ -1,9 +1,0 @@
-include::../../variables.adoc[]
-
-= Home
-
-The home page is accessible by clicking on the "Home" in the main navigation bar on the top of the screen.
-
-The homepage is sort of like a dashboard for your business -- it gives a quick overview of your cases, so you know what is going on.
-
-It shows you essential statistics regarding your cases, such as cases by priority, status, and category.

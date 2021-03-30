@@ -1,0 +1,14 @@
+include::ROOT:partial$variables.adoc[]
+
+= End-User Guide
+:description: {PRODUCT_NAME} end-user guide covers all aspects of using core {PRODUCT_NAME} applications. It's designed to to be easily understandable by non-techy people.
+:keywords: end-user, end-user guide, crm, service solution, application, {PRODUCT_NAME}
+
+The *end-user guide* will help you understand *{PRODUCT_NAME} applications*, the *user interface*, and how to use *different features* from an end-user perspective.
+
+We've designed the end-user guide to be easily understandable by non-techy people, so you don't need to be a field expert.
+
+[NOTE]
+====
+The landing page is under construction
+====

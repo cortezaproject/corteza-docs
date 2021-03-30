@@ -1,0 +1,10 @@
+include::ROOT:partial$variables.adoc[][]
+
+Access any application::
+    Determines if the role is allowed to access any application.
+
+Update any application::
+    Determines if the role is allowed to update any application.
+
+Delete any application::
+    Determines if the role is allowed to delete any application.

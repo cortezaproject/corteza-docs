@@ -1,0 +1,246 @@
+include::ROOT:partial$variables.adoc[]
+
+= CLI reference
+:description: {PRODUCT_NAME} command-line interface tool allows you to quickly interact with different parts of the system -- from changing the settings to assigning roles to users.
+:keywords: dev-ops, devops, cli, command-line interface, maintenance
+
+[NOTE]
+====
+*DevNote* think about adding some more examples/usecases?
+Update/assure the commands are still as are and valid.
+====
+
+{PRODUCT_NAME} command-line interface tool allows you to quickly interact with different parts of the system -- from changing the settings to assigning roles to users.
+
+== Authentication
+
+=== Auto discovery
+
+Auto discovers new OIDC client
+
+[source,shell]
+----
+Usage:
+  corteza-server auth auto-discovery [name] [url] [flags]
+
+Flags:
+      --enable            Enable this provider and external auth
+  -h, --help              help for auto-discovery
+      --skip-validation   Skip validation
+----
+
+[#auth-jwt]
+=== JWT
+
+Generates a new JWT for a user
+
+[source,shell]
+----
+Usage:
+  corteza-server auth jwt [email-or-id] [flags]
+
+Flags:
+  -h, --help   help for jwt
+----
+
+=== Test notification
+
+Sends samples of all authentication notification to receipient
+
+[source,shell]
+----
+Usage:
+  corteza-server auth test-notifications [recipient] [flags]
+
+Flags:
+  -h, --help   help for test-notifications
+----
+
+== Import
+
+Import data from yaml sources.
+
+[source,shell]
+----
+Usage:
+  corteza-server import [flags]
+
+Flags:
+  -h, --help                   help for import
+      --merge-left-existing    Update any existing values; existing data takes priority. Default skips.
+      --merge-right-existing   Update any existing values; new data takes priority. Default skips.
+      --replace-existing       Replace any existing values. Default skips.
+----
+
+== Provision
+
+Provision tasks
+
+[source,shell]
+----
+Usage:
+  corteza-server provision [flags]
+
+Flags:
+  -h, --help   help for provision
+----
+
+== RBAC
+
+Check and manipulates permissions
+
+=== Check 
+
+Check applied permissions against given file (only supports compose permissions for now)
+
+[source,shell]
+----
+Usage:
+  corteza-server rbac check [flags]
+
+Flags:
+  -h, --help   help for check
+----
+
+== Roles
+
+Role management
+
+=== Add user
+
+Add user to role
+
+[source,shell]
+----
+Usage:
+  corteza-server roles useradd [role-ID-or-name-or-handle] [user-ID-or-email] [flags]
+
+Flags:
+  -h, --help   help for useradd
+----
+
+== Serve api
+
+Start HTTP server with REST API
+
+[source,shell]
+----
+Usage:
+  corteza-server serve-api [flags]
+
+Aliases:
+  serve-api, serve
+
+Flags:
+  -h, --help   help for serve-api
+----
+
+[#sink-signature]
+== Sink signature
+
+Creates signature for sink HTTP endpoint
+
+[source,shell]
+----
+Usage:
+  corteza-server sink signature [flags]
+
+Flags:
+      --content-type string   Content type (optional)
+      --expires string        Date of expiration (YYYY-MM-DD, optional)
+  -h, --help                  help for signature
+      --max-body-size int     Max allowed body size
+      --method string         HTTP method that will be used (optional)
+      --origin string         Origin of the request (arbitrary string, optional)
+      --path string           Full sink request path (do not include /sink prefix, add / for just root)
+      --signature-in-path     Include signature in a path instead of query string
+----
+
+== Upgrade
+
+[source,shell]
+----
+Usage:
+  corteza-server upgrade [flags]
+
+Flags:
+  -h, --help   help for upgrade
+----
+
+== Users
+
+User management
+
+=== Add user
+
+Add new user
+
+[source,shell]
+----
+Usage:
+  corteza-server users add [email] [flags]
+
+Flags:
+  -h, --help          help for add
+      --no-password   Create user without password
+----
+
+=== List
+
+List users
+
+[source,shell]
+----
+Usage:
+  corteza-server users list [flags]
+
+Flags:
+  -h, --help           help for list
+  -l, --limit int      How many entry to display (default 20)
+  -q, --query string   Query and filter by handle, email, name
+----
+
+=== Password
+
+Change password for user
+
+[source,shell]
+----
+Usage:
+  corteza-server users password [email] [flags]
+
+Flags:
+  -h, --help   help for password
+----
+
+== Federation sync
+
+.There are two commands to handle federation sync:
+* data sync,
+* structure sync.
+
+The two commands (`corteza-server sync data` and `corteza-server sync structure`) force the background watcher to run.
+
+[source,shell]
+----
+Usage:
+  corteza-server sync [command]
+
+Available Commands:
+  data        Sync data
+  structure   Sync structure
+
+Flags:
+  -h, --help   help for sync
+----
+
+== Version
+
+[source,shell]
+----
+Usage:
+  corteza-server version [flags]
+
+Flags:
+  -h, --help   help for version
+----

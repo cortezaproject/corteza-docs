@@ -1,0 +1,11 @@
+* Extensions
+
+** Applications
+*** xref:crm/index.adoc[]
+*** xref:service-solution/index.adoc[]
+
+** Packages
+*** xref:renderer/index.adoc[]
+*** xref:pexels/index.adoc[]
+*** xref:unsplash/index.adoc[]
+*** xref:docusign/index.adoc[]

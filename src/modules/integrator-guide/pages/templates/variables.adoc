@@ -1,0 +1,17 @@
+include::ROOT:partial$variables.adoc[]
+
+= Variables
+
+Variables allow you to reuse the result of an operation multiple times without needing to recalculate it.
+
+.Define a variable like this:
+[source]
+----
+{{$var = operation}}
+----
+
+.Use a variable like this:
+[source]
+----
+{{$var}}
+----

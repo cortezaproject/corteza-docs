@@ -1,8 +1,0 @@
-include::../../variables.adoc[]
-
-= Configuration
-
-.To use the CRM extension:
-. Configure the CRM {APP_NAME_COMPOSE} namespace according to the .yaml config files.
-. Include the server and client scripts you need so that they are registered by {APP_AUTOMATION}.
-. All of the CRM pages, modules and charts are now accessible under the CRM namespace.

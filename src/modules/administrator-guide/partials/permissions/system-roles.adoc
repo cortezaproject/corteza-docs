@@ -1,0 +1,13 @@
+include::ROOT:partial$variables.adoc[][]
+
+Read any role::
+    Determines if the role is allowed to see any role.
+
+Update any role::
+    Determines if the role is allowed to update any role.
+
+Delete any role::
+    Determines if the role is allowed to delete any role.
+
+Manage members for any role::
+    Determines if the role is allowed to add/remove members from any role.

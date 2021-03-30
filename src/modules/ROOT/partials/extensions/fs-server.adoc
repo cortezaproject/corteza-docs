@@ -1,9 +1,0 @@
-include::../../pages/variables.adoc[]
-
-[source,text]
-----
-/server-scripts <1>
-    /... <2>
-----
-<1> Root folder for all server scripts (under each search path).
-<2> Undefined file structure; can be defined as needed.

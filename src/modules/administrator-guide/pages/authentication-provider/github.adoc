@@ -1,0 +1,7 @@
+include::ROOT:partial$variables.adoc[]
+
+= GitHub
+
+.To enable GitHub authentication, you need to retrieve your application credentials:
+. Go to https://github.com/settings/applications/new[GitHub] and create a new OAuth application.
+. Copy and paste both *Client ID* and *Client Secret* fields to {PRODUCT_NAME} {APP_NAME_ADMIN}.

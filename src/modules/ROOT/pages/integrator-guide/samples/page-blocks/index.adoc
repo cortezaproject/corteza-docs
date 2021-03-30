@@ -1,5 +1,0 @@
-= Page block samples
-
-include::record-lists.adoc[]
-
-include::metrics.adoc[]

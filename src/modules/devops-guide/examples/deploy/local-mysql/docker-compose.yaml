@@ -1,0 +1,27 @@
+version: '3.5'
+
+services:
+  server:
+    image: cortezaproject/corteza-server:${VERSION}
+    restart: on-failure
+    env_file: [ .env ]
+    depends_on: [ db, corredor ]
+    ports: [ "127.0.0.1:18080:80" ]
+
+  corredor:
+    image: cortezaproject/corteza-server-corredor:${VERSION}
+    restart: on-failure
+    env_file: [ .env ]
+
+  db:
+    # MySQL Database
+    # See https://hub.docker.com/r/percona/percona-server for details
+    image: percona:8.0
+    restart: on-failure
+    environment:
+      MYSQL_DATABASE: dbname
+      MYSQL_USER:     dbuser
+      MYSQL_PASSWORD: dbpass
+      # get the random generated password by running: docker-compose logs db | grep "GENERATED ROOT PASSWORD"
+      MYSQL_RANDOM_ROOT_PASSWORD: random 
+    healthcheck: { test: ["CMD", "mysqladmin" ,"ping", "-h", "localhost"], timeout: 20s, retries: 10 }

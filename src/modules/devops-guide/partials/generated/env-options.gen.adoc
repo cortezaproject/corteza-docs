@@ -1,0 +1,1157 @@
+include::ROOT:partial$variables.adoc[]
+
+// This file is auto-generated.
+//
+// Changes to this file may cause incorrect behavior and will be lost if
+// the code is regenerated.
+//
+// Definitions file that controls how this file is generated:
+//  - pkg/options/DB.yaml
+//  - pkg/options/HTTPClient.yaml
+//  - pkg/options/HTTPServer.yaml
+//  - pkg/options/SMTP.yaml
+//  - pkg/options/actionLog.yaml
+//  - pkg/options/auth.yaml
+//  - pkg/options/corredor.yaml
+//  - pkg/options/environment.yaml
+//  - pkg/options/eventbus.yaml
+//  - pkg/options/federation.yaml
+//  - pkg/options/monitor.yaml
+//  - pkg/options/objectStore.yaml
+//  - pkg/options/provision.yaml
+//  - pkg/options/sentry.yaml
+//  - pkg/options/upgrade.yaml
+//  - pkg/options/waitFor.yaml
+//  - pkg/options/websocket.yaml
+
+
+= Connection to data store backend
+
+== *DB_DSN*
+
+=== Type
+
+`string`
+
+=== Default
+
+`"sqlite3://file::memory:?cache=shared&mode=memory"`
+
+=== Description
+
+Database connection string.
+
+= HTTP Client
+
+== *HTTP_CLIENT_TSL_INSECURE*
+
+=== Type
+
+`bool`
+
+=== Default
+
+`false`
+
+=== Description
+
+Allow insecure (invalid, expired TSL/SSL certificates) connections.
+
+[IMPORTANT]
+====
+We strongly recommend keeping this value set to false except for local development or demos.
+====
+
+== *HTTP_CLIENT_TIMEOUT*
+
+=== Type
+
+`time.Duration`
+
+=== Default
+
+`30 * time.Second`
+
+=== Description
+
+Default timeout for clients.
+
+= HTTP Server
+
+== *HTTP_ADDR*
+
+=== Type
+
+`string`
+
+=== Default
+
+`":80"`
+
+=== Description
+
+IP and port for the HTTP server.
+
+== *HTTP_LOG_REQUEST*
+
+=== Type
+
+`bool`
+
+=== Default
+
+`false`
+
+=== Description
+
+Log HTTP requests.
+
+== *HTTP_LOG_RESPONSE*
+
+=== Type
+
+`bool`
+
+=== Default
+
+`false`
+
+=== Description
+
+Log HTTP responses.
+
+== *HTTP_ERROR_TRACING*
+
+=== Type
+
+`bool`
+
+=== Default
+
+`false`
+
+
+== *HTTP_ENABLE_HEALTHCHECK_ROUTE*
+
+=== Type
+
+`bool`
+
+=== Default
+
+`true`
+
+
+== *HTTP_ENABLE_VERSION_ROUTE*
+
+=== Type
+
+`bool`
+
+=== Default
+
+`true`
+
+=== Description
+
+Enable `/version` route.
+
+== *HTTP_ENABLE_DEBUG_ROUTE*
+
+=== Type
+
+`bool`
+
+=== Default
+
+`false`
+
+=== Description
+
+Enable `/debug` route.
+
+== *HTTP_METRICS*
+
+=== Type
+
+`bool`
+
+=== Default
+
+`false`
+
+=== Description
+
+Enable (prometheus) metrics.
+
+== *HTTP_METRICS_NAME*
+
+=== Type
+
+`string`
+
+=== Default
+
+`"corteza"`
+
+=== Description
+
+Name for metrics endpoint.
+
+== *HTTP_METRICS_USERNAME*
+
+=== Type
+
+`string`
+
+=== Default
+
+`"metrics"`
+
+=== Description
+
+Username for the metrics endpoint.
+
+== *HTTP_METRICS_PASSWORD*
+
+=== Type
+
+`string`
+
+=== Default
+
+`string(rand.Bytes(5))`
+
+=== Description
+
+Password for the metrics endpoint.
+
+== *HTTP_REPORT_PANIC*
+
+=== Type
+
+`bool`
+
+=== Default
+
+`true`
+
+=== Description
+
+Report HTTP panic to Sentry.
+
+== *HTTP_API_ENABLED*
+
+=== Type
+
+`bool`
+
+=== Default
+
+`true`
+
+
+== *HTTP_API_BASE_URL*
+
+=== Type
+
+`string`
+
+
+== *HTTP_WEBAPP_ENABLED*
+
+=== Type
+
+`bool`
+
+=== Default
+
+`false`
+
+
+== *HTTP_WEBAPP_BASE_URL*
+
+=== Type
+
+`string`
+
+=== Default
+
+`"/"`
+
+
+== *HTTP_WEBAPP_BASE_DIR*
+
+=== Type
+
+`string`
+
+=== Default
+
+`"webapp/public"`
+
+
+== *HTTP_WEBAPP_LIST*
+
+=== Type
+
+`string`
+
+=== Default
+
+`"admin,auth,messaging,compose"`
+
+
+= Email sending
+
+Configure your local SMTP server or use one of the available providers
+
+== *SMTP_HOST*
+
+=== Type
+
+`string`
+
+=== Default
+
+`"localhost"`
+
+=== Description
+
+The SMTP server hostname.
+
+== *SMTP_PORT*
+
+=== Type
+
+`int`
+
+=== Default
+
+`25`
+
+=== Description
+
+The SMTP post.
+
+== *SMTP_USER*
+
+=== Type
+
+`string`
+
+=== Description
+
+The SMTP username.
+
+== *SMTP_PASS*
+
+=== Type
+
+`string`
+
+=== Description
+
+The SMTP password.
+
+== *SMTP_FROM*
+
+=== Type
+
+`string`
+
+=== Description
+
+The SMTP `from` email parameter
+
+== *SMTP_TLS_INSECURE*
+
+=== Type
+
+`bool`
+
+=== Default
+
+`false`
+
+=== Description
+
+Allow insecure (invalid, expired TLS certificates) connections.
+
+== *SMTP_TLS_SERVER_NAME*
+
+=== Type
+
+`string`
+
+
+= Actionlog
+
+== *ACTIONLOG_ENABLED*
+
+=== Type
+
+`bool`
+
+=== Default
+
+`true`
+
+
+== *ACTIONLOG_DEBUG*
+
+=== Type
+
+`bool`
+
+=== Default
+
+`false`
+
+
+= Authentication
+
+== *AUTH_JWT_SECRET*
+
+=== Type
+
+`string`
+
+=== Description
+
+Secret used for signing JWT tokens.
+
+[IMPORTANT]
+====
+Make sure to provide a secret.
+If you don't, a random value is assigned -- this causes all of the tokens to become invalid after a server restart.
+====
+
+== *AUTH_JWT_EXPIRY*
+
+=== Type
+
+`time.Duration`
+
+=== Default
+
+`time.Hour * 24 * 30`
+
+=== Description
+
+Experation time for the auth JWT tokens.
+
+= Connection to Corredor
+
+== *CORREDOR_ENABLED*
+
+=== Type
+
+`bool`
+
+=== Default
+
+`true`
+
+=== Description
+
+Enable/disable Corredor integration
+
+== *CORREDOR_ADDR*
+
+=== Type
+
+`string`
+
+=== Default
+
+`"localhost:50051"`
+
+=== Description
+
+Hostname and port of the Corredor gRPC server.
+
+== *CORREDOR_MAX_BACKOFF_DELAY*
+
+=== Type
+
+`time.Duration`
+
+=== Default
+
+`time.Minute`
+
+=== Description
+
+Max delay for backoff on connection.
+
+== *CORREDOR_MAX_RECEIVE_MESSAGE_SIZE*
+
+=== Type
+
+`int`
+
+=== Default
+
+`2 << 23`
+
+=== Description
+
+Max message size that can be recived.
+
+== *CORREDOR_DEFAULT_EXEC_TIMEOUT*
+
+=== Type
+
+`time.Duration`
+
+=== Default
+
+`time.Minute`
+
+
+== *CORREDOR_LIST_TIMEOUT*
+
+=== Type
+
+`time.Duration`
+
+=== Default
+
+`time.Second * 2`
+
+
+== *CORREDOR_LIST_REFRESH*
+
+=== Type
+
+`time.Duration`
+
+=== Default
+
+`time.Second * 5`
+
+
+== *CORREDOR_RUN_AS_ENABLED*
+
+=== Type
+
+`bool`
+
+=== Default
+
+`true`
+
+
+== *CORREDOR_CLIENT_CERTIFICATES_ENABLED*
+
+=== Type
+
+`bool`
+
+=== Default
+
+`false`
+
+
+== *CORREDOR_CLIENT_CERTIFICATES_PATH*
+
+=== Type
+
+`string`
+
+=== Default
+
+`"/certs/corredor/client"`
+
+
+== *CORREDOR_CLIENT_CERTIFICATES_CA*
+
+=== Type
+
+`string`
+
+=== Default
+
+`"ca.crt"`
+
+
+== *CORREDOR_CLIENT_CERTIFICATES_PRIVATE*
+
+=== Type
+
+`string`
+
+=== Default
+
+`"private.key"`
+
+
+== *CORREDOR_CLIENT_CERTIFICATES_PUBLIC*
+
+=== Type
+
+`string`
+
+=== Default
+
+`"public.crt"`
+
+
+== *CORREDOR_CLIENT_CERTIFICATES_SERVER_NAME*
+
+=== Type
+
+`string`
+
+
+= Environment
+
+== *ENVIRONMENT*
+
+=== Type
+
+`string`
+
+=== Default
+
+`"production"`
+
+
+= Events and scheduler
+
+== *EVENTBUS_SCHEDULER_ENABLED*
+
+=== Type
+
+`bool`
+
+=== Default
+
+`true`
+
+=== Description
+
+Enable eventbus sheduler.
+
+== *EVENTBUS_SCHEDULER_INTERVAL*
+
+=== Type
+
+`time.Duration`
+
+=== Default
+
+`time.Minute`
+
+=== Description
+
+Set time interval for `eventbus` scheduler.
+
+= federation
+
+== *FEDERATION_ENABLED*
+
+=== Type
+
+`bool`
+
+=== Default
+
+`false`
+
+=== Description
+
+Federation enabled on system, it toggles rest API endpoints, possibility to map modules in Compose and sync itself
+
+== *FEDERATION_LABEL*
+
+=== Type
+
+`string`
+
+=== Default
+
+`"Federation label"`
+
+=== Description
+
+Federation label
+
+== *FEDERATION_HOST*
+
+=== Type
+
+`string`
+
+=== Default
+
+`"Federation host"`
+
+=== Description
+
+Host that is used during node pairing, also included in invitation
+
+== *FEDERATION_SYNC_STRUCTURE_MONITOR_INTERVAL*
+
+=== Type
+
+`time.Duration`
+
+=== Default
+
+`time.Minute * 2`
+
+=== Description
+
+Delay in seconds for structure sync
+
+== *FEDERATION_SYNC_STRUCTURE_PAGE_SIZE*
+
+=== Type
+
+`int`
+
+=== Default
+
+`1`
+
+=== Description
+
+Bulk size in fetching for structure sync
+
+== *FEDERATION_SYNC_DATA_MONITOR_INTERVAL*
+
+=== Type
+
+`time.Duration`
+
+=== Default
+
+`time.Second * 60`
+
+=== Description
+
+Delay in seconds for data sync
+
+== *FEDERATION_SYNC_DATA_PAGE_SIZE*
+
+=== Type
+
+`int`
+
+=== Default
+
+`100`
+
+=== Description
+
+Bulk size in fetching for data sync
+
+= Monitoring
+
+== *MONITOR_INTERVAL*
+
+=== Type
+
+`time.Duration`
+
+=== Default
+
+`300 * time.Second`
+
+=== Description
+
+Output (log) interval for monitoring.
+
+= Object (file) storage
+
+The MinIO integration allows you to replace local storage with cloud storage. When configured, `STORAGE_PATH` is not needed.
+
+== *STORAGE_PATH*
+
+=== Type
+
+`string`
+
+=== Default
+
+`"var/store"`
+
+=== Description
+
+Location where uploaded files are stored.
+
+== *MINIO_ENDPOINT*
+
+=== Type
+
+`string`
+
+
+== *MINIO_SECURE*
+
+=== Type
+
+`bool`
+
+=== Default
+
+`true`
+
+
+== *MINIO_ACCESS_KEY*
+
+=== Type
+
+`string`
+
+
+== *MINIO_SECRET_KEY*
+
+=== Type
+
+`string`
+
+
+== *MINIO_SSEC_KEY*
+
+=== Type
+
+`string`
+
+
+== *MINIO_BUCKET*
+
+=== Type
+
+`string`
+
+
+== *MINIO_STRICT*
+
+=== Type
+
+`bool`
+
+=== Default
+
+`false`
+
+
+= Provisioning
+
+Provisioning allows you to configure a {PRODUCT_NAME} instance when deployed.
+It occurs automatically after the {PRODUCT_NAME} server starts.
+
+[IMPORTANT]
+====
+We recommend you to keep provisioning enabled as it simplifies version updates by updating the database and updating settings.
+
+If you're doing local development or some debugging, you can disable this.
+====
+
+== *PROVISION_ALWAYS*
+
+=== Type
+
+`bool`
+
+=== Default
+
+`true`
+
+=== Description
+
+Controls if provision should run when the server starts.
+
+== *PROVISION_PATH*
+
+=== Type
+
+`string`
+
+=== Default
+
+`"provision/*"`
+
+=== Description
+
+Colon seperated paths to config files for provisioning.
+
+= Sentry monitoring
+
+[NOTE]
+====
+These parameters help in the development and testing process.
+When you are deploying to production, these should be disabled to improve performance and reduce storage usage.
+
+You should configure external services such as Sentry or ELK to keep track of logs and error reports.
+====
+
+== *SENTRY_DSN*
+
+=== Type
+
+`string`
+
+=== Description
+
+Set to enable Sentry client.
+
+== *SENTRY_DEBUG*
+
+=== Type
+
+`bool`
+
+=== Description
+
+Print out debugging information.
+
+== *SENTRY_ATTACH_STACKTRACE*
+
+=== Type
+
+`bool`
+
+=== Default
+
+`true`
+
+=== Description
+
+Attach stacktraces
+
+== *SENTRY_SAMPLE_RATE*
+
+=== Type
+
+`float32`
+
+=== Description
+
+Sample rate for event submission (0.0 - 1.0. defaults to 1.0)
+
+== *SENTRY_MAX_BREADCRUMBS*
+
+=== Type
+
+`int`
+
+=== Default
+
+`0`
+
+=== Description
+
+Maximum number of bredcrumbs.
+
+== *SENTRY_SERVERNAME*
+
+=== Type
+
+`string`
+
+=== Description
+
+Set reported Server name.
+
+== *SENTRY_RELEASE*
+
+=== Type
+
+`string`
+
+=== Default
+
+`version.Version`
+
+=== Description
+
+Set reported Release.
+
+== *SENTRY_DIST*
+
+=== Type
+
+`string`
+
+=== Description
+
+Set reported distribution.
+
+== *SENTRY_ENVIRONMENT*
+
+=== Type
+
+`string`
+
+=== Description
+
+Set reported environment.
+
+= Data store (database) upgrade
+
+== *UPGRADE_DEBUG*
+
+=== Type
+
+`bool`
+
+=== Default
+
+`false`
+
+=== Description
+
+Enable/disable debug logging.
+    To enable debug logging set `UPGRADE_DEBUG=true`.
+
+== *UPGRADE_ALWAYS*
+
+=== Type
+
+`bool`
+
+=== Default
+
+`true`
+
+=== Description
+
+Controls if the upgradable systems should be upgraded when the server starts.
+
+= Delay system startup
+
+You can configure these options to defer API execution until another external (HTTP) service is up and running.
+
+[ TIP ]
+====
+Delaying API execution can come in handy in complex setups where execution order is important.
+====
+
+== *WAIT_FOR*
+
+=== Type
+
+`time.Duration`
+
+=== Default
+
+`0`
+
+=== Description
+
+Delays API startup for the amount of time specified (10s, 2m...).
+    This delay happens before service (`WAIT_FOR_SERVICES`) probing.
+
+== *WAIT_FOR_STATUS_PAGE*
+
+=== Type
+
+`bool`
+
+=== Default
+
+`true`
+
+=== Description
+
+Show temporary status web page.
+
+== *WAIT_FOR_SERVICES*
+
+=== Type
+
+`string`
+
+=== Description
+
+Space delimited list of hosts and/or URLs to probe.
+    Host format: `host` or `host:443` (port will default to 80).
+
+[NOTE]
+====
+Services are probed in parallel.
+====
+
+== *WAIT_FOR_SERVICES_TIMEOUT*
+
+=== Type
+
+`time.Duration`
+
+=== Default
+
+`time.Minute`
+
+=== Description
+
+Max time for each service probe.
+
+== *WAIT_FOR_SERVICES_PROBE_TIMEOUT*
+
+=== Type
+
+`time.Duration`
+
+=== Default
+
+`time.Second * 30`
+
+=== Description
+
+Timeout for each service probe.
+
+== *WAIT_FOR_SERVICES_PROBE_INTERVAL*
+
+=== Type
+
+`time.Duration`
+
+=== Default
+
+`time.Second * 5`
+
+=== Description
+
+Interval between service probes.
+
+= Websocket server
+
+== *WEBSOCKET_TIMEOUT*
+
+=== Type
+
+`time.Duration`
+
+=== Default
+
+`15 * time.Second`
+
+=== Description
+
+Time before `WsServer` gets timed out.
+
+== *WEBSOCKET_PING_TIMEOUT*
+
+=== Type
+
+`time.Duration`
+
+=== Default
+
+`120 * time.Second`
+
+
+== *WEBSOCKET_PING_PERIOD*
+
+=== Type
+
+`time.Duration`
+
+=== Default
+
+`((120 * time.Second) * 9) / 10`
+

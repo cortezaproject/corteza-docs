@@ -1,0 +1,14 @@
+include::ROOT:partial$variables.adoc[][]
+
+= Dashboards
+
+The Dashboards page is accessible by clicking on the "Dashboards" in the main navigation bar on the top of the screen.
+
+Dashboards help you to visually understand changing business conditions so you can make decisions based on the real-time data of your CRM.
+
+{PRODUCT_NAME} CRM comes built-in with a handful of predefined dashboards that should give you enough understanding about the business.
+
+[TIP]
+====
+Your dashboards can also include social media feeds.
+====

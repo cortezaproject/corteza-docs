@@ -1,3 +1,0 @@
-include::./variables.adoc[]
-
-// @todo

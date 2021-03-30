@@ -1,3 +1,0 @@
-= Terminology
-
-include::../../partials/extensions/terminology.adoc[]

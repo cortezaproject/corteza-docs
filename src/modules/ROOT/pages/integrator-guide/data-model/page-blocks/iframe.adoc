@@ -1,7 +1,0 @@
-| [#page-block-iframe]#<<page-block-iframe,IFrame>>#
-| An *iframe page block* is used to embed some external website inside your application.
-
-[IMPORTANT]
-====
-Make sure to keep any *iframe embedding limitation* in mind; we are no exception.
-====

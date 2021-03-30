@@ -1,0 +1,489 @@
+include::ROOT:partial$variables.adoc[]
+
+= {PRODUCT_NAME} workflow
+:description: {PRODUCT_NAME} workflow allow you to implement custom business logic without the need for any programming knowledge.
+:keywords: low code, no code, automation, workflow, workflows, {PRODUCT_NAME}
+
+{PRODUCT_NAME} workflow (further referred to as a workflow) allow you to implement custom business logic without the need for any programming knowledge.
+This page focuses on the most important aspects of the system.
+If you wish to learn more about a specific topic, refer to the subsections under menu:Integrator Guide[{PRODUCT_NAME} workflow].
+
+In contrast to xref:automation-scripts/index.adoc[], workflows are presented as a simplified BPMN diagram, allowing you to configure instead of code.
+You are not required to have any BPMN knowledge, although it might be helpful.
+
+[IMPORTANT]
+====
+All of the data in the workflow is typed.
+Refer to xref:workflows/types.adoc[type index] for more details.
+====
+
+== Learning the workflow editor
+
+The workflow editor consists of four main parts; workflow configuration screen, toolbar, canvas, and step configurator.
+
+. *Workflow configuration* (accessible by clicking on the configuration icon image:workflow/cog.svg[width=20px] in the header) is where you provide basic workflow configurations.
+. *Toolbar* is where you can find all of the available steps.
+. *Canvas* is where you build and configure the workflow.
+. *Step configurator* is where you configure the workflow steps.
+
+.Workflow user interface:
+image:workflow/ui.svg[]
+
+=== Structuring the workflow
+
+To start building your workflow, simply drag-and-drop different elements (further referred to as steps) from the toolbar to the canvas.
+If you are using similar steps with similar configurations, using copy-paste to duplicate existing steps might be faster.
+
+image:workflow/step-add.svg[]
+
+To define the flow of your workflow, simply connect the steps by drawing a connector between them.
+
+image:workflow/step-connect.svg[]
+
+To change the start point or the end point of the connector, click on the connector to view its points; then hover over the connecting point and drag it to another connector point.
+
+.Example of changing the origin connector point:
+image:workflow/step-connect-move-from.svg[]
+
+.Example of changing the destination connector point:
+image:workflow/step-connect-move-to.svg[]
+
+Add some extra steps to get the feel for the interface.
+The resulting workflow doesn't need to be valid or make any sense.
+We will address all of the available steps and their configuration in detail in later sections.
+
+.Gesture reference:
+* Click and hold the right mouse button, drag the mouse to *pan the canvas*.
+* Scroll up to *zoom in the canvas* (inverted when natural scrolling is enabled).
+* Scroll down to *zoom out the canvas* (inverted when natural scrolling is enabled).
+
+[TIP]
+====
+The remaining gestures and keyboard shortcuts can be found in the help menu.
+====
+
+[IMPORTANT]
+====
+Remember, every workflow must start with a trigger image:workflow/trigger.svg[width=20px], and end with an termination step image:workflow/termination.svg[width=20px].
+A single workflow can have multiple triggers and multiple termination steps.
+====
+
+When you're happy with your workflow or wish to save your progress, click on the save button on the bottom of the screen, or use the kbd:[ctrl+s] shortcut.
+
+image:workflow/save.svg[]
+
+=== Configuring the workflow
+
+Out of the box most workflow steps don't do anything unless we configure them to perform some task such as evaluating an expression or executing a complex function.
+
+In order to configure specific steps, click on the configuration icon image:workflow/cog.svg[width=20px] in the header of the step.
+To configure a specific connector, click on it's label or double click on it.
+
+The configuration is automatically saved to the step.
+The workflow needs to be saved in order for the configuration to take affect.
+
+image:workflow/step-config.svg[]
+
+== Execution control
+
+Execution control allows you to indicate where the workflow starts, the steps, and where the workflow ends.
+
+[cols="1s,5a"]
+|===
+
+| [#step-exec-triggers]#<<step-exec-triggers,Triggers>>#
+|
+A *trigger* image:workflow/trigger.svg[width=20px] defines when the workflow starts and what steps the workflow execution should perform.
+
+[NOTE]
+====
+A single workflow can have multiple triggers.
+Multiple triggers allow you to define fewer workflows for different events.
+====
+
+Every time an action occurs (e.g. a record is created or a user signed-up) the system finds all of the workflows with a trigger that conform to that action.
+To examplify; when a client signs-up for your newsletter, the system finds all of the workflows where the trigger listens to a "user signed up" event.
+
+.A trigger consists of four main components (click on the configuration icon image:workflow/cog.svg[width=20px] in the header):
+. a resource which specifies what system resource the trigger reacts to,
+. an event which specifies what system events the trigger reacts to,
+. a series of constraints which specifies how an event should look like in order for the trigger to react.
+* To examplify; we can react to a {PRODUCT_NAME} created event only when the record was created for a lead module under the CRM namespace,
+. an initial scope which specifies what variables are available out of the box, without the need to do any work on your end.
+When working with records this will be the current record, the previous version of it, the related module, the related namespace, and any record validation errors.
+
+[TIP]
+====
+It's good practice to constraint your triggers as much as possible.
+====
+
+.An example of a workflow with multiple triggers:
+image:workflow/multi-start.svg[]
+
+| [#step-exec-terminator]#<<step-exec-terminator,Terminators>>#
+|
+A *termination step* image:workflow/termination.svg[width=20px] terminates the execution of the workflow, this indicating its end.
+
+[NOTE]
+====
+A single workflow can have multiple termination steps.
+Multiple termination steps allow you to explicitly terminate the workflows' execution.
+====
+
+.An example of a workflow with multiple termination steps:
+image:workflow/multi-end.svg[]
+
+|===
+
+== Expressions
+
+An *expression step* image:workflow/expressions.svg[width=20px] defines a set of expressions which allow you to directly interact with values defined in your workflow.
+Think of this as defining an equation in Spreadsheets.
+
+A single expression step can define multiple expressions, allowing you to aggregate similar operations under a single step; this reduces the size and increases readability.
+Refer to xref:expr/index.adoc[] for more details regarding expression definition.
+
+.Examples of usage:
+* generate a full name for a contact,
+* calculate the grand total for a quote,
+* copy values from one record to another.
+
+To configure the expression step, click on the configuration icon image:workflow/cog.svg[width=20px] in the header of the expression step.
+
+.The expression configuration interface:
+image:workflow/expr-example-base.png[]
+
+To add a new expression to the expression step, click on the btn:[+ Add Expression] button.
+Click on the expression to collapse or collapse the expression editing interface.
+
+.The expression configuration interface with inserted expressions:
+image:workflow/expr-example-end.png[]
+
+.The expression step in the above example performs two tasks:
+. it initializes the `Integer` variable `testVariable` with the number `10`,
+. it multiplies the value of the variable `testVariable` by `9`,
+
+****
+.Workflow step details:
+[%collapsible.example]
+====
+
+1. *(1) Test trigger*:
+** *resource*: `System`
+** *event*: `onManual`
+** *enabled*: checked
+2. *(2) Expression*:
+** *expressions*:
+*** `testVariable`:
+**** *type*: `Integer`
+**** *value*: `10`
+*** `testVariable`:
+**** *type*: `Integer`
+**** *value*: `testVariable*9`
+3. *(3) Log calculation*:
+** *type*: `Log debug message`
+** *arguments*:
+*** *message*:
+**** *value type*: constant
+**** *value*: `Test variable is:`
+*** *fields (KV)*:
+**** *value type*: expression
+**** *value*: `{"value": testVariable}`
+
+====
+****
+
+== Functions
+
+A *function step* image:workflow/function.svg[width=20px] defines what operation should be performed when the function step is executed.
+Think of this as defining a macro in Spreadsheets.
+
+.Examples of usage:
+* create a new quote for an account,
+* send an email notification to your mailing list,
+* delete a suspended user.
+
+[NOTE]
+====
+You need to define an xref:automation-scripts/index.adoc[automation script] in case you need to use an unsupported function (e.g. integration with an unsupported external service).
+====
+
+To configure the function step, click on the configuration icon image:workflow/cog.svg[width=20px] in the header of the function step.
+
+.The function configuration interface:
+image:workflow/fnc-example-base.png[]
+
+Select what function you wish to perform in the dropdown select box under the "type" section.
+When you select a function, the list of function arguments appears.
+
+An argument defines what piece of data the function should use to perform some operation.
+To examplify; the `message` parameter in the "log debug message" function defines the message displayed in the debug log.
+
+.The function configuration interface with defined parameters:
+image:workflow/fnc-example-end.png[]
+
+The function step in the above example creates a log entry based on the provided `message` and `fields` arguments.
+
+****
+.Workflow step details:
+[%collapsible.example]
+====
+
+1. *(1) Test trigger*:
+** *resource*: `System`
+** *event*: `onManual`
+** *enabled*: checked
+2. *(2) Expression*:
+** *expressions*:
+*** `testVariable`:
+**** *type*: `Integer`
+**** *value*: `10`
+*** `testVariable`:
+**** *type*: `Integer`
+**** *value*: `testVariable*9`
+3. *(3) Log calculation*:
+** *type*: `Log debug message`
+** *arguments*:
+*** *message*:
+**** *value type*: constant
+**** *value*: `Test variable is:`
+*** *fields (KV)*:
+**** *value type*: expression
+**** *value*: `{"value": testVariable}`
+
+====
+****
+
+.Function arguments can be passed in two different ways:
+. *Constant values* which are passed into function in its present condition.
+Use constant values when the passed data should not change.
+. *Expressions* are evaluated and the result is passed into function.
+This is useful when you wish to change the input without the need for an additional expression step.
+
+// check vv
+// Use expressions when the passed data should change based on the workflows' scope.
+
+== Processing multiple items
+
+When you wish to process multiple items, such as a list of leads that were created in the past month, you should use an iterator image:workflow/iterator.svg[width=20px].
+An iterator allows you to sequentially process a series of items one after another.
+
+An iterator consists of two main parts; the *configuration* and the *iterator body*.
+
+=== Iterator configuration
+
+To access the iterator configuration, click on the configuration icon image:workflow/cog.svg[width=20px] in the header.
+The configuration consists of three parts; *type*, *arguments*, and *result* parts.
+
+[cols="1s,5a"]
+|===
+
+| [#step-iterator-type]#<<step-iterator-type,Iterator type>>#
+|
+From the end-user's perspective, the iterator type specifies what arguments you need to provide in order to process the requested set of items.
+We characterise three main kinds of iterators:
+
+[#iterator-kind-condition]#<<iterator-kind-condition,Condition iterators>>#::
+  A condition iterator repeats for as long as the condition you've provided results as truthy.
+  To examplify; a condition of `counter < 10` would make the iterator repeat for as long as the counter is below 10.
+
+[#iterator-kind-item]#<<iterator-kind-item,Item iterators>>#::
+  An item iterator traverses the provided set of items from start to finish.
+  To examplify; we pass in 10 records, therefore the iterator repeats 10 times, once for each record in the provided set.
+
+[TIP]
+====
+Most item iterators are able to *fetch and iterate* over items.
+====
+
+[#iterator-kind-stream]#<<iterator-kind-stream,Stream iterators>>#::
+  A stream iterator traverses the provided file one line at a time.
+  To examplify; we provide a text document containing 10 email addresses each in it's own line, therefore the iterator repeats 10 times, once for each line (in this case email address).
+
+[CAUTION]
+====
+Be careful when using the stream iterator with arbitrary file types.
+File types and encodings may cause unwanted behavior.
+====
+
+| [#step-iterator-args]#<<step-iterator-args,Iterator arguments>>#
+|
+Iterator arguments allow you to specify the data that the iterator is allowed to work with.
+
+.Iterator arguments can be passed in three different ways:
+. *Constant values* are passed into the iterator function in its present condition.
+Use constant values when the passed data should not change.
+. *Expressions* are evaluated and the result is passed into the iterator.
+This is useful when you wish to change the input without the need for an additional expression step.
+
+// check vv
+// Use expressions when the passed data should change based on the workflows' scope.
+
+| [#step-iterator-rsp]#<<step-iterator-rsp,Iterator results>>#
+|
+During the execution of an iterator a set of results for each iteration is generated.
+The results depend on the iterator type.
+
+|===
+
+=== Iterator body
+
+The iterator body is implicitly implied by the first outgoing connector.
+The second connector indicates where the execution continues after the iterator executes.
+
+Use the iterator body to define what should happen to the items in processing, for example; if our intent is to send out email notifications, this is where you would do that.
+
+[IMPORTANT]
+====
+Use either the continue or break steps to terminate the loop body.
+The advised approach is less prone to errors such as infinite loops.
+Do not create a loop using connectors.
+
+.An example of a valid iterator body:
+image:workflow/iterator-body-do.png[]
+
+.An example of an invalid iterator body:
+image:workflow/iterator-body-dont.png[]
+
+====
+
+=== Controlling iterator execution
+
+There may be cases where you would like to prematurely terminate the ongoing iteration or the entire iterator all together.
+This can be done using the break image:workflow/break.svg[width=20px] or the continue image:workflow/continue.svg[width=20px] steps.
+
+[CAUTION]
+====
+The break and the continue operations are only valid within iterator bodies.
+====
+
+[cols="1s,5a"]
+|===
+
+| [#step-iterator-control-continue]#<<step-iterator-control-continue,Continue>>#
+|
+The continue step image:workflow/continue.svg[width=20px] terminates the ongoing iteration and continues with the potential following iteration.
+The continue step should be used to either prematurely terminate the iterator body or when the iterator body is considered as completed.
+
+.An example of a premature and a complete iterator body:
+image:workflow/multi-continue.svg[]
+
+| [#step-iterator-control-break]#<<step-iterator-control-break,Break>>#
+|
+The break step image:workflow/break.svg[width=20px] terminates the ongoing iteration and any additional iterations performed by the iterator.
+The break step should be used to prematurely terminate the entire iterator.
+To examolify; when a system error occurs or when you find the item you are looking for.
+
+.An example of a prematurely terminating the iterator:
+image:workflow/break-example.svg[]
+
+|===
+
+== Working with errors
+
+Whenever you work with dynamic data (especially end-user input) and external services you are always reminded that errors can and will occur.
+We define two steps for working with errors; error handler step image:workflow/error-handler.svg[width=20px] and error step image:workflow/error.svg[width=20px].
+
+[cols="1s,5a"]
+|===
+
+| [#step-errors-catch]#<<step-errors-catch,Error handler>>#
+|
+An *error handler step* image:workflow/error-handler.svg[width=20px] allows you to catch and react to any errors that may occur in continuation of the workflow.
+
+[NOTE]
+====
+Think of this as a try-catch.
+====
+
+.An example of an error handler in action:
+image:workflow/try-catch.svg[]
+The steps in the red zone can be considered as dangerous (can fail).
+If any step in the "dangerous" zone fails, the execution continues along the "Catch" connected steps.
+
+| [#step-errors-throw]#<<step-errors-throw,Error>>#
+|
+An *error step* image:workflow/error.svg[width=20px] allows you to manually throw (trigger) an error during the execution of a workflow.
+Forcefully terminating the workflow using an error step prevents additional operations from executing (such as the record is not saved or a user is not suspended).
+
+[NOTE]
+====
+Think of the error step as raising an error or an exception.
+====
+
+.An example of an error in action:
+image:workflow/throw.svg[]
+
+|===
+
+== Gateways
+Gateways allow you to implement conditional execution based on the ongoing state of your workflow, for example, if a current user is already a subscriber, we should send a renewal request instead of a subscription request.
+
+There are three kinds of gateway steps; exclusive image:workflow/gatewayExclusive.svg[width=20px], inclusive image:workflow/gatewayInclusive.svg[width=20px], and fork image:workflow/gatewayParallel.svg[width=20px].
+
+[CAUTION]
+====
+The break and the continue operations are only valid within iterator bodies.
+====
+
+[cols="1s,5a"]
+|===
+
+| [#step-gateway-exclusive]#<<step-gateway-exclusive,Exclusive>>#
+|
+An *exclusive gateway* image:workflow/gatewayExclusive.svg[width=20px] defines two or more connectors.
+Only the first connector that meets the condition is evaluated.
+Connectors are evaluated in the order they were initially defined in.
+
+.An example of an exclusive gateway in action:
+image:workflow/gateway-exclusive.png[]
+
+| [#step-gateway-inclusive]#<<step-gateway-inclusive,Inclusive>>#
+|
+An *inclusive gateway* inclusive image:workflow/gatewayInclusive.svg[width=20px] defines two or more connectors.
+Any connector that meets the condition is evaluated.
+
+.An example of an inclusive gateway in action:
+image:workflow/gateway-inclusive.png[]
+
+| [#step-gateway-fork]#<<step-gateway-fork,Fork>>#
+|
+A *fork gateway* image:workflow/gatewayParallel.svg[width=20px] defines two or more connectors.
+Each connector is evaluated and executed in parallel.
+
+[IMPORTANT]
+====
+All of the different "branches" created by a fork must be collected using a second fork step.
+====
+
+|===
+
+== Interacting with the user
+
+The *prompt step* image:workflow/prompt.svg[width=20px] allows you to interact with the user in order to provide additional confirmation or data, such as a recipient email address or filling in any missing parameters.
+
+.The different prompt types:
+[cols="1s,5a"]
+|===
+
+| [#step-prompt-alert]#<<step-prompt-alert,Alert>>#
+|
+An *alert prompt* displays a notification to the receiving user.
+This can be used to show success or other informative notifications.
+
+| [#step-prompt-choice]#<<step-prompt-choice,Choice>>#
+|
+A *choice prompt* displays a notification with two buttons to either confirm or reject something to the receiving user.
+This can be used to request additional confirmation before performing an operation or to optionally perform additional operations.
+
+| [#step-prompt-input]#<<step-prompt-input,Single input>>#
+|
+A *single input prompt* displays a notification with a value input box to the receiving user.
+This can be used to request additional information from the receiving user, such as missing contact data or their pin code.
+
+| [#step-prompt-options]#<<step-prompt-options,Option select>>#
+|
+An *option select prompt* displays a notification with a list of available options either as a select or a list of radio buttons.
+This can be used as a more verbose <<step-prompt-choice,choice prompt>> or a more constrained <<step-prompt-input,input prompt>>.
+
+|===

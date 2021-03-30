@@ -1,11 +1,11 @@
-include::variables.adoc[]
+include::partial$variables.adoc[]
+
 = {PRODUCT_NAME}
+:description: {PRODUCT_NAME} is an open-source, self-hosted Low-Code Development Platform.
+:keywords: {PRODUCT_NAME}, documentation, open-source, self-hosted, low-code platform
 
-{PRODUCT_NAME} is an *open source*, *self-hosted cloud-based* Digital Work Platform.
-Main features include a Low-Code Platform, CRM, Service Solution, Enterprise Messaging, and End-to-End Business Automation.
-
-{PRODUCT_NAME} is built upon modern technologies, using https://golang.org/[Golang] and https://vuejs.org/[Vue.js].
-The platform is *secure* with a powerful *RBAC access control facility*, that allows you to configure your permissions just the way you want to!
+{PRODUCT_NAME} is an open-source, self-hosted Low-Code Development Platform built upon modern technologies.
+{PRODUCT_NAME} is secure with a powerful access control system, allowing fine-grained permission definition.
 
 {PRODUCT_NAME} aims to be *indisputably trustworthy* in its motivations and its approach to design, development and maintenance of the platform.
 Organisations should feel that their chosen digital work platform is always *under their control*, always *protected* and continuously *developed in their best interests*.
@@ -13,131 +13,71 @@ Organisations should feel that their chosen digital work platform is always *und
 [NOTE]
 ====
 Questions?
-Check out https://{DOMAIN}[our homepage] or https://latest.{DOMAIN}[get in touch with us].
+Check out https://{DOMAIN}[our homepage] or https://forum.{DOMAIN}[get in touch with us].
 ====
 
-== Install {PRODUCT_NAME} on your server, laptop or workstation with Docker
+== Installing {PRODUCT_NAME}
 
 [WARNING]
 ====
-include::ROOT:partial$warnings/sqlite.adoc[]
+include::devops-guide:partial$warnings/sqlite.adoc[]
 ====
 
-Take a look at the xref:ROOT:dev-ops-guide/index.adoc[*DevOps guide*]!
+The xref:devops-guide:index.adoc[] takes you through the installation process for xref:devops-guide:index.adoc#deploy-offline[demo/development environments] and xref:devops-guide:index.adoc#deploy-online[production-like environments].
 
-The guide walks you through xref:dev-ops-guide/server-configuration/index.adoc[*server*] and xref:dev-ops-guide/corredor-configuration.adoc[*{APP_AUTOMATION} server*] configuration.
+The DevOps guide also provides some miscellaneous bits, such as xref:devops-guide:configuration/server.adoc[system] and xref:devops-guide:configuration/corredor.adoc[{APP_AUTOMATION}] configuration references, additional deployment configurations (menu:DevOps guide[Offline deployment] and menu:DevOps guide[Online deployment]), xref:devops-guide:maintenance/backups.adoc[data backups], and xref:devops-guide:maintenance/troubleshooting.adoc[troubleshooting].
 
-You can find an example for a xref:dev-ops-guide/deployment/demo-mysql.adoc[*local MySQL*] and *production* deployments for xref:dev-ops-guide/deployment/prod-pgsql.adoc[*PostgreSQL*] and xref:dev-ops-guide/deployment/prod-mysql.adoc[*MySQL*].
+[NOTE]
+====
+Out of the box we support any system that can run Docker.
+If you wish to deploy {PRODUCT_NAME} elsewhere (for example, bare metal) you will need to compile your own binaries.
 
-We also have some miscellanies, such as xref:dev-ops-guide/email-relay.adoc[*relaying inbound emails*], xref:dev-ops-guide/health-check.adoc[*health check*], and xref:dev-ops-guide/backup.adoc[*data backups*].
+*DevNote* add some documentation regarding source compiling.
+====
 
-== Learning {PRODUCT_NAME}
+// == Learning {PRODUCT_NAME}
 
-Take a look at the xref:ROOT:end-user-guide/index.adoc[*end-user guide*]!
+// The xref:end-user-guide:index.adoc[] covers *all {PRODUCT_NAME} applications*, their *features*, and *how to use* them.
+// We've designed the end-user guide to be easily understandable by non-techy people, so you don't need to be a field expert.
 
-It covers *all {PRODUCT_NAME} applications*, their *features*, and *how to use* them.
-We've designed the end-user guide to be easily understandable by non-techy people, so you don't need to be a field expert.
-
-.Here are a few shortcuts:
-* xref:ROOT:administrator-guide/compose/index.adoc[*{PRODUCT_NAME} {APP_NAME_COMPOSE}*]
-* xref:ROOT:end-user-guide/crm/index.adoc[*{PRODUCT_NAME} CRM*]
-* xref:ROOT:end-user-guide/service-solution/index.adoc[*{PRODUCT_NAME} Service Solution*]
-* xref:ROOT:end-user-guide/messaging/index.adoc[*{PRODUCT_NAME} {APP_NAME_MESSAGING}*]
-* xref:ROOT:end-user-guide/shell/index.adoc[*{PRODUCT_NAME} {APP_NAME_SHELL}*]
+// .Here are a few shortcuts:
+// * xref:end-user-guide:crm/index.adoc[]
+// * xref:end-user-guide:service-solution/index.adoc[]
+// * xref:end-user-guide:shell/index.adoc[]
 
 == System administration
 
-Take a look at the xref:ROOT:administrator-guide/index.adoc[*administrator guide*]!
+The xref:administrator-guide:index.adoc[] covers core system security and core system resources; such as xref:administrator-guide:users.adoc[], xref:administrator-guide:roles.adoc[], and xref:administrator-guide:applications.adoc[].
 
-The guide covers xref:administrator-guide/security.adoc[*the security*] system, the xref:administrator-guide/admin-panel/index.adoc[*administration panel*], and the *application administration* (xref:administrator-guide/compose/index.adoc[*{APP_NAME_COMPOSE}*] and xref:administrator-guide/messaging/index.adoc[*{APP_NAME_MESSAGING}*])
-
-The guide also covers xref:administrator-guide/federation/index.adoc[*{PRODUCT_NAME} {APP_NAME_FEDERATION}*] -- a brand new feature which lets you *connect different {PRODUCT_NAME} instances* to securely *share data*.
+If you're interested in developing custom applications using {PRODUCT_NAME}, refer to xref:integrator-guide:index.adoc[].
 
 == Create with {PRODUCT_NAME}
 
-Take a look at the xref:ROOT:integrator-guide/index.adoc[*integrator guide*]!
+The xref:integrator-guide:index.adoc[] walks you *through the integration process*; from the xref:integrator-guide:security.adoc[] system, xref:integrator-guide:compose-configuration/index.adoc[], and xref:integrator-guide:automation-scripts/index.adoc[] development.
 
-The guide walks you *through the integration process*; from xref:integrator-guide/security.adoc[*the security*] system, xref:integrator-guide/data-model/index.adoc[*{APP_NAME_COMPOSE} configuration*], and xref:integrator-guide/extensions/index.adoc[*extension*] development.
+There are also a bunch of copy-pastable examples, and miscellaneous bits such as xref:integrator-guide:automation-scripts/deploying.adoc[], xref:integrator-guide:automation-scripts/debugging.adoc[automation script debugging] and tips for xref:integrator-guide:accessing-corteza/index.adoc[].
 
-We also offer some copy-pastable xref:integrator-guide/samples/index.adoc[*samples*], instructions for xref:integrator-guide/extensions/index.adoc#extension-deploy[*deploying*], xref:integrator-guide/extensions/index.adoc#extension-debug[*debugging*] and xref:integrator-guide/extensions/index.adoc#extension-test[*testing*] (yes, there is a xref:integrator-guide/extensions/index.adoc#extension-test-setup-mc[*working setup*] with *unit tests* and *coverage reporting*).
+// == Core developers
 
-== Core developers
-
-Take a look at the xref:ROOT:developer-guide/index.adoc[*developer guide*]!
-
-[NOTE]
-====
-The guide gives a fairly *abstract overview* of the {PRODUCT_NAME}.
-The documentation *compliments the source code*.
-====
-
-We cover things from xref:developer-guide/documentation/index.adoc[*writing documentation*], to xref:developer-guide/building.adoc[*build pipelines*], and *core system features*.
-
-[NOTE]
-====
-If you have any questions or are stuck, don't hesitate to get in touch with us on the https://latest.{DOMAIN}[community {PRODUCT_NAME} instance]!
-====
-
-// == I need something, but it's not in the core
-
-// {PRODUCT_NAME} provides a set of link:extensions/index.html[official extensions] that are developed and maintained by the {PRODUCT_NAME} team.
+// Hi -- xref:developer-guide:index.adoc[]
 
 // [NOTE]
 // ====
-// Still nothing?
-// Take a look at the link:integrator-guide/index.html[integrator guide] to make it yourself, or get in touch with us -- we'll figure something out!
+// The developer guide should provide enough abstract overview to help you get started.
+// The guide is fairly... !complete so feel free to get in touch with us if you're stuck.
 // ====
 
-== Samples and examples
-
-[WARNING]
-====
-Learning from examples is *completely valid*, but we recommend that you *firstly study the guides* that are relevant to you.
-*Assuming what something does* can be *dangerous*.
-====
-
-We have examples for working with the xref:ROOT:examples/system-api/index.adoc[*System API*], xref:ROOT:examples/compose-api/index.adoc[*Compose API*], and automation script development.
-
-We also have some xref:integrator-guide/samples/index.adoc[*extension development samples*] in the integrator guide.
-
-To top it off, some examples for xref:dev-ops-guide/setup-local-demo.adoc[*local*] and xref:dev-ops-guide/setup-production.adoc[*production*] *{PRODUCT_NAME} deployment*.
-
-[NOTE]
-====
-Do you need help?
-Get in touch with us on the https://latest.{DOMAIN}[community {PRODUCT_NAME} instance]!
-====
-
-== API reference
-
-*Each {PRODUCT_NAME} instance* has its own *API reference built-in* so that the reference is always there and always valid.
-Navigate to the `/docs/` API sub-page; for example `https://api.{API_DOMAIN}/docs`.
-
-Alternatively, you can use our community instance https://api.latest.cortezaproject.org/docs/
-
-[NOTE]
-====
-Our community instance is always on the *latest stable version* so the *reference may not be compatible*.
-====
+// *DevNode* link the new messaging platform
 
 == Upgrading {PRODUCT_NAME}
 
 [IMPORTANT]
 ====
-When upgrading, you should always firstly go over the xref:ROOT:changelog/index.adoc[*changelog*] and the xref:ROOT:upgrade-guide/index.adoc[*upgrade guide*].
+When upgrading, you should always firstly go over the xref:ROOT:changelog/index.adoc[] and the xref:upgrade-guide:index.adoc[].
 
 Versions may *not be backwards compatible* and may need some additional work to get setup.
 ====
 
-To upgrade from 2020.9, you can use xref:ROOT:changelog/202012.adoc[*this changelog*] and xref:ROOT:upgrade-guide/202012.adoc[*this upgrade guide*].
+To upgrade from 2020.12, you can use xref:ROOT:changelog/202103.adoc[this changelog] and xref:upgrade-guide:index.adoc[this upgrade guide].
 
-You can find all of the changelogs xref:ROOT:changelog/index.adoc[*here*], and all of the upgrade guides xref:ROOT:upgrade-guide/index.adoc[*here*].
-
-// == What's in store for the future?
-
-// We're glad you asked!
-// Here are the big xref:ROOT:rfc/index.adoc[*features we are working on*].
-
-// This is our roadmap for the near future:
-
-// include::roadmap.adoc[]
+You can find all of the changelogs xref:ROOT:changelog/index.adoc[here], and all of the upgrade guides xref:upgrade-guide:index.adoc[here].

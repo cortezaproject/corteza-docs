@@ -1,0 +1,7 @@
+include::ROOT:partial$variables.adoc[][]
+
+Read any module field::
+    Determines if the role is allowed to see any {PRODUCT_NAME} {APP_NAME_COMPOSE} module field.
+
+Update any module field::
+    Determines if the role is allowed to update any {PRODUCT_NAME} {APP_NAME_COMPOSE} module field.

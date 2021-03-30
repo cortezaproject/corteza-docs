@@ -1,0 +1,54 @@
+include::ROOT:partial$variables.adoc[]
+
+= Troubleshooting
+:description: These troubleshooting steps help you solve the most common issues we have encountered in the past.
+:keywords: dev-ops, DevOps, troubleshooting
+
+[NOTE]
+====
+*DevNote* update this with new discoveries regarding configurations
+====
+
+== Ports are not available
+
+When you're running various services on your machine, it's common that the ports are already in use.
+You will see something like this:
+
+[source]
+----
+Cannot start service server: Ports are not available: listen tcp 127.0.0.1:18080: bind: address already in use
+----
+
+If you see this error, you can change the port number to something between `1024` and `65535`.
+You can also replace the value for `services.server.ports` in `docker-compose.yaml` to `["80"]`, and Docker will pick an available port for you.
+
+⚠️ Make sure also to change the port everywhere else.
+
+== Connection to {APP_AUTOMATION} server
+
+You might see one or more connection refused errors in server container logs (`docker-compose logs -f server`):
+
+[source]
+----
+{"level":"error","ts":1608125024.4714684,"logger":"corredor","caller":"corredor/service.go:427","msg":"could not load corredor server scripts","error":"rpc error: code = DeadlineExceeded desc = latest balancer error: connection error: desc = \"transport: Error while dialing dial tcp 172.23.0.2:80: connect: connection refused\"","stacktrace":"github.com/cortezaproject/corteza-server/pkg/corredor.(*service).loadServerScripts\n\t/drone/src/pkg/corredor/service.go:427"}
+----
+
+If there are a couple of errors when the server is starting up, that's ok.
+Sometimes it takes more time to start up {APP_AUTOMATION} server, and {PRODUCT_NAME} server can not yet connect to it.
+
+If the problem persists, and you can see {APP_AUTOMATION} state as healthy, verify the changes you might have made to the configuration.
+
+== Network proxy declared as external
+
+[source]
+----
+ERROR: Network proxy declared as external, but could not be found. Please create the network manually using `docker network create proxy` and try again.
+----
+
+Make sure your nginx-proxy service is up and running before running {PRODUCT_NAME}.
+
+== Further troubleshooting
+
+If you're continuing to have issues with {PRODUCT_NAME}, we encourage you to contact other users on our https://latest.cortezaproject.org[community server].
+You'll more than likely find someone who can help you out.
+You can also open an issue on our https://github.com/cortezaproject/corteza-server[cortezaproject/corteza-server] GitHub repository.

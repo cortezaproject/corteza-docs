@@ -1,0 +1,276 @@
+include::ROOT:partial$variables.adoc[]
+
+= DevOps guide
+:description: {PRODUCT_NAME} DevOpsGuide covers all aspects of deploying and maintaining your own {PRODUCT_NAME} instance.
+:keywords: dev-ops, devops, {PRODUCT_NAME}
+
+The *DevOps guide* is designed to help you *deploy and maintain* your {PRODUCT_NAME} instance.
+The guide provides enough out of the box working examples to get you up and running.
+
+[NOTE]
+====
+This page provides all of the information to run your {PRODUCT_NAME} using our prebuilt docker images.
+If you need additional information regarding specific topics, refer to the menu:DevOps guide[] sub-sections.
+====
+
+[IMPORTANT]
+====
+{PRODUCT_NAME} is compiled, developed, and tested for modern browsers.
+If you need to support older browsers, such as InternetExplorer, you will need to build your images.
+Refer to xref:system-requirements.adoc[] for more details.
+====
+
+== Architecture and repository overview
+
+[NOTE]
+====
+*DevNote* update diagram; rewrite to PlantUML.
+
+// .The diagram visually describes where various components reside and how they interact.
+// image::arch-overview.png[{PRODUCT_NAME} architectural overview]
+====
+
+.{PRODUCT_NAME} defines a series of web applications defined by our `corteza-webapp-*` repositories:
+* {GIT_REPO_LINK_PREFIX}-webapp-compose[*{PRODUCT_NAME} {APP_NAME_COMPOSE}*]
+* {GIT_REPO_LINK_PREFIX}-webapp-workflow[*{PRODUCT_NAME} Workflow*]
+* {GIT_REPO_LINK_PREFIX}-webapp-admin[*{PRODUCT_NAME} {APP_NAME_ADMIN}*]
+* {GIT_REPO_LINK_PREFIX}-webapp-one[*{PRODUCT_NAME} {APP_NAME_SHELL}*]
+
+The web applications communicate with our back-end system ({GIT_REPO_LINK_PREFIX}-server[*{PRODUCT_NAME} server*]) which further interacts with the automation script runner ({GIT_REPO_LINK_PREFIX}-server-corredor[*{PRODUCT_NAME} {APP_AUTOMATION} server*]) and various auxiliary services primarily provided by external services/projects.
+
+.Some of the auxiliary services include:
+* data federation,
+* data storage,
+* logger,
+* email sender.
+
+== System configuration
+
+{PRODUCT_NAME} is configured via the environment (`.env`) file.
+It allows you to quickly deploy and configure how {PRODUCT_NAME} should behave on another system.
+
+Our examples are configured to work as is, but feel free to tweak the xref:configuration/server.adoc[server] and the xref:configuration/corredor.adoc[{APP_AUTOMATION} server] as you see fit.
+
+[NOTE]
+====
+The `.env` file is at the root of the project folder.
+In the context of Docker Compose, it is next to the `docker-compose.yaml` file.
+====
+
+The `.env` file performs *implicit Docker Compose configuration*, *variable substitution for Docker configurations*, and *service configurations*.
+
+You can use variables defined in the `.env` file inside your `docker-compose.yaml` files using `$\{VARIABLE_HERE}`.
+
+[#deploy-offline]
+== Deploy offline
+
+[NOTE]
+====
+*DevNote* provide a quick rundown of what each deploy config enables you to do; automation scripts, workflows, persistent storage, ...
+====
+
+Offline setups run all services on the same network where the ports are bound to the host's network.
+This section provides a minimum setup with MySQL as the persistent database storage with {APP_AUTOMATION} server enabled.
+
+See menu:DevOps guide[Offline deployment] for additional offline deployment configurations.
+
+[IMPORTANT]
+====
+Offline deployments are suitable only for local development and demos (environments that are not accessible from the outside).
+====
+
+=== Setup your file structure
+
+.Your file structure should look like this:
+[source]
+----
+📁 my-corteza
+  📄 .env
+  📄 docker-compose.yaml
+  📁 data <1>
+    📁 server <2>
+    📁 db <3>
+----
+<1> Make sure to change the owner to the Docker container (you can use `chown 1001:1001 data/db` and `chown 4242:4242 data/server`).
+Omit if you won't use persistent storage.
+<2> Here is where all of the server data is stored, such as uploaded attachments.
+<3> Here is where the database data is stored.
+
+=== Configure docker-compose.yaml
+
+.Your configuration should look like this:
+[source,yaml]
+----
+include::example$deploy/local-mysql/docker-compose.yaml[]
+----
+
+=== Configure .env
+
+.Your configuration should look like this:
+[source,.env]
+----
+include::example$deploy/local-mysql/env-example.txt[]
+----
+
+=== Run the services
+
+In the root of your project (next to your `docker-compose.yaml` and `.env` files), run the docker compose (the execution can take a few seconds).
+The command (downloads and) runs all of the services configured in your `docker-compose.yaml` file.
+
+[source,bash]
+----
+docker-compose up -d
+----
+
+Check if everything started correctly by running `docker-compose ps`.
+The output should look like this:
+
+[source]
+----
+include::example$deploy/local-mysql/output-ps.txt[]
+----
+
+See xref:maintenance/troubleshooting.adoc[] if something went wrong/failed to start.
+
+=== Test the deploy
+
+. Direct your browser to http://localhost:18080 (change the port if you used a different port).
+You will be redirected to the authentication page (`/auth`).
+. Create your account through the sign-up form (the first created account is an administrator by default).
+. Check the server version http://localhost:18080/version
+. Check the server's health http://localhost:18080/healthcheck
+. Check the API documentation http://localhost:18080/api/docs/
+
+[NOTE]
+====
+If you did not configure your SMTP settings, all sign-ups are marked as confirmed.
+====
+
+[#deploy-online]
+== Deploy online
+
+Online setups separate your services into two networks; internal and proxy.
+The internal network hides most of the system from the internet.
+This section provides a minimum setup with MySQL as the persistent database storage with {APP_AUTOMATION} server enabled.
+
+See menu:DevOps guide[Online deployment] for additional online deployment configurations.
+
+[TIP]
+====
+You can use the same steps to configure multiple online deployments, such as a staging and a production environment.
+====
+
+=== Setup your file structure
+
+.Your file structure should look like this:
+[source]
+----
+📁 my-proxy <1>
+  📄 docker-compose.yaml
+  📄 custom.conf <2>
+📁 my-corteza
+  📄 .env
+  📄 docker-compose.yaml
+  📁 data <3>
+    📁 server <4>
+    📁 db <5>
+----
+<1> Omit this if you're not planning on using Nginx reverse proxy or if it's already setup.
+<2> `custom.conf` must be placed next to the `docker-compose.yaml` file.
+<3> Make sure to change the owner to the Docker container (you can use `chown 1001:1001 data/db` and `chown 4242:4242 data/server`).
+Omit if you won't use persistent storage.
+<4> Here is where all of the server stuff is stored, such as uploaded attachments.
+<5> Here is where the database can store the data.
+
+=== Setup your Nginx reverse proxy
+
+⚠️ We are inside the `my-proxy` directory.
+
+This part automates the creation and renewal of Let's Encrypt TLS certificates, forward traffic to Docker containers, and simplifies complicated firewall configurations.
+
+[IMPORTANT]
+====
+The following instructions assume that you don't have anything similar setup in your current environment.
+
+If you are using other means of providing traffic forwarding or SSL certificate handling, proceed with caution.
+====
+
+We will be using https://github.com/jwilder/nginx-proxy[Nginx Proxy] and https://github.com/JrCs/docker-letsencrypt-nginx-proxy-companion[LetsEncrypt Nginx Proxy Companion].
+If you wish to use or are using something else, feel free to skip this section.
+
+
+.Your `docker-compose.yaml` should look like this:
+[source,yaml]
+----
+include::example$deploy/prod-proxy-nginx/docker-compose.yaml[]
+----
+
+.Your `custom.conf` should look like this:
+[source,yaml]
+----
+include::example$deploy/prod-proxy-nginx/custom.conf[]
+----
+
+Inside your `my-proxy` directory, run `docker-compose up -d` (the execution can take a few seconds) to start the reverse proxy.
+
+Check if everything started correctly by running `docker-compose ps`.
+The output should look like this:
+
+[source]
+----
+include::example$deploy/prod-proxy-nginx/output-ps.txt[]
+----
+
+=== Configure docker-compose.yaml
+
+⚠️ We are inside the `my-corteza` directory.
+
+[IMPORTANT]
+====
+Containers *must* be on the same network as `nginx-proxy` (in the examples, we're using a network named `proxy`).
+====
+
+.Your configuration should look like this:
+[source,yaml]
+----
+include::example$deploy/prod-mysql/docker-compose.yaml[]
+----
+
+=== Configure .env
+
+⚠️ We are inside the `my-corteza` directory.
+
+.Your configuration should look like this:
+[source,.env]
+----
+include::example$deploy/prod-mysql/env-example.txt[]
+----
+
+=== Run the services
+
+Inside your `my-corteza` directory (next to your `docker-compose.yaml` and `.env` files), run the docker compose (the execution can take a few seconds).
+The command (downloads and) runs all of the services configured in your `docker-compose.yaml` file.
+
+[source,bash]
+----
+docker-compose up -d
+----
+
+Check if everything started correctly by running `docker-compose ps`.
+The output should look like this:
+
+[source]
+----
+include::example$deploy/prod-mysql/output-ps.txt[]
+----
+
+See xref:maintenance/troubleshooting.adoc[] if something went wrong/failed to start.
+
+=== Test the deploy
+
+. Direct your browser to `http://your-demo.example.tld`.
+You will be redirected to the authentication page (`/auth`).
+. Create your account through the sign-up form (the first created account is an administrator by default).
+. Check the server version http://your-demo.example.tld/version
+. Check the server's health http://your-demo.example.tld/healthcheck
+. Check the API documentation http://your-demo.example.tld/api/docs/

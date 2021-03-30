@@ -1,0 +1,238 @@
+include::ROOT:partial$variables.adoc[]
+
+= Accessing {PRODUCT_NAME}
+:description: {PRODUCT_NAME} separates the back-end business logic and the front-end user interface by defining an API that the clients (web applications and other custom applications) can access.
+:keywords: API, {PRODUCT_NAME} API, {PRODUCT_NAME}
+
+{PRODUCT_NAME} separates the back-end business logic and the front-end user interface by defining an API that the clients (web applications and other custom applications) can access.
+
+[TIP]
+====
+All operations that can be performed via user interfaces, can be performed via an API call (or a series of API calls).
+====
+
+== Authentication
+
+{PRODUCT_NAME} uses bearer JWT tokens when authenticating HTTP requests.
+
+Use the xref:devops-guide:maintenance/cli-reference.adoc#auth-jwt[`corteza-server auth jwt`] CLI command.
+
+Each HTTP request to a protected resource must provide the bearer JWT token in the `authorization` header.
+Unauthorized requests yield an error response of `{ "error": { "message": "Unauthorized" } }` (or similar).
+
+[IMPORTANT]
+====
+JWT tokens should be treated as login credentials as they provide access to the system.
+====
+
+.An example cURL with authentication:
+[source,bash]
+----
+curl "$CORTEZA_URL" \
+  -H 'accept: application/json, text/plain, */*' \
+  -H "authorization: Bearer $JWT";
+----
+
+.An example cURL without authentication:
+[source,bash]
+----
+curl "$CORTEZA_URL" \
+  -H 'accept: application/json, text/plain, */*';
+----
+
+// @todo update/assure the bellow list
+//
+// Most of the endpoints exposed by {PRODUCT_NAME} are protected except for the ones listed in the table bellow.
+
+// .System endpoints with alternative request authentication:
+// [cols="1m,5a"]
+// |===
+// | Endpoint | Other authentication methods
+
+// | `GET /attachment/\{kind}/\{attachmentID}/original/\{name}`
+// | System generated signature.
+
+// | `GET /attachment/\{kind}/\{attachmentID}/preview.\{ext}`
+// | System generated signature.
+
+// // ----
+
+// | `GET /auth/`
+// | None.
+
+// | `GET /auth/check`
+// | None.
+
+// | `POST /auth/exchange`
+// | None.
+
+// | `GET /auth/logout`
+// | None.
+
+// | `POST /auth/internal/login`
+// | None.
+
+// | `POST /auth/internal/signup`
+// | None.
+
+// | `POST /auth/internal/request-password-reset`
+// | None.
+
+// | `POST /auth/internal/exchange-password-reset-token`
+// | System generated password reset token.
+
+// | `POST /auth/internal/reset-password`
+// | System generated password reset token.
+
+// | `POST /auth/internal/confirm-email`
+// | System generated token.
+
+// // ----
+
+// | `* /sink/*`
+// | System generated sink signature.
+
+// |===
+
+.{PRODUCT_NAME} {APP_NAME_COMPOSE} endpoints with alternative request authentication:
+[cols="1m,5a"]
+|===
+| Endpoint | Other authentication methods
+
+| `GET /namespace/\{namespaceID}/attachment/\{kind}/\{attachmentID}/original/\{name}`
+| System generated signature.
+
+| `GET /namespace/\{namespaceID}/attachment/\{kind}/\{attachmentID}/preview.\{ext}`
+| System generated signature.
+
+|===
+
+.{PRODUCT_NAME} {APP_NAME_FEDERATION} endpoints with alternative request authentication:
+[cols="1m,5a"]
+|===
+| Endpoint | Other authentication methods
+
+| `POST /nodes/\{nodeID}/handshake`
+| System generated OTT token.
+
+|===
+
+== Endpoints
+
+Each {PRODUCT_NAME} instance ships with a built-in API reference that is accessible on the `/docs` endpoint of your {PRODUCT_NAME} API.
+
+Here we cover endpoints used for debugging and maintenance.
+Refer to the built-in API reference for the complete list of available service endpoints.
+https://latest.cortezaproject.org/api/docs/[Here] is the API reference for our community instance.
+
+[NOTE]
+====
+If you are using a *different sub-domain* for your API (two separate Docker containers for webapp and API) the URL should look something like `https://api.$BASE_URL/docs`.
+
+If you are using *the same domain* for your API (a single Docker container for webapp and API) the URL should look something like `https://$BASE_URL/api/docs`.
+====
+
+In addition to the API reference mentioned above, these are the system-level endpoints that need to be explicitly enabled.
+They can be enabled for development/debugging, but should be disabled when running in production.
+
+.System-level endpoints:
+[cols="1m,5a"]
+|===
+| Option | Endpoints
+
+| HTTP_ENABLE_DEBUG_ROUTE
+|
+* `/__profiler` provides server runtime profiling data in the format expected by the pprof visualization tool.
+* `/__routes` provides a list of all registered routes.
+* `/__eventbus` provides a list of all registered automation script triggers.
+* `/__corredor` provides a list of all registered automation scripts.
+
+| HTTP_ENABLE_VERSION_ROUTE
+|
+* `/version` shows the build time and the Corteza version.
+
+| HTTP_ENABLE_HEALTHCHECK_ROUTE
+|
+* `/healthcheck` performs and displays the system health check.
+
+|===
+
+== Response data format
+
+{PRODUCT_NAME} implements three different response formats, based on what we are trying to do and based on the status.
+
+[IMPORTANT]
+====
+Error responses use the status code 200 OK, instead of the standard 4xx/5xx -- legacy reasons.
+Our SDK covers this case and throws proper errors.
+====
+
+.The different response formats:
+[cols="2a,5a"]
+|===
+| [#response-single-items]#<<response-single-items,Working with single items>>#
+|
+
+When working with single items, the item (or it's status) is provided in the response object.
+
+.An example:
+[source,json]
+----
+{
+  "response": {...}
+}
+----
+
+| [#response-multiple-items]#<<response-multiple-items,Working with multiple items>>#
+|
+
+When working with multiple items, the list of items is provided in the response array along with the filter object.
+
+.An example:
+[source,json]
+----
+{
+  "response": {
+    "filter": {...},
+    "set": [...]
+  }
+}
+----
+
+[NOTE]
+====
+The structure of the `filter` property differs based on the resource.
+In general it specifies what filters were applied to the responding set.
+====
+
+| [#response-errors]#<<response-errors,Encountered an error>>#
+|
+
+When an error occurs the error message is provided under the `error.message` property.
+
+.An example:
+[source,json]
+----
+{
+  "error": {
+    "message": "..."
+  }
+}
+----
+
+When you enable error tracing via the `HTTP_ERROR_TRACING` environment variable, the additional error contexts are provided in the `stack` and `wrap` properties.
+This can be useful for debugging, but should be turned off in production.
+
+.An example:
+[source,json]
+----
+{
+  "error": {
+    "message": "...",
+    "stack": [...],
+    "wrap": {...}
+  }
+}
+----
+
+|===

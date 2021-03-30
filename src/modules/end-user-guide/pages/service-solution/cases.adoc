@@ -1,0 +1,63 @@
+include::ROOT:partial$variables.adoc[][]
+
+[#cases]
+= Cases
+
+There are three pages dedicated to cases -- one main page and two subpages.
+They all show leads but with different filtering.
+
+* *Cases* shows all of the cases in the system,
+* *All New cases* shows only the cases that have the `New` status,
+* *My new cases* shows only the new cases that you are responsible for.
+
+Cases are the main component of {PRODUCT_NAME} Service Solution -- this is where all of the customer issues are captured and handled.
+
+== Add a new case
+
+[NOTE]
+====
+You can add a case from either one of the subpages, but they are usually created from the account.
+====
+
+. Click on the "+ Add" button to open up the form,
+. populate the data and press the "Save" button on the bottom right corner.
+
+Each case has an automatically generated case number, which starts with "ticket#" followed by a number.
+An example case number is `ticket#20191025094353420`.
+
+[NOTE]
+====
+The ticket number provides a unique identification that is used within the system.
+To make the ticket understandable, provide a good subject.
+====
+
+[TIP]
+====
+Make sure that the subject is short, clear and straight to the point!
+====
+
+== Key parts of a case
+
+Case Description::
+    This is where you can find the base information regarding a case; such as its status, priority and related product.
+
+Case Details::
+    This is where you can find essential relations, such as the related account, contact, case owner, and it's cost.
+
+Updates::
+    This is where all the updates related to the case are kept.
+    This can be anything from receiving updates from the clients to us contacting the client.
+    It gives you a clear picture of what is going on.
+    You can add a new update by clicking on the "Add Update to this Case" button.
+    Case status changes automatically create an update.
+
+Knowledge Base::
+    This is where you can quickly search through the knowledge base to find relevant information to get a better understanding of the task at hand.
+
+== Typical case flow
+
+. A client contacts the company with an issue,
+. the service agent checks the clients account to see if their entitlements permit support for the issue,
+. if the client is entitled to support, a new case is created, directly from the account page,
+. the agent inserts any relevant parameters to the case, assigns a category (the default is "Problem"), links any related products, contacts, and assigns an agent,
+. the assigned agent works on the case, creates updates and finally closes the case.

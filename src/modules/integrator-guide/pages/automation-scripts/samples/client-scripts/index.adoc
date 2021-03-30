@@ -1,0 +1,56 @@
+= Client scripts
+
+== Before submitting the form
+
+[TIP]
+====
+.Example use-cases:
+* *calculate complex fields*
+* *value validation*
+* *pre-fill missing values*
+====
+
+[TIP]
+====
+You can set the default value for a field in the module editor.
+
+*DevNote*: provide some links.
+====
+
+.Before submitting the form:
+[source,js]
+----
+include::example$client-script-sample/before-form-record.js[]
+----
+
+== Generic on click action
+
+[TIP]
+====
+.Example use-cases:
+* *OAuth flows*
+* *send notifications*
+* *render documents*
+====
+
+.Generic on click action:
+[source,js]
+----
+include::example$client-script-sample/button-generic.js[]
+----
+
+== Process record on click
+
+[TIP]
+====
+.Example use-cases:
+* *email the record contact*
+* *email the record owner*
+* *generate report for the specific record*
+====
+
+.Process record on click:
+[source,js]
+----
+include::example$client-script-sample/button-record.js[]
+----

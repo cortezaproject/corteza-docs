@@ -1,0 +1,23 @@
+include::ROOT:partial$variables.adoc[]
+
+[source,text]
+----
+/client-scripts <1>
+    /auth <2>
+        /... <6>
+
+    /admin <3>
+        /... <6>
+
+    /compose <4>
+        /... <6>
+
+    /shared <5>
+        /... <6>
+----
+<1> Root folder for all client scripts (under each search path).
+<2> Defines a bundle for {PRODUCT_NAME} {APP_NAME_AUTH}.
+<3> Defines a bundle for {PRODUCT_NAME} {APP_NAME_ADMIN}.
+<4> Defines a bundle for {PRODUCT_NAME} {APP_NAME_COMPOSE}.
+<5> Reserved directory for any shared logic, such as custom libraries, assets, ...
+<6> Undefined file structure; can be defined as needed.

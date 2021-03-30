@@ -1,0 +1,40 @@
+include::ROOT:partial$variables.adoc[]
+
+= Settings
+
+The settings interface allows you to configure some core system settings.
+
+[IMPORTANT]
+====
+There is a separate view for <<settings-system,system>>, <<settings-compose,{PRODUCT_NAME} {APP_NAME_COMPOSE}>>, and <<settings-shell,{PRODUCT_NAME} {APP_NAME_SHELL}>>.
+====
+
+[#settings-system]
+== System settings
+
+Authentication::
+    The authentication section lets you control the authentication flow, email notifications, and where to redirect successful logins.
+
+External authentication::
+    The external authentication section lets you configure what authentication providers are available (if at all).
+    Refer to the menu:Administrator Guide[Authentication providers] for details.
+
+[TIP]
+====
+You can disable internal sign-up and manually add users that are allowed to access your system.
+====
+
+[#settings-compose]
+== {APP_NAME_COMPOSE}
+
+Basic::
+    Basic system configuration such as UI tweaks and attachment constraints (size and type).
+
+[#settings-shell]
+== {APP_NAME_SHELL}
+
+Logo::
+    The logo section lets you replace the default {PRODUCT_NAME} logo with your own.
+
+Panels::
+    The panels section lets you define the default layout for your users.

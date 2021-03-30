@@ -1,0 +1,31 @@
+include::ROOT:partial$variables.adoc[]
+
+= About
+
+https://www.docusign.com/[DocuSign] is a service that allows our clients to sign documents, such as quotes and contracts online.
+
+The extension implements three main components:
+
+{APP_NAME_COMPOSE} configuration::
+    Follow the {APP_NAME_COMPOSE} configuration provided in the YAML files to configure your {APP_NAME_COMPOSE} namespace.
+
+Authentication::
+    The OAuth 2 authentication flow authorizes your application to access DocuSign.
+
+Document signature::
+    A set of automation scripts that allow us to send the document into signing, cancel the pending document and check for the signature status.
+
+[IMPORTANT]
+====
+DocuSign is strict in terms of when your credentials can be used in production.
+
+Make sure that your application complies with their ToS.
+====
+
+== Required token scopes
+
+signature::
+    This scope allows the token to perform most document-related operations, such as sending the document for signing and cancelling the document's signing.
+
+extended::
+    This scope allows us to request new refresh tokens with a full lifetime of ~30days.

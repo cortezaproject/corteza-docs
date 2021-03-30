@@ -1,0 +1,84 @@
+include::ROOT:partial$variables.adoc[]
+
+= Deploying automation scripts
+
+[NOTE]
+====
+*DevNote* generalize this and move away from automation scripts only.
+====
+
+To use your automation scripts, you need to make them available to the {APP_AUTOMATION} server, either locally or on the server.
+
+[IMPORTANT]
+====
+If you are running *{APP_AUTOMATION} without Docker* (from source code), you can skip any *Docker related steps*.
+====
+
+.We'll assume that:
+* your *current working directory* is where your extension is,
+* your *{PRODUCT_NAME} is located inside* `/opt/deploy/test-project`,
+* your `/opt/deploy/test-project` *file structure* looks like this:
+
+[source,txt]
+----
+data/
+docker-compose.yml
+.env
+----
+
+.To deploy your automation scripts:
+. Create a new directory for your extension; we'll name it `corredor`, but the name doesn't matter.
+. *Transfer the extension* into the newly created directory (see below sections for tips).
+. Add a *new volume* to the `docker-compose.yaml` file that will *contain the extension*.
+Under the `corredor` service, `volumes: [ "./corredor:/corredor/test-extension", ...other volumes you might have... ]`
+. Edit the `.env` (`CORREDOR_EXT_SEARCH_PATHS` variable) file to *register the new extension*; `CORREDOR_EXT_SEARCH_PATHS=/extensions:/extensions/*:/corredor/test-extension`.
+. *Reload the configurations* (`docker-compose up -d`).
+
+At the end, your file structure should look like this:
+[source,txt]
+----
+data/
+docker-compose.yml
+.env
+corredor/
+  test-extension/
+    server-scripts/
+      /...
+    client-scripts/
+      /...
+----
+
+[IMPORTANT]
+====
+`CORREDOR_EXT_SEARCH_PATHS` can contain multiple paths separated by a colon (`:`).
+====
+
+[TIP]
+====
+You can use `docker-compose logs -t --tail 100 -f corredor` to see if the extension was registered and processed correctly.
+====
+
+== Transfer extensions using git
+
+If you are using git to version control your extension *clone* the repository onto your server (into the volume mentioned above).
+You can then *pull the changes* whenever the source code changes.
+
+[NOTE]
+====
+If it is a *private repository*, make sure that your git client on your server has access to it.
+====
+
+== Transfer extensions manually
+
+You can use `scp`, `rsync`, or any other client to transfer the extension onto your server (into the volume mentioned above).
+
+[NOTE]
+====
+We usually use `rsync` as it is somewhat smarter when detecting file changes.
+====
+
+.An example `rsync` command *following the above assumptions*; make sure to *change the parameters*:
+[source,bash]
+----
+rsync -av -e ssh --exclude="node_modules/*" ./* SSH_USERNAME_HERE@ssh.remote.tld:/opt/deploy/test-project/corredor --delete;
+----

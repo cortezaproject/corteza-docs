@@ -1,0 +1,7 @@
+include::ROOT:partial$variables.adoc[]
+
+= LinkedIn
+
+.To enable LinkedIn authentication, you need to retrieve your application credentials:
+. Go to https://www.linkedin.com/developers/apps/new[LinkedIn], fill out the form and click on "Create app".
+. Go to Auth section and copy and paste both the *Client ID* and *Client Secret* fields to {PRODUCT_NAME} {APP_NAME_ADMIN}.

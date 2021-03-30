@@ -1,0 +1,9 @@
+include::ROOT:partial$variables.adoc[][]
+
+Read "(field name)" record fields::
+  Determines if the role is allowed to access the given value inside the module.
+  This will hide any data that might appear in the field.
+
+Update "(field name)" record fields::
+  Determines if the role is allowed to update the values in the given module field.
+  This will prevent any data manipulation for the field.

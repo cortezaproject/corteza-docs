@@ -1,0 +1,8 @@
+include::ROOT:partial$variables.adoc[]
+
+= Integrator Guide
+
+****
+The landing page for the administrator guide is under construction.
+Please refer to the side navigation menu:Administrator Guide[] to access the topic you are curious about.
+****

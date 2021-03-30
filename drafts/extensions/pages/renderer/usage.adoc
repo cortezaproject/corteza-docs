@@ -1,0 +1,74 @@
+include::ROOT:partial$variables.adoc[]
+
+= Usage
+
+.To render a document, you must:
+. provide an HTML template,
+. provide the data.
+
+The output is a *`Buffer` object*, that can be converted to a *file*, *string*, or *uploaded to a server*.
+
+[source,js]
+----
+// Import renderer and template to automation script
+import renderer from '@cortezaproject/corteza-ext-renderer'
+import template from './template'
+
+// Prepare data object
+const data = {
+  value: ''
+}
+
+// Render the report PDF
+const { report, meta } = await renderer.render({ data, template, renderer: renderer.types.RendererKind.HTML })
+
+// OR
+const { report, meta } = await renderer.render({ data, template, renderer: renderer.types.RendererKind.PDF })
+----
+
+== Template syntax
+
+The template uses a simple *HTML syntax*.
+
+.Use this as a base:
+[source,html]
+----
+<!DOCTYPE html>
+<html>
+<head>
+  <title>
+    Example
+  </title>
+</head>
+<body>
+  <main>
+    <p>
+      This is a HTML template example
+      <br />
+      <!-- you can use HTML comments if you wish -->
+      Interpolate data like {{ this.so }}
+
+      <div data-for="(value, i) in this.arrayOf">
+        <h3>
+          You can loop through arrays.
+        </h3>
+        The <b>{{ this.value }}</b> is accessed like that.
+      </div>
+
+      <div style="{{ this.classes }}">
+        This also works.
+      </div>
+    </p>
+  </main>
+</body>
+
+<style>
+/**
+  Styling is also supported.
+
+  PDF documents will omit most of it; will be improved.
+
+  HTML documents inline the styling.
+*/
+</style>
+----

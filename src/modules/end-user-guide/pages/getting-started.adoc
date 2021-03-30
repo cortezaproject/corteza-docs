@@ -1,0 +1,13 @@
+include::ROOT:partial$variables.adoc[]
+
+= Getting Started
+
+// @todo
+
+== Creating an account
+
+// @todo
+
+== Signing in
+
+// @todo

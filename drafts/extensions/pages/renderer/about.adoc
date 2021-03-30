@@ -1,0 +1,6 @@
+include::ROOT:partial$variables.adoc[]
+
+= About
+
+The Renderer extension provides a way to render *HTML and PDF* files from *HTML templates*.
+You can use this to generate *quotes* or *invoices*, as well as *emails* and other messages.

@@ -1,0 +1,12 @@
+VERSION=2020.12
+
+DB_DSN=dbuser:dbpass@tcp(db:3306)/dbname?collation=utf8mb4_general_ci
+
+HTTP_WEBAPP_ENABLED=true
+ACTIONLOG_ENABLED=false
+
+## Uncomment and configure if you wish to send emails
+# SMTP_HOST=smtp-server.example.tld:587
+# SMTP_USER=postmaster@smtp-server.example.tld
+# SMTP_PASS=this-is-your-smtp-password
+# SMTP_FROM='"Demo" <info@your-demo.example.tld>'

@@ -1,5 +1,0 @@
-include::../../variables.adoc[]
-
-= Configuration
-
-TODO

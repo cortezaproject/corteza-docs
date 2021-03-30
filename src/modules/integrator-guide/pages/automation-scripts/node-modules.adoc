@@ -1,0 +1,73 @@
+include::ROOT:partial$variables.adoc[]
+
+= Node modules
+
+[IMPORTANT]
+====
+Different extensions *do not share* their dependencies.
+If two extensions use *the same dependency*, they both need to *define it*.
+====
+
+{PRODUCT_NAME} {APP_AUTOMATION} supports internal and external node modules, both on the server-scripts and client-scripts.
+
+[NOTE]
+====
+Internally we use the Yarn package manager, so we suggest you do the same.
+====
+
+.To add a new node module either:
+* manually insert it into the `package.json` file, or
+* run the `yarn add NAME_GOES_HERE`.
+
+When ran, the {APP_AUTOMATION} server will attempt to automatically resolve and install the requested dependencies.
+
+[CAUTION]
+====
+We're observing some anomalies when running *Yarn inside a docker container*.
+
+If you're getting an error message similar to the one below, it means that Yarn was not able to *install the dependencies*.
+This error occurs when Yarn is unable to store its cache.
+
+****
+{
+  "type": "error",
+  "data": "https://registry.yarnpkg.com/rxjs/-/rxjs-6.6.3.tgz: Extracting tar content of undefined failed, the file appears to be corrupt: \\"ENOSPC: no space left on device, write\\""
+}
+****
+
+.To fix this, you need to:
+. ssh *into the {APP_AUTOMATION} container* (`docker-compose exec -u root corredor sh`),
+. `cd` *into the mounted volume*,
+. run *`yarn --cache-folder /tmp`*.
+
+The dependencies should now be *installed and available* for use.
+The above `yarn` command *manually runs the install* process, *discarding the cache*.
+====
+
+Node modules can then be used *just like anywhere else*.
+
+.Example package.json:
+[source,json]
+----
+{
+  "dependencies": {
+    "axios": "^0.18.0"
+  }
+}
+----
+
+.Example usage from automation scripts:
+[source,js]
+----
+import axios from 'axios'
+
+export default {
+  // ...
+
+  async exec() {
+    await axios.get(...)
+
+    // ...
+  }
+}
+----

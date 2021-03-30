@@ -1,0 +1,124 @@
+include::ROOT:partial$variables.adoc[]
+
+= {PRODUCT_NAME} query language
+
+{PRODUCT_NAME} implements an SQL-like syntax for querying and sorting records.
+
+== Querying
+
+.The general template for constructing a query looks like this:
+[source]
+----
+FIELD OPERATOR VALUE [AND/OR FIELD OPERATOR VALUE [...]]
+----
+
+For the following examples, let us assume that we have a module named `test` with the following fields:
+
+* `quantity` of type `Number`
+* `price` of type `Number`
+* `name` of type `String`
+* `visible` of type `Checkbox`
+
+.To query for records with zero quantity or zero price:
+[source]
+----
+quantity = 0 or price = zero
+----
+
+.To query all visible records starting with the letter "a":
+[source]
+----
+visible AND name LIKE 'a%'
+----
+
+=== Comparison operators
+
+Equal::
+  * `=`
+Not equal::
+  * `!=`
+  * `<>`
+Less then::
+  * `<`
+Less or equal then::
+ * `\<=`
+Greater then::
+  * `>`
+Greater or equal then::
+  * `>=`
+Matches pattern::
+  * `LIKE`
+Does not match the pattern::
+  * `NOT LIKE`
+
+When matching patterns, use `_` to represent a single character; use `%` to represent zero, one, or multiple characters.
+
+=== Arithmetic operators
+
+Addition::
+  * `+`
+Subtraction::
+  * `-`
+Multiplication::
+  * `*`
+Division::
+  * `/`
+
+=== Boolean operators
+
+* `AND`: truthy when left and right are truthy
+* `OR`: truthy when left or right are truthy
+
+== Sorting
+
+.The general template for constructing a sort looks like this:
+[source]
+----
+FIELD[ DIRECTION][, FIELD[ DIRECTION] [...]]
+----
+
+.Supported directions:
+* `ASC`: sort in ascending order, lower values first (`NULL` values are first).
+This is the default sort if no `DIRECTION` is specified.
+* `DESC`: sort in ascending order, lower values last (`NULL` values are last).
+
+For the following examples, let us assume that we have a module named `test` with the following fields:
+
+* `quantity` of type `Number`
+* `price` of type `Number`
+* `name` of type `String`
+* `visible` of type `Checkbox`
+
+.To order records, descending by price and ascending by quantity:
+[source]
+----
+price DESC, quantity
+----
+
+== Utilities
+
+.Supported date functions:
+[cols="1s,5a"]
+|===
+| [#ql-util-fnc-quarter]#<<ql-util-fnc-quarter,`QUARTER`>>#
+|
+Returns quarter from the given timestamp.
+
+| [#ql-util-fnc-year]#<<ql-util-fnc-year,`YEAR`>>#
+|
+Returns year from the given timestamp.
+
+| [#ql-util-fnc-date_format]#<<ql-util-fnc-date_format,`DATE_FORMAT`>>#
+|
+Returns formatted date the given timestamp.
+
+[NOTE]
+====
+*DevNote* add a format reference.
+====
+
+| [#ql-util-fnc-date]#<<ql-util-fnc-date,`DATE`>>#
+|
+Returns date from the given timestamp.
+
+|===

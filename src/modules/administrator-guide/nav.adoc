@@ -1,0 +1,27 @@
+* xref:index.adoc[]
+
+** Corteza Admin
+*** xref:action-log.adoc[]
+*** xref:users.adoc[]
+*** xref:roles.adoc[]
+*** xref:applications.adoc[]
+*** xref:settings.adoc[]
+*** xref:permissions.adoc[]
+*** xref:automation.adoc[]
+*** xref:federation-nodes.adoc[]
+
+** Corteza Low Code
+*** xref:namespaces.adoc[]
+*** xref:modules.adoc[]
+*** xref:pages.adoc[]
+*** xref:charts.adoc[]
+
+** xref:federation/index.adoc[]
+*** xref:federation/nodes.adoc[]
+*** xref:federation/share-data.adoc[]
+
+** Authentication providers
+*** xref:authentication-provider/google.adoc[]
+*** xref:authentication-provider/facebook.adoc[]
+*** xref:authentication-provider/github.adoc[]
+*** xref:authentication-provider/linkedin.adoc[]

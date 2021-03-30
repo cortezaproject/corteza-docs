@@ -1,0 +1,215 @@
+include::ROOT:partial$variables.adoc[]
+
+= Page block reference
+
+[#page-block-automation]
+== Automation
+
+The automation page block allows your to show manual xref:automation-scripts/index.adoc[automation scripts] and xref:workflows/index.adoc[workflows] as a clickable button.
+
+.If you can't see your automation scripts:
+* make sure there were no compilation errors,
+* you refreshed your page after you've added the scripts,
+* the trigger defined a `.uiProp('app', 'compose')` constraint.
+
+[#page-block-calendar]
+== Calendar
+
+A *calendar page block* lets you show records on a calendar.
+
+.Supported calendar views:
+* month view,
+* week view,
+* day view,
+* agenda view.
+
+*Record event source* uses a module as the *data source*, where each *record* specifies *event parameters*; the label, start, and end dates.
+
+[TIP]
+====
+Calendar event sources enable *pre-filtering*.
+====
+
+[NOTE]
+====
+*DevNote*: link QL; enable value interpolation?
+====
+
+*Reminder event source* uses your system reminders as the *data source*, where each *reminder* specifies *event parameters*; the label, start, and end dates.
+
+[#page-block-chart]
+== Chart
+
+A *chart page block* allows you to show your charts on the page.
+Refer to xref:compose-configuration/index.adoc#charts[] for more details.
+
+[#page-block-content]
+== Content
+
+A *content page block* is used to contain some static content, such as an important announcement, help text, or some contact information.
+
+[#page-block-file]
+== File
+
+A *file page block* is used to contain a set of files (attachments), such as TOS, schedule, or a brochure.
+
+[#page-block-iframe]
+== IFrame
+
+An *iframe page block* is used to embed some external website inside your application.
+
+[IMPORTANT]
+====
+Make sure to keep any *iframe embedding limitation* in mind; we are no exception.
+====
+
+[#page-block-metric]
+== Metric
+
+*Metric page blocks* display some *calculated number* based on the *data in your namespace*.
+
+You can use metric page blocks to show things like the *total number of leads* or the *months' revenue*.
+
+.Configuration options:
+Label::
+    *Metric label* specifies what the metric shows; this is not visible to the user.
+
+Dimension module::
+    *Dimension module* specifies what module will be used as a data source.
+
+Dimension filter::
+    *The dimension filter* allows you to *filter the data source* to include only the records you wish to have.
+
+Metric field::
+    *Metric field* specifies what field will be used to calculate the metric.
+    This can be one of the *numeric fields* or the general *record count*.
+
+Metric aggregation operation::
+    *Metric aggregation operation* specifies how the value is generated.
+    You can pick one of the `count`, `sum`, `max`, `min`, or `avg` functions.
+
+Metric transform value::
+    *Metric transform value* specifies how the *calculated value* is transformed *before displayed* to the user.
+    You can implement things like *rounding*, and *percentage calculations*.
+// See some xref:ROOT:integrator-guide/samples/page-blocks/metrics.adoc[examples].
+
+Metric number format::
+    *Metric number format* specifies how to format the final result.
+    See https://numeraljs.com/#format[Numeral.js] for available number formatting options.
+
+Metric prefix::
+    *Metric prefix* specifies the prefix to be used when displaying the final result.
+
+Metric suffix::
+    *Metric suffix* specifies the suffix to be used when displaying the final result.
+
+Style::
+    The *style* section specifies how to *style the metric* when showing it to the user.
+
+[#page-block-record-list]
+== Record list
+
+*Record list page blocks* display the *contents of a module* as a table.
+Record lists also provide a way of *adding new*, and *editing or removing existing* records.
+
+[TIP]
+====
+You can trigger *explicit automation scripts* within the record list's header.
+Click the "Automation" tab to *select the automation scripts*.
+====
+
+.Configuration options:
+Module::
+    The *module* specifies what module will be used as a data source.
+
+Hide the add record button::
+    Hide the "Add" button; disabling the ability to add new records *from this record list*.
+
+Allow inline record editing::
+    *Inline record editing* is only available in *record pages*.
+    It lets you *edit*, *add*, or *remove* records from the _child_ *record list* when editing a _parent_ record.
+    Imagine a *quote* as a parent record, and a record list of *quote line items* as a child record list.
+
+Prefilter records::
+    *Prefiltering* allows you to *filter the data source* to include only the records you wish to have.
+// See some xref:ROOT:integrator-guide/samples/page-blocks/record-lists.adoc#record-list-sample-filtering[examples].
+
+Hide search box::
+    Disables the search box.
+
+Presort records::
+    *Presorting* allows you to specify *the initial sorting*.
+    Use standard SQL syntax.
+// See some xref:ROOT:integrator-guide/samples/page-blocks/record-lists.adoc#record-list-sample-sorting[examples].
+
+Hide paging::
+    Hides the record list paging section.
+
+Allow records export::
+    *Allow records export* show an "Export" button on the record list to export your data.
+
+Enable record selection::
+    *Enables record selection* by providing a selection checkbox next to each row.
+
+[IMPORTANT]
+====
+When using the search box on the record list, the system only includes the selected fields.
+
+*DevNote*: move this somewhere else?
+====
+
+[#page-block-record-organizer]
+== Record organizer
+
+*Record organizer page blocks* let you define a series for columns (_stages_) that a record is in.
+
+Imagine a kanban board -- you can build one with record organizers.
+
+[TIP]
+====
+The columns define a  drag 'n drop interface.
+====
+
+[NOTE]
+====
+*DevNote* link to QL.
+====
+
+[#page-block-record]
+== Record
+
+[IMPORTANT]
+====
+This page block type is only available for record pages.
+====
+
+*Record page blocks* let you access and change data related to a specific record.
+
+[TIP]
+====
+You can define multiple record page blocks for a nicer field grouping.
+
+For example, you can put contact-related information in one block, shipping-related information in another, and so on.
+====
+
+[TIP]
+====
+When selecting fields, you can rearrange these by dragging them around.
+====
+
+[#page-block-sm]
+== Social media feed
+
+[NOTE]
+====
+Currently, only *Twitter feeds* are supported.
+====
+
+*Social media feed page blocks* let you embed content from different social media platforms.
+
+[TIP]
+====
+This can help you keep up with the client's latest updates.
+====
+
+When you use a social media feed within a *record page*, the source can be *defined by a module field*.

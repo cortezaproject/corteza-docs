@@ -1,0 +1,8 @@
+include::ROOT:partial$variables.adoc[]
+
+= Expressions
+
+[NOTE]
+====
+*DevNote* in progress, use https://github.com/PaesslerAG/gval for now.
+====

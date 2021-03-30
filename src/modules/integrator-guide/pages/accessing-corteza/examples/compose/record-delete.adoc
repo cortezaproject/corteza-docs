@@ -1,0 +1,26 @@
+include::ROOT:partial$variables.adoc[]
+
+= Delete a record
+
+include::partial$api-example-note.adoc[]
+
+To delete a record, use the `DELETE $ComposeAPI/namespace/$NAMESPACE_ID/module/$MODULE_ID/record/$RECORD_ID` API endpoint.
+
+== Example request
+
+[source,bash]
+----
+curl -X DELETE "$ComposeAPI/namespace/$NAMESPACE_ID/module/$MODULE_ID/record/$RECORD_ID" \
+  -H "Authorization: Bearer $JWT";
+----
+
+== Example response
+
+[source,json]
+----
+{
+  "success": {
+    "message":"OK"
+  }
+}
+----

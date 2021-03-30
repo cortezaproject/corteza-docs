@@ -1,0 +1,35 @@
+include::ROOT:partial$variables.adoc[]
+
+= Pagination
+
+[IMPORTANT]
+====
+As of 2020.12, {PRODUCT_NAME} moved away from page + offset pagination to page cursors.
+The change is *not backwards compatible*.
+====
+
+When you perform an operation that supports pagination (such as fetching records), you will see a `filter` object.
+
+.The `filter` object contains:
+[source,json]
+----
+{
+  "limit": ...<1>
+  "cursor": "..."<2>
+  "nextPage": "..."<3>
+  "prevPage": "..."<4>
+}
+----
+<1> `limit` (number) specifies the maximum number of items on a page.
+<2> `cursor` (string) specifies the cursor to the current page.
+<3> `nextPage` (string) specifies the next page (omitted if no next page).
+<4> `prevPage` (string) specifies the previous page (omitted if no previous page).
+
+When you wish to access a specific page, you must provide the `pageCursor=$PAGE_CURSOR` query parameter.
+When accessing the next page, `$PAGE_CURSOR` is `filter.nextPage`; when accessing the previous page, `$PAGE_CURSOR` is `filter.prevPage`.
+
+.For example:
+[source,bash]
+----
+curl -X GET "$API_BASE/compose/namespace/$NAMESPACE_ID/module/$MODULE_ID/record/?pageCursor=$PAGE_CURSOR";
+----

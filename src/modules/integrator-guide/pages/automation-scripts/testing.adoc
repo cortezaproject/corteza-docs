@@ -1,0 +1,23 @@
+include::ROOT:partial$variables.adoc[]
+
+= Testing
+
+[NOTE]
+====
+*DevNote*: provide some complex examples using Sinon and promises.
+====
+
+Extensions are essentially  Node.js projects with some extra bits; meaning that the extensions can be tested in the same way.
+
+You are free to use any testing framework and any testing methodology you wish.
+
+[NOTE]
+====
+We usually use https://www.chaijs.com/[Chai], https://mochajs.org/[Mocha], https://www.npmjs.com/package/nyc[Nyc], and https://sinonjs.org/[Sinon].
+====
+
+[NOTE]
+====
+*DevNote* provide some more examples for other frameworks?
+====
+

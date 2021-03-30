@@ -1,0 +1,22 @@
+include::ROOT:partial$variables.adoc[][]
+
+Read workflow::
+    Determines if the role is allowed to access automation workflows.
+
+Update workflow::
+    Determines if the role is allowed to update automation workflows.
+
+Delete workflow::
+    Determines if the role is allowed to delete automation workflows.
+
+Undelete workflow::
+    Determines if the role is allowed to restore automation workflows.
+
+Execute workflow::
+    Determines if the role is allowed to execute automation workflows.
+
+Manage workflow triggers::
+    Determines if the role is allowed to manage automation workflow triggers.
+
+Manage workflow sessions::
+    Determines if the role is allowed to manage automation workflow sessions.

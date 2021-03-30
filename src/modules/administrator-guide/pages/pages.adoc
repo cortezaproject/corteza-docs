@@ -1,0 +1,23 @@
+include::ROOT:partial$variables.adoc[]
+
+= Page permissions
+
+== Any page
+
+.To set permissions for any page:
+. navigate to {PRODUCT_NAME} {APP_NAME_COMPOSE},
+. enter the namespace administration area,
+. navigate to the "Pages" subpage,
+. click on the *lock icon* on top of the *page list*.
+
+include::partial$permissions/compose-pages.adoc[]
+
+== Specific page
+
+.To set permissions for a specific page:
+. navigate to {PRODUCT_NAME} {APP_NAME_COMPOSE},
+. enter the namespace administration area,
+. navigate to the "Pages" subpage,
+. click on the *lock icon* next to a page.
+
+include::partial$permissions/compose-page-specific.adoc[]

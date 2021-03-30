@@ -1,0 +1,40 @@
+include::ROOT:partial$variables.adoc[][]
+
+= Departments
+
+The Departments page is accessible by clicking on the "Departments" in the main navigation bar on the top of the screen.
+
+Companies usually consist of multiple departments that may have different costs when performing their tasks.
+One hour support by the service department is not the same as one hour support by R&D.
+This allows the system to calculate the cost of a particular case automatically.
+
+[NOTE]
+====
+A department is not directly assigned to a case, but its update.
+This allows multiple departments to work on the same case.
+====
+
+== Key parts of a department
+
+Department details::
+    Here we store the essential information regarding a department, such as its name, list of employees, and it's hourly cost.
+
+Total time and cost of department related to work on cases::
+    Here we can see some quick statistics regarding total consumed times and the total cost of the department.
+    The system calculates this, so we don't have to worry about this.
+
+Case updates related to the department::
+    Here we can see all of the case updates that are assigned to this department.
+    This can help us determine what department has the most significant load so we can properly adjust our business process.
+
+[IMPORTANT]
+====
+Changing the hourly cost of a department only affects new entries.
+Old entries and their costs remain untouched unless they are updated.
+====
+
+== Add a department
+
+. Click on the "+ Add" button at the top of the list,
+. fill out the data,
+. press the "Save" button on the bottom right corner.

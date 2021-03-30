@@ -1,0 +1,18 @@
+= Releasing Corteza docs
+
+. include the branch in the `antora-playbook.yml`
+. change the version in the `src/antora.yml`
+
+.When releasing a prerelease:
+****
+version: '$V'
+prerelease: -develop
+display_version: '$V-develop'
+****
+
+.When releasing a release:
+****
+version: '$V'
+****
+
+The rest is handled by automation.

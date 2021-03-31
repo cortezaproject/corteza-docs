@@ -2,12 +2,6 @@ include::ROOT:partial$variables.adoc[]
 
 = Pagination
 
-[IMPORTANT]
-====
-As of 2020.12, {PRODUCT_NAME} moved away from page + offset pagination to page cursors.
-The change is *not backwards compatible*.
-====
-
 When you perform an operation that supports pagination (such as fetching records), you will see a `filter` object.
 
 .The `filter` object contains:

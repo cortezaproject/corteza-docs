@@ -9,7 +9,7 @@ One of the *main focus* when working with data in the enterprise environment is 
 == Users and Roles
 
 {PRODUCT_NAME} uses *Role-based access control* (RBAC), meaning we define access control *permissions to roles* (we specify *what roles* are allowed to access *what resources*).
-When a user is *assigned a set of roles* (becomes a role member) the user *inherits the permissions* that the assigned roles define.
+When a user is *assigned a set of roles* (becomes a role member), the user *inherits the permissions* that the assigned roles define.
 
 See <<security-ac-flow,access control check flow>> for details on how the access control functions.
 
@@ -20,7 +20,7 @@ Every user is *automatically a member* of the "*Everyone*" role.
 
 [IMPORTANT]
 ====
-The *first registered user* is automatically promoted to an "*Administrator*" role.
+The *first registered user* is automatically an *Administrator*.
 ====
 
 .Each permission rule can be in one of the two access states:
@@ -46,7 +46,7 @@ It's good practice to *limit your users* a much as possible to help *avoid secur
 . If *at least one role* (or everyone) has an *explicit allow*, the check ends and *allows* the operation.
 . If there is *no explicit* allow or deny, *continue* to the next step.
 
-If all four steps complete without an explicit allow or deny, the *system default* is used which is *deny for most cases*.
+If all steps complete without an explicit allow or deny, the *system default* is used, which is *deny for most cases*.
 
 == Modular design
 
@@ -54,8 +54,8 @@ We suggest a *modular role design*, where we define *multiple roles* with a *sma
 For example:
 
 * **CRM admin**: only provides administration privileges for the CRM,
-* **Messaging admin**: only provides administration privileges for the messaging,
-* **System admin**: only provides administration privileges for the system.
+* **Automation**: only provides administration privileges for the automation system,
+* **System admin**: only provides administration privileges for the core system.
 
 Then we can easily "stick" these roles together when creating users.
 

@@ -2,12 +2,24 @@ include::ROOT:partial$variables.adoc[]
 
 = Module field types
 
+****
+The field type reference is under construction.
+The content is here, but it is missing some finishing touches.
+****
+
+[IMPORTANT]
+====
+The field type and the workflow type are not the same.
+
+*DevNote* add some additional context about this.
+====
+
 [#field-type-checkbox]
 == Checkbox (Y/N)
 
 A `Checkbox` field type represents a true/false (truthy/faulty) value (a boolean).
-The `Checkbox` field type should be used when you wish to store either a positive or a negative value.
-For example; was the subscription paid or is the contact subscribed.
+The `Checkbox` field type should be used to store either a positive or a negative value.
+For example, was the subscription paid, or is the contact subscribed to your newsletter.
 
 A field of type `Checkbox` is represented as a label when it is being viewed.
 When the field is being edited, it is represented as a checkbox.
@@ -27,10 +39,10 @@ Allows you to specify what label is shown when the value is truthy or faulty whe
 
 A `Date and time` field type represents a temporal value (a timestamp).
 The `Date and time` field type should be used when you wish to store some temporal information; a date, a time, or both.
-For example; the time that the lead was converted.
+For example, the time that the lead was converted.
 
 A field of type `Date and time` is represented as a formatted label when it is being viewed.
-When the field is being edited, it is represented as a date input, time input, or as a date time input.
+When the field is being edited, it is represented as a date input, a time input, or a date-time input.
 
 .Additional configurations:
 [cols="1s,5a"]
@@ -57,7 +69,7 @@ Configures the field input to only permit future values.
 | [#field-type-datetime-relative]#<<field-type-datetime-relative,Output relative value>>#
 |
 Displays the value relative to the time when the field is viewed.
-For example; `10min ago`, or `last month`.
+For example, `10min ago`, or `last month`.
 
 | [#field-type-datetime-fmt]#<<field-type-datetime-fmt,Output format>>#
 |
@@ -69,12 +81,12 @@ Use the formatting options defined by https://momentjs.com/docs/#/displaying/for
 [#field-type-email]
 == Email
 
-A `Email` field type represents an email address.
+An `Email` field type represents an email address.
 The `Email` field type should be used when you wish to store an email.
-For example; the primary email address of the client.
+For example, the primary email address of the client.
 
 A field of type `Email` is represented as a label or a clickable link when it is being viewed.
-When the field is being edited, it is represented as a email input box.
+When the field is being edited, it is represented as an email input box.
 
 [IMPORTANT]
 ====
@@ -97,7 +109,7 @@ The email address is shown as a regular label instead of a clickable link.
 
 A `select / dropdown` field type represents a limited value set for the given field.
 The `select / dropdown` field type should be used when you wish to store one of the before defined values.
-For example; the stage of a case or the stage of a lead.
+For example, the stage of a case or the stage of a lead.
 
 A field of type `select / dropdown` is represented as a label when it is being viewed.
 When the field is being edited, it is represented as a dropdown input box.
@@ -133,7 +145,7 @@ Defines how the multi-value variant of the field is represented.
 
 A `Number` field type represents a numeric value.
 The `Number` field type should be used when you wish to store any numeric values.
-For example; the cost of a subscription or the cost of a lead.
+For example, the cost of a subscription or the cost of a lead.
 
 A field of type `Number` is represented as a formatted label when it is being viewed.
 When the field is being edited, it is represented as a number input box.
@@ -145,18 +157,18 @@ When the field is being edited, it is represented as a number input box.
 | [#field-type-number-prefix]#<<field-type-number-prefix,Prefix>>#
 |
 The prefix to the formatted label.
-For example; the prefix of `$` and the value of `1000` would result in the label of `$1000`.
+For example, the prefix of `$` and the value of `1000` would result in the label of `$1000`.
 
 | [#field-type-number-suffix]#<<field-type-number-suffix,Suffix>>#
 |
 The suffix to the formatted label.
-For example; the suffix of `USD/h` and the value of `1000` would result in the label of `1000 USD/h`.
+For example, the suffix of `USD/h` and the value of `1000` would result in the label of `1000 USD/h`.
 
 | [#field-type-number-precision]#<<field-type-number-precision,Precision>>#
 |
 The precision of the numbers stored under this field.
 The precision is limited to 6.
-For example; the precision of 3 would allow you to store numbers with up to three decimal places.
+For example, the precision of 3 would allow you to store numbers with up to three decimal places.
 
 | [#field-type-number-format]#<<field-type-number-format,Format>>#
 |
@@ -170,7 +182,7 @@ Use the formatting options defined by https://numeraljs.com/#format[numeral.js].
 
 A `Record` field type represents a *reference* to another record.
 The `Record` field type should be used when you wish to define a relation between two modules.
-For example; the parent transaction, or the account owner.
+For example, the parent transaction, or the account owner.
 
 [NOTE]
 ====
@@ -213,7 +225,7 @@ Specifies what field should be included when searching over the available record
 
 A `String` field type represents a generic text value.
 The `String` field type should be used when you wish to store some text.
-For example; the name of a contact or the TOS that should be shown to the client.
+For example, the name of a contact or the TOS that should be shown to the client.
 
 A field of type `String` is represented as a text when it is being viewed.
 When the field is being edited, it is represented as a text input box or a rich text input box.
@@ -239,7 +251,7 @@ The text is stored as a valid HTML so the value can be used in emails or other H
 
 A `URL` field type represents a URL address.
 The `URL` field type should be used when you wish to store a URL address.
-For example; the link to the clients' homepage.
+For example, the link to the clients' homepage.
 
 A field of type `URL` is represented as a label or a clickable link when it is being viewed.
 When the field is being edited, it is represented as a URL input box.
@@ -277,7 +289,7 @@ The URL address is shown as a regular label instead of a clickable link.
 
 A `User` field type represents a *reference* to a system user.
 The `User` field type should be used when you wish to define a relation between a record and a system user.
-For example; the owner of the record or the task assignee.
+For example, the owner of the record or the task assignee.
 
 [NOTE]
 ====
@@ -306,7 +318,7 @@ Defines how the multi-value variant of the field is represented.
 
 A `File upload` field type represents a *reference* to an uploaded attachment.
 The `File upload` field type should be used when you wish to attach some document to the record.
-For example; the clients' quote or a legal document.
+For example, the clients' quote or a legal document.
 
 A field of type `File upload` is represented as clickable link when it is being viewed.
 When the field is being edited, it is represented as a drag'n drop file upload box.

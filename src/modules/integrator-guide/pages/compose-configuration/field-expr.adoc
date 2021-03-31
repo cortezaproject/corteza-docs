@@ -5,7 +5,7 @@ include::ROOT:partial$variables.adoc[]
 == Value expressions
 
 Value expressions calculate the fields' value based on the provided expression.
-A value expression is a simple expression that results in a single value
+A value expression is a simple expression that results in a single value.
 If your field is a multi-value field, you need to return an array of items.
 
 Refer to the xref:expr/index.adoc[] for details on writing expressions.
@@ -14,6 +14,7 @@ Refer to the xref:expr/index.adoc[] for details on writing expressions.
 ====
 Currently, you can only use values of the current record.
 References are not yet supported.
+If you need to reference data across multiple records, use xref:automation-scripts/index.adoc[automation scripts] or xref:workflows/index.adoc[workflows] instead,
 ====
 
 .Available variables in the evaluation context:
@@ -56,17 +57,17 @@ trim(firstName + " " + lastName)
 
 == Sanitizers
 
-Sanitizers modify the field value to cleanup (sanitize) the data before it is saved.
-A sanitizer is a simple expression that results a single value.
+Sanitisers modify the field value to cleanup (sanitise) the data before it is saved.
+A sanitiser is a simple expression that results in a single value.
 
 Refer to the xref:expr/index.adoc[] for details on writing expressions.
 
-By their nature, sanitizers *should not* result in an error.
-If an error occurs, it is logged in the action log and the operation continues.
+By their nature, sanitisers *should not* result in an error.
+If an error occurs, it is logged in the action log, and the operation continues.
 
-If you define multiple sanitizers, they are run in the defined order.
+If you define multiple sanitisers, they are run in the specified order.
 
-.Example sanitizer that limits the text length:
+.Example sanitiser that limits the text length:
 [source]
 ----
 length(value) > 5 ? substr(value, 0, 5) + "..." : value
@@ -85,19 +86,19 @@ The `value` variable refers to the current value.
 == Validators
 
 Validators validate the field value by raising errors when the value is not valid.
-A validator is a simple expression that results a single value; either `true` or `false`.
-The value validation is considered as invalid when the expression results in `true`.
+A validator is a simple expression that results in a single value, either `true` or `false`.
+The value validation is considered invalid when the expression results in `true`.
 
 Validators can not change the value.
 
 Built-in field validators can be disabled; required and unique-multi-value validators can not be disabled.
 
-If you define multiple validators, they are run in the defined order.
+If you define multiple validators, they are run in the specified order.
 
 [IMPORTANT]
 ====
 The field validator stops when the first error occurs.
-For example; if we define validators `A`, `B`, and `C`, and the validator `A` raises an error; validators `B` and `C` are not evaluated.
+For example, if we define validators `A`, `B`, and `C`, and the validator `A` raises an error, validators `B` and `C` are not evaluated.
 ====
 
 .Validation expressions are not executed when:
@@ -124,7 +125,7 @@ Only set when the field is being updated.
 
 | [#validator-ctx-values]#<<validator-ctx-values,`values`>>#
 |
-The `values` variable refers to all of the record values (`values.<field-name>`).
+The `values` variable refers to all record values (`values.<field-name>`).
 You can use this to write validators that are context-aware.
 
 |===
@@ -134,4 +135,3 @@ You can use this to write validators that are context-aware.
 ----
 length(title) < 5
 ----
-

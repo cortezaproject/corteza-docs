@@ -2,7 +2,10 @@ include::ROOT:partial$variables.adoc[]
 
 = Expressions
 
-[NOTE]
-====
-*DevNote* in progress, use https://github.com/PaesslerAG/gval for now.
-====
+****
+The expression reference is under construction.
+The content is here, but it is missing some finishing touches.
+
+For the meantime please use https://github.com/PaesslerAG/gval.
+For the available functions, see the xref:expr/fnc-reference.adoc[].
+****

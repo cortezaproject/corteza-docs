@@ -1,9 +1,9 @@
 include::ROOT:partial$variables.adoc[]
 
 = Templates
-:description: Templates allow you to define the generic structure of a document (such as a welcome email message or a quote PDF) which is then converted into an actual document based on the provided data.
+:description: Templates allow you to define the generic document structure (such as a welcome email message or a quote PDF), which is then converted into an actual document based on the provided data.
 
-Templates allow you to define the generic structure of a document (such as a welcome email message or a quote PDF) which is then converted into an actual document based on the provided data.
+Templates allow you to define the generic document structure (such as a welcome email message or a quote PDF), which is then converted into an actual document based on the provided data.
 
 If you wish to learn more about a specific topic, refer to the subsections under menu:Integrator Guide[Templates].
 
@@ -14,10 +14,10 @@ Templates are created and managed in the {PRODUCT_NAME} {APP_NAME_ADMIN}.
 Navigate to the menu:System[Templates] and click on the btn:[New] button in the top-right corner.
 
 Enter the basic information; short name, handle, description, and template type.
-The template type determines the format of the template and implicitly implies what document types the template can render to.
+The template type determines the template format and implicitly implies what document types the template can render to.
 
-A partial template is used as part of another template (for example; a generic header or a footer) and can not be rendered on it's own.
-The template can be converted from and to a partial template.
+A partial template is used as part of another template (for example, a generic header or a footer) and can not be rendered independently.
+You can convert the template from and to a partial template.
 
 Click on the btn:[Submit] button to prepare your template.
 
@@ -37,7 +37,7 @@ The HTML template editor implements syntax highlighting and some other useful to
 
 | [#templates-preview]#<<templates-preview,Preview>>#
 |
-The preview section allows you to test how your templates will look like when rendered into an actual document.
+The preview section allows you to test how your templates will look when rendered into an actual document.
 
 [IMPORTANT]
 ====
@@ -71,7 +71,7 @@ Let's start by copying the default HTML sample from the toolbox.
 </html>
 ----
 
-If you don't need any dynamic content (different name for different contacts) you can stop.
+If you don't need any dynamic content (different name for different contacts), you can stop.
 The above template is valid and can already be used.
 
 If you need dynamic content, we need to cover a few more topics.
@@ -87,7 +87,7 @@ In our case, this placeholder looks like this:
 {{.name}}
 ----
 
-The above placeholder will be replaced by the value under the `name` property from the provided `value` object.
+The value will replace the above placeholder under the `name` property from the provided `value` object.
 
 Let's look at some examples.
 Each example firstly defines the `value` object and then the placeholder.
@@ -268,7 +268,7 @@ If you prefer to specify what variable the current item is stored into, use this
 
 === Using functions
 
-Sometimes you will need to do some further processing the the data before it is rendered to the document.
+Sometimes you will need to process the data further before it is rendered to the document.
 
 Some lighter processing can be handled directly by the template engine.
 More complex processing should be handled by the code that is requesting to render the template.
@@ -281,8 +281,8 @@ More complex processing should be handled by the code that is requesting to rend
 
 The passed argument can be a constant or a property from the provided data.
 
-Functions can also be chained.
-When two functions are chained, the output of the left function is passed into the argument of the right function.
+You can also chain functions.
+When two functions are chained, the left function's output is passed into the argument of the right function.
 
 [source]
 ----
@@ -356,7 +356,7 @@ For example:
 {{template "email_general_header"}}
 ----
 
-If your partial needs to access some data that was provided to the current template (the one that uses the partial), you need to provide the second argument to the partial inclusion process.
+If your partial needs to access some data that you provided to the current template (the one that uses the partial), you need to provide the second argument to the partial inclusion process.
 
 [source]
 ----

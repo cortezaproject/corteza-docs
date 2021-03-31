@@ -14,9 +14,9 @@
 
 ** Online deployment
 *** xref:online-deployment/multi-mysql.adoc[]
-*** xref:online-deployment/single-mysql.adoc[]
 *** xref:online-deployment/multi-pgsql.adoc[]
-*** xref:online-deployment/single-pgsql.adoc[]
+// *** xref:online-deployment/single-mysql.adoc[]
+// *** xref:online-deployment/single-pgsql.adoc[]
 
 ** Maintenance
 *** xref:maintenance/cli-reference.adoc[]

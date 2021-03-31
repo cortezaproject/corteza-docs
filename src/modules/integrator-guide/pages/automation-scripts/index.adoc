@@ -60,7 +60,7 @@ If you need to interact with the user (show notification, request confirmations)
 To start writing automation scripts, you must first define the appropriate file structure.
 
 .The three main parts:
-. `package.json` defines metadata aswell as your dependencies.
+. `package.json` defines metadata as well as your dependencies.
 . `/server-scripts` contains a set of automation scripts that are executed on the {APP_AUTOMATION} server.
 . `/client-scripts` contains a set of automation scripts that will be executed inside the web application.
 ** Each sub-directory inside `/client-scripts` defines a bundle.

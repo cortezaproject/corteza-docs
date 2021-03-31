@@ -1,6 +1,6 @@
 include::ROOT:partial$variables.adoc[]
 
-= {PRODUCT_NAME} query language
+= Query language
 
 {PRODUCT_NAME} implements an SQL-like syntax for querying and sorting records.
 
@@ -9,8 +9,13 @@ include::ROOT:partial$variables.adoc[]
 .The general template for constructing a query looks like this:
 [source]
 ----
-FIELD OPERATOR VALUE [AND/OR FIELD OPERATOR VALUE [...]]
+FIELD OPERATOR VALUE [AND|OR FIELD OPERATOR VALUE [...]]
 ----
+
+****
+* `[ ]` indicates that the encapsulated contents are optional.
+* `...` means that the current encapsulated content is repeated.
+****
 
 For the following examples, let us assume that we have a module named `test` with the following fields:
 
@@ -67,7 +72,7 @@ Division::
 === Boolean operators
 
 * `AND`: truthy when left and right are truthy
-* `OR`: truthy when left or right are truthy
+* `OR`: truthy when left or right is truthy
 
 == Sorting
 
@@ -76,6 +81,11 @@ Division::
 ----
 FIELD[ DIRECTION][, FIELD[ DIRECTION] [...]]
 ----
+
+****
+* `[ ]` indicates that the encapsulated contents are optional.
+* `...` means that the current encapsulated content is repeated.
+****
 
 .Supported directions:
 * `ASC`: sort in ascending order, lower values first (`NULL` values are first).
@@ -110,7 +120,7 @@ Returns year from the given timestamp.
 
 | [#ql-util-fnc-date_format]#<<ql-util-fnc-date_format,`DATE_FORMAT`>>#
 |
-Returns formatted date the given timestamp.
+The function returns the date formatted by the provided format.
 
 [NOTE]
 ====

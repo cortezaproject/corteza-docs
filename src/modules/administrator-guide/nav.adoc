@@ -8,7 +8,6 @@
 *** xref:settings.adoc[]
 *** xref:permissions.adoc[]
 *** xref:automation.adoc[]
-*** xref:federation-nodes.adoc[]
 
 ** Corteza Low Code
 *** xref:namespaces.adoc[]

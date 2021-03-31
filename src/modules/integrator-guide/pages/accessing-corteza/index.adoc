@@ -8,7 +8,7 @@ include::ROOT:partial$variables.adoc[]
 
 [TIP]
 ====
-All operations that can be performed via user interfaces, can be performed via an API call (or a series of API calls).
+All operations that can be performed via user interfaces can be performed via an API call (or a series of API calls).
 ====
 
 == Authentication
@@ -42,7 +42,7 @@ curl "$CORTEZA_URL" \
 
 // @todo update/assure the bellow list
 //
-// Most of the endpoints exposed by {PRODUCT_NAME} are protected except for the ones listed in the table bellow.
+// Most of the endpoints exposed by {PRODUCT_NAME} are protected except for the ones listed in the table below.
 
 // .System endpoints with alternative request authentication:
 // [cols="1m,5a"]
@@ -127,13 +127,13 @@ https://latest.cortezaproject.org/api/docs/[Here] is the API reference for our c
 
 [NOTE]
 ====
-If you are using a *different sub-domain* for your API (two separate Docker containers for webapp and API) the URL should look something like `https://api.$BASE_URL/docs`.
+If you are using a *different sub-domain* for your API (two separate Docker containers for web app and API), the URL should look something like `https://api.$BASE_URL/docs`.
 
-If you are using *the same domain* for your API (a single Docker container for webapp and API) the URL should look something like `https://$BASE_URL/api/docs`.
+If you are using *the same domain* for your API (a single Docker container for web app and API), the URL should look something like `https://$BASE_URL/API/docs`.
 ====
 
 In addition to the API reference mentioned above, these are the system-level endpoints that need to be explicitly enabled.
-They can be enabled for development/debugging, but should be disabled when running in production.
+They can be enabled for development/debugging but should be disabled when running in production.
 
 .System-level endpoints:
 [cols="1m,5a"]
@@ -144,8 +144,8 @@ They can be enabled for development/debugging, but should be disabled when runni
 |
 * `/__profiler` provides server runtime profiling data in the format expected by the pprof visualization tool.
 * `/__routes` provides a list of all registered routes.
-* `/__eventbus` provides a list of all registered automation script triggers.
-* `/__corredor` provides a list of all registered automation scripts.
+* `/__eventbus` presents a list of all registered automation script triggers.
+* `/__corredor` presents a list of all registered automation scripts.
 
 | HTTP_ENABLE_VERSION_ROUTE
 |
@@ -164,7 +164,7 @@ They can be enabled for development/debugging, but should be disabled when runni
 [IMPORTANT]
 ====
 Error responses use the status code 200 OK, instead of the standard 4xx/5xx -- legacy reasons.
-Our SDK covers this case and throws proper errors.
+Our API clients cover this case and throw correct errors.
 ====
 
 .The different response formats:
@@ -173,9 +173,9 @@ Our SDK covers this case and throws proper errors.
 | [#response-single-items]#<<response-single-items,Working with single items>>#
 |
 
-When working with single items, the item (or it's status) is provided in the response object.
+When working with single items, the item (or its status) is provided in the response object.
 
-.An example:
+.Example:
 [source,json]
 ----
 {
@@ -188,7 +188,7 @@ When working with single items, the item (or it's status) is provided in the res
 
 When working with multiple items, the list of items is provided in the response array along with the filter object.
 
-.An example:
+.Example:
 [source,json]
 ----
 {
@@ -202,15 +202,15 @@ When working with multiple items, the list of items is provided in the response 
 [NOTE]
 ====
 The structure of the `filter` property differs based on the resource.
-In general it specifies what filters were applied to the responding set.
+In general, it specifies what filters were applied to the responding set.
 ====
 
 | [#response-errors]#<<response-errors,Encountered an error>>#
 |
 
-When an error occurs the error message is provided under the `error.message` property.
+When an error occurs, the error message is provided under the `error.message` property.
 
-.An example:
+.Example:
 [source,json]
 ----
 {
@@ -221,9 +221,9 @@ When an error occurs the error message is provided under the `error.message` pro
 ----
 
 When you enable error tracing via the `HTTP_ERROR_TRACING` environment variable, the additional error contexts are provided in the `stack` and `wrap` properties.
-This can be useful for debugging, but should be turned off in production.
+This can be useful for debugging but should be turned off in production.
 
-.An example:
+.Example:
 [source,json]
 ----
 {

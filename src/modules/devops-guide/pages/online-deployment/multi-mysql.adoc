@@ -1,8 +1,18 @@
 = Multi-image MySQL
 
-[source,txt]
+[NOTE]
+====
+*DevNote*: Describe this configuration; how many/what services it runs and things like that.
+====
+
+.`docker-compose.yaml`
+[source,yaml]
 ----
-- target file structure
-- raw config files
-- exclude any meta text such as run commands and such...
+include::example$deploy/prod-mysql/docker-compose.yaml[]
+----
+
+.`.env`
+[source,yaml]
+----
+include::example$deploy/prod-mysql/env-example.txt[]
 ----

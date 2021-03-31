@@ -2,6 +2,11 @@ include::ROOT:partial$variables.adoc[]
 
 = Page block reference
 
+****
+The page block reference is under construction.
+The content is here, but it is missing some finishing touches.
+****
+
 [#page-block-automation]
 == Automation
 

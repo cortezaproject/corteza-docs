@@ -1,6 +1,6 @@
 include::ROOT:partial$variables.adoc[]
 
-= {PRODUCT_NAME} workflow
+= Workflows
 :description: {PRODUCT_NAME} workflow allow you to implement custom business logic without the need for any programming knowledge.
 :keywords: low code, no code, automation, workflow, workflows, {PRODUCT_NAME}
 

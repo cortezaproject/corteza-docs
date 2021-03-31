@@ -20,6 +20,10 @@ include::ROOT:partial$variables.adoc[]
 * Reworked {APP_NAME_COMPOSE} record export using envoy
 * Fixed UserBeforeUpdate/UserBeforeDelete
 
+== {PRODUCT_NAME} Corredor automation server
+
+* With introduction of {PRODUCT_NAME} Workflow, CORREDOR_ENABLED setting (on {PRODUCT_NAME} server) is now disabled by default. So make sure you explictly enable it in your `.env` if you are using automation script
+
 == {PRODUCT_NAME} Web applications (clients)
 
 .Changes:

@@ -5,23 +5,17 @@ services:
     image: cortezaproject/corteza-server:${VERSION}
     restart: on-failure
     env_file: [ .env ]
-    depends_on: [ db, corredor ]
+    depends_on: [ db ]
     networks: [ proxy, internal ]
     # Uncomment to use local fs for data persistence
     volumes: [ "./data/server:/data" ]
     environment:
-      # VIRTUAL_HOST helps NginX proxy route trafic for specific virtual host to
-      # this container
-      VIRTUAL_HOST:     ${DOMAIN}
-      # This is needed only if you are using NginX Lets-Encrypt companion
+      # This two are needed only if you are using NginX Lets-Encrypt companion
       # (see docs.cortezaproject.org for details)
+      # VIRTUAL_HOST helps NginX proxy route traffic for specific virtual host to this container
+      VIRTUAL_HOST:     ${DOMAIN}
+      # LETSENCRYPT_HOST helps NginX LE companion pull and configure SSL certificates for your domain
       LETSENCRYPT_HOST: ${DOMAIN}
-
-  corredor:
-    image: cortezaproject/corteza-server-corredor:${VERSION}
-    networks: [ internal ]
-    restart: on-failure
-    env_file: [ .env ]
 
   db:
     # MySQL Database

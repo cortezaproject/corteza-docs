@@ -5,13 +5,8 @@ services:
     image: cortezaproject/corteza-server:${VERSION}
     restart: on-failure
     env_file: [ .env ]
-    depends_on: [ db, corredor ]
+    depends_on: [ db ]
     ports: [ "127.0.0.1:18080:80" ]
-
-  corredor:
-    image: cortezaproject/corteza-server-corredor:${VERSION}
-    restart: on-failure
-    env_file: [ .env ]
 
   db:
     # MySQL Database
@@ -23,5 +18,5 @@ services:
       MYSQL_USER:     dbuser
       MYSQL_PASSWORD: dbpass
       # get the random generated password by running: docker-compose logs db | grep "GENERATED ROOT PASSWORD"
-      MYSQL_RANDOM_ROOT_PASSWORD: random 
+      MYSQL_RANDOM_ROOT_PASSWORD: random
     healthcheck: { test: ["CMD", "mysqladmin" ,"ping", "-h", "localhost"], timeout: 20s, retries: 10 }

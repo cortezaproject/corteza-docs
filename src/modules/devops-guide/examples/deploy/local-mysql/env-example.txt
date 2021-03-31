@@ -1,12 +1,31 @@
-VERSION=2020.12
+########################################################################################################################
+# docker-compose supports environment variable interpolation/substitution in compose configuration file
+# (more info: https://docs.docker.com/compose/environment-variables)
 
+########################################################################################################################
+# General settings
+DOMAIN=local.cortezaproject.org:18080
+VERSION=2021.3
+
+########################################################################################################################
+# Database connection
 DB_DSN=dbuser:dbpass@tcp(db:3306)/dbname?collation=utf8mb4_general_ci
 
+########################################################################################################################
+# Server settings
+
+# Running all-in-one and serving web applications directly from server container
 HTTP_WEBAPP_ENABLED=true
+
+# Disabled, we do not need detailed persistent logging of actions in local env
 ACTIONLOG_ENABLED=false
 
-## Uncomment and configure if you wish to send emails
-# SMTP_HOST=smtp-server.example.tld:587
-# SMTP_USER=postmaster@smtp-server.example.tld
-# SMTP_PASS=this-is-your-smtp-password
-# SMTP_FROM='"Demo" <info@your-demo.example.tld>'
+########################################################################################################################
+# SMTP (mail sending) settings
+
+# Point this to your local or external SMTP server if you want to send emails.
+# In most cases, Corteza can detect that SMTP is disabled and skips over sending emails without an error
+#SMTP_HOST=smtp-server.example.tld:587
+#SMTP_USER=postmaster@smtp-server.example.tld
+#SMTP_PASS=this-is-your-smtp-password
+#SMTP_FROM='"Demo" <info@your-demo.example.tld>'

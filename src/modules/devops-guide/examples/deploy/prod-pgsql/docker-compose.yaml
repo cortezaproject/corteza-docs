@@ -6,7 +6,7 @@ services:
     networks: [ proxy, internal ]
     restart: on-failure
     env_file: [ .env ]
-    depends_on: [ db, corredor ]
+    depends_on: [ db ]
     volumes: [ "./data/server:/data" ]
     environment:
       # VIRTUAL_HOST helps NginX proxy route traffic for specific virtual host to
@@ -17,12 +17,6 @@ services:
       # This is needed only if you are using NginX Lets-Encrypt companion
       # (see docs.cortezaproject.org for details)
       LETSENCRYPT_HOST: ${DOMAIN}
-
-  corredor:
-    image: cortezaproject/corteza-server-corredor:${VERSION}
-    networks: [ internal ]
-    restart: on-failure
-    env_file: [ .env ]
 
   db:
     # PostgreSQL Database

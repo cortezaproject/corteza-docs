@@ -1,8 +1,7 @@
 name: corteza-docs
 title: Corteza Guides
 version: '2021.3'
-prerelease: -develop
-display_version: '2021.3-develop'
+display_version: '2021.3'
 nav:
   - modules/devops-guide/nav.adoc
   # - modules/end-user-guide/nav.adoc

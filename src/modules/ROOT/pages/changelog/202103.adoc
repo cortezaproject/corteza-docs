@@ -38,3 +38,50 @@ include::ROOT:partial$variables.adoc[]
 . Denis Arh
 . Mia Arh
 . Peter Grlica
+
+== Patch 2021.3.1
+
+=== {PRODUCT_NAME} Server
+
+.Envoy changes:
+* Improved Envoy ComposeRecord cross referencing
+* Improved Envoy ComposeRecord self referencing
+
+.Provisioning:
+* Improved provisioning of auth clients
+
+=== {PRODUCT_NAME} Web applications (clients)
+
+.General changes:
+* Keep the user on the same page after the auth flow is complete (when possible)
+
+.{PRODUCT_NAME} {APP_NAME_COMPOSE}:
+* Fixed improper one dimensional page block rescaling on Compose page builder
+* Fixed bug where record selector default options were not displayed if query existed
+
+.{PRODUCT_NAME} {APP_NAME_WORKFLOW}:
+* Swimlanes now need to be double clicked to open the configurator
+* The workflow test overlay is automatically removed when the workflow changes
+* Prevent the workflow steps to reuse step identifiers
+* Improved Ctrl/CMD + S so it works from more places than before
+* Improved creating new workflow "flow"
+* Fixed Test workflow tooltips
+
+.{PRODUCT_NAME} {APP_NAME_ADMIN}
+* Moved Corredor Scripts under Automation
+
+=== {PRODUCT_NAME} Extensions
+
+.CRM changes:
+* Fixed typos and bugs in some default CRM workflows
+
+[IMPORTANT]
+====
+To apply the CRM extension changes, re-provision or import https://github.com/cortezaproject/corteza-server/blob/2021.3.x/provision/700_crm/1600_workflows.yaml[this] through the CLI.
+====
+
+.Contributors:
+. Tomaž Jerman
+. Jože Fortun
+. Mia Arh
+. Denis Arh

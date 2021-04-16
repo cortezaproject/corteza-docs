@@ -2,5 +2,3 @@
 
 ** xref:crm/index.adoc[]
 ** xref:service-solution/index.adoc[]
-** xref:shell/index.adoc[]
-

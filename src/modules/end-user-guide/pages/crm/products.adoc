@@ -2,22 +2,45 @@ include::ROOT:partial$variables.adoc[][]
 
 = Products
 
-The Products page is accessible by clicking on the "Products" in the main navigation bar on the top of the screen.
+The Products page is accessible by clicking on the menu:Products[] in the main navigation bar on the top of the screen.
 
 Here you can manage all of your companies products and services.
-
 Each product has a description and related files.
 The cost of the product is determined by the price book.
 The product can be linked to cases.
 
+[NOTE]
+====
+The cost is determined by the <<price-book,price book>>, not by the product itself.
+====
+
+== Add a new product
+
+. Navigate to the menu:Products[],
+. click on the btn:[+ Add] button to open the form,
+. populate the data and press the btn:[Save] button on the bottom right corner.
+
+[#price-book]
 == Price book
 
-Your company may have different price books depending on the region and client organization type.
+The price book page is accessible by clicking on the menu:Products[Price book] in the main navigation bar on the top of the screen.
 
-The price book determines how much the product costs.
+[NOTE]
+====
+Your company may have different price books depending on the region and client organization type.
+====
+
+The price book determines how much the product or service costs.
 When creating an opportunity, product prices and the totals are calculated based on the selected price book.
+
+=== Add a new price book entry
+
+. Navigate to the menu:Products[Price book,select a price book],
+. click on the btn:[+ Add] button on the *price book entries* page block,
+. populate the data and press the btn:[Save] button on the bottom right corner.
 
 [TIP]
 ====
-Add products rapidly to a price book by opening the price book in editing mode and adding the products there.
+If you wish to add multiple price book entries at the same time, click on the btn:[Edit] button in the bottom right corner.
+This allows you to add multiple price book entries at the same time.
 ====

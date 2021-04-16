@@ -2,9 +2,10 @@ include::ROOT:partial$variables.adoc[][]
 
 = Dashboards
 
-The Dashboards page is accessible by clicking on the "Dashboards" in the main navigation bar on the top of the screen.
+The Dashboards page is accessible by clicking on the menu:Dashboards[] in the main navigation bar on the top of the screen.
 
 Dashboards help you to visually understand changing business conditions so you can make decisions based on the real-time data of your Service Solution.
+Refer to the xref:integrator-guide:compose-configuration/index.adoc[menu:Integrator Guide[Low Code configuration]] if you wish to add additional dashboards.
 
 [TIP]
 ====

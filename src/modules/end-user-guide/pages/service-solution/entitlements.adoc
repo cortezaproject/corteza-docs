@@ -2,18 +2,20 @@ include::ROOT:partial$variables.adoc[][]
 
 = Entitlements
 
-The Entitlements page is accessible by clicking on the "Entitlements" under the "Accounts" dropdown in the main navigation bar on the top of the screen.
+The Entitlements page is accessible by clicking on the menu:Accounts[Entitlements] in the main navigation bar on the top of the screen.
 
 Entitlements are types of customer support, such as *phone support* or *email support*.
 You can set up entitlements to help support agents determine whether a customer is eligible for support or not.
 
 Entitlements are related to an account and a product, and they are eligible for a fixed amount of time (defined by the start and end date).
 
+An entitlement can be created either manually, or <<account-add-entitlement,from the account>>.
+
 == Add an entitlement
 
-. Click on the "+ Add" button on top of the Entitlements list,
-. fill out the data,
-. press "Save" on the bottom right corner.
+. Navigate to the menu:Accounts[Entitle,ents],
+. click on the btn:[+ Add] button to open the form,
+. populate the data and press the btn:[Save] button on the bottom right corner.
 
 [TIP]
 ====

@@ -2,14 +2,25 @@ include::ROOT:partial$variables.adoc[][]
 
 = Knowledge base
 
-[IMPORTANT]
+[TIP]
 ====
-We use "KB" as a shortened notation to reference the knowledge base.
+We use *KB* as a shortened notation to reference the knowledge base.
 ====
 
-The Knowledge Base page is accessible by clicking on the "Knowledge Base" in the main navigation bar on the top of the screen.
+The Knowledge Base page is accessible by clicking on the menu:Knowledge Base[] in the main navigation bar on the top of the screen.
 
-The knowledge base stores various information regarding your products, services and other so the agents can solve cases faster without the need for experts.
+The knowledge base stores various information regarding your products, services and other so that you can solve repeating cases faster.
+
+== Add a knowledge base entry
+
+. Navigate to the menu:Knowledge Base[],
+. click on the btn:[+ Add] button to open the form,
+. populate the data and press the btn:[Save] button on the bottom right corner.
+
+[NOTE]
+====
+The KB number gets calculated by the system.
+====
 
 == Key parts of a knowledge base entry
 
@@ -20,17 +31,6 @@ Cases with this KB Item as Solution::
     Here we see all the cases that we solved with the help of this entry.
     This helps us distinguish good entries from the bad ones to improve our knowledge base.
     It also allows other agents to solve similar cases much faster.
-
-== Add a new knowledge base entry
-
-. Press on the "+ Add" button on the top of the list,
-. fill out the data,
-. press "Save" in the bottom right corner.
-
-[NOTE]
-====
-The ID gets calculated by the system.
-====
 
 == Tips for improving quality
 

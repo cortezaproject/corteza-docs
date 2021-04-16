@@ -2,11 +2,17 @@ include::ROOT:partial$variables.adoc[][]
 
 = Products
 
-The Products page is accessible by clicking on the "Products" in the main navigation bar on the top of the screen.
+The Products page is accessible by clicking on the menu:Products[] in the main navigation bar on the top of the screen.
 
 A product can be a physical or a software product, as well as a service provided by your company.
 Products allow you to keep track of how much service a specific product or product family provides.
 We also get an overview of all cases for a specific product.
+
+== Add a product
+
+. Navigate to the menu:Products[],
+. click on the btn:[+ Add] button to open the form,
+. populate the data and press the btn:[Save] button on the bottom right corner.
 
 == Key parts of a product
 

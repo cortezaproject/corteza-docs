@@ -2,10 +2,7 @@ include::ROOT:partial$variables.adoc[][]
 
 = Settings
 
-The Settings page is accessible by clicking on the "Settings" in the main navigation bar on the top of the screen.
-
-In the settings page, we can configure some parts of the system to suit our needs better.
-Let's go over them.
+The Settings page is accessible by clicking on the menu:Settings[] in the main navigation bar on the top of the screen.
 
 == Available settings
 
@@ -45,10 +42,6 @@ This is the base URL that will be used when generating links to cases.
 If you have an external portal that is able to display cases stored by {PRODUCT_NAME}, you can change this link to point to that portal.
 ====
 
-=== Default case email template
-
-This is the default email template that will be used when generating case emails.
-
 == Step by step configuration
 
 === Next number for a KB item
@@ -81,8 +74,3 @@ For example: `{APP_COMPOSE_BASE_URL}/ns/service-solution/pages/11150230828561203
 ====
 If you have an external portal that is able to display cases stored by {PRODUCT_NAME}, you can change this link to point to that portal.
 ====
-
-=== Default case email template
-
-Select a default email template that should be used when working on cases.
-If you don't see any email templates, you should first create it.

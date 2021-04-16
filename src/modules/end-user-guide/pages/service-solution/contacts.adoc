@@ -2,9 +2,15 @@ include::ROOT:partial$variables.adoc[][]
 
 = Contacts
 
-The Contacts page is accessible by clicking on the "Contacts" under the "Accounts" dropdown in the main navigation bar on the top of the screen.
+The Contacts page is accessible by clicking on the menu:Accounts[Contacts] in the main navigation bar on the top of the screen.
 
-Contacts belong to accounts, and we can think of them as employees for a specific company that we are allowed to contact.
+A contact belongs to an account, and we can think of them as employees for a specific company that we are allowed to contact.
+
+== Add a new contact
+
+. Navigate to the menu:Accounts[Contacts],
+. click on the btn:[+ Add] button to open the form,
+. populate the data and press the btn:[Save] button on the bottom right corner.
 
 == Key parts of a contact
 
@@ -34,31 +40,14 @@ Emails::
     Here we store the emails that we sent to the contact, presented in chronological order.
     These are usually generated based on cases.
 
-[TIP]
-====
-We can use this outside of cases, for example, to notify the client that their subscription expires soon.
-====
-
 == Add a case for a contact
 
-. Open a contact you wish to create a case for,
-. click on the "+ Add" button on top of the "Cases related to this Contact" list,
-. fill out the data,
-. press "Save" on the bottom right corner.
+. Navigate to the menu:Accounts[Contacts,select account],
+. scroll down to the "cases" page block,
+. click on the btn:[+ Add] button to open the form,
+. populate the data and press the btn:[Save] button on the bottom right corner.
 
 [NOTE]
 ====
 Refer to xref:service-solution/index.adoc#cases[the cases section] for additional details.
 ====
-
-== Add an email for a contact
-
-[NOTE]
-====
-Emails are usually generated from a case and not directly as shown here.
-====
-
-. Open a contact you wish to create an email for,
-. click on the "+ Add" button on top of the Emails list,
-. fill out the data,
-. press "Save" on the bottom right corner.

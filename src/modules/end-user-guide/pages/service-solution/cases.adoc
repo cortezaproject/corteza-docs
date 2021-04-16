@@ -3,24 +3,25 @@ include::ROOT:partial$variables.adoc[][]
 [#cases]
 = Cases
 
-There are three pages dedicated to cases -- one main page and two subpages.
-They all show leads but with different filtering.
+The Cases page is accessible by clicking on the menu:Cases[] in the main navigation bar on the top of the screen.
 
-* *Cases* shows all of the cases in the system,
-* *All New cases* shows only the cases that have the `New` status,
-* *My new cases* shows only the new cases that you are responsible for.
+.There are three pages dedicated to cases:
+* menu:Cases[] shows all of the cases in the system,
+* menu:All New cases[] shows only the cases that have the `New` status,
+* menu:My new cases[] shows only the new cases that you are responsible for.
 
-Cases are the main component of {PRODUCT_NAME} Service Solution -- this is where all of the customer issues are captured and handled.
+.A typical case flow:
+. A client contacts the company with an issue,
+. the service agent checks the clients account to see if their entitlements permit support for the issue,
+. if the client is entitled to support, a new case is created, directly from the account page,
+. the agent inserts any relevant parameters to the case, assigns a category (the default is "Problem"), links any related products, contacts, and assigns an agent,
+. the assigned agent works on the case, creates updates and finally closes the case.
 
 == Add a new case
 
-[NOTE]
-====
-You can add a case from either one of the subpages, but they are usually created from the account.
-====
-
-. Click on the "+ Add" button to open up the form,
-. populate the data and press the "Save" button on the bottom right corner.
+. Navigate to the menu:Cases[],
+. click on the btn:[+ Add] button to open the form,
+. populate the data and press the btn:[Save] button on the bottom right corner.
 
 Each case has an automatically generated case number, which starts with "ticket#" followed by a number.
 An example case number is `ticket#20191025094353420`.
@@ -33,7 +34,7 @@ To make the ticket understandable, provide a good subject.
 
 [TIP]
 ====
-Make sure that the subject is short, clear and straight to the point!
+Make sure that the subject is short, clear and straight to the point.
 ====
 
 == Key parts of a case
@@ -54,10 +55,6 @@ Updates::
 Knowledge Base::
     This is where you can quickly search through the knowledge base to find relevant information to get a better understanding of the task at hand.
 
-== Typical case flow
+== Email template
 
-. A client contacts the company with an issue,
-. the service agent checks the clients account to see if their entitlements permit support for the issue,
-. if the client is entitled to support, a new case is created, directly from the account page,
-. the agent inserts any relevant parameters to the case, assigns a category (the default is "Problem"), links any related products, contacts, and assigns an agent,
-. the assigned agent works on the case, creates updates and finally closes the case.
+Refer to the xref:integrator-guide:templates/index.adoc[menu:Integrator Guide[Templates]] for details on how to add new or modify existing templates.

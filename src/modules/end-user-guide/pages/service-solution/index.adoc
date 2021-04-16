@@ -1,16 +1,8 @@
 include::ROOT:partial$variables.adoc[]
 
 = Service Solution
-:doctype: book
 
 {PRODUCT_NAME} Service Solution is a *highly flexible*, *scalable* and *open source* solution for keeping up with customer cases.
-
-[IMPORTANT]
-====
-Since Service Solution is highly customizable, this guide may differ from yours.
-
-In such cases, please contact your system administrator.
-====
 
 :leveloffset: +1
 
@@ -33,8 +25,6 @@ include::knowledge-base.adoc[]
 include::departments.adoc[]
 
 include::settings.adoc[]
-
-include::email-templates.adoc[]
 
 include::dashboards.adoc[]
 

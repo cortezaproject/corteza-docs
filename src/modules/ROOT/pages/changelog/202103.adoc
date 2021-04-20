@@ -85,3 +85,26 @@ To apply the CRM extension changes, re-provision or import https://github.com/co
 . Jože Fortun
 . Mia Arh
 . Denis Arh
+
+== Patch 2021.3.2
+
+=== {PRODUCT_NAME} Server
+
+.Auth:
+* Improved auth procedures, fixed excessive redirects
+
+=== {PRODUCT_NAME} Web applications (clients)
+
+.{PRODUCT_NAME} {APP_NAME_COMPOSE}:
+* Fixed field picker bug where double click didn't add the field
+* Fixed module fields not respecting field order in module edit
+
+.{PRODUCT_NAME} {APP_NAME_ADMIN}:
+* Added sessions to monitor workflow execution and examine failed workflows
+
+.{PRODUCT_NAME} {APP_NAME_WORKFLOW}:
+* Added workflow testing with custom initial scope
+
+.Contributors:
+. Jože Fortun
+. Denis Arh

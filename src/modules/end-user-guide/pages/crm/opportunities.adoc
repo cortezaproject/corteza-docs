@@ -1,15 +1,15 @@
-include::ROOT:partial$variables.adoc[][]
+include::ROOT:partial$variables.adoc[]
 
 = Opportunities
 
-The Opportunities page is accessible by clicking on the menu:Opportunities[] in the main navigation bar on the top of the screen.
+The Opportunities page is accessible by clicking on the menu:Opportunities[] section in the main navigation bar on the top of the screen.
 
 An account can be created either manually, or by <<account-new-opportunity,generating it from an account>>.
 
-When you generate an opportunity for a given account, you indicate that you have uncovered a potential future sale and thus potential revenue.
+When generating an opportunity for a given account, you indicate that you have uncovered a potential future sale and thus potential revenue.
 
-An *opportunity name* should be short and descriptive to identify what the opportunity is about quickly.
-For example, "300 licenses" is a good example, as it is short and straight to the point.
+An *opportunity name* should be short and descriptive in order to identify what the opportunity is about quickly.
+to illustrate; "300 licenses" is a good example as it is short and straight to the point.
 
 The default close date is set to one month after the opportunity is created (can be configured with <<settings,settings>>).
 
@@ -20,16 +20,16 @@ The last few steps are *Negotiation*, followed by *Closed Won* or *Closed Lost*.
 
 [TIP]
 ====
-Use the Contact Roles block to create a clear overview of the people related to the opportunity, including their contact data and role.
+Use the Contact Roles block to create a clear overview of the people related to the opportunity, including the contact data and role.
 ====
 
-== Add a new opportunity manually
+== Adding a new opportunity manually
 
 . Navigate to the menu:Opportunities[],
 . click on the btn:[+ Add] button to open the form,
 . populate the data and press the btn:[Save] button on the bottom right corner.
 
-== Add products and update amounts
+== Adding products and updating amounts
 
 . Navigate to the menu:Opportunities[select an opportunity],
 . select a price book,
@@ -39,7 +39,7 @@ Use the Contact Roles block to create a clear overview of the people related to 
 
 [IMPORTANT]
 ====
-You only have to insert the quantity, and optionally the discount for a product.
+You only have to insert the quantity and optionally the discount for a product.
 Other fields are filled in automatically.
 ====
 
@@ -49,16 +49,16 @@ You can overwrite the list price of the product by inserting a different sales p
 ====
 
 [#opportunity-generate-quote]
-== Generate a quote for the opportunity
+== Generating a quote for the opportunity
 
 . Navigate to the menu:Opportunities[select an opportunity],
 . click on the btn:[Create a new Quote for this opportunity] button.
 
-== Tips for qualifying leads
+== Tips for the qualification of leads
 
-.It is useful to figure out the following data:
-* *budget*: check if there is actually a budget,
-* *authority*: check if you are talking to or being able to get through to the decision-makers,
+.It is useful to reflect upon the following data:
+* *budget*: check whether there is a budget,
+* *authority*: check if you are able to communicate with the decision-makers,
 * *need*: check if there is an actual need for the product/service,
-* *timeline*: check by when the product/service needs to be delivered or implemented, and if this timeline makes sense,
-* *competition*: check whom you are competing with.
+* *timeline*: check on what timeline the product/service needs to be delivered or implemented, and if this timeline is compatible with your capabilities,
+* *competition*: check with whom you are competing.

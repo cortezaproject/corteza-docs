@@ -1,8 +1,8 @@
-include::ROOT:partial$variables.adoc[][]
+include::ROOT:partial$variables.adoc[]
 
 = Cases
 
-The Cases page is accessible by clicking on the menu:Mode[Cases] in the main navigation bar on the top of the screen.
+The Cases page is accessible by clicking on the menu:Mode[Cases] section in the main navigation bar on the top of the screen.
 
 The {PRODUCT_NAME} CRM implements a simplified case management tool.
 It allows you to keep track of various customer complaints, disputes or similar.
@@ -12,33 +12,33 @@ It allows you to keep track of various customer complaints, disputes or similar.
 The CRM and the xref:service-solution/index.adoc[Service Solution] do not share data.
 ====
 
-Cases can be linked to accounts, contacts products or even to other cases.
+Cases can be linked to accounts, contacts, products or even to other cases.
 
-You can define who is part of the case, what role they have, keep track of the progress and assign notes and tasks.
+You can define who is part of the case, what role they have, keep track of the progress, assign tasks and add notes.
 
 [NOTE]
 ====
 You can store a resolved case as a "Solution".
-Solutions help you to solve (future) similar cases with ease.
+Solutions help you to solve similar (future) cases with ease.
 ====
 
-== Add a new case
+== Adding a new case
 
 . Navigate to the menu:More[Cases],
 . click on the btn:[+ Add] button to open the form,
 . populate the data and press the btn:[Save] button on the bottom right corner.
 
-== Mark case as in progress
+== Marking the case as "in progress"
 
 . Navigate to the menu:More[Cases,select a case],
 . click on the btn:[Set Case status to Working].
 
-== Mark case as closed
+== Marking the case as "closed"
 
 . Navigate to the menu:More[Cases,select a case],
 . click on the btn:[Set Case status to Closed].
 
-== Share the progress to the contact
+== Sharing the progress to a contact
 
 . Navigate to the menu:More[Cases,select a case],
 . click on the btn:[Inform the contact via email of the Case solution].

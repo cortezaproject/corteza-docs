@@ -1,55 +1,55 @@
-include::ROOT:partial$variables.adoc[][]
+include::ROOT:partial$variables.adoc[]
 
 = Tasks
 
-The Tasks page is accessible by clicking on the menu:Tasks[] in the main navigation bar on the top of the screen.
+The Tasks page is accessible by clicking on the menu:Tasks[] section in the main navigation bar on the top of the screen.
 
-Tasks allow you to keep track of outstanding tasks that need to be handled and are displayed in the list or on the calendar on the homepage.
+Tasks allow you to keep track of pending tasks that need to be handled and are displayed in the list or on the calendar on the homepage.
 Tasks can refer to leads, accounts, contacts, opportunities, quotes, or contracts.
 
 [NOTE]
 ====
-Make sure to set the task as "Closed" once you complete it.
+Make sure to mark the task as "closed" once it has been completed.
 ====
 
-== Add a new custom task
+== Adding a new custom task
 
 . Navigate to the menu:Tasks[],
 . click on the btn:[+ Add] button to open the form,
 . populate the data and press the btn:[Save] button on the bottom right corner.
 
-== Add a new task for a lead
+== Adding a new task for a lead
 
 . Navigate to the menu:Leads[select a lead],
-. scroll down to the "tasks" page block
+. scroll down to the "tasks" page block,
 . click on the btn:[+ Add] button.
 
-== Add a new task for an account
+== Adding a new task for an account
 
 . Navigate to the menu:Accounts[select an account],
-. scroll down to the "tasks" page block
+. scroll down to the "tasks" page block,
 . click on the btn:[+ Add] button.
 
-== Add a new task for a contact
+== Adding a new task for a contact
 
 . Navigate to the menu:Contacts[select a contact],
-. scroll down to the "tasks" page block
+. scroll down to the "tasks" page block,
 . click on the btn:[+ Add] button.
 
-== Add a new task for an opportunity
+== Adding a new task for an opportunity
 
 . Navigate to the menu:Opportunities[select an opportunity],
-. scroll down to the "tasks" page block
+. scroll down to the "tasks" page block,
 . click on the btn:[+ Add] button.
 
-== Add a new task for a quote
+== Adding a new task for a quote
 
 . Navigate to the menu:Quotes[select a quote],
-. scroll down to the "tasks" page block
+. scroll down to the "tasks" page block,
 . click on the btn:[+ Add] button.
 
-== Add a new task for a contract
+== Adding a new task for a contract
 
 . Navigate to the menu:Contracts[select a contract],
-. scroll down to the "tasks" page block
+. scroll down to the "tasks" page block,
 . click on the btn:[+ Add] button.

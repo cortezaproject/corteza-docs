@@ -1,60 +1,56 @@
-include::ROOT:partial$variables.adoc[][]
+include::ROOT:partial$variables.adoc[]
 
 [#cases]
 = Cases
 
-The Cases page is accessible by clicking on the menu:Cases[] in the main navigation bar on the top of the screen.
+The Cases page is accessible by clicking on the menu:Cases[] section in the main navigation bar on the top of the screen.
 
 .There are three pages dedicated to cases:
 * menu:Cases[] shows all of the cases in the system,
-* menu:All New cases[] shows only the cases that have the `New` status,
+* menu:All New cases[] shows only the cases that have the `status of being new,
 * menu:My new cases[] shows only the new cases that you are responsible for.
 
 .A typical case flow:
 . A client contacts the company with an issue,
 . the service agent checks the clients account to see if their entitlements permit support for the issue,
 . if the client is entitled to support, a new case is created, directly from the account page,
-. the agent inserts any relevant parameters to the case, assigns a category (the default is "Problem"), links any related products, contacts, and assigns an agent,
+. the agent inserts any relevant parameters to the case, assigns a category (the default is "problem"), links any related products, contacts, and assigns an agent,
 . the assigned agent works on the case, creates updates and finally closes the case.
 
-== Add a new case
+== Adding a new case
 
 . Navigate to the menu:Cases[],
 . click on the btn:[+ Add] button to open the form,
-. populate the data and press the btn:[Save] button on the bottom right corner.
+. populate the data and press the btn:[Save] button in the bottom right corner.
 
 Each case has an automatically generated case number, which starts with "ticket#" followed by a number.
 An example case number is `ticket#20191025094353420`.
 
 [NOTE]
 ====
-The ticket number provides a unique identification that is used within the system.
+The ticket number provides a unique identification which is used within the system.
 To make the ticket understandable, provide a good subject.
-====
-
-[TIP]
-====
+A good subject alone allows you to get a general idea of what the ticket is about.
 Make sure that the subject is short, clear and straight to the point.
 ====
 
-== Key parts of a case
+== The key parts of a case
 
 Case Description::
-    This is where you can find the base information regarding a case; such as its status, priority and related product.
+    This is where you find the base information regarding a case; its status, priority, and a related product.
 
 Case Details::
     This is where you can find essential relations, such as the related account, contact, case owner, and it's cost.
 
 Updates::
     This is where all the updates related to the case are kept.
-    This can be anything from receiving updates from the clients to us contacting the client.
-    It gives you a clear picture of what is going on.
-    You can add a new update by clicking on the "Add Update to this Case" button.
-    Case status changes automatically create an update.
+    It can be anything from receiving updates from the clients to us contacting the client and gives you a clear picture of what is going on.
+    It is posiible to add a new update by clicking on the "Add Update to this Case" button.
+    Case status changes automatically when you create an update.
 
 Knowledge Base::
-    This is where you can quickly search through the knowledge base to find relevant information to get a better understanding of the task at hand.
+    This is where you can quickly search through the knowledge base to find relevant information in order to get a better understanding of the task at hand.
 
 == Email template
 
-Refer to the xref:integrator-guide:templates/index.adoc[menu:Integrator Guide[Templates]] for details on how to add new or modify existing templates.
+Refer to the xref:integrator-guide:templates/index.adoc[menu:Integrator Guide[Templates]] for details on how to add a new or modify existing templates.

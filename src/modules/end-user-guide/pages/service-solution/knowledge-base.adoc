@@ -1,38 +1,38 @@
-include::ROOT:partial$variables.adoc[][]
+include::ROOT:partial$variables.adoc[]
 
 = Knowledge base
 
-[TIP]
+[NOTE]
 ====
-We use *KB* as a shortened notation to reference the knowledge base.
+We use *KB* as a  notation to reference to the knowledge base.
 ====
 
-The Knowledge Base page is accessible by clicking on the menu:Knowledge Base[] in the main navigation bar on the top of the screen.
+The Knowledge Base page is accessible by clicking on the menu:Knowledge Base[] section in the main navigation bar on the top of the screen.
 
-The knowledge base stores various information regarding your products, services and other so that you can solve repeating cases faster.
+The KB stores various information regarding your products, services and other so that you can solve repeating cases faster.
 
-== Add a knowledge base entry
+== Adding a knowledge base entry
 
 . Navigate to the menu:Knowledge Base[],
 . click on the btn:[+ Add] button to open the form,
-. populate the data and press the btn:[Save] button on the bottom right corner.
+. populate the data and press the btn:[Save] button in the bottom right corner.
 
 [NOTE]
 ====
 The KB number gets calculated by the system.
 ====
 
-== Key parts of a knowledge base entry
+== The key parts of a knowledge base entry
 
 Details::
-    Here we store the essential information regarding the entry, such as the type, related product, description, its status and some other metadata.
+    Here the essential information regarding the entry, such as the type, related product, description, its status and some other metadata are stored.
 
 Cases with this KB Item as Solution::
-    Here we see all the cases that we solved with the help of this entry.
-    This helps us distinguish good entries from the bad ones to improve our knowledge base.
+    Here you see all the cases that you solved with the help of this entry.
+    This helps you distinguish good entries from bad ones to improve the KB.
     It also allows other agents to solve similar cases much faster.
 
 == Tips for improving quality
 
 Implement reviews::
-    We can use the status field of the entry to indicate if it needs to be reviewed by an expert, or if it's accepted or rejected.
+    You can use the status field of the entry to indicate if it needs to be reviewed by an expert, or if it's accepted or rejected.

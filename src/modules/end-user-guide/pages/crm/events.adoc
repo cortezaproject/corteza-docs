@@ -1,8 +1,8 @@
-include::ROOT:partial$variables.adoc[][]
+include::ROOT:partial$variables.adoc[]
 
 = Events
 
-The Events page is accessible by clicking on the menu:Events[] in the main navigation bar on the top of the screen.
+The Events page is accessible by clicking on the menu:Events[] section in the main navigation bar on the top of the screen.
 
 Events help you stay organized by keeping track of the things you should do.
 
@@ -10,44 +10,44 @@ You can access your events either from the Events page or from the homepage.
 They are also accessible from any other page that allows events; such as leads and opportunities.
 
 
-== Add a new custom event
+== Adding a new custom event
 
 . Navigate to the menu:Tasks[],
 . click on the btn:[+ Add] button to open the form,
 . populate the data and press the btn:[Save] button on the bottom right corner.
 
-== Add a new event for a lead
+== Adding a new event for a lead
 
 . Navigate to the menu:Leads[select a lead],
-. scroll down to the "events" page block
+. scroll down to the "events" page block,
 . click on the btn:[+ Add] button.
 
-== Add a new event for an account
+== Adding a new event for an account
 
 . Navigate to the menu:Accounts[select an account],
-. scroll down to the "events" page block
+. scroll down to the "events" page block,
 . click on the btn:[+ Add] button.
 
-== Add a new event for a contact
+== Adding a new event for a contact
 
 . Navigate to the menu:Contacts[select a contact],
-. scroll down to the "events" page block
+. scroll down to the "events" page block,
 . click on the btn:[+ Add] button.
 
-== Add a new event for an opportunity
+== Adding a new event for an opportunity
 
 . Navigate to the menu:Opportunities[select an opportunity],
-. scroll down to the "events" page block
+. scroll down to the "events" page block,
 . click on the btn:[+ Add] button.
 
-== Add a new event for a quote
+== Adding a new event for a quote
 
 . Navigate to the menu:Quotes[select a quote],
-. scroll down to the "events" page block
+. scroll down to the "events" page block,
 . click on the btn:[+ Add] button.
 
-== Add a new event for a contract
+== Adding a new event for a contract
 
 . Navigate to the menu:Contracts[select a contract],
-. scroll down to the "events" page block
+. scroll down to the "events" page block,
 . click on the btn:[+ Add] button.

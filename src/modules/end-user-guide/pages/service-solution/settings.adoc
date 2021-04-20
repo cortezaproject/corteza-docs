@@ -6,36 +6,36 @@ The Settings page is accessible by clicking on the menu:Settings[] in the main n
 
 == Available settings
 
-=== Next number for a KB item
+=== The following number for a KB item
 
-This indicates the next ID that is used for the next KB item (entry).
-Unless you are migrating from another system, this value doesn't need to be changed.
+This indicates the following ID that is used for the adjacent KB item (entry).
+Unless you migrate from another system, this value doesn't need to be changed.
 
-=== Default cost per hour
+=== The default cost per hour
 
-This is used if a department doesn't define its hourly cost or if we don't assign a department to the case update.
+This is used if a department doesn't define its hourly cost or if you don't assign a department to the case update.
 
 [NOTE]
 ====
 We strongly advise that each department explicitly specifies an hourly cost.
 ====
 
-=== Default department for new ticket
+=== The default department for new ticket
 
 This is the default department that will be assigned to a ticket if no other department is selected.
 
-=== Default time for a case update
+=== The default time for a case update
 
 This is the default time that is used when working on case updates.
 
 [TIP]
 ====
-You can calculate the average consumed time and use that value here.
+You can calculate the average spent time and use that value here.
 ====
 
-=== Default case link
+=== The default case link
 
-This is the base URL that will be used when generating links to cases.
+This is the base URL that is used when generating links to cases.
 
 [TIP]
 ====
@@ -44,29 +44,29 @@ If you have an external portal that is able to display cases stored by {PRODUCT_
 
 == Step by step configuration
 
-=== Next number for a KB item
+=== The following number for a KB item
 
 If you've migrated from another system, insert the next number that should be used.
 If not, you can leave this as it is.
 
-=== Default cost per hour
+=== The default cost per hour
 
 Enter a default cost that should be used when working on a case update.
 
-=== Default department for new ticket
+=== The default department for new ticket
 
 Select the default department.
-If you don't see any departments, you should first create it.
+You should first create departments if you don't see any.
 
-=== Default time for a case update
+=== The default time for a case update
 
 Enter a default time that should be used when working on a case update.
 
-=== Default case link
+=== The default case link
 
 . Navigate to the "Pages" of your admin panel,
 . find the page called `Record page for module "Case"`,
-. copy the page ID (this is the long number at the end of the address -- similar to the above channel ID),
+. copy the page ID (this is the long number at the end of the address, similar to the above channel ID),
 . insert `{APP_COMPOSE_BASE_URL}/ns/service-solution/pages/<page_ID_here>/record`.
 For example: `{APP_COMPOSE_BASE_URL}/ns/service-solution/pages/111502308285612036/record`
 

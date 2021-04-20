@@ -10,25 +10,25 @@ A quote allows you to complete the payment and thus charge the customer.
 
 [IMPORTANT]
 ====
-{PRODUCT_NAME} does not implement a payment mechanism so you need to use an external provider.
+{PRODUCT_NAME} does not implement a payment mechanism. You should use an external provider.
 ====
 
 Products in an opportunity are inserted as quote line items.
 
 Quote *bill to*, *quote to* and *ship to* information are retrieved from the related account.
 
-== Add a new quote manually
+== The manual addition of a new quote
 
 . Navigate to the menu:Quotes[],
 . click on the btn:[+ Add] button to open the form,
-. populate the data and press the btn:[Save] button on the bottom right corner.
+. populate the data and press the btn:[Save] button in the bottom right corner.
 
-== Send the quote to a primary contact
+== Sending the quote to a primary contact
 
 . Navigate to the menu:Opportunities[select an opportunity],
 . click on the btn:[Send this Quote via email to the primary contact] button.
 
-== Send the quote to a custom contact
+== Sending the quote to a custom contact
 
 . Navigate to the menu:Opportunities[select an opportunity],
 . click on the btn:[Send this Quote to a custom email] button,

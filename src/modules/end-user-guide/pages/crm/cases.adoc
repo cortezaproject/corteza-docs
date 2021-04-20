@@ -13,32 +13,33 @@ The CRM and the xref:service-solution/index.adoc[Service Solution] do not share 
 ====
 
 Cases can be linked to accounts, contacts products or even to other cases.
+//Nika's note: contacts products? The products of contacts -> contact's, if it is meant as a plural, remove the "s" in contacts
 
-You can define who is part of the case, what role they have, keep track of the progress and assign notes and tasks.
+You can define who is part of the case, what role they have, keep track of the progress, assign tasks and add notes.
 
 [NOTE]
 ====
 You can store a resolved case as a "Solution".
-Solutions help you to solve (future) similar cases with ease.
+Solutions help you to solve similar (future) cases with ease.
 ====
 
-== Add a new case
+== The addition of a new case
 
 . Navigate to the menu:More[Cases],
 . click on the btn:[+ Add] button to open the form,
 . populate the data and press the btn:[Save] button on the bottom right corner.
 
-== Mark case as in progress
+== The marking of the case as "in progress"
 
 . Navigate to the menu:More[Cases,select a case],
 . click on the btn:[Set Case status to Working].
 
-== Mark case as closed
+== The marking of the case as "closed"
 
 . Navigate to the menu:More[Cases,select a case],
 . click on the btn:[Set Case status to Closed].
 
-== Share the progress to the contact
+== Sharing the progress to the contact
 
 . Navigate to the menu:More[Cases,select a case],
 . click on the btn:[Inform the contact via email of the Case solution].

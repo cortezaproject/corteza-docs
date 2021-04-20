@@ -4,19 +4,19 @@ include::ROOT:partial$variables.adoc[][]
 
 The Contacts page is accessible by clicking on the menu:Accounts[Contacts] in the main navigation bar on the top of the screen.
 
-A contact belongs to an account, and we can think of them as employees for a specific company that we are allowed to contact.
+A contact belongs to an account; you can think of them as employees for a specific company that you are allowed to contact.
 
-== Add a new contact
+== The addition of a new contact
 
 . Navigate to the menu:Accounts[Contacts],
 . click on the btn:[+ Add] button to open the form,
-. populate the data and press the btn:[Save] button on the bottom right corner.
+. populate the data and press the btn:[Save] button in the bottom right corner.
 
-== Key parts of a contact
+== The key parts of a contact
 
 [IMPORTANT]
 ====
-A contact has two particular fields that indicate how and if we can contact them:
+A contact has two particular elements that indicate how and if you can contact them:
 
 * Do Not Call,
 * Email Opt Out.
@@ -25,27 +25,28 @@ The agent should check these fields before trying to make any contact.
 ====
 
 Personal Data::
-    Here we store the essential information regarding contacts, such as their name, title, phone, and email.
+    Here the essential information regarding contacts, such as their name, title, phone, and email are stored.
 
 Contact Address::
-    Here we store their contact address if we need to generate any quotes, send packages or dispatch maintainers.
+    Here their contact address (if it is necessary to generate any quotes, send packages or dispatch maintainers) are stored.
 
 Contact Twitter Feed::
-    Here we can keep track of the contact's latest updates via Twitter.
+    Here you can keep track of the contact's latest updates via Twitter. 
+//Nika's note: Only Twitter?
 
 Cases related to this Contact::
-    Here we store the cases that are related to the contact; either created by them, or they are responsible for.
+    Here the cases that are related to the contact; either created by the contact, or those which it are responsible for are stored.
 
 Emails::
-    Here we store the emails that we sent to the contact, presented in chronological order.
+    Here, in chronological order, the emails that you have previously sent to the contact are stored.
     These are usually generated based on cases.
 
-== Add a case for a contact
+== The addition of a case for a contact
 
 . Navigate to the menu:Accounts[Contacts,select account],
 . scroll down to the "cases" page block,
 . click on the btn:[+ Add] button to open the form,
-. populate the data and press the btn:[Save] button on the bottom right corner.
+. populate the data and press the btn:[Save] button in the bottom right corner.
 
 [NOTE]
 ====

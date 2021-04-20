@@ -10,28 +10,28 @@ This allows the system to calculate the cost of a particular case automatically.
 
 [NOTE]
 ====
-A department is not directly assigned to a case, but its update.
+A department is not directly assigned to a case, but rather its update.
 This allows multiple departments to work on the same case.
 ====
 
-== Add a department
+== The addition of a department
 
 . Navigate to the menu:Departments[],
 . click on the btn:[+ Add] button to open the form,
-. populate the data and press the btn:[Save] button on the bottom right corner.
+. populate the data and press the btn:[Save] button in the bottom right corner.
 
-== Key parts of a department
+== The key parts of a department
 
 Department details::
-    Here we store the essential information regarding a department, such as its name, list of employees, and it's hourly cost.
+    Here the essential information regarding a department, such as its name, list of employees, and it's hourly cost are stored.
 
 Total time and cost of department related to work on cases::
-    Here we can see some quick statistics regarding total consumed times and the total cost of the department.
-    The system calculates this, so we don't have to worry about this.
+    Here you can see some quick statistics regarding total consumed times and the total cost of the department.
+    The system calculates this, so that you don't have to worry about this.
 
 Case updates related to the department::
-    Here we can see all of the case updates that are assigned to this department.
-    This can help us determine what department has the most significant load so we can properly adjust our business process.
+    Here you can see all of the case updates that are assigned to this department.
+    This can help us determine what department has the most significant load so you can properly adjust our business process.
 
 [IMPORTANT]
 ====

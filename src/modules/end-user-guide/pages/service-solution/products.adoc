@@ -5,35 +5,35 @@ include::ROOT:partial$variables.adoc[][]
 The Products page is accessible by clicking on the menu:Products[] in the main navigation bar on the top of the screen.
 
 A product can be a physical or a software product, as well as a service provided by your company.
-Products allow you to keep track of how much service a specific product or product family provides.
-We also get an overview of all cases for a specific product.
+Products allow you to keep track of how much turnover a specific product or a product family provides.
+You also get an overview of all cases for a specific product.
 
-== Add a product
+== The addition of a product
 
 . Navigate to the menu:Products[],
 . click on the btn:[+ Add] button to open the form,
-. populate the data and press the btn:[Save] button on the bottom right corner.
+. populate the data and press the btn:[Save] button in the bottom right corner.
 
-== Key parts of a product
+== The key parts of a product
 
 Product Description::
-    Here we store the essential information regarding the product, such as it's product code, name, family and optionally an entitlement template.
+    Here the essential information regarding the product, such as it's product code, name, family and optionally an entitlement template are stored.
 
 [TIP]
 ====
-We can use entitlement templates to automate the creation of more common entitlements, such as a hardware warranty for a product.
+You can use entitlement templates to automate the creation of more common entitlements, such as a hardware warranty for a product.
 ====
 
-Cases totals::
-    Here we see the total time and cost that a specific product has required so far.
-    The system calculates these fields, so we don't need to worry about that!
+Case totals::
+    Here the total time and cost that a specific product has required so far can be seen.
+    The system calculates these fields, so there is no need to worry about that!
 
 Cases related to this product::
-    Here we find all the cases that we created for the product.
+    Here you can find all the cases created for the product.
     It can help us identify the most problematic products and the most common issues.
 
 Entitlements for this product::
-    Here we find all of the entitlements that we created for this product.
+    Here you can find all of the entitlements created for this product.
 
 Knowledge Base items related to this product::
     The knowledge base allows us to provide some information regarding the product, so our support agents can provide quality answers without the need for experts.

@@ -4,18 +4,18 @@ include::ROOT:partial$variables.adoc[][]
 
 The Accounts page is accessible by clicking on the menu:Accounts[] in the main navigation bar on the top of the screen.
 
-Accounts are entities (companies or other) that you are doing business with.
-Here you can store information such as company size, opportunities and business contact information.
+Accounts are entities (companies or other) that you currently do business with.
+Here you can store information such as the size of a company, opportunities and business contact information.
 
 An account can be created either manually, or by <<lead-convert,converting a lead>>.
 
-The most important block in accounts is *opportunities* (potential sales).
+The most important block in accounts is *opportunities* as it expresses the potential of sales.
 To generate a new opportunity for the account, press the btn:[Create new Opportunity from this account] button.
 
 .Other related blocks are:
 . *Contacts*: all the contacts related to the account.
 . *Contracts*: all contracts, active or inactive related to the account.
-. *Cases*: All cases that are related to the account.
+. *Cases*: all cases that are related to the account.
 . *Notes*, *Events* and *Tasks*.
 
 [NOTE]
@@ -32,26 +32,32 @@ You can create new contracts for the account by pressing the "Create new Contrac
 ====
 You can create new cases for the account by pressing the "Create new Case from this account" button.
 ====
+//Nika's note: if possible unite the tips inder 1 'TIPS' section. My attempt is bellow, but I couldnt figure out if I can make 'TIP' plural.
 
+[TIP]
+====
+* You can create new contracts for the account by pressing the "Create new Contract from this account" button.
+* You can create new cases for the account by pressing the "Create new Case from this account" button.
+====
 
-== Add a new account manually
+== Manual addition of a new account
 
 . Navigate to the menu:Accounts[],
 . click on the btn:[+ Add] button to open the form,
 . populate the data and press the btn:[Save] button on the bottom right corner.
 
 [#account-new-opportunity]
-== Add an opportunity for an account
+== The addition of an opportunity for an account
 
 . Navigate to the menu:Accounts[select an account],
 . click on the btn:[Create new Opportunity from this Account] button.
 
-== Add an contract for an account
+== The addition of a contract for an account
 
 . Navigate to the menu:Accounts[select an account],
 . click on the btn:[Create new Contract from this Account] button.
 
-== Add an case for an account
+== The addition of a case for an account
 
 . Navigate to the menu:Accounts[select an account],
 . click on the btn:[Create new Case from this Account] button.

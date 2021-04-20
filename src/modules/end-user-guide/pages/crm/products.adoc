@@ -4,7 +4,7 @@ include::ROOT:partial$variables.adoc[][]
 
 The Products page is accessible by clicking on the menu:Products[] in the main navigation bar on the top of the screen.
 
-Here you can manage all of your companies products and services.
+Here you can manage all of your company's products and services.
 Each product has a description and related files.
 The cost of the product is determined by the price book.
 The product can be linked to cases.
@@ -14,7 +14,7 @@ The product can be linked to cases.
 The cost is determined by the <<price-book,price book>>, not by the product itself.
 ====
 
-== Add a new product
+== The addition of a new product
 
 . Navigate to the menu:Products[],
 . click on the btn:[+ Add] button to open the form,
@@ -33,7 +33,7 @@ Your company may have different price books depending on the region and client o
 The price book determines how much the product or service costs.
 When creating an opportunity, product prices and the totals are calculated based on the selected price book.
 
-=== Add a new price book entry
+=== The addition of a new price book entry
 
 . Navigate to the menu:Products[Price book,select a price book],
 . click on the btn:[+ Add] button on the *price book entries* page block,

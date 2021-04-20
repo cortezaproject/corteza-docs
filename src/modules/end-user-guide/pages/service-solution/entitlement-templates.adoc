@@ -4,30 +4,30 @@ include::ROOT:partial$variables.adoc[][]
 
 The Products page is accessible by clicking on the menu:Products[Entitlement Templates] in the main navigation bar on the top of the screen.
 
-A product or service comes typically with an entitlement to support.
+A product or service typically comes with entitlement to support.
 For example, a software license may allow the client to contact you by phone when they have issues or questions.
-Or, when you sell hardware, you may need to offer a period of guarantee, allowing the client to contact you when the product breaks within that period.
+Or, when you sell hardware, you may need to offer a period of guarantee, allowing the client to contact you when in case product breaks within that period.
 
 Service Solution provides an easy way of defining the most common entitlements as entitlement templates.
-After we create a template, we bind it to a product.
-Now, whenever we create an entitlement for that product, the template will be used to prefill the base information regarding the entitlement.
+After creating a template, you bind it to a product.
+Now, whenever an entitlement is created for that product, the template will be used to prefill the base information regarding the entitlement.
 
-== Add an entitlement template
+== The addition of an entitlement template
 
 . Navigate to the menu:Products[Entitlement Templates],
 . click on the btn:[+ Add] button to open the form,
-. populate the data and press the btn:[Save] button on the bottom right corner.
+. populate the data and press the btn:[Save] button in the bottom right corner.
 
-== Add an entitlement template to an existing product
+== The addition of an entitlement template to an existing product
 
 . Navigate to the menu:Products[select a product],
 . click on the btn:[Edit] button in the bottom right corner,
 . select the "entitlement template" in the "product description" page block,
-. press the btn:[Save] button on the bottom right corner.
+. press the btn:[Save] button in the bottom right corner.
 
-== Add an entitlement template to a new product
+== The addition of an entitlement template to a new product
 
 . Navigate to the menu:Products[Entitlement Templates,select a template],
 . navigate to the "Products that use this entitlements template" page block,
 . click on the btn:[+ Add] button to open the form,
-. populate the data and press the btn:[Save] button on the bottom right corner.
+. populate the data and press the btn:[Save] button in the bottom right corner.

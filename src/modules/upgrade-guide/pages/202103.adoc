@@ -12,6 +12,12 @@ Workflows allow you perform the vast majority of automation script tasks while k
 We highly recommend you migrate your automation scripts to workflows.
 Refer to the xref:integrator-guide:workflows/index.adoc[integrator guide] for details.
 
+.Make sure you run partial provision for importing workflows and associated permissions:
+[source,shell]
+----
+docker-compose exec server corteza-server import /corteza/provision/300_automation
+----
+
 === Templates
 
 {PRODUCT_NAME} introduces templates as a standardized facility to handle and render documents based on generic templates.

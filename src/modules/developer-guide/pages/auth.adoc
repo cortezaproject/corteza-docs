@@ -1,0 +1,176 @@
+include::ROOT:partial$variables.adoc[]
+
+= Authentication and authorization
+
+{PRODUCT_NAME} implements the OAuth2 authentication protocol.
+The {PRODUCT_NAME} server can act both as a OAuth2 server and as an OAuth2 client allowing both internal and external authentications.
+
+Refer to the https://oauth.net/2[OAuth2 spec] for a complete reference to the protocol.
+
+.Outline of the common authorization flow with {PRODUCT_NAME} Auth:
+[plantuml,common-auth-flow,svg]
+----
+@startuml
+|User|
+:User starts authentication flow;
+|Client application|
+:Asks client application for link to \n**Corteza Auth** authorization server;
+|Authorization server|
+if (Verify redirect URI parameter) then
+    |User|
+    #darkred:Failed:\nInvalid redirect URI;
+    stop
+endif
+
+|Authorization server|
+:Present authentication\noptions for user;
+|User|
+:Authenticates by using local credentials\nor selecting one of the\nexternal identity provider;
+|Authorization server|
+if (Verify credentials) then
+    |User|
+    #darkred:Failed:\nInvalid credentials;
+    stop
+endif
+
+|Authorization server|
+if (Can user authorize this client) then
+    |User|
+    #darkred:Failed:\nNo permissions to authorize this client;
+    stop
+endif
+
+|Authorization server|
+if (Is user valid) then
+    |User|
+    #darkred:Failed:\nInvalid user\n(eg: unverified email);
+    stop
+endif
+
+|Authorization server|
+if (Is client trusted) then
+    |User|
+    :Prompt user\nto authorize this client;
+endif
+
+|Authorization server|
+:Generate authorization code;
+|Client application|
+:Receive authorization code;
+->exchange code for token;
+|Authorization server|
+:Generate access\nand refresh tokens;
+|Client application|
+#green:Store tokens;
+stop;
+@enduml
+----
+
+== Why OAuth2 rework?
+
+* OAuth2 is a proven and well accepted authentication standard.
+* {PRODUCT_NAME} becomes more open and easier to integrate with different applications.
+* It fits well into the existing RBAC security model.
+* Personalized authentication page lets users feel safe when entering their credentials.
+* Trivial {PRODUCT_NAME} authentication user interface modification.
+
+== Terminology
+
+[cols="2s,5a"]
+|===
+| [#auth-term-user]#<<auth-term-user,The user>>#
+|
+_In OAuth2 terminology this is a **resource owner**_
+The user authenticates them selves and authorize the <<,auth-client,client>> on the authorization server.
+
+| [#auth-term-auth]#<<auth-term-auth,{PRODUCT_NAME} auth server>>#
+|
+_In OAuth2 terminology this is a **authorization server**_
+The {PRODUCT_NAME} Auth authenticates users, authorizes clients and issues access tokens.
+
+More details can be found <<auth-server,here>>.
+
+[NOTE]
+====
+{PRODUCT_NAME} Auth currently runs side-by-side with {PRODUCT_NAME} API server.
+====
+
+| [#auth-term-api]#<<auth-term-api,{PRODUCT_NAME} API>>#
+|
+_In OAuth2 terminology this is a **resource server**_
+A client must obtain an access token in order to access the resources on the the {PRODUCT_NAME} API.
+
+[NOTE]
+====
+{PRODUCT_NAME} Auth currently runs side-by-side with {PRODUCT_NAME} API server.
+====
+
+| [#auth-term-client]#<<auth-term-client,Client, Auth Client, Third-Party Application>>#
+|
+A client is any application that is being used to interact with the {PRODUCT_NAME} API.
+
+| [#auth-term-local-credentials]#<<auth-term-local-credentials,Local credentials>>#
+|
+Local credentials are the email and the password that the user can use to authenticate.
+
+| [#auth-term-external-providers]#<<auth-term-external-providers,External identity providers>>#
+|
+An external identity provider is any provider that supports the OpenID Connect (OIDC) protocol such as Google, LinkedIn, and GitHub.
+
+| [#auth-term-security-ctx]#<<auth-term-security-ctx,Security context>>#
+|
+The security context is a set of roles that are assigned to the user when accessing the {PRODUCT_NAME} API.
+
+More in the <<auth-scope,auth scope>> section.
+|===
+
+[#auth-server]
+== {PRODUCT_NAME} Auth server
+
+Enables users to allow applications access to the {PRODUCT_NAME} API resources without sharing their actual credentials.
+This happens through secure exchange of credentials, codes, secrets and tokens following the OAuth2 protocol.
+
+After a successful authorization with local credentials or an external provider, an *access token* along with a *refresh token* is issues.
+This should be done automatically by the client.
+
+The session on the {PRODUCT_NAME} Auth is different from the one on the client application.
+This separation allows the {PRODUCT_NAME} Auth session to be used when authorizing additional clients.
+
+[CAUTION]
+====
+Since the authentication sessions between different clients are different, each session must be revoked in order for the user to be "truly signed-out".
+====
+
+[#auth-scope]
+== Authorization scope
+
+The scope is defined as a series of role memberships that are either *permitted*, *prohibited*, or *forced* on the user when using a specific {PRODUCT_NAME} Auth server.
+
+[cols="2s,5a"]
+|===
+| [#auth-scope-permitted]#<<auth-scope-permitted,Permitted roles>>#
+Permitted roles allow you to specify what roles the user is *allowed to have* when accessing the {PRODUCT_NAME} API resources from a specific client.
+
+| [#auth-scope-prohibited]#<<auth-scope-prohibited,Prohibited roles>>#
+Prohibited roles allow you to specify what roles the user is *not allowed to have* when accessing the {PRODUCT_NAME} API resources from a specific client.
+
+| [#auth-scope-forced]#<<auth-scope-forced,Forced roles>>#
+Forced roles allow you to specify what roles the user *must have* when accessing the {PRODUCT_NAME} API resources from a specific client.
+If the user does not have a forced role, it will be automatically added.
+|===
+
+== {PRODUCT_NAME} Auth security features
+
+Authentication forms and endpoints are protected against brute-force and cross-site request attacks.
+You can also set your own secrets for JWT, CSRF and cookie value encryption.
+
+Different expiration durations can be set on sessions temporary and permanent sessions to support your organization's security policies.
+
+
+== Future improvements
+
+* more fine-grain scopes
+* per-client allow/deny list of IP addresses
+* per-client access and refresh token expiration control
+* per-client refresh token use
+* per-client credentials use (only local-login, require 2fa, only login via specific provider)

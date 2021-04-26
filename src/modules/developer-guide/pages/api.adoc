@@ -32,23 +32,23 @@ deactivate Handler
 . the service initializes the action parameters (used for the action log),
 . requested resources are loaded and access permissions are checked,
 . the appropriate operation is performed,
-. the request handler prepares the response (mostly) in the JSON format.
+. the request handler prepares the response, most commonly in the JSON format.
 
 == API endpoints
 
 Endpoints are defined with `*/rest.yaml` files (`/(compose|system|federation|automation)/rest.yaml`).
-The code generation tool uses these `rest.yaml` files to generate the boiler plate request and response handling logic.
+The code generation tool uses these `rest.yaml` files to generate the boilerplate request and response handling logic.
 
 The `rest.yaml` files are used to generate the boilerplate code to handle request and response formatting (`rest/request/*.go` and `rest/handlers/*.go`).
 You can run the code generation tool with `make codegen` CLI command.
 
 Handlers read and normalize request data into *request* structures and pass them on to controllers.
-Controllers are functions, that handle request and route it forward to internal service and format the final output.
+Controllers are functions that handle a request and route it forward to internal service and format the final output.
 
 [NOTE]
 ====
-Controllers were initial developed to solve CRUD operations.
-Further development of Corteza platform outgrew that, so you can notice some peculiar patterns (returning http.HandlerFunc functions from handlers for instance)
+Controllers were initially developed to solve CRUD operations.
+Further development of Corteza platform outgrew that, so you may notice some peculiar patterns (returning http.HandlerFunc functions from handlers for instance)
 ====
 
 == API documentation
@@ -57,21 +57,21 @@ API documentation is provided by Swagger using the open API.
 The open API format is generated using the https://github.com/cortezaproject/openapi3-converter/tree/develop[openapi3-converter] tool.
 
 The converter tool generates a series of `\{resource\}.yaml` files in the `/swagger` directory.
-If `corteza-server` is in the same directory as the converter tool, the files are also moved to the `corteza-server/docs` directory.
+If `corteza-server` is in the same directory as the converter tool, the files are moved to the `corteza-server/docs` directory, as well as in the /swagger directory.
 
 To generate the static HTML API documentation served by the `corteza-server`, run the `make docs` command within the `corteza-server` repository.
-The static HTML files are generated in the `corteza-server/docs/` directory
+The static HTML files are generated in the `corteza-server/docs/` directory.
 
 === Extending the tool
 
-All of the converting work is done in the `openapi3-converter/tools/convert.js`.
+The entirety of the converting process is done in the `openapi3-converter/tools/convert.js`.
 
 === Adding new definitions
 
 To add a new definition add a new entry to the `const namespaces = [...]` array.
 Rebuild the open API definitions using the `yarn convert:yaml` command.
 
-.Example for new resource foo:
+.An example of a new resource foo:
 [source,js]
 ----
 const namespaces = [
@@ -101,9 +101,9 @@ const namespaces = [
 === Adding new endpoints
 
 The tool uses `rest.yaml` files defined in the `corteza-server` repository.
-Add a new endpoint in the corresponding `rest.yaml` file and run the `yarn convert:yaml` command to rebuild the definitions.
+Add a new endpoint in the corresponding `rest.yaml` file and run the `yarn convert:yaml` command in order to rebuild the definitions.
 
 == Plans for the future
 
-* Remove the home-brew API definitions and replace it with OpenAPI 3.
+* Removing the home-brew API definitions and replacing it with OpenAPI 3.
 * Better support for update and partial update requests (PUT/PATCH).

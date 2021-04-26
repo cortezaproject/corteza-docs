@@ -1,19 +1,19 @@
-include::ROOT:partial$variables.adoc[][]
+include::ROOT:partial$variables.adoc[]
 
 = Accounts
 
-The Accounts page is accessible by clicking on the menu:Accounts[] in the main navigation bar on the top of the screen.
+The Accounts page is accessible by clicking on the menu:Accounts[] section in the main navigation bar on the top of the screen.
 
 Accounts are entities (companies or other) that you currently do business with.
 An account stores essential data regarding the company, along with a set of contacts, entitlements and cases.
 
-== The addition of a new account
+== Adding a new account
 
 . Navigate to the menu:Accounts[],
 . click on the btn:[+ Add] button to open the form,
 . populate the data and press the btn:[Save] button in the bottom right corner.
 
-== The addition of a case for an account
+== Adding a case for an account
 
 . Navigate to the menu:Accounts[select account],
 . scroll down to the "cases" page block,
@@ -26,7 +26,7 @@ Refer to xref:service-solution/index.adoc#cases[the cases section] for additiona
 ====
 
 [#account-add-entitlement]
-== The addition of an entitlement for an account
+== Adding an entitlement for an account
 
 . Navigate to the menu:Accounts[select account],
 . scroll down to the "entitlements" page block,

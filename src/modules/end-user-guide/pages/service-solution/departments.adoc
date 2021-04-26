@@ -1,8 +1,8 @@
-include::ROOT:partial$variables.adoc[][]
+include::ROOT:partial$variables.adoc[]
 
 = Departments
 
-The Departments page is accessible by clicking on the menu:Departments[] in the main navigation bar on the top of the screen.
+The Departments page is accessible by clicking on the menu:Departments[] section in the main navigation bar on the top of the screen.
 
 Companies usually consist of multiple departments that may have different costs when performing their tasks.
 One hour support by the service department is not the same as one hour support by R&D.
@@ -14,7 +14,7 @@ A department is not directly assigned to a case, but rather its update.
 This allows multiple departments to work on the same case.
 ====
 
-== The addition of a department
+== Adding a department
 
 . Navigate to the menu:Departments[],
 . click on the btn:[+ Add] button to open the form,

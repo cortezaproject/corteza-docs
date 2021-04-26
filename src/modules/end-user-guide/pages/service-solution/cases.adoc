@@ -1,9 +1,9 @@
-include::ROOT:partial$variables.adoc[][]
+include::ROOT:partial$variables.adoc[]
 
 [#cases]
 = Cases
 
-The Cases page is accessible by clicking on the menu:Cases[] in the main navigation bar on the top of the screen.
+The Cases page is accessible by clicking on the menu:Cases[] section in the main navigation bar on the top of the screen.
 
 .There are three pages dedicated to cases:
 * menu:Cases[] shows all of the cases in the system,
@@ -17,7 +17,7 @@ The Cases page is accessible by clicking on the menu:Cases[] in the main navigat
 . the agent inserts any relevant parameters to the case, assigns a category (the default is "problem"), links any related products, contacts, and assigns an agent,
 . the assigned agent works on the case, creates updates and finally closes the case.
 
-== The addition of a new case
+== Adding a new case
 
 . Navigate to the menu:Cases[],
 . click on the btn:[+ Add] button to open the form,
@@ -30,14 +30,9 @@ An example case number is `ticket#20191025094353420`.
 ====
 The ticket number provides a unique identification which is used within the system.
 To make the ticket understandable, provide a good subject.
-====
-//Nika's note: provide a further explanation of what a good subject is. ->  To make the ticket understandable, provide a subject that is/includes/allows the program (you) to ...
-
-[TIP]
-====
+A good subject alone allows you to get a general idea of what the ticket is about.
 Make sure that the subject is short, clear and straight to the point.
 ====
-//maybe an addition of an example could be nice
 
 == The key parts of a case
 

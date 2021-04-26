@@ -1,8 +1,8 @@
-include::ROOT:partial$variables.adoc[][]
+include::ROOT:partial$variables.adoc[]
 
 = Opportunities
 
-The Opportunities page is accessible by clicking on the menu:Opportunities[] in the main navigation bar on the top of the screen.
+The Opportunities page is accessible by clicking on the menu:Opportunities[] section in the main navigation bar on the top of the screen.
 
 An account can be created either manually, or by <<account-new-opportunity,generating it from an account>>.
 
@@ -23,13 +23,13 @@ The last few steps are *Negotiation*, followed by *Closed Won* or *Closed Lost*.
 Use the Contact Roles block to create a clear overview of the people related to the opportunity, including the contact data and role.
 ====
 
-== The manual addition of a new opportunity
+== Adding a new opportunity manually
 
 . Navigate to the menu:Opportunities[],
 . click on the btn:[+ Add] button to open the form,
 . populate the data and press the btn:[Save] button on the bottom right corner.
 
-== The addition of products and update amounts
+== Adding products and updating amounts
 
 . Navigate to the menu:Opportunities[select an opportunity],
 . select a price book,
@@ -49,7 +49,7 @@ You can overwrite the list price of the product by inserting a different sales p
 ====
 
 [#opportunity-generate-quote]
-== The generation of a quote for the opportunity
+== Generating a quote for the opportunity
 
 . Navigate to the menu:Opportunities[select an opportunity],
 . click on the btn:[Create a new Quote for this opportunity] button.

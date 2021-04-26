@@ -1,4 +1,4 @@
-include::ROOT:partial$variables.adoc[][]
+include::ROOT:partial$variables.adoc[]
 
 = Knowledge base
 
@@ -7,11 +7,11 @@ include::ROOT:partial$variables.adoc[][]
 We use *KB* as a  notation to reference to the knowledge base.
 ====
 
-The Knowledge Base page is accessible by clicking on the menu:Knowledge Base[] in the main navigation bar on the top of the screen.
+The Knowledge Base page is accessible by clicking on the menu:Knowledge Base[] section in the main navigation bar on the top of the screen.
 
 The KB stores various information regarding your products, services and other so that you can solve repeating cases faster.
 
-== The addition of a knowledge base entry
+== Adding a knowledge base entry
 
 . Navigate to the menu:Knowledge Base[],
 . click on the btn:[+ Add] button to open the form,

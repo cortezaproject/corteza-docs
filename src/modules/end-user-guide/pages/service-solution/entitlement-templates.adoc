@@ -1,8 +1,8 @@
-include::ROOT:partial$variables.adoc[][]
+include::ROOT:partial$variables.adoc[]
 
 = Entitlement templates
 
-The Products page is accessible by clicking on the menu:Products[Entitlement Templates] in the main navigation bar on the top of the screen.
+The Products page is accessible by clicking on the menu:Products[Entitlement Templates] section in the main navigation bar on the top of the screen.
 
 A product or service typically comes with entitlement to support.
 For example, a software license may allow the client to contact you by phone when they have issues or questions.
@@ -12,20 +12,20 @@ Service Solution provides an easy way of defining the most common entitlements a
 After creating a template, you bind it to a product.
 Now, whenever an entitlement is created for that product, the template will be used to prefill the base information regarding the entitlement.
 
-== The addition of an entitlement template
+== Adding an entitlement template
 
 . Navigate to the menu:Products[Entitlement Templates],
 . click on the btn:[+ Add] button to open the form,
 . populate the data and press the btn:[Save] button in the bottom right corner.
 
-== The addition of an entitlement template to an existing product
+== Adding an entitlement template to an existing product
 
 . Navigate to the menu:Products[select a product],
 . click on the btn:[Edit] button in the bottom right corner,
 . select the "entitlement template" in the "product description" page block,
 . press the btn:[Save] button in the bottom right corner.
 
-== The addition of an entitlement template to a new product
+== Adding an entitlement template to a new product
 
 . Navigate to the menu:Products[Entitlement Templates,select a template],
 . navigate to the "Products that use this entitlements template" page block,

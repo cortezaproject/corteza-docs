@@ -1,12 +1,12 @@
-include::ROOT:partial$variables.adoc[][]
+include::ROOT:partial$variables.adoc[]
 
 = Contacts
 
-The Contacts page is accessible by clicking on the menu:Accounts[Contacts] in the main navigation bar on the top of the screen.
+The Contacts page is accessible by clicking on the menu:Accounts[Contacts] section in the main navigation bar on the top of the screen.
 
 A contact belongs to an account; you can think of them as employees for a specific company that you are allowed to contact.
 
-== The addition of a new contact
+== Adding a new contact
 
 . Navigate to the menu:Accounts[Contacts],
 . click on the btn:[+ Add] button to open the form,
@@ -41,7 +41,7 @@ Emails::
     Here, in chronological order, the emails that you have previously sent to the contact are stored.
     These are usually generated based on cases.
 
-== The addition of a case for a contact
+== Adding a case for a contact
 
 . Navigate to the menu:Accounts[Contacts,select account],
 . scroll down to the "cases" page block,

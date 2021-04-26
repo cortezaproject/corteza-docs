@@ -1,8 +1,8 @@
-include::ROOT:partial$variables.adoc[][]
+include::ROOT:partial$variables.adoc[]
 
 = Settings
 
-The Settings page is accessible by clicking on the menu:Settings[] in the main navigation bar on the top of the screen.
+The Settings page is accessible by clicking on the menu:Settings[] section in the main navigation bar on the top of the screen.
 
 == Available settings
 

@@ -1,4 +1,4 @@
-include::ROOT:partial$variables.adoc[][]
+include::ROOT:partial$variables.adoc[]
 
 = Leads
 
@@ -15,7 +15,7 @@ They are usually converted into accounts, contacts and opportunities.
 The typical process of handling a lead after it is inserted in the system is for the assigned salesperson to follow up on the lead.
 This salesperson can contact, and further qualify the lead.
 
-== The addition of a new lead
+== Adding a new lead
 
 . Navigate to the menu:Leads[],
 . click on the btn:[+ Add] button to open the form,
@@ -23,30 +23,6 @@ This salesperson can contact, and further qualify the lead.
 
 [TIP]
 ====
-The rating field allows you to see which leads are qualified as good leads.
-====
-
-[TIP]
-====
-Try to retrieve as much relevant lead data as possible.
-It helps create interesting charts, such as leads per country or leads per industry.
-====
-
-[TIP]
-====
-Fill in the lead's personal or company twitter profile.
-This allows you to see, directly in the lead record, a list of latest tweets from that profile.
-====
-
-[TIP]
-====
-You can create notes, events and tasks for a lead.
-====
-
-//Nika's note: I'd add the tips under a joined section, having four seperate sections named 'TIP' is avoidable (hopefully?). My attempts are below. Couldn't figure out how to make TIP plural (add the final s) in the 1st attempt.
-
-[TIP]
-====
 * The rating field allows you to see which leads are qualified as good leads.
 * Try to retrieve as much relevant lead data as possible.
 It helps create interesting charts, such as leads per country or leads per industry.
@@ -54,18 +30,6 @@ It helps create interesting charts, such as leads per country or leads per indus
 This allows you to see, directly in the lead record, a list of latest tweets from that profile.
 * You can create notes, events and tasks for a lead.
 ====
-
-
-==== TIPS
-* The rating field allows you to see which leads are qualified as good leads.
-* Try to retrieve as much relevant lead data as possible.
-It helps create interesting charts, such as leads per country or leads per industry.
-* Fill in the lead's personal or company twitter profile.
-This allows you to see, directly in the lead record, a list of latest tweets from that profile.
-* You can create notes, events and tasks for a lead.
-//Nika's note: having it like this lessens the consistency throughout the documents, so it is not optimal.
-
-
 
 [#lead-convert]
 == The conversion of a lead
@@ -75,22 +39,20 @@ A lead should be converted when there is a sales opportunity.
 [NOTE]
 ====
 When a lead is converted, the generated contact is set as the primary contact for the account.
-====
-//Nika's note: any particular need for the 'contact' (1st) to be capitalised? 
+==== 
 
-.You have two options:
-* [#lead-convert-account]#<<lead-convert-account,Convert the lead into an account>># when a lead shows some interest but it is not exactly clear what the sales opportunity is.
+.There are two options:
+* [#lead-convert-account]#<<lead-convert-account,Converting the lead into an account>># when it shows some interest but it is not exactly clear what the sales opportunity is.
 This conversion creates an account and a contact for the lead.
 To use this conversion, navigate to menu:Lead[select a lead] and click on the btn:[Convert this Lead into an Account] button.
-* [#lead-convert-account_opp]#<<lead-convert-account,Convert the lead into an account and opportunity>># when a lead shows some interest and you already have enough information about the sales opportunity.
+* [#lead-convert-account_opp]#<<lead-convert-account,Converting the lead into an account and opportunity>># when it shows some interest and you already have enough information about the sales opportunity.
 This conversion creates an account, a contact and an opportunity for this lead.
 To use this conversion navigate to menu:Lead[select a lead] and click on the btn:[Convert this Lead into an Account and Opportunity] button.
 
-== Tips for determining a lead rating
+== Tips for determining the lead rating
 
 If a lead *shows commercial interest*, such as a request for pricing, and the lead's *location matches the region your business targets*, this lead could be considered a *5 star lead*.
 
 If a lead *performs some additional interactions*, such as going through a demo, they could be considered a *3 star lead*.
 
-If a lead *contacts* you regarding, but it's clear that there is no explicit business intention, it can be considered a *0 star* or a *1 star* lead.
-// Nika's note: regarding what? regarding your business, product...?
+If a lead *contacts* you, but it's clear that there is no explicit business intention, it can be considered a *0 star* or a *1 star* lead.

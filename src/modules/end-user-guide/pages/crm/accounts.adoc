@@ -1,8 +1,8 @@
-include::ROOT:partial$variables.adoc[][]
+include::ROOT:partial$variables.adoc[]
 
 = Accounts
 
-The Accounts page is accessible by clicking on the menu:Accounts[] in the main navigation bar on the top of the screen.
+The Accounts page is accessible by clicking on the menu:Accounts[] section in the main navigation bar on the top of the screen.
 
 Accounts are entities (companies or other) that you currently do business with.
 Here you can store information such as the size of a company, opportunities and business contact information.
@@ -25,39 +25,28 @@ The primary contact provides contact information when generating documents such 
 
 [TIP]
 ====
-You can create new contracts for the account by pressing the "Create new Contract from this account" button.
-====
-
-[TIP]
-====
-You can create new cases for the account by pressing the "Create new Case from this account" button.
-====
-//Nika's note: if possible unite the tips inder 1 'TIPS' section. My attempt is bellow, but I couldnt figure out if I can make 'TIP' plural.
-
-[TIP]
-====
 * You can create new contracts for the account by pressing the "Create new Contract from this account" button.
 * You can create new cases for the account by pressing the "Create new Case from this account" button.
 ====
 
-== Manual addition of a new account
+== Adding a new account manually
 
 . Navigate to the menu:Accounts[],
 . click on the btn:[+ Add] button to open the form,
 . populate the data and press the btn:[Save] button on the bottom right corner.
 
 [#account-new-opportunity]
-== The addition of an opportunity for an account
+== Adding an opportunity for an account
 
 . Navigate to the menu:Accounts[select an account],
 . click on the btn:[Create new Opportunity from this Account] button.
 
-== The addition of a contract for an account
+== Adding a contract for an account
 
 . Navigate to the menu:Accounts[select an account],
 . click on the btn:[Create new Contract from this Account] button.
 
-== The addition of a case for an account
+== Adding a case for an account
 
 . Navigate to the menu:Accounts[select an account],
 . click on the btn:[Create new Case from this Account] button.

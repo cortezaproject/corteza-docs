@@ -1,9 +1,9 @@
-include::ROOT:partial$variables.adoc[][]
+include::ROOT:partial$variables.adoc[]
 
 = Home
 
-The home page is accessible by clicking on the menu:Home[] in the main navigation bar on the top of the screen.
+The home page is accessible by clicking on the menu:Home[] section in the main navigation bar on the top of the screen.
 
-The homepage is the main dashboard for your business -- it gives you a quick overview of the most important information in the CRM.
+The homepage is the main dashboard for your business; it gives you a quick overview of the most important information in the CRM.
 
 By default, it shows you essential statistics regarding your leads, a calendar with events, as well as lists of your new leads, key opportunities and tasks.

@@ -1,8 +1,8 @@
-include::ROOT:partial$variables.adoc[][]
+include::ROOT:partial$variables.adoc[]
 
 = Campaigns
 
-The Campaigns page is accessible by clicking on the menu:Campaigns[] in the main navigation bar on the top of the screen.
+The Campaigns page is accessible by clicking on the menu:Campaigns[] section in the main navigation bar on the top of the screen.
 
 A campaign is a planned marketing project that you want to manage and keep track of from within the CRM.
 This allows you to analyze different business strategies and analyze which one is the most effective.
@@ -12,8 +12,8 @@ A campaign can be anything; a simple newsletter, seminar, conference, or any oth
 Leads, contacts, accounts and opportunities are related to campaigns as *campaign members*.
 The campaign - opportunity relationship allows you to calculate values such as the ROI (Return of Investment) based on the campaign cost and the expected revenue.
 
-To calculate the ROI, you need to insert the cost of the campaign.
-//Nika's note: insert where? - clarity purposes
+//To calculate the ROI, you need to insert the cost of the campaign.
+//Nika's note: insert the cost of the campaign where? - clarity purposes
 The CRM creates the numbers that compare the costs to the value of the won opportunities.
 
 [TIP]
@@ -22,7 +22,7 @@ Try to bind all of your leads with campaigns.
 Upon lead conversion, the campaigns are mapped to the account and opportunity, allowing you to define the ROI of your lead generation activities.
 ====
 
-== The addition of a new campaign
+== Adding a new campaign
 
 . Navigate to the menu:Campaigns[],
 . click on the btn:[+ Add] button to open the form,

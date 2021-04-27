@@ -1,17 +1,10 @@
-[#documentation]
 = Documentation
 
 :leveloffset: +1
 
-include::rules.adoc[]
-
 include::conventions.adoc[]
 
 include::writing-guidelines.adoc[]
-
-include::user-roles.adoc[]
-
-include::overview.adoc[]
 
 include::examples/index.adoc[]
 

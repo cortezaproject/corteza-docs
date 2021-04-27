@@ -1,6 +1,5 @@
 include::ROOT:partial$variables.adoc[]
 
-[#documentation-conventions]
 = Conventions
 
 Use the following conventions as a *reference* when you wish to do some extra *formatting* to your documents.

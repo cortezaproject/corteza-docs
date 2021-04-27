@@ -1,5 +1,7 @@
 * xref:index.adoc[]
 
+** xref:documentation/index.adoc[]
+*** xref:documentation/examples/index.adoc[]
 ** xref:release-cycle/index.adoc[]
 *** xref:release-cycle/docs.adoc[]
 *** xref:release-cycle/core-repos.adoc[]

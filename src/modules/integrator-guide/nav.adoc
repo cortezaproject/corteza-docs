@@ -1,7 +1,8 @@
 * xref:index.adoc[]
 
-** xref:security.adoc[]
-// ** xref:terminology.adoc[]
+** Authentication and security
+*** xref:authentication-security/auth.adoc[]
+*** xref:authentication-security/security.adoc[]
 
 ** Personalization
 *** xref:personalization/auth.adoc[]

@@ -135,6 +135,7 @@ image:workflow/multi-end.svg[]
 
 |===
 
+[#expressions]
 == Expressions
 
 An *expression step* image:workflow/expressions.svg[width=20px] defines a set of expressions which allow you to directly interact with values defined in your workflow.
@@ -193,6 +194,7 @@ image:workflow/expr-example-end.png[]
 ====
 ****
 
+[#functions]
 == Functions
 
 A *function step* image:workflow/function.svg[width=20px] defines what operation should be performed when the function step is executed.
@@ -263,6 +265,7 @@ This is useful when you wish to change the input without the need for an additio
 // check vv
 // Use expressions when the passed data should change based on the workflows' scope.
 
+[#processing-multiple-items]
 == Processing multiple items
 
 When you wish to process multiple items, such as a list of leads that were created in the past month, you should use an iterator image:workflow/iterator.svg[width=20px].
@@ -379,6 +382,7 @@ image:workflow/break-example.svg[]
 
 |===
 
+[#working-with-errors]
 == Working with errors
 
 Whenever you work with dynamic data (especially end-user input) and external services you are always reminded that errors can and will occur.

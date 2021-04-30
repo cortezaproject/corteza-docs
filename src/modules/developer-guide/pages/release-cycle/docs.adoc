@@ -1,0 +1,26 @@
+include::ROOT:partial$variables.adoc[]
+
+= {PRODUCT_NAME} Docs
+
+== When preparing a prerelease
+
+. create a new branch `yyyy-qq-x` (`$V`)
+. include the branch in the `antora-playbook.yml`
+. change the version in the `src/antora.yml`
+
+[source]
+----
+version: '$V'
+prerelease: -develop
+display_version: '$V-develop'
+----
+
+== When releasing
+
+. switch to the branch you wish to release (`$V`)
+. change the version in the `src/antora.yml`
+
+[source]
+----
+version: '$V'
+----

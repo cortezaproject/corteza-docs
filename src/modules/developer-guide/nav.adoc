@@ -1,5 +1,9 @@
 * xref:index.adoc[]
 
+** Release cycle
+*** xref:release-cycle/docs.adoc[]
+*** xref:release-cycle/core-repos.adoc[]
+
 ** xref:local-setup.adoc[]
 ** xref:api.adoc[]
 ** xref:auth.adoc[]

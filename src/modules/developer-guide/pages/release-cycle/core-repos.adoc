@@ -1,0 +1,79 @@
+include::ROOT:partial$variables.adoc[]
+
+= {PRODUCT_NAME} Core Repositories
+
+== Dependency warnings
+
+Go over each repository and (try to) assure that there aren't any warnings with any of the dependencies.
+GitHub provides a friendly system for this, so that shouldn't be an issue.
+
+.Repos:
+. corteza-js: ({GIT_REPO_LINK_PREFIX}-js)
+. corteza-vue: ({GIT_REPO_LINK_PREFIX}-vue)
+. corteza-server-corredor: ({GIT_REPO_LINK_PREFIX}-server-corredor)
+. corteza-webapp-one: ({GIT_REPO_LINK_PREFIX}-webapp-one)
+. corteza-webapp-admin: ({GIT_REPO_LINK_PREFIX}-webapp-admin)
+. corteza-webapp-compose: ({GIT_REPO_LINK_PREFIX}-webapp-compose)
+. corteza-webapp-workflow: ({GIT_REPO_LINK_PREFIX}-webapp-workflow)
+
+== Versioning
+
+Bump the version of the NPM packages, following the https://calver.org/[CalVer] standard; for example, `2020.9-rc.1`.
+
+Released versions should also be tagged.
+.Use this Git command to get it done:
+[source,bash]
+----
+# $V is the version; for example export V=2021.6.0;
+git tag $V && git push origin $V;
+----
+
+== NPM packages
+
+[CAUTION]
+====
+The rest of the repositories depend on these two, so you should handle them first.
+====
+
+.A list of predefined decoders:
+[cols="1s,5a"]
+|===
+| [#release-npp-js]#<<release-npp-js,`corteza-js`>>#
+|
+.Steps to release:
+* remove node_modules and run `yarn`
+* bump the version
+* commit the changes
+* tag the version
+* run `yarn build` to build the package
+* run `npm publish --dry-run` to test the publish 
+* run `npm publish` to publish
+
+| [#release-npp-vue]#<<release-npp-vue,`corteza-vue`>>#
+|
+.Steps to release:
+* remove node_modules and run `yarn`
+* bump the version
+* run `yarn cdeps` to update all required {PRODUCT_NAME} dependencies
+* commit the changes
+* tag the version
+* run `yarn build` to build the package
+* run `npm publish --dry-run` to test the publish 
+* run `npm publish` to publish
+|===
+
+== Web applications
+
+.Steps to release:
+* bump the version
+* run `yarn cdeps` to update all required {PRODUCT_NAME} dependencies
+* commit the changes
+* tag the version
+
+.The steps defined above should be used for all core repositories:
+* corteza-server: ({GIT_REPO_LINK_PREFIX}-server)
+* corteza-server-corredor: ({GIT_REPO_LINK_PREFIX}-server-corredor)
+* corteza-webapp-one: ({GIT_REPO_LINK_PREFIX}-webapp-one)
+* corteza-webapp-admin: ({GIT_REPO_LINK_PREFIX}-webapp-admin)
+* corteza-webapp-compose: ({GIT_REPO_LINK_PREFIX}-webapp-compose)
+* corteza-webapp-workflow: ({GIT_REPO_LINK_PREFIX}-webapp-workflow)

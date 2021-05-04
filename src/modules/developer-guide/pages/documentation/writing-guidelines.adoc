@@ -72,7 +72,7 @@ The reader is more likely to *pay extra attention* to something *important* if i
 
 == Use images... sparingly
 
-*Don't go over the top* with images by showing every single step of the way or even worse by just pasting a screenshot *with no context* what we are looking at.
+*Don't go over the top* with images by showing every single step of the way or even worse by just pasting a screenshot *with no context* of what we are looking at.
 
 When including images make sure to *indicate what the image represents* and make sure to provide an *image caption* that outlines *what is going on* in the image.
 It also allows our readers to *quickly refresh their memory* if they are already familiar with something.

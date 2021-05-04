@@ -1,0 +1,116 @@
+include::ROOT:partial$variables.adoc[]
+
+[#documentation-writing-guidelines]
+= Writing Guidelines
+
+Here, we outline the base guidelines that you should to follow when contributing to the documentation.
+
+You can refer to https://docs.openstack.org/doc-contrib-guide/writing-style/general-writing-guidelines.html[this article] or any other article for additional insight.
+
+== Use active voice
+
+Active voice *identifies the subject* that has performed the given action; for example:
+
+> To configure external login providers go into the administration panel, authentication and configure ...
+
+This style makes the *reader more involved* and therefore makes it friendlier and *more comfortable to read*.
+It also makes it a bit *shorter*.
+
+There are *some exceptions* to using the active voice.
+
+.Use the passive voice:
+* When you *talk about errors*; the active voice can suggest blaming the user.
+* When it *shortenes* the message.
+* When *the subject isn't and doesn't need to be recognised*.
+This includes sentences in which you wish to identify the first person.
+** This often overlaps with the use of tense.
+
+To examplify observe the difference in tone the below sentences;
+
+_I/we have defined this feature that can be used to ..._
+
+_This feature is defined in a way that allows you to ..._
+
+[NOTE]
+====
+These points are guidelines, not rules.
+Make sure the text also flows, is consistent and makes sense.
+====
+
+== Use the present simple tense
+
+Users refer to the documentation to find out how they can achieve the desired.
+The present simple tense ensures the feeling of *walking the user through this process*.
+It also makes the text *shorter*, *more undertsndable* and *more comfortable to read* than any other tense does.
+
+[NOTE]
+====
+When describing things where the present simple does not make sense, you are free to use the *appropriate tense*.
+====
+
+== Use the second person pronouns
+
+This makes documents sound *more engaging* as it involves the user directly.
+
+The use of the second person also *removes gender specifics*, and *credits other contributors* (most of the time, multiple people worked on the same thing).
+
+Aditionally, it removes you, the creator, from the text, which is something you should be going for.
+
+[TIP]
+====
+Articles are a great substitute for personal pronouns.
+====
+
+== Keep in mind who you are writing for
+
+Even before you sit down and start writing, make sure you are *aware of your audience*.
+Does the average person from your target audience know what you are talking about?
+
+If you are unsure, either provide a brief explanation of the concept you are talking about or direct the reader to previous documents.
+It is better to repeat then to have your readers confused.
+
+Another thing to keep in mind is that *you are not writing for a friend*; make sure the reflects that.
+Avoid using stylistically marked expressions, emojis, etc.
+
+== Follow the KISS principle!
+
+How many times have we given up on reading documentation because it was all just filler text to produce more and more pages?
+I bet you wouldn't read these introductory paragraphs if you weren't forced to read through them.
+The next sentence is the only thing that I wanted to state in this sub-section, so some of your time has successfully been wasted :) (Oh, look, the present simple tense isn't used here - as it would make no sense. The point? Know why you are doing what you are.).
+
+Get *straight to the point* and tell the readers *exactly what they want to know* without wasting their time.
+
+== Keep things structured
+
+When reading, people usually *skim through the content* or stop altogether what they are *looking for* has been found.
+
+If we *don't do any separation* between different parts it *all becomes one big blob* of text.
+If we *split things too much* our readers *might miss* any essential bits.
+
+Things that *make sense together* should *stay together*, something that does not make sense together should not stand together. 
+
+A great example of a poorly structured text is the paragraph in the 'Follow the KISS principle' section; no separation, mixing topics...
+Strive to produce a straightforward text the is *easy to navigate* and *logically continuous*.
+
+== Use admonition
+
+When we want our reader to *pay extra attention* to something or when we want to *provide some helpful tips*, don't hesitate to use *admonition blocks*.
+
+The reader is more likely to *pay extra attention* to something *important* if it is in a lovely red box with the word "Important" next to it.
+
+== Use images. Sparingly.
+
+*Don't provide excessive visual material* by showing every single step of a process or, even worse, by just pasting a screenshot with no context of what we are looking at.
+
+When including images, make sure to *indicate what the image represents* and to provide an *image caption* that outlines *what goes on* in the image.
+An image may allow the reader to *quickly refresh their memory* if they are already familiar with something.
+
+[IMPORTANT]
+====
+Keep in mind that *UI changes* will require these images to be *updated*.
+====
+
+== Use syntax checkers (and semantics checkers)
+
+Typos happen.
+There are a lot of great free tools, as well as some paid ones, that provide you with various types of suggestions for change and greater grammaticality of the text in production.

@@ -1,9 +1,9 @@
 include::ROOT:partial$variables.adoc[]
 
-= Resource labelling
+= Resource Labels
 
-A *resource label* is a simple, arbitrary *key-value* structure, that we can use to *enrich {PRODUCT_NAME} resources*.
-Labels can be used for things like *Categorization*, *resource grouping*, *data migration references*, and *marking federated resources*.
+A *resource label* is a simple, arbitrary *key-value* structure that we can use to enrich resources.
+You can use labels for things like categorization, resource grouping, and marking federated resources.
 
 .Supported resources:
 * Users
@@ -15,20 +15,15 @@ Labels can be used for things like *Categorization*, *resource grouping*, *data 
 * Compose module field
 * Compose record
 
-[IMPORTANT]
-====
-{PRODUCT_NAME} {APP_NAME_MESSAGING} resources *will not* support resource labeling.
-====
-
 == Core logic
 
-Resource labels are *flexible* and compatible with *any {PRODUCT_NAME} resource*.
-If we want a resource to be able to use resource labels, it must *conform to the `pkg/label.LabeledResource` interface*.
+Resource labels are flexible and compatible with any {PRODUCT_NAME} resource.
+However, if we want a resource to use resource labels, it must conform to the `pkg/label.LabeledResource` interface.
 
-The core logic that works with the *centralized label store* is implemented in a dedicated package (`pkg/label`).
-Services can trivially include the package *into the request cycle*.
+The core logic that works with the centralized label store is implemented in a dedicated package (`pkg/label`).
+Therefore, services can trivially include the package into the request cycle.
 
-[NOTE]
+[TIP]
 ====
 Use the system/user (`system/service/user.go`) service as a reference.
 ====
@@ -59,16 +54,16 @@ The simple structure also helps us not to _abuse_ the feature.
 
 .Resource labels define a simple `key: value` structure:
 `key`::
-    Label key is *a simple `string`* that is limited to 512 characters.
-    Keys are *unique per specific resources* (a resource can have a single value for the given `key`).
+    The label key is a simple `string` that is limited to 512 characters.
+    Keys are unique per specific resources (a resource can have a single value for the given `key`).
 
 [NOTE]
 ====
-The `key` must pass this regex: `^[A-Za-z][0-9A-Za-z_\-.]\*[A-Za-z0-9]$`
+The `key` must pass this regular expression: `^[A-Za-z][0-9A-Za-z_\-.]\*[A-Za-z0-9]$`
 ====
 
 `value`::
-    The label values is *a regular `string`* value with no other constraints.
+    The label values is a regular `string` value with no other constraints.
 
 == Assigning labels
 
@@ -87,7 +82,7 @@ If the `label` parameter is *not provided*, no modifications are performed.
 
 == Access control
 
-Label access control *inherits* from *resource access control*; resource labels *do not* put in place any *additional access control*.
+Label access control is inherited from resource access control; resource labels do not put any additional access control.
 
 .Access control:
 * *Read access* inherits the resource's `read` operation.

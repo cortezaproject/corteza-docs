@@ -2,6 +2,9 @@ include::ROOT:partial$variables.adoc[]
 
 = {PRODUCT_NAME} Core Repositories
 
+.A diagram outlining the release pipeline:
+image::build-pipelines.png[{PRODUCT_NAME} build pipelines]
+
 == Dependency warnings
 
 Go over each repository and (try to) assure that there aren't any warnings with any of the dependencies.
@@ -77,3 +80,20 @@ The rest of the repositories depend on these two, so you should handle them firs
 * corteza-webapp-admin: ({GIT_REPO_LINK_PREFIX}-webapp-admin)
 * corteza-webapp-compose: ({GIT_REPO_LINK_PREFIX}-webapp-compose)
 * corteza-webapp-workflow: ({GIT_REPO_LINK_PREFIX}-webapp-workflow)
+
+== Server
+
+.Steps to release:
+* commit the changes
+* tag the version
+
+== Binaries & Bundles
+
+All of the outputs are stored on the https://releases.{DOMAIN}/files.
+When building the Docker images, the sources are taken from the storage mentioned above.
+
+The Docker images are placed on the https://hub.docker.com/u/cortezaproject[DockerHub].
+
+Unofficially, you can use the released packages with a Vagrant box {GIT_REPO_LINK_PREFIX}-vagrant.
+
+Alternatively, you can (build and) install these packages manually, either on the virtual machine or a regular machine.

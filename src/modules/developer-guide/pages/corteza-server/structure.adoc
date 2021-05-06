@@ -1,0 +1,83 @@
+include::ROOT:partial$variables.adoc[]
+
+= Project Structure
+
+== `/app`
+
+The `app` package handles all of the initialization procedures, such as parsing the `.env`, configuring the store, initializing the services, and initializing the API.
+
+== `/cmd`
+
+The `cmd` package initializes the CLI commands that are provided by the `corteza-server`
+
+== `/provision`
+
+The `/provision` directory contains all of the core resources used when running the provision step.
+This includes the base roles, access control, and built-in extensions (CRM and Service Solution).
+
+[CAUTION]
+====
+This is not a database migration.
+The `store` package handles the database migration.
+====
+
+== `/webapp`
+
+The `/webapp` directory is used to prepare and serve the web applications directly from the `corteza-server` binary.
+This removes the need to have the web applications set up locally to access them.
+
+Refer to the `/webapp/README.adoc` for details.
+
+== `/auth`
+
+The `auth` package handles the authentication functionality.
+The package defines the services, API endpoints and any additional "utility packages" required by the authentication.
+
+Besides the core logic, the package also defines the authentication UI templates and base assets.
+
+== `/system`
+
+The `system` package handles the core system functionality, such as user, role, and template management.
+The package defines the services, API endpoints and any additional "utility packages" required by the core system.
+
+== `/compose`
+
+The `compose` package handles the compose functionality, such as namespace, module, and record management.
+The package defines the services, API endpoints and any additional "utility packages" required by the Compose system.
+
+== `/automation`
+
+The `automation` package handles the automation functionality, such as workflow management and execution.
+The package defines the services, API endpoints and any additional "utility packages" required by the automation system.
+
+== `/federation`
+
+The `federation` package handles the data federation functionality, configuring the shared data and syncing data changes.
+The package defines the services, API endpoints and any additional "utility packages" required by the federation system.
+
+[NOTE]
+====
+The federation package is coupled with the `compose` service as its data source.
+====
+
+== `/docs`
+
+The `/docs` directory is used to store API documentation.
+The documentation is generated using the https://github.com/cortezaproject/openapi3-converter/tree/develop[openapi3-converter] tool.
+
+== `/pkg`
+
+The `/pkg` directory contains generic packages that are used through the rest of the system.
+
+The packages residing in the `/pkg` directory should not define any explicit dependencies between one another, nor to the services they may be used in.
+
+== `/store`
+
+The `store` package defines the store layer used by {PRODUCT_NAME}.
+The store layer is a generic interface to any of the supported databases, such as MySQL and PostgreSQL.
+
+Besides the core logic, the store package defines any database driver-specific logic (such as data encoding and datatype casting), as well as any schema migration procedures, such as `store/rdbms/rdbms_schema.go` and `store/rdbms/generic_upgrades.go` for relational databases.
+
+== `/tests`
+
+The `/tests` directory contains integration tests categorized by the service they are defined for (`compose`, `system`, ...).

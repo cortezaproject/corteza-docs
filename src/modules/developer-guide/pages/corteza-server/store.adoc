@@ -1,12 +1,12 @@
 include::ROOT:partial$variables.adoc[]
 
-= Schema management
+= The Store Layer
 
-== Store .yaml files
+The store layer provides a flexible way of defining how and where we should store the data.
 
-- Take note of this
+== RDBMS schema management
 
-== Define new schemas
+=== Define a new schema
 
 You can define a new schema in the `store/rdbms/rdbms_schema.go` file.
 The system goes over all definitions and assures that all of the tables are present in the connected database.
@@ -17,7 +17,7 @@ This step doesn't take into account any potential schema manipulations.
 See <<store-update-schema>> for details.
 ====
 
-.The following example defines a table for {PRODUCT_NAME} {APP_NAME_MESSAGING} messages:
+.The following example defines a table for {PRODUCT_NAME} {APP_NAME_COMPOSE} modules:
 [source,go]
 ----
 // General bits regarding the package
@@ -28,7 +28,7 @@ func (s Schema) Tables() []*Table {
     // Other schema definitions
     // ...
 
-    s.MessagingMessage(),
+    s.ComposeModule(),
 
     // Other schema definitions
     // ...
@@ -38,18 +38,17 @@ func (s Schema) Tables() []*Table {
 // Other schema definitions
 // ...
 
-func (Schema) MessagingMessage() *Table {
-  return TableDef("messaging_message",
+func (Schema) ComposeModule() *Table {
+  return TableDef("compose_module",
     ID,
-    ColumnDef("type", ColumnTypeText),
-    ColumnDef("message", ColumnTypeText),
+    ColumnDef("rel_namespace", ColumnTypeIdentifier),
+    ColumnDef("handle", ColumnTypeVarchar, ColumnTypeLength(handleLength)),
+    ColumnDef("name", ColumnTypeText),
     ColumnDef("meta", ColumnTypeJson),
-    ColumnDef("rel_channel", ColumnTypeIdentifier),
-    ColumnDef("rel_user", ColumnTypeIdentifier),
-    ColumnDef("reply_to", ColumnTypeIdentifier, DefaultValue("0")),
-    ColumnDef("replies", ColumnTypeInteger, DefaultValue("0")),
-
     CUDTimestamps,
+
+    AddIndex("namespace", IColumn("rel_namespace")),
+    AddIndex("unique_handle", IColumn("rel_namespace"), IExpr("LOWER(handle)"), IWhere("LENGTH(handle) > 0 AND deleted_at IS NULL")),
   )
 }
 
@@ -58,7 +57,7 @@ func (Schema) MessagingMessage() *Table {
 ----
 
 [#store-update-schema]
-== Update existing schemas
+=== Update existing schemas
 
 [IMPORTANT]
 ====
@@ -69,13 +68,11 @@ If you are working with others, make sure to also coordinate this with them.
 ====
 
 You can define schema altering in the `store/rdbms/generic_upgrades.go` file.
-The system will go over all of the definitions and assure that everything is up-to-date.
+The system will go over all of the definitions and ensure that everything is up-to-date.
 
 [NOTE]
 ====
-This is an idempotent operation, meaning that the result will always be the same.
-
-Using plain human words -- the system will only apply the changes that have not yet been applied.
+The system will only apply the changes that have not yet been applied.
 The result is the same, no matter how many times you run it.
 ====
 

@@ -1,0 +1,33 @@
+include::ROOT:partial$variables.adoc[]
+
+= Structure
+
+== `/src/components`
+
+The `/src/components` directory contains all of the generic Vue components accessible by any Vue-based web application.
+
+.Example components:
+* permissions modal used to manage permissions,
+* file preview,
+* custom inputs such as the DateTime and Confirmation,
+* notification toasts.
+
+== `/src/corredor`
+
+The `/src/corredor` directory contains Corredor-specific logic, such as client-script processing and execution.
+
+== `/src/libs`
+
+The `/src/libs` directory contains generic libraries and utilities that you can use through the `corteza-vue` source.
+
+== `/src/mixins`
+
+The `/src/mixins` directory contains generic mixins accessible by any Vue-based web application.
+
+== `/src/plugins`
+
+The `/src/plugins` directory contains generic plugins accessible by any Vue-based web application.
+
+== `/src/store`
+
+The `/src/store` directory contains generic store definitions and handlers accessible by any Vue-based web application.

@@ -1,0 +1,44 @@
+include::ROOT:partial$variables.adoc[]
+
+= Corteza JS
+
+The http://github.com/cortezaproject/corteza-js[`corteza-js`] package provides the common logic that should be accessible by any web or Node.js application.
+
+The most common use cases for the `corteza-js` package include type definitions and the generated API client code.
+
+[NOTE]
+====
+Refer to the xref:release-cycle/core-repos.adoc[] for details regarding the release process.
+====
+
+== Development setup
+
+=== Fork the `corteza-js` repository
+
+[CAUTION]
+====
+Core contributors should skip this part.
+====
+
+. go to the {GIT_REPO_LINK_PREFIX}-js repository
+. click on the btn:[Fork] button in the top right corner and follow the instructions on the screen.
+
+=== Clone the repository
+
+.Using the CLI:
+. open the CLI
+. navigate to your working folder
+. run the `git clone git@github.com:$YOUR_USERNAME_HERE/corteza-js.git` command
+
+=== Assure dependencies
+
+Run the `yarn` command to assure that all of the packages are present and up to date.
+
+=== Build the bundle
+
+Run the `yarn build` command to build a fresh bundle.
+The optional `-w` flag will automatically rebuild the bundle when changes occur.
+
+== Linking the package
+
+Run the `yarn link` command to make this package linkable using the `yarn link @cortezaproject/corteza-js` command.

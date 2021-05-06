@@ -1,0 +1,148 @@
+include::ROOT:partial$variables.adoc[]
+
+= Generating Code
+
+As GO is "a bit stiff" when it comes to generic things, we utilize code generation when possible.
+The core logic regarding code generation resides within the `pkg/codegen` package.
+
+The definitions are provided using YAML files throughout the source; the templates are defined under the `pkg/codegen/assets` folder.
+
+== Running codegen
+
+[CAUTION]
+====
+You need to <<codegen-bin-remove,remove the old codegen binary>> whenever the source code changes.
+The codegen commands will compile the binary if it's not there.
+====
+
+.Run the codegen by running:
+[source,bash]
+----
+make codegen
+----
+
+.Run the codegen on change by running:
+[source,bash]
+----
+make watch.codegen
+----
+
+[#codegen-bin-remove]
+.Remove the old codegen binary by running:
+[source,bash]
+----
+make clean.codegen
+----
+
+== Extending existing codegen
+
+=== Rest API
+
+The codegen generates REST API request handlers and request parsing.
+
+[CAUTION]
+====
+The documentation is generated using the https://github.com/cortezaproject/openapi3-converter/tree/develop[openapi3-converter] tool, not codegen.
+====
+
+.YAML defintions:
+* `*/rest.yaml`
+
+.Template files:
+* `rest_handler.go.tpl`
+* `rest_request.go.tpl`
+
+=== Types
+
+The codegen generates common type set receivers and generic boilerplate logic for features such as resource labels.
+
+.YAML defintions:
+* `\*/*/types.yaml`
+
+.Template files:
+* `type_labels.gen.go.tpl`
+* `type_set.gen.go.tpl`
+* `type_set.gen_test.go.tpl`
+
+=== Actions
+
+The codegen generates the available service actions along with the properties and errors.
+These actions are primarily used for the action log.
+
+.YAML defintions:
+* `*/services/*_actions.yaml`
+
+.Template files:
+* `actions.gen.go.tpl`
+
+=== Events
+
+The codegen generates the available events that the system can emit from different services.
+These events are primarily used by the event bus for automation.
+
+.YAML defintions:
+* `*/service/event/events.yaml`
+
+.Template files:
+* `events.gen.adoc.tpl`
+* `events.gen.go.tpl`
+* `events.go.tpl`
+
+=== Store interface and implementations
+
+The codegen generates the entire store interface.
+In the case of RDBMS, the implementation is also generated.
+
+.YAML defintions:
+* `store/*.yaml`
+
+.Template files:
+* `store_base.gen.go.tpl`
+* `store_interfaces_joined.gen.go.tpl`
+* `store_partials.go.tpl`
+* `store_rdbms.gen.go.tpl`
+* `store_test_all.gen.go.tpl`
+
+=== Options
+
+The codegen generates all of the defined options accessible from the `.env` file variables.
+The options may define defaults as well as any preprocessing.
+
+.YAML defintions:
+* `pkg/options/*.yaml`
+
+.Template files:
+* `options.gen.adoc.tpl`
+* `options.gen.go.tpl`
+
+=== Automation function handlers
+
+The codegen generates the definitions and wrappers for function handlers.
+You must still define the core logic of the handler manually.
+
+.YAML defintions:
+* `*/automation/*_handler.yaml`
+
+.Template files:
+* `afunc.gen.go.tpl`
+
+=== Expression types
+
+The codegen generates the expression types and casting rules.
+The more complex types (such as `ComposeRecord`) custom casting and operations may be defined manually.
+
+.YAML defintions:
+* `\*/*/expr_types.yaml`
+
+.Template files:
+* `expr_types.gen.go.tpl`
+
+== Defining new codegen
+
+Use one of the existing implementations as a base and tweak it to your needs.
+The general outline is that you *define a template*, *yaml files* and * code that combines the two*.
+
+== Plans for the future
+
+Define `*/type.yaml` files that outline the structure of each known type.
+The same type definition should be used to extract expression types and other bits, like events.

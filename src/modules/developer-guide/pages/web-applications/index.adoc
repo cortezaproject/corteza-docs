@@ -1,0 +1,75 @@
+include::ROOT:partial$variables.adoc[]
+
+= Web Applications
+
+The web applications are written in https://vuejs.org/[Vue.js] and provide the user interface to interact with the entire system.
+
+.The repositories:
+. corteza-webapp-one: ({GIT_REPO_LINK_PREFIX}-webapp-one)
+. corteza-webapp-admin: ({GIT_REPO_LINK_PREFIX}-webapp-admin)
+. corteza-webapp-compose: ({GIT_REPO_LINK_PREFIX}-webapp-compose)
+. corteza-webapp-workflow: ({GIT_REPO_LINK_PREFIX}-webapp-workflow)
+
+Communication between the {PRODUCT_NAME} server and web applications is done using the REST API and web sockets.
+
+== Development setup
+
+=== Fork the {PRODUCT_NAME} web application
+
+[CAUTION]
+====
+Core contributors should skip this part.
+====
+
+. go to the {GIT_REPO_LINK_PREFIX}-webapp-$WEB_APPLICATION repository
+. click on the btn:[Fork] button in the top right corner and follow the instructions on the screen.
+
+=== Clone the repository
+
+.Using the CLI:
+. open the CLI
+. navigate to your working folder
+. run the `git clone git@github.com:$YOUR_USERNAME_HERE/corteza-webapp-$WEB_APPLICATION.git` command
+
+=== Configure the environment
+
+.Inside your web application directory:
+. run `cp public/config.example.js public/config.js`
+. open the `config.js` file using VIM, Nano, or any other editor and modify the configuration as you see fit
+
+=== Set the API
+
+.Define the API in the `public/config.js` by setting:
+[source,js]
+----
+window.CortezaAPI = '$API_DOMAIN'
+----
+
+The underlying API client generates the exact request URL that the web application uses.
+
+=== Set the authentication API
+
+{PRODUCT_NAME} web applications authenticate the user using an OAuth2 flow.
+
+This part can be skipped when using the same {PRODUCT_NAME} server for authentication and processing.
+The web application will generate the authentication endpoints based on the `CortezaAPI` parameter.
+
+.Define the authentication API in the `public/config.js` by setting:
+[source,js]
+----
+window.CortezaAuth = '$API_DOMAIN/auth'
+----
+
+=== Assure dependencies
+
+[CAUTION]
+====
+When using modified versions of the `corteza-js` and the `corteza-vue` packages, make sure to link them using `yarn link @cortezaproject/corteza-js` and `yarn link @cortezaproject/corteza-vue`.
+====
+
+Run the `yarn` command to assure that all of the packages are present and up to date.
+
+=== Run the web application
+
+Run the `yarn serve` command to start the web application.
+You can use an optional `--port $POST` flag to specify what port it should run on.

@@ -1,0 +1,47 @@
+include::ROOT:partial$variables.adoc[]
+
+= Structure
+
+== `/public`
+
+The `/public` directory contains resources that should be accessible by the web application as is, such as the configuration file and the logo.
+
+== `/src`
+
+The `/src` directory contains the core logic of the web application.
+The core initializes the Vue application, registers global components, plugins, mixins and the store.
+
+== `/src/components`
+
+The `/src/components` directory contains all of the components used throughout the entire web application or by a single view.
+
+== `/src/i18n`
+
+The `/src/i18n` directory contains internationalization assets used by i18next.
+
+The `/src/i18n/index.js` must determine what locale to use and then load the appropriate set of i18n assets.
+The assets should be grouped by the language and what part of the UI they exist for.
+
+== `/src/mixins`
+
+The `/src/mixins` directory contains the mixins used throughout the web application, either globally or locally.
+The common mixins are imported from the `corteza-vue` repository.
+
+== `/src/plugins`
+
+The `/src/plugins` directory contains the plugins that are used throughout the web application.
+The common plugins are imported from the `corteza-vue` repository.
+
+== `/src/store`
+
+The `/src/store` directory contains the Vuex store definition and management logic.
+You should use the store to store data that needs to be available across different components, such as compose modules and system users.
+
+== `/src/themes`
+
+The `/src/themes` directory contains the assets that are used to style the web application.
+You should place all of the styling code here instead of in components.
+
+== `/src/views`
+
+The `/src/views` directory contains all of the available views of the web application and their router definitions.

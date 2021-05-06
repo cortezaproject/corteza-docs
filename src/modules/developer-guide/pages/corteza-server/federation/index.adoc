@@ -1,12 +1,12 @@
 include::ROOT:partial$variables.adoc[]
 
 [#federation]
-= {PRODUCT_NAME} {APP_NAME_FEDERATION}
+= {APP_NAME_FEDERATION}
 
 {PRODUCT_NAME} {APP_NAME_FEDERATION} enables different *{PRODUCT_NAME} instances* to establish a *federated network* to *freely and securely* exchange information.
 
 A federated network consists of *origin* and *destination* nodes, where each node can fulfil both roles.
-Take a look at the xref:ROOT:developer-guide/federation/glossary.adoc[glossary] for a reference on our terminology.
+Take a look at the xref:corteza-server/federation/glossary.adoc[glossary] for a reference on our terminology.
 
 .The diagram provides an abstract overview of the entire {PRODUCT_NAME} {APP_NAME_FEDERATION} system. It consists of three major parts -- node pairing (the nodes establish a federated network), structure syncing (the nodes agree on what will be shared), and data syncing (the destination node accesses the data on the origin node).
 [plantuml,federation-overview,svg,role=sequence]
@@ -44,27 +44,27 @@ NodeA -> NodeB: Data sync.
 
 == Glossary
 
-We recommend you firstly go over xref:ROOT:developer-guide/federation/glossary.adoc[*the glossary*] so you will understand our terminology.
+We recommend you firstly go over xref:corteza-server/federation/glossary.adoc[*the glossary*] so you will understand our terminology.
 It will help you follow along and understand what we're talking about.
 
 == Security & logging
 
-xref:ROOT:developer-guide/federation/security-logging.adoc[*The security & logging*] covers how {PRODUCT_NAME} {APP_NAME_FEDERATION} handles *node authentication and protected resource access*, *RBAC access control* facility integration and the *action log* logging integration.
+xref:corteza-server/federation/security-logging.adoc[*The security & logging*] covers how {PRODUCT_NAME} {APP_NAME_FEDERATION} handles *node authentication and protected resource access*, *RBAC access control* facility integration and the *action log* logging integration.
 
 == Node pairing
 
-xref:ROOT:developer-guide/federation/node-pair.adoc[*Node pairing*] is the process of *establishing a federated network* between two {PRODUCT_NAME} instances (nodes).
+xref:corteza-server/federation/node-pair.adoc[*Node pairing*] is the process of *establishing a federated network* between two {PRODUCT_NAME} instances (nodes).
 
 {PRODUCT_NAME} {APP_NAME_FEDERATION} defines a *node pairing handshake* which enables the two nodes to exchange authentication credentials securely.
 
 == Node syncing
 
-xref:ROOT:developer-guide/federation/node-sync.adoc[*Node syncing*] is the process of determining what *data the origin node wishes to share*, and the actual *data syncing between the two nodes*.
+xref:corteza-server/federation/node-sync.adoc[*Node syncing*] is the process of determining what *data the origin node wishes to share*, and the actual *data syncing between the two nodes*.
 
 .Node syncing consists of two parts:
-* xref:ROOT:developer-guide/federation/node-sync.adoc#structure-sync[*structure sync*] determines the structures that the destination node can access,
-* xref:ROOT:developer-guide/federation/node-sync.adoc#data-sync[*data sync*] syncs the data from the origin node onto the destination node.
+* xref:corteza-server/federation/node-sync.adoc#structure-sync[*structure sync*] determines the structures that the destination node can access,
+* xref:corteza-server/federation/node-sync.adoc#data-sync[*data sync*] syncs the data from the origin node onto the destination node.
 
 == API reference
 
-xref:ROOT:developer-guide/federation/api/index.adoc[*The API reference*] provides a complete list of *available API endpoints* with working *cURL examples*.
+xref:corteza-server/federation/api/index.adoc[*The API reference*] provides a complete list of *available API endpoints* with working *cURL examples*.

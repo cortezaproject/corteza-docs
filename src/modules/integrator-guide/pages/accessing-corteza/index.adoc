@@ -14,8 +14,56 @@ All operations that can be performed via user interfaces can be performed via an
 == Authentication
 
 {PRODUCT_NAME} uses bearer JWT tokens when authenticating HTTP requests.
+To obtain access tokens, you need to define a *user* and an *auth client*.
 
-Use the xref:devops-guide:maintenance/cli-reference.adoc#auth-jwt[`corteza-server auth jwt`] CLI command.
+You can use an existing user or create a dedicated user.
+Make sure that the selected user has sufficient permissions (is a member of appropriate roles).
+
+[CAUTION]
+====
+We recommend you create a dedicated user with only the required roles.
+====
+
+Create a new auth client with the `client_credentials` grant type.
+Insert the ID of the selected user under the "Impersonate user" (the user that we mentioned above).
+
+If the user's ID is not set or is not valid, an `Error: "auth client security configuration invalid"` error is returned.
+
+.Use the following cURL request example to fetch the access token:
+[source,bash]
+----
+curl -X POST $CORTEZA_URL/auth/oauth2/token \
+     -d grant_type=client_credentials \
+     -d scope=api \
+     -u <client id>:<client secret>
+----
+
+.An example of the cURL request:
+[source,bash]
+----
+curl -X POST $CORTEZA_URL/auth/oauth2/token \
+     -d grant_type=client_credentials \
+     -d scope=api \
+     -u 229978909641277628:sMVVcYpXE6bOUm6gG0sJGKmDOzEgkYyhvKyrmcU9fGY8M4GhLd90lThZDxUUFLC9
+----
+
+.An example response object:
+[source,json]
+----
+{
+  "access_token": "ey...MsLA",
+  "expires_in": 7200,
+  "refresh_token_expires_in": 0,
+  "scope": "api",
+  "sub": "229974909641277121",
+  "token_type": "Bearer"
+}
+----
+
+[IMPORTANT]
+====
+The above token expires after two hours; make sure to fetch a new one.
+====
 
 Each HTTP request to a protected resource must provide the bearer JWT token in the `authorization` header.
 Unauthorized requests yield an error response of `{ "error": { "message": "Unauthorized" } }` (or similar).

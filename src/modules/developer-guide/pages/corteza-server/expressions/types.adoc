@@ -1,0 +1,69 @@
+include::ROOT:partial$variables.adoc[]
+
+= Data type reference
+
+.Underlying types for core expression types:
+[cols="2m,2m,5a"]
+|===
+| Type | Golang type | Notes
+
+| Vars
+| map[string]TypedValue{}
+| For complex key-value structures.
+
+| Any
+| interface{}
+|
+
+| Integer
+| int64
+| 64-bit integer; range `-9223372036854775808` through `9223372036854775807`.
+
+| UnsignedInteger
+| uint64
+| 64-bit unsigned integer; range `0` through `18446744073709551615`.
+
+| ID
+| uint64
+| 64-bit unsigned integer; range `0` through `18446744073709551615`.
+
+| Float
+| float64
+| IEEE-754 64-bit floating-point numbers.
+
+| Array
+| []TypedValue
+| Can hold zero or more typed values.
+
+| Boolean
+| bool
+| `true` or `false`.
+
+| DateTime
+| *time.Time
+| Date time type.
+
+| Duration
+| time.Duration
+| Duration type.
+
+| Handle
+| string
+| Expects valid handle; empty string or match for `/^[A-Za-z][0-9A-Za-z_\-.]*[A-Za-z0-9]$/`.
+
+| KV
+| map[string]string
+| Simple key-value structure.
+
+| KVV
+| map[string][]string
+| Simple key-values structure, used for url query params, headers.
+
+| Reader
+| io.Reader
+| When dealing with files or streams of data.
+
+| String
+| string
+|
+|===

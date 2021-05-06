@@ -4,9 +4,27 @@ include::ROOT:partial$variables.adoc[]
 
 All of the data inside a workflow is *typed* in order to provide a robust development environment.
 
+== Type reference
+
+[CAUTION]
+====
+Certain variable types can not be initialized directly by expressions, but need to be initialized by a function.
+====
+
 [cols="2s,1,5a"]
 |===
 | Type | Primitive | Description
+
+| [#datatype-any]#<<datatype-any,Any>>#
+|
+|
+A variable of type `Any` does not perform any type checks and can store anything.
+The use of this is not recommended, but it can be used.
+
+| [#datatype-vars]#<<datatype-vars,Vars>>#
+| No
+|
+Like <<datatype-kv,`KV`>> but for complex structures.
 
 | [#datatype-boolean]#<<datatype-boolean,Boolean>>#
 | Yes
@@ -33,12 +51,12 @@ A `Float` is a 64bit floating point number following the https://en.wikipedia.or
 | [#datatype-integer]#<<datatype-integer,Integer>>#
 | Yes
 |
-An `Integer` is a 64bit signed integer.
+An `Integer` is a 64bit signed integer; range `-9223372036854775808` through `9223372036854775807`.
 
 | [#datatype-unsignedinteger]#<<datatype-unsignedinteger,UnsignedInteger>>#
 | Yes
 |
-An `UnsignedInteger` is a 64bit unsigned integer.
+An `UnsignedInteger` is a 64bit unsigned integer; range `0` through `18446744073709551615`.
 
 | [#datatype-string]#<<datatype-string,String>>#
 | Yes
@@ -49,13 +67,15 @@ A `String` is a string.
 | Yes
 |
 An `ID` is a system assigned unique identifier for all system resources and should not be assigned or manipulated manually.
-An `ID` is a 64bit unsigned integer.
+An `ID` is a 64bit unsigned integer; range `0` through `18446744073709551615`.
 
 | [#datatype-handle]#<<datatype-handle,Handle>>#
 | Yes
 |
 A `Handle` is a human-friendly resource identifier.
 Most {PRODUCT_NAME} resources (such as namespaces and modules) allow you to define a unique identifier that can be used instead of its system assigned <<datatype-id,ID>>.
+
+The value must be an empty string or a string matching the following regular expression `/^[A-Za-z][0-9A-Za-z_\-.]*[A-Za-z0-9]$/`.
 
 // ---
 
@@ -114,6 +134,11 @@ An `EmailMessage` represents an email that will be sent to the recipients.
 The `EmailMessage` type should not be constructed or interacted with directly.
 Use the predefined functions to manipulate it's contents.
 
+[CAUTION]
+====
+A new `EmailMessage` must be initialized using the `Email builder` function.
+====
+
 | [#datatype-role]#<<datatype-role,Role>># @todo type ref
 | No
 |
@@ -145,10 +170,70 @@ The `ComposeNamespace` type is mostly used when interacting with namespace speci
 A `ComposeRecords` contains a {APP_NAME_COMPOSE} record.
 The `ComposeRecords` type is mostly used when interacting with {APP_NAME_COMPOSE} records, such as changing their values or converting them into email notifications.
 
+[CAUTION]
+====
+A new `ComposeRecord` must be initialized using the `Compose record maker` function.
+====
+
 | [#datatype-composerecordvalues]#<<datatype-composerecordvalues,ComposeRecordValues>># @todo type ref
 | No
 |
 A `ComposeRecordValues` contains a set of {PRODUCT_NAME} record values.
 This type is usually not used on it's own but in the combination with <<datatype-composerecord,ComposeRecord>>.
 
+|===
+
+== Initialization patterns
+
+[#dt-init-int]
+[cols="2m,1m,4a"]
+.Integer initialization patterns:
+|===
+| Expression | Value/result | Notes
+
+| v (Integer)
+| 0
+| Initializing integer variable without value, defaults to 0.
+
+| v (Integer) = 42
+| 42
+| Initializing integer variable with an integer value.
+
+| v (Integer) = 3.14
+| 3
+| Initializing integer variable with a float will cut of the decimals.
+
+| v (Integer) = "42"
+| 42
+| Initializing integer variable with a string that contains a valid integer.
+
+| v (Integer) = "forty two"
+| ERROR
+| Initializing integer variable with a string that contains a invalid integer will result in an error.
+|===
+
+[#dt-init-bool]
+[cols="2m,1m,4a"]
+.Boolean initialization patterns:
+|===
+| Expression | Value/result | Notes
+
+| v (Bool)
+| false
+| Initializing boolean variable without value, defaults to false.
+
+| v (Boolean) = true
+| true
+| Initializing boolean variable with an boolean value.
+
+| v (Boolean) = "true"
+| true
+|
+.Parsing string values:
+* `"1"``, `"t"``, `"T"``, `"true"``, `"TRUE"``, `"True"`` result as `true`
+* `"0"``, `"f"``, `"F"``, `"false"``, `"FALSE"``, `"False"`` result as `false`
+
+| v (Boolean) = 10 == 0
+| true
+| Initializing boolean variable as result of an expression.
 |===

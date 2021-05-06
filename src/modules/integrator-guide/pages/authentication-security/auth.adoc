@@ -62,7 +62,7 @@ External providers become effective immediately without server restart.
 
 == Using {PRODUCT_NAME} as an authentication provider
 
-You can allow external applications to use {PRODUCT_NAME} as an authentication provider.
+You can allow external applications to use {PRODUCT_NAME} as an authentication provider as long as they support authentication using OAuth2/OIDC protocols.
 
 After a successful authorization with local credentials or an external provider, an *access token* along with a *refresh token* is issued.
 This should be done automatically by the client.
@@ -95,6 +95,13 @@ This allows you to have full control over all integrated applications and the cl
 . a list of redirection URIs that can be used with authorization code grant,
 . a trusted flag to force users to confirm authentication,
 . an Auth client validity based on the date.
+
+[TIP]
+====
+Mark the client as "trusted" to skip the extra authorization step.
+====
+
+You can specify what users are allowed to authorize the client by setting the corresponding "Authorize client" access control operation.
 
 [#auth-scope]
 === Authorization scope

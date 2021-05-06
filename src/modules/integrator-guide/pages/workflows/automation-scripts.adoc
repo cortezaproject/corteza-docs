@@ -1,0 +1,123 @@
+include::ROOT:partial$variables.adoc[]
+
+= Executing automation scripts
+
+A workflow allows you to execute automation scripts registered with the {APP_AUTOMATION}.
+The capability to execute automation scripts can come in handy when you need to implement complex business logic.
+
+== The automation script
+
+Refer to the xref:automation-scripts/index.adoc[] for details regarding automation script internals and how to deploy them to the {APP_AUTOMATION} server.
+
+The automation script must define a *manual trigger for the system resource*.
+Feel free to use the following example as a starting point.
+
+./server-scripts/invoked-from-the-workflow.js
+[source,js]
+----
+export default {
+  label: 'Called From Workflow',
+  description: 'This script will be called from workflow function',
+  triggers ({ on }) {
+    /**
+     * Due to how the Corredor scripting system is designed right now,
+     * triggers still need to be defined (even if the script is
+     * executed explicitly from the workflow)
+     */
+    return on('manual').for('system')
+  },
+
+  exec (args, { logger }) {
+    logger.info('success')
+  }
+}
+----
+
+== The workflow
+
+To execute an automation-script, add a function step image:workflow/function.svg[width=20px] that calls the `Corredor automation script executor` function.
+Insert the *script reference* under the script argument.
+
+.The script reference can be obtained by:
+* Navigating to the menu:{PRODUCT_NAME} {APP_ADMIN}[Automation,{APP_AUTOMATION} scripts] and find the automation script you wish to execute and copy its reference.
+* Construct it manually using the pattern of `/server-scripts/path-to/the-script/script-name.js:default`.
+For the example above, the reference is `/server-scripts/invoked-from-the-workflow.js:default`.
+
+Refer to the xref:automation-scripts/index.adoc[] documentation if you can't see your automation scripts.
+
+Place a trigger image:workflow/trigger.svg[width=20px] and connect it to the function step you've defined earlier.
+
+To test if everything is working correctly, click on the run icon in the top right corner of the trigger.
+If everything worked correctly, you should see a `"success"` string logged by the {APP_AUTOMATION} server.
+
+== Passing custom arguments
+
+Add an expression step image:workflow/expressions.svg[width=20px] between the trigger and the function step.
+
+.Define the following expressions:
+[source]
+----
+scriptArgs          (Vars) <1>
+scriptArgs.from     (Boolean) = false <2>
+scriptArgs.workflow (String)  = "some string" <3>
+----
+<1> Define a new set of variables that will be passed to the automation script.
+<2> Define a `from` variable with the value of `false`.
+<3> Define a `workflow` variable with the value of `"some string"`.
+
+Update the function step and set the `args` argument to `scriptArgs` (the variables we've defined in the expression step).
+
+.The automation script can access the prepared arguments like so:
+[source,js]
+----
+export default {
+  label: 'Called From Workflow',
+  description: 'This script will be called from workflow function',
+  triggers ({ on }) {
+    /**
+     * Due to how the Corredor scripting system is designed right now,
+     * triggers still need to be defined (even if the script is
+     * executed explicitly from the workflow)
+     */
+    return on('manual').for('system')
+  },
+
+  exec (args, { logger }) {
+    // unpack arguments
+    const { from, workflow } = args
+
+    // log all arguments
+    logger.info('these are the special arguments we received', { from, workflow })
+  }
+}
+----
+
+To test if everything is working correctly, click on the run icon in the top right corner of the trigger.
+If everything worked correctly, you should see a `'these are the special arguments we received' { from: false, workflow: 'some string' }` string logged by the {APP_AUTOMATION} server.
+
+== Reading execution result
+
+In the function step that executes the automation script, specify the target variable to collect the output of the automation script.
+The automation script should return an object.
+
+[CAUTION]
+====
+Standard automation script rules for return values apply.
+If the automation script returns a `false`, we consider this an `Abort` signal and the workflow results with an error.
+====
+
+.An example of an automation script that returns a result:
+[source,js]
+----
+export default {
+  // ...
+
+  exec (args, { logger }) {
+    logger.info('returning some values from the script')
+    return {
+      a: 123,
+      b: true
+    }
+  }
+}
+----

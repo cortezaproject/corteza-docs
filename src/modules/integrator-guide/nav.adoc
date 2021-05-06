@@ -53,6 +53,7 @@
 ** xref:workflows/index.adoc[]
 *** xref:workflows/organizing-workflows.adoc[]
 *** xref:workflows/delaying-scheduling.adoc[]
+*** xref:workflows/automation-scripts.adoc[]
 *** xref:workflows/style-guide-best-practices.adoc[]
 *** xref:workflows/scope-in-depth.adoc[]
 *** xref:workflows/testing-debugging.adoc[]

@@ -3,7 +3,7 @@ include::ROOT:partial$variables.adoc[]
 = Authentication and authorization
 
 {PRODUCT_NAME} implements the OAuth2 authentication protocol.
-The {PRODUCT_NAME} server can act both as a OAuth2 server and as an OAuth2 client allowing both internal and external authentications.
+The {PRODUCT_NAME} server can act both as an OAuth2 server and as an OAuth2 client, allowing internal and external authentications.
 
 Refer to the https://oauth.net/2[OAuth2 spec] for a complete reference to the protocol.
 
@@ -68,7 +68,7 @@ stop;
 
 == Why OAuth2 rework?
 
-* OAuth2 is a proven and well accepted authentication standard.
+* OAuth2 is a proven and well-accepted authentication standard.
 * {PRODUCT_NAME} becomes more open and easier to integrate with different applications.
 * It fits well into the existing RBAC security model.
 * Personalized authentication page lets users feel safe when entering their credentials.
@@ -80,13 +80,13 @@ stop;
 |===
 | [#auth-term-user]#<<auth-term-user,The user>>#
 |
-_In OAuth2 terminology this is a **resource owner**_
-The user authenticates them selves and authorize the <<,auth-client,client>> on the authorization server.
+_In OAuth2 terminology, this is a **resource owner**_
+The user authenticates themselves and authorize the <<,auth-client,client>> on the authorization server.
 
 | [#auth-term-auth]#<<auth-term-auth,{PRODUCT_NAME} auth server>>#
 |
-_In OAuth2 terminology this is a **authorization server**_
-The {PRODUCT_NAME} Auth authenticates users, authorizes clients and issues access tokens.
+_In OAuth2 terminology, this is an *authorization server*_
+The {PRODUCT_NAME} Auth authenticates users, authorizes clients, and issues access tokens.
 
 More details can be found <<auth-server,here>>.
 
@@ -97,8 +97,8 @@ More details can be found <<auth-server,here>>.
 
 | [#auth-term-api]#<<auth-term-api,{PRODUCT_NAME} API>>#
 |
-_In OAuth2 terminology this is a **resource server**_
-A client must obtain an access token in order to access the resources on the the {PRODUCT_NAME} API.
+_In OAuth2 terminology, this is a *resource server*_
+A client must obtain an access token in order to access the resources on the {PRODUCT_NAME} API.
 
 [NOTE]
 ====
@@ -115,11 +115,11 @@ Local credentials are the email and the password that the user can use to authen
 
 | [#auth-term-external-providers]#<<auth-term-external-providers,External identity providers>>#
 |
-An external identity provider is any provider that supports the OpenID Connect (OIDC) protocol such as Google, LinkedIn, and GitHub.
+An external identity provider is any provider that supports the OpenID Connect (OIDC) protocol, such as Google, LinkedIn, and GitHub.
 
 | [#auth-term-security-ctx]#<<auth-term-security-ctx,Security context>>#
 |
-The security context is a set of roles that are assigned to the user when accessing the {PRODUCT_NAME} API.
+The security context is a set of roles assigned to the user when accessing the {PRODUCT_NAME} API.
 
 More in the <<auth-scope,auth scope>> section.
 |===
@@ -128,7 +128,7 @@ More in the <<auth-scope,auth scope>> section.
 == {PRODUCT_NAME} Auth server
 
 Enables users to allow applications access to the {PRODUCT_NAME} API resources without sharing their actual credentials.
-This happens through secure exchange of credentials, codes, secrets and tokens following the OAuth2 protocol.
+This happens through the secure exchange of credentials, codes, secrets and tokens following the OAuth2 protocol.
 
 After a successful authorization with local credentials or an external provider, an *access token* along with a *refresh token* is issues.
 This should be done automatically by the client.
@@ -138,7 +138,7 @@ This separation allows the {PRODUCT_NAME} Auth session to be used when authorizi
 
 [CAUTION]
 ====
-Since the authentication sessions between different clients are different, each session must be revoked in order for the user to be "truly signed-out".
+Since the authentication sessions between different clients are different, you must revoke each session for the user to be "truly signed-out".
 ====
 
 [#auth-scope]
@@ -162,7 +162,7 @@ If the user does not have a forced role, it will be automatically added.
 == {PRODUCT_NAME} Auth security features
 
 Authentication forms and endpoints are protected against brute-force and cross-site request attacks.
-You can also set your own secrets for JWT, CSRF and cookie value encryption.
+You can also set your secrets for JWT, CSRF and cookie value encryption.
 
 Different expiration durations can be set on sessions temporary and permanent sessions to support your organization's security policies.
 
@@ -173,4 +173,4 @@ Different expiration durations can be set on sessions temporary and permanent se
 * per-client allow/deny list of IP addresses
 * per-client access and refresh token expiration control
 * per-client refresh token use
-* per-client credentials use (only local-login, require 2fa, only login via specific provider)
+* per-client credentials use (only local-login, require 2fa, the only login via specific provider)

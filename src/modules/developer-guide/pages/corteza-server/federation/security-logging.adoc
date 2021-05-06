@@ -8,7 +8,7 @@ include::ROOT:partial$variables.adoc[]
 
 This enables us to *reduce potential security holes* and *leverage our RBAC access control facility*.
 
-During the xref:ROOT:developer-guide/federation/node-pair.adoc[*node pairing*], each node creates a *system user* with an *authentication token* that can be used to access the node's protected resources.
+During the xref:corteza-server/federation/node-pair.adoc[*node pairing*], each node creates a *system user* with an *authentication token* that can be used to access the node's protected resources.
 
 [NOTE]
 ====

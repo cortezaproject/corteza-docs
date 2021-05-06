@@ -1,0 +1,104 @@
+include::ROOT:partial$variables.adoc[]
+
+= {PRODUCT_NAME} Server
+
+https://github.com/cortezaproject/corteza-server[{PRODUCT_NAME} server] is the back-end of the {PRODUCT_NAME} ecosystem.
+The core logic is written in GO, using https://pkg.go.dev/github.com/go-chi/chi@v3.3.4+incompatible?utm_source=gopls[go-chi] for the routing.
+
+Communication between the {PRODUCT_NAME} server and web applications is done using the REST API and web sockets.
+Communication between back-end services ({PRODUCT_NAME} server and {APP_AUTOMATION}) is done using gRPC.
+
+Non-binary data is handled by the store layer and stored inside a database -- currently MySQL and PostgreSQL.
+We will add support for additional databases in the future.
+
+Binary data is handled using minIO and stored either locally or on a supported cloud provider.
+
+== Development setup
+
+[CAUTION]
+====
+{PRODUCT_NAME} server runs on GO 1.16.
+This guide assumes that your GO development environment is already set up on the correct version.
+====
+
+=== Fork the {PRODUCT_NAME} server
+
+[CAUTION]
+====
+Core contributors should skip this part.
+====
+
+. go to the {GIT_REPO_LINK_PREFIX}-server repository
+. click on the btn:[Fork] button in the top right corner and follow the instructions on the screen.
+
+=== Clone the repository
+
+.Using the CLI:
+. open the CLI
+. navigate to your working folder
+. run the `git clone git@github.com:$YOUR_USERNAME_HERE/corteza-server.git` command
+
+=== Configure the environment
+
+.Inside your `corteza-server` directory:
+. run `cp .env.example .env`
+. open the `.env` file using VIM, Nano, or any other editor and modify the configuration as you see fit
+
+=== Setup data storage
+
+If your work requires persistent storage, make sure that you've set up a supported database engine.
+You can run the database either locally or inside a Docker container.
+Make sure to change the `DB_DSN=` `.env` variable.
+
+If your work does not require persistent storage (you will work solely using tests), you can skip this step, and the testing framework will use the in-memory SQLite server.
+Make sure to remove the `DB_DSN=` `.env` variable.
+
+=== Setup SMTP
+
+For local development, you can use MailHog to log the emails sent from the server.
+Run the `make mailhog.up` command to start MailHog.
+Alternatively, you can use an actual SMTP provider like Gmail or MailGun.
+Make sure to change the `SMTP_*=` `.env` variables.
+
+You can skip this part of your workflow does not require emails.
+Make sure to remove the `SMTP_*=` `.env` variables.
+
+=== Run the server
+
+Run the `make realize` command to start the server.
+The server will automatically restart when changes to the code are detected.
+
+[CAUTION]
+====
+The watcher can be a bit wonky at times.
+Manually restart the server if the changes are not getting picked up.
+====
+
+=== Run the tests
+
+.There are a handful of commands to run your tests:
+* `test.integration` to run integration tests (test files inside `/tests`)
+* `test.store` to run store tests (test files inside `/store/tests`)
+* `test.all` to run all tests
+* `test.unit` to run unit tests
+* `test.pkg` to run test files for the `/pkg` directory
+
+[TIP]
+====
+All commands, but the `test.all` command, accept another `.$WHAT_TO_TEST`.
+For example, to only run Compose integration tests, you would run the `make test.integration.compose` command
+====
+
+[CAUTION]
+====
+*Integration testing gotcha:*
+
+To prevent your tests from interacting with your development database, you can define an integration test specific `.env` file inside the `/tests` directory.
+There, you can configure a different database or remove it to use the SQLite in-memory database.
+
+*Store testing gotcha:*
+
+The same test suite runs over all supported databases.
+If you wish to test for a particular database, you must define the corresponding `DSN` in the root `.env` file.
+Refer to the `/store/tests/main_test.go` for details.
+====

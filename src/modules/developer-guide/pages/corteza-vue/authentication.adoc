@@ -1,0 +1,58 @@
+include::ROOT:partial$variables.adoc[]
+
+= Authentication
+
+The `/src/plugins/auth.ts` plugin handles the OAuth2 authentication logic.
+
+.The plugin is responsible for:
+* identifying the authentication server,
+* obtaining the authentication token,
+* refreshing the authentication token.
+
+== Plugin registration
+
+.The authentication plugin is registered as follows:
+[source,js]
+----
+import { plugins } from '@cortezaproject/corteza-vue'
+// ... other imports ...
+
+
+// ... other plugin registrations ...
+
+Vue.use(plugins.Auth(), { app: 'compose' })
+
+// ... other plugin registrations ...
+----
+
+== Authentication server identification
+
+You can define the authentication server either explicitly or implicitly.
+
+The server is defined explicitly when the `window.CortezaAuth` parameter is provided.
+This is normally provided in the `public/config.js` file.
+
+The server is defined implicitly when the `window.CortezaAuth` parameter is *not* provided.
+When the `window.CortezaAuth` parameter is not provided, the `window.CortezaAPI` parameter is used.
+This is normally provided in the `public/config.js` file.
+
+.The authentication server determination is as follows:
+* `CortezaAPI` endpoint is explicitly set and ends with `/api`; the `/api` suffix is replaced with `/auth` and implicitly used as `CortezaAuth`.
+* `CortezaAPI` endpoint is explicitly set and does not end with `/api`; the `/auth` suffix is appended to the `CortezaAPI` value and implicitly used as `CortezaAuth`.
+
+.Configuration examples:
+|===
+| Description | CortezaAPI | CortezaAuth
+
+| Setting both endpoints explicitly
+| `window.CortezaAPI = '{API_DOMAIN}'`
+| `window.CortezaAuth = '{API_DOMAIN}/auth'`
+
+| Setting CortezaAPI only
+| `window.CortezaAPI = '{API_DOMAIN}/custom'`
+| `window.CortezaAuth = '{API_DOMAIN}/custom/auth'`
+
+| Setting CortezaAPI with auto set
+| `window.CortezaAPI = '{API_DOMAIN}/api'`
+| `window.CortezaAuth = '{API_DOMAIN}/auth'`
+|===

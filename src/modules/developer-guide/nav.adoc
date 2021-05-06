@@ -4,6 +4,38 @@
 *** xref:release-cycle/docs.adoc[]
 *** xref:release-cycle/core-repos.adoc[]
 
-** xref:local-setup.adoc[]
-** xref:api.adoc[]
-** xref:auth.adoc[]
+** xref:corteza-server/index.adoc[]
+*** xref:corteza-server/structure.adoc[]
+*** xref:corteza-server/api.adoc[]
+*** xref:corteza-server/auth.adoc[]
+*** xref:corteza-server/codegen.adoc[]
+*** xref:corteza-server/store.adoc[]
+*** xref:corteza-server/resource-labels.adoc[]
+*** xref:corteza-server/federation/index.adoc[]
+**** xref:corteza-server/federation/glossary.adoc[]
+**** xref:corteza-server/federation/node-pair.adoc[]
+**** xref:corteza-server/federation/node-sync.adoc[]
+**** xref:corteza-server/federation/security-logging.adoc[]
+
+** xref:web-applications/index.adoc[]
+*** xref:web-applications/structure.adoc[]
+
+** xref:corteza-js/index.adoc[]
+*** xref:corteza-js/structure.adoc[]
+
+** xref:corteza-vue/index.adoc[]
+*** xref:corteza-vue/structure.adoc[]
+*** xref:corteza-vue/authentication.adoc[]
+
+
+
+
+
+
+
+
+
+// ** xref:local-setup.adoc[]
+// ** xref:api.adoc[]
+// ** xref:auth.adoc[]
+

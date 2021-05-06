@@ -1,0 +1,78 @@
+== administration docs
+
+The queues interface providers an overview of all the messaging queues in the Corteza system. Corteza uses messagebus (mechanism that powers the messaging queues) internally also, but those queues are not part of the administration area.
+
+A valid messaging queue has:
+ - a name (alphanumeric handle)
+ - consumer defined
+
+=== Queue consumers
+Messaging queues are described with a producer-consumer pair. Each of the queue needs to have a producer implemented and a consumer defined.
+
+Currently, Corteza supports:
+ - store consumer
+ - eventbus consumer
+
+For more info on consumers, refer to the developer documentation on consumers here [#link to the developer documentation - consumers on messagebus].
+
+NOTE
+Only consumers are defined in administration area, the producers need to be implemented on the system level
+
+*Listing queues*
+
+.To list current queues:
+    navigate to the Corteza Admin,
+    click on the "Messaging Queues" in the navigation drawer,
+    optionally use the filtering parameters.
+
+*Creating queues*
+
+.To create a new queue:
+    navigate to the Corteza Admin,
+    click on the "Messaging Queues" in the navigation drawer,
+    click on the "New" button in the top right corner,
+    provide the requested data (see queue parameters),
+    press the "Submit" button.
+
+NOTE
+Polling changes delay affects only the producers that use it (mostly store producers that do not subscribe to changes), so usually just leave it empty.
+
+*Editing queues*
+
+.To edit an existing queue:
+    navigate to the Corteza Admin,
+    click on the "Messaging Queues" in the navigation drawer,
+    click on the edit icon next to the queue you wish to edit,
+    provide the requested data (see queue parameters),
+    press the "Submit" button.
+
+NOTE
+Polling changes delay affects only the producers that use it (mostly store producers that do not subscribe to changes), so usually just leave it empty.
+
+*Deleting/undeleting queues*
+
+.To delete an existing queue:
+    navigate to the Corteza Admin,
+    click on the "Messaging Queues" in the navigation drawer,
+    click on the edit icon next to the queue you wish to edit,
+    press the "Delete" button in lower left corner,
+    confirm or deny the selection,
+    press the "Submit" button.
+
+NOTE
+In order to undelete a queue, you must first use the correct filter on the queue list, see "Including deleted queues"
+
+=== Queue parameters
+
+*Consumer*
+The consumer parameter defines the destination of the data flow of a particular message queue. Consumers need to be implemented and added as an additional adapter in the code. (see more in #developer section queues consumers)
+
+*Queue name*
+Should be descriptive, short and alphanumeric only
+
+*Polling changes delay*
+This is an optional parameter to define the polling time of the producer when it is not feasible to use subscribing to changes.
+Format: golang time.Duration
+Example: _1h90s_, _15s_
+
+If unsure, leave it empty.

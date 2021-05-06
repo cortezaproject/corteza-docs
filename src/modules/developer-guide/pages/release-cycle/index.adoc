@@ -1,0 +1,112 @@
+include::ROOT:partial$variables.adoc[]
+
+= Release cycle
+
+== Terminology
+
+[cols="3s,9a"]
+|===
+| [#rc-terminology-major_version]#<<rc-terminology-major_version,Major version>>#
+|
+The major versions (referred to as a release) occur by the end of each quarter; last weeks of March, June, September, and December.
+The versions are prefixed with full year and quarter number (`YYYY.Q`; the https://calver.org/[CalVer] standard); for example, `2020.12` indicates the last release of 2020.
+
+| [#rc-terminology-version_branch]#<<rc-terminology-version_branch,Version branch>>#
+|
+A version branch contains the code included in that release; for example, the `2021.3.x` branch contains all of the code released in the `2021.3` version.
+A version branch has a `.x` suffix and is created as soon as we start working on that version.
+
+| [#rc-terminology-feature_branch]#<<rc-terminology-feature_branch,Feature branch>>#
+|
+A feature branch contains all of the code of the specific version; for example, the `2021.3.x-feature-workflow` branch contains all of the code for the initial workflow implementation.
+A feature branch has a `-feature-<description>` suffix and is created as soon as we start working on that feature.
+Feature branches are short-lived and are removed when the feature is merged into the <<rc-terminology-version_branch,version branch>>.
+
+| [#rc-terminology-release]#<<rc-terminology-release,Release>>#
+|
+A release is a git tag on the latest stable commit on a version branch.
+The git tag follows the pattern of `YYYY.Q.R`, where `R` represents an incremental number (0-based) of that release.
+For example, `2021.3.0` indicates the first `2021.3` release.
+
+| [#rc-terminology-patch_release]#<<rc-terminology-patch_release,Patch release>>#
+|
+A patch release is a git tag on the latest stable commit on an already released version branch.
+The git tag follows the pattern of `YYYY.Q.R`, where `R` represents an incremental number (1-based) of that patch release.
+For example, `2021.3.1` indicates the first `2021.3` patch release.
+
+[NOTE]
+====
+A patch release is usually referred to as a "release".
+====
+
+| [#rc-terminology-release_candidate]#<<rc-terminology-release_candidate,Release Candidate (RC)>>#
+|
+A release candidate is a git tag on the latest commit on a version branch.
+The git tag follows the pattern of `YYYY.Q.R-rc.C`, where `C` represents an incremental number (0-based) of that release.
+For example, `2021.3.0-rc.3` indicates the fourth `2021.3.0` release candidate.
+
+| [#rc-terminology-version]#<<rc-terminology-version,Version>>#
+|
+The term version may refer to ether one of the <<release,release>>, <<feature,feature>>, <<version_branch,version branch>>, <<patch_release,patch release>>, or <<release_candidate,release candidate>> terms
+
+|===
+
+== Git(Hub)
+
+All of the development on {PRODUCT_NAME} is powered by Git and GitHub (GH).
+To make development consistent and easy to follow, we've put in place a few rules the contributors need to follow.
+
+=== Cleanup and rebase feature branches
+
+Before the feature branch is merged into the release branch, it needs to be rebased with the release branch to reduce the diff size.
+We recommend that you rebase regularly to reduce the potential merge conflicts.
+
+Additionally, use the interactive rebase to reconstruct the git history that your feature branch introduces to make it cleaner and shorter.
+History should tell a story.
+Sometimes it's easier to recreate the entire commit history once you've finished the first version of the feature.
+
+=== Merging the branch
+
+If the source branch is small (a handful of commits), use a fast-forward merge (the merge without the merge commit).
+If the source branch introduces significant changes (it introduces new features), use a non fast-forward merge (the merge with the merge commit).
+
+[IMPORTANT]
+====
+Remove the branch after it is merged.
+Only the core contributors are sometimes allowed to forget to do so.
+====
+
+=== Rename delayed feature branches
+
+If a feature is delayed to the next release, rename the branch to match that release branch.
+For example, if the `2020.12.x-feature-foo` gets delayed to the `2021.3.x`, the feature branch needs to be renamed to `2021.3.x-feature-foo`.
+
+=== Avoid committing directly to the version branch
+
+Minor changes (such as a hotfix) can skip the entire pull request process.
+Larger changes should always go through the pull request process.
+
+=== Back-porting
+
+Bug fixes or improvements that also apply to the already released versions cherry-pick the commits to those version branches.
+When back-porting, condense the change to a single commit with a clear and descriptive commit message.
+
+=== In-progress version branch
+
+Whenever a release occurs and the next set of version branches is created, the default GitHub branch is moved to the newly created version branch.
+This makes it easier for new contributors while letting us showcase the latest and greatest version.
+
+The in-progress version branch is expected to be rebased with the current release branch to defer the branch diversion because of post-release patches.
+The rebasing usually stops when new features are being applied.
+
+== FAQ
+
+=== Why not Git flow?
+
+Git flow is an excellent idea that works well on paper.
+It abandons rebasing and makes project (git) history completely unreadable after a couple of merges.
+
+=== Where is the `main` branch?
+
+Keeping the `main` branch would make it difficult to know what version we are working with.
+The use of version branches makes things more straightforward.

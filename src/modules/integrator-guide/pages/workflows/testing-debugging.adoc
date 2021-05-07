@@ -10,43 +10,38 @@ Testing is a powerful and essential component of any project.
 [CAUTION]
 ====
 The testing approach mentioned below doesn't sandbox your data in any way.
-Any changes performed by the workflow are reflected in the system itself.
+Any changes performed by the workflow are reflected in the system.
 ====
 
 Let us look at an example.
 We want to implement a workflow that calculates the cost of a newly created lead.
 The cost of the lead is sent as an email to the administrator.
 
-To test the workflow, click on the play icon image:workflow/play.svg[width=20px] on the trigger of any type.
-
 image:workflow/manual-test-play.png[]
+
+To test the workflow, click on the play icon image:workflow/play.svg[width=20px] in the top right corner of the trigger.
+Only saved and valid workflows can be run.
+
+A popup asking for the initial scope appears.
+The initial scope is data passed to the workflow to perform some operation.
 
 [NOTE]
 ====
-Only workflows that are saved and without issues can be run.
+The initial scope depends on the resource and event type.
 ====
-
-First, you will need to configure the initial scope for the trigger.
-Depending on the resource, you will have to provide an ID or handle.
-To load certain resources, other related resources must also be provided.
-This is indicated by text under each input.
-Click "Load and Configure" to proceed.
 
 image:workflow/manual-test-load-resources.png[]
 
-[NOTE]
-====
-The resources that are not provided are instead initialized as empty. They can still be configured and will be included when the workflow is run.
-====
-
-In the next step, you will be able to fine-tune the resource objects that will be passed into the workflow.
-For example, if you wish to change a certain record value, you can navigate to `record/@value/values` then find the desired value and change it there. When the workflow is run, the record object that was changed will be used as the `record` variable.
-
+Insert the required parameters and click on the btn:[Load and Configure] button to set the initial scope.
+Any missing parameters are automatically added as the empty value of that type.
 
 image:workflow/manual-test-configure-resources.png[]
 
-When you manually run the workflow, you see a green outline that indicates the path of the execution based on the provided input.
-If any of the steps fail to successfully execute, they will be marked with a red outline.
+The last step allows you to change the variables of the initial scope before test running the workflow.
+Click on the btn:[Run Workflow] to run the workflow, or on the btb:[Back] button to return to the previous screen.
+
+When you manually run the workflow, you see a green outline that indicates the execution path based on the provided input.
+If any of the steps fail to execute successfully, they will be marked with a red outline.
 If there is no error handling, the manual execution will also terminate.
 
 .An example of a successful test:
@@ -81,7 +76,7 @@ image:workflow/debug-example-simple.png[]
 
 === Test result context
 
-When you <<testing, run a manual test>> for the workflow you might notice an icon in the bottom right corner of the step.
+When you <<testing,run a manual test>> for the workflow you might notice an icon in the bottom right corner of the step.
 
 image:workflow/debug-stepctx.png[]
 

@@ -1,9 +1,9 @@
 = Interval
 
-For this example, lets assume we want to send an email to all users every christmas at midnight.
-For this we use a trigger of type `onInterval` with the interval `0 0 25 12 *`
+For this example, let's assume we want to send an email to all users every Christmas at midnight.
+For this, we use a trigger of type `onInterval` with the interval `0 0 25 12 *`
 
-image:./workflow-example-interval.png[]
+image:workflow/workflow-example-interval.png[]
 
 ****
 .Workflow step details:

@@ -4,56 +4,81 @@ include::ROOT:partial$variables.adoc[]
 
 == Style guide
 
-{PRODUCT_NAME} workflows are loosely based on the BPMN 2.0 notation, therefore the style guides of BPMN 2.0 should be respected.
-If you haven't heard of BPMN before, we suggest you research the notation so you can easily transition that to {PRODUCT_NAME} workflows.
+Workflows are based on and inherit the base rules from the BPMN 2.0 standard.
+We define some additional rules to help keep workflows consistent:
 
-There are some general rules when it comes to modeling workflows.
+=== Follow the KISS principle
 
-=== Keep it simple
-Usually, the simplest solution is also the best, so the same principle can be applied here.
+The Keep It Simple, Stupid principle indicates that your workflows should not be needlessly overcomplicated.
+Over-engineering usually reduces clarity and introduces more failure points.
 
-For example, instead of using a gateway to check a value and assign a different expression for each, you can just write the proper expression that does the same.
+To exemplify, instead of using a gateway to set a `Boolean` variable to the correct value, write an expression that evaluates the desired value.
 
-Option 1
+.An over-engineered version:
 image:workflow/workflow-style-simple-gateway.png[]
 
-Option 2
+.An simplified version:
 image:workflow/workflow-style-simple-expression.png[]
 
-Both workflows produce the same result but one uses more steps than the other.
-Therefore if something can be done with fewer steps that is usually the better way.
+[CAUTION]
+====
+Most operations can be transformed into expressions but at the cost of clarity.
+If a simplification causes the clarity to decrease, you should not use simplification.
+====
+
+[TIP]
+====
+Larger complex operations can be replaced by xref:workflows/automation-scripts.adoc[automation scripts].
+====
 
 === Avoid crossing connectors
-To make the workflow more readable to other people and yourself, you should avoid having connectors that cross over each other.
-This can confuse people unnecessarily.
 
-Example of the wrong way to layout connectors
+When working with larger workflows, crossing connectors may mislead and confuse the reader.
+Workflow steps define many anchor points to help you achieve this.
+
+.An example of crossing connectors:
 image:workflow/workflow-style-connectors-nok.png[]
 
-Example of the correct way to layout connectors
+.An example of corrected, non-crossing connectors:
 image:workflow/workflow-style-connectors-ok.png[]
 
-=== Step labels
-Every workflow step should have a label if possible. This will improve the readability of the workflow.
-Labels should be as short as possible, to quickly convey the point across to the user observing the workflow.
+[TIP]
+====
+A connector defines a series of anchor points that you may use to adjust the flow of the connector.
+The anchor points become available when you click on the connector.
 
-Triggers should have the resource and trigger type in their label to easily determine when they are triggered, without looking at the trigger configuration.
+image:workflow/workflow-style-connector-anchors.png[]
+====
+
+=== Step labels
+
+All workflow steps should have a short label that outlines the core of the step.
+To exemplify, an expression that calculates the sales commissions should be labelled as "Calculate sales commissions".
+
+A *Trigger* label should state the resource and the trigger type.
+This allows the reader to understand when the trigger is executed without reading the configuration.
+
 image:workflow/workflow-style-label-trigger.png[]
 
-Gateways should be labeled as a question. The outbound paths should be labeled as possible answers to the question.
+A *gateway* label should state the question that determines the output.
+The output path labels should state the answer to the question of the corresponding gateway.
+
 image:workflow/workflow-style-label-gateway.png[]
 
-Function label should contain the verb and the subject of the function.
+The function label should contain the verb and the subject of the function.
+
 image:workflow/workflow-style-label-function.png[]
 
 === Readable layouts
-The layout of a workflow is better if a user can understand it more easily.
+
+The initial integration usually consists of multiple workflows which can be extended and added in the future.
+A consistent layout increases consistency and readability.
 
 .Here are some tips:
-* Flow should go from left to right, top to bottom,
-* Related steps should be grouped,
-* Align steps with grid, it is there for a reason,
-* Symmetric layouts are generally easier to understand.
+* the flow should go from top-left to bottom-right,
+* group the related steps,
+* align the steps with the grid,
+* keep the layout symmetric as it is generally easier to understand.
 
 == Best practices
 

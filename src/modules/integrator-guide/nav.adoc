@@ -58,9 +58,9 @@
 *** xref:workflows/scope-in-depth.adoc[]
 *** xref:workflows/testing-debugging.adoc[]
 *** xref:workflows/types.adoc[]
-// *** Examples
-// **** ...
-// *** xref:workflows/pdf.adoc[]
+*** Examples
+**** xref:workflows/examples/interval.adoc[]
+**** xref:workflows/examples/timestamp.adoc[]
 
 ** xref:templates/index.adoc[]
 *** xref:templates/variables.adoc[]

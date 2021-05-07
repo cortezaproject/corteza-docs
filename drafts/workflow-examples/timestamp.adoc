@@ -1,0 +1,37 @@
+= Timestamp
+
+For this example, lets assume we want to wish all users a Happy new year.
+All the emails need to be sent out at exactly midnight.
+For this we use a trigger of type `onTimestamp` with the timestamp of `2021-01-01T00:00:00Z`
+
+image:./workflow-example-timestamp.png[]
+
+****
+.Workflow step details:
+[%collapsible.result]
+====
+1. *(1) Test trigger*:
+** *resource*: `System`
+** *event*: `onTimestamp`
+** *enabled*: checked
+** *constraints*: 
+*** *timestamp*: `2021-01-01T00:00:00Z`
+2. *(2) Iterate over Users*:
+** *type*: `Users`
+** *results*:
+*** *user target*: `user`
+3. *(3) Send Email*:
+** *type*: `Email`
+** *arguments*:
+*** *subject*:
+**** *value type*: constant
+**** *value*: `Happy new year`
+*** *to*:
+**** *value type*: expression
+**** *value*: `user.email`
+*** *plain*:
+**** *value type*: constant
+**** *value*: `Happy new year`
+4. *(4) Done*:
+====
+****

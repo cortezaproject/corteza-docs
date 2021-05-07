@@ -4,10 +4,56 @@ include::ROOT:partial$variables.adoc[]
 
 == Style guide
 
-[NOTE]
-====
-*DevNote* todo
-====
+{PRODUCT_NAME} workflows are loosely based on the BPMN 2.0 notation, therefore the style guides of BPMN 2.0 should be respected.
+If you haven't heard of BPMN before, we suggest you research the notation so you can easily transition that to {PRODUCT_NAME} workflows.
+
+There are some general rules when it comes to modeling workflows.
+
+=== Keep it simple
+Usually, the simplest solution is also the best, so the same principle can be applied here.
+
+For example, instead of using a gateway to check a value and assign a different expression for each, you can just write the proper expression that does the same.
+
+Option 1
+image:workflow/workflow-style-simple-gateway.png[]
+
+Option 2
+image:workflow/workflow-style-simple-expression.png[]
+
+Both workflows produce the same result but one uses more steps than the other.
+Therefore if something can be done with fewer steps that is usually the better way.
+
+=== Avoid crossing connectors
+To make the workflow more readable to other people and yourself, you should avoid having connectors that cross over each other.
+This can confuse people unnecessarily.
+
+Example of the wrong way to layout connectors
+image:workflow/workflow-style-connectors-nok.png[]
+
+Example of the correct way to layout connectors
+image:workflow/workflow-style-connectors-ok.png[]
+
+=== Step labels
+Every workflow step should have a label if possible. This will improve the readability of the workflow.
+Labels should be as short as possible, to quickly convey the point across to the user observing the workflow.
+
+Triggers should have the resource and trigger type in their label to easily determine when they are triggered, without looking at the trigger configuration.
+image:workflow/workflow-style-label-trigger.png[]
+
+Gateways should be labeled as a question. The outbound paths should be labeled as possible answers to the question.
+image:workflow/workflow-style-label-gateway.png[]
+
+Function label should contain the verb and the subject of the function.
+image:workflow/workflow-style-label-function.png[]
+
+=== Readable layouts
+The layout of a workflow is better if a user can understand it more easily.
+
+.Here are some tips:
+* Flow should go from left to right, top to bottom,
+* Related steps should be grouped,
+* Align steps with grid, it is there for a reason,
+* Symmetric layouts are generally easier to understand.
 
 == Best practices
 

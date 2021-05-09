@@ -1,0 +1,19 @@
+= Corteza deployment checklist
+
+
+== API
+ - [ ] `/healthcheck` should return status `200 OK` with plain text without "FAIL" checks
+ - [ ] `/version` should return status `200 OK` with JSON info about build time and version
+ - [ ] `/auth` should show login form with loaded background image, logo and custom CSS
+ - [ ] New user registration should work
+ - [ ] If SMTP is set (not by default) and user email confirmation is enabled (default), message should be sent/received on the registered email address
+ - [ ] Link in the email address should open info page about successful authorization
+ - [ ] Login should work
+ - [ ] Auth/session cookies should be properly set (path, https)
+
+
+== Web applications
+ - [ ] Visiting frontend application as anonymous user should redirect browser to login
+
+== Corredor
+ - [ ] If Corredor is not disabled (CORREDOR_ENABLED=true) Corteza server should connect to it via gRPC (no errors in the server log)

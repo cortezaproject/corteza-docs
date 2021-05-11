@@ -104,3 +104,15 @@ These types implement the `expr.TypedValue` interface and can be used within exp
 The generated files implement the boilerplate for the type.
 If the type requires additional complexity (such as gval selectors), you must implement those manually.
 ====
+
+== Infinite execution
+
+A workflow step may invoke itself or another workflow.
+This may cause the workflow to run indefinitely.
+
+To counter this, we've implemented a run-time validation using a `callStack` passed around through the `context.Context`.
+
+.The flow:
+. when a workflow is triggered, pull the current `callStack` from the context,
+. if the `callStack` size exceeds the configured limit, error out,
+. if the `callStack` size does not exceed the configured limit, pass the `callStack` into the `wfexec.Session`.

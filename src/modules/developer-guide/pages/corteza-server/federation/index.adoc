@@ -68,3 +68,8 @@ xref:corteza-server/federation/node-sync.adoc[*Node syncing*] is the process of 
 == API reference
 
 xref:corteza-server/federation/api/index.adoc[*The API reference*] provides a complete list of *available API endpoints* with working *cURL examples*.
+
+== Local development
+
+xref:corteza-server/federation/dev-notes.adoc[*Development notes*] will help you in setting an origin and destination federated Corteza instances.
+

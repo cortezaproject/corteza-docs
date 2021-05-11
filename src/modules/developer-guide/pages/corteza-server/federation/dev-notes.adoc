@@ -1,0 +1,164 @@
+include::ROOT:partial$variables.adoc[]
+
+= Local development
+
+If you need to first check how to federate records or need to debug your implementation based on federation, you can set up two development instances with this docker compose configuration.
+
+== Create data dir
+
+[source,bash]
+----
+$ mkdir data && chmod 755 data/ -R
+----
+
+== Create the docker compose file
+
+[source,yaml]
+----
+version: "3"
+services:
+  db_origin:
+    image: percona:8.0
+    container_name: db_origin
+    restart: on-failure
+    environment:
+      MYSQL_DATABASE:      corteza
+      MYSQL_USER:          corteza
+      MYSQL_PASSWORD:      rootcorteza
+      MYSQL_ROOT_PASSWORD: rootcorteza
+    volumes:
+      - "../../data/db_origin:/var/lib/mysql"
+    ports:
+      - 3306:3306
+
+  db_destination:
+    image: percona:8.0
+    container_name: db_destination
+    restart: on-failure
+    environment:
+      MYSQL_DATABASE:      corteza
+      MYSQL_USER:          corteza
+      MYSQL_PASSWORD:      rootcorteza
+      MYSQL_ROOT_PASSWORD: rootcorteza
+    volumes:
+      - "../../data/db_destination:/var/lib/mysql"
+    ports:
+      - 3307:3306
+
+  node_origin:
+    image: golang
+    container_name: node_origin
+    entrypoint: [ make, watch ]
+    depends_on: [ db_origin ]
+    volumes:
+      - "../../:/app"
+      - "./.env.orig:/app/.env"
+    working_dir: /app
+    restart: on-failure
+    ports:
+      - 8084:8084
+
+  node_destination:
+    image: golang
+    container_name: node_destination
+    entrypoint: [ make, watch ]
+    depends_on: [ db_destination ]
+    volumes:
+      - "../../:/app"
+      - "./.env.dest:/app/.env"
+    working_dir: /app
+    restart: on-failure
+    ports:
+      - 8085:8084
+----
+
+This docker compose file will map the volume data to the directory that was previously created and create two Corteza instances and their corresponding database instances.
+
+== Add the appropriate .env files
+
+_.env.orig_
+[source,yaml]
+----
+PROVISION_ALWAYS=false
+HTTP_ADDR=:8084
+
+LOG_LEVEL=info
+
+DB_DSN=corteza:rootcorteza@tcp(db_origin:3306)/corteza?collation=utf8mb4_general_ci
+LOG_DEBUG=true
+CORREDOR_ADDR=localhost:50051
+CORREDOR_ENABLED=false
+CORREDOR_CLIENT_CERTIFICATES_ENABLED=false
+
+GRPC_SERVER_ADDR=localhost:50052
+
+CORTEZA_PROTOBUF_PATH=/home/wrk/Projects/corteza/corteza-protobuf
+
+FEDERATION_ENABLED=true
+FEDERATION_HOST=node_origin:8084
+FEDERATION_LABEL=Federation origin host
+
+# Sync settings
+FEDERATION_SYNC_STRUCTURE_MONITOR_INTERVAL=60s
+FEDERATION_SYNC_STRUCTURE_PAGE_SIZE=1
+FEDERATION_SYNC_DATA_MONITOR_INTERVAL=20s
+FEDERATION_SYNC_DATA_PAGE_SIZE=100
+----
+
+_.env.dest_
+[source,yaml]
+----
+PROVISION_ALWAYS=false
+HTTP_ADDR=:8084
+
+LOG_LEVEL=info
+
+DB_DSN=corteza:rootcorteza@tcp(db_destination:3306)/corteza?collation=utf8mb4_general_ci
+LOG_DEBUG=true
+CORREDOR_ADDR=localhost:50051
+CORREDOR_ENABLED=false
+CORREDOR_CLIENT_CERTIFICATES_ENABLED=false
+
+GRPC_SERVER_ADDR=localhost:50052
+
+CORTEZA_PROTOBUF_PATH=/home/wrk/Projects/corteza/corteza-protobuf
+
+FEDERATION_ENABLED=true
+FEDERATION_HOST=node_destination:8084
+FEDERATION_LABEL=Federation destination host
+
+# Sync settings
+FEDERATION_SYNC_STRUCTURE_MONITOR_INTERVAL=60s
+FEDERATION_SYNC_STRUCTURE_PAGE_SIZE=1
+FEDERATION_SYNC_DATA_MONITOR_INTERVAL=20s
+FEDERATION_SYNC_DATA_PAGE_SIZE=100
+----
+
+
+== Run instances
+
+[source,bash]
+----
+$ docker-compose up -d node_origin
+$ docker-compose up -d node_destination
+----
+
+Once the instances are up, you can use
+[source,bash]
+----
+$ docker-compose logs -f node_origin
+----
+
+to follow docker logs and debug your application.
+
+== Port mappings
+
+[Attributes]
+|===
+|Instance |Local connectivity |Docker connectivity
+
+|*node_origin*|localhost:8084|node_origin:8084 (from *node_destination*)
+|*node_destination*|localhost:8085|node_destination:8084 (from *node_origin*)
+|*db_origin*|localhost:3306|db_origin:3306 (from any of the nodes)
+|*db_destination*|localhost:3307|db_destination:3306 (from any of the nodes)
+|===

@@ -2,7 +2,7 @@
 
 :leveloffset: +1
 
-include::partial$generated/env-options.gen.adoc[]
+include::generated:partial$env-options.gen.adoc[]
 
 :leveloffset: -1
 

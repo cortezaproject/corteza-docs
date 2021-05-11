@@ -1,0 +1,7 @@
+= Function Reference
+
+:leveloffset: +1
+
+include::generated:partial$afunc.gen.adoc[]
+
+:leveloffset: -1

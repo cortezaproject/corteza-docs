@@ -1,0 +1,948 @@
+// This file is auto-generated.
+//
+// Changes to this file may cause incorrect behavior and will be lost if
+// the code is regenerated.
+//
+// Definitions file that controls how this file is generated:
+//  - automation/automation/corredor_handler.yaml
+//  - automation/automation/email_handler.yaml
+//  - automation/automation/http_request_handler.yaml
+//  - automation/automation/log_handler.yaml
+//  - automation/automation/loop_handler.yaml
+//  - compose/automation/modules_handler.yaml
+//  - compose/automation/namespaces_handler.yaml
+//  - compose/automation/records_handler.yaml
+//  - system/automation/roles_handler.yaml
+//  - system/automation/templates_handler.yaml
+//  - system/automation/users_handler.yaml
+
+
+= `corredor`
+
+[cols="2m,4a,3a"]
+|===
+| Name | Description | I/O
+
+| [#fnc-corredor-exec]#<<fnc-corredor-exec,Corredor automation script executor>>#
+| Executes script in Corredor Automation server
+|
+.Parameters:
+* #*# `script`
+(
+   `String`,)
+* `args`
+(
+   `Vars`,)
+
+.Results:
+* results (`Vars`)
+
+|===
+= `email`
+
+[cols="2m,4a,3a"]
+|===
+| Name | Description | I/O
+
+| [#fnc-email-send]#<<fnc-email-send,Email>>#
+| Sends email directly
+|
+.Parameters:
+* `Subject`
+(
+   `String`,
+   `Reader`,)
+* `Reply to`
+(
+   `String`,
+   `User`,)
+* `Sender`
+(
+   `String`,
+   `User`,)
+* `Recipients`
+(
+   `String`,
+   `KV`,
+   `User`,)
+* `CC`
+(
+   `String`,
+   `KV`,
+   `User`,)
+* `HTML message body`
+(
+   `String`,
+   `Reader`,)
+* `Plain text message body`
+(
+   `String`,
+   `Reader`,)
+
+| [#fnc-email-message]#<<fnc-email-message,Email builder>>#
+| Constructs new email message from basic parameters without sending it
+|
+.Parameters:
+* `Subject`
+(
+   `String`,
+   `Reader`,)
+* `Reply to`
+(
+   `String`,
+   `User`,)
+* `Sender`
+(
+   `String`,
+   `User`,)
+* `Recipients`
+(
+   `String`,
+   `KV`,
+   `User`,)
+* `CC`
+(
+   `String`,
+   `KV`,
+   `User`,)
+* `HTML message body`
+(
+   `String`,
+   `Reader`,)
+* `Plain text message body`
+(
+   `String`,
+   `Reader`,)
+
+.Results:
+* message (`EmailMessage`)
+
+| [#fnc-email-sendmessage]#<<fnc-email-sendmessage,Email sender>>#
+| Sends email message
+|
+.Parameters:
+* #*# `Message to be sent`
+(
+   `EmailMessage`,)
+
+| [#fnc-email-setsubject]#<<fnc-email-setsubject,Email subject>>#
+| Sets subject on the email message
+|
+.Parameters:
+* #*# `Message to be sent`
+(
+   `EmailMessage`,)
+* #*# `Subject`
+(
+   `String`,)
+
+| [#fnc-email-setheaders]#<<fnc-email-setheaders,Email headers>>#
+| Sets message headers (overrides any existing headers, subject, recipients)
+|
+.Parameters:
+* #*# `Message to be sent`
+(
+   `EmailMessage`,)
+* #*# `Headers`
+(
+   `KVV`,)
+
+| [#fnc-email-setheader]#<<fnc-email-setheader,Email header>>#
+| Sets or removes specific header without changing the rest
+|
+.Parameters:
+* #*# `Message to be sent`
+(
+   `EmailMessage`,)
+* #*# `Value`
+(
+   `String`,)
+* `Value`
+(
+   `String`,)
+
+| [#fnc-email-setaddress]#<<fnc-email-setaddress,Email address>>#
+| Adds new recipient, sender or reply-to address
+|
+.Parameters:
+* #*# `Message to be sent`
+(
+   `EmailMessage`,)
+* #*# `Type`
+(
+   `String`,)
+* #*# `Address`
+(
+   `String`,)
+* `Name`
+(
+   `String`,)
+
+| [#fnc-email-attach]#<<fnc-email-attach,Email attachment>>#
+| Attach content to an email message
+|
+.Parameters:
+* #*# `Message to be sent`
+(
+   `EmailMessage`,)
+* #*# `Content`
+(
+   `Reader`,
+   `String`,)
+* `Name`
+(
+   `String`,)
+
+| [#fnc-email-embed]#<<fnc-email-embed,Email embedded attachment>>#
+| Embed file (image) to an email message
+|
+.Parameters:
+* #*# `Message to be sent`
+(
+   `EmailMessage`,)
+* #*# `Content`
+(
+   `Reader`,)
+* `Name`
+(
+   `String`,)
+
+|===
+= `httpRequest`
+
+[cols="2m,4a,3a"]
+|===
+| Name | Description | I/O
+
+| [#fnc-httprequest-send]#<<fnc-httprequest-send,HTTP request>>#
+| Sends HTTP requests
+|
+.Parameters:
+* #*# `url`
+(
+   `String`,)
+* #*# `method`
+(
+   `String`,)
+* `params`
+(
+   `KVV`,)
+* `headers`
+(
+   `KVV`,)
+* `headerAuthBearer`
+(
+   `String`,)
+* `headerAuthUsername`
+(
+   `String`,)
+* `headerAuthPassword`
+(
+   `String`,)
+* `headerUserAgent`
+(
+   `String`,)
+* `headerContentType`
+(
+   `String`,)
+* `timeout`
+(
+   `Duration`,)
+* `form`
+(
+   `KVV`,)
+* `body`
+(
+   `String`,
+   `Reader`,
+   `Any`,)
+
+.Results:
+* status (`String`)
+* statusCode (`Integer`)
+* headers (`KVV`)
+* contentLength (`Integer`)
+* contentType (`String`)
+* body (`Reader`)
+
+|===
+= `log`
+
+[cols="2m,4a,3a"]
+|===
+| Name | Description | I/O
+
+| [#fnc-log-debug]#<<fnc-log-debug,Log debug message>>#
+| 
+|
+.Parameters:
+* #*# `message`
+(
+   `String`,)
+* `fields`
+(
+   `KV`,)
+
+| [#fnc-log-info]#<<fnc-log-info,Log info message>>#
+| 
+|
+.Parameters:
+* #*# `message`
+(
+   `String`,)
+* `fields`
+(
+   `KV`,)
+
+| [#fnc-log-warn]#<<fnc-log-warn,Log warning message>>#
+| 
+|
+.Parameters:
+* #*# `message`
+(
+   `String`,)
+* `fields`
+(
+   `KV`,)
+
+| [#fnc-log-error]#<<fnc-log-error,Log error message>>#
+| 
+|
+.Parameters:
+* #*# `message`
+(
+   `String`,)
+* `fields`
+(
+   `KV`,)
+
+|===
+= `loop`
+
+[cols="2m,4a,3a"]
+|===
+| Name | Description | I/O
+
+|===
+= `modules`
+
+[cols="2m,4a,3a"]
+|===
+| Name | Description | I/O
+
+| [#fnc-modules-lookup]#<<fnc-modules-lookup,Compose module lookup>>#
+| Find specific module by ID or handle
+|
+.Parameters:
+* #*# `module`
+(
+   `ID`,
+   `Handle`,
+   `ComposeModule`,)
+* #*# `namespace`
+(
+   `ID`,
+   `Handle`,
+   `ComposeNamespace`,)
+
+.Results:
+* module (`ComposeModule`)
+
+|===
+= `namespaces`
+
+[cols="2m,4a,3a"]
+|===
+| Name | Description | I/O
+
+| [#fnc-namespaces-lookup]#<<fnc-namespaces-lookup,Compose namespace lookup>>#
+| Find specific namespace by ID or handle
+|
+.Parameters:
+* #*# `namespace`
+(
+   `ID`,
+   `Handle`,
+   `ComposeNamespace`,)
+
+.Results:
+* namespace (`ComposeNamespace`)
+
+|===
+= `records`
+
+[cols="2m,4a,3a"]
+|===
+| Name | Description | I/O
+
+| [#fnc-records-lookup]#<<fnc-records-lookup,Compose record lookup>>#
+| Find specific record by ID
+|
+.Parameters:
+* #*# `Module to set record type`
+(
+   `ID`,
+   `Handle`,
+   `ComposeModule`,)
+* #*# `namespace`
+(
+   `ID`,
+   `Handle`,
+   `ComposeNamespace`,)
+* #*# `record`
+(
+   `ID`,
+   `ComposeRecord`,)
+
+.Results:
+* record (`ComposeRecord`)
+
+| [#fnc-records-search]#<<fnc-records-search,Compose records search>>#
+| 
+|
+.Parameters:
+* #*# `Module to set record type`
+(
+   `ID`,
+   `Handle`,
+   `ComposeModule`,)
+* #*# `namespace`
+(
+   `ID`,
+   `Handle`,
+   `ComposeNamespace`,)
+* `query`
+(
+   `String`,)
+* `labels`
+(
+   `KV`,)
+* `deleted`
+(
+   `UnsignedInteger`,)
+* `sort`
+(
+   `String`,)
+* `limit`
+(
+   `UnsignedInteger`,)
+* `incTotal`
+(
+   `Boolean`,)
+* `incPageNavigation`
+(
+   `Boolean`,)
+* `pageCursor`
+(
+   `String`,)
+
+.Results:
+* records (`ComposeRecord`)
+* Total records found (`UnsignedInteger`)
+
+| [#fnc-records-first]#<<fnc-records-first,Compose record lookup (first created)>>#
+| 
+|
+.Parameters:
+* #*# `Module to set record type`
+(
+   `ID`,
+   `Handle`,
+   `ComposeModule`,)
+* #*# `namespace`
+(
+   `ID`,
+   `Handle`,
+   `ComposeNamespace`,)
+
+.Results:
+* record (`ComposeRecord`)
+
+| [#fnc-records-last]#<<fnc-records-last,Compose record lookup (last created)>>#
+| 
+|
+.Parameters:
+* #*# `Module to set record type`
+(
+   `ID`,
+   `Handle`,
+   `ComposeModule`,)
+* #*# `namespace`
+(
+   `ID`,
+   `Handle`,
+   `ComposeNamespace`,)
+
+.Results:
+* record (`ComposeRecord`)
+
+| [#fnc-records-new]#<<fnc-records-new,Compose record maker>>#
+| Creates new compose record instance without saving it
+|
+.Parameters:
+* #*# `Module to set record type`
+(
+   `ID`,
+   `Handle`,
+   `ComposeModule`,)
+* #*# `namespace`
+(
+   `ID`,
+   `Handle`,
+   `ComposeNamespace`,)
+
+.Results:
+* record (`ComposeRecord`)
+
+| [#fnc-records-validate]#<<fnc-records-validate,Compose record validator>>#
+| 
+|
+.Parameters:
+* #*# `record`
+(
+   `ComposeRecord`,)
+
+.Results:
+* Set to true when record is valid (`Boolean`)
+
+| [#fnc-records-create]#<<fnc-records-create,Compose record create>>#
+| 
+|
+.Parameters:
+* #*# `record`
+(
+   `ComposeRecord`,)
+
+.Results:
+* record (`ComposeRecord`)
+
+| [#fnc-records-update]#<<fnc-records-update,Compose record update>>#
+| 
+|
+.Parameters:
+* #*# `record`
+(
+   `ComposeRecord`,)
+
+.Results:
+* record (`ComposeRecord`)
+
+| [#fnc-records-delete]#<<fnc-records-delete,Compose record delete>>#
+| 
+|
+.Parameters:
+* #*# `record`
+(
+   `ID`,
+   `ComposeRecord`,)
+
+| [#fnc-records-report]#<<fnc-records-report,Report>>#
+| Compose records report
+|
+.Parameters:
+* #*# `Module to set record type`
+(
+   `ID`,
+   `Handle`,
+   `ComposeModule`,)
+* #*# `namespace`
+(
+   `ID`,
+   `Handle`,
+   `ComposeNamespace`,)
+* #*# `Metrics for records report`
+(
+   `String`,)
+* #*# `Dimensons for records report`
+(
+   `String`,)
+* #*# `Filter for records report`
+(
+   `String`,)
+
+.Results:
+* Complex structure holding complete records report (`Any`)
+
+|===
+= `roles`
+
+[cols="2m,4a,3a"]
+|===
+| Name | Description | I/O
+
+| [#fnc-roles-lookup]#<<fnc-roles-lookup,Role lookup>>#
+| Find specific role by ID or handle
+|
+.Parameters:
+* #*# `lookup`
+(
+   `ID`,
+   `Handle`,
+   `Role`,)
+
+.Results:
+* role (`Role`)
+
+| [#fnc-roles-search]#<<fnc-roles-search,Roles search>>#
+| 
+|
+.Parameters:
+* `query`
+(
+   `String`,)
+* `memberID`
+(
+   `ID`,)
+* `handle`
+(
+   `String`,)
+* `name`
+(
+   `String`,)
+* `labels`
+(
+   `KV`,)
+* `deleted`
+(
+   `UnsignedInteger`,)
+* `archived`
+(
+   `UnsignedInteger`,)
+* `sort`
+(
+   `String`,)
+* `limit`
+(
+   `UnsignedInteger`,)
+* `incTotal`
+(
+   `Boolean`,)
+* `incPageNavigation`
+(
+   `Boolean`,)
+* `pageCursor`
+(
+   `String`,)
+
+.Results:
+* roles (`Role`)
+* total (`UnsignedInteger`)
+
+| [#fnc-roles-create]#<<fnc-roles-create,Role creator>>#
+| 
+|
+.Parameters:
+* #*# `role`
+(
+   `Role`,)
+
+.Results:
+* role (`Role`)
+
+| [#fnc-roles-update]#<<fnc-roles-update,Role update>>#
+| 
+|
+.Parameters:
+* #*# `role`
+(
+   `Role`,)
+
+.Results:
+* role (`Role`)
+
+| [#fnc-roles-delete]#<<fnc-roles-delete,Role delete>>#
+| 
+|
+.Parameters:
+* #*# `lookup`
+(
+   `ID`,
+   `Handle`,
+   `Role`,)
+
+| [#fnc-roles-recover]#<<fnc-roles-recover,Role recover>>#
+| 
+|
+.Parameters:
+* #*# `lookup`
+(
+   `ID`,
+   `Handle`,
+   `Role`,)
+
+| [#fnc-roles-archive]#<<fnc-roles-archive,Role archive>>#
+| 
+|
+.Parameters:
+* #*# `lookup`
+(
+   `ID`,
+   `Handle`,
+   `Role`,)
+
+| [#fnc-roles-unarchive]#<<fnc-roles-unarchive,Role unarchive>>#
+| 
+|
+.Parameters:
+* #*# `lookup`
+(
+   `ID`,
+   `Handle`,
+   `Role`,)
+
+|===
+= `templates`
+
+[cols="2m,4a,3a"]
+|===
+| Name | Description | I/O
+
+| [#fnc-templates-lookup]#<<fnc-templates-lookup,Template lookup>>#
+| Find specific template by ID or handle
+|
+.Parameters:
+* #*# `lookup`
+(
+   `ID`,
+   `Handle`,
+   `Template`,)
+
+.Results:
+* template (`Template`)
+
+| [#fnc-templates-search]#<<fnc-templates-search,Templates search>>#
+| 
+|
+.Parameters:
+* `handle`
+(
+   `String`,)
+* `type`
+(
+   `String`,)
+* `ownerID`
+(
+   `ID`,)
+* `partial`
+(
+   `Boolean`,)
+* `labels`
+(
+   `KV`,)
+* `sort`
+(
+   `String`,)
+* `limit`
+(
+   `UnsignedInteger`,)
+* `incTotal`
+(
+   `Boolean`,)
+* `incPageNavigation`
+(
+   `Boolean`,)
+* `pageCursor`
+(
+   `String`,)
+
+.Results:
+* templates (`Template`)
+* total (`UnsignedInteger`)
+
+| [#fnc-templates-create]#<<fnc-templates-create,Template create>>#
+| 
+|
+.Parameters:
+* #*# `template`
+(
+   `Template`,)
+
+.Results:
+* template (`Template`)
+
+| [#fnc-templates-update]#<<fnc-templates-update,Template update>>#
+| 
+|
+.Parameters:
+* #*# `template`
+(
+   `Template`,)
+
+.Results:
+* template (`Template`)
+
+| [#fnc-templates-delete]#<<fnc-templates-delete,Template delete>>#
+| 
+|
+.Parameters:
+* #*# `lookup`
+(
+   `ID`,
+   `Handle`,
+   `Template`,)
+
+| [#fnc-templates-recover]#<<fnc-templates-recover,Template recover>>#
+| 
+|
+.Parameters:
+* #*# `lookup`
+(
+   `ID`,
+   `Handle`,
+   `Template`,)
+
+| [#fnc-templates-render]#<<fnc-templates-render,Render template>>#
+| 
+|
+.Parameters:
+* #*# `lookup`
+(
+   `ID`,
+   `Handle`,
+   `Template`,)
+* `documentName`
+(
+   `String`,)
+* `documentType`
+(
+   `String`,)
+* `variables`
+(
+   `Vars`,)
+* `options`
+(
+   `RenderOptions`,)
+
+.Results:
+* document (`RenderedDocument`)
+
+|===
+= `users`
+
+[cols="2m,4a,3a"]
+|===
+| Name | Description | I/O
+
+| [#fnc-users-lookup]#<<fnc-users-lookup,User lookup>>#
+| Find specific user by ID, handle or string
+|
+.Parameters:
+* #*# `lookup`
+(
+   `ID`,
+   `Handle`,
+   `String`,
+   `User`,)
+
+.Results:
+* user (`User`)
+
+| [#fnc-users-search]#<<fnc-users-search,User search>>#
+| 
+|
+.Parameters:
+* `query`
+(
+   `String`,)
+* `email`
+(
+   `String`,)
+* `handle`
+(
+   `String`,)
+* `labels`
+(
+   `KV`,)
+* `deleted`
+(
+   `UnsignedInteger`,)
+* `suspended`
+(
+   `UnsignedInteger`,)
+* `sort`
+(
+   `String`,)
+* `limit`
+(
+   `UnsignedInteger`,)
+* `incTotal`
+(
+   `Boolean`,)
+* `incPageNavigation`
+(
+   `Boolean`,)
+* `pageCursor`
+(
+   `String`,)
+
+.Results:
+* users (`User`)
+* total (`UnsignedInteger`)
+
+| [#fnc-users-create]#<<fnc-users-create,User create>>#
+| 
+|
+.Parameters:
+* #*# `user`
+(
+   `User`,)
+
+.Results:
+* user (`User`)
+
+| [#fnc-users-update]#<<fnc-users-update,User update>>#
+| 
+|
+.Parameters:
+* #*# `user`
+(
+   `User`,)
+
+.Results:
+* user (`User`)
+
+| [#fnc-users-delete]#<<fnc-users-delete,User delete>>#
+| 
+|
+.Parameters:
+* #*# `lookup`
+(
+   `ID`,
+   `Handle`,
+   `String`,
+   `User`,)
+
+| [#fnc-users-recover]#<<fnc-users-recover,User recover>>#
+| 
+|
+.Parameters:
+* #*# `lookup`
+(
+   `ID`,
+   `Handle`,
+   `String`,
+   `User`,)
+
+| [#fnc-users-suspend]#<<fnc-users-suspend,User suspend>>#
+| 
+|
+.Parameters:
+* #*# `lookup`
+(
+   `ID`,
+   `Handle`,
+   `String`,
+   `User`,)
+
+| [#fnc-users-unsuspend]#<<fnc-users-unsuspend,User unsuspend>>#
+| 
+|
+.Parameters:
+* #*# `lookup`
+(
+   `ID`,
+   `Handle`,
+   `String`,
+   `User`,)
+
+|===

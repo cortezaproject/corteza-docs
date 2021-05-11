@@ -57,6 +57,7 @@
 *** xref:workflows/style-guide-best-practices.adoc[]
 *** xref:workflows/scope-in-depth.adoc[]
 *** xref:workflows/testing-debugging.adoc[]
+*** xref:workflows/func-reference.adoc[]
 *** xref:workflows/types.adoc[]
 *** Examples
 **** xref:workflows/examples/interval.adoc[]

@@ -1,4 +1,4 @@
-include::../../../variables.adoc[]
+include::ROOT:partial$variables.adoc[]
 
 The sample feature implements a brand new monitoring system for all devices connected to the core system; their availability and memory consumption.
 The feature defines a new API, a new database schema and a modern web app.

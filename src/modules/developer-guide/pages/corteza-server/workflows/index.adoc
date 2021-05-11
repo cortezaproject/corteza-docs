@@ -1,0 +1,106 @@
+include::ROOT:partial$variables.adoc[]
+
+= {APP_NAME_WORKFLOW}
+
+{PRODUCT_NAME} workflow (further referred to as a workflow) allow you to implement custom business logic without the need for any programming knowledge.
+
+[NOTE]
+====
+*DevNote* provide some diagrams regarding the packages and the flows.
+====
+
+== Package structure
+
+The core workflow logic is implemented in the `automation` and `wfexec` packages.
+Additionally, each main service provides its own `automation` sub-package, which defines type definitions and handler function definitions.
+
+The `automation` package is responsible for CRUD operations over the resources that define the automation, such as the workflow and trigger.
+In addition, it is responsible for setting up and manage the facility that prepares, executes and resumes workflows.
+
+The `wfexec` package is responsible for executing the provided automation over the provided context.
+The `wfexec` package unaware of the parent automation package and can execute any valid set of `wfexec.Step` interfaces represented as a graph.
+
+=== `/automation`
+
+.The key points of the `automation` package:
+* *A workflow* encapsulates the logic and the metadata for the automation.
+A workflow is not necessarily valid or executable.
+* *A trigger* encapsulates the logic and the metadata that define when the workflow should be executed.
+* *A session* encapsulates a workflow that is not not started (for example, started, suspended or completed).
+A session may be flushed to the database and restarted at a later point in time.
+* The *automation registry* contains type and handler definitions that the automation can use.
+
+=== `/pkg/wfexec`
+
+.The key points of the `automation` package:
+* The *graph* encapsulates all of the steps defined for a specific workflow.
+The graph needs to traverse through the nodes and execute them in order.
+* The *step* is the graph node that executes the required operation.
+* The *execution session* encapsulates some internal execution logic, separate from the automation session.
+
+== Setup
+
+The automation service setup initializes all of the sub-services, populates the automation registry, and prepares the facility to execute workflows and produce results.
+
+.The automation service...
+. initializes all of the sub-services, along with the automation registry,
+. registers all known workflows and triggers on the event bus,
+. initializes a session watcher, which will process execution requests.
+
+When we register the workflow to the eventbus, its triggers are converted into a set of `eventbus.ConstraintMatcher` interfaces; the workflow itself is converted into a `wfexec.Graph` by the logic in the `automation/service/workflow_converter.go`.
+The initial workflow validation (structure, relations) is performed when converting it to the `wfexec.Graph`.
+
+[CAUTION]
+====
+A `wfexec.Step` corresponding to the `types.WorkflowStep` may be implemented outside of the `wfexec` package.
+====
+
+The core responsibility of the session watcher is to initialize `wfexec.Session` structs on the root `context.Context` when passed into the `spawnQueue` channel.
+
+[CAUTION]
+====
+Workflows are executed on the root `context.Context` to avoid accidental context terminations by the requesting source (for example, the HTTP request that invoked the execution).
+====
+
+== Execution
+
+Workflow execution is either invoked via the eventbus or directly by a service.
+
+.The eventbus event...
+. matches all of the handlers that match the provided event,
+. invokes the workflow handler function (`automation/service/workflow.go@makeWorkflowHandler`) to prepare the execution context,
+. creates and runs the automation session (`automation/service/session.go@.Start`).
+
+The automation session service creates the `automation.Session` struct, which provides the core context of the execution, and wraps the `wfexec.Session`, which provides the execution specific context.
+
+The `wfexec.Session` creation runs a `worker` (`pkg/wfexec/session.go@worker`), which executes the steps passed through the `qState` channel.
+
+[CAUTION]
+====
+Each `wfexec.Session` runs its worker in a go routine.
+====
+
+When the `automation.Session` is executed, it executes the underlying `wfexec.Session`.
+When a step is executed (`pkg/wfexec/session.go@.exec`), the result is used to determine the next step to execute.
+
+== Handlers and types
+
+Each service may define an `automation` module that defines the data types and handler functions for that service.
+
+*Handlers* are defined in the `automation/*_handler.yaml` files (for example `automation/log_handler.yaml`) and are generated into `automation/*.gen.go` files (for example `automation/automation/log_handler.gen.go`).
+The function step executes these handlers.
+
+[CAUTION]
+====
+The generated files implement the boilerplate for the handler.
+The main logic must still be implemented (for example `automation/automation/log_handler.go`).
+====
+
+*Types* are defined in the `automation/expr_types.yaml` files (for example `automation/automation/expr_types.yaml`) and are generated into `automation/expr_types.gen.go` files (for example `automation/automation/expr_types.gen.go`).
+These types implement the `expr.TypedValue` interface and can be used within expressions.
+
+[CAUTION]
+====
+The generated files implement the boilerplate for the type.
+If the type requires additional complexity (such as gval selectors), you must implement those manually.
+====

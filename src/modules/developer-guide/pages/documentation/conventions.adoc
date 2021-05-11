@@ -1,51 +1,59 @@
 include::ROOT:partial$variables.adoc[]
 
-[#documentation-conventions]
 = Conventions
 
-Use the following conventions as a *reference* when you wish to do some extra *formatting* to your documents.
+When writing, please use the following conventions as a reference, especially for when you wish to add some extra formatting to your documents.
 
 The bellow list is aggregated from https://asciidoctor.org/docs/asciidoc-syntax-quick-reference/[AsciiDoc], shortened and adjusted to our needs.
 
-Please *follow the* below *conventions* when contributing to the documentation.
+Please, do your best to *follow the conventions* listed below when contributing to the documentation.
 
-== Composition
+We are quite strict in having *1 sentence per line* to have a nicer version history of the document in production.
 
-When composing documents that will be *consumed from a device*, it is essential to *define a stable*, *easy to understand*, and *compact structure*.
-Here are a few tips to help you out:
+== Composition, formation, layout
 
-Visually group things::
-    Use *paragraphs*, *lists*, *admonition blocks*, and other blocks to visually group things that fit together.
-    If something is not relevant in this section but is appropriate in the next one, move it there.
+When composing any text it is important to pay attention its formation and layout, especially so when we talk about documents *viewed via electronic devices*.
 
-Use formatting to break monotone text::
-    Use *bold*, *italic*, *links*, *inline code blocks*, and other formatting to expose the crucial bits for that paragraph.
-    *Do not go overboard*.
+It is essential to produce a document that is *easy to understand* and *stable* from both the perspective of contents and the visual perspective.
+Consistency is crucial.
+
+It may be good to:
+
+.Visually group
+Make sure you group components that fit together, i.e., discussions of the same concept, concept and an example, subpoints and tips...
+
+[NOTE]
+====
+If something is not relevant in a section, move it elsewhere.
+It is better to add a section than to compromise on coherency and fluidity of the document. 
+====
+
+.Drawing attention to crucial points
+* Use *bold*, *italic*, *links*, *inline code blocks*, and other formatting to point out crucial points you make.
+* *Do not go overboard*, as highlighting excessively results in the decrease of attentitivenes to a highlighted sections.
 
 == Lists
 
-Use lists to give the document some *additional structure*, *outline* the * essential bits*, or show a *sequence* of things.
+You can use lists to provide the document with *additional structure*, to *outline* the essential points, display a *sequence* etc.
+Try to keep lists *short*, as they can make the document harder to read.
 
-.General rules:
-* Try to keep them *as short as possible*, as they can make it harder to read.
+.Punctuation:
 * If a list item is a *proper sentence*, start with a *capital letter*, and end with a *period*.
 * If a list item is *not* a *proper sentence*, start with a *lowercase letter*, and (optionally) end with a *comma*.
-* Do not mix proper sentences and non-proper sentences.
+In case you choose to use commas, start the first item with a capital letter end the last one with a period. 
+* If the entire list is one sentece broken down into clauses for each point, make sure to start the first list item with a capital letter, finish up the point with a comma, continue with a lowercase letter in the following point, finish it up with a comma and so on.
+Wrap the list up with a period.
+* Do not mix sentence patterns when producing a list.
 
 .Example of a proper sentence; the outline of our documents:
 * The *end-user guide* talks about things relevant to the end-users.
 * The *integrator guide* talks about creating new things based on the {PRODUCT_NAME}.
 * The *developer guide* helps the core developers keep track on how to maintain different features.
 
-.Example of a not-proper sentence; you should know how to use:
-* Golang,
-* JavaScript,
-* VueJS.
-
 === Ordered lists
 
 List items in an *ordered list* should *start with a dot* (`. ...content here...`) instead of an actual number (it gets assigned at compile-time).
-For example:
+Please, see the below example.
 
 [source,adoc]
 ----
@@ -54,10 +62,19 @@ For example:
 . list item 2.
 ----
 
+Multiple dots should be used when you are indenting the line item.
+Please, see the below example.
+
+----
+. item (this becomes 1.)
+.. sub item (this becomes a.)
+... sub sub item (this becomes i.)
+----
+
 === Unordered lists
 
 List items in an *unordered list* should *start with a star* (`* ...content here...`).
-For example:
+Please, see the below example.
 
 [source,adoc]
 ----
@@ -65,6 +82,8 @@ For example:
 * list item 1,
 * list item 2.
 ----
+
+Multiple asterisks (`*` symbol) should be used when indenting the line item.
 
 [TIP]
 ====
@@ -74,7 +93,7 @@ If your list items are long, try to restructure your section, or use multi-line 
 === Multi-line description blocks
 
 Use description blocks when your *lists* start *getting long*.
-They firstly present the *key point* of the block, followed by a more *detailed description*.
+They firstly present the *key point* of the block, followed by a more *detailed description* that is shifted to the right.
 
 [source,adoc]
 ----
@@ -84,8 +103,7 @@ They firstly present the *key point* of the block, followed by a more *detailed 
     [Description here].
 ----
 
-For example:
-
+To examplify:
 [source,adoc]
 ----
 == Corteza documentation structure
@@ -107,10 +125,10 @@ Integrator guide::
 [IMPORTANT]
 ====
 Try not to overuse this.
-If your descriptions are *getting long* and feel like they should be in a *new sub-section* -- do that instead.
+If your descriptions *get long*, it may be better to restructure and divide the text into several sub-sections instead.
 ====
 
-== Code snippets
+== Including code snippets
 
 === Short one-liners
 
@@ -119,9 +137,8 @@ Use *short one-liners* when you wish to show specific *things inline*, such as *
 === Longer code snippets
 
 When working on examples or longer code snippets, use the source code syntax; `[source,{language here}]`; blocked with four dashes `----`.
-For example:
+Please, see the below example.
 
-// We'll allow this exception here
 ```
 [source,adoc]
 ----
@@ -131,37 +148,32 @@ For example:
 
 == Admonition
 
-Use the *admonition block* syntax when wanting to create admonitions; where you want *extra attention*.
-For example:
+Use the *admonition block* syntax when wanting to create admonitions; where you want *extra attention* to be drawn to.
 
-[source,adoc]
-----
-[IMPORTANT]
-====
-This is *very* important!
-====
-----
+.You can use the following:
+* NOTE
+* TIP
+* IMPORTANT
+* WARNING
+* CAUTION
 
-.You can use; they are self-explanatory:
-* `NOTE`
-* `TIP`
-* `IMPORTANT`
-* `WARNING`
-* `CAUTION`
+These are pretty much self-explanatory.
+Do not overuse.
 
 == Diagrams
 
-*Use the https://plantuml.com/[PlantUML]* framework for any diagrams (unless there is an explicit reason why not).
-This allows us to *keep things consistent*, *easy to maintain*, and *preserve version history*.
+*Use the https://plantuml.com/[PlantUML]* framework for any diagrams (unless there is an explicit reason for not doing so).
+This allows us to *keep things consistent*, *preserve version history* and *easy to maintain*.
 
 [TIP]
 ====
 Move *larger diagrams* into *separate files* to avoid clutter and unreadable source.
 ====
 
-// This here is also an exception
+Provide a good caption to summarize the *entire* diagram. 
+You shouldn't use more than one line for a diagram caption.
+
 ```
-.Provide a good caption to summarize the *entire* diagram. You can't multi-line captions, so we'll allow it like this here.
 [plantuml,diagram-name-here,svg,role=diagram-name]
 ----
 @startuml
@@ -174,23 +186,17 @@ Move *larger diagrams* into *separate files* to avoid clutter and unreadable sou
 
 [TIP]
 ====
-Larger diagrams can get a bit messy to understand what is going on, so do your best to *group elements together*, and use a nice *comment* to indicate it.
+Larger diagrams may be harder to understand. 
+Do your best to *group elements together*, and use a nice *comment* to indicate it.
 ====
 
 Diagram captions::
-    A caption *must be enough* for the reader to know *what's going on* in the diagram.
+    A caption *must be enough* for the reader to get an idea about *what goes on* in a diagram.
     Make sure that the caption gives the reader enough insight to have an idea *what they can expect* to learn *from the diagram*.
-
-[IMPORTANT]
-====
-We are quite strict in having *1 sentence per line* to have nicer version history.
-Here, however, I am unable to figure out how/if this is possible.
-You are *free to inline your captions* (for now).
-====
 
 Comments::
     A PlantUML comment starts with `'` (single line), or is enclosed between `/'`, and `'/`.
-    We'll use the following notation to be consistent:
+    Please, use the following notation for the sake of consistency;
 
 [source,adoc]
 ----
@@ -201,7 +207,7 @@ Comments::
 ----
 
 Diagram structure::
-    You are free to use any diagram, and any component defined by the diagram.
+    You are free to use any diagram and any component defined by the diagram.
     *Avoid visual customization* using *Skinparam*.
 
 == Referencing
@@ -216,10 +222,10 @@ Page cross-references::
 [source,adoc]
 ----
 // Template
-xref:ROOT:guide-goes-here/path-to-source.adoc[label-goes-here]
+xref:guide-goes-here:path-to-source.adoc[label-goes-here]
 
 // For example:
-xref:messaging/index.adoc[{PRODUCT_NAME} {APP_NAME_MESSAGING}]
+xref:integrator-guide:workflows/index.adoc[Workflows]
 ----
 
 [TIP]
@@ -247,13 +253,13 @@ Same page references::
 
 Same page references are simple::
     Same page references can *only link* to things that are *on the current page*.
-    If you try to link to something that is *not on the screen*, the link *will not work*.
+    In case you try to link to something that is *not on the screen*, the link *will not work*.
     Use *page cross-references*.
 
-Keep section ID's simple::
-    Section ID's are relevant *only for the given page*.
+Keep section IDs simple::
+    Section IDs are relevant *only for the given page*.
     They don't need to be *unique* across the entire documentation, just *for the current page*.
-    Example: `[#extension-deployment]`
+    To examplify; `[#extension-deployment]`
 
 Don't go overboard::
     If somesomething is *required for the understanding* of the given section, add a *quick summary* and link to the complete document afterwards.

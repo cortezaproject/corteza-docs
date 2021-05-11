@@ -30,16 +30,3 @@
 ** xref:corteza-vue/index.adoc[]
 *** xref:corteza-vue/structure.adoc[]
 *** xref:corteza-vue/authentication.adoc[]
-
-
-
-
-
-
-
-
-
-// ** xref:local-setup.adoc[]
-// ** xref:api.adoc[]
-// ** xref:auth.adoc[]
-

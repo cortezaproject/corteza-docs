@@ -6,6 +6,4 @@ include::conventions.adoc[]
 
 include::writing-guidelines.adoc[]
 
-include::examples/index.adoc[]
-
 :leveloffset: -1

@@ -1,5 +1,3 @@
-include::ROOT:partial$variables.adoc[]
-
 // This file is auto-generated.
 //
 // Changes to this file may cause incorrect behavior and will be lost if
@@ -9,6 +7,7 @@ include::ROOT:partial$variables.adoc[]
 //  - pkg/options/DB.yaml
 //  - pkg/options/HTTPClient.yaml
 //  - pkg/options/HTTPServer.yaml
+//  - pkg/options/SCIM.yaml
 //  - pkg/options/SMTP.yaml
 //  - pkg/options/actionLog.yaml
 //  - pkg/options/auth.yaml
@@ -20,9 +19,11 @@ include::ROOT:partial$variables.adoc[]
 //  - pkg/options/objectStore.yaml
 //  - pkg/options/provision.yaml
 //  - pkg/options/sentry.yaml
+//  - pkg/options/template.yaml
 //  - pkg/options/upgrade.yaml
 //  - pkg/options/waitFor.yaml
-//  - pkg/options/websocket.yaml
+//  - pkg/options/workflow.yaml
+include::ROOT:partial$variables.adoc[]
 
 
 = Connection to data store backend
@@ -35,7 +36,10 @@ include::ROOT:partial$variables.adoc[]
 
 === Default
 
-`"sqlite3://file::memory:?cache=shared&mode=memory"`
+[source]
+----
+"sqlite3://file::memory:?cache=shared&mode=memory"
+----
 
 === Description
 
@@ -43,7 +47,7 @@ Database connection string.
 
 = HTTP Client
 
-== *HTTP_CLIENT_TSL_INSECURE*
+== *HTTP_CLIENT_TLS_INSECURE*
 
 === Type
 
@@ -51,11 +55,14 @@ Database connection string.
 
 === Default
 
-`false`
+[source]
+----
+false
+----
 
 === Description
 
-Allow insecure (invalid, expired TSL/SSL certificates) connections.
+Allow insecure (invalid, expired TLS/SSL certificates) connections.
 
 [IMPORTANT]
 ====
@@ -70,7 +77,10 @@ We strongly recommend keeping this value set to false except for local developme
 
 === Default
 
-`30 * time.Second`
+[source]
+----
+30 * time.Second
+----
 
 === Description
 
@@ -86,7 +96,10 @@ Default timeout for clients.
 
 === Default
 
-`":80"`
+[source]
+----
+":80"
+----
 
 === Description
 
@@ -100,7 +113,10 @@ IP and port for the HTTP server.
 
 === Default
 
-`false`
+[source]
+----
+false
+----
 
 === Description
 
@@ -114,7 +130,10 @@ Log HTTP requests.
 
 === Default
 
-`false`
+[source]
+----
+false
+----
 
 === Description
 
@@ -128,7 +147,10 @@ Log HTTP responses.
 
 === Default
 
-`false`
+[source]
+----
+false
+----
 
 
 == *HTTP_ENABLE_HEALTHCHECK_ROUTE*
@@ -139,7 +161,10 @@ Log HTTP responses.
 
 === Default
 
-`true`
+[source]
+----
+true
+----
 
 
 == *HTTP_ENABLE_VERSION_ROUTE*
@@ -150,7 +175,10 @@ Log HTTP responses.
 
 === Default
 
-`true`
+[source]
+----
+true
+----
 
 === Description
 
@@ -164,7 +192,10 @@ Enable `/version` route.
 
 === Default
 
-`false`
+[source]
+----
+false
+----
 
 === Description
 
@@ -178,7 +209,10 @@ Enable `/debug` route.
 
 === Default
 
-`false`
+[source]
+----
+false
+----
 
 === Description
 
@@ -192,7 +226,10 @@ Enable (prometheus) metrics.
 
 === Default
 
-`"corteza"`
+[source]
+----
+"corteza"
+----
 
 === Description
 
@@ -206,7 +243,10 @@ Name for metrics endpoint.
 
 === Default
 
-`"metrics"`
+[source]
+----
+"metrics"
+----
 
 === Description
 
@@ -220,7 +260,10 @@ Username for the metrics endpoint.
 
 === Default
 
-`string(rand.Bytes(5))`
+[source]
+----
+string(rand.Bytes(5))
+----
 
 === Description
 
@@ -234,7 +277,10 @@ Password for the metrics endpoint.
 
 === Default
 
-`true`
+[source]
+----
+true
+----
 
 === Description
 
@@ -248,7 +294,10 @@ Report HTTP panic to Sentry.
 
 === Default
 
-`true`
+[source]
+----
+true
+----
 
 
 == *HTTP_API_BASE_URL*
@@ -266,7 +315,10 @@ Report HTTP panic to Sentry.
 
 === Default
 
-`false`
+[source]
+----
+false
+----
 
 
 == *HTTP_WEBAPP_BASE_URL*
@@ -277,7 +329,10 @@ Report HTTP panic to Sentry.
 
 === Default
 
-`"/"`
+[source]
+----
+"/"
+----
 
 
 == *HTTP_WEBAPP_BASE_DIR*
@@ -288,7 +343,10 @@ Report HTTP panic to Sentry.
 
 === Default
 
-`"webapp/public"`
+[source]
+----
+"webapp/public"
+----
 
 
 == *HTTP_WEBAPP_LIST*
@@ -299,8 +357,77 @@ Report HTTP panic to Sentry.
 
 === Default
 
-`"admin,auth,messaging,compose"`
+[source]
+----
+"admin,compose,workflow"
+----
 
+
+= SCIM Server
+
+== *SCIM_ENABLED*
+
+=== Type
+
+`bool`
+
+=== Description
+
+Enable SCIM subsystem
+
+== *SCIM_BASE_URL*
+
+=== Type
+
+`string`
+
+=== Default
+
+[source]
+----
+"/scim"
+----
+
+=== Description
+
+Prefix for SCIM API endpoints
+
+== *SCIM_SECRET*
+
+=== Type
+
+`string`
+
+=== Description
+
+Secret to use to validate requests on SCIM API endpoints
+
+== *SCIM_EXTERNAL_ID_AS_PRIMARY*
+
+=== Type
+
+`bool`
+
+=== Description
+
+Use external IDs in SCIM API endpoints
+
+== *SCIM_EXTERNAL_ID_VALIDATION*
+
+=== Type
+
+`string`
+
+=== Default
+
+[source]
+----
+"^[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}$"
+----
+
+=== Description
+
+Validates format of external IDs. Defaults to UUID
 
 = Email sending
 
@@ -314,7 +441,10 @@ Configure your local SMTP server or use one of the available providers
 
 === Default
 
-`"localhost"`
+[source]
+----
+"localhost"
+----
 
 === Description
 
@@ -328,7 +458,10 @@ The SMTP server hostname.
 
 === Default
 
-`25`
+[source]
+----
+25
+----
 
 === Description
 
@@ -372,7 +505,10 @@ The SMTP `from` email parameter
 
 === Default
 
-`false`
+[source]
+----
+false
+----
 
 === Description
 
@@ -395,7 +531,10 @@ Allow insecure (invalid, expired TLS certificates) connections.
 
 === Default
 
-`true`
+[source]
+----
+true
+----
 
 
 == *ACTIONLOG_DEBUG*
@@ -406,10 +545,23 @@ Allow insecure (invalid, expired TLS certificates) connections.
 
 === Default
 
-`false`
+[source]
+----
+false
+----
 
 
 = Authentication
+
+== *AUTH_LOG_ENABLED*
+
+=== Type
+
+`bool`
+
+=== Description
+
+Enable extra logging for authentication flows
 
 == *AUTH_JWT_SECRET*
 
@@ -417,14 +569,21 @@ Allow insecure (invalid, expired TLS certificates) connections.
 
 `string`
 
+=== Default
+
+[source]
+----
+getSecretFromEnv("jwt secret")
+----
+
 === Description
 
 Secret used for signing JWT tokens.
 
 [IMPORTANT]
 ====
-Make sure to provide a secret.
-If you don't, a random value is assigned -- this causes all of the tokens to become invalid after a server restart.
+If secret is not set, system auto-generates one from DB_DSN and HOSTNAME environment variables.
+Generated secret will change if you change any of these variables.
 ====
 
 == *AUTH_JWT_EXPIRY*
@@ -435,11 +594,357 @@ If you don't, a random value is assigned -- this causes all of the tokens to bec
 
 === Default
 
-`time.Hour * 24 * 30`
+[source]
+----
+time.Hour * 24 * 30
+----
 
 === Description
 
 Experation time for the auth JWT tokens.
+
+== *AUTH_EXTERNAL_REDIRECT_URL*
+
+=== Type
+
+`string`
+
+=== Default
+
+[source]
+----
+guessBaseURL() + "/auth/external/{provider}/callback"
+----
+
+=== Description
+
+Redirect URL to be sent with OAuth2 authentication request to provider
+
+`provider` placeholder is replaced with the actual value when used.
+
+== *AUTH_EXTERNAL_COOKIE_SECRET*
+
+=== Type
+
+`string`
+
+=== Default
+
+[source]
+----
+getSecretFromEnv("external cookie secret")
+----
+
+=== Description
+
+Secret used for securing cookies
+
+[IMPORTANT]
+====
+If secret is not set, system auto-generates one from DB_DSN and HOSTNAME environment variables.
+Generated secret will change if you change any of these variables.
+====
+
+== *AUTH_BASE_URL*
+
+=== Type
+
+`string`
+
+=== Default
+
+[source]
+----
+guessBaseURL() + "/auth"
+----
+
+=== Description
+
+Frontend base URL. Must be an absolute URL
+
+== *AUTH_SESSION_COOKIE_NAME*
+
+=== Type
+
+`string`
+
+=== Default
+
+[source]
+----
+"session"
+----
+
+=== Description
+
+Session cookie name
+
+== *AUTH_SESSION_COOKIE_PATH*
+
+=== Type
+
+`string`
+
+=== Default
+
+[source]
+----
+"/auth"
+----
+
+=== Description
+
+Session cookie path
+
+== *AUTH_SESSION_COOKIE_DOMAIN*
+
+=== Type
+
+`string`
+
+=== Default
+
+[source]
+----
+guessHostname()
+----
+
+=== Description
+
+Session cookie domain
+
+== *AUTH_SESSION_COOKIE_SECURE*
+
+=== Type
+
+`bool`
+
+=== Default
+
+[source]
+----
+strings.HasPrefix(guessBaseURL(), "https://")
+----
+
+=== Description
+
+Defaults to true when HTTPS is used.
+
+== *AUTH_SESSION_LIFETIME*
+
+=== Type
+
+`time.Duration`
+
+=== Default
+
+[source]
+----
+24 * time.Hour
+----
+
+=== Description
+
+How long do we keep the temporary session
+
+== *AUTH_SESSION_PERM_LIFETIME*
+
+=== Type
+
+`time.Duration`
+
+=== Default
+
+[source]
+----
+360 * 24 * time.Hour
+----
+
+=== Description
+
+How long do we keep the permanent session
+
+== *AUTH_GARBAGE_COLLECTOR_INTERVAL*
+
+=== Type
+
+`time.Duration`
+
+=== Default
+
+[source]
+----
+15 * time.Minute
+----
+
+=== Description
+
+How often are expired sessions and tokens purged from the database
+
+== *AUTH_REQUEST_RATE_LIMIT*
+
+=== Type
+
+`int`
+
+=== Default
+
+[source]
+----
+60
+----
+
+=== Description
+
+How many requests from a cerain IP address are allowed in a time window.
+Set to zero to disable
+
+== *AUTH_REQUEST_RATE_WINDOW_LENGTH*
+
+=== Type
+
+`time.Duration`
+
+=== Default
+
+[source]
+----
+time.Minute
+----
+
+=== Description
+
+How many requests from a cerain IP address are allowed in a time window
+
+== *AUTH_CSRF_SECRET*
+
+=== Type
+
+`string`
+
+=== Default
+
+[source]
+----
+getSecretFromEnv("csrf secret")
+----
+
+=== Description
+
+Secret used for securing CSRF protection
+
+[IMPORTANT]
+====
+If secret is not set, system auto-generates one from DB_DSN and HOSTNAME environment variables.
+Generated secret will change if you change any of these variables.
+====
+
+== *AUTH_CSRF_ENABLED*
+
+=== Type
+
+`bool`
+
+=== Default
+
+[source]
+----
+true
+----
+
+=== Description
+
+Enable CSRF protection
+
+== *AUTH_CSRF_FIELD_NAME*
+
+=== Type
+
+`string`
+
+=== Default
+
+[source]
+----
+"same-site-authenticity-token"
+----
+
+=== Description
+
+Form field name used for CSRF protection
+
+== *AUTH_CSRF_COOKIE_NAME*
+
+=== Type
+
+`string`
+
+=== Default
+
+[source]
+----
+"same-site-authenticity-token"
+----
+
+=== Description
+
+Cookie name used for CSRF protection
+
+== *AUTH_DEFAULT_CLIENT*
+
+=== Type
+
+`string`
+
+=== Default
+
+[source]
+----
+"corteza-webapp"
+----
+
+=== Description
+
+Handle for OAuth2 client used for automatic redirect from /auth/oauth2/go endpoint.
+
+This simplifies configuration for OAuth2 flow for Corteza Web applications as it removes
+the need to suply redirection URL and client ID (oauth2/go endpoint does that internally)
+
+
+== *AUTH_ASSETS_PATH*
+
+=== Type
+
+`string`
+
+=== Default
+
+[source]
+----
+""
+----
+
+=== Description
+
+Path to js, css, images and template source files
+
+When corteza starts, if path exists it tries to load template files from it.
+If not it uses statically embedded files.
+
+When empty path is set (default value), embedded files are used.
+
+== *AUTH_DEVELOPMENT_MODE*
+
+=== Type
+
+`bool`
+
+=== Description
+
+When enabled, corteza reloads template before every execution.
+Enable this for debugging or when developing auth templates.
+
+Should be disabled in production where templates do not change between server restarts.
 
 = Connection to Corredor
 
@@ -451,7 +956,10 @@ Experation time for the auth JWT tokens.
 
 === Default
 
-`true`
+[source]
+----
+false
+----
 
 === Description
 
@@ -465,7 +973,10 @@ Enable/disable Corredor integration
 
 === Default
 
-`"localhost:50051"`
+[source]
+----
+"localhost:50051"
+----
 
 === Description
 
@@ -479,7 +990,10 @@ Hostname and port of the Corredor gRPC server.
 
 === Default
 
-`time.Minute`
+[source]
+----
+time.Minute
+----
 
 === Description
 
@@ -493,7 +1007,10 @@ Max delay for backoff on connection.
 
 === Default
 
-`2 << 23`
+[source]
+----
+2 << 23
+----
 
 === Description
 
@@ -507,7 +1024,10 @@ Max message size that can be recived.
 
 === Default
 
-`time.Minute`
+[source]
+----
+time.Minute
+----
 
 
 == *CORREDOR_LIST_TIMEOUT*
@@ -518,7 +1038,10 @@ Max message size that can be recived.
 
 === Default
 
-`time.Second * 2`
+[source]
+----
+time.Second * 2
+----
 
 
 == *CORREDOR_LIST_REFRESH*
@@ -529,7 +1052,10 @@ Max message size that can be recived.
 
 === Default
 
-`time.Second * 5`
+[source]
+----
+time.Second * 5
+----
 
 
 == *CORREDOR_RUN_AS_ENABLED*
@@ -540,7 +1066,10 @@ Max message size that can be recived.
 
 === Default
 
-`true`
+[source]
+----
+true
+----
 
 
 == *CORREDOR_CLIENT_CERTIFICATES_ENABLED*
@@ -551,7 +1080,10 @@ Max message size that can be recived.
 
 === Default
 
-`false`
+[source]
+----
+false
+----
 
 
 == *CORREDOR_CLIENT_CERTIFICATES_PATH*
@@ -562,7 +1094,10 @@ Max message size that can be recived.
 
 === Default
 
-`"/certs/corredor/client"`
+[source]
+----
+"/certs/corredor/client"
+----
 
 
 == *CORREDOR_CLIENT_CERTIFICATES_CA*
@@ -573,7 +1108,10 @@ Max message size that can be recived.
 
 === Default
 
-`"ca.crt"`
+[source]
+----
+"ca.crt"
+----
 
 
 == *CORREDOR_CLIENT_CERTIFICATES_PRIVATE*
@@ -584,7 +1122,10 @@ Max message size that can be recived.
 
 === Default
 
-`"private.key"`
+[source]
+----
+"private.key"
+----
 
 
 == *CORREDOR_CLIENT_CERTIFICATES_PUBLIC*
@@ -595,7 +1136,10 @@ Max message size that can be recived.
 
 === Default
 
-`"public.crt"`
+[source]
+----
+"public.crt"
+----
 
 
 == *CORREDOR_CLIENT_CERTIFICATES_SERVER_NAME*
@@ -615,7 +1159,10 @@ Max message size that can be recived.
 
 === Default
 
-`"production"`
+[source]
+----
+"production"
+----
 
 
 = Events and scheduler
@@ -628,7 +1175,10 @@ Max message size that can be recived.
 
 === Default
 
-`true`
+[source]
+----
+true
+----
 
 === Description
 
@@ -642,7 +1192,10 @@ Enable eventbus sheduler.
 
 === Default
 
-`time.Minute`
+[source]
+----
+time.Minute
+----
 
 === Description
 
@@ -658,7 +1211,10 @@ Set time interval for `eventbus` scheduler.
 
 === Default
 
-`false`
+[source]
+----
+false
+----
 
 === Description
 
@@ -672,7 +1228,10 @@ Federation enabled on system, it toggles rest API endpoints, possibility to map 
 
 === Default
 
-`"Federation label"`
+[source]
+----
+"Federation label"
+----
 
 === Description
 
@@ -686,7 +1245,10 @@ Federation label
 
 === Default
 
-`"Federation host"`
+[source]
+----
+"local.cortezaproject.org"
+----
 
 === Description
 
@@ -700,7 +1262,10 @@ Host that is used during node pairing, also included in invitation
 
 === Default
 
-`time.Minute * 2`
+[source]
+----
+time.Minute * 2
+----
 
 === Description
 
@@ -714,7 +1279,10 @@ Delay in seconds for structure sync
 
 === Default
 
-`1`
+[source]
+----
+1
+----
 
 === Description
 
@@ -728,7 +1296,10 @@ Bulk size in fetching for structure sync
 
 === Default
 
-`time.Second * 60`
+[source]
+----
+time.Second * 60
+----
 
 === Description
 
@@ -742,7 +1313,10 @@ Delay in seconds for data sync
 
 === Default
 
-`100`
+[source]
+----
+100
+----
 
 === Description
 
@@ -758,7 +1332,10 @@ Bulk size in fetching for data sync
 
 === Default
 
-`300 * time.Second`
+[source]
+----
+300 * time.Second
+----
 
 === Description
 
@@ -776,7 +1353,10 @@ The MinIO integration allows you to replace local storage with cloud storage. Wh
 
 === Default
 
-`"var/store"`
+[source]
+----
+"var/store"
+----
 
 === Description
 
@@ -797,7 +1377,10 @@ Location where uploaded files are stored.
 
 === Default
 
-`true`
+[source]
+----
+true
+----
 
 
 == *MINIO_ACCESS_KEY*
@@ -828,6 +1411,23 @@ Location where uploaded files are stored.
 `string`
 
 
+== *MINIO_BUCKET_SEP*
+
+=== Type
+
+`string`
+
+=== Default
+
+[source]
+----
+"/"
+----
+
+=== Description
+
+Used between MINIO_BUCKET and the service name (e.g system). Ignored if MINIO_BUCKET is not set. Required in latest versions of min.io since "/" is not accepted anymore in bucket names.
+
 == *MINIO_STRICT*
 
 === Type
@@ -836,7 +1436,10 @@ Location where uploaded files are stored.
 
 === Default
 
-`false`
+[source]
+----
+false
+----
 
 
 = Provisioning
@@ -859,7 +1462,10 @@ If you're doing local development or some debugging, you can disable this.
 
 === Default
 
-`true`
+[source]
+----
+true
+----
 
 === Description
 
@@ -873,7 +1479,10 @@ Controls if provision should run when the server starts.
 
 === Default
 
-`"provision/*"`
+[source]
+----
+"provision/*"
+----
 
 === Description
 
@@ -917,7 +1526,10 @@ Print out debugging information.
 
 === Default
 
-`true`
+[source]
+----
+true
+----
 
 === Description
 
@@ -941,7 +1553,10 @@ Sample rate for event submission (0.0 - 1.0. defaults to 1.0)
 
 === Default
 
-`0`
+[source]
+----
+0
+----
 
 === Description
 
@@ -965,7 +1580,10 @@ Set reported Server name.
 
 === Default
 
-`version.Version`
+[source]
+----
+version.Version
+----
 
 === Description
 
@@ -991,6 +1609,42 @@ Set reported distribution.
 
 Set reported environment.
 
+= Rendering engine
+
+== *TEMPLATE_RENDERER_GOTENBERG_ADDRESS*
+
+=== Type
+
+`string`
+
+=== Default
+
+[source]
+----
+""
+----
+
+=== Description
+
+Gotenberg rendering container address.
+
+== *TEMPLATE_RENDERER_GOTENBERG_ENABLED*
+
+=== Type
+
+`bool`
+
+=== Default
+
+[source]
+----
+false
+----
+
+=== Description
+
+Is Gotenberg rendering container enabled.
+
 = Data store (database) upgrade
 
 == *UPGRADE_DEBUG*
@@ -1001,7 +1655,10 @@ Set reported environment.
 
 === Default
 
-`false`
+[source]
+----
+false
+----
 
 === Description
 
@@ -1016,7 +1673,10 @@ Enable/disable debug logging.
 
 === Default
 
-`true`
+[source]
+----
+true
+----
 
 === Description
 
@@ -1039,7 +1699,10 @@ Delaying API execution can come in handy in complex setups where execution order
 
 === Default
 
-`0`
+[source]
+----
+0
+----
 
 === Description
 
@@ -1054,7 +1717,10 @@ Delays API startup for the amount of time specified (10s, 2m...).
 
 === Default
 
-`true`
+[source]
+----
+true
+----
 
 === Description
 
@@ -1084,7 +1750,10 @@ Services are probed in parallel.
 
 === Default
 
-`time.Minute`
+[source]
+----
+time.Minute
+----
 
 === Description
 
@@ -1098,7 +1767,10 @@ Max time for each service probe.
 
 === Default
 
-`time.Second * 30`
+[source]
+----
+time.Second * 30
+----
 
 === Description
 
@@ -1112,46 +1784,47 @@ Timeout for each service probe.
 
 === Default
 
-`time.Second * 5`
+[source]
+----
+time.Second * 5
+----
 
 === Description
 
 Interval between service probes.
 
-= Websocket server
+= Workflow
 
-== *WEBSOCKET_TIMEOUT*
+== *WORKFLOW_REGISTER*
 
 === Type
 
-`time.Duration`
+`bool`
 
 === Default
 
-`15 * time.Second`
+[source]
+----
+true
+----
 
 === Description
 
-Time before `WsServer` gets timed out.
+Registers enabled and valid workflows and executes them when triggered
 
-== *WEBSOCKET_PING_TIMEOUT*
-
-=== Type
-
-`time.Duration`
-
-=== Default
-
-`120 * time.Second`
-
-
-== *WEBSOCKET_PING_PERIOD*
+== *WORKFLOW_EXEC_DEBUG*
 
 === Type
 
-`time.Duration`
+`bool`
 
 === Default
 
-`((120 * time.Second) * 9) / 10`
+[source]
+----
+false
+----
 
+=== Description
+
+Enables verbose logging for workflow execution

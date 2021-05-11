@@ -1,0 +1,147 @@
+// This file is auto-generated.
+//
+// Changes to this file may cause incorrect behavior and will be lost if
+// the code is regenerated.
+//
+// Definitions file that controls how this file is generated:
+//  - automation/automation/expr_types.yaml
+//  - compose/automation/expr_types.yaml
+//  - pkg/expr/expr_types.yaml
+//  - system/automation/expr_types.yaml
+
+[cols="2m,3a"]
+|===
+| Type | Structure
+
+| [#objref-composemodule]#<<objref-composemodule,ComposeModule>>#
+|
+[source]
+----
+{
+   ID (ID)
+   namespaceID (ID)
+   name (String)
+   handle (Handle)
+   labels (KV)
+   createdAt (DateTime)
+   updatedAt (DateTime)
+   deletedAt (DateTime)
+}
+----
+
+| [#objref-composenamespace]#<<objref-composenamespace,ComposeNamespace>>#
+|
+[source]
+----
+{
+   ID (ID)
+   name (String)
+   slug (Handle)
+   labels (KV)
+   createdAt (DateTime)
+   updatedAt (DateTime)
+   deletedAt (DateTime)
+}
+----
+
+| [#objref-composerecord]#<<objref-composerecord,ComposeRecord>>#
+|
+[source]
+----
+{
+   ID (ID)
+   moduleID (ID)
+   namespaceID (ID)
+   values (ComposeRecordValues)
+   labels (KV)
+   ownedBy (ID)
+   createdAt (DateTime)
+   createdBy (ID)
+   updatedAt (DateTime)
+   updatedBy (ID)
+   deletedAt (DateTime)
+   deletedBy (ID)
+}
+----
+
+
+
+| [#objref-rendereddocument]#<<objref-rendereddocument,RenderedDocument>>#
+|
+[source]
+----
+{
+   document (Reader)
+   name (string)
+   type (string)
+}
+----
+
+| [#objref-role]#<<objref-role,Role>>#
+|
+[source]
+----
+{
+   ID (ID)
+   name (String)
+   handle (Handle)
+   labels (KV)
+   createdAt (DateTime)
+   updatedAt (DateTime)
+   archivedAt (DateTime)
+   deletedAt (DateTime)
+}
+----
+
+| [#objref-template]#<<objref-template,Template>>#
+|
+[source]
+----
+{
+   ID (ID)
+   handle (Handle)
+   language (String)
+   type (DocumentType)
+   partial (Boolean)
+   meta (TemplateMeta)
+   template (String)
+   labels (KV)
+   ownerID (ID)
+   createdAt (DateTime)
+   updatedAt (DateTime)
+   deletedAt (DateTime)
+   lastUsedAt (DateTime)
+}
+----
+
+| [#objref-templatemeta]#<<objref-templatemeta,TemplateMeta>>#
+|
+[source]
+----
+{
+   short (String)
+   description (String)
+}
+----
+
+| [#objref-user]#<<objref-user,User>>#
+|
+[source]
+----
+{
+   ID (ID)
+   username (String)
+   email (String)
+   name (String)
+   handle (Handle)
+   emailConfirmed (Boolean)
+   labels (KV)
+   createdAt (DateTime)
+   updatedAt (DateTime)
+   suspendedAt (DateTime)
+   deletedAt (DateTime)
+}
+----
+
+
+|===

@@ -5,7 +5,6 @@
 //
 // Definitions file that controls how this file is generated:
 //  - compose/service/event/events.yaml
-//  - messaging/service/event/events.yaml
 //  - system/service/event/events.yaml
 
 = Resources and events
@@ -183,156 +182,6 @@
 | yes
 |===
 
-== messaging
-
-=== Events
-
-.On events:
-* `on('manual')`
-* `on('interval')`
-* `on('timestamp')`
-
-=== Exec arguments
-
-.Argument properties:
-[%header, cols=3*]
-|===
-|Name|Type|Mutable
-| `invoker`
-| `auth.Identifiable`
-| yes
-|===
-
-== messaging:channel
-
-=== Events
-.Before/after events:
-* `before('create')`
-* `before('update')`
-* `before('delete')`
-* `after('create')`
-* `after('update')`
-* `after('delete')`
-
-.On events:
-* `on('manual')`
-
-=== Exec arguments
-
-.Argument properties:
-[%header, cols=3*]
-|===
-|Name|Type|Mutable
-| `channel`
-| `*types.Channel`
-| yes
-
-| `oldChannel`
-| `*types.Channel`
-| no
-
-| `invoker`
-| `auth.Identifiable`
-| yes
-|===
-
-== messaging:channel:member
-
-=== Events
-.Before/after events:
-* `before('join')`
-* `before('part')`
-* `before('add')`
-* `before('remove')`
-* `after('join')`
-* `after('part')`
-* `after('add')`
-* `after('remove')`
-
-
-
-=== Exec arguments
-
-.Argument properties:
-[%header, cols=3*]
-|===
-|Name|Type|Mutable
-| `member`
-| `*types.ChannelMember`
-| yes
-
-| `channel`
-| `*types.Channel`
-| yes
-
-| `invoker`
-| `auth.Identifiable`
-| yes
-|===
-
-== messaging:command
-
-=== Events
-
-.On events:
-* `on('invoke')`
-
-=== Exec arguments
-
-.Argument properties:
-[%header, cols=3*]
-|===
-|Name|Type|Mutable
-| `command`
-| `*types.Command`
-| no
-
-| `channel`
-| `*types.Channel`
-| no
-
-| `invoker`
-| `auth.Identifiable`
-| yes
-|===
-
-== messaging:message
-
-=== Events
-.Before/after events:
-* `before('create')`
-* `before('update')`
-* `before('delete')`
-* `after('create')`
-* `after('update')`
-* `after('delete')`
-
-.On events:
-* `on('manual')`
-
-=== Exec arguments
-
-.Argument properties:
-[%header, cols=3*]
-|===
-|Name|Type|Mutable
-| `message`
-| `*types.Message`
-| yes
-
-| `oldMessage`
-| `*types.Message`
-| no
-
-| `channel`
-| `*types.Channel`
-| yes
-
-| `invoker`
-| `auth.Identifiable`
-| yes
-|===
-
 == system
 
 === Events
@@ -410,6 +259,39 @@
 | `provider`
 | `*types.AuthProvider`
 | yes
+
+| `invoker`
+| `auth.Identifiable`
+| yes
+|===
+
+== system:auth-client
+
+=== Events
+.Before/after events:
+* `before('create')`
+* `before('update')`
+* `before('delete')`
+* `after('create')`
+* `after('update')`
+* `after('delete')`
+
+.On events:
+* `on('manual')`
+
+=== Exec arguments
+
+.Argument properties:
+[%header, cols=3*]
+|===
+|Name|Type|Mutable
+| `authClient`
+| `*types.AuthClient`
+| yes
+
+| `oldAuthClient`
+| `*types.AuthClient`
+| no
 
 | `invoker`
 | `auth.Identifiable`

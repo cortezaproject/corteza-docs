@@ -28,7 +28,7 @@ docker-compose.yml
 . *Create a new directory for the extension*; we'll name it `corredor`, but the name doesn't matter.
 . Somehow *transport the extension source files* into the newly created directory (see below sections for tips).
 . Add a *new volume* to the `docker-compose.yaml` file that will *contain the extension*.
-For example, under the `corredor` service, `volumes: [ "./corredor:/corredor/test-extension", ...other volumes you might have... ]`
+For example, under the `corredor` service, `volumes: [ "./corredor/test-extension:/corredor/test-extension", ...other volumes you might have... ]`
 . Edit the `.env` (`CORREDOR_EXT_SEARCH_PATHS` variable) file to *register the new extension*.
 For example `CORREDOR_EXT_SEARCH_PATHS=/extensions:/extensions/*:/corredor/test-extension`.
 . *Reload the configurations* (`docker-compose up -d`).

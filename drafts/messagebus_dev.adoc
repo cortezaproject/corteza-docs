@@ -43,9 +43,24 @@ This is the only metadata that is used in the store producer as means to poll th
 
 
 
-=== Examples
+=== Internal Corteza messagebus to eventbus flow
 
-A diagram showing ____
+Corteza workflows currently has the possibility to incorporate messagebus capabilities via eventbus mechanism. The
+messagebus producer can in this case be an eventbus handler, in our case the already implemented queue trigger (see more in #workflows).
+
+The queue handler (producer in the diagram) needs to be triggered to write to messagebus queue, this is done via eventbus mechanism. Once the payload reaches producer, the payload and the queue name are both pushed to messagebus service internal channel (via exposed method).
+
+[NOTE]
+====
+There is no validation on the payload, it is handled as a []byte type and any marshaling or decoding needs to be done
+on the consumer side.
+====
+
+Once the messagebus service fetches the appropriate payload from the internal channel, it matches the already registered and instantiated consumer handler for that queue. The payload is then processed in the consumer specific logic.
+
+The message flow in our example is not yet finished, since we also have an eventbus consumer, so the payload is again transformed (in workflow) and a different payload is then being pushed in to some other queue.
+
+An example would be a website registration page that pushes user github id on the queue (lets call it queue ```users_github```). Eventbus would then get the payload with the id, fetch the user metadata from github, write to store and on success, write via eventbus to another queue with the user avatar url (lets call it ```users_avatars```). The eventbus would trigger a new workflow on that queue that would fetch binary data from urls and write it to designated store.
 
 ```
 @startuml
@@ -77,6 +92,14 @@ deactivate consumer
 end box
 @enduml
 ```
+
+=== Messagebus queues as a distributed pipeline
+
+To continue from our previous example, once our website would grow and we would scale on our instances, so to would we be able to offload (should be choose so) any work from workflows to a designated service or our extended infrastructure on a service provider.
+
+Similar to the previous scenario, on user registration, the messagebus consumer would need to know how to push the payloads to the queueing mechanism on the service provider (ie Amazon SQS / SNS). The infrastructure that we set up would then process all the payloads and use our specific messagebus producer (ie a lambda handler written in python) to send the payload to another Corteza instance via API sink mechanism.
+
+Corteza workflows include a trigger for the API sink also (#link to the api sink docs), so the payload would then be processed in another workflow, according to the business logic of the whole flow.
 
 A diagram showing capabilities with creating pipelines between different queueing mechanisms
 

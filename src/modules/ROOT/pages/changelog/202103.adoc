@@ -108,3 +108,14 @@ To apply the CRM extension changes, re-provision or import https://github.com/co
 .Contributors:
 . Jože Fortun
 . Denis Arh
+
+== Patch 2021.3.3
+
+=== {PRODUCT_NAME} Web applications (clients)
+
+.{PRODUCT_NAME} {APP_NAME_WORKFLOW}:
+* cross-canvas copying
+* import & export
+
+.Contributors:
+. Jože Fortun

@@ -119,3 +119,40 @@ To apply the CRM extension changes, re-provision or import https://github.com/co
 
 .Contributors:
 . Jože Fortun
+
+== Patch 2021.3.4
+
+=== {PRODUCT_NAME} Server
+
+.Data import:
+* resolved CSV size limitation issue
+
+.Workflows:
+* added failsafe to prevent infinite workflows due to implicit invocations
+* improve integration between workflows and Corredor
+
+.Auth:
+* fix session lifetime when doing external authentication
+
+.SCIM:
+* improve SCIM support (removing role/group members)
+
+=== {PRODUCT_NAME} Web applications (clients)
+
+.{PRODUCT_NAME} {APP_NAME_COMPOSE}:
+* fix error handling in namespace editor
+
+.{PRODUCT_NAME} {APP_NAME_ADMIN}:
+* auth clients & users (impersonation on client_credentials grant type)
+* hide document previews if render driver not available
+
+.{PRODUCT_NAME} {APP_NAME_WORKFLOW}:
+* fixed bug where workflow wasn't being rerendered after save
+* improved list import error reporting
+
+.Contributors:
+. Vivek Patel
+. Tomaž Jerman
+. Jože Fortun
+. Mia Arh
+. Denis Arh

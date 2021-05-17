@@ -1,0 +1,17 @@
+= Field expression functions
+
+== KV functions
+|===
+|Function |Signature |Description |Example
+
+|*set*      |`set(KV, key, value)`|The function assigns value to given key of KV(KV-types).|`set(&KV{"foo": "foo"}, "foo", "bar")` results in &KV{"foo": "foo"}, Same for KVV and Vars.
+|*merge*    |`merge(KV, arg1, ...argN)`|The function combines all given KV(KV-types) into a single KV(KV-types).|`merge(&KVV{"foo": ["foo"]}, &KVV{"bar": ["bar"]})` results in `&KVV{"foo": ["foo"], "bar": ["bar"]}`, Same for KV and Vars.
+|*filter*   |`filter(KV, arg1, ...argN)`|The function returns KV(KV-types) with only given keys.|`filter(&KVV{"foo": ["foo"], "bar": ["bar"]}, "foo", "example")` results in `&KVV{"foo": ["foo"]}`, Same for KV and Vars.
+|*omit*     |`omit(KV, arg1, ...argN)`|The function returns KV(KV-types) excluding all given keys.|`filter(&KV{"foo": "foo", "bar": "bar"}, "foo", "example")` results in `&KVV{"bar": "bar"}`, Same for KV and Vars.
+|===
+[Notes]
+====
+All KV functions will return based on given first argument. Multiple KV types into single function are not allowed. IE. merge(KV, KVV, Vars)
+
+See xref:../../../../src/modules/developer-guide/pages/corteza-server/expressions/types.adoc#expr-data-type-reference[Expression types] for more info.
+====

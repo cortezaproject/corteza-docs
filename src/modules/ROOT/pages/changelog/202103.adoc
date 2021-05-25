@@ -156,3 +156,31 @@ To apply the CRM extension changes, re-provision or import https://github.com/co
 . Jože Fortun
 . Mia Arh
 . Denis Arh
+
+
+== Patch 2021.3.5
+
+=== {PRODUCT_NAME} Server
+
+* fixed federation structure sync, added a response wrapper to api response
+* added manipulation functions for KV and KV-like types for setting values with dynamic keys
+* fixed filtering with multi-value field
+* improve workflow error handling; prevent the try-catch step from ending the exec session
+* improve workflow error handling; prevent pre-run validation checks to cycle the exec
+
+=== {PRODUCT_NAME} Web applications (clients)
+
+
+.{PRODUCT_NAME} UI libraries:
+* fixed logout issues
+* fixed Corredor helpers to properly use ListResponse
+
+.{PRODUCT_NAME} {APP_NAME_COMPOSE}:
+* added federation toast translations
+
+.Contributors:
+. Vivek Patel
+. Tomaž Jerman
+. Jože Fortun
+. Peter Grlica
+. Denis Arh

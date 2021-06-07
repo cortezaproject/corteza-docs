@@ -34,7 +34,18 @@ Core contributors should skip this part.
 === Configure the environment
 
 .Inside your web application directory:
+
+For Linux:
+
 . run `cp public/config.example.js public/config.js`
+
+For Windows:
+
+. in `public` folder run `copy config.example.js config.js`
+
+After that:
+
+[start=2]
 . open the `config.js` file using VIM, Nano, or any other editor and modify the configuration as you see fit
 
 === Set the API

@@ -34,7 +34,6 @@ Core contributors should skip this part.
 === Configure the environment
 
 .Inside your web application directory:
-. run `cp public/config.example.js public/config.js` for _Linux_, or in `public` folder run `copy config.example.js config.js` for _Windows_
 
 . open the `config.js` file using VIM, Nano, or any other editor and modify the configuration as you see fit
 

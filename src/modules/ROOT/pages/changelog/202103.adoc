@@ -184,3 +184,19 @@ To apply the CRM extension changes, re-provision or import https://github.com/co
 . Jože Fortun
 . Peter Grlica
 . Denis Arh
+
+== Patch 2021.3.6
+
+=== {PRODUCT_NAME} Server
+
+* fixed module field default value validation with required fields
+* temporarily reverted "fixed filtering with multi-value field"
+
+=== {PRODUCT_NAME} {APP_NAME_COMPOSE}
+
+* fix pre filter for User module field
+
+.Contributors:
+. Tomaž Jerman
+. Vivek Patel
+. Jože Fortun

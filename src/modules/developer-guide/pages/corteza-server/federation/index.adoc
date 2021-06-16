@@ -3,6 +3,12 @@ include::ROOT:partial$variables.adoc[]
 [#federation]
 = {APP_NAME_FEDERATION}
 
+[CAUTION]
+====
+{PRODUCT_NAME} {APP_NAME_FEDERATION} is currently in experimental mode and disabled by default,
+Set the `FEDERATION_ENABLED` `.env` variable to `true` if you wish to enable it.
+====
+
 {PRODUCT_NAME} {APP_NAME_FEDERATION} enables different *{PRODUCT_NAME} instances* to establish a *federated network* to *freely and securely* exchange information.
 
 A federated network consists of *origin* and *destination* nodes, where each node can fulfil both roles.

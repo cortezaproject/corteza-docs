@@ -3,9 +3,9 @@ include::ROOT:partial$variables.adoc[]
 [#federation]
 = {PRODUCT_NAME} {APP_NAME_FEDERATION}
 
-[NOTE]
+[CAUTION]
 ====
-{PRODUCT_NAME} {APP_NAME_FEDERATION} is disabled by default.
+{PRODUCT_NAME} {APP_NAME_FEDERATION} is currently in experimental mode and disabled by default,
 Set the `FEDERATION_ENABLED` `.env` variable to `true` if you wish to enable it.
 ====
 

@@ -63,6 +63,19 @@ Make sure to change the `SMTP_*=` `.env` variables.
 You can skip this part of your workflow does not require emails.
 Make sure to remove the `SMTP_*=` `.env` variables.
 
+=== Serve the web applications
+
+{PRODUCT_NAME} server allows you to serve all of the {PRODUCT_NAME} web applications for cases where you need to quickly test something on a user interface.
+Refer to the `corteza-server/webapp/README.adoc` file for details on how to set it up.
+
+[CAUTION]
+====
+Make sure you've properly set the `DOMAIN` `.env` variable to match your local environment, for example `DOMAIN=localhost`.
+The authentication server uses this variable when generating the cookie and the authentication flow will hang if it's not defined.
+
+If the login screen _doesn't do anything_ when you try to login, check if the cookie has the correct domain set.
+====
+
 === Run the server
 
 Run the `make realize` command to start the server.

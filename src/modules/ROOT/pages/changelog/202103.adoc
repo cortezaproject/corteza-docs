@@ -170,7 +170,6 @@ To apply the CRM extension changes, re-provision or import https://github.com/co
 
 === {PRODUCT_NAME} Web applications (clients)
 
-
 .{PRODUCT_NAME} UI libraries:
 * fixed logout issues
 * fixed Corredor helpers to properly use ListResponse
@@ -200,3 +199,35 @@ To apply the CRM extension changes, re-provision or import https://github.com/co
 . Tomaž Jerman
 . Vivek Patel
 . Jože Fortun
+
+== Patch 2021.3.7
+
+=== {PRODUCT_NAME} Server
+
+* fixed record updating for modules with deleted fields
+* fixed interaction between read only module fields and their default values
+* added validation for Corredor workflow steps
+* improved record value manipulation from inside workflows
+* improved system security
+
+=== {PRODUCT_NAME} Web applications (clients)
+
+.{PRODUCT_NAME} UI libraries:
+* add missing invoker when executing client-scripts
+* rework auth plugin to selectively clear localStorage
+
+.{PRODUCT_NAME} {APP_NAME_WORKFLOW}:
+* added validation for Corredor workflow steps.
+Disables {APP_AUTOMATION} workflow steps if {APP_AUTOMATION} is not active; throws error if the steps are already used, but {APP_AUTOMATION} is inactive
+* fixed input bug for deferred triggers (timestamp and interval)
+* reordered workflow and trigger saving to conform with the back-end logic
+
+.{PRODUCT_NAME} {APP_NAME_COMPOSE}:
+* fixed record value validation for required, forbidden fields
+* fix module and chart sorting by their timestamps
+* improve record and user selector field state management
+
+.Contributors:
+. Vivek Patel
+. Jože Fortun
+. Tomaž Jerman

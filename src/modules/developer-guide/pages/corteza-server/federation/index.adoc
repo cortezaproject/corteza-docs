@@ -77,5 +77,4 @@ xref:corteza-server/federation/api/index.adoc[*The API reference*] provides a co
 
 == Local development
 
-xref:corteza-server/federation/dev-notes.adoc[*Development notes*] will help you in setting an origin and destination federated Corteza instances.
-
+xref:corteza-server/federation/dev-notes.adoc[*Development notes*] walk you through how to setup an origin and a destination federated {PRODUCT_NAME} instance.

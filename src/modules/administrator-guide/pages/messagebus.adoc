@@ -1,0 +1,89 @@
+include::ROOT:partial$variables.adoc[]
+
+= Messagebus
+
+The messagebus feature allows the *producer* instance to offload some work to a *consumer* instance via message queues.
+Message bus is primarily designed to be used with workflows, but it can be extended to work elsewhere.
+
+[CAUTION]
+====
+*DevNote*: the following content is under construction and needs a lot more work.
+====
+
+.A messaging queue is valid if:
+* has defined a name
+* has defined consumer
+
+== Queue consumers
+
+Messaging queues are described with a producer-consumer pair.
+
+.{PRODUCT_NAME} currently supports the following consumers:
+* store,
+* eventbus.
+
+[NOTE]
+====
+Consumers are defined in the administration area, where the producers are implemented on the system level.
+====
+
+== Listing messaging queues
+
+.To list current messaging queues:
+. navigate to the {PRODUCT_NAME} {APP_NAME_ADMIN},
+. click on the "Messaging Queues" in the navigation drawer,
+. optionally insert the filtering parameters; the list refreshes automatically.
+
+== Creating messaging queues
+
+.To create a new messaging queue:
+. navigate to the {PRODUCT_NAME} {APP_NAME_ADMIN},
+. click on the "Messaging Queues" in the navigation drawer,
+. click on the "New" button in the top right corner,
+. provide the requested data,
+. press the "Submit" button.
+
+"Polling changes delay" affects only the producers that use it (mostly store producers that do not subscribe to changes), so you can usually leave it empty.
+
+[NOTE]
+====
+*DevNote* explain ^ a bit better.
+====
+
+[IMPORTANT]
+====
+You can only define permissions for existing messaging queues.
+====
+
+== Editing messaging queues
+
+.To create a new messaging queue:
+. navigate to the {PRODUCT_NAME} {APP_NAME_ADMIN},
+. click on the "Messaging Queues" in the navigation drawer,
+. click on the edit icon next to the messaging queue you wish to edit,
+. provide the requested data,
+. press the "Submit" button.
+
+== Deleting messaging queues
+
+.To delete an existing messaging queue:
+. navigate to the {PRODUCT_NAME} {APP_NAME_ADMIN},
+. click on the "Messaging Queues" in the navigation drawer,
+. click on the edit icon next to the messaging queue you wish to edit,
+. click and confirm the "Delete" button.
+
+// @todo ?? vv
+// === Queue parameters
+
+// *Consumer*
+// The consumer parameter defines the destination of the data flow of a particular message queue. Consumers need to be implemented and added as an additional adapter in the code. (see more in #developer section queues consumers)
+
+// *Queue name*
+// Should be descriptive, short and alphanumeric only
+
+// *Polling changes delay*
+// This is an optional parameter to define the polling time of the producer when it is not feasible to use subscribing to changes.
+// Format: golang time.Duration
+// Example: _1h90s_, _15s_
+
+// If unsure, leave it empty.

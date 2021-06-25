@@ -2,17 +2,19 @@ include::ROOT:partial$variables.adoc[]
 
 = Local development
 
-If you need to first check how to federate records or need to debug your implementation based on federation, you can set up two development instances with this docker compose configuration.
+Use the following instructions to setup two federated {PRODUCT_NAME} instances.
 
-== Create data dir
+== Create a data directory
 
+.CLI command to create the directory with permissions:
 [source,bash]
 ----
-$ mkdir data && chmod 755 data/ -R
+mkdir data && chmod 755 data/ -R
 ----
 
 == Create the docker compose file
 
+.`docker-compose.yaml` files for the two instances:
 [source,yaml]
 ----
 version: "3"
@@ -72,12 +74,13 @@ services:
       - 8085:8084
 ----
 
-This docker compose file will map the volume data to the directory that was previously created and create two Corteza instances and their corresponding database instances.
+This docker compose file creates two {PRODUCT_NAME} instances with their corresponding databases.
+Binary uploads are stored in the `data` directory created above.
 
-== Add the appropriate .env files
+== Create the environment files
 
-_.env.orig_
-[source,yaml]
+.\.env.orig:
+[source,env]
 ----
 PROVISION_ALWAYS=false
 HTTP_ADDR=:8084
@@ -105,8 +108,8 @@ FEDERATION_SYNC_DATA_MONITOR_INTERVAL=20s
 FEDERATION_SYNC_DATA_PAGE_SIZE=100
 ----
 
-_.env.dest_
-[source,yaml]
+.\.env.dest:
+[source,env]
 ----
 PROVISION_ALWAYS=false
 HTTP_ADDR=:8084
@@ -134,8 +137,7 @@ FEDERATION_SYNC_DATA_MONITOR_INTERVAL=20s
 FEDERATION_SYNC_DATA_PAGE_SIZE=100
 ----
 
-
-== Run instances
+== Run the instances
 
 [source,bash]
 ----
@@ -143,22 +145,39 @@ $ docker-compose up -d node_origin
 $ docker-compose up -d node_destination
 ----
 
-Once the instances are up, you can use
+Once the instances are up, you can follow the docker-compose logs by running:
+
+.Logs for the origin {PRODUCT_NAME} instance:
 [source,bash]
 ----
 $ docker-compose logs -f node_origin
 ----
 
-to follow docker logs and debug your application.
+.Logs for the destination {PRODUCT_NAME} instance:
+[source,bash]
+----
+$ docker-compose logs -f node_destination
+----
 
 == Port mappings
 
-[Attributes]
+[cols="m,a,a"]
 |===
 |Instance |Local connectivity |Docker connectivity
 
-|*node_origin*|localhost:8084|node_origin:8084 (from *node_destination*)
-|*node_destination*|localhost:8085|node_destination:8084 (from *node_origin*)
-|*db_origin*|localhost:3306|db_origin:3306 (from any of the nodes)
-|*db_destination*|localhost:3307|db_destination:3306 (from any of the nodes)
+| node_origin
+| `localhost:8084`
+| `node_origin:8084` (from *node_destination*)
+
+| node_destination
+| `localhost:8085`
+| `node_destination:8084` (from *node_origin*)
+
+| db_origin
+| `localhost:3306`
+| `db_origin:3306` (from any of the nodes)
+
+| db_destination
+| `localhost:3307`
+| `db_destination:3306` (from any of the nodes)
 |===

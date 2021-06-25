@@ -1,37 +1,38 @@
 include::ROOT:partial$variables.adoc[]
 
-= Authentication and authorization
+= Authentication
 
-{PRODUCT_NAME} implements the OAuth2 authentication protocol.
-The {PRODUCT_NAME} server can act both as a OAuth2 server and as an OAuth2 client, allowing both internal and external authentications.
+{PRODUCT_NAME} implements the OAuth2 authentication protocol, where it can act both as a OAuth2 server and as an OAuth2 client, allowing both internal and external authentications.
 
-== Terminology
-
+.Terminology:
 [cols="2s,5a"]
 |===
 | [#auth-term-user]#<<auth-term-user,The user>>#
 |
 _In OAuth2 terminology, this is a **resource owner**_.
-The user authenticates themselves and authorizes the <<,auth-client,client>> on the authorization server.
+
+The user authenticates themselves and authorizes the <<auth-term-client,client>> on the authorization server.
 
 | [#auth-term-auth]#<<auth-term-auth,{PRODUCT_NAME} auth server>>#
 |
 _In OAuth2 terminology this is a **authorization server**_.
-The {PRODUCT_NAME} Auth authenticates users, authorizes clients and issues access tokens.
+
+The {PRODUCT_NAME} auth authenticates users, authorizes clients and issues access tokens.
 
 [NOTE]
 ====
-{PRODUCT_NAME} Auth currently runs side-by-side with {PRODUCT_NAME} API server.
+{PRODUCT_NAME} auth runs side-by-side with {PRODUCT_NAME} API server.
 ====
 
 | [#auth-term-api]#<<auth-term-api,{PRODUCT_NAME} API>>#
 |
 _In OAuth2 terminology, this is a **resource server**_
+
 A client must obtain an access token in order to access the resources on the the {PRODUCT_NAME} API.
 
 [NOTE]
 ====
-{PRODUCT_NAME} Auth currently runs side-by-side with {PRODUCT_NAME} API server.
+{PRODUCT_NAME} auth runs side-by-side with {PRODUCT_NAME} API server.
 ====
 
 | [#auth-term-client]#<<auth-term-client,Client, Auth Client, Third-Party Application>>#
@@ -40,7 +41,7 @@ A client is any application that is used to interact with the {PRODUCT_NAME} API
 
 | [#auth-term-local-credentials]#<<auth-term-local-credentials,Local credentials>>#
 |
-Local credentials are the email and the password that the user can use to authenticate.
+Local credentials are the email and the password that authenticate the user.
 
 | [#auth-term-external-providers]#<<auth-term-external-providers,External identity providers>>#
 |
@@ -51,16 +52,23 @@ An external identity provider is any provider that supports the OpenID Connect (
 Security context is a set of roles that are assigned to the user when accessing the {PRODUCT_NAME} API.
 |===
 
-== Defining external providers
+== Authenticate {PRODUCT_NAME} with external providers
+
+[IMPORTANT]
+====
+{PRODUCT_NAME} does not yet support authentication via other {PRODUCT_NAME} instances.
+====
 
 The use of external authentication providers allows your users to use external services (such as Google and GitHub) for authentication purposes.
 External providers can be defined in the {PRODUCT_NAME} {APP_NAME_ADMIN} panel, under the menu:System[Settings,External authentication providers].
 
-To enable an external authentication provider you must register {PRODUCT_NAME} server as a client using their interface.
+To enable an external authentication provider, you must register {PRODUCT_NAME} as a client using their user interface.
 Once you've obtained the user key and secret, you can configure {PRODUCT_NAME} using the admin panel.
 External providers become effective immediately without server restart.
 
-== Using {PRODUCT_NAME} as an authentication provider
+Refer to the xref:administrator-guide:settings.adoc[administrator guide] for details.
+
+== Authenticate external application with {PRODUCT_NAME}
 
 You can allow external applications to use {PRODUCT_NAME} as an authentication provider as long as they support authentication using OAuth2/OIDC protocols.
 
@@ -73,8 +81,8 @@ The access token is short lived and should be automatically refreshed.
 You can use our https://github.com/cortezaproject/corteza-vue/blob/2021.6.x/src/plugins/auth.ts[corteza-vue plugins/auth] to manage this for you.
 ====
 
-The session on the {PRODUCT_NAME} Auth is different from the one on the client application.
-This separation allows the {PRODUCT_NAME} Auth session to be used when authorizing additional clients.
+The session on the {PRODUCT_NAME} auth is different from the one on the client application.
+This separation allows the {PRODUCT_NAME} auth session to be used when authorizing additional clients.
 
 [CAUTION]
 ====
@@ -86,8 +94,11 @@ Since the authentication sessions between different clients are different, each 
 An <<auth-term-client,auth client>> offers a high-level access control over the use of {PRODUCT_NAME} API and it's resources.
 Auth clients can be defined in the {PRODUCT_NAME} {APP_NAME_ADMIN} panel, under the menu:System[Auth clients].
 
-It is advised that you create a *separate Auth client for each application you wish to integrate with*.
-This allows you to have full control over all integrated applications and the clients' scope.
+[WARNING]
+====
+We advise you create a separate auth client for each application that you wish to integrate with.
+Reusing the same client may grant some integrations access permissions that they should not have.
+====
 
 .The Auth client consists of:
 . a combination of a client ID and a client secret,
@@ -96,34 +107,34 @@ This allows you to have full control over all integrated applications and the cl
 . a trusted flag to force users to confirm authentication,
 . an Auth client validity based on the date.
 
+You can specify what users are allowed to authorize the client by setting the corresponding "Authorize client" access control operation.
+
 [TIP]
 ====
 Mark the client as "trusted" to skip the extra authorization step.
 ====
 
-You can specify what users are allowed to authorize the client by setting the corresponding "Authorize client" access control operation.
-
 [#auth-scope]
 === Authorization scope
 
-The scope is defined as a series of role memberships that are either *permitted*, *prohibited*, or *forced* on the user when using a specific {PRODUCT_NAME} Auth server.
+The scope is defined as a series of role memberships that are either *permitted*, *prohibited*, or *forced* on the user when using a specific {PRODUCT_NAME} auth server.
 
-[cols="2s,5a"]
+[cols="1s,5a"]
 |===
 | [#auth-scope-permitted]#<<auth-scope-permitted,Permitted roles>>#
-| Permitted roles allow you to specify what roles the user is *allowed to have* when accessing the {PRODUCT_NAME} API resources from a specific client.
+| *Permitted roles* define what roles the user is *allowed to have* when authenticating with this client.
 
 | [#auth-scope-prohibited]#<<auth-scope-prohibited,Prohibited roles>>#
-| Prohibited roles allow you to specify what roles the user is *not allowed to have* when accessing the {PRODUCT_NAME} API resources from a specific client.
+| *Prohibited roles* define what roles the user is *not allowed to have* when authenticating with this client.
 
 | [#auth-scope-forced]#<<auth-scope-forced,Forced roles>>#
-| Forced roles allow you to specify what roles the user *must have* when accessing the {PRODUCT_NAME} API resources from a specific client.
+| *Forced roles* define what roles the user *will have* have when authenticating with this client.
 If the user does not have a forced role, a role will be automatically added.
 |===
 
 === Notes on security
 
-First and above all, use HTTPS with valid SSL certificates.
+Use HTTPS with valid SSL certificates.
 
 Authentication forms and endpoints are protected against brute-force and cross-site request attacks.
 You can also set your own secrets for JWT, CSRF and cookie value encryption.
@@ -140,7 +151,7 @@ These changes take affect after server restart.
 
 === Tips for debugging
 
-.Things to check when authentication does not work:
+.If your external application is unable to authenticate:
 * client's ID and secret must match,
 * at least one of client's redirect URIs must match (by prefix),
 * client's grant flow must match,

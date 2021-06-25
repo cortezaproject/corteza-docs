@@ -6,26 +6,35 @@ include::ROOT:partial$variables.adoc[]
 
 {PRODUCT_NAME} separates the back-end business logic and the front-end user interface by defining an API that the clients (web applications and other custom applications) can access.
 
-[TIP]
-====
-All operations that can be performed via user interfaces can be performed via an API call (or a series of API calls).
-====
+{PRODUCT_NAME} is API-centric, meaning that everything can be done via an API endpoint.
 
+[#authentication]
 == Authentication
 
 {PRODUCT_NAME} uses bearer JWT tokens when authenticating HTTP requests.
-To obtain access tokens, you need to define a *user* and an *auth client*.
 
-You can use an existing user or create a dedicated user.
-Make sure that the selected user has sufficient permissions (is a member of appropriate roles).
+[WARNING]
+====
+JWT tokens grant access to your system, so treat them as login credentials.
+====
+
+=== Obtaining access tokens
+
+Before you can obtain the access token, you need to define an *auth client*, and a *system user*.
+You can use an existing user (such as yourself), or create a dedicated user.
 
 [CAUTION]
 ====
-We recommend you create a dedicated user with only the required roles.
+Make sure that the system user has sufficient roles to be able to access resources which you wish to access.
 ====
 
 Create a new auth client with the `client_credentials` grant type.
 Insert the ID of the selected user under the "Impersonate user" (the user that we mentioned above).
+
+[IMPORTANT]
+====
+Make sure that you are using {PRODUCT_NAME} xref:ROOT:changelog/202103.adoc#p2021_3_4[2021.3.4] or later.
+====
 
 If the user's ID is not set or is not valid, an `Error: "auth client security configuration invalid"` error is returned.
 
@@ -60,18 +69,24 @@ curl -X POST $CORTEZA_URL/auth/oauth2/token \
 }
 ----
 
-[IMPORTANT]
+[CAUTION]
 ====
 The above token expires after two hours; make sure to fetch a new one.
 ====
 
-Each HTTP request to a protected resource must provide the bearer JWT token in the `authorization` header.
-Unauthorized requests yield an error response of `{ "error": { "message": "Unauthorized" } }` (or similar).
+=== Using access tokens
 
-[IMPORTANT]
-====
-JWT tokens should be treated as login credentials as they provide access to the system.
-====
+Each HTTP request to a *protected resource* must provide the bearer JWT token in the `authorization` header.
+
+.Unauthorized requests yield an error response of:
+[source,json]
+----
+{
+  "error": {
+    "message": "Unauthorized"
+  }
+}
+----
 
 .An example cURL with authentication:
 [source,bash]
@@ -165,20 +180,21 @@ curl "$CORTEZA_URL" \
 
 |===
 
+[#api-endpoints]
 == Endpoints
 
 Each {PRODUCT_NAME} instance ships with a built-in API reference that is accessible on the `/docs` endpoint of your {PRODUCT_NAME} API.
-
-Here we cover endpoints used for debugging and maintenance.
-Refer to the built-in API reference for the complete list of available service endpoints.
-https://latest.cortezaproject.org/api/docs/[Here] is the API reference for our community instance.
 
 [NOTE]
 ====
 If you are using a *different sub-domain* for your API (two separate Docker containers for web app and API), the URL should look something like `https://api.$BASE_URL/docs`.
 
-If you are using *the same domain* for your API (a single Docker container for web app and API), the URL should look something like `https://$BASE_URL/API/docs`.
+If you are using *the same domain* for your API (a single Docker container for web app and API), the URL should look something like `https://$BASE_URL/api/docs`.
 ====
+
+Here we cover endpoints used for debugging and maintenance.
+Refer to the built-in API reference for the complete list of available endpoints.
+https://latest.cortezaproject.org/api/docs/[Here] is the API reference for our community instance.
 
 In addition to the API reference mentioned above, these are the system-level endpoints that need to be explicitly enabled.
 They can be enabled for development/debugging but should be disabled when running in production.
@@ -205,6 +221,7 @@ They can be enabled for development/debugging but should be disabled when runnin
 
 |===
 
+[#response-format]
 == Response data format
 
 {PRODUCT_NAME} implements three different response formats, based on what we are trying to do and based on the status.

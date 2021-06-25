@@ -25,3 +25,4 @@
 *** xref:authentication-provider/facebook.adoc[]
 *** xref:authentication-provider/github.adoc[]
 *** xref:authentication-provider/linkedin.adoc[]
+*** xref:authentication-provider/saml.adoc[]

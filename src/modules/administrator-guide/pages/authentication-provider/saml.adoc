@@ -2,41 +2,40 @@ include::ROOT:partial$variables.adoc[]
 
 = SAML
 
-.To enable SAML authentication, you need to retrieve your application credentials from IDP:
-. Use the public and private keys from the certificate you created / exported on your IDP
-. Add an *IDP URL*
-. Set the *Identity payload name* field, this will be used to populate the new user meta data, usually `name`
-. Set the *Identity payload name* field, this will be used to populate the new user meta data, usually `nickName` or `handle`
-. Set the *Identity payload default identifier* field, this will be used to identify the new user (this should be set on IDP also), usually `emailAddress`
+.To enable SAML authentication, you need to retrieve your application credentials from your IDP:
+. use the public and private keys from the certificate you created/exported on your IDP,
+. add an *IDP URL*,
+. set the *Identity payload name* field, this will be used to populate the new user metadata, usually `name`,
+. set the *Identity payload handle* field, this will be used to populate the new user metadata, usually `nickName` or `handle`,
+. set the *Identity payload default identifier* field, this will be used to identify the new user (this should also be set onyour IDP), usually `emailAddress`.
 
 [IMPORTANT]
 ====
-Certificate public and private keys must be in single line format, eond of lines should be marked with LF character (`\n`)
+Certificate's public and private keys must be in a single line format, end of lines should be marked with *LF character* (`\n`)
 ====
 
-_Private key example_
+.Example of a private key:
 [source,txt]
 ----
 -----BEGIN PRIVATE KEY-----\nMIIEvgIBA… …gL4\n-----END PRIVATE KEY-----\n
 ----
 
-_Public key example_
+.Example of a public key:
 [source,txt]
 ----
 -----BEGIN CERTIFICATE-----\nMIIDITCCAgmgAwIBAgIUK… …JB5EkD4M6A==\n-----END CERTIFICATE-----\n
 ----
 
-
 [NOTE]
 ====
-The *Identity payload* fields are present in the IDP to SP communication on registration / login of the user, the values above follow the industry standard, but you should consult your IDP-specific documentation on what is provided as part of user data. +
+The *Identity payload* fields are present in the IDP to SP communication on user registration/login.
+The above values follow the industry standard, but you should consult your IDP-specific documentation on what is provided as part of user data.
 ====
 
-Corteza will try to guess the *identifier* among one of:
-
- - default identifier as defined in settings
- - `emailAddress`
- - `urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress`
- - `urn:oasis:names:tc:SAML:attribute:subject-id`
- - `email`
- - `mail`
+.{PRODUCT_NAME} will try to guess the *identifier* among one of:
+* default identifier as defined in settings
+* `emailAddress`
+* `urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress`
+* `urn:oasis:names:tc:SAML:attribute:subject-id`
+* `email`
+* `mail`

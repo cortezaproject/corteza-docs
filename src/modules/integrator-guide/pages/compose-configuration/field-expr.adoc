@@ -2,6 +2,7 @@ include::ROOT:partial$variables.adoc[]
 
 = Field expressions
 
+[#value-expressions]
 == Value expressions
 
 Value expressions calculate the fields' value based on the provided expression.
@@ -55,6 +56,7 @@ trim(firstName + " " + lastName)
 ["foo", "bar", "baz"]
 ----
 
+[#value-sanitizers]
 == Sanitizers
 
 Sanitisers modify the field value to cleanup (sanitise) the data before it is saved.
@@ -83,6 +85,7 @@ The `value` variable refers to the current value.
 
 |===
 
+[#value-validators]
 == Validators
 
 Validators validate the field value by raising errors when the value is not valid.

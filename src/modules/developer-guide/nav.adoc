@@ -22,6 +22,7 @@
 **** xref:corteza-server/federation/node-pair.adoc[]
 **** xref:corteza-server/federation/node-sync.adoc[]
 **** xref:corteza-server/federation/security-logging.adoc[]
+**** xref:corteza-server/federation/dev-notes.adoc[]
 
 ** xref:web-applications/index.adoc[]
 *** xref:web-applications/structure.adoc[]

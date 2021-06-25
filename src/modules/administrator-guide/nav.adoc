@@ -8,6 +8,7 @@
 *** xref:settings.adoc[]
 *** xref:permissions.adoc[]
 *** xref:automation.adoc[]
+*** xref:messagebus.adoc[]
 
 ** Corteza Low Code
 *** xref:namespaces.adoc[]

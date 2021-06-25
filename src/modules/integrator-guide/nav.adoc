@@ -1,8 +1,7 @@
 * xref:index.adoc[]
 
-** Authentication and security
-*** xref:authentication-security/auth.adoc[]
-*** xref:authentication-security/security.adoc[]
+** xref:auth.adoc[]
+** xref:security.adoc[]
 
 ** Personalization
 *** xref:personalization/auth.adoc[]
@@ -31,36 +30,38 @@
 // **** xref:compose-configuration/examples/page-blocks/index.adoc[]
 // **** xref:compose-configuration/examples/field-expressions.adoc[]
 
-** xref:automation-scripts/index.adoc[]
-*** xref:automation-scripts/script-context.adoc[]
-*** xref:automation-scripts/node-modules.adoc[]
-*** xref:automation-scripts/edit-built-in-scripts.adoc[]
-*** xref:automation-scripts/testing.adoc[]
-*** xref:automation-scripts/deploying.adoc[]
-*** xref:automation-scripts/debugging.adoc[]
-*** xref:automation-scripts/corredor-helpers.adoc[]
-*** References
-**** xref:automation-scripts/references/resource-events.adoc[]
-**** xref:automation-scripts/references/resource-constraints/index.adoc[]
-*** Samples
-**** xref:automation-scripts/samples/triggers/index.adoc[]
-**** xref:automation-scripts/samples/server-scripts/index.adoc[]
-**** xref:automation-scripts/samples/client-scripts/index.adoc[]
+** Automation
+*** xref:workflows/index.adoc[]
+**** xref:workflows/organizing-workflows.adoc[]
+**** xref:workflows/delaying-scheduling.adoc[]
+**** xref:workflows/automation-scripts.adoc[]
+**** xref:workflows/style-guide-best-practices.adoc[]
+**** xref:workflows/scope-in-depth.adoc[]
+**** xref:workflows/testing-debugging.adoc[]
+**** xref:workflows/func-reference.adoc[]
+**** xref:workflows/types.adoc[]
+**** Examples
+***** xref:workflows/examples/interval.adoc[]
+***** xref:workflows/examples/timestamp.adoc[]
+
+*** xref:automation-scripts/index.adoc[]
+**** xref:automation-scripts/script-context.adoc[]
+**** xref:automation-scripts/node-modules.adoc[]
+**** xref:automation-scripts/edit-built-in-scripts.adoc[]
+**** xref:automation-scripts/testing.adoc[]
+**** xref:automation-scripts/deploying.adoc[]
+**** xref:automation-scripts/debugging.adoc[]
+**** xref:automation-scripts/corredor-helpers.adoc[]
+**** References
+***** xref:automation-scripts/references/resource-events.adoc[]
+***** xref:automation-scripts/references/resource-constraints/index.adoc[]
+**** Samples
+***** xref:automation-scripts/samples/triggers/index.adoc[]
+***** xref:automation-scripts/samples/server-scripts/index.adoc[]
+***** xref:automation-scripts/samples/client-scripts/index.adoc[]
 
 ** xref:expr/index.adoc[]
 *** xref:expr/fnc-reference.adoc[]
-
-** xref:workflows/index.adoc[]
-*** xref:workflows/organizing-workflows.adoc[]
-*** xref:workflows/delaying-scheduling.adoc[]
-*** xref:workflows/automation-scripts.adoc[]
-*** xref:workflows/style-guide-best-practices.adoc[]
-*** xref:workflows/scope-in-depth.adoc[]
-*** xref:workflows/testing-debugging.adoc[]
-*** xref:workflows/types.adoc[]
-// *** Examples
-// **** ...
-// *** xref:workflows/pdf.adoc[]
 
 ** xref:templates/index.adoc[]
 *** xref:templates/variables.adoc[]

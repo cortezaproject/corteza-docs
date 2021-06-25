@@ -13,4 +13,4 @@ steps:
       username: { from_secret: docker_hub_username }
       password: { from_secret: docker_hub_password }
     when:
-      branch: [ 2021.3.x ]
+      branch: [ 2021.6.x ]

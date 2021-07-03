@@ -1,0 +1,315 @@
+== Create batches of records
+
+To create batches of records, use the `POST $ComposeAPI/namespace/$NAMESPACE_ID/module/$MODULE_ID/record` API endpoint.
+
+=== Example request
+
+[source,bash]
+----
+curl -X POST "$ComposeAPI/namespace/$NAMESPACE_ID/module/$MODULE_ID/record" \
+  -H "Authorization: Bearer $JWT" \
+  -H "Accept: application/json" \
+  -H "Content-type: application/json" \
+  -d <request-data>;
+----
+
+=== Example request data
+
+[source,json]
+----
+{
+  "values": [],
+  "records": [
+    {
+      "refField": "foo_record",
+      "set": [
+        {
+          "moduleID": "232557810271929451",
+          "values": []
+        }
+      ]
+    }
+  ]
+}
+----
+
+=== Example response
+
+[source,json]
+----
+{
+  "recordID": "232557810288837739",
+  "moduleID": "232557810255152235",
+  "namespaceID": "232557810238375019",
+  "ownedBy": "232557810221663339",
+  "createdAt": "2021-05-24T13:44:17+05:30",
+  "createdBy": "232557810221663339",
+  "records": [
+    {
+      "recordID": "232557810288968811",
+      "moduleID": "232557810271929451",
+      "values": [
+        {
+          "name": "foo_record",
+          "value": "232557810288837739"
+        }
+      ],
+      "namespaceID": "232557810238375019",
+      "ownedBy": "232557810221663339",
+      "createdAt": "2021-05-24T13:44:17+05:30",
+      "createdBy": "232557810221663339"
+    }
+  ],
+  "canUpdateRecord": false,
+  "canDeleteRecord": false
+}
+----
+
+== Update batches of records
+
+To update batches of records, use the `POST $ComposeAPI/namespace/$NAMESPACE_ID/module/$MODULE_ID/record/$RECORD_ID` API endpoint.
+
+=== Example request
+
+[source,bash]
+----
+curl -X POST "$ComposeAPI/namespace/$NAMESPACE_ID/module/$MODULE_ID/record/$RECORD_ID" \
+  -H "Authorization: Bearer $JWT" \
+  -H "Accept: application/json" \
+  -H "Content-type: application/json" \
+  -d <request-data>;
+----
+
+=== Example request data
+
+[source,json]
+----
+{
+  "values": [
+    {
+      "name": "name",
+      "value": "Some Name"
+    }
+  ],
+  "records": [
+    {
+      "refField": "foo_record",
+      "set": [
+        {
+          "moduleID": "232550916044113003",
+          "recordID": "232550916060955755",
+          "values": [
+            {
+              "name": "name",
+              "value": "Foo Name"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "refField": "another_foo_record",
+      "set": [
+        {
+          "moduleID": "232550916044113003",
+          "recordID": "232553441787331691",
+          "values": [
+            {
+              "name": "name",
+              "value": "Another Foo Name"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
+----
+
+=== Example response
+
+[source,json]
+----
+{
+  "recordID": "232550916060890219",
+  "moduleID": "232550916027335787",
+  "values": [
+    {
+      "name": "name",
+      "value": "Some Name"
+    }
+  ],
+  "namespaceID": "232550916010558571",
+  "ownedBy": "232550915993846891",
+  "createdAt": "2021-05-24T12:35:47.444657+05:30",
+  "createdBy": "0",
+  "updatedAt": "2021-05-24T12:35:47+05:30",
+  "updatedBy": "232550915993846891",
+  "records": [
+    {
+      "recordID": "232550916060955755",
+      "moduleID": "232550916044113003",
+      "values": [
+        {
+          "name": "name",
+          "value": "Foo Name"
+        },
+        {
+          "name": "foo_record",
+          "value": "232550916060890219"
+        }
+      ],
+      "namespaceID": "232550916010558571",
+      "ownedBy": "232550915993846891",
+      "createdAt": "2021-05-24T12:35:47.445257+05:30",
+      "createdBy": "0",
+      "updatedAt": "2021-05-24T12:35:47+05:30",
+      "updatedBy": "232550915993846891"
+    },
+    {
+      "recordID": "232553441787331691",
+      "moduleID": "232550916044113003",
+      "values": [
+        {
+          "name": "name",
+          "value": "Another Foo Name"
+        },
+        {
+          "name": "another_foo_record",
+          "value": "232553441787266155"
+        }
+      ],
+      "namespaceID": "232550916010558571",
+      "ownedBy": "232550915993846891",
+      "createdAt": "2021-05-24T12:35:47.456257+05:30",
+      "createdBy": "0",
+      "updatedAt": "2021-05-24T12:35:47+05:30",
+      "updatedBy": "232550915993846891"
+    }
+  ],
+  "canUpdateRecord": true,
+  "canDeleteRecord": false
+}
+----
+
+
+== Delete batches of records
+
+To delete batches of records, use the `POST $ComposeAPI/namespace/$NAMESPACE_ID/module/$MODULE_ID/record/$RECORD_ID` API endpoint.
+
+=== Example request
+
+[source,bash]
+----
+curl -X POST "$ComposeAPI/namespace/$NAMESPACE_ID/module/$MODULE_ID/record/$RECORD_ID" \
+  -H "Authorization: Bearer $JWT" \
+  -H "Accept: application/json" \
+  -H "Content-type: application/json" \
+  -d <request-data>;
+----
+
+=== Example request data
+
+[source,json]
+----
+{
+  "values": [
+    {
+      "name": "name",
+      "value": "Some Name"
+    }
+  ],
+  "records": [
+    {
+      "refField": "foo_record",
+      "set": [
+        {
+          "deletedAt": "2020-05-15T15:01:02+02:00",
+          "moduleID": "232550316694848619",
+          "recordID": "232550316711691371",
+          "values": [
+            {
+              "name": "name",
+              "value": "Foo Name"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "refField": "another_foo_record",
+      "set": [
+        {
+          "deletedAt": "2020-05-15T15:01:02+02:00",
+          "moduleID": "232550316694848619",
+          "recordID": "232550316728403051",
+          "values": [
+            {
+              "name": "name",
+              "value": "Another Foo Name"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
+----
+
+=== Example response
+
+[source,json]
+----
+{
+  "recordID": "232550316711625835",
+  "moduleID": "232550316678071403",
+  "values": [
+    {
+      "name": "name",
+      "value": "Some Name"
+    }
+  ],
+  "namespaceID": "232550316661425259",
+  "ownedBy": "232550316661359723",
+  "createdAt": "2021-05-24T12:29:50.207805+05:30",
+  "createdBy": "0",
+  "updatedAt": "2021-05-24T12:29:50+05:30",
+  "updatedBy": "232550316661359723",
+  "records": [
+    {
+      "recordID": "232550316711691371",
+      "moduleID": "232550316694848619",
+      "values": [
+        {
+          "name": "foo_record",
+          "value": "232550316711625835"
+        }
+      ],
+      "namespaceID": "232550316661425259",
+      "ownedBy": "0",
+      "createdAt": "2021-05-24T12:29:50.209607+05:30",
+      "createdBy": "0",
+      "deletedAt": "2021-05-24T12:29:50+05:30",
+      "deletedBy": "232550316661359723"
+    },
+    {
+      "recordID": "232550316728403051",
+      "moduleID": "232550316694848619",
+      "values": [
+        {
+          "name": "another_foo_record",
+          "value": "232550316711625835"
+        }
+      ],
+      "namespaceID": "232550316661425259",
+      "ownedBy": "0",
+      "createdAt": "2021-05-24T12:29:50.211789+05:30",
+      "createdBy": "0",
+      "deletedAt": "2021-05-24T12:29:50+05:30",
+      "deletedBy": "232550316661359723"
+    }
+  ],
+  "canUpdateRecord": true,
+  "canDeleteRecord": true
+}
+----

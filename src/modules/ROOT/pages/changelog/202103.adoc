@@ -231,3 +231,27 @@ Disables {APP_AUTOMATION} workflow steps if {APP_AUTOMATION} is not active; thro
 . Vivek Patel
 . Jože Fortun
 . Tomaž Jerman
+
+== Patch 2021.3.8
+
+=== {PRODUCT_NAME} Server
+
+* fixed XSS sanitization on text fields
+* fix workflow boot-time race condition with settings notification
+* workflow handler closure fix
+* refactor workflow execution - race condition prevention
+
+=== {PRODUCT_NAME} Web applications (clients)
+
+.{PRODUCT_NAME} {APP_NAME_WORKFLOW}:
+* force user to save workflow before building it
+* fix onInterval and onTimestamp trigger constraints
+
+.{PRODUCT_NAME} {APP_NAME_COMPOSE}:
+* throttle record manipulation api calls
+
+.Contributors:
+. Jože Fortun
+. Tomaž Jerman
+. Denis Arh
+. Peter Grlica

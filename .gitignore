@@ -3,5 +3,5 @@
 /build
 /.cache
 dev
-
+.idea
 node_modules

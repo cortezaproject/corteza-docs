@@ -23,6 +23,7 @@
 *** xref:maintenance/backups.adoc[]
 *** xref:maintenance/health-check.adoc[]
 *** xref:maintenance/troubleshooting.adoc[]
+*** xref:maintenance/database-password.adoc[]
 
 ** Extension requirements
 *** xref:extension-requirements/email-relay.adoc[]

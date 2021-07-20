@@ -272,3 +272,16 @@ Disables {APP_AUTOMATION} workflow steps if {APP_AUTOMATION} is not active; thro
 . Denis Arh
 . Peter Grlica
 . Vivek Patel
+
+== Patch 2021.3.10
+
+=== {PRODUCT_NAME} Server
+
+* Fixed user creation through workflows
+
+=== {PRODUCT_NAME} JS libraries:
+
+* Fixed `corteza-vue` build (used `2021.9.x` instead of `2021.3.x`)
+
+.Contributors:
+. Denis Arh

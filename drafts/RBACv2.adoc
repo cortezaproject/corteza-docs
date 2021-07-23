@@ -1,0 +1,256 @@
+= RBAC improvements
+
+Goal: Improve access control on resources of type compose record via direct support for "record level access" and via context role memberships.
+
+== Rule resource format
+=== Structure
+
+[cols="a,m"]
+|===
+| <rbac-ns>
+| [a-z]*
+
+| <component>
+| [a-z]*
+
+| <service>
+| <component>:[a-zA-Z]
+
+| <resource-type>
+| <rbac-ns>::<component>
+
+<rbac-ns>::<service>
+
+| <path>
+| /.*
+
+| <resource>
+| <resource-type>[<path>*]
+
+|===
+
+RBAC namespace (not to be confused with compose namespace) defaults to `corteza`
+Component is one of the `compose`, `system`, `federation`, `automation`, ...
+Type (optional) is the component's type that can be secured, `<module>`, `<automation>`, ...
+Path (optional) is one or more hierarchically structured ID that describe exact resource (user, namespace, module, record) or a group of resource (modules under namespace)
+
+
+=== Grouping of resources with path
+Compose permissions::
+`corteza::compose/`
+
+Permissions for any namespace (level=1)::
+`corteza::compose:namespace:/*`
+
+Permissions for a specific namespace (level=0)::
+`corteza::compose:namespace:/42`
+
+Permissions for all records on a specific namespace (level=2)::
+`corteza::compose:record/42/*/*`
+
+Permissions for all records on a any namespace or any module (level=3)::
+`corteza::compose:record/*/*/*`
+
+Permissions for a specific record::
+`corteza::compose:record/42/21/2` (level=0)
+
+Permissions for record values on a specific module fields::
+`corteza::compose:moduleField/42/21/12` (level=0)
+
+[NOTE]
+====
+Access control on a specific field of a specific record is not supported.
+Some degree of flexibility can be achieved through context roles (see below).
+On certain resource-types hierarchy does not make sense but it is kept for consistency
+====
+
+#CHECK THIS----#
+
+Resources identifiers must get more specific from left-to right.
+Definition with non-specific parent and a specific child is **invalid**:
+ `corteza::compose:record/*/21/2`
+
+Definition as this makes no sense as there is only one module with `ID=21` (and only one record with `ID=2`) in the whole system and as such, it can always be only in one namespace.
+
+#---CHECK THIS#
+
+Specificity level is calculated by how distant is a resource definition from the concrete resource (level=0).
+Or easier: count number of wildcard characters (`*`) in the resource definition.
+
+=== Purpose of **domain** part in the new definition
+Specifying domains allows extensions of the RBAC model in the future, addition of custom resources, ...
+
+== Upgrading roles
+=== Removal of hard-coded IDs and logic
+Hard references to roles Admin (`ID=2`) and Everyone (`ID=1`) are removed from the codebase.
+
+=== Everyone and migration to Authenticated and Anonymous (guest?)
+Old **Everyone** role was too broad and in the future we want to be able to control access for authenticated users and users that are anonymous.
+For example: allowing certain records to be accessed or even modified by unauthenticated user.
+
+Everyone role is renamed to Authenticated.
+
+*See anonymous role flags + validation expressions
+
+=== Super Admin (`superadmin`)
+It replaces the hardcoded virtual superuser identity
+
+*See check-bypass options for roles below
+
+#=== Preinstalled system users
+Due to removal of superuser identity some new system users are needed:
+ - Corteza Provisioner (`provision@corteza.local`, `corteza-provisioner`); member of super admin account, used for all provisioning actions
+ - Corteza Service Account  (`service@corteza.local`, `corteza-service`); member of super admin account, used for all service activities, CLI interface
+ - Corteza Federation (`federation@corteza.local`, `corteza-federation`); member of super admin account, used for all federation activities
+
+Until the need arises these accounts will be shortlisted in the code by their handle to protect them from any kind of manipulation and abuse.
+
+== New RBAC options
+Corteza server will refuse to start if any of the roles specified in the options do not exist or is deleted.
+It's highly unlikely that Corteza administrators will want to change this setting after initial configuration or at all.
+
+Rationale behind putting `RBAC_...._ROLES` lists to options (environmental variables) vs settings, configurable via UI:
+ - Security model rarely changes and when it does it's a product of mayor reorganization that needs a lot of planning.
+ - It affects RBAC checking mechanisms and it needs to tune itself to a specific setup.
+ This means that any change to these lists need complete server restart.
+ - Mechanisms that grant access tokens need to be aware of the the current
+
+Additional rationale for not using per auth-client role lists
+ - Using auth clients to hold any of the following list of roles means adding unnecessary complexity, confusion and impossible scenarios when multiple auth clients are used.
+
+=== Bypassing RBAC check
+Space delimited list of role handles.
+These roles causes short-circuiting access control check and allowing all operations.
+System will refuse to start if check-bypassing roles are also listed as authenticated or anonymous auto-assigned roles.
+
+Additional security constraints:
+ - Only member of a check-bypass role can modify members of that particular role.
+ - Can be listed on auth clients as permitted or prohibited roles but are silently ignored when used as forced roles.
+
+Option: `RBAC_BYPASS_ROLES`
+Default value: `superadmin`
+
+=== Roles for authenticated users
+Space delimited list of role handles.
+These roles are automatically assigned to authenticated user.
+Memberships can not be managed for these roles.
+System will refuse to start if roles listed here are also listed under anonymous roles
+
+Option: `RBAC_AUTHENTICATED_ROLES`
+Default value: `authenticated`
+
+Additional security constraints:
+ - Can be listed on auth clients as permitted or prohibited roles but are silently ignored when used as forced roles.
+
+=== Roles for anonymous (unauthenticated) users
+Space delimited list of role handles.
+These roles are automatically assigned to anonymous user.
+Memberships can not be managed for these roles.
+
+Additional security constraints:
+ - Only member of a check-bypass role can modify members of that particular role.
+ - Anonymous roles can not be used in auth-client security role lists and are silently ignored
+
+Option: `RBAC_ANONYMOUS_ROLES`
+Default value: `anonymous`
+
+== Context roles or contextual role membership
+Roles with validation or access check context expressions can not have fixed memberships and can not be used in role lists on auth clients.
+Membership of roles is defined in the moment of access control check using expression defined on a role.
+Role can have multiple expressions, each paired with one resource type.
+Resource types are unique on role.
+
+Resource type aids checking algorithm and can help maintainers to pair context roles to resources based on type.
+In other words if role has context expression for resource type `compose:record`, that role can only allowed/denied an operation on record resources.
+
+=== Use case:
+Contextual role "Owner" has a simple expression `subjectID == ownerID` for `compose:record` resource type,  meaning that "Owner" role will be skipped when doing access control check if subject (current user) is not owner of the record.
+This allows us to set deny updates for everyone but allow them for owner only.
+
+With deep access to resource properties and values like record values, we can build complex access control rules that allows certain operations to be performed based on
+
+=== Expression examples
+	// use role's permissions when current user is owner
+	subjectID == ownerID
+
+	// use role's permissions when owner but not a creator
+	subjectID == ownerID && subjectID != creatorID
+
+	// use role's permissions when current user ID is one of the values
+	// in the editor multi-value field
+	has(record.values.editor, subjectID)
+
+	// use role's permissions only for user's unpublished records
+	subjectID == ownerID && !record.values.published
+
+=== Expression variables:
+ - General:
+	 - `subjectID` (ID of the current user)
+	 - `ownerID` (defaults to 0 when not available)
+	 - `creatorID` (defaults to 0 when not available)
+	 - `updaterID` (defaults to 0 when not available)
+	 - `deleterID` (defaults to 0 when not available)
+ - Compose record
+	 - `record`
+	 - `module`
+	 - `namespace`
+ - Compose module
+	 - `module`
+	 - `namespace`
+ - Compose namespace (other resources follow this pattern)
+	 - `namespace`
+
+**Note on permission management UI:**
+User interface for permission management does not show roles with access-control context and unmatching resource type.
+For example: context roles with expressions for compose record resource is hidden from the module (and other non-record types) permission management and RBAC service prevents assigning permissions on such roles.
+
+== Change in RBAC check flow:
+=== Old flow:
+ 1. can this combination of roles perform an operation on this specific resource
+ 2. can this combination of roles perform an operation on any resource of the type (wildcard)
+ 3. can anyone/everyone perform an operation on this specific resource
+ 4. can anyone/everyone perform an operation on any resource of the type (wildcard)
+
+=== New flow:
+check-bypassing roles::
+allow ALL operations without additional checks
+
+context roles::
+rules by resource specificity level, ascending*
+
+common roles::
+rules by resource specificity level, ascending*
+
+authenticated roles::
+rules by resource specificity level, ascending*
+
+anonymous roles::
+rules by resource specificity level, ascending*
+
+\* From the most specific rule (parent/1/child/1) to the least specific (parent/\*/\* ).
+For more details, see new resource definitions.
+
+== Provisioning:
+Besides anonymous, authenticated, superadmin roles, Corteza will preinstall:
+**Security admin** `security_admin`::
+full access and grants on users, roles, auth clients and settings
+
+**Developer** `developer`::
+with full access on workflows, templates, auth clients, management of all compose resources
+
+**Low-code admin** `low_code_admin`::
+with compose management permissions
+
+**Record editor** `record_editor`::
+with limited record management permissions for all namespaces
+
+**Owner** `record_owner`::
+with context expression `subjectID == ownerID` on record resource type
+
+**Creator** `record_creator`::
+with context expression `subjectID == creatorID` on record resource type
+
+**Updater** `record_updater`::
+with context expression `subjectID == updaterID` on record resource type
+
+Other configurations (CRM, Service solution) will come with their set of predefined roles.

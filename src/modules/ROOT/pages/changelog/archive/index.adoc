@@ -1,0 +1,13 @@
+include::partial$variables.adoc[]
+
+= Release archive
+
+:leveloffset: +1
+
+include::202012.adoc[]
+
+include::202009.adoc[]
+
+include::202006.adoc[]
+
+:leveloffset: -1

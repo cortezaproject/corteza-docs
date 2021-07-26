@@ -1,10 +1,16 @@
 include::partial$variables.adoc[]
 
 = Changelog
-:doctype: book
+
+The format is based on https://keepachangelog.com/en/1.0.0/[Keep a Changelog], and this project adheres to https://calver.org/[Calendar Versioning].
 
 :leveloffset: +1
 
 include::202103.adoc[]
 
 :leveloffset: -1
+
+== Older releases
+
+Refer to the xref:changelog/archive/index.adoc[archive] for older {PRODUCT_NAME} releases.
+

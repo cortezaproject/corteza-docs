@@ -1,233 +1,229 @@
 include::ROOT:partial$variables.adoc[]
 
 [#2021-3-x]
-= 2021.3
+= `2021.3`
 
-== {PRODUCT_NAME} Server
+{PRODUCT_NAME} `2021.3` improves the stability and security of the system; and a lot of new features including a visual automation builder (xref:integrator-guide:workflows/index.adoc[{PRODUCT_NAME} {APP_NAME_WORKFLOW}]), support template management and rendering.
+{PRODUCT_NAME} also introduces an authentication server that conforms to the https://oauth.net/2/[OAuth2] protocol, which increases security and increases flexibility when it comes to authentication options.
 
-.Changes:
-* Upgraded to Go 1.16
-* Removed obsolete asset embedding and move to //go:embed
-* Corteza Workflow with support for Low Code / No Code
-* Messaging code and endpoints removed
-* Authorization server capabilities added
-* OAuth2 server with Authorization code and client credentials flows
-* Compose record federation now supports Activity Stream protocol
-* Codebase cleanup and removed `With(ctx)` anti-pattern
-* Pagination & sorting fixes
-* Added base support for document templating and rendering (HTML & PDF)
-* Added Envoy file encoders (export support)
-* Reworked {APP_NAME_COMPOSE} record export using envoy
-* Fixed UserBeforeUpdate/UserBeforeDelete
+.[#2021_3-important]#<<2021_3-important,Important upgrade notes:>>#
+* Authentication changed to the OAuth2 standard, and any authentication logic relying on the previous versions will no longer work.
+* The {APP_AUTOMATION} server is now disabled by default.
+Set the `CORREDOR_ENABLED=true` in your `.env` file if you wish to have it enabled.
+* {PRODUCT_NAME} Messaging is now deprecated and removed.
 
-== {PRODUCT_NAME} Corredor automation server
+== `2021.3.10`
 
-* With introduction of {PRODUCT_NAME} Workflow, CORREDOR_ENABLED setting (on {PRODUCT_NAME} server) is now disabled by default. So make sure you explictly enable it in your `.env` if you are using automation script
+*Released on*: 2021-07-20
 
-== {PRODUCT_NAME} Web applications (clients)
+*Contributors*: Denis Arh (https://github.com/darh[GH])
 
-.Changes:
-* Auth web application is now deprecated
-* Messaging application is now deprecated
-* Workflow UI with canvas for drawing complex flows and automation logic
-* Admin web application added support for template management.
+.[#2021_3_10-fixed]#<<2021_3_10-fixed,Fixed:>>#
+* Fixed `corteza-vue` NPM package build (it used `2021.9.x` instead of `2021.3.x`)
+* Fixed system user creation through workflows
 
-.Contributors:
-. Jože Fortun
-. Tomaž Jerman
-. Denis Arh
-. Mia Arh
-. Peter Grlica
+== `2021.3.9`
 
-== Patch 2021.3.1
+.[#2021_3_9-important]#<<2021_3_9-important,Important upgrade notes:>>#
+* {PRODUCT_NAME} `2021.3.9` included an incorrect build of internal libraries, which may break specific features.
+The issue is resolved with `2021.3.10`
 
-=== {PRODUCT_NAME} Server
+*Released on*: 2021-07-14
 
-.Envoy changes:
-* Improved Envoy ComposeRecord cross referencing
-* Improved Envoy ComposeRecord self referencing
+*Contributors*: Tomaž Jerman (https://github.com/tjerman[GH]), Denis Arh (https://github.com/darh[GH]), Peter Grlica (https://github.com/petergrlica[GH]), Vivek Patel (https://github.com/vicpatel[GH])
 
-.Provisioning:
-* Improved provisioning of auth clients
+.[#2021_3_9-fixed]#<<2021_3_9-fixed,Fixed:>>#
+* Refactored parts of the workflow execution logic and state management to improve execution stability and avoid infinite resource locking
+* Fixed external authentication provider registration
+* Fixed broken `$authUser` and `$authToken` in internal {PRODUCT_NAME} libraries
 
-=== {PRODUCT_NAME} Web applications (clients)
+== `2021.3.8`
 
-.General changes:
-* Keep the user on the same page after the auth flow is complete (when possible)
+*Released on*: 2021-07-06
 
-.{PRODUCT_NAME} {APP_NAME_COMPOSE}:
-* Fixed improper one dimensional page block rescaling on Compose page builder
+*Contributors*: Jože Fortun (https://github.com/fajfa[GH]), Tomaž Jerman (https://github.com/tjerman[GH]), Denis Arh (https://github.com/darh[GH]), Peter Grlica (https://github.com/petergrlica[GH])
+
+.[#2021_3_8-changed]#<<2021_3_8-changed,Changed:>>#
+* Added throttling for record manipulation api calls
+
+.[#2021_3_8-fixed]#<<2021_3_8-fixed,Fixed:>>#
+* Refactored parts of {APP_NAME_WORKFLOW} setup and workflow execution logic to resolve data race conditions
+* Fixed improper workflow execution handler closure state management that overwrote the security context
+* Fixed {APP_NAME_WORKFLOW} configurator edge-cases where workflows were unable to be saved
+* Fixed `onInterval` and `onTimestamp` constraint configuration
+
+.[#2021_3_8-security]#<<2021_3_8-security,Security:>>#
+* fixed XSS sanitization on text fields
+
+== `2021.3.7`
+
+.[#2021_3_7-important]#<<2021_3_7-important,Important upgrade notes:>>#
+* The {APP_AUTOMATION} workflow step is now disabled if the {APP_AUTOMATION} server is not enabled.
+If a {APP_AUTOMATION} workflow step is already in the workflow, but the {APP_AUTOMATION} server is not enabled, the workflow will now throw an error.
+* The "change the order in which the workflow and its triggers are saved to conform with the back-end logic" introduces edge cases where some workflows were unable to be updated.
+The issue is resolved with `2021.3.8`.
+
+*Released on*: 2021-06-22
+
+*Contributors*: Vivek Patel (https://github.com/vicpatel[GH]), Jože Fortun (https://github.com/fajfa[GH]), Tomaž Jerman (https://github.com/tjerman[GH])
+
+.[#2021_3_7-changed]#<<2021_3_7-changed,Changed:>>#
+* Added validation for {APP_AUTOMATION} workflow steps.
+* Change `Record` and `User` module field state management to better support dynamic prefilters
+
+.[#2021_3_7-fixed]#<<2021_3_7-fixed,Fixed:>>#
+* Rework the auth plugin to selectively clear the `localStorage` instead of clearing the whole thing
+* Fixed record updating for modules with deleted fields
+* Fixed record value validation for required, forbidden fields
+* Fixed improper handling of read-only module fields with default values
+* Fixed module and chart timestamp sorting
+* Improved record value manipulation from inside workflows
+* Fixed invalid input state for deferred trigger configuration (timestamp and interval)
+* Change the order in which the workflow and its triggers are saved to conform with the back-end logic
+* Add missing invoker when executing client-scripts
+
+.[#2021_3_7-security]#<<2021_3_7-security,Security:>>#
+* General system security improvements
+
+== `2021.3.6`
+
+*Released on*: 2021-06-07
+
+*Contributors*: Tomaž Jerman (https://github.com/tjerman[GH]), Vivek Patel (https://github.com/vicpatel[GH]), Jože Fortun (https://github.com/fajfa[GH])
+
+.[#2021_3_6-fixed]#<<2021_3_6-fixed,Fixed:>>#
+* Fixed improper module field default value validation when combined with required fields
+* Fix pre-filter processing for `User` module fields
+
+.[#2021_3_6-removed]#<<2021_3_6-removed,Removed:>>#
+* Temporarily removed the change regarding "fixed ComposeRecord filtering with multi-value fields"
+
+== `2021.3.5`
+
+.[#2021_3_5-important]#<<2021_3_5-important,Important upgrade notes:>>#
+* The "fixed ComposeRecord filtering with multi-value fields" introduced some additional edge-cases which prevent the record search from working.
+`2021.3.6` temporary reverts the change until it is addressed properly.
+
+*Released on*: 2021-05-25
+
+*Contributors*: Vivek Patel (https://github.com/vicpatel[GH]), Tomaž Jerman (https://github.com/tjerman[GH]), Jože Fortun (https://github.com/fajfa[GH]), Peter Grlica (https://github.com/petergrlica[GH]), Denis Arh (https://github.com/darh[GH])
+
+.[#2021_3_5-added]#<<2021_3_5-added,Added:>>#
+* Added additional workflow functions to support `KV` and `KV`-like manipulations
+
+.[#2021_3_5-changed]#<<2021_3_5-changed,Changed:>>#
+* Added toast translations for federation notifications
+
+.[#2021_3_5-fixed]#<<2021_3_5-fixed,Fixed:>>#
+* Fixed improper logout handling, which preserved some tokens
+* Fixed federation structure sync (added a response wrapper to API response)
+* Fixed ComposeRecord filtering with multi-value fields
+* Fixed improper try-catch workflow step handling that prematurely terminated the workflow execution
+* Fixed improper workflow pre-run validations that cycled the execution procedure
+* Fixed {APP_AUTOMATION} helpers to properly use ListResponse
+
+== `2021.3.4`
+
+.[#2021_3_4-important]#<<2021_3_4-important,Important upgrade notes:>>#
+* The workflow call stack size is now limited to `16` by default and can be overwritten via the `WORKFLOW_CALL_STACK_SIZE` `.env` variable.
+The call stack limitation prevents implicit workflow invocations from running infinitely.
+
+*Released on*: 2021-05-14
+
+*Contributors*: Vivek Patel (https://github.com/vicpatel[GH]), Tomaž Jerman (https://github.com/tjerman[GH]), Jože Fortun (https://github.com/fajfa[GH]), Mia Arh (https://github.com/zmija[GH]), Denis Arh (https://github.com/darh[GH])
+
+.[#2021_3_4-added]#<<2021_3_4-added,Added:>>#
+* Added a failsafe that prevents infinite workflow executions due to implicit invocations
+* Added support for removing SCIM role/group members
+* Added a {PRODUCT_NAME} {APP_NAME_ADMIN} screen to set the impersonating user for auth clients using `client_credentials` grant type
+
+.[#2021_3_4-changed]#<<2021_3_4-changed,Changed:>>#
+* Hide document preview options for document types where a render driver is not available (such as PDF)
+
+.[#2021_3_4-fixed]#<<2021_3_4-fixed,Fixed:>>#
+* Fixed workflows not rendering properly after a save
+* Improved workflow import error reporting
+* Improve integration between workflows and {APP_AUTOMATION} server
+* Fixed session lifetime when doing external authentication
+* Fixed error handling in {APP_NAME_COMPOSE} namespace editor
+* Fixed the CSV size limitation issue when importing ComposeRecords
+
+== `2021.3.3`
+
+*Released on*: 2021-04-29
+
+*Contributors*: Jože Fortun (https://github.com/fajfa[GH])
+
+.[#2021_3_3-added]#<<2021_3_3-added,Added:>>#
+* Added support for copy/pasting across different workflows
+* Added support for workflow import & export
+
+== `2021.3.2`
+
+*Released on*: 2021-04-20
+
+*Contributors*: Jože Fortun (https://github.com/fajfa[GH]), Denis Arh (https://github.com/darh[GH])
+
+.[#2021_3_2-added]#<<2021_3_2-added,Added:>>#
+* Added session screen on the {PRODUCT_NAME} {APP_NAME_ADMIN} to monitor workflow execution and their status
+* Added support for custom initial scope when testing workflows
+
+.[#2021_3_2-fixed]#<<2021_3_2-fixed,Fixed:>>#
+* Fixed {APP_NAME_COMPOSE} module configurator field picker bug, where double click didn't add the field
+* Fixed {APP_NAME_COMPOSE} module fields not respecting their configured order
+* Fixed excessive redirects for authentication procedures
+
+== `2021.3.1`
+
+.[#-important]#<<2021_3_1-important,Important upgrade notes:>>#
+* To apply the CRM extension changes, re-provision or import corteza-(server https://github.com/cortezaproject[GH])blob/2021.3.x/provision/700_crm/1600_workflows.yaml[this] through the CLI.
+
+*Released on*: 2021-04-14
+
+*Contributors*: Tomaž Jerman (https://github.com/tjerman[GH]), Jože Fortun (https://github.com/fajfa[GH]), Mia Arh (https://github.com/zmija[GH]), Denis Arh (https://github.com/darh[GH])
+
+.[#2021_3_1-Changed]#<<2021_3_1-Changed,Changed:>>#
+* Improve the authentication flow by keeping the user on the same page when possible
+* Moved automation scripts under the Automation section in the admin panel
+* {APP_NAME_WORKFLOW} swimlanes now need to be double clicked to open the configurator
+* The {APP_NAME_WORKFLOW} testing overlay is now automatically removed when the workflow changes
+* Improved the `Ctrl/CMD + S` keybinding in the {APP_NAME_WORKFLOW} editor to improve UX
+* Tweaked the new workflow creation flow
+
+.[#2021_3_1-fixed]#<<2021_3_1-fixed,Fixed:>>#
+* Fixed envoy ComposeRecord resource self and cross-referencing
+* Fixed provisioning of auth clients
+* Fixed improper one dimensional page block rescaling on {APP_NAME_COMPOSE} page builder
 * Fixed bug where record selector default options were not displayed if query existed
-
-.{PRODUCT_NAME} {APP_NAME_WORKFLOW}:
-* Swimlanes now need to be double clicked to open the configurator
-* The workflow test overlay is automatically removed when the workflow changes
 * Prevent the workflow steps to reuse step identifiers
-* Improved Ctrl/CMD + S so it works from more places than before
-* Improved creating new workflow "flow"
-* Fixed Test workflow tooltips
+* Fixed workflow test tooltip display and content
+* Fixed {PRODUCT_NAME} CRM workflow bugs and typos
 
-.{PRODUCT_NAME} {APP_NAME_ADMIN}
-* Moved Corredor Scripts under Automation
+== `2021.3.0`
 
-=== {PRODUCT_NAME} Extensions
+*Released on*: 2021-04-04
 
-.CRM changes:
-* Fixed typos and bugs in some default CRM workflows
+*Contributors*: Jože Fortun (https://github.com/fajfa[GH]), Tomaž Jerman (https://github.com/tjerman[GH]), Denis Arh (https://github.com/darh[GH]), Mia Arh (https://github.com/zmija[GH]), Peter Grlica (https://github.com/petergrlica[GH])
 
-[IMPORTANT]
-====
-To apply the CRM extension changes, re-provision or import https://github.com/cortezaproject/corteza-server/blob/2021.3.x/provision/700_crm/1600_workflows.yaml[this] through the CLI.
-====
+.[#2021_3_0-added]#<<2021_3_0-added,Added:>>#
+* Added support for low-code/no-code automation via xref:integrator-guide:workflows/index.adoc[{APP_NAME_WORKFLOW}]
+* Introduced an authorization server with support for authorization code and client credential OAuth2 flows
+* Added support for document template management and rendering (HTML and PDF)
+* Added support for file encoding via envoy
+* Compose record federation now supports the Activity Stream protocol
 
-.Contributors:
-. Tomaž Jerman
-. Jože Fortun
-. Mia Arh
-. Denis Arh
+.[#2021_3_0-Changed]#<<2021_3_0-Changed,Changed:>>#
+* Upgraded Go version to `1.16`
+* Reworked system asset embedding with `//go:embed`
+* Codebase cleanup and removed the `With(ctx)` anti-pattern
+* Reworked {APP_NAME_COMPOSE} record export using envoy
+* Changed {APP_AUTOMATION} server to be disabled by default due to the introduction of {APP_NAME_WORKFLOW}
 
-== Patch 2021.3.2
+.[#2021_3_0-removed]#<<2021_3_0-removed,Removed:>>#
+* Removed {PRODUCT_NAME} Messaging (web application and API endpoints)
+* Removed the authentication web application
+* Removed legacy authentication endpoints
 
-=== {PRODUCT_NAME} Server
-
-.Auth:
-* Improved auth procedures, fixed excessive redirects
-
-=== {PRODUCT_NAME} Web applications (clients)
-
-.{PRODUCT_NAME} {APP_NAME_COMPOSE}:
-* Fixed field picker bug where double click didn't add the field
-* Fixed module fields not respecting field order in module edit
-
-.{PRODUCT_NAME} {APP_NAME_ADMIN}:
-* Added sessions to monitor workflow execution and examine failed workflows
-
-.{PRODUCT_NAME} {APP_NAME_WORKFLOW}:
-* Added workflow testing with custom initial scope
-
-.Contributors:
-. Jože Fortun
-. Denis Arh
-
-== Patch 2021.3.3
-
-=== {PRODUCT_NAME} Web applications (clients)
-
-.{PRODUCT_NAME} {APP_NAME_WORKFLOW}:
-* cross-canvas copying
-* import & export
-
-.Contributors:
-. Jože Fortun
-
-== Patch 2021.3.4
-
-=== {PRODUCT_NAME} Server
-
-.Data import:
-* resolved CSV size limitation issue
-
-.Workflows:
-* added failsafe to prevent infinite workflows due to implicit invocations
-* improve integration between workflows and Corredor
-
-.Auth:
-* fix session lifetime when doing external authentication
-
-.SCIM:
-* improve SCIM support (removing role/group members)
-
-=== {PRODUCT_NAME} Web applications (clients)
-
-.{PRODUCT_NAME} {APP_NAME_COMPOSE}:
-* fix error handling in namespace editor
-
-.{PRODUCT_NAME} {APP_NAME_ADMIN}:
-* auth clients & users (impersonation on client_credentials grant type)
-* hide document previews if render driver not available
-
-.{PRODUCT_NAME} {APP_NAME_WORKFLOW}:
-* fixed bug where workflow wasn't being rerendered after save
-* improved list import error reporting
-
-.Contributors:
-. Vivek Patel
-. Tomaž Jerman
-. Jože Fortun
-. Mia Arh
-. Denis Arh
-
-
-== Patch 2021.3.5
-
-=== {PRODUCT_NAME} Server
-
-* fixed federation structure sync, added a response wrapper to api response
-* added manipulation functions for KV and KV-like types for setting values with dynamic keys
-* fixed filtering with multi-value field
-* improve workflow error handling; prevent the try-catch step from ending the exec session
-* improve workflow error handling; prevent pre-run validation checks to cycle the exec
-
-=== {PRODUCT_NAME} Web applications (clients)
-
-.{PRODUCT_NAME} UI libraries:
-* fixed logout issues
-* fixed Corredor helpers to properly use ListResponse
-
-.{PRODUCT_NAME} {APP_NAME_COMPOSE}:
-* added federation toast translations
-
-.Contributors:
-. Vivek Patel
-. Tomaž Jerman
-. Jože Fortun
-. Peter Grlica
-. Denis Arh
-
-== Patch 2021.3.6
-
-=== {PRODUCT_NAME} Server
-
-* fixed module field default value validation with required fields
-* temporarily reverted "fixed filtering with multi-value field"
-
-=== {PRODUCT_NAME} {APP_NAME_COMPOSE}
-
-* fix pre filter for User module field
-
-.Contributors:
-. Tomaž Jerman
-. Vivek Patel
-. Jože Fortun
-
-== Patch 2021.3.7
-
-=== {PRODUCT_NAME} Server
-
-* fixed record updating for modules with deleted fields
-* fixed interaction between read only module fields and their default values
-* added validation for Corredor workflow steps
-* improved record value manipulation from inside workflows
-* improved system security
-
-=== {PRODUCT_NAME} Web applications (clients)
-
-.{PRODUCT_NAME} UI libraries:
-* add missing invoker when executing client-scripts
-* rework auth plugin to selectively clear localStorage
-
-.{PRODUCT_NAME} {APP_NAME_WORKFLOW}:
-* added validation for Corredor workflow steps.
-Disables {APP_AUTOMATION} workflow steps if {APP_AUTOMATION} is not active; throws error if the steps are already used, but {APP_AUTOMATION} is inactive
-* fixed input bug for deferred triggers (timestamp and interval)
-* reordered workflow and trigger saving to conform with the back-end logic
-
-.{PRODUCT_NAME} {APP_NAME_COMPOSE}:
-* fixed record value validation for required, forbidden fields
-* fix module and chart sorting by their timestamps
-* improve record and user selector field state management
-
-.Contributors:
-. Vivek Patel
-. Jože Fortun
-. Tomaž Jerman
+.[#2021_3_0-fixed]#<<2021_3_0-fixed,Fixed:>>#
+* Pagination & sorting fixes
+* Fixed `UserBeforeUpdate`/`UserBeforeDelete` event bus events

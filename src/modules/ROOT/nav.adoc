@@ -1,1 +1,2 @@
 * xref:changelog/index.adoc[]
+** xref:changelog/archive/index.adoc[]

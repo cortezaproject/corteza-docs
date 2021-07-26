@@ -1,0 +1,159 @@
+include::ROOT:partial$variables.adoc[]
+
+= Changelog
+
+The changelog page is a place where we aggregate all of the changes for the given release.
+All releases reside on the same page in the reverse chronological order (newer at the top).
+
+The core structure is based on https://keepachangelog.com/en/1.0.0/[Keep a Changelog].
+
+== The structure
+
+[source,adoc]
+----
+[#2021-3]
+= `2021.3`
+
+// A quick introduction to the release and what interesting new things it brings.
+// `2021.3` introduced workflows, reworked the auth flow, and some other nifty features.
+
+// Try to be as short as possible, provide some references.
+
+.[#2021_3-important]#<<2021_3-important,Important upgrade notes:>>#
+// An unordered bullet list of important additions to the standard upgrade procedure.
+// If the order of these items needs to be respected, you may use an ordered list.
+// If the note describes a long process, shorten it down and provide a reference to the long version.
+//
+// This may also include any known bugs that you will encounter when upgrading to this version, such as bundle version mixup.
+
+== `2021.3.0`
+// The rest of the section is dedicated to the patch releases in reverse chronological order (newer first).
+
+.[#2021_3_1-important]#<<2021_3_1-important,Important upgrade notes:>>#
+// Same as above
+
+// Exact release date
+*Released on*: `YYYY-MM-DD`
+
+// The rest of the sub-section is for lists of changes.
+// Omit any list that is not relevant for the release.
+// Respect the order.
+
+// A list of contributors in some order
+*Contributors*: Full Name (https://github.com/...[GH]), ...
+
+.[#2021_3_1-added]#<<2021_3_1-added,Added:>>#
+// Use list for *new features*
+
+.[#2021_3_1-changed]#<<2021_3_1-changed,Changed:>>#
+// Use list for *additions to the existing features*
+
+.[#2021_3_1-deprecated]#<<2021_3_1-deprecated,Deprecated:>>#
+// Use list for *things that should not be used but are still there*
+
+.[#2021_3_1-removed]#<<2021_3_1-removed,Removed:>>#
+// Use list for *removed things*
+
+.[#2021_3_1-fixed]#<<2021_3_1-fixed,Fixed:>>#
+// Use list for *fixes to existing features*
+// If the modification changes the original flow of the feature, mention it under changes as well
+
+.[#2021_3_1-security]#<<2021_3_1-security,Security:>>#
+// Use list for *security related changes*
+
+----
+
+== Content guidelines
+
+=== Scope of an entry
+
+We have many repositories with more coming.
+An entry should outline the change regardless of what part of the system it was on.
+
+For example, when we add a new workflow step (sub-workflow), we can say:
+
+[source,adoc]
+----
+.[#2021_3_1-added]#<<2021_3_1-added,Added:>>#
+* Added a sub-workflow workflow step.
+----
+
+In cases where we want to indicate what repository it is on, incorporate it in the text.
+
+.For example:
+[source,adoc]
+----
+.[#2021_3_1-added]#<<2021_3_1-added,Added:>>#
+* Changed the default sidebar navigation on the {PRODUCT_NAME} {APP_NAME_ADMIN}.
+----
+
+=== Descriptive entries
+
+Each changelog entry should be descriptive enough for us to understand what happened.
+
+.Don't:
+[source,adoc]
+----
+.[#2021_3_1-fixed]#<<2021_3_1-fixed,Fixed:>>#
+* General record list UX fixes
+----
+
+.Do:
+[source,adoc]
+----
+.[#2021_3_1-fixed]#<<2021_3_1-fixed,Fixed:>>#
+* Fixed record lists not refreshing on filter change.
+* Fixed record lists not respecting pre-filter.
+----
+
+=== References
+
+Where possible and relevant, provide references to the documentation, commits, and pull requests.
+References to the documentation should be incorporated in the text.
+
+.For example:
+[source,adoc]
+----
+.[#2021_3_1-fixed]#<<2021_3_1-fixed,Fixed:>>#
+* Fixed server crash when an authentication message is sent (https://github.com/cortezaproject/corteza-server/commit/ffb297f8b1b21a87b51e293bad058cef1646613a[`ffb297f`])
+* Fixed workflow execution for deferred triggers (https://github.com/cortezaproject/corteza-server/pull/218/files[`!218`])
+----
+
+=== Changelog entry lists
+
+These are the templates for the lists and when we should use them, alongside some conventions.
+
+[NOTE]
+====
+*DevNote* add conventions and such.
+====
+
+[source,adoc]
+----
+.[#2021_3_1-added]#<<2021_3_1-added,Added:>>#
+----
+
+[source,adoc]
+----
+.[#2021_3_1-changed]#<<2021_3_1-changed,Changed:>>#
+----
+
+[source,adoc]
+----
+.[#2021_3_1-deprecated]#<<2021_3_1-deprecated,Deprecated:>>#
+----
+
+[source,adoc]
+----
+.[#2021_3_1-removed]#<<2021_3_1-removed,Removed:>>#
+----
+
+[source,adoc]
+----
+.[#2021_3_1-fixed]#<<2021_3_1-fixed,Fixed:>>#
+----
+
+[source,adoc]
+----
+.[#2021_3_1-security]#<<2021_3_1-security,Security:>>#
+----

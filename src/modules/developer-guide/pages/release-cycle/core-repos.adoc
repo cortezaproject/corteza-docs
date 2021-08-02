@@ -19,15 +19,20 @@ GitHub provides a friendly system for this, so that shouldn't be an issue.
 . corteza-webapp-compose: ({GIT_REPO_LINK_PREFIX}-webapp-compose)
 . corteza-webapp-workflow: ({GIT_REPO_LINK_PREFIX}-webapp-workflow)
 
+== Building infrastructure
+
+All {PRODUCT_NAME} repositories utilize GitHub workflows and actions to release server binaries, web application bundles, docker images, or other output formats.
+
 == Versioning
 
 Bump the version of the NPM packages, following the https://calver.org/[CalVer] standard; for example, `2020.9-rc.1`.
 
 Released versions should also be tagged.
+
 .Use this Git command to get it done:
 [source,bash]
 ----
-# $V is the version; for example export V=2021.6.0;
+# $V is the version; for example export V=2021.9.0;
 git tag $V && git push origin $V;
 ----
 
@@ -49,8 +54,9 @@ The rest of the repositories depend on these two, so you should handle them firs
 * commit the changes
 * tag the version
 * run `yarn build` to build the package
-* run `npm publish --dry-run` to test the publish 
+* run `npm publish --dry-run` to test the publish
 * run `npm publish` to publish
+* push the changes and the created tag to the Github repository
 
 | [#release-npp-vue]#<<release-npp-vue,`corteza-vue`>>#
 |
@@ -61,17 +67,19 @@ The rest of the repositories depend on these two, so you should handle them firs
 * commit the changes
 * tag the version
 * run `yarn build` to build the package
-* run `npm publish --dry-run` to test the publish 
+* run `npm publish --dry-run` to test the publish
 * run `npm publish` to publish
+* push the changes and the created tag to the Github repository
 |===
 
-== Web applications
+== Web applications and Corredor server
 
 .Steps to release:
 * bump the version
 * run `yarn cdeps` to update all required {PRODUCT_NAME} dependencies
 * commit the changes
 * tag the version
+* push the changes and the created tag to the Github repository
 
 .The steps defined above should be used for all core repositories:
 * corteza-server: ({GIT_REPO_LINK_PREFIX}-server)
@@ -86,6 +94,7 @@ The rest of the repositories depend on these two, so you should handle them firs
 .Steps to release:
 * commit the changes
 * tag the version
+* push the changes and the created tag to the Github repository
 
 == Binaries & Bundles
 
@@ -97,3 +106,16 @@ The Docker images are placed on the https://hub.docker.com/u/cortezaproject[Dock
 Unofficially, you can use the released packages with a Vagrant box {GIT_REPO_LINK_PREFIX}-vagrant.
 
 Alternatively, you can (build and) install these packages manually, either on the virtual machine or a regular machine.
+
+== Meta repositories
+
+Meta repositories are used to trigger the build process for web applications and the all-in-one Docker container.
+
+.Steps to release:
+* tag the version
+* push the changes and the created tag to the Github repository
+
+The {GIT_REPO_LINK_PREFIX}-webapp[corteza-webapp] (#private#) repository produces a single https://hub.docker.com/r/cortezaproject/corteza-webapp[docker image] containing all of the web applications.
+
+The {GIT_REPO_LINK_PREFIX}[corteza] (#private#) repository produces a single https://hub.docker.com/r/cortezaproject/corteza[docker image] and an RPM package containing the {PRODUCT_NAME} server and all of the web applications.
+The RPM package is located on the https://releases.cortezaproject.org/files/[{PRODUCT_NAME} releases].

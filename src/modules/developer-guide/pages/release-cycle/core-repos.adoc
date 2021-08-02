@@ -24,10 +24,11 @@ GitHub provides a friendly system for this, so that shouldn't be an issue.
 Bump the version of the NPM packages, following the https://calver.org/[CalVer] standard; for example, `2020.9-rc.1`.
 
 Released versions should also be tagged.
+
 .Use this Git command to get it done:
 [source,bash]
 ----
-# $V is the version; for example export V=2021.6.0;
+# $V is the version; for example export V=2021.9.0;
 git tag $V && git push origin $V;
 ----
 
@@ -49,8 +50,9 @@ The rest of the repositories depend on these two, so you should handle them firs
 * commit the changes
 * tag the version
 * run `yarn build` to build the package
-* run `npm publish --dry-run` to test the publish 
+* run `npm publish --dry-run` to test the publish
 * run `npm publish` to publish
+* push the changes and the created tag to the Github repository
 
 | [#release-npp-vue]#<<release-npp-vue,`corteza-vue`>>#
 |
@@ -61,17 +63,19 @@ The rest of the repositories depend on these two, so you should handle them firs
 * commit the changes
 * tag the version
 * run `yarn build` to build the package
-* run `npm publish --dry-run` to test the publish 
+* run `npm publish --dry-run` to test the publish
 * run `npm publish` to publish
+* push the changes and the created tag to the Github repository
 |===
 
-== Web applications
+== Web applications and Corredor server
 
 .Steps to release:
 * bump the version
 * run `yarn cdeps` to update all required {PRODUCT_NAME} dependencies
 * commit the changes
 * tag the version
+* push the changes and the created tag to the Github repository
 
 .The steps defined above should be used for all core repositories:
 * corteza-server: ({GIT_REPO_LINK_PREFIX}-server)
@@ -86,6 +90,7 @@ The rest of the repositories depend on these two, so you should handle them firs
 .Steps to release:
 * commit the changes
 * tag the version
+* push the changes and the created tag to the Github repository
 
 == Binaries & Bundles
 
@@ -97,3 +102,30 @@ The Docker images are placed on the https://hub.docker.com/u/cortezaproject[Dock
 Unofficially, you can use the released packages with a Vagrant box {GIT_REPO_LINK_PREFIX}-vagrant.
 
 Alternatively, you can (build and) install these packages manually, either on the virtual machine or a regular machine.
+
+== Meta repositories
+
+Meta repositories are used for triggering build of web applications and all-in-one
+
+|===
+| repository | outputs
+
+| corteza-webapp
+| `corteza-webapp` https://hub.docker.com/r/cortezaproject/corteza-webapp[docker image] with all webapplications joined into single docker image for convenience.
+
+| corteza
+| `corteza` https://hub.docker.com/r/cortezaproject/corteza[docker image] with webapplications and sever joined into single docker image for convenience.
+
+RPM package, placed to https://releases.cortezaproject.org/files/
+
+|===
+
+
+.Steps to release:
+* tag the version
+* push the changes and the created tag to the Github repository
+
+
+== Building infrastructure
+
+All Corteza repositories utilize GitHub workflows/actions to release bundles and binary files and/or build docker images and other outputs.

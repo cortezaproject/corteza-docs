@@ -27,6 +27,7 @@ asciidoc:
     collapsible: true
     page-latest: '2021.3'
     page-dev: '2021.9'
+    kroki-fetch-diagram: true
   extensions:
     - asciidoctor-kroki
     - ./lib/collapsible-block-tree-processor.js

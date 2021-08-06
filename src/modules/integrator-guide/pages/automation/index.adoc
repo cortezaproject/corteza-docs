@@ -1,0 +1,341 @@
+include::ROOT:partial$variables.adoc[]
+
+= Automation
+
+{PRODUCT_NAME} provides a powerful automation system to implement custom business logic.
+This allows you to extend {PRODUCT_NAME} and support your business needs.
+
+{PRODUCT_NAME} allows you to perform tasks as trivial as inserting missing values, or as complex as collecting payments for your subscription service.
+The <<applications,applications>> section covers the applications that the automation system was designed for.
+
+[TIP]
+====
+Our https://github.com/cortezaproject/corteza-ext/blob/2021.3.x/crm/config/1600_workflows.yaml[CRM] and https://github.com/cortezaproject/corteza-ext/blob/2021.3.x/service-solution/config/1600_workflows.yaml[Service Solution] applications are also open-source.
+You can refer to their workflows if you need some inspiration.
+====
+
+== Important notes
+
+[IMPORTANT]
+====
+Please read this sub-section carefully as it outlines some system design decisions that may not work as expected if assumed or not used properly.
+====
+
+=== Execution cycles
+
+When your automation interacts with {PRODUCT_NAME}, that interaction may execute additional automation.
+
+For example; if your automation is executed *before* the record is updated, and the given automation *explicitly* calls an *update* for the *same* record, the same automation will be executed indefinitely (illustrated on the <<inf-exec-cycle,bellow diagram>>).
+
+There is a mechanism in place to prevent indefinite execution for *workflows*, but none for automation scripts.
+
+If you need to explicitly update the same resource, define some flags to help you keep track of what is going on.
+Some updates are automatically performed when using implicit automation.
+Refer to xref:automation/execution-flow-details.adoc[execution flow details] for more insight into the internals.
+
+[#inf-exec-cycle]
+.Diagram outlining the potential infinite execution cycle. Note how the explicit update loops back to the update request step.
+[plantuml,inf-exec-cycle,svg,role=inf-exec-cycle]
+----
+@startuml
+|#E5412215|The internet|
+:A user updates the lead status;
+|Corteza|
+repeat :A record update request is received;
+  :A before record update automation is executed;
+  :Interact with the record and change some values;
+backward:HTTP request to Corteza;
+note right #E5412215
+  Even built-in functions follow
+  the exact same path that an external
+  request would, meaning that they
+  undergo the exact same processing.
+end note
+repeat while (**Explicitly update** the record)
+@enduml
+----
+
+=== Asynchronous execution
+
+An automation can be executed synchronously or asynchronously.
+
+When an automation is executed asynchronously, it is *unable* to alter the operation that caused the automation to execute.
+
+For example; an asynchronous automation can not change the values of the record that is about to be created or updated.
+
+[CAUTION]
+====
+Any workflow that defines a prompt or a delay step is executed asynchronously as the system can not guarantee that the execution will be finished in a timely manner, causing further complications and confusion.
+====
+
+== Access control
+
+When an automation is executed and the automation interacts with {PRODUCT_NAME}, the user that *caused the automation to execute* (the invoking user) is used when performing access control checks.
+
+If the invoking user is allowed to access some resource, the automation is also allowed to access that resource.
+If the invoking user is *not* allowed to access some resource, the automation is also *not* allowed to access that resource.
+
+Any automation executed on the back-end (server scripts and workflows) is able to overwrite this by explicitly setting the invoking user.
+The flow of defining the invoking user differs for both automation scripts and workflows, so it is covered in their respective sections.
+
+== Automation facilities
+
+{PRODUCT_NAME} provides two facilities for defining automation: xref:automation/workflows/index.adoc[workflows] and xref:automation/automation-scripts/index.adoc[automation scripts].
+
+[IMPORTANT]
+====
+As of xref:ROOT:changelog/202103.adoc[2021.3], with the introduction of workflows, automation scripts are disabled by default and can be enabled by setting the xref:devops-guide:configuration/server.adoc#_corredor_enabled[`CORREDOR_ENABLED=true`] `.env` variable.
+====
+
+A xref:automation/workflows/index.adoc[workflow] is presented as a simplified BPMN diagram, allowing you to configure instead of code.
+Workflows are easier to visualize and maintain, so they should be used whenever possible.
+If your automation requirement is on a larger scale with operations that are not supported by the workflow engine, an automation script is a better choice.
+
+[TIP]
+====
+A workflow can xref:automation/workflows/automation-scripts.adoc[execute automation scripts] allowing you to mix-and-match the two.
+====
+
+An xref:automation/automation-scripts/index.adoc[automation script] is a piece of JavaScript code that allows you to code your automation.
+Automation scripts are low-level and require programming knowledge, as well as some extra steps when setting up.
+If your automation requirement is on a larger scale with operations that are not supported by the workflow engine, an automation script is a better choice.
+
+[#automation-flow-overview]
+== Abstract overview of the automation flow
+
+[NOTE]
+====
+Refer to xref:automation/execution-flow-details.adoc[execution flow details] for more insight into the internals.
+====
+
+An *automation trigger* tells {PRODUCT_NAME} when the automation should be executed.
+When the system starts or when there is a change, the triggers are registered on the *event bus*.
+
+[CAUTION]
+====
+When working with automation scripts and the {APP_AUTOMATION} server is running in production, the {APP_AUTOMATION} server needs to be restarted in order to process new changes.
+
+You can enable the xref:devops-guide_/_configuration/corredor.adoc#CORREDOR_EXT_SERVER_SCRIPTS_WATCH[`CORREDOR_EXT_SERVER_SCRIPTS_WATCH`] and xref:devops-guide_/_configuration/corredor.adoc#CORREDOR_EXT_CLIENT_SCRIPTS_WATCH[`CORREDOR_EXT_CLIENT_SCRIPTS_WATCH`] `.env` variables to watch for changes.
+====
+
+[#internals-overview]
+.The diagram provides the general idea of how the different components interact and how a request invokes an automation. Refer to the xref:automation/execution-flow-details.adoc[execution flow details] section for a deeper dive into the internals.
+[plantuml,internals-overview,svg,role=internals-overview]
+----
+@startuml
+actor User as u
+participant "Corteza component" as cc
+
+u -> cc: Perform operation for resource
+
+activate cc
+
+cc -> cc: Preprocessing
+note over cc
+Preprocessing includes parsing,
+access control, data sanitation
+and validation.
+end note
+
+box "Automation system"
+
+participant "Event bus" as evtbs
+
+cc -> evtbs: Dispatch event
+
+activate evtbs
+evtbs -> evtbs: Filter for registered triggers
+
+participant "Automation" as aa
+
+evtbs -> aa: Trigger execution
+
+activate aa
+
+aa -> aa: Execute automation
+note over aa
+The automation inherits the
+invoking users' permissions
+when trying to access Corteza.
+end note
+
+aa -> cc: Return the execution result
+note over cc
+If the automation is asynchronous
+the component will not await
+for the automation to complete.
+end note
+
+deactivate aa
+deactivate evtbs
+
+end box
+
+cc -> cc: Postprocessing
+note over cc
+Any additional processing before the
+operation completes and the data is
+written to the store.
+end note
+
+cc -> u: Response
+
+deactivate cc
+@enduml
+----
+
+When a {PRODUCT_NAME} component receives a request to interact with a resource, it may generate a series of events (usually two; a before and an after event) that describe what is about to happen and the current context.
+For example; when we wish to create a new record the compose component would dispatch a `before record create` and an `after record create` events.
+Besides the description, the event contains the data that describes the involved resource along with some metadata (the *initial scope*).
+
+[NOTE]
+====
+The provided data and metadata depends on the trigger.
+Refer to the lists of xref:automation/automation-scripts/references/resource-constraints/index.adoc[trigger constraints] and xref:automation/automation-scripts/references/resource-events.adoc[resource events] for more details.
+====
+
+The event is dispatched on the *event bus* where the automation system executes every automation that matches the events' constraints with the provided *initial scope* (execution arguments).
+The provided data may be used to control the automation execution, and in some cases even manipulate the original operation.
+
+[NOTE]
+====
+Some flows may bypass the event bus and execute a specific automation directly.
+====
+
+[CAUTION]
+====
+An automation will inherit the permissions of the *invoking user* (the user that caused the automation to execute).
+A workflow that attempts to perform operations (such as accessing sensitive data), to which the invoking user does not have sufficient permissions, will fail.
+
+The invoking user may be overwritten by explicitly setting the security context (the *`runAs`* parameter).
+====
+
+When the automation is finished executing, it returns an *execution result*.
+The execution result _may_ dictate on how the initial operation should resolve.
+
+.A quick outline of how the execution result affects the initial operation:
+* If the automation is asynchronous, the execution result is *ignored* and does not manipulate the initial operation (it is ignored).
+* If the automation results in an *unknown error*, the initial operation is canceled and no additional processing is done.
+* If the automation results in an *aborted error*, the initial operation is allowed to continue and execute additional automation.
+* If the automation results without errors and it returns a zero value, the initial operation continues as if no automation occurred.
+* If the automation results without errors and it returns a non-zero value, the returned value is used to replace the original value, *if* the operation permits it.
+
+[#applications]
+== Applications
+
+=== Extend standard operations
+
+{PRODUCT_NAME} components dispatch events on the event bus when the system is about to interact with the components' resource.
+This allows us to detect specific operations and build upon the standard flow, such as create audit log entries, or send a welcome email when a user signs up.
+We can also cancel the operation by raising errors when something is not ok.
+
+We can react to such events, by defining a `before`/`after` event listener for a system resource.
+For example; we would bind the `beforeCreate` event for `Compose Record` resource.
+We label such triggers as *implicit* where we also use the same label for the corresponding automation.
+
+[CAUTION]
+====
+Only `before` events are able to alter the original operation.
+====
+
+Refer to xref:automation/execution-flow-details.adoc#exec-flow-implicit[execution flow details] for more information.
+
+=== Time-based execution
+
+{PRODUCT_NAME} allows you to execute an automation at a specific time or in an interval by using a deferred trigger.
+This allows you to delay execution until a specific time, or to perform routine tasks such as generate report emails.
+
+*Timestamp* triggers execute the automation at a specific time using the https://en.wikipedia.org/wiki/ISO_8601[ISO 8601] format.
+For example; `2021-01-01T10:30:00Z` executes on first of January at 10:30 AM.
+
+*Interval* triggers execute the automation in an interval using a https://en.wikipedia.org/wiki/Cron[cron expression].
+For example; `0 0 1 * *` executes on the first day of each month at 00:00.
+
+[TIP]
+====
+https://crontab.guru/[Crontab guru] is a tool to help you write and debug your cron expressions.
+====
+
+The default granularity for timestamps and intervals is *one minute*.
+You can change this by setting the xref:devops-guide:configuration/server.adoc#_eventbus_scheduler_interval[`EVENTBUS_SCHEDULER_INTERVAL`] `.env` variable.
+
+[CAUTION]
+====
+Finer granularity may lower the systems' performance.
+====
+
+Refer to xref:automation/execution-flow-details.adoc#exec-flow-deferred[execution flow details] for more information.
+
+=== Webhooks and custom endpoints
+
+{PRODUCT_NAME} allows you to execute an automation when a request is received on a specific HTTP API endpoint.
+This allows you to define custom API endpoints and webhooks to use with third-party services.
+
+We react to API requests by defining an `onRequest` event for the `System Sink` resource.
+For example; we would define a sink route with the path of `POST /system/sink/api/request-demo` that would collect potential leads sent over by our landing page.
+
+[CAUTION]
+====
+To use a sink route, you must first register it in the system.
+Refer to the xref:devops-guide:extension-requirements/sink-route.adoc[DevOps guide] for details.
+====
+
+Refer to xref:automation/execution-flow-details.adoc#exec-flow-sink[execution flow details] for more information.
+
+=== Process email requests
+
+{PRODUCT_NAME} allows you to execute an automation when an email is received or sent by the system.
+
+React to email requests by defining an event on the `System Mail` resource; either `onReceive` for inbound emails, or `onSend` for outbound emails.
+
+[CAUTION]
+====
+You must firstly follow the xref:devops-guide:extension-requirements/email-relay.adoc[DevOps guide] to configure the system.
+====
+
+Refer to xref:automation/execution-flow-details.adoc#exec-flow-mail[execution flow details] for more information.
+
+[#automation-application-general]
+=== General automation
+
+Alongside the event-based model, {PRODUCT_NAME} allows you to implement general use automation that is executed by manual invocation.
+Such automation triggers are labeled as *explicit* as they require explicit invocation.
+
+[TIP]
+====
+Explicit triggers can be invoked via the REST API which may allow you to avoid sink routes and their additional configuration.
+====
+
+Define explicit triggers by defining the `onManual` event.
+An explicit automation is usually represented as a button on of of the {PRODUCT_NAME} user interfaces.
+
+[NOTE]
+====
+Explicit automation can be defined or specific resources (such as records and users) which indicates the initial scope (execution arguments) of the automation.
+====
+
+Refer to xref:automation/execution-flow-details.adoc#exec-flow-explicit[execution flow details] for more information.
+
+== Example use cases
+
+.Automation examples:
+* populate missing values on a newly created record,
+* create an audit log when changing specific record values,
+* send an email when a new user is added to the system,
+* send a monthly report email to executive members.
+
+[NOTE]
+====
+*DevNote* add some examples and references to the above examples.
+====
+
+== Where to next?
+
+To go into more details regarding the execution flow and what happens under-the-hood, refer to the xref:automation/execution-flow-details.adoc[execution flow details section].
+
+Refer to the xref:automation/workflows/index.adoc[workflows] section and the xref:automation/automation-scripts/index.adoc[automation scripts] section to learn about the two automation systems.
+
+To see some actual examples, refer to out https://github.com/cortezaproject/corteza-ext/blob/2021.3.x/crm/config/1600_workflows.yaml[CRM] and https://github.com/cortezaproject/corteza-ext/blob/2021.3.x/service-solution/config/1600_workflows.yaml[Service Solution] applications.
+You can use these workflows as a base to implement your own.
+
+You can get in touch with us on our https://forum.cortezaproject.org/[forum] with any questions and suggestions.

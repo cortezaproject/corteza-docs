@@ -1,0 +1,492 @@
+include::ROOT:partial$variables.adoc[]
+
+= Execution flow details
+
+The section goes into the details of what causes the automation to execute, the important steps of the execution flow, and what happens with the result of the automation.
+A simplified explanation is described xref:automation/index.adoc#automation-flow-overview[here].
+
+[#exec-flow-implicit]
+== Implicit automation
+
+An automation is considered *implicit*, if the trigger uses a `before`, or an `after` event; for example `beforeCreate` and `afterCreate`.
+
+Implicit automation is automatically executed whenever we interact with specific resources, such as records or users.
+The two variations of events (`before` and `after`) follow the same path, with the difference in when the event is dispatched, and how the resulting value is used.
+
+`before` events are dispatched first and their execution result *may* affect the rest of the execution, while the `after` events are dispatched after and the execution result does *not* affect the rest of the execution.
+
+.The diagram provides an abstract overview of the execution flow for implicit automation. The flow is explained in details bellow the diagram.
+[plantuml,exec-flow-dig-implicit,svg,role=exec-flow-dig-implicit]
+----
+@startuml
+actor User as u
+participant "Corteza component" as cc
+
+u -> cc: Perform operation for resource
+
+activate cc
+
+cc -> cc: Access control check
+cc -> cc: Content sanitization and validation
+note over cc
+Not all resources implement
+sanitization and validation.
+end note
+
+box "Automation system"
+
+participant "Event bus" as evtbs
+
+cc -> evtbs: Dispatch the before event
+
+activate evtbs
+evtbs -> evtbs: Filter for registered triggers
+
+participant "Automation" as aa
+
+evtbs -> aa: Trigger execution
+
+activate aa
+
+aa -> aa: Execute automation
+note over aa
+The automation inherits the
+invoking users' permissions
+when trying to access Corteza.
+end note
+
+aa -> cc: Return the execution result
+note over cc
+If the automation is asynchronous
+the component will not await
+for the automation to complete.
+end note
+
+deactivate aa
+deactivate evtbs
+
+end box
+
+cc -> cc: Process execution result
+note over cc
+Refer to the bellow description
+for details on how the
+result is handled.
+end note
+
+cc -> cc: Content sanitization and validation
+note over cc
+Not all resources implement
+sanitization and validation.
+===
+The content is again sanitized
+and validated as the automation
+may change the values.
+end note
+
+cc -> cc: Complete the initial operation
+note over cc
+This normally changes the data
+in the database, hence a
+destructive operation.
+end note
+
+cc -> evtbs: Dispatch the after event
+
+activate evtbs
+evtbs -> evtbs: Filter for registered triggers
+
+evtbs -> aa: Trigger execution
+
+activate aa
+
+aa -> aa: Execute automation
+note over aa
+The automation inherits the
+invoking users' permissions
+when trying to access Corteza.
+end note
+
+note over cc
+The component does not
+await for the after event to
+complete.
+end note
+
+deactivate aa
+deactivate evtbs
+
+cc -> u: Response
+
+deactivate cc
+@enduml
+----
+
+.Detailed outline of the implicit automation execution flow:
+[cols="2s,4a"]
+|===
+| A component receives a request to interact with a resource.
+| For example; we wish to create a new record, or update the email of a user.
+
+| Access control checks if the invoker is allowed to perform the operation.
+| If the invoker is not allowed to perform the operation, the request is rejected and no automation is executed.
+
+| Content sanitization and validation prepare and validate the data.
+| Before any _destructive_ operation occurs and before the `before` event is dispatched, the values are validated and sanitized.
+If the validation fails, the request is rejected and no automation is executed.
+
+| The `before` event is dispatched on the `eventbus`.
+| If the automation is *synchronous*, the operation awaits for the dispatched event to resolve before continuing the initial operation.
+If the automation is *asynchronous*, the initial operation does not await.
+
+.The resulting value of the *synchronous* automation affects how the initial operation should continue:
+* If the execution resulted as successful (no errors):
+** If the resulting value is set (non-zero value), the resulting value replaces the original value and the initial operation continues.
+** If the resulting value is not set (zero value), the original value is used and any modifications by the workflow are omitted.
+* If the execution results as failed (an error occurred), the initial operation is canceled and the resource remains untouched.
+
+[NOTE]
+====
+*DevNote* factcheck the above.
+====
+
+[CAUTION]
+====
+A failed execution only terminates the current operation, and will not revert any changes that were made in the executed automation.
+====
+
+[NOTE]
+====
+* *DevNote* what about the `Abort` we had with automation scripts*
+* *DevNote* can the resulting value be zero with workflows?
+====
+
+| Content validation and sanitization occurs.
+| Before any _destructive_ operation occurs, the *modified values* are validated and sanitized.
+If the validation fails, the request is rejected and the `after` event is *not* dispatched.
+
+| The resource is manipulated.
+| The original operation completes and the change is permanently written to the store.
+
+| The `after` event is dispatched on the `eventbus`.
+| The operation does *not* await for the event to resolve and the result of the automation is therefore ignored.
+
+[CAUTION]
+====
+The resulting value of the automation is ignored and does *not* affect the original operation.
+====
+
+|===
+
+[#exec-flow-explicit]
+== Explicit automation
+
+An automation is considered *explicit*, if the trigger uses an `onManual` event for any resource.
+
+[TIP]
+====
+In some cases, you can use explicit automation to replace the need for sink automation.
+====
+
+Explicit automation is executed when manually invoked.
+On the front-end this is usually done with a button press, but under-the-hood, this is just an HTTP request to an API endpoint.
+
+[CAUTION]
+====
+Automation scripts and workflows define separate API endpoints to invoke explicit automation.
+
+For *automation script* this is a `POST $API/$COMPONENT/automation/trigger`, where `$API` is the base URL to your {PRODUCT_NAME} API, and the `$COMPONENT` is the name of the component that should execute the automation script (`compose` or `system`).
+
+For *workflows* this is a `POST $API/automation/$WORKFLOW_ID/exec`, where `$API` is the base URL to your {PRODUCT_NAME} API, and the `$WORKFLOW_ID` is the ID of the workflow you wish to execute.
+====
+
+.The diagram provides an abstract overview of the execution flow for explicit automation. The flow is explained in details bellow the diagram.
+[plantuml,exec-flow-dig-explicit,svg,role=exec-flow-dig-explicit]
+----
+@startuml
+actor User as u
+participant "Corteza component" as cc
+
+u -> cc: Request to execute an automation
+
+activate cc
+
+cc -> cc: Find the requested automation
+cc -> cc: Access control
+note over cc
+Access control checks if the
+user is allowed to execute
+this automation.
+===
+This is workflow specific.
+end note
+
+box "Automation system"
+
+participant "Automation" as aa
+
+cc -> aa: Request to execute automation
+
+activate aa
+
+aa -> aa: Execute automation
+note over aa
+The automation inherits the
+invoking users' permissions
+when trying to access Corteza.
+end note
+
+aa -> cc: Return the execution result
+note over cc
+If the automation is asynchronous
+the component will not await
+for the automation to complete.
+end note
+
+deactivate aa
+
+end box
+
+cc -> u: Response
+
+deactivate cc
+@enduml
+----
+
+.Detailed outline of the explicit automation execution flow:
+[cols="2s,4a"]
+|===
+| A component receives a request to execute an automation.
+| For example; a CRM user pressed the button to send an email message, or to initiate an outbound phone call.
+
+| (#Workflow specific#) The RBAC facility checks if the invoker is allowed to execute the automation.
+| If the invoker is not allowed to execute the workflow, the request is rejected.
+
+[CAUTION]
+====
+Custom security context (the run as option) does *not* affect the RBAC at this stage.
+====
+
+| The automation is executed and the results are returned as a standard HTTP response.
+| The results provide the output of the automation, along with some metadata such as execution stack traces and error messages.
+|===
+
+[#exec-flow-deferred]
+== Deferred automation
+
+An automation is considered *deferred*, if the trigger uses an `onInterval` on an `onTimestamp` event.
+
+Deferred automation is invoked by the system based on the provided temporal information.
+The execution is not tied to an operation (such as a manual invocation or an event).
+
+Under-the-hood, {PRODUCT_NAME} defines a ticker, that dispatches `onInterval` and `onTimestamp` events once every minute (can be configured via xref:devops-guide:configuration/server.adoc#_eventbus_scheduler_interval[`EVENTBUS_SCHEDULER_INTERVAL`] `.env` variable).
+The dispatched events are then used to match and invoke any automation with conforming triggers.
+
+[NOTE]
+====
+{PRODUCT_NAME} dispatches interval and timestamp events for the system and compose components.
+Internally, these events are the same, but are kept for legacy reasons.
+====
+
+[CAUTION]
+====
+Deferred automation *requires* you to explicitly set the invoking user as the automation is executed by the system and we are unable to determine the invoking user.
+====
+
+.The diagram provides an abstract overview of the execution flow for deferred automation. The flow is explained in details bellow the diagram.
+[plantuml,exec-flow-dig-deferred,svg,role=exec-flow-dig-deferred]
+----
+@startuml
+
+participant "Scheduler" as sch
+
+activate sch
+note over sch
+The scheduler is started at
+boot time and terminated when
+the server is shut down.
+end note
+
+box "Automation system"
+
+participant "Event bus" as evtbs
+
+sch -> evtbs: Dispatch event in intervals
+note over sch
+The default interval is 1min,
+but can be configured.
+end note
+
+activate evtbs
+evtbs -> evtbs: Filter for registered triggers
+
+participant "Automation" as aa
+
+evtbs -> aa: Trigger execution
+
+activate aa
+
+aa -> aa: Execute automation
+
+deactivate aa
+deactivate evtbs
+deactivate sch
+
+end box
+
+@enduml
+----
+
+.Detailed outline of the explicit automation execution flow:
+[cols="2s,4a"] 
+|===
+| The system ticker dispatches an `onInterval` and an `onTimestamp` event.
+| The events are dispatched on the eventbus.
+
+| The automation is executed asynchronously and the results are ignored.
+| The execution value of the automation does not affect any other automation.
+
+|===
+
+[#exec-flow-sink]
+== Sink automation
+
+An automation is considered *sink*, if the trigger is bound to the `System Sink` resource.
+
+A sink automation is executed when the system component receives an HTTP request to the `/sink` API endpoint.
+The execution is not tied to an operation (such as a manual invocation or an event).
+
+[CAUTION]
+====
+Sink automation *requires* you to explicitly set the invoking user as the automation is executed by an external user and we are unable to determine the invoking user.
+====
+
+.The diagram provides an abstract overview of the execution flow for sink automation. The flow is explained in details bellow the diagram.
+[plantuml,exec-flow-dig-sink,svg,role=exec-flow-dig-sink]
+----
+@startuml
+
+actor Unknown as u
+
+box "Corteza system component"
+participant "HTTP Router" as rr
+participant "System service" as ss
+
+activate rr
+activate ss
+
+u -> rr: HTTP request to /sink
+
+note over u, rr #F5D380A5
+Sink requests are validated with
+a sink signature, not with the
+standard auth token.
+end note
+
+rr -> ss: Request to handle
+
+ss -> ss: Verify sink signature
+note over ss
+* existence,
+* location,
+* structure,
+* validity.
+end note
+
+ss -> ss: Validate request with signature
+note over ss
+The signature claims are
+used to validate the request
+and the contents.
+end note
+
+end box
+
+box "Automation system"
+
+participant "Event bus" as evtbs
+
+ss -> evtbs: Dispatch the onRequest event
+
+activate evtbs
+evtbs -> evtbs: Filter for registered triggers
+
+participant "Automation" as aa
+
+evtbs -> aa: Trigger execution
+
+activate aa
+
+aa -> aa: Execute automation
+aa -> ss: Return the execution result
+note over ss
+If the automation is asynchronous
+the component will not await
+for the automation to complete.
+end note
+
+deactivate aa
+deactivate evtbs
+
+end box
+
+ss -> ss: Prepare HTTP response
+note over ss
+Set headers, status, and payload.
+end note
+
+ss -> u: Response
+note over u, ss
+The system component bypasses the REST
+layer when responding to sink requests.
+end note
+
+deactivate ss
+
+@enduml
+----
+
+.Detailed outline of the sink automation execution flow:
+[cols="2s,4a"]
+|===
+| The system component receives an HTTP request to the `/sink` API endpoint.
+| For example; `GET $API/system/sink/leads/?__sign=$SIGN`, where `$API` is the base URL to your {PRODUCT_NAME} API, and the `$SIGN` is the sink route signature.
+
+Refer to the xref:devops-guide:extension-requirements/sink-route.adoc[DevOps guide/sink routes] for setup details.
+
+| The signature is validated
+| Firstly the sink signature is validated to make sure it was not altered.
+
+[NOTE]
+====
+Sink signatures are generated on-the-fly based on the xref:devops-guide:configuration/server.adoc#_auth_jwt_secret[JWT secret] and are *not* stored in the database.
+====
+
+| The signature is used to validate the request.
+| The system validates the protocol, headers, origin, and other signature constraints.
+
+| The `onRequest` event is dispatched on the `eventbus`.
+| If the automation is *synchronous*, the operation awaits for the dispatched event to resolve before continuing the initial operation.
+If the automation is *asynchronous*, the initial operation does not await.
+
+.The resulting value of the *synchronous* automation affects how the server should respond:
+* If the execution results as failed (an error occurred), the server responds with the error message and (optionally) error stack traces and other debugging metadata.
+* If the execution results as successful (no errors), the server prepares a response based on the execution result:
+** the status code and response headers are set,
+** the response body is encoded as a byte stream and sent as the response.
+
+[CAUTION]
+====
+Currently only strings and byte slices can be used as the response.
+====
+|===
+
+[#exec-flow-email]
+== Email automation
+
+System email; receive/send
+
+[NOTE]
+====
+*DevNote*: @todo
+====

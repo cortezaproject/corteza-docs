@@ -5,7 +5,7 @@ include::ROOT:partial$variables.adoc[]
 == Style guide
 
 Workflows are based on and inherit the base rules from the BPMN 2.0 standard.
-We define some additional rules to help keep workflows consistent:
+We define some additional rules to help keep workflows consistent.
 
 === Follow the KISS principle
 
@@ -17,7 +17,7 @@ To exemplify, instead of using a gateway to set a `Boolean` variable to the corr
 .An over-engineered version:
 image:workflow/workflow-style-simple-gateway.png[]
 
-.An simplified version:
+.A simplified version:
 image:workflow/workflow-style-simple-expression.png[]
 
 [CAUTION]
@@ -28,7 +28,7 @@ If a simplification causes the clarity to decrease, you should not use simplific
 
 [TIP]
 ====
-Larger complex operations can be replaced by xref:workflows/automation-scripts.adoc[automation scripts].
+Larger complex operations can be replaced by xref:automation/workflows/automation-scripts.adoc[automation scripts].
 ====
 
 === Avoid crossing connectors
@@ -116,7 +116,7 @@ image:workflow/bp-compact-yes.png[]
 
 === Most iterators are able to load and process data
 
-xref:workflows/index.adoc#iterator-kind-item[Item iterators] that work with system resources (e.g. {PRODUCT_NAME} {APP_NAME_COMPOSE} records, system users and roles) can both fetch and process the data.
+xref:automation/workflows/index.adoc#iterator-kind-item[Item iterators] that work with system resources (e.g. {PRODUCT_NAME} {APP_NAME_COMPOSE} records, system users and roles) can both fetch and process the data.
 
 When you need to iterate over external resources (for example, social media posts), you need to fetch those beforehand.
 

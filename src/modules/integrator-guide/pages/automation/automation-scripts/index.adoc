@@ -7,11 +7,17 @@ include::ROOT:partial$variables.adoc[]
 An automation script (further referred to as script) is a piece of code that allows you to implement custom business logic.
 Automation scripts are written in plain JavaScript with the support for node packages.
 
+[IMPORTANT]
+====
+As of xref:ROOT:changelog/202103.adoc[], with the introduction of workflows, automation scripts are disabled by default.
+====
+
 Take a look at our samples (menu:Integrator Guide[Automation scripts,Samples]) and <<sample-project,the sample project>> to get started.
 
 [TIP]
 ====
-See whether you can implement your logic using xref:workflows/index.adoc[].
+See whether you can implement your logic using xref:automation/workflows/index.adoc[].
+A workflow is able to xref:automation/workflows/automation-scripts.adoc[execute automation scripts]
 ====
 
 There are two categories of automation scripts; *server scripts* and *client scripts*.
@@ -19,7 +25,7 @@ There are two categories of automation scripts; *server scripts* and *client scr
 [cols="1a,5a"]
 |===
 | [#automation-scripts-server]#<<automation-scripts-server,Server scripts>>#
-| These are executed in the *{PRODUCT_NAME} {APP_AUTOMATION} server*.
+| Server scripts are executed in the *{PRODUCT_NAME} {APP_AUTOMATION} server*.
 
 .Use server scripts when:
 * working with *sensitive data*,
@@ -32,7 +38,7 @@ There are two categories of automation scripts; *server scripts* and *client scr
 * run *statistic analysis*.
 
 | [#automation-scripts-client]#<<automation-scripts-client,Client scripts>>#
-| These are executed in the client's browser (user agent).
+| Client scripts are executed in the client's browser (user agent).
 
 .Use client scripts when:
 * you need to *interact with the user*,
@@ -78,13 +84,9 @@ package.json
 /server-scripts
   ...
 /client-scripts
-  /auth
-      ...
   /admin
       ...
   /compose 
-      ...
-  /messaging
       ...
   /shared
       ...
@@ -93,13 +95,13 @@ package.json
 `...` indicates that you are free to structure your files as you see fit.
 We do recommend you group your automation scripts based on their content, for example, scripts working with leads should go under the `/Lead` directory.
 
-`/auth`, `/admin`, `/compose`, and `/messaging` contain scripts specific to each web application (as discussed earlier).
+`/admin` and `/compose` contain scripts specific to each web application (as discussed earlier).
 
 `/shared` contains code that client scripts can reuse.
 
-== Script signature
+== Automation script
 
-[IMPORTANT]
+[CAUTION]
 ====
 It is only possible to define one automation script per file.
 ====
@@ -136,8 +138,138 @@ include::example$server-script-sample/implicit-generic.js[]
 
 [NOTE]
 ====
-See xref:automation-scripts/samples/server-scripts/index.adoc[server script samples], and xref:automation-scripts/samples/client-scripts/index.adoc[client script samples] for more.
+See xref:automation/automation-scripts/samples/server-scripts/index.adoc[server script samples], and xref:automation/automation-scripts/samples/client-scripts/index.adoc[client script samples] for more.
 ====
+
+=== Execution arguments
+
+Execution arguments (the `args` parameter of the <<automation-script-signature,`exec` function>>) contain the core data that your logic is able to work with.
+The data differs based on the event that triggered the automation script.
+To examplify; user related events define what user is involved, while record related events define the involved record and the module.
+
+[NOTE]
+====
+Refer to xref:automation/automation-scripts/references/resource-events.adoc[] for a complete reference of what data each event exposes.
+====
+
+[IMPORTANT]
+====
+Arguments to a client-script are provided via *references* to the original objects, meaning that *any change* to the argument parameter *reflects* back to the original object.
+
+Arguments to a server-script are provided as *a copy* of the original object, meaning that the changes are *not reflected* on the original object.
+====
+
+=== Execution context
+
+Execution context (the `ctx` parameter of the <<automation-script-signature,`exec` function>>) contains contextual information and utilities that can be used within script execution.
+The context between all of the events is static.
+
+.Execution of context parameters:
+[cols="1m,5a"]
+|===
+| [#context-console]#<<context-console,ctx.console>>#
+|
+The `console` parameter defines a logger.
+
+[NOTE]
+====
+When executing client scripts, this is the built-in `window.console`; when executing server secripts, this is a `Pino` logger.
+====
+
+| [#context-log]#<<context-log,ctx.log>>#
+|
+`ctx.log` is an alias for <<context-console,`ctx.console`>>
+
+| [#context-authuser]#<<context-authuser,ctx.$authUser>>#
+|
+`$authUser` is a reference to the xref:automation/automation-scripts/index.adoc#involing-user[invoking user].
+
+| [#context-systemapi]#<<context-systemapi,ctx.SystemAPI>>#
+|
+`SystemAPI` is the {PRODUCT_NAME} API client.
+
+| [#context-composeapi]#<<context-composeapi,ctx.ComposeAPI>>#
+|
+`ComposeAPI` is the {PRODUCT_NAME} {APP_NAME_COMPOSE} API client.
+
+| [#context-system]#<<context-system,ctx.System>>#
+|
+`System` defines a set of helper methods to work with the core system
+
+| [#context-compose]#<<context-compose,ctx.Compose>>#
+|
+`Compose` defines a set of helper methods to work with {PRODUCT_NAME} {APP_NAME_COMPOSE} resources.
+
+| [#context-composeui]#<<context-composeui,ctx.ComposeUI>>#
+|
+`ComposeUI` defines a set of helper methods to work with {PRODUCT_NAME} {APP_NAME_COMPOSE} user interface.
+
+| [#context-frontendbaseurl]#<<context-frontendbaseurl,ctx.frontendBaseURL>>#
+|
+`frontendBaseURL` defines the base URL address that the front-end web applications are running.
+This is useful when generating URL addresses that point to the {PRODUCT_NAME} applications (such as a link to the newly created lead).
+
+|===
+
+=== Execution result
+
+Refer to the xref:automation/execution-flow-details.adoc[execution flow details] sub-section for details on how the execution result affects the system.
+
+[cols="2s,5a"]
+|===
+| [#exec-result-terminate]#<<exec-result-terminate,The execution is terminated>>#
+|
+The automation script is *terminated* when an error other then `Aborted` occurs.
+This normally causes the original operation to also terminate.
+
+.An example:
+[source,js]
+----
+export default {
+  trigger (t) {...}
+
+  exec (args, ctx) {
+    throw new Error('Oh no, something went wrong')
+  }
+}
+----
+
+| [#exec-result-abort]#<<exec-result-abort,The execution is aborted>>#
+|
+The automation script is *aborted* when an `Aborted` error occurs, or the automation script returned a `false` value.
+This normaly causes the current automation script to terminate, but permits the original operation to continue.
+
+.An example:
+[source,js]
+----
+export default {
+  trigger (t) {...}
+
+  exec (args, ctx) {
+    throw new Error('Aborted')
+    // OR
+    return false
+  }
+}
+----
+
+| [#exec-result-unknown]#<<exec-result-unknown,The execution is successful>>#
+|
+In any other cases the automation script is *successful*.
+The returned value is a zero value, if it is either `null` or `undefined`.
+
+.An example:
+[source,js]
+----
+export default {
+  trigger (t) {...}
+
+  exec ({ $record }, ctx) {
+    return $record
+  }
+}
+----
+|===
 
 == Automation triggers
 
@@ -179,11 +311,16 @@ Use explicit triggers when you wish to *manually initiate an action*, for exampl
 
 Use implicit triggers when you wish for an action to be *automatically performed* when triggered by another action or process; such as sending an email when you register a new user or adding a changelog entry when the content changes.
 
-Refer to xref:ROOT:integrator-guide/resource-events-reference.adoc[resources and events] for a complete list of events you can listen for.
+Refer to xref:automation/automation-scripts/references/resource-events.adoc[resources and events] for a complete list of events you can listen for.
 
 | [#trigger-type-deferred]#<<trigger-type-deferred,Deferred>>#
+|
+[IMPORTANT]
+====
 Deferred triggers can only be used in server scripts and require explicit security context.
-| The system triggers these *at a certain point in the future*; either *periodically* (define with *cron expressions*), or *at a timestamp* (use *ISO 8601*, `YYYY-MM-DDThh:mm:ssZ` format).
+====
+
+The system triggers these *at a certain point in the future*; either *periodically* (define with *cron expressions*), or *at a timestamp* (use *ISO 8601*, `YYYY-MM-DDThh:mm:ssZ` format).
 
 
 Use deferred triggers when you want an action to *periodically repeat* or *be performed at a certain point in the future*. Examples of such use are  recurring payments or sending holiday newsletters to your subscribers.
@@ -194,8 +331,12 @@ The scheduler acts *once per minute*, therefore that is the maximum accuracy {PR
 ====
 
 | [#trigger-type-sink]#<<trigger-type-sink,Sink>>#
+|
+[IMPORTANT]
+====
 Sink triggers can only be used in server scripts and require explicit security context.
-| These are triggered by the system *when it receives a request*; either *HTTP* or *email*.
+====
+These are triggered by the system *when it receives a request*; either *HTTP* or *email*.
 
 Use sink triggers when you want to *respond to requests*; such as *webhooks for external services* or *custom API endpoints*, f1or example *capturing data from external forms*, *tracking external document changes*, and *capturing payments*.
 
@@ -220,14 +361,14 @@ triggers ({ before }) {
 },
 ----
 
-Refer to xref:ROOT:integrator-guide/resource-events-reference.adoc[resources and events] for a complete list of available resources and supported events.
+Refer to xref:automation/automation-scripts/references/resource-events.adoc[resources and events] for a complete list of available resources and supported events.
 
 [#trigger-define-constraint]
 === Defining a constraint
 
 [NOTE]
 ====
-Refer to xref:ROOT:integrator-guide/resource-constraints.adoc[resource constraints] for a list of available constraint properties for each resource.
+Refer to xref:automation/automation-scripts/references/resource-constraints/index.adoc[resource constraints] for a list of available constraint properties for each resource.
 ====
 
 To define how an event should be presented as (such as the module name, user email, role handle), we use the `.where(property, operator, value)` method or a variation of it.
@@ -270,23 +411,17 @@ triggers ({ before }) {
 |
 * `like`
 
-[TIP]
-====
 .Supported wildcards:
 * *one or more characters*: `%`, `*`,
 * *one character*: `_`, `?`.
-====
 
 | [#constraint-operator-nprt]#<<constraint-operator-nprt,Partial not equals>>#
 |
 * `not like`
 
-[TIP]
-====
 .Supported wildcards:
 * *one or more characters*: `%`, `*`,
 * *one character*: `_`, `?`.
-====
 
 | [#constraint-operator-regex]#<<constraint-operator-regex,Regex equals>>#
 |
@@ -300,8 +435,7 @@ triggers ({ before }) {
 
 === Conventions
 
-.Available comparison operators:
-[cols="1s,5a"]
+[cols="2s,5a"]
 |===
 | [#trigger-destructuring]#<<trigger-destructuring,Use object destructuring>>#
 |
@@ -353,13 +487,6 @@ triggers ({ after }) {
 
 == Security context
 
-[IMPORTANT]
-====
-Automation scripts are no exception to the access control system.
-====
-
-The security context allows you to control who can invoke the automation script as well as what access the script should have.
-
 [#involing-user]
 === The invoking user
 
@@ -373,11 +500,10 @@ To examplify; you press a button, therefore you are the invoking user.
 
 By specifying the invoking user, the automation script may access some resources that the actual invoking user may not have access to, such as personal client information.
 
-[IMPORTANT]
+[CAUTION]
 ====
-This is only available for server-scripts.
+You are only able to set the invoking user for server scripts.
 ====
-
 
 .An example of defining an invoking user:
 [source,js]
@@ -391,11 +517,8 @@ export default {
 }
 ----
 
-[IMPORTANT]
-====
 You can use the user's handle, email or ID as the user identifier.
 We suggest you use an email or a handle.
-====
 
 [TIP]
 ====
@@ -507,7 +630,7 @@ trigger ({ before }) {
 },
 ----
 
-`istanbul ignore next` excludes the following function from the coverage report.
+`istanbul ignore next` excludes the following function from the coverage relay.
 ====
 
 .Sample.test.js

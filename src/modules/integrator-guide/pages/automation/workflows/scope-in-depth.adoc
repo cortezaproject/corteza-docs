@@ -8,7 +8,7 @@ For the most common use-cases this doesn't really matter, but it can come in han
 
 [IMPORTANT]
 ====
-Non-primitive data types (more can be found xref:workflows/types.adoc[here]) are passed around using pointers, meaning that any change to one reflects to all of the copies.
+Non-primitive data types (more can be found xref:automation/workflows/types.adoc[here]) are passed around using pointers, meaning that any change to one reflects to all of the copies.
 
 To examplify; we have a user in two different scopes.
 If a change of name in one of the scopes is made, all of the scopes are affected.
@@ -48,7 +48,7 @@ image:workflow/gw_scope.svg[]
 
 [NOTE]
 ====
-For this example we used the xref:workflows/index.adoc#step-gateway-fork[fork gateway].
+For this example we used the xref:automation/workflows/index.adoc#step-gateway-fork[fork gateway].
 ====
 
 . When the workflow starts, you initialise the ongoing (`global`) scope to have a variable `global_v1` with the value of 1.

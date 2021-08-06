@@ -10,13 +10,13 @@
    xmlns:xlink="http://www.w3.org/1999/xlink"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   width="201.34792mm"
-   height="106.09792mm"
-   viewBox="0 0 201.3479 106.09793"
+   width="434.57874mm"
+   height="230.45207mm"
+   viewBox="0 0 434.5787 230.45209"
    version="1.1"
    id="svg7785"
    inkscape:version="0.92.5 (2060ec1f9f, 2020-04-08)"
-   sodipodi:docname="scope_object_pointers.svg">
+   sodipodi:docname="wf-access-1.svg">
   <defs
      id="defs7779">
     <marker
@@ -157,9 +157,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="1"
-     inkscape:cx="1309.1943"
-     inkscape:cy="-1278.3216"
+     inkscape:zoom="0.7071068"
+     inkscape:cx="905.97906"
+     inkscape:cy="367.39917"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -180,7 +180,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title />
+        <dc:title></dc:title>
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -188,7 +188,7 @@
      inkscape:label="Layer 1"
      inkscape:groupmode="layer"
      id="layer1"
-     transform="translate(-960.44226,-415.43469)">
+     transform="translate(-999.74727,-740.24531)">
     <image
        y="182.61194"
        x="-321.2627"
@@ -434,7 +434,7 @@
        id="g10655"
        transform="translate(-7.3339808)">
       <rect
-         style="fill:#90a3b1;fill-opacity:0.56078413;stroke:#90a3b1;stroke-width:0.537;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         style="fill:#90a3b1;fill-opacity:0.56078401;stroke:#90a3b1;stroke-width:0.537;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
          id="rect5491-10-3-9-2"
          width="52.091362"
          height="23.337145"
@@ -611,7 +611,7 @@
        id="g10775-4-4"
        transform="translate(410.32677,30.255785)">
       <rect
-         style="fill:#ffffff;fill-opacity:0.56078395;stroke:#ffffff;stroke-width:0.537;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         style="fill:#ffffff;fill-opacity:0.56078384;stroke:#ffffff;stroke-width:0.537;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
          id="rect5491-10-3-9-2-5-3-1"
          width="52.091362"
          height="23.337145"

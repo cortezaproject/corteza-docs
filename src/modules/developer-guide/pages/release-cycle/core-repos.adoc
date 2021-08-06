@@ -19,6 +19,10 @@ GitHub provides a friendly system for this, so that shouldn't be an issue.
 . corteza-webapp-compose: ({GIT_REPO_LINK_PREFIX}-webapp-compose)
 . corteza-webapp-workflow: ({GIT_REPO_LINK_PREFIX}-webapp-workflow)
 
+== Building infrastructure
+
+All {PRODUCT_NAME} repositories utilize GitHub workflows and actions to release server binaries, web application bundles, docker images, or other output formats.
+
 == Versioning
 
 Bump the version of the NPM packages, following the https://calver.org/[CalVer] standard; for example, `2020.9-rc.1`.
@@ -105,27 +109,13 @@ Alternatively, you can (build and) install these packages manually, either on th
 
 == Meta repositories
 
-Meta repositories are used for triggering build of web applications and all-in-one
-
-|===
-| repository | outputs
-
-| corteza-webapp
-| `corteza-webapp` https://hub.docker.com/r/cortezaproject/corteza-webapp[docker image] with all webapplications joined into single docker image for convenience.
-
-| corteza
-| `corteza` https://hub.docker.com/r/cortezaproject/corteza[docker image] with webapplications and sever joined into single docker image for convenience.
-
-RPM package, placed to https://releases.cortezaproject.org/files/
-
-|===
-
+Meta repositories are used to trigger the build process for web applications and the all-in-one Docker container.
 
 .Steps to release:
 * tag the version
 * push the changes and the created tag to the Github repository
 
+The {GIT_REPO_LINK_PREFIX}-webapp[corteza-webapp] (#private#) repository produces a single https://hub.docker.com/r/cortezaproject/corteza-webapp[docker image] containing all of the web applications.
 
-== Building infrastructure
-
-All Corteza repositories utilize GitHub workflows/actions to release bundles and binary files and/or build docker images and other outputs.
+The {GIT_REPO_LINK_PREFIX}[corteza] (#private#) repository produces a single https://hub.docker.com/r/cortezaproject/corteza[docker image] and an RPM package containing the {PRODUCT_NAME} server and all of the web applications.
+The RPM package is located on the https://releases.cortezaproject.org/files/[{PRODUCT_NAME} releases].

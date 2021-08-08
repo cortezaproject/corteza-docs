@@ -4,86 +4,276 @@ include::ROOT:partial$variables.adoc[]
 :description: By configuring your {APP_NAME_COMPOSE}, you define the logical data structure and its representation. This page focuses on the most important aspects of the configuration process.
 :keywords: low code, no code, automation, workflow, workflows, {PRODUCT_NAME}
 
-By configuring your {APP_NAME_COMPOSE}, you define the logical data structure and its representation. This page focuses on the most important aspects of the configuration process.
-If you wish to learn more about a specific topic, refer to the subsections under menu:Integrator Guide[{PRODUCT_NAME} {APP_NAME_COMPOSE} configuration].
+{PRODUCT_NAME} provides a powerful Low-Code development platform allowing you to setup your application with ease.
+{PRODUCT_NAME} {APP_NAME_COMPOSE} allows you to extend {PRODUCT_NAME} and support your business needs.
 
-== Namespaces
+With {PRODUCT_NAME} {APP_NAME_COMPOSE} we defines the logical data structure, how the data is displayed, and how it should be visualized.
+The second part is the xref:automation/index.adoc[automation] process, which allows you to implement custom business logic and automate tasks.
 
-Before we can configure anything, we need to create a new namespace.
+If you wish to learn more about a specific topic, refer to the subsections under menu:Integrator Guide[{APP_NAME_COMPOSE} configuration].
 
-A namespace encapsulates all of the data that is specific to some area (such as a CRM).
-The namespace also defines how the data is <<modules,structured>>, any relations between the data, and how the data is <<pages,displayed>>.
+== App configuration
+
+[#config-namespaces]
+=== Create a new namespace
+
+A *namespace* is a container for the configuration and the data specific to an application, such as a CRM.
+A namespace uses <<config-modules,modules>> to define the data structure, <<config-pages,pages>> to define how the data is displayed, and <<config-charts,charts>> to visualize the data.
 
 [IMPORTANT]
 ====
-A namespace can not directly access data from another namespace.
-If this is needed, consider implementing this using xref:workflows/index.adoc[workflows] or xref:automation-scripts/index.adoc[automation scripts].
+A namespace *can not* directly access data from another namespace.
+If this is needed, consider implementing this using xref:automation/index.adoc[automation] to programmatically define the interaction.
 ====
 
-.To create a new namespace:
-. navigate to the {PRODUCT_NAME} {APP_NAME_COMPOSE},
-. click on the btn:[Create namespace] button at the bottom of the page,
-. provide all the requested data,
-. press the btn:[Save] or the btn:[Save and close] button.
+To create a new namespace, navigate to your {PRODUCT_NAME} instance (for example http://latest.cortezaproject.org/) and click on the {APP_NAME_COMPOSE} application.
 
-When you enter the newly created namespace, you will see that there is nothing there.
-Let us change this.
+image::compose/app-selector.png[role="data-zoomable"]
 
-[#modules]
-== Modules
+A new screen with a list of all namespaces will appear.
 
-We now need to create a few modules to define the data's shape and any relations (for example, a contact is related to an account).
-A module consists of two parts; the module itself and a series of module fields.
+image::compose/ns-create.png[role="data-zoomable"]
 
-[TIP]
+.From there you can:
+* create a new namespace by clicking on the btn:[Create new namespace] button,
+* edit existing namespaces by clicking on the btn:[Edit] icon next to the namespace,
+* manage global permissions by clicking on the btn:[Permissions button]
+
+Click on the btn:[Create new namespace] button, insert the required parameters, and click on the btn:[Save] or the btn:[Save and close] button in the bottom right corner.
+
+image::compose/ns-edit.png[role="data-zoomable"]
+
+.Available namespace parameters:
+[cols="2s,5a"]
+|===
+
+| [#ns-param-name]#<<ns-param-name,Name>>#
+|
+The namespace name is the human-friendly label that is shown when identifying the namespace.
+The name should be short and descriptive.
+
+| [#ns-param-slug]#<<ns-param-slug,Short name>>#
+|
+The short name (slug) is a unique human-friendly system identifier for the namespace that can be used instead of the namespace ID when referencing the namespace.
+
+.The short name is usually a variation of the full name that must conform to the following constraints:
+include::partial$handle-constraints.adoc[]
+
+| [#ns-param-enable]#<<ns-param-enable,Enable on namespace list>>#
+|
+The enabled flag controls if the namespace is enabled and can be accessed.
+When disabled, the namespace is still visible, but can not be accessed.
+
+| [#ns-param-enable-app]#<<ns-param-enable-app,Enable on application list>>#
+|
+The enabled application flag controls if the namespace should be immediately treated as an application and shown on the app selector.
+
+| [#ns-param-logo]#<<ns-param-logo,Logo>>#
+|
+The namespace logo input allows you to upload a custom logo for the specific namespace.
+The default logo is the one defined in the theme.
+
+| [#ns-param-icon]#<<ns-param-icon,Icon>>#
+|
+The namespace icon input allows you to upload a custom icon to use alongside the namespace.
+
+| [#ns-param-subtitle]#<<ns-param-subtitle,Subtitle>>#
+|
+The subtitle is the subtitle of the namespace
+
+| [#ns-param-description]#<<ns-param-description,Description>>#
+|
+The description allows you to provide a more verbose description of the namespace, what it is for, and what kind of data does it contain.
+
+|===
+
+After you've created the namespace, you can access it by clicking on the btn:[Visit namespace button].
+At this point, your namespace is empty and doesn't have any modules, charts, or pages.
+
+image:compose/ns-access.png[width=49%]
+image:compose/ns-empty.png[width=49%]
+
+[#config-modules]
+=== Create a new module
+
+A *module* defines the shape of a record and provides a container for the records, such as an account or a contact.
+A module uses a series for <<module-field,module fields>> to define the records' structure and a <<config-record-page,record page>> to define how the record is presented to the user.
+
+If you're configuring a new namespace, you are presented with an onboarding screen from where you can click on the btn:[Create Module] button to create your first module.
+
+If you wish to add additional modules, or you are configuring an already configured namespace, navigate to menu:Admin panel[Modules], and click on the btn:[New Module] button.
+
+image::compose/module-create.png[role="data-zoomable"]
+
+.From the module editor screen you can:
+* edit the module metadata,
+* edit <<module-fields,module fields>> for the given module,
+* manage permissions for the given module by clicking on the btn:[Permissions] button,
+* manage module field permissions for the given module by clicking on the btn:[Field permissions] button
+
+.Available module parameters:
+[cols="2s,5a"]
+|===
+
+| [#mod-param-name]#<<mod-param-name,Name>>#
+|
+The module name is the human friendly label that is shown when identifying the module.
+The name should be short and descriptive.
+
+| [#mod-param-handle]#<<mod-param-handle,Handle>>#
+|
+The short name (handle) is a unique human-friendly *system identifier* that can be used instead of the module ID when referencing the module.
+
+.The handle is usually a variation of the full name that must conform to the following constraints:
+include::partial$handle-constraints.adoc[]
+
+|===
+
+[#config-record-page]
+=== Create record pages
+
+A *record page* defines how the data is presented to the user when viewing, creating and editing records for that module.
+A record page consists of a series of page blocks that are defined with the <<page-builder,page builder>>.
+
+A record page is tied to the specified module, and to the record it is showing.
+This allows you to configure the page blocks to react to the currently viewed record for dynamic resource filtering.
+
+[IMPORTANT]
 ====
-Think of this as a table in a relational database.
+If your module does not define a record page, you will not be able to create or update its records through the user interface.
+
+You are still able to view its records, create the records using inline record lists, and create records using xref:automation/index.adoc[automation].
 ====
 
-Enter the menu:Admin panel[Modules] subpage and click on the btn:[New Module] button.
+The record page can be created directly from the module edit screen by clicking on the btn:[Create record page] button, or from the module list screen by clicking on the btn:[Create record page] next to a module.
 
-Define the name and the handle for the module.
-The handle defines a unique identifier that you can use instead of the system generated ID.
-We recommend you define a handle for all modules as it simplifies any automation.
+image:compose/create-record-page-1.png[width=49%]
+image:compose/create-record-page-2.png[width=49%]
 
-Next, you need to define a set of module fields.
-Click on the btn:[+ Add new field] button on the bottom of the page to add a new field.
-A module field is fairly complicated, so let's break it down:
+[#config-charts]
+=== Create charts
 
+A *chart* defines how a specific modules' records are visualized.
+A chart is bound to your module and allows you to aggregate and transform the data which is then visualized on a chart.
+
+[NOTE]
+====
+One chart can only show records of one module.
+====
+
+If you're configuring a new namespace, you are presented with an onboarding screen from where you can click on the btn:[Create Chart] button to create your first chart.
+
+If you wish to add additional charts, or you are configuring an already configured namespace, navigate to menu:Admin panel[Charts], and click on the btn:[New Chart] button.
+
+image::compose/chart-create.png[role="data-zoomable"]
+
+.{PRODUCT_NAME} defines three chart categories:
+* <<chart-generic,generic charts>> which include the usual line, bar, pie, and doughnut charts,
+* <<chart-funnel,funnel charts>> which defines the funnel chart,
+* <<chart-gauge,gauge charts>> which defines the gauge chart.
+
+Refer to the chart specific sub-sections for more details
+
+.From the chart editor screen you can:
+* edit the chart metadata,
+* edit the charts' report configuration,
+* edit the charts' visual representation.
+
+[#config-list-pages]
+=== Create list pages
+
+A *list page* defines how the application is presented to the user when interacting with it.
+A list page consists of a series of page blocks that are defined with the <<page-builder,page builder>>.
+
+In contrast to record pages, list pages are general and only bound to the namespace they are on.
+They are general purpure and used to provide access to different record pages via record lists, dashboards, and other layouts.
+
+If you're configuring a new namespace, you are presented with an onboarding screen from where you can click on the btn:[Build Page] button to create your first page.
+
+If you wish to add additional pages, or you are configuring an already configured namespace, navigate to menu:Admin panel[Pages], and click on the btn:[New Page] button.
+From there you can click on the btn:[Page builder] button to enter the <<page-builder,page builder>>
+
+.Available page parameters:
+[cols="2s,5a"]
+|===
+
+| [#pg-list-param-title]#<<pg-list-param-title,Page title>>#
+|
+The page title is a human-friendly label that is shown when viewing the page and when displaying the page navigation.
+The name should be short and descriptive.
+
+| [#pg-list-param-handle]#<<pg-list-param-handle,Handle>>#
+|
+The short name (handle) is a unique human-friendly system identifier for the module that can be used instead of the page ID when referencing the page.
+
+.The handle is usually a variation of the title that must conform to the following constraints:
+include::partial$handle-constraints.adoc[]
+
+|===
+
+[#config-navigation]
+=== Structure the navigation
+
+The page navigation of your application is generated based on your list pages and their position in the *page tree*.
+Navigate to the menu:Admin panel[Pages] to see your current pages and how they are structured.
+
+To *change the order* of pages, drag and drop the page to the desired position.
+
+image:compose/page-tree-base.png[width=49%]
+image:compose/page-tree-reorder.png[width=49%]
+image:compose/page-tree-reorder-view.png[]
+
+To *create a dropdown menu* (a sub-page or a nested page), drag and drop the page inside another page.
+
+image:compose/page-tree-base.png[width=49%]
+image:compose/page-tree-nest.png[width=49%]
+image:compose/page-tree-nest-view.png[]
+
+[#module-field]
+== Module fields
+
+A *module-field* defines the shape of the modules' records (what parameters will we store), what data type specific parameters are, and additional settings to control how the field should behave.
+Each module can have multiple module fields.
+
+To edit module fields, navigate to menu:Admin panel[Modules], and click on the module you wish to edit.
+The module fields are listed in the "manage module fields" section bellow the module metadata.
+
+.A detailed breakdown of module fields:
 [cols="1s,5a"]
 |===
 
 | [#module-field-name]#<<module-field-name,Name>>#
 |
-A field name defines how the system stores the corresponding value internally.
-Module field names are mostly used within automation scripts and workflows, so we recommend that a field name is short, descriptive and consistent.
+A field name defines how the value is stored internally and what key is used when accessing the value from an automation.
 
-Use the value of the name field when accessing records of the `ComposeRecord` type.
+[CAUTION]
+====
+Once the module is populated with at least one record, the name can not be changed.
+====
 
-.The name field must:
+The field name should be short and descriptive, *limited to 64 characters*.
+
+.The name field must conform tho the following constraints:
 include::partial$handle-constraints.adoc[]
 
 | [#module-field-title]#<<module-field-title,Title>>#
 |
-A field title defines how the field is shown to the user.
-You can write field titles in any format and any language; they do not affect the internals.
-We recommend that the title is short, descriptive and consistent with the handle.
-If a title is not provided, the <<module-field-name,name>> is displayed instead.
+A field title defines what label is used when presenting the field and the value to the user.
 
-A title is limited to 64 characters; no other constraints apply.
+The field name should be short, descriptive, and modeled after the field name.
+If you omit the title, the <<module-field-name,name>> is used instead.
 
 | [#module-field-type]#<<module-field-type,Type>>#
 |
-A field type defines what type of data the field will contain.
+A field type defines what type of data the field will store.
 For example, if we wish to store the users' email, the field type will be `Email`.
 
 Refer to the xref:compose-configuration/field-types.adoc[] section for more details regarding field types.
 
 | [#module-field-settings-base]#<<module-field-settings-base,Base field settings>>#
 |
-The base field settings control the general behaviour of the module field.
-
-You can view base field settings directly under the "Attributes" column of the module field list.
+Base field settings control the general behavior of the module field.
+Base field settings are accessible directly under the "Attributes" column of the module field list.
 
 [IMPORTANT]
 ====
@@ -96,99 +286,47 @@ Type-specific field setting control the behavior of the module field based on th
 
 To access type-specific settings, click on the btn:[settings icon] next to the field type and navigate to the second tab (the one with the same name as the field type).
 
+Refer to xref:compose-configuration/field-types.adoc[module field type reference] for details.
+
 | [#module-field-expr]#<<module-field-expr,Field expressions>>#
 |
-A field expression allows you to implement a formula (calculated) field.
-When you define an expression, you can no longer directly manipulate the field; the value only changes when the expressions' result changes.
+Field expressions allow you to define a formula (calculated) field.
+When a field defines an expression, the value is updated by the system when the result of the expression changes.
+
+[CAUTION]
+====
+The value of a formula field can not be manually changed.
+====
 
 Click on the btn:[settings icon] next to the field type and navigate to the "General" tab.
-Check the "Field value expression" checkbox and insert the formula into the new input box.
+Check the "field value expression" checkbox and insert the formula into the new input box.
 
-Refer to the xref:compose-configuration/field-expr.adoc[] for more details.
+Refer to the <<field-expressions,field expressions>> for more details.
+
+image::compose/field-value-expr.png[role="data-zoomable"]
 
 | [#module-field-validation]#<<module-field-validation,Field validation>>#
 |
-Custom field validation allows you to implement custom user-provided value validation and sanitisation.
+Value sanitizers allow you to implement custom value sanitization (value transformation) before the value is stored.
+Value validators allow you to implement custom value validation before the value is stored.
 
 Click on the btn:[settings icon] next to the field type and navigate to the "Validation" tab.
 
-.You will see two sections:
-* *Value sanitisation* allows you to write custom sanitisation rules.
-Sanitisation allows you to transform the data before it is saved.
-* *Value validation* allows you to write custom validation rules.
-Validation allows you to write additional validation rules or replace the built-in rules.
-
 [IMPORTANT]
 ====
-Built-in sanitisers *can not be disabled*.
-The custom sanitisers are run before the built-in sanitisers.
+Custom sanitizers are run *before* the built-in sanitizers.
+Built-in sanitizers *can not be disabled*.
 ====
 
-Refer to the xref:compose-configuration/field-expr.adoc[] for more details.
+Refer to the <<field-expressions,field expressions>> for more details.
+
+image::compose/field-validation.png[role="data-zoomable"]
 
 |===
 
-[#pages]
-== Pages
+== Chart configuration
 
-The next step is to define how the data is displayed.
-To do this, we need to define some pages.
-There are two types of pages:
-
-[#page-type-record]#<<page-type-record,Record pages>>#::
-  A record page allows you to define how your users will interact with the given module.
-  The record page is used when you want to create or edit records.
-  A record page is created directly from the module list by clicking on the btn:[Create record page] or on the btn:[Page builder] if the record page already exists.
-
-[IMPORTANT]
-====
-If a module does not have a record page defined, you are unable to create or update its records through the user interface.
-
-xref:workflows/index.adoc[Workflows] and xref:automation-scripts/index.adoc[automation scripts] can still interact with such modules.
-====
-
-[#page-type-list]#<<page-type-list,List pages>>#::
-  A list page allows you to display aggregated data from different sources (e.g. modules and external websites).
-  You can use list pages to implement simple record lists for a single module or a complex dashboard showing multiple record lists and charts.
-  A list page is created in the menu:Admin panel[Pages] section.
-
-=== Page builder
-
-The page builder allows you to define your page's shape using page blocks and an intuitive drag and drop interface.
-Refer to the xref:compose-configuration/page-blocks.adoc[] section for details regarding specific page blocks.
-Each page defines a grid of 12 columns that page blocks can populate.
-
-To add a new page block, click on the btn:[+ Add block] button on the bottom of the page.
-A new popup opens up where you can select what page block you wish to use.
-Each page block has its specific purpose, from showing records to showing charts and attached files.
-
-Existing page blocks can be edited, moved, resized, or removed.
-
-=== Navigation
-
-The navigation on the {PRODUCT_NAME} {APP_NAME_COMPOSE} changes dynamically based on the defined pages, their visibility, and their hierarchy.
-We call this a page tree, and it's accessible directly in the menu:Admin panel[Pages] section.
-
-You can easily change the order of the pages by dragging them around.
-
-To create a subpage (a dropdown menu), nest the page by dropping it into another page.
-
-[#charts]
-== Charts
-
-The last major component of the {APP_NAME_COMPOSE} configuration are charts.
-Charts allow you to visualise your data and create beautiful dashboards.
-
-Go to the menu:Admin panel[Charts] subsection, click on the btn:[New Chart] button, and select one of the available categories (let's start by making a generic chart)
-
-Insert the initial parameters that define the chart; name, handle, and colour scheme.
-The rest of the configuration depends on the selected category and are discussed in the following sub-sections.
-
-[NOTE]
-====
-Ensure that the selected colour scheme provides enough colours for your dataset (the number of colours is written next to the colour scheme name).
-====
-
+[#chart-generic]
 === Generic chart configuration
 
 .Generic charts include:
@@ -202,15 +340,16 @@ Ensure that the selected colour scheme provides enough colours for your dataset 
 
 | [#chart-config-generic-module]#<<chart-config-generic-module,Module>>#
 |
-The chart module specifies the data source (the records) for the chart.
+The module specifies the data source (what records to use) for the chart.
+The chart can only show records of the same same namespace that the chart was created in.
 
 | [#chart-config-generic-filter]#<<chart-config-generic-filter,Filter>>#
 |
-The filter allows you to filter over the <<chart-config-generic-module,data source>> to include only specific entries.
+The filter allows you to define what records you wish to show in the chart.
 For example, we wish to aggregate the leads that you created in the last month.
 
 The dropdown menu provides you with a selection of the most common filters.
-If you wish to write something completely custom, tick on the customise filter checkbox and write your filter.
+Click on the "customize filter checkbox" if you wish to modify the selected filter or write your own.
 Refer to the xref:accessing-corteza/ql.adoc[QL reference] for details regarding filter definition.
 
 | [#chart-config-generic-yxs]#<<chart-config-generic-yxs,Y-axis>>#
@@ -258,6 +397,7 @@ m ? m + n : n
 
 |===
 
+[#chart-funnel]
 === Funnel chart configuration
 
 A funnel chart is constructed from a series of reports where each report may define its dimension and metric.
@@ -268,15 +408,16 @@ This allows you to piece together reports from different modules, allowing you t
 
 | [#chart-config-funnel-module]#<<chart-config-funnel-module,Module>>#
 |
-The report module specifies the data source (the records) for the given report.
+The module specifies the data source (what records to use) for the chart.
+The chart can only show records of the same same namespace that the chart was created in.
 
 | [#chart-config-funnel-filter]#<<chart-config-funnel-filter,Filter>>#
 |
-The filter allows you to filter over the <<chart-config-funnel-module,data source>> to include only specific entries.
-For example, we wish only to use leads that are in a specific stage.
+The filter allows you to define what records you wish to show in the chart.
+For example, we wish to aggregate the leads that you created in the last month.
 
 The dropdown menu provides you with a selection of the most common filters.
-If you wish to write something completely custom, tick on the customise filter checkbox and write your filter.
+Click on the "customize filter checkbox" if you wish to modify the selected filter or write your own.
 Refer to the xref:accessing-corteza/ql.adoc[QL reference] for details regarding filter definition.
 
 | [#chart-config-funnel-dimension]#<<chart-config-funnel-dimension,Dimensions>>#
@@ -296,6 +437,7 @@ A special `count` field returns the number of records that match the configurati
 
 |===
 
+[#chart-gauge]
 === Gauge chart configuration
 
 [cols="1s,5a"]
@@ -303,15 +445,16 @@ A special `count` field returns the number of records that match the configurati
 
 | [#chart-config-gauge-module]#<<chart-config-gauge-module,Module>>#
 |
-The report module specifies the data source (the records) for the given report.
+The module specifies the data source (what records to use) for the chart.
+The chart can only show records of the same same namespace that the chart was created in.
 
 | [#chart-config-gauge-filter]#<<chart-config-gauge-filter,Filter>>#
 |
-The filter allows you to filter over the <<chart-config-gauge-module,data source>> to include only specific entries.
-For example, we wish only to use leads that are in a specific stage.
+The filter allows you to define what records you wish to show in the chart.
+For example, we wish to aggregate the leads that you created in the last month.
 
 The dropdown menu provides you with a selection of the most common filters.
-If you wish to write something completely custom, tick on the customise filter checkbox and write your filter.
+Click on the "customize filter checkbox" if you wish to modify the selected filter or write your own.
 Refer to the xref:accessing-corteza/ql.adoc[QL reference] for details regarding filter definition.
 
 | [#chart-config-gauge-dimension]#<<chart-config-gauge-dimension,Dimensions>>#
@@ -346,7 +489,193 @@ n / 1000
 
 |===
 
-== Configuring permissions
+[#page-builder]
+== Page builder
+
+[IMPORTANT]
+====
+If all page blocks are on the same Y axis (one single row), the page will stretch the blocks to fill the entire page.
+This is useful when creating record or list pages with a single page block that should span the entire page.
+
+image:compose/page-resize-config.png[width="49%"]
+image:compose/page-resize-view.png[width="49%"]
+
+====
+
+The page builder is used to define the pages' structure using *page blocks* and a drag-and-drop interface.
+Each page has a grid of 12 columns and is not limited on the vertical.
+
+image::compose/page-builder-empty.png[role="data-zoomable"]
+
+Click on the btn:[+ Add block] button to open the page block picker where you can configure and add a new page block.
+The entire page block reference is available xref:compose-configuration/page-blocks.adoc[here].
+
+image::compose/page-builder-block-picker.png[role="data-zoomable"]
+
+When you configure and save a page block it is added to the page.
+
+image::compose/page-builder-block-base.png[role="data-zoomable"]
+
+To reposition the page block, simply drag-and-drop it to the desired position.
+
+The page block may be placed anywhere on the X axis, but its Y axis must connect with another page block or with the top of the page.
+If the position is not valid, or it overlays with another page block, they page builder may automatically adjust the surrounding page blocks to conform to the constraints.
+
+image::compose/page-builder-block-base.png[role="data-zoomable"]
+image::compose/page-builder-block-repos.png[role="data-zoomable"]
+
+To resize the page block, simply grab the arrow in the bottom-right corner and resize to your needs.
+The page block may not exceed the maximum width of 12 columns.
+The height is not limited.
+
+image::compose/page-builder-block-base.png[role="data-zoomable"]
+image::compose/page-builder-block-resize.png[role="data-zoomable"]
+
+By placing a few extra blocks and changing their layout you can create interesting home pages and dashboards like the CRM's.
+
+image::compose/page-builder-example.png[role="data-zoomable"]
+
+[#field-expressions]
+== Field expressions
+
+[#value-expressions]
+=== Value expressions
+
+Value expressions calculate the fields' value based on the provided expression.
+A value expression is a simple expression that results in a single value.
+If your field is a multi-value field, you need to return an array of items.
+
+Refer to the xref:expr/index.adoc[] for details on writing expressions.
+
+[IMPORTANT]
+====
+Currently, you can only use values of the current record.
+References are not yet supported.
+If you need to reference data across multiple records, use an xref:automation/index.adoc[automation] instead,
+====
+
+.Available variables in the evaluation context:
+[cols="1s,5a"]
+|===
+
+| [#values-ctx-old]#<<values-ctx-old,`old`>>#
+|
+The `old` variable refers to the original record.
+Only set when the field is being updated.
+
+| [#values-ctx-new]#<<values-ctx-new,`new`>>#
+|
+The `new` variable refers to the current record.
+
+| [#values-ctx-value]#<<values-ctx-value,`<field-name>`>>#
+|
+A string or an array of strings with current field values.
+If the field name collides with any of the system-defined variables, access the value via the <<values-ctx-new,new["field_name_here"]>>.
+
+|===
+
+.Example expression that calculates the price with tax:
+[source]
+----
+price * 1.25
+----
+
+.Example expression that generates a full name:
+[source]
+----
+trim(firstName + " " + lastName)
+----
+
+.Example of a multi-value expression evaluation:
+[source]
+----
+["foo", "bar", "baz"]
+----
+
+[#value-sanitizers]
+=== Sanitizers
+
+Sanitisers modify the field value to cleanup (sanitise) the data before it is saved.
+A sanitiser is a simple expression that results in a single value.
+
+Refer to the xref:expr/index.adoc[] for details on writing expressions.
+
+By their nature, sanitisers *should not* result in an error.
+If an error occurs, it is logged in the action log, and the operation continues.
+
+If you define multiple sanitisers, they are run in the specified order.
+
+.Example sanitiser that limits the text length:
+[source]
+----
+length(value) > 5 ? substr(value, 0, 5) + "..." : value
+----
+
+.Available variables in the evaluation context:
+[cols="1s,5a"]
+|===
+
+| [#sanitizer-ctx-value]#<<sanitizer-ctx-value,`value`>>#
+|
+The `value` variable refers to the current value.
+
+|===
+
+[#value-validators]
+=== Validators
+
+Validators validate the field value by raising errors when the value is not valid.
+A validator is a simple expression that results in a single value, either `true` or `false`.
+The value validation is considered invalid when the expression results in `true`.
+
+Validators can not change the value.
+
+Built-in field validators can be disabled; required and unique-multi-value validators can not be disabled.
+
+If you define multiple validators, they are run in the specified order.
+
+[IMPORTANT]
+====
+The field validator stops when the first error occurs.
+For example, if we define validators `A`, `B`, and `C`, and the validator `A` raises an error, validators `B` and `C` are not evaluated.
+====
+
+.Validation expressions are not executed when:
+* the value is not changed,
+* the value is missing.
+
+[TIP]
+====
+Use the required flag to check for required values.
+====
+
+.Available variables in the evaluation context:
+[cols="1s,5a"]
+|===
+
+| [#validator-ctx-value]#<<validator-ctx-value,`value`>>#
+|
+The `value` variable refers to the current value.
+
+| [#validator-ctx-oldvalue]#<<validator-ctx-oldvalue,`oldValue`>>#
+|
+The `oldValue` variable refers to the original value.
+Only set when the field is being updated.
+
+| [#validator-ctx-values]#<<validator-ctx-values,`values`>>#
+|
+The `values` variable refers to all record values (`values.<field-name>`).
+You can use this to write validators that are context-aware.
+
+|===
+
+.Example validator to check the text length:
+[source]
+----
+length(title) < 5
+----
+
+== Permission configuration
 
 Our flexible access control system (RBAC) allows you to allow or deny access to all resources except for records (we will add this in the future).
 

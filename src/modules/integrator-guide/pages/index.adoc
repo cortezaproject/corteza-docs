@@ -52,7 +52,7 @@ Refer to the xref:compose-configuration/field-expr.adoc[menu:{APP_NAME_COMPOSE} 
 == Automate your process
 
 {PRODUCT_NAME} provides a powerful automation facility that allows you to implement nearly anything!
-Automation is defined either via xref:workflows/index.adoc[workflows (menu:automation[workflow])] or xref:automation-scripts/index.adoc[automation scripts (menu:automation[automation script])].
+Automation is defined either via xref:automation/workflows/index.adoc[workflows (menu:automation[workflow])] or xref:automation/automation-scripts/index.adoc[automation scripts (menu:automation[automation script])].
 
 A *workflow* is a simplified BPMN diagram, allowing you to describe the automation in a human-friendly manner.
 A workflow is the recommended way to implement an automation as they are easier to read and maintain.

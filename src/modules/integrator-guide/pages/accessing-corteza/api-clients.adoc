@@ -12,11 +12,6 @@ When writing automation scripts, they are provided in the xref:integrator-guide:
 You can find the source code on https://github.com/cortezaproject/corteza-js[GitHub/cortezaproject/corteza-js].
 NPM packages can be found on https://www.npmjs.com/package/@cortezaproject/corteza-js[NPM/@cortezaproject/corteza-js].
 
-[IMPORTANT]
-====
-Make sure to use the same `@cortezaproject/corteza-js` package version as your {PRODUCT_NAME} instance.
-====
-
 When using our `corteza-js` package, the API clients can be imported using `import { apiClients } from '@cortezaproject/corteza-js'`.
 
 .Available {PRODUCT_NAME} API clients:

@@ -62,3 +62,21 @@
 .notice-dev {
   background-color: #90A3B1A5;
 }
+
+body div.medium-zoom-overlay {
+  z-index: 10000!important;
+}
+
+div.imageblock.preview {
+  text-align: center;
+}
+
+body img.medium-zoom-image {
+  box-shadow: 0;
+  transition: box-shadow .3s;
+}
+
+body img.medium-zoom-image--opened {
+  z-index: 10001!important;
+  box-shadow: 0 0 30px #2d2d2d;
+}

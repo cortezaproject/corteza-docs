@@ -10,25 +10,30 @@ This allows you to make the authentication screen match the company style guide.
 
 === Enable personalization
 
-To enable the personalization of the authentication interfaces, you must define the following variables in your `.env` file:
+To enable the personalization of the authentication interfaces, you must set the following variables in your `.env` file:
 
-[#env-devmode]#<<env-devmode,`AUTH_DEVELOPMENT_MODE`>>#::
-  The `AUTH_DEVELOPMENT_MODE` variable enables development tools to help with the interface personalization.
-  The development tools include automatic template reloading and developer UI.
+[cols="2s,5a"]
+|===
+| Variable | Description
 
-[#env-path]#<<env-path,`AUTH_ASSETS_PATH`>>#::
-  The `AUTH_ASSETS_PATH` variable defines where the system should read the modified authentication interfaces from.
-  Point the `AUTH_ASSETS_PATH` variable to the directory that will contain the modified assets.
-  To examplify; `AUTH_ASSETS_PATH=/opt/deploy/corteza/auth-assets`.
+| [#env-devmode]#<<env-devmode,`AUTH_DEVELOPMENT_MODE`>>#
+| The `AUTH_DEVELOPMENT_MODE` variable enables development tools to help with the interface personalization.
+The development tools include automatic template reloading and developer UI.
+
+| [#env-path]#<<env-path,`AUTH_ASSETS_PATH`>>#
+| The `AUTH_ASSETS_PATH` variable defines where the system should read the modified authentication interfaces from.
+Point the `AUTH_ASSETS_PATH` variable to the directory that will contain the modified assets.
+To examplify; `AUTH_ASSETS_PATH=/opt/deploy/corteza/auth-assets`.
+|===
 
 [NOTE]
 ====
-The path for the `AUTH_ASSETS_PATH` variable can be absolute relative to the `corteza-server` binary.
+The path for the `AUTH_ASSETS_PATH` variable can be absolute, or relative to the `corteza-server` binary.
 ====
 
 === Export current assets
 
-To export the current authentication assets, run the auth assets export command.
+To export the current authentication assets, run the `auth assets export` command.
 
 [source]
 ----
@@ -89,7 +94,7 @@ exporting asset /opt/deploy/corteza/auth-assets/templates/signup.html.tpl: ok
 exporting asset /opt/deploy/corteza/auth-assets/templates/template-dev.html.tpl: ok
 ----
 
-[NOTE]
+[CAUTION]
 ====
 Rerunning the command will not overwrite the existing files.
 If you want a fresh start, delete the exported assets and re-export them.
@@ -97,27 +102,27 @@ If you want a fresh start, delete the exported assets and re-export them.
 
 === Modify the authentication assets
 
+.The exported assets define the following file structure:
 [source]
 ----
-/ public
+/ public <1>
   / ...
-/ templates
+/ templates <2>
   / ---
 ----
-
-The `/public` subdirectory contains the assets you can use in your authentication screens, such as images and stylesheets.
+<1> The `/public` subdirectory contains the assets you can use in your authentication screens, such as images and stylesheets.
 You are free to remove, add or change all of the files in the `/public` subdirectory.
 The public files are served in the same format they are defined here.
-
-The `/templates` subdirectory contains the HTML templates that are used when displaying the authentication screens.
+<2> The `/templates` subdirectory contains the HTML templates that are used when displaying the authentication screens.
 The templates are written in https://golang.org/pkg/html/template/[go's template syntax].
 The syntax is the same as with our xref:templates/index.adoc[document templates].
 
-[IMPORTANT]
+[WARNING]
 ====
-The template file names are important and should not be changed.
-You can define additional template files (such as the `inc_header.html.tpl` and the `inc_footer.html.tpl`) that are reused across other templates.
+Template files exported by the CLI command mentioned above, should *not* be renamed.
 ====
+
+If you wish to define reusable components, you can define additional template files (such as the `inc_header.html.tpl` and the `inc_footer.html.tpl`).
 
 === Deploy the changed assets
 

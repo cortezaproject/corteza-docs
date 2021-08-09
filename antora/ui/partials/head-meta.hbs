@@ -1,0 +1,13 @@
+    <link rel="icon" href="{{siteRootPath}}/favicon.ico" type="image/x-icon">
+
+    <link rel="stylesheet" href="{{uiRootPath}}/css/site-extra.css">
+    {{#if env.ALGOLIA_API_KEY}}
+    <!-- downloaded from CDN -->
+    <link rel="stylesheet" href="{{uiRootPath}}/css/vendor/docsearch.min.css">
+    {{/if}}
+
+    <!-- DocSearch meta -->
+    <!-- @todo wrap in an if later on -->
+    <meta name="docsearch:language" content="en" />
+    <meta name="docsearch:version" content="{{page.version}}" />
+    <meta name="docsearch:module" content="{{page.module}}" />

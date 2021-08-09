@@ -1,5 +1,8 @@
 FROM antora/antora AS builder
 
+ARG ALGOLIA_API_KEY
+ARG ALGOLIA_INDEX_NAME
+
 COPY antora-playbook.yml /antora/
 COPY antora /antora/antora
 COPY lib /antora/lib

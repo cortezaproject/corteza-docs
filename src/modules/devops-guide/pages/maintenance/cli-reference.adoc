@@ -60,6 +60,13 @@ Flags:
 
 Import data from yaml sources.
 
+[CAUTION]
+====
+When importing RBAC rules, the changes do not automatically change.
+RBAC rules are reloaded in 1h intervals.
+If you need to reflect the changes immediately, you will need to restart the {PRODUCT_NAME} server.
+====
+
 [source,shell]
 ----
 Usage:

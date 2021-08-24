@@ -45,6 +45,7 @@
 |*sqrt*    |`sqrt(number)`|The function returns correctly rounded sqrt, see link:https://golang.org/pkg/math/#Sqrt[math.Sqrt]|`sqrt(4)` results in 2
 |*sum*     |`sum(...argN)`|The function returns the sum of all arguments|`sum(1, 2, 3)` results in 6
 |*average* |`sum(...argN)`|The function returns the average of all arguments|`average(1, 2)` returns 1.5
+|*random*  |`random(number, ...number)`|The function returns random number and also between range if given|`random(5)` returns 3.023301439898098, `random(5, 10)` returns 8.023301439898098
 |===
 
 == List functions
@@ -104,6 +105,7 @@ To examplify; `merge(KV, KVV, Vars)` is not allowed.
 |*now*              |`now(datetime)`|The function returns current DateTime string.|`now()` results in "1970-01-01T00:00:00+00:00"
 |*isLeapYear*       |`isLeapYear(datetime)`|The function returns true if the specified year is leap year.|`isLeapYear(datefield)` results in `true`
 |*isWeekDay*        |`isWeekDay(datetime)`|The function returns true if the specified day is week day.|`isWeekDay(datefield)` results in `true`
+|*sub*              |`sub(datetime, datetime)`|The function returns duration between 1st DateTime to 2nd DateTime into Milliseconds.|`sub(datefield1, datefield2)` results in "86400000"
 |===
 
 [#string-formatting]

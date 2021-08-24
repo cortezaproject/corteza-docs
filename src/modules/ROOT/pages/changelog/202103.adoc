@@ -27,6 +27,7 @@ Set the `CORREDOR_ENABLED=true` in your `.env` file if you wish to have it enabl
 * Added workflow iterator chunking to be able to process larger datasets
 * Added workflow functions for role membership management
 * Added a deleted indicator when viewing a deleted workflow
+* Added expression functions (modWeek, random, sub)
 
 .[#2021_3_11-changed]#<<2021_3_11-changed,Changed:>>#
 * Changed handling of default auth clients to restrict most modifications.

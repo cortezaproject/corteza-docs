@@ -12,6 +12,37 @@ include::ROOT:partial$variables.adoc[]
 Set the `CORREDOR_ENABLED=true` in your `.env` file if you wish to have it enabled.
 * {PRODUCT_NAME} Messaging is now deprecated and removed.
 
+== `2021.3.11`
+
+.[#2021_3_11-important]#<<2021_3_11-important,Important upgrade notes:>>#
+* Workflow execution stacktrace may not completely respect the order of the workflow execution.
+
+*Released on*: 2021-08-24
+
+*Contributors*: Vivek Patel (https://github.com/vicpatel[GH]), Tomaž Jerman (https://github.com/tjerman[GH]), Jože Fortun (https://github.com/fajfa[GH]), Denis Arh (https://github.com/darh[GH])
+
+.[#2021_3_11-added]#<<2021_3_11-added,Added:>>#
+* Added the ability to enable split login form (1st step email, 2nd step password)
+* Added workflow support for messagebus/queue capabilities
+* Added workflow iterator chunking to be able to process larger datasets
+* Added workflow functions for role membership management
+* Added a deleted indicator when viewing a deleted workflow
+
+.[#2021_3_11-changed]#<<2021_3_11-changed,Changed:>>#
+* Changed handling of default auth clients to restrict most modifications.
+* Minor UI/UX webapp changes and improvements
+
+.[#2021_3_11-fixed]#<<2021_3_11-fixed,Fixed:>>#
+* Skipped IdP due to invalid checks
+* Fixed workflow execution stack trace log order for most scenarios (see <<2021_3_11-important,upgrade notes>>).
+* Fixed deferred workflow execution; addressed data races and general access control issues
+* Triggering of deleted workflows (https://github.com/cortezaproject/corteza-server/issues/198[#198])
+* Reworked default record value logic to make it easier to work with from web applications
+* Expression function parameter and return value casting for string functions
+* Nil pointer panics in auth and document rendering
+* Fixed invalid template handle validation
+* Fixed improper newline encoding in envoy exported documents
+
 == `2021.3.10`
 
 *Released on*: 2021-07-20

@@ -1,0 +1,21 @@
+<div class="toolbar toolbar-wrap">
+  <div class="toolbar" role="navigation">
+  {{> nav-toggle}}
+    {{#with site.homeUrl}}
+    <a href="{{{relativize this}}}" class="home-link{{#if @root.page.home}} is-current{{/if}}"></a>
+    {{/with}}
+  {{> breadcrumbs}}
+  {{> page-versions}}
+    {{#if (and page.fileUri (not env.CI))}}
+    <div class="edit-this-page"><a href="{{page.fileUri}}">Edit this Page</a></div>
+    {{else if (and page.editUrl (or env.FORCE_SHOW_EDIT_PAGE_LINK (not page.origin.private)))}}
+    <div class="edit-this-page"><a href="{{page.editUrl}}">Edit this Page</a></div>
+    {{/if}}
+  </div>
+{{#unless (eq page.attributes.latest page.version)}}
+  <div class="notice-outdated">
+    You are reading the documentation for an outdated Corteza release.
+    <a href="{{{relativize page.latest.url}}}">{{ page.attributes.latest }}</a> is the latest stable Corteza release.
+  </div>
+{{/unless}}
+</div>

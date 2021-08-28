@@ -19,6 +19,7 @@ display_version: '$V-develop'
 
 . switch to the branch you wish to release (`$V`)
 . change the version in the `src/antora.yml`
+. change the `page-latest` asciidoc attribute in `antora-playbook.yaml`
 
 [source]
 ----

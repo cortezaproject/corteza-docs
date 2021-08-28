@@ -462,6 +462,29 @@ All of the different "branches" created by a fork must be collected using a seco
 
 |===
 
+=== Important notes
+
+[cols="2s,5a"]
+|===
+| [#gw-note-inclusive-join]#<<gw-note-inclusive-join,Inclusive and join gateways>>#
+|
+When using inclusive gateways with join gateways, the workflow may run indefinitely.
+
+The join step waits for all of the inbound paths to resolve.
+If any one of the inclusive paths does not resolve, the join gateway never resolves, and the workflow runs indefinitely.
+
+[NOTE]
+====
+Workflow execution, by design, does not timeout unless forcefully terminated.
+====
+
+You can resolve this by reworking your workflow logic to avoid such cases.
+
+.An example of a workflow that will never resolve:
+image::workflow/gateway-inclusive-inf.png[]
+
+|===
+
 == Interacting with the user
 
 The *prompt step* image:workflow/prompt.svg[width=20px] allows you to interact with the user in order to provide additional confirmation or data, such as a recipient email address or filling in any missing parameters.

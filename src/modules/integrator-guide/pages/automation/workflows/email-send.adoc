@@ -1,0 +1,258 @@
+include::ROOT:partial$variables.adoc[]
+
+= Sending emails
+:attachment-path: ../../_attachments/workflow/
+
+[IMPORTANT]
+====
+You need to configure {PRODUCT_NAME} with your SMTP provider to send email messages.
+====
+
+== Sending emails directly
+
+Use the *email* function step image:workflow/function.svg[width=20px] to immediately send an email message.
+
+If you call the email function without specifying the `from` argument, the `SMTP_FROM` `.env` variable is used.
+
+.An example of a workflow to send an email message.
+image::workflow/email-direct-ex-1.png[role="data-zoomable"]
+
+The link:{attachment-path}email_direct_send.json[source code] for the workflow example.
+
+****
+.Workflow step details:
+[%collapsible.result]
+====
+1. *(1) Test trigger*:
+** *resource*: `System`
+** *event*: `onManual`
+** *enabled*: checked
+2. *(2) Send Email*:
+** *type*: `Email`
+** *arguments*:
+*** *subject*
+**** *value type*: constant
+**** *value*: `Hello, world!`
+*** *replyTo*
+**** *value type*: constant
+**** *value*: `replyto@test.tld`
+*** *from*
+**** *value type*: constant
+**** *value*: `from@test.tld`
+*** *to*
+**** *value type*: constant
+**** *value*: `to@test.tld`
+*** *cc*
+**** *value type*: constant
+**** *value*: `cc@test.tld`
+*** *html*
+**** *value type*: constant
+**** *value*: `br>Hello, world!</br>`
+*** *plain*
+**** *value type*: constant
+**** *value*: `Hello, world!`
+====
+****
+
+.The resulting email message:
+[source]
+----
+Cc: cc@test.tld
+Content-Type: multipart/alternative; boundary=4305315520b0c6018a31f71ea361d14aba596d49cb6041dcf323dbe83440
+Date: Sun, 29 Aug 2021 11:16:06 +0200
+From: from@test.tld
+MIME-Version: 1.0
+Message-ID: omDfvBmYViB5Jo2Y-MESerSmRIi0Z0a7wt9z_LaX_wk=@mailhog.example
+Received: from localhost by mailhog.example (MailHog)
+          id omDfvBmYViB5Jo2Y-MESerSmRIi0Z0a7wt9z_LaX_wk=@mailhog.example; Sun, 29 Aug 2021 09:16:06 +0000
+ReplyTo: replyto@test.tld
+Return-Path: <from@test.tld>
+Subject: Hello, world!
+To: to@test.tld
+
+--4305315520b0c6018a31f71ea361d14aba596d49cb6041dcf323dbe83440
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
+
+Hello, world!
+--4305315520b0c6018a31f71ea361d14aba596d49cb6041dcf323dbe83440
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/html; charset=UTF-8
+
+<br>Hello, world!</br>
+--4305315520b0c6018a31f71ea361d14aba596d49cb6041dcf323dbe83440--
+----
+
+== Email builder
+
+The *email builder* function step image:workflow/function.svg[width=20px] allows you to initialize an email message without sending it.
+
+The email builder allows you to further enrich the email message with additional parameters such as other recipients.
+
+.An example of a workflow to construct an email message with the email builder.
+image::workflow/email-builder-ex-1.png[role="data-zoomable"]
+
+The link:{attachment-path}email_builder_send.json[source code] for the workflow example.
+
+****
+.Workflow step details:
+[%collapsible.result]
+====
+1. *(1) Test trigger*:
+** *resource*: `System`
+** *event*: `onManual`
+** *enabled*: checked
+
+2. *(2) Prepare Email*:
+** *type*: `Email`
+** *arguments*:
+*** *subject*
+**** *value type*: constant
+**** *value*: `Hello, world!`
+*** *html*
+**** *value type*: constant
+**** *value*: `br>Hello, world!</br>`
+*** *plain*
+**** *value type*: constant
+**** *value*: `Hello, world!`
+** *results*:
+*** *message target*: `msg`
+
+3. *(3) Add recipient*:
+** *type*: `Email add address`
+** *arguments*:
+*** *message*
+**** *value type*: expression
+**** *value*: `msg`
+*** *type*
+**** *value type*: constant
+**** *value*: `To`
+*** *address*
+**** *value type*: constant
+**** *value*: `testko@test.tld`
+*** *name 
+**** *value type*: constant
+**** *value*: `testko`
+
+4. *(4) Add recipient*:
+** *type*: `Email add address`
+** *arguments*:
+*** *message*
+**** *value type*: expression
+**** *value*: `msg`
+*** *type*
+**** *value type*: constant
+**** *value*: `To`
+*** *address*
+**** *value type*: constant
+**** *value*: `testko2@test.tld`
+*** *name 
+**** *value type*: constant
+**** *value*: `testko2`
+
+5. *(5) Send message*:
+** *type*: `Email sender`
+** *arguments*:
+*** *message*
+**** *value type*: expression
+**** *value*: `msg`
+====
+****
+
+.The resulting email message:
+[source]
+----
+Content-Type: multipart/alternative; boundary=122730f4fe6b767154618c2972886463a224ea74df15f5c96662da9e6a70
+Date: Sun, 29 Aug 2021 11:51:33 +0200
+From: Corteza <info@local.cortezaproject.org>
+MIME-Version: 1.0
+Message-ID: m7mFhiH28t1F8HCaTB7g3CKMKH4qE_N4J6uqLDktytE=@mailhog.example
+Received: from localhost by mailhog.example (MailHog)
+          id m7mFhiH28t1F8HCaTB7g3CKMKH4qE_N4J6uqLDktytE=@mailhog.example; Sun, 29 Aug 2021 09:51:33 +0000
+Return-Path: <info@local.cortezaproject.org>
+Subject: Hello, world!
+To: "testko" <testko@test.tld>, "testko2" <testko2@test.tld>
+
+--122730f4fe6b767154618c2972886463a224ea74df15f5c96662da9e6a70
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
+
+Hello, world!
+--122730f4fe6b767154618c2972886463a224ea74df15f5c96662da9e6a70
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/html; charset=UTF-8
+
+<b>Hello, world!</b>
+--122730f4fe6b767154618c2972886463a224ea74df15f5c96662da9e6a70--
+----
+
+=== Email builder methods
+
+[cols="2s,5a"]
+|===
+| [#email-builder-fnc-message]#<<email-builder-fnc-message,Email builder>>#
+|
+The email builder initialization function.
+It returns an initialized email message which you can later extend with the following functions.
+
+| [#email-builder-fnc-sendMessage]#<<email-builder-fnc-sendMessage,Email sender>>#
+|
+The function sends the given email message.
+
+| [#email-builder-fnc-setSubject]#<<email-builder-fnc-setSubject,Email subject>>#
+|
+The function sets the email subject.
+
+| [#email-builder-fnc-setHeaders]#<<email-builder-fnc-setHeaders,Email headers>>#
+|
+The function overwrites the provided email headers with the provided ones.
+
+| [#email-builder-fnc-setHeader]#<<email-builder-fnc-setHeader,Email header>>#
+|
+The function overwrites the provided email header with the provided one.
+
+| [#email-builder-fnc-setAddress]#<<email-builder-fnc-setAddress,Email set address>>#
+|
+The function overwrites the email addresses of the specified recipient type with the provided address.
+
+.The available recipient types:
+* `To`
+* `Cc`
+* `ReplyTo`
+* `From`
+
+| [#email-builder-fnc-addAddress]#<<email-builder-fnc-addAddress,Email add address>>#
+|
+The function appends the provided email address to the list of specified recipient type list.
+
+.The available recipient types:
+* `To`
+* `Cc`
+* `ReplyTo`
+* `From`
+
+| [#email-builder-fnc-attach]#<<email-builder-fnc-attach,Email attachment>>#
+|
+The function adds an attachment to the email message.
+
+| [#email-builder-fnc-embed]#<<email-builder-fnc-embed,Email embedded attachment>>#
+|
+The function embeds an attachment to the email message.
+
+|===
+
+== Email Formats
+
+.The following formats are supported when passing email addresses:
+`test@mail.tld name`::
+  A name optionally follows the email address.
+  Examples:
+  * `test@mail.tld Testko Test`
+  * `test@mail.tld Testko`
+  * `test@mail.tld`
+
+`{"test@mail.tld": "name"}`::
+  A `KV` where the key is an email and the value is the name.
+  Examples:
+  * `{"test@mail.tld": "Testko Test"}`
+  * `{"test@mail.tld": "Testko Test", "test2@mail.tld": "Test2"}`

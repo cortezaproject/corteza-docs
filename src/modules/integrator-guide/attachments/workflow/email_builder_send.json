@@ -1,0 +1,268 @@
+{
+  "workflows": [
+    {
+      "handle": "email_builder_send",
+      "enabled": true,
+      "meta": {
+        "name": "Send email using email builder",
+        "description": "",
+        "visual": null
+      },
+      "keepSessions": 0,
+      "steps": [
+        {
+          "stepID": "11",
+          "kind": "function",
+          "ref": "emailMessage",
+          "arguments": [
+            {
+              "target": "subject",
+              "value": "Hello, world!",
+              "type": "String"
+            },
+            {
+              "target": "html",
+              "value": "<b>Hello, world!</b>",
+              "type": "String"
+            },
+            {
+              "target": "plain",
+              "value": "Hello, world!",
+              "type": "String"
+            }
+          ],
+          "results": [
+            {
+              "target": "msg",
+              "expr": "message"
+            }
+          ],
+          "meta": {
+            "name": "",
+            "description": "",
+            "visual": {
+              "id": "11",
+              "parent": "1",
+              "value": "(2) Prepare email",
+              "xywh": [
+                2600,
+                2360,
+                200,
+                80
+              ]
+            }
+          }
+        },
+        {
+          "stepID": "12",
+          "kind": "function",
+          "ref": "emailAddAddress",
+          "arguments": [
+            {
+              "target": "message",
+              "expr": "msg",
+              "type": "EmailMessage"
+            },
+            {
+              "target": "type",
+              "value": "To",
+              "type": "String"
+            },
+            {
+              "target": "address",
+              "value": "testko@test.tld",
+              "type": "String"
+            },
+            {
+              "target": "name",
+              "value": "testko",
+              "type": "String"
+            }
+          ],
+          "results": [],
+          "meta": {
+            "name": "",
+            "description": "",
+            "visual": {
+              "id": "12",
+              "parent": "1",
+              "value": "(3) Add recipients #1",
+              "xywh": [
+                2600,
+                2520,
+                200,
+                80
+              ]
+            }
+          }
+        },
+        {
+          "stepID": "13",
+          "kind": "function",
+          "ref": "emailAddAddress",
+          "arguments": [
+            {
+              "target": "message",
+              "expr": "msg",
+              "type": "EmailMessage"
+            },
+            {
+              "target": "type",
+              "value": "To",
+              "type": "String"
+            },
+            {
+              "target": "address",
+              "value": "testko2@test.tld",
+              "type": "String"
+            },
+            {
+              "target": "name",
+              "value": "testko2",
+              "type": "String"
+            }
+          ],
+          "results": [],
+          "meta": {
+            "name": "",
+            "description": "",
+            "visual": {
+              "id": "13",
+              "parent": "1",
+              "value": "(4) Add recipients #2",
+              "xywh": [
+                2600,
+                2680,
+                200,
+                80
+              ]
+            }
+          }
+        },
+        {
+          "stepID": "14",
+          "kind": "function",
+          "ref": "emailSendMessage",
+          "arguments": [
+            {
+              "target": "message",
+              "expr": "msg",
+              "type": "EmailMessage"
+            }
+          ],
+          "results": [],
+          "meta": {
+            "name": "",
+            "description": "",
+            "visual": {
+              "id": "14",
+              "parent": "1",
+              "value": "(5) Send email",
+              "xywh": [
+                2600,
+                2840,
+                200,
+                80
+              ]
+            }
+          }
+        }
+      ],
+      "paths": [
+        {
+          "parentID": "11",
+          "childID": "12",
+          "meta": {
+            "name": "",
+            "description": "",
+            "visual": {
+              "id": "16",
+              "parent": "1",
+              "points": [],
+              "style": "exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;",
+              "value": null
+            }
+          }
+        },
+        {
+          "parentID": "12",
+          "childID": "13",
+          "meta": {
+            "name": "",
+            "description": "",
+            "visual": {
+              "id": "17",
+              "parent": "1",
+              "points": [],
+              "style": "exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;",
+              "value": null
+            }
+          }
+        },
+        {
+          "parentID": "13",
+          "childID": "14",
+          "meta": {
+            "name": "",
+            "description": "",
+            "visual": {
+              "id": "18",
+              "parent": "1",
+              "points": [],
+              "style": "exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;",
+              "value": null
+            }
+          }
+        }
+      ],
+      "triggers": [
+        {
+          "resourceType": "system",
+          "eventType": "onManual",
+          "constraints": [
+            {
+              "name": "",
+              "op": "=",
+              "values": [
+                ""
+              ]
+            }
+          ],
+          "enabled": true,
+          "stepID": "11",
+          "meta": {
+            "description": "",
+            "visual": {
+              "edges": [
+                {
+                  "childID": "11",
+                  "meta": {
+                    "description": "",
+                    "label": "",
+                    "visual": {
+                      "id": "15",
+                      "parent": "1",
+                      "points": [],
+                      "style": "exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;",
+                      "value": null
+                    }
+                  },
+                  "parentID": "9"
+                }
+              ],
+              "id": "9",
+              "parent": "1",
+              "value": "(1) onManual",
+              "xywh": [
+                2320,
+                2360,
+                200,
+                80
+              ]
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

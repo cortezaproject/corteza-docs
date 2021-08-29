@@ -35,6 +35,7 @@
 **** xref:automation/workflows/organizing-workflows.adoc[]
 **** xref:automation/workflows/delaying-scheduling.adoc[]
 **** xref:automation/workflows/automation-scripts.adoc[]
+**** xref:automation/workflows/email-send.adoc[]
 **** xref:automation/workflows/style-guide-best-practices.adoc[]
 **** xref:automation/workflows/scope-in-depth.adoc[]
 **** xref:automation/workflows/testing-debugging.adoc[]

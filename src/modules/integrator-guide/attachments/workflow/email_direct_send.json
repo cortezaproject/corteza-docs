@@ -1,0 +1,123 @@
+{
+  "workflows": [
+    {
+      "handle": "email_direct_send",
+      "enabled": true,
+      "meta": {
+        "name": "Send email directly",
+        "description": "",
+        "visual": null
+      },
+      "keepSessions": 0,
+      "steps": [
+        {
+          "stepID": "8",
+          "kind": "function",
+          "ref": "emailSend",
+          "arguments": [
+            {
+              "target": "subject",
+              "value": "Hello, world!",
+              "type": "String"
+            },
+            {
+              "target": "replyTo",
+              "value": "replyto@test.tld",
+              "type": "String"
+            },
+            {
+              "target": "from",
+              "value": "from@test.tld",
+              "type": "String"
+            },
+            {
+              "target": "to",
+              "value": "to@test.tld",
+              "type": "String"
+            },
+            {
+              "target": "cc",
+              "value": "cc@test.tld",
+              "type": "String"
+            },
+            {
+              "target": "html",
+              "value": "<br>Hello, world!</br>",
+              "type": "String"
+            },
+            {
+              "target": "plain",
+              "value": "Hello, world!",
+              "type": "String"
+            }
+          ],
+          "results": [],
+          "meta": {
+            "name": "",
+            "description": "",
+            "visual": {
+              "id": "8",
+              "parent": "1",
+              "value": "(2) Email",
+              "xywh": [
+                2600,
+                2360,
+                200,
+                80
+              ]
+            }
+          }
+        }
+      ],
+      "paths": [],
+      "triggers": [
+        {
+          "resourceType": "system",
+          "eventType": "onManual",
+          "constraints": [
+            {
+              "name": "",
+              "op": "=",
+              "values": [
+                ""
+              ]
+            }
+          ],
+          "enabled": true,
+          "stepID": "8",
+          "meta": {
+            "description": "",
+            "visual": {
+              "edges": [
+                {
+                  "childID": "8",
+                  "meta": {
+                    "description": "",
+                    "label": "",
+                    "visual": {
+                      "id": "10",
+                      "parent": "1",
+                      "points": [],
+                      "style": "exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;",
+                      "value": null
+                    }
+                  },
+                  "parentID": "9"
+                }
+              ],
+              "id": "9",
+              "parent": "1",
+              "value": "(1) onManual",
+              "xywh": [
+                2320,
+                2360,
+                200,
+                80
+              ]
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

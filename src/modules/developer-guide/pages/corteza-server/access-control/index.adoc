@@ -100,8 +100,8 @@ This uses the new WIP codegen v3; run with `go run pkg/codegen-v3/*.go def`
 
 [IMPORTANT]
 ====
-System roles (bypass, authenticated, and anonymous) can not be re-defined at runtime.
-The referenced roles should not be modifiable where the configured reference would point to a different role.
+List of roles for the bypass, authenticated, and anonymous type can not be changed at runtime.
+These roles can not be modified or renamed.
 
 If a role is assigned as a bypass, it may *not* appear as any other role type (such as an authenticated or anonymous).
 In the case where this is not the case, {PRODUCT_NAME} will refuse to start.

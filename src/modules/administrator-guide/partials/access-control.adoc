@@ -64,6 +64,15 @@ Such specificity allows you to deny access to all but one resource of the given 
 
 = Role types
 
+A list of bypass, authenticated, and anonymous roles is provided in the system configuration and can not be changed at runtime.
+Refer to xref:devops-guide:maintenance/access-control.adoc[DevOps guide] for details on how this can be done
+
+These roles can not be modified or renamed.
+
+.If you wish to alter the roles, you can either:
+* temporarily change the role list, edit the roles, revert the role list changes,
+* change the provision scripts to supply the required names at the initial {PRODUCT_NAME} run.
+
 [#role-type-bypass]
 == Bypass
 

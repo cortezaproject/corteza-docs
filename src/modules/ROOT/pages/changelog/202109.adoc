@@ -18,8 +18,8 @@ From the access evaluation flow, to how rules are encoded.
 * {PRODUCT_NAME} will automatically scan all existing RBAC rules, remove any obsolete rules like messaging, sanitize existing (federation module renaming) and properly change change resource IDs.
 * {PRODUCT_NAME} will automatically upgrade, add, remove, and rename roles as needed based on the reworked system:
 ** authenticated, anonymous, super admin roles are added,
-** everyone role is *removed*
-** all RBAC rules owned by the now deprecate everyone role are migrated to authenticated
+** `everyone` role is *removed*
+** all RBAC rules owned by the now deprecated `everyone` role are migrated to the role `authenticated`
 ** static role IDs (1 for everyone and 2 for admin) are replaced by sequential IDs.
 All memberships and RBAC rules are transferred to the updated role IDs.
 * {PRODUCT_NAME} will automatically add the following system users:

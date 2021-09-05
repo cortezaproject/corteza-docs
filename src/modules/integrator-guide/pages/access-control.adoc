@@ -1,0 +1,7 @@
+= Access control
+
+:leveloffset: +1
+
+include::ROOT:partial$access-control.adoc[]
+
+:leveloffset: -1

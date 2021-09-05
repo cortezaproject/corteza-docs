@@ -1,0 +1,48 @@
+include::ROOT:partial$variables.adoc[]
+
+= Contextual role expression examples
+
+[NOTE]
+====
+*DevNote* how can I make the table nicer?
+====
+
+[cols="2s,3a,5a"]
+|===
+| Resource owner
+|
+Assign this role when the current user is the resource owner.
+|
+[source]
+----
+subjectID == ownerID
+----
+
+| Resource owner but not the creator
+|
+Assign this role when the current user is the resource owner but not the original creator.
+|
+[source]
+----
+subjectID == ownerID && subjectID != creatorID
+----
+
+| Mentioned in the multi-value module field
+|
+Assign this role when the current user is mentioned in the `editor` multi-value field of the given record.
+|
+[source]
+----
+has(record.values.editor, subjectID)
+----
+
+| Record owner with a specific record state
+|
+Assign this role when the current user is the record owner, and the value of the `published` field is false.
+|
+[source]
+----
+subjectID == ownerID && !record.values.published
+----
+
+|===

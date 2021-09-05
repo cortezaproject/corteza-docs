@@ -1,0 +1,38 @@
+include::ROOT:partial$variables.adoc[]
+
+[#2021-9-x]
+= `2021.9`
+
+@todo intro
+
+.[#2021_3-important]#<<2021_3-important,Important upgrade notes:>>#
+[cols="1s,5a"]
+|===
+| [#2021_3-important-rbac]#<<2021_3-important-rbac,Access c_ontrol>>#
+|
+
+{PRODUCT_NAME} 2021.9 reworks the internals of our RBAC facility.
+From the access evaluation flow, to how rules are encoded.
+
+.When upgrading to `2021.9`:
+* {PRODUCT_NAME} will automatically scan all existing RBAC rules, remove any obsolete rules like messaging, sanitize existing (federation module renaming) and properly change change resource IDs.
+* {PRODUCT_NAME} will automatically upgrade, add, remove, and rename roles as needed based on the reworked system:
+** authenticated, anonymous, super admin roles are added,
+** everyone role is *removed*
+** all RBAC rules owned by the now deprecate everyone role are migrated to authenticated
+** static role IDs (1 for everyone and 2 for admin) are replaced by sequential IDs.
+All memberships and RBAC rules are transferred to the updated role IDs.
+* {PRODUCT_NAME} will automatically add the following system users:
+** Corteza Provisioner (`provision@corteza.local`, `corteza-provisioner`); member of super admin account, used for all provisioning actions.
+** Corteza Service Account  (`service@corteza.local`, `corteza-service`); member of super admin account, used for all service activities, CLI interface.
+** Corteza Federation (`federation@corteza.local`, `corteza-federation`); member of super admin account, used for all federation activities.
+
+|===
+
+== `2021.9.0`
+
+*Released on*: TBD
+
+*Contributors*: TBD
+
+@todo changelog

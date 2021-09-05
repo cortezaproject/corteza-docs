@@ -1,5 +1,8 @@
 * xref:index.adoc[]
 
+** xref:access-control/index.adoc[]
+*** xref:access-control/examples-contextual.adoc[]
+
 ** Corteza Admin
 *** xref:action-log.adoc[]
 *** xref:users.adoc[]

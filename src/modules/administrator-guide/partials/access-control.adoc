@@ -1,0 +1,255 @@
+include::ROOT:partial$variables.adoc[]
+
+[NOTE]
+====
+*DevNote* either provide a TL;DR changelog or link to a detailed changelog.
+====
+
+{PRODUCT_NAME} defines a https://en.wikipedia.org/wiki/Role-based_access_control[RBAC] access control facility.
+RBAC uses the <<glossary-role,*roles*>> of the given <<glossary-user,*user*>> to determine if they have access to the given <<glossary-resource,*resource*>>.
+
+{PRODUCT_NAME}'s RBAC facility uses a "flat design", which removes role hierarchy (two roles can not explicitly define a parent/child relationship).
+
+<<role-type-ctx,*Context role membership*>> allows you to dynamically assign users to roles based on the defined set of rules.
+
+[IMPORTANT]
+====
+While access control for specific records is supported, access control for particular fields of particular records is not.
+
+You can bypass this limitation by using <<role-type-ctx,context role membership>> and module filed rules.
+====
+
+= Access evaluation flow
+
+[CAUTION]
+====
+If a user is a member of a bypass role, *all* operations are permitted without any restrictions.
+====
+
+When access is evaluated, the system collects all users' roles and RBAC rules (security context).
+The order of rule evaluation is based on <<ac-role-importance,*role importance*>> and <<ac-resource-specificity,*resource specificity*>>.
+
+.Access evaluation flow:
+. If any rule defines an explicit *deny*, the evaluation results with *deny*.
+. If at least one rule defines an explicit *allow*, the evaluation results with *allow*.
+. If the current level has no explicit allow or deny, the evaluation continues to the next set of rules based on role importance.
+. If the evaluation cannot find an explicit allow or deny, the evaluation results with *deny*.
+
+[#ac-role-importance]
+== Role importance
+
+Role importance defines the order in which roles and their corresponding rules are evaluated.
+
+.Role importance for authenticated users:
+. bypass roles
+. context roles
+. common roles
+. authenticated roles
+
+.Role importance for authenticated users:
+. anonymous roles
+
+[#ac-resource-specificity]
+== Resource specificity
+
+Resource specificity defines the order in which rules for the corresponding resources are evaluated.
+Resource specificity is defined based on "how specific is this rule to this resource".
+
+As an example, a rule that allows users to create records on the account module in the CRM namespace is more specific than the rule just on the CRM namespace.
+
+[TIP]
+====
+Such specificity allows you to deny access to all but one resource of the given type.
+====
+
+= Role types
+
+[#role-type-bypass]
+== Bypass
+
+Bypass roles allow their members unlimited access to {PRODUCT_NAME} with no permission checking.
+
+Out of the box, {PRODUCT_NAME} defines the default bypass role named "Super administrator".
+Your system administrator can xref:devops-guide:maintenance/access-control.adoc[change the set of bypass roles] in the `.env` file.
+The roles that are defined as authenticated have restricted editing options.
+
+[#role-type-common]
+== Common
+
+Common roles are any additional roles defined in the administration panel, such as a CRM admin and application builder.
+
+[#role-type-ctx]
+== Contextual
+
+[CAUTION]
+====
+You can not use contextual roles within auth clients, nor can they define an explicit member list.
+Contextual roles are assigned to users based on the operation and the context.
+====
+
+Contextual roles define a series of *expressions*, which determine when the role is assigned to the user based on the operations' context.
+
+Each role can define an expression for each resource type.
+Each role can only use a resource type once.
+
+[CAUTION]
+====
+Contextual roles are hidden from resource permission screens if the role does not define an expression for that resource.
+For example, a record specific role is not shown on the module permission screen.
+====
+
+An example use case would allow us to assign roles to resource owners, which would give them permissions that they shouldn't have over other resources.
+
+=== Expression variables
+
+[NOTE]
+====
+*DevNote* full reference
+====
+
+.General variables:
+[cols="1s,5a"]
+|===
+| [#role-type-ctx-general-subjectID]#<<role-type-ctx-general-subjectID,subjectID>>#
+| The ID of the current user.
+
+| [#role-type-ctx-general-ownerID]#<<role-type-ctx-general-ownerID,ownerID>>#
+| The ID of the resource owner; defaults to 0 when not available.
+
+| [#role-type-ctx-general-creatorID]#<<role-type-ctx-general-creatorID,creatorID>>#
+| The ID of the resources' creator; defaults to 0 when not available.
+
+| [#role-type-ctx-general-updaterID]#<<role-type-ctx-general-updaterID,updaterID>>#
+| The ID of the resources' *most recent* updater; defaults to 0 when not available.
+
+| [#role-type-ctx-general-deleterID]#<<role-type-ctx-general-deleterID,deleterID>>#
+| The ID of the resources' deleter; defaults to 0 when not available.
+|===
+
+.`compose:record`:
+[cols="1s,5a"]
+|===
+| [#role-type-ctx-record-record]#<<role-type-ctx-record-record,record>>#
+| The record.
+
+| [#role-type-ctx-record-module]#<<role-type-ctx-record-module,module>>#
+| The record's module.
+
+| [#role-type-ctx-record-namespace]#<<role-type-ctx-record-namespace,namespace>>#
+| The record's namespace.
+|===
+
+.`compose:module`:
+[cols="1s,5a"]
+|===
+| [#role-type-ctx-module-module]#<<role-type-ctx-module-module,module>>#
+| The module.
+
+| [#role-type-ctx-module-namespace]#<<role-type-ctx-module-namespace,namespace>>#
+| The module's namespace.
+|===
+
+.`compose:namespace`:
+[cols="1s,5a"]
+|===
+| [#role-type-ctx-namespace-namespace]#<<role-type-ctx-namespace-namespace,namespace>>#
+| The namespace.
+|===
+
+[#role-type-authenticated]
+== Authenticated
+
+Authenticated roles are *implicit*, meaning that users can not explicitly be set as role members.
+
+Out of the box, {PRODUCT_NAME} defines the default authenticated role named "Authenticated".
+Your system administrator can xref:devops-guide:maintenance/access-control.adoc[change the set of authenticated roles] in the `.env` file.
+The roles that are defined as authenticated have restricted editing options.
+
+If the user is authenticated with {PRODUCT_NAME} when they are accessing a resource, the system additionally assigns them authenticated roles.
+
+[#role-type-anonymous]
+== Anonymous
+
+Anonymous roles are *implicit*, meaning that users can not explicitly be set as role members.
+
+Out of the box, {PRODUCT_NAME} defines the default anonymous role named "Anonymous".
+Your system administrator can xref:devops-guide:maintenance/access-control.adoc[change the set of anonymous roles] in the `.env` file.
+The roles that are defined as anonymous have restricted editing options.
+
+If the user is *not* authenticated with {PRODUCT_NAME} when they are accessing a resource, the system additionally assigns them anonymous roles.
+
+= Important notes
+
+== System setup
+
+{PRODUCT_NAME} defines a series of system role types: bypass, authenticated, and anonymous.
+System role types are defined on the server configuration level, and *cannot* be changed directly through the user interface.
+
+If a role is assigned to one of the system role types, the editing is restricted.
+If the role was somehow removed or changed to the extent where the system can not identify it, the system would refuse to start.
+
+.The rationale behind such restrictions:
+* The configuration affects the RBAC facility and its setup process.
+* Systems that work with access tokens need to be aware of such changes.
+* The security model on this level rarely changes, and the change is drastic when it does.
+
+== Bypass RBAC roles
+
+If a role is assigned as a bypass, it may *not* appear as any other role type (such as an authenticated or anonymous).
+In the case where this is not the case, the system will refuse to start.
+
+Only members of the check-bypass role can modify members of that particular role.
+
+[NOTE]
+====
+*DevNote* ^ huh?
+====
+
+Bypass roles can be listed on auth clients as permitted or prohibited roles but are *silently ignored* when defined under forced roles.
+
+== Authenticated and anonymous
+
+Authenticated and anonymous roles may not appear in any auth client security role lists (the allowed, denied, and forced roles) and are silently ignored.
+
+= Glossary
+
+[cols="1s,5a"]
+|===
+| [#glossary-user]#<<glossary-user,A user>>#
+|
+A user is an entity that is accessing {PRODUCT_NAME}.
+A user can be a member of security roles and cannot get permissions directly without an assigned role.
+
+| [#glossary-role]#<<glossary-role,A role>>#
+|
+A role represents a set of users and a set of permissions over resources.
+
+{PRODUCT_NAME}'s RBAC implementation defines a flat structure that removes role hierarchy (two roles can not explicitly specify a parent/child relationship).
+
+| [#glossary-access]#<<glossary-access,Access>>#
+|
+Defines if the rule permits (`allow`) or denies (`deny`).
+
+| [#glossary-resource]#<<glossary-resource,A resource>>#
+|
+A structured piece of information stored within {PRODUCT_NAME} that we may or may not control access to.
+Each resource belongs to a component and has a unique type.
+
+| [#glossary-resource-type]#<<glossary-resource-type,A resource type>>#
+|
+A resource type defines the structure of information within the {PRODUCT_NAME} component.
+
+| [#glossary-operation]#<<glossary-operation,Operation>>#
+|
+Defines what operation the given RBAC rule defines access to.
+
+| [#glossary-rbac-rule]#<<glossary-rbac-rule,RBAC rule>>#
+|
+A RBAC rule combines *operation*, *role*, *access*, and *resource*.
+It defines what someone can (or can not) do on one or more resources inside {PRODUCT_NAME}.
+
+| [#glossary-security-session]#<<glossary-security-session,Security session>>#
+|
+A security session is created when a user requests to access {PRODUCT_NAME}.
+
+|===

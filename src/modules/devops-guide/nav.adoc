@@ -19,6 +19,7 @@
 // *** xref:online-deployment/single-pgsql.adoc[]
 
 ** Maintenance
+*** xref:maintenance/access-control.adoc[]
 *** xref:maintenance/cli-reference.adoc[]
 *** xref:maintenance/backups.adoc[]
 *** xref:maintenance/health-check.adoc[]

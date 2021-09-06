@@ -7,7 +7,7 @@ site:
 content:
   sources:
   - url: https://github.com/cortezaproject/corteza-docs
-    branches: [ 2019.12.x, 2020.6.x, 2020.9.x, 2020.12.x, 2021.3.x ]
+    branches: [ 2019.12.x, 2020.6.x, 2020.9.x, 2020.12.x, 2021.3.x, 2021.3.x ]
     start_path: src
 
 ui:
@@ -26,6 +26,7 @@ asciidoc:
     doctype: book
     collapsible: true
     page-latest: '2021.3'
+    page-dev: '2021.9'
   extensions:
     - asciidoctor-kroki
     - ./lib/collapsible-block-tree-processor.js

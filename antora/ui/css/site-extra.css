@@ -44,14 +44,21 @@
   flex-wrap: wrap;
 }
 
-.notice-outdated {
+.notice {
   width: 100%;
-  background-color: #F5D380A5;
   text-align: center;
   padding: 20px 10px;
 }
 
-.notice-outdated a {
+.notice a {
   color: #1565c0!important;
   font-weight: 500;
+}
+
+.notice-outdated {
+  background-color: #F5D380A5;
+}
+
+.notice-dev {
+  background-color: #90A3B1A5;
 }

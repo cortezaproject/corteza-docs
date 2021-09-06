@@ -35,7 +35,7 @@ Refer to xref:automation/execution-flow-details.adoc[execution flow details] for
 
 [#inf-exec-cycle]
 .Diagram outlining the potential infinite execution cycle. Note how the explicit update loops back to the update request step.
-[plantuml,inf-exec-cycle,svg,role=inf-exec-cycle]
+[plantuml,inf-exec-cycle,svg,role="inf-exec-cycle data-zoomable"]
 ----
 @startuml
 |#E5412215|The internet|
@@ -120,7 +120,7 @@ You can enable the xref:devops-guide_/_configuration/corredor.adoc#CORREDOR_EXT_
 
 [#internals-overview]
 .The diagram provides the general idea of how the different components interact and how a request invokes an automation. Refer to the xref:automation/execution-flow-details.adoc[execution flow details] section for a deeper dive into the internals.
-[plantuml,internals-overview,svg,role=internals-overview]
+[plantuml,internals-overview,svg,role="internals-overview data-zoomable"]
 ----
 @startuml
 actor User as u

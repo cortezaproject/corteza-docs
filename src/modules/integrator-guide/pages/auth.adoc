@@ -4,6 +4,11 @@ include::ROOT:partial$variables.adoc[]
 
 {PRODUCT_NAME} implements the OAuth2 authentication protocol, where it can act both as a OAuth2 server and as an OAuth2 client, allowing both internal and external authentications.
 
+[NOTE]
+====
+*DevNote* add a diagram outlining the entire flow.
+====
+
 .Terminology:
 [cols="2s,5a"]
 |===

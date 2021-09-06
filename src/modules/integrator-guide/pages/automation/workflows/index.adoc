@@ -26,7 +26,7 @@ You are not required to have any BPMN knowledge, although it might be helpful.
 
 To create a workflow, navigate to your {PRODUCT_NAME} instance (for example http://latest.cortezaproject.org/) and click ok tne "Workflows" application.
 
-image::workflow/wf-access-1.svg[]
+image::workflow/wf-access-1.svg[role="data-zoomable"]
 
 A new screen showing you all of the available workflows will appear.
 
@@ -37,7 +37,7 @@ A new screen showing you all of the available workflows will appear.
 * manage workflow-specific permissions by clicking on the "Lock" icon next to the workflow, or
 * import/export workflows by clicking on the btn:[Import]/btn:[Export] buttons.
 
-image::workflow/wf-access-2.png[]
+image::workflow/wf-access-2.png[role="data-zoomable"]
 
 When you click on the btn:[New Workflow] button, a new screen will appear with an open modal window, where you insert initial parameters to describe the workflow.
 
@@ -51,7 +51,7 @@ A label doesn't define any special constraints.
 .Handle constraints:
 include::partial$handle-constraints.adoc[]
 
-image::workflow/wf-access-3.png[]
+image::workflow/wf-access-3.png[role="data-zoomable"]
 
 == Learn the workflow editor
 
@@ -63,26 +63,26 @@ The workflow editor consists of four main parts; workflow configuration screen, 
 . *Step configurator* is where you configure the workflow steps.
 
 .The workflow editor user interface.
-image::workflow/ui.svg[]
+image::workflow/ui.svg[role="data-zoomable"]
 
 === Structuring the workflow
 
 To start building your workflow, simply drag-and-drop different elements (further referred to as steps) from the toolbar to the canvas.
 If you are using similar steps with similar configurations, using copy-paste to duplicate existing steps might be faster (kbd:[cmd+c] and kbd:[cmd+v]).
 
-image::workflow/step-add.svg[]
+image::workflow/step-add.svg[role="data-zoomable"]
 
 To define the flow of your workflow, simply connect the steps by drawing a connector between them.
 
-image::workflow/step-connect.svg[]
+image::workflow/step-connect.svg[role="data-zoomable"]
 
 To change the start point or the end point of the connector, click on the connector to view its points; then hover over the connecting point and drag it to another connector point.
 
 .Example of changing the origin connector point.
-image::workflow/step-connect-move-from.svg[]
+image::workflow/step-connect-move-from.svg[role="data-zoomable"]
 
 .Example of changing the destination connector point.
-image::workflow/step-connect-move-to.svg[]
+image::workflow/step-connect-move-to.svg[role="data-zoomable"]
 
 Add some extra steps to get the feel for the interface.
 The resulting workflow doesn't need to be valid or make any sense.
@@ -107,7 +107,7 @@ A single workflow can have multiple triggers and multiple termination steps.
 
 When you're happy with your workflow or wish to save your progress, click on the save button on the bottom of the screen, or use the kbd:[ctrl+s] shortcut.
 
-image::workflow/save.svg[]
+image::workflow/save.svg[role="data-zoomable"]
 
 === Configuring the workflow
 
@@ -119,7 +119,7 @@ To configure a specific connector, click on it's label or double click on it.
 The configuration is automatically saved to the step.
 The workflow needs to be saved in order for the configuration to take affect.
 
-image::workflow/step-config.svg[]
+image::workflow/step-config.svg[role="data-zoomable"]
 
 == Execution control
 
@@ -155,7 +155,7 @@ Constraint your triggers as much as possible to prevent your workflows from exec
 ====
 
 .An example of a workflow with multiple triggers.
-image::workflow/multi-start.svg[]
+image::workflow/multi-start.svg[role="data-zoomable"]
 
 | [#step-exec-terminator]#<<step-exec-terminator,Terminators>>#
 |
@@ -169,7 +169,7 @@ Multiple termination steps allow you to explicitly terminate the workflows' exec
 ====
 
 .An example of a workflow with multiple termination steps.
-image::workflow/multi-end.svg[]
+image::workflow/multi-end.svg[role="data-zoomable"]
 
 |===
 
@@ -190,13 +190,13 @@ Refer to xref:expr/index.adoc[] for more details regarding expression definition
 To configure the expression step, click on the configuration icon image:workflow/cog.svg[width=20px] in the header of the expression step.
 
 .The expression configuration interface.
-image::workflow/expr-example-base.png[]
+image::workflow/expr-example-base.png[role="data-zoomable"]
 
 To add a new expression to the expression step, click on the btn:[+ Add Expression] button.
 Click on the expression to collapse or collapse the expression editing interface.
 
 .The expression configuration interface with inserted expressions.
-image::workflow/expr-example-end.png[]
+image::workflow/expr-example-end.png[role="data-zoomable"]
 
 .The expression step in the above example performs two tasks:
 . it initializes the `Integer` variable `testVariable` with the number `10`,
@@ -252,7 +252,7 @@ An automation script can be xref:automation/workflows/automation-scripts.adoc[ex
 To configure the function step, click on the configuration icon image:workflow/cog.svg[width=20px] in the header of the function step.
 
 .The function configuration interface.
-image::workflow/fnc-example-base.png[]
+image::workflow/fnc-example-base.png[role="data-zoomable"]
 
 Select what function you wish to perform in the dropdown select box under the "type" section.
 When you select a function, the list of function arguments appears.
@@ -261,7 +261,7 @@ An argument defines what piece of data the function should use to perform some o
 To examplify; the `message` parameter in the "log debug message" function defines the message displayed in the debug log.
 
 .The function configuration interface with defined parameters.
-image::workflow/fnc-example-end.png[]
+image::workflow/fnc-example-end.png[role="data-zoomable"]
 
 The function step in the above example creates a log entry based on the provided `message` and `fields` arguments.
 
@@ -389,10 +389,10 @@ The advised approach is less prone to errors such as infinite loops.
 Do not create a loop using connectors.
 
 .An example of a valid iterator body.
-image::workflow/iterator-body-do.png[]
+image::workflow/iterator-body-do.png[role="data-zoomable"]
 
 .An example of an invalid iterator body.
-image::workflow/iterator-body-dont.png[]
+image::workflow/iterator-body-dont.png[role="data-zoomable"]
 
 ====
 
@@ -415,7 +415,7 @@ The continue step image:workflow/continue.svg[width=20px] terminates the ongoing
 The continue step should be used to either prematurely terminate the iterator body or when the iterator body is considered as completed.
 
 .An example of a premature and a complete iterator body.
-image::workflow/multi-continue.svg[]
+image::workflow/multi-continue.svg[role="data-zoomable"]
 
 | [#step-iterator-control-break]#<<step-iterator-control-break,Break>>#
 |
@@ -424,7 +424,7 @@ The break step should be used to prematurely terminate the entire iterator.
 To examolify; when a system error occurs or when you find the item you are looking for.
 
 .An example of a prematurely terminating the iterator.
-image::workflow/break-example.svg[]
+image::workflow/break-example.svg[role="data-zoomable"]
 
 |===
 
@@ -447,7 +447,7 @@ Think of this as a try-catch.
 ====
 
 .An example of an error handler in action.
-image::workflow/try-catch.svg[]
+image::workflow/try-catch.svg[role="data-zoomable"]
 The steps in the red zone can be considered as dangerous (can fail).
 If any step in the "dangerous" zone fails, the execution continues along the "Catch" connected steps.
 
@@ -462,7 +462,7 @@ Think of the error step as raising an error or an exception.
 ====
 
 .An example of an error in action.
-image::workflow/throw.svg[]
+image::workflow/throw.svg[role="data-zoomable"]
 
 |===
 
@@ -487,7 +487,7 @@ Only the first connector that meets the condition is evaluated.
 Connectors are evaluated in the order they were initially defined in.
 
 .An example of an exclusive gateway in action.
-image::workflow/gateway-exclusive.png[]
+image::workflow/gateway-exclusive.png[role="data-zoomable"]
 
 | [#step-gateway-inclusive]#<<step-gateway-inclusive,Inclusive>>#
 |
@@ -495,7 +495,7 @@ An *inclusive gateway* inclusive image:workflow/gatewayInclusive.svg[width=20px]
 Any connector that meets the condition is evaluated.
 
 .An example of an inclusive gateway in action.
-image::workflow/gateway-inclusive.png[]
+image::workflow/gateway-inclusive.png[role="data-zoomable"]
 
 | [#step-gateway-fork]#<<step-gateway-fork,Fork>>#
 |
@@ -528,7 +528,7 @@ Workflow execution, by design, does not timeout unless forcefully terminated.
 You can resolve this by reworking your workflow logic to avoid such cases.
 
 .An example of a workflow that will never resolve:
-image::workflow/gateway-inclusive-inf.png[]
+image::workflow/gateway-inclusive-inf.png[role="data-zoomable"]
 
 |===
 
@@ -545,8 +545,6 @@ The *prompt step* image:workflow/prompt.svg[width=20px] allows you to interact w
 .The different prompt types:
 [cols="1s,5a"]
 |===
-
-
 | [#step-prompt-redirect]#<<step-prompt-redirect,External redirect>>#
 |
 An *External redirect* redirects the receiving user to the specified URL anywhere on the internet.

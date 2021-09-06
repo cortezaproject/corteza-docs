@@ -152,4 +152,5 @@ You can pre-process the assets with your own tools before using them in the auth
 When you enable the <<env-devmode,`AUTH_DEVELOPMENT_MODE`>> `.env` variable, you gain access the development tool accessible under the `$BASE_API_URL/auth/dev` URL.
 The development tool displays all of the templates with all of the scenarios.
 
-image:personalization/devtool.png[]
+.A screenshot of the authentication customization development tool.
+image::personalization/devtool.png[role="data-zoomable"]

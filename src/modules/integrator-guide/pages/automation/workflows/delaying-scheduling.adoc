@@ -22,7 +22,7 @@ This type of delaying is common when working with APIs that throttle their acces
 To examplify; let's say that the API allows 10 calls per minute and we wish to fetch 100 items.
 We could do something like the following:
 
-image:workflow/delay-example.svg[]
+image::workflow/delay-example.svg[role="data-zoomable"]
 
 [NOTE]
 ====
@@ -44,7 +44,7 @@ This can be used to perform routine daily tasks, or process larger data in batch
 A good example is a subscription service where it is necessary to renew the subscriptions of the clients once a month.
 We define an interval that would execute the workflow each day, determine what clients need to be renewed that day and renew them.
 
-image:workflow/interval-example.svg[]
+image::workflow/interval-example.svg[role="data-zoomable"]
 
 [WARNING]
 ====
@@ -76,7 +76,7 @@ To illustrate; we've just received a new client that requested a series of deadl
 We could define a scheduled workflow that is executed at each one of the timestamps.
 The workflow would aggregate all of the completed tickets into an email and send it off to the client.
 
-image:workflow/schedule-example.svg[]
+image::workflow/schedule-example.svg[role="data-zoomable"]
 
 Timestamps are defined in the https://en.wikipedia.org/wiki/ISO_8601[ISO 8601, `YYYY-MM-DDThh:mm:ssZ` format].
 
@@ -97,7 +97,7 @@ If your use-case requires you to define a timeout, you can implement this manual
 * Schedule a timeout after 10sec of execution,
 * Repeat the iterator indefinitely.
 
-image:workflow/manual-timeout.png[]
+image::workflow/manual-timeout.png[role="data-zoomable"]
 
 ****
 .Workflow step details:

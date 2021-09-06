@@ -16,7 +16,7 @@ The two variations of events (`before` and `after`) follow the same path, with t
 `before` events are dispatched first and their execution result *may* affect the rest of the execution, while the `after` events are dispatched after and the execution result does *not* affect the rest of the execution.
 
 .The diagram provides an abstract overview of the execution flow for implicit automation. The flow is explained in details bellow the diagram.
-[plantuml,exec-flow-dig-implicit,svg,role=exec-flow-dig-implicit]
+[plantuml,exec-flow-dig-implicit,svg,role="exec-flow-dig-implicit data-zoomable"]
 ----
 @startuml
 actor User as u
@@ -201,7 +201,7 @@ For *workflows* this is a `POST $API/automation/$WORKFLOW_ID/exec`, where `$API`
 ====
 
 .The diagram provides an abstract overview of the execution flow for explicit automation. The flow is explained in details bellow the diagram.
-[plantuml,exec-flow-dig-explicit,svg,role=exec-flow-dig-explicit]
+[plantuml,exec-flow-dig-explicit,svg,role="exec-flow-dig-explicit data-zoomable"]
 ----
 @startuml
 actor User as u
@@ -294,7 +294,7 @@ Deferred automation *requires* you to explicitly set the invoking user as the au
 ====
 
 .The diagram provides an abstract overview of the execution flow for deferred automation. The flow is explained in details bellow the diagram.
-[plantuml,exec-flow-dig-deferred,svg,role=exec-flow-dig-deferred]
+[plantuml,exec-flow-dig-deferred,svg,role="exec-flow-dig-deferred data-zoomable"]
 ----
 @startuml
 
@@ -362,7 +362,7 @@ Sink automation *requires* you to explicitly set the invoking user as the automa
 ====
 
 .The diagram provides an abstract overview of the execution flow for sink automation. The flow is explained in details bellow the diagram.
-[plantuml,exec-flow-dig-sink,svg,role=exec-flow-dig-sink]
+[plantuml,exec-flow-dig-sink,svg,role="exec-flow-dig-sink data-zoomable"]
 ----
 @startuml
 

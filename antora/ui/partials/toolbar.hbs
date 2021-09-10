@@ -19,11 +19,18 @@
     <a href="{{{relativize page.latest.url}}}">{{ page.attributes.latest }}</a> is the latest stable Corteza release.
   </div>
 {{else}}
+{{#if (eq page.attributes.draft page.version)}}
+  <div class="notice notice-dev">
+    You are reading the draft Corteza documentation.
+    <a href="{{{relativize page.latest.url}}}">{{ page.attributes.latest }}</a> is the latest stable Corteza release.
+  </div>
+{{else}}
 {{#unless (eq page.attributes.latest page.version)}}
   <div class="notice notice-outdated">
     You are reading the documentation for an outdated Corteza release.
     <a href="{{{relativize page.latest.url}}}">{{ page.attributes.latest }}</a> is the latest stable Corteza release.
   </div>
 {{/unless}}
+{{/if}}
 {{/if}}
 </div>

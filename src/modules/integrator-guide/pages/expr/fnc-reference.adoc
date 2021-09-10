@@ -54,7 +54,7 @@
 |*push*     |`push(arg1, ...argN)`|The function adds an element to the end of list and returns the list.|`push(strings, str1, str2)` results in `[str0, str1, str2]`
 |*pop*      |`pop(arg)`|The function returns the last element off the list.|`pop([1,2,3])` results in `3`
 |*shift*    |`shift(arg)`|The function returns the first element of the list.|`shift([1,2,3])` results in `1`
-|*count*    |`count(arg)`|The function returns the length of the countable element.|`count([])` results in `0`
+|*count*    |`count(arg)`|The function returns the number of items when provided as an argument, or the entire length of the array when no argument is provided.|`count([])` results in `0`; `count("foo", "o")` results in `2`
 |*has*      |`has(arg, ...argN)`|The function returns true if any of the values exist in first element|`has([1,2], 2)` results in `true`
 |*hasAll*   |`hasAll(arg, ...argN)`|The function returns true if all of the values exist in first element|`hasAll([1,2], 2)` results in `false`
 |===

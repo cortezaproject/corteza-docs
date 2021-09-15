@@ -1,6 +1,6 @@
 include::ROOT:partial$variables.adoc[]
 
-= Integrator Guide
+= Integrator Guidex
 
 The integrator guide covers the process of extending {PRODUCT_NAME} to cover your business needs.
 An integration can be as simple as the modification of the login screen to include your brand graphics, or as complex as the implementation of a completely custom {APP_NAME_COMPOSE} application.

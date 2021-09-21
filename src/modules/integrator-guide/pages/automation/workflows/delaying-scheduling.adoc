@@ -22,11 +22,11 @@ This type of delaying is common when working with APIs that throttle their acces
 To examplify; let's say that the API allows 10 calls per minute and we wish to fetch 100 items.
 We could do something like the following:
 
-image:workflow/delay-example.svg[]
+image::workflow/delay-example.svg[role="data-zoomable"]
 
 [NOTE]
 ====
-If you want to wait for an action performed by a user (such as a confirmation), use a xref:workflows/index.adoc#user-interaction[prompt step] instead.
+If you want to wait for an action performed by a user (such as a confirmation), use a xref:automation/workflows/index.adoc#user-interaction[prompt step] instead.
 ====
 
 == Scheduling execution
@@ -38,12 +38,13 @@ Execution scheduling is performed by configuring the trigger image:workflow/trig
 
 | [#deferred-interval]#<<deferred-interval,Interval>>#
 |
-Performing a task in an interval can be a powerful tool as it allows you to define an interval in which the workflow executes.
+An interval trigger allows you to run the workflow in the specified interval.
+This can be used to perform routine daily tasks, or process larger data in batches.
 
 A good example is a subscription service where it is necessary to renew the subscriptions of the clients once a month.
 We define an interval that would execute the workflow each day, determine what clients need to be renewed that day and renew them.
 
-image:workflow/interval-example.svg[]
+image::workflow/interval-example.svg[role="data-zoomable"]
 
 [WARNING]
 ====
@@ -69,13 +70,13 @@ You can define multiple intervals under the same trigger.
 
 | [#deferred-timestamp]#<<deferred-timestamp,Timestamp>>#
 |
-Performing a task at a specific date and time can be another powerful tool in your toolbox as it allows you to define exactly when an action should be performed.
+A timestamped trigger allows you to run the workflow at the specified time.
 
 To illustrate; we've just received a new client that requested a series of deadlines where they would like to see the current progress.
 We could define a scheduled workflow that is executed at each one of the timestamps.
 The workflow would aggregate all of the completed tickets into an email and send it off to the client.
 
-image:workflow/schedule-example.svg[]
+image::workflow/schedule-example.svg[role="data-zoomable"]
 
 Timestamps are defined in the https://en.wikipedia.org/wiki/ISO_8601[ISO 8601, `YYYY-MM-DDThh:mm:ssZ` format].
 
@@ -96,7 +97,7 @@ If your use-case requires you to define a timeout, you can implement this manual
 * Schedule a timeout after 10sec of execution,
 * Repeat the iterator indefinitely.
 
-image:workflow/manual-timeout.png[]
+image::workflow/manual-timeout.png[role="data-zoomable"]
 
 ****
 .Workflow step details:

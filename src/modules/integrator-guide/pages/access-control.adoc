@@ -2,6 +2,6 @@
 
 :leveloffset: +1
 
-include::ROOT:partial$access-control.adoc[]
+include::administrator-guide:partial$access-control.adoc[]
 
 :leveloffset: -1

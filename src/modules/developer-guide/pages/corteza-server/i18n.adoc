@@ -1,0 +1,149 @@
+include::ROOT:partial$variables.adoc[]
+
+= Internationalization
+
+[NOTE]
+====
+*DevNote* do webapps as well; need to sync regarding where the components are and such.
+====
+
+{PRODUCT_NAME} allows you to fully translate most aspect of the system.
+From the user interface to custom {APP_NAME_COMPOSE} configurations such as modules, fields, and pages.
+
+Back-end defines a home-brew facility to handle static and configurable content.
+Front-end applications use https://www.i18next.com/[i18next] and https://github.com/panter/vue-i18next[vue-i18next].
+
+== Structure overview
+
+=== `pkg/locale`
+
+`pkg/locale` contains the core logic for loading, holding, and accessing translations.
+The service interfaces should be referenced by component services to provide internationalization.
+
+[IMPORTANT]
+====
+Locale resources are loaded into memory and accessed from there.
+The store layer and the file system are only involved when loading, reloading, or updating.
+====
+
+The package loads resource translations from the store, and _static_ translations from the file system (the `LOCALE_PATH` `.env` variable).
+
+.The important parts of the package:
+* `locale.Language` (struct): encapsulates i18n resources for the given language; may provide references to parent languages.
+* `locale.Locale` (interface): defines an interface to access locale resources based on the provided namespace and key.
+* `locale.Resource` (interface): defines an interface for accessing resource translations.
+
+=== `<component>/service/locale.gen.go`
+
+A component may define a generated service (`ResourceTranslationsManagerService`), designed to provide and update translations for the component's resources that support it.
+
+The service is generated from `def/\*.yaml` files.
+
+=== `<component>/types/locale.gen.go`
+
+A component may define a `locale.gen.go` file that defines the resource translation keys for the component's resources, as well as provide some boiler plate code for resource translations.
+
+The service is generated from `def/\*.yaml` files.
+
+[#extending]
+== Extending
+
+=== Add translations for a new resource
+
+To add an entirely new resource, define a new file in the `/def` directory.
+
+The file should follow the pattern of: `\{component\}(.\{resource\}).yaml`.
+For example: `compose.module-field.yaml`.
+
+.The content template
+[source,yaml]
+----
+locale:
+  resource:
+    references: [ namespace, module, ID ]
+
+  skipSvc: true
+  keys:
+    - label
+    - { name: descriptionView, path: meta.description.view, custom: true, customHandler: descriptionView }
+----
+
+[NOTE]
+====
+This uses the new WIP codegen v3; run with `go run pkg/codegen-v3/*.go def`
+====
+
+=== Add translations for an existing resource
+
+To add a translation to an existing resource, navigate the file in the `/def` directory.
+
+The file should follow the pattern of: `\{component\}(.\{resource\}).yaml`.
+For example: `compose.module-field.yaml`.
+
+If the file does not yet exist, create it.
+
+Add entry under `locale.keys`
+
+.The content template
+[source,yaml]
+----
+locale:
+  resource:
+    references: [ namespace, module, ID ]
+
+  skipSvc: true
+  keys:
+    - label
+    - { name: descriptionView, path: meta.description.view, custom: true, customHandler: descriptionView }
+----
+
+[NOTE]
+====
+This uses the new WIP codegen v3; run with `go run pkg/codegen-v3/*.go def`
+====
+
+== Endpoints for accessing resource translations
+
+If a component defines resources that support translations, a locale service is generated.
+You need to connect the REST endpoints with the generated service to provide functionalities to list and update those translations.
+
+[IMPORTANT]
+====
+Each resource that supports translations must define its own REST endpoints.
+For example, both namespaces and modules have their own endpoints.
+====
+
+.To connect it to a REST endpoint:
+. update `<component>/rest.yaml` definition with the list/update translations endpoint (see `compose/rest.yaml`; namespace, module as an example)
+. add the required REST handler methods and connect them to the generated service (see `compose/rest/namespace.go`)
+
+== Translating resources
+
+To provide backwards compatibility, the translation is applied to the requested resource (namespace, module) by the component's service.
+
+For example, the `compose/namespace` service will translate the requested namespace with the language defined by the HTTP request's `Accept-Language` header.
+
+Refer to the `compose/service/namespace.go@Find` function for an example.
+
+Refer to the `compose/service/module.go@Find` function for a more complex example when the resource is extended.
+
+== Updating translations based on resource
+
+To provide backwards compatibility, when the resource is created/updated, the resource translations *may* also get updated.
+
+For example, the `compose/namespace` service will collect the `name`, `subtitle`, and `description` parameters; take the HTTP request's `Content-Language` header to update the store.
+
+Refer to the `compose/service/namespace.go@Update` function for an example.
+
+Refer to the `compose/service/module.go@Update` function for a more complex example when the resource is extended.
+
+== Language extensions
+
+This is currently as @todo, so we can probably ignore this section for now
+
+== Glossary
+
+[NOTE]
+====
+*DevNote* Do we need this?
+====

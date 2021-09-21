@@ -30,6 +30,7 @@ Core contributors should skip this part.
 . open the CLI
 . navigate to your working folder
 . run the `git clone git@github.com:$YOUR_USERNAME_HERE/corteza-webapp-$WEB_APPLICATION.git` command
+. you can also run `git clone https://github.com/cortezaproject/corteza-webapp-$WEB_APPLICATION.git` command
 
 === Configure the environment
 
@@ -45,7 +46,7 @@ Core contributors should skip this part.
 window.CortezaAPI = '$API_DOMAIN'
 ----
 
-The underlying API client generates the exact request URL that the web application uses.
+The underlying API client generates the exact request URL that the web application uses. If your corteza-server is running at localhost:80, than use here `http://localhost:80/api`.
 
 === Set the authentication API
 
@@ -64,10 +65,10 @@ window.CortezaAuth = '$API_DOMAIN/auth'
 
 [CAUTION]
 ====
-When using modified versions of the `corteza-js` and the `corteza-vue` packages, make sure to link them using `yarn link @cortezaproject/corteza-js` and `yarn link @cortezaproject/corteza-vue`.
+Make sure to link `cortez-js` and `corteza-vue` using `yarn link @cortezaproject/corteza-js` and `yarn link @cortezaproject/corteza-vue`.
 ====
 
-Run the `yarn` command to assure that all of the packages are present and up to date.
+Run the `yarn` command to assure that all of the packages are present and up to date. Currently corteza-webapp-one and corteza-webapp-admin install without errors on Node.js 13. Currently corteza-webapp-compose and corteza-webapp-workflow install without errors on Node.js 14.  
 
 === Run the web application
 

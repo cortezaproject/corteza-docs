@@ -3,7 +3,7 @@ include::ROOT:partial$variables.adoc[]
 = Internationalisation
 
 {PRODUCT_NAME} allows you to fully translate most aspect of the system.
-From the <<ui-translations,user interface>> to custom <<resource-translations,{APP_NAME_COMPOSE} configurations>> such as modules and their fields.
+From the <<ui-translations,user interface>> to custom <<resource-translations,{APP_NAME_COMPOSE} configurations>> such as modules, fields, and pages.
 
 [IMPORTANT]
 ====
@@ -68,7 +68,7 @@ Refer to the xref:devops-guide:maintenance/i18n.adoc[DevOps guide] on how to dep
       📄 <locale namespace file>.yaml <3>
 ----
 <1> The directory must be named with the language tag of the contents.
-The language tag must follow the BCP-47 standard.
+The language tag must follow the https://en.wikipedia.org/wiki/IETF_language_tag[BCP-47] standard.
 <2> The directory must be named the same as the repository in which it will be used in.
 To examplify; translations used by {PRODUCT_NAME} {APP_NAME_COMPOSE} is named as `corteza-webapp-compose`.
 <3> The file contains a series of translations that are grouped in a locale namespace.
@@ -83,7 +83,14 @@ A locale namespace encapsulates content that falls into the common area, such as
 
 [NOTE]
 ====
-*DevNote* define a complete list of namespaces and what contents they should hold?
+For the complete list of locale namespaces used by a specific web application take English translations as a reference.
+
+.You can also inspect web application i18n plugin initialization code:
+* https://github.com/cortezaproject/corteza-webapp-compose/blob/2021.9.x/src/app.js[compose web application]
+* https://github.com/cortezaproject/corteza-webapp-admin/blob/2021.9.x/src/app.js[admin web application]
+* https://github.com/cortezaproject/corteza-webapp-one/blob/2021.9.x/src/app.js[one web application]
+* https://github.com/cortezaproject/corteza-webapp-workflow/blob/2021.9.x/src/app.js[workflow web application]
+* https://github.com/cortezaproject/corteza-webapp-reporter/blob/2021.9.x/src/app.js[reporter web application]
 ====
 
 .The contents of the `en/corteza-webapp-compose/chart.yaml` file:
@@ -119,10 +126,14 @@ Refer to the xref:devops-guide:maintenance/i18n.adoc[DevOps guide] on how to dep
   📁 <language tag> <1>
 ----
 <1> The directory must be named with the language tag of the contents.
-The language tag must follow the BCP-47 standard.
+The language tag must follow the https://en.wikipedia.org/wiki/IETF_language_tag[BCP-47] standard.
 
 To support an entirely new language, create a new directory in the `src` directory.
 For example, to add Italian translations, you would need to create a directory named `it` in the `src` directory.
+
+Languages can be defined using a simple language tag, such as `en` and `sl`.
+If you need to be more specific you can use region suffix, such as `en-US` and `en-UK`.
+{PRODUCT_NAME} will try to detect the language from the request headers and serve appropriate translation.
 
 .An example file structure after adding the `it` folder:
 [source]
@@ -137,7 +148,7 @@ For example, to add Italian translations, you would need to create a directory n
 Inside the newly created directory create a `config.yaml` file.
 The `config.yaml` file defines some base properties of the language, such as the display label (the `name` property).
 
-Refer to the https://github.com/cortezaproject/corteza-locale/blob/22491ad6cb1a317efef9aed73dc94d68d367f6d5/src/schema/config.json[`schema/config.json`] file for details.
+Refer to the https://github.com/cortezaproject/corteza-locale/blob/2021.9.x/src/schema/config.json[`schema/config.json`] file for details.
 
 .An example of the `config.yaml` file contents:
 [source,yaml]

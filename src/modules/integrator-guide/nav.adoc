@@ -6,6 +6,7 @@
 
 ** Personalization
 *** xref:personalization/auth.adoc[]
+*** xref:personalization/i18n.adoc[]
 
 ** xref:accessing-corteza/index.adoc[]
 *** xref:accessing-corteza/api-clients.adoc[]

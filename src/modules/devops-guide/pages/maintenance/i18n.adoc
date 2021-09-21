@@ -1,0 +1,147 @@
+include::ROOT:partial$variables.adoc[]
+
+= Internationalisation
+
+{PRODUCT_NAME} allows you to fully translate most aspect of the system.
+From the <<ui-translations,user interface>> to custom <<resource-translations,{APP_NAME_COMPOSE} configurations>> such as modules and their fields.
+
+User interface translations are provided via static `.yaml` files which are bundled into the `corteza-server` docker image.
+
+If you wish to upload additional or modified translations, you will need to do some server-side configuration.
+
+== Configuring the system
+
+Applying the following steps will allow your {PRODUCT_NAME} instance to serve customized translations.
+
+[CAUTION]
+====
+{PRODUCT_NAME} will ignore translations for languages that are not defined in the `.env` file.
+See <<languages-manage,managing languages>> for details.
+====
+
+=== Prepare the file structure
+
+Create a new directory on the server running {PRODUCT_NAME}.
+
+.Lets assume the file structure looks like this:
+[source]
+----
+📁 my-corteza
+  📄 docker-compose.yaml
+  📄 .env
+  📁 my-locale <1>
+    📁 src <2>
+----
+<1> We will use the `my-locale` directory to hold our custom translations and any corresponding metadata.
+<2> The `src` directory will hold the translation files and appropriate configuration files.
+
+=== System configurations
+
+Firstly define the volume in your `docker-compose.yaml` file.
+An example following the above file system would look like this:
+
+[source,yaml]
+----
+version: '3.5'
+
+services:
+// ...
+// Additional services here
+// ...
+
+  server:
+    image: cortezaproject/corteza-server:${VERSION}
+    restart: on-failure
+    env_file: [ .env ]
+    depends_on: [ db ]
+    volumes: ["./my-locale:/my-locale"] <1>
+    // ...
+    // Additional configurations here
+    // ...
+
+// ...
+// Additional services here
+// ...
+----
+<1> This is where you mount the volume.
+
+Secondly, you need to tell {PRODUCT_NAME} where the translations are located at.
+This is done by the `LOCALE_PATH` `.env` variable.
+An example following the above setup would look like this:
+
+[source,env]
+----
+// ...
+// Additional configurations here
+// ...
+
+LOCALE_PATH=../my-locale/src <1>
+
+// ...
+// Additional configurations here
+// ...
+----
+<1> This is where you define the path.
+If you wish to define multiple paths, use the comma (`,`) as the delimiter.
+To examplify; `LOCALE_PATH="../my-locale-en/src,../my-locale-de/src"`
+
+=== Applying changes
+
+After all of the configuration is in place you will need to reload the configurations.
+
+.Run:
+[source,bash]
+----
+docker-compose up -d
+----
+
+[IMPORTANT]
+====
+If you upload updated translations after the initial setup, you will need to restart the {PRODUCT_NAME} server.
+
+.Run:
+[source,bash]
+----
+docker-compose restart
+----
+====
+
+[#languages-manage]
+== Managing available languages
+
+The languages that you wish to support by your {PRODUCT_NAME} instance *must* be defined by the `LOCALE_LANGUAGES` `.env` variable.
+
+The language tag must follow the BCP-47 standard.
+An extensive list of languages is available https://www.techonthenet.com/js/language_tags.php[here]
+
+If you want to define multiple languages, you need to separate them with a comma (`,`).
+
+.An example config that uses English, German, and Italian languages:
+[source]
+----
+LOCALE_LANGUAGES="en,de,it"
+----
+
+== Development environment
+
+{PRODUCT_NAME} provides some helpful utilities for debugging and general translations that can be enabled with the following `.env` variables.
+
+[cols="2s,5a"]
+|===
+| Variable | Description
+
+| [#env-locale_log]#<<env-locale_log,`LOCALE_LOG`>>#
+| The `LOCALE_LOG` variable makes the {PRODUCT_NAME} server output logs of what is happening in the system.
+This can help you debug issues.
+
+| [#env-locale_development_mode]#<<env-locale_development_mode,`LOCALE_DEVELOPMENT_MODE`>>#
+| The `LOCALE_DEVELOPMENT_MODE` variable makes translation modifications easier, as the translation files are loaded for each request instead of at boot-time.
+
+|===
+
+== Troubleshooting
+
+[NOTE]
+====
+*DevNote* @todo
+====

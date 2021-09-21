@@ -23,6 +23,7 @@
 // ***** xref:accessing-corteza/examples/compose/download-attachment.adoc[]
 
 ** xref:compose-configuration/index.adoc[]
+*** xref:compose-configuration/import-export.adoc[]
 *** xref:compose-configuration/field-types.adoc[]
 *** xref:compose-configuration/page-blocks.adoc[]
 // @todo cleanup

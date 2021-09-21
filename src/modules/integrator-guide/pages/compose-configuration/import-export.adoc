@@ -1,0 +1,22 @@
+include::ROOT:partial$variables.adoc[]
+
+= Importing and exporting namespaces
+
+{PRODUCT_NAME} makes it easy to export entire namespaces which can then be imported into an entirely different {PRODUCT_NAME} instance.
+
+.To export the namespace:
+. go to menu:{PRODUCT_NAME} {APP_NAME_COMPOSE}[],
+. click on the btn:[Edit] button for the namespace you wish to export,
+. click on the btn:[Export] button in the top-left corner to export the namespace,
+. save the `.zip` file.
+
+.To import the namespace:
+. go to menu:{PRODUCT_NAME} {APP_NAME_COMPOSE}[],
+. click on the btn:[Import] button for the top-left corner,
+. drag'n drop the `.zip` file into the file drop area.
+
+[CAUTION]
+====
+The exported namespace will exclude workflow references and access control permissions.
+Those need to be configured manually after the fact.
+====

@@ -29,7 +29,7 @@ Core contributors should skip this part.
 . open the CLI
 . navigate to your working folder
 . run the `git clone git@github.com:$YOUR_USERNAME_HERE/corteza-js.git` command
-
+. you can also run `git clone https://github.com/cortezaproject/corteza-js.git` command
 === Assure dependencies
 
 Run the `yarn` command to assure that all of the packages are present and up to date.
@@ -41,4 +41,4 @@ The optional `-w` flag will automatically rebuild the bundle when changes occur.
 
 == Linking the package
 
-Run the `yarn link` command to make this package linkable using the `yarn link @cortezaproject/corteza-js` command.
+Run the `yarn link` command to make this package linkable. In corteza-vue and corteza-webapp-* use `yarn link @cortezaproject/corteza-js` command to link this package to them. 

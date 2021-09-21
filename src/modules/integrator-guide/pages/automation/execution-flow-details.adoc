@@ -145,20 +145,9 @@ If the automation is *asynchronous*, the initial operation does not await.
 ** If the resulting value is not set (zero value), the original value is used and any modifications by the workflow are omitted.
 * If the execution results as failed (an error occurred), the initial operation is canceled and the resource remains untouched.
 
-[NOTE]
-====
-*DevNote* factcheck the above.
-====
-
 [CAUTION]
 ====
 A failed execution only terminates the current operation, and will not revert any changes that were made in the executed automation.
-====
-
-[NOTE]
-====
-* *DevNote* what about the `Abort` we had with automation scripts*
-* *DevNote* can the resulting value be zero with workflows?
 ====
 
 | Content validation and sanitization occurs.
@@ -185,7 +174,9 @@ An automation is considered *explicit*, if the trigger uses an `onManual` event 
 
 [TIP]
 ====
-In some cases, you can use explicit automation to replace the need for sink automation.
+In some cases, you can use explicit automation to replace the need for sink routes.
+
+*DevNote* add some documentation regarding the above statement.
 ====
 
 Explicit automation is executed when manually invoked.
@@ -265,6 +256,7 @@ deactivate cc
 [CAUTION]
 ====
 Custom security context (the run as option) does *not* affect the RBAC at this stage.
+If the automation in question was triggered by another automation, which defined the run as option, the RBAC will check over the specified invoker.
 ====
 
 | The automation is executed and the results are returned as a standard HTTP response.

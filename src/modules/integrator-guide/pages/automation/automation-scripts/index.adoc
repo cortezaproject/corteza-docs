@@ -215,11 +215,25 @@ This is useful when generating URL addresses that point to the {PRODUCT_NAME} ap
 
 Refer to the xref:automation/execution-flow-details.adoc[execution flow details] sub-section for details on how the execution result affects the system.
 
+[NOTE]
+====
+*DevNote* document iterators and their special `Aborted` error
+
+[source,js]
+----
+exec (args, ctx) {
+  throw new Error('Aborted')
+  // OR
+  return false
+}
+----
+====
+
 [cols="2s,5a"]
 |===
 | [#exec-result-terminate]#<<exec-result-terminate,The execution is terminated>>#
 |
-The automation script is *terminated* when an error other then `Aborted` occurs.
+The automation script is *terminated* when an error occurs.
 This normally causes the original operation to also terminate.
 
 .An example:
@@ -230,25 +244,6 @@ export default {
 
   exec (args, ctx) {
     throw new Error('Oh no, something went wrong')
-  }
-}
-----
-
-| [#exec-result-abort]#<<exec-result-abort,The execution is aborted>>#
-|
-The automation script is *aborted* when an `Aborted` error occurs, or the automation script returned a `false` value.
-This normaly causes the current automation script to terminate, but permits the original operation to continue.
-
-.An example:
-[source,js]
-----
-export default {
-  trigger (t) {...}
-
-  exec (args, ctx) {
-    throw new Error('Aborted')
-    // OR
-    return false
   }
 }
 ----
@@ -630,7 +625,7 @@ trigger ({ before }) {
 },
 ----
 
-`istanbul ignore next` excludes the following function from the coverage relay.
+`istanbul ignore next` excludes the following function from the coverage report.
 ====
 
 .Sample.test.js

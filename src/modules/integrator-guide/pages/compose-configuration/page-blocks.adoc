@@ -5,11 +5,10 @@ include::ROOT:partial$variables.adoc[]
 [#page-block-automation]
 == Automation
 
-The automation page block allows your to show xref:automation/index.adoc#automation-application-general[automation with a manual triggers].
+The automation page block allows your to show xref:automation/index.adoc#automation-application-general[general automation].
+The automation page block allows you to use both xref:automation/automation-scripts/index.adoc[automation scripts] and xref:automation/workflows/index.adoc[workflows].
 
 image::compose/pageblock-config-automation.png[...,50%,role="preview data-zoomable"]
-
-The automation page block allows you to use both xref:automation/automation-scripts/index.adoc[automation scripts] and xref:automation/workflows/index.adoc[workflows].
 
 .If you can't see your automation scripts:
 * make sure there were no compilation errors,
@@ -57,7 +56,7 @@ The calendar page block pre-filter supports value interpolation.
 == Chart
 
 The *chart page block* allows you to display a pre-configured chart on your page.
-Refer to xref:compose-configuration/index.adoc#charts[] for more details.
+Refer to xref:compose-configuration/index.adoc#charts[{APP_NAME_COMPOSE} configuration] for more details.
 
 image::compose/pageblock-config-chart.png[...,50%,role="preview data-zoomable"]
 
@@ -402,3 +401,44 @@ When added on a *record page*, the specified feed is provided either as a fixed 
 Using a module field instead of a fixed value allows the social media feed to change depending on the context.
 
 image::compose/pageblock-config-sf.png[...,50%,role="preview data-zoomable"]
+
+[#page-block-comment]
+== Comment
+
+The *comment page block* allows you to show the records in a comment-like formatting.
+
+@todo image
+
+image::compose/pageblock-config-ro.png[...,50%,role="preview data-zoomable"]
+
+.Additional configurations:
+[cols="2s,5a"]
+|===
+| [#page-block-comment-module]#<<page-block-comment-module,Module>>#
+|
+Defines the module that the page block will use when showing the comment list.
+
+| [#page-block-comment-prefilter]#<<page-block-comment-prefilter,Pre-filter>>#
+|
+Defines the pre-filter that is applied to the records when showing the comment list.
+Refer to the xref:accessing-corteza/ql.adoc[QL reference] for details.
+
+| [#page-block-comment-title]#<<page-block-comment-title,Title>>#
+|
+Defines what module field should be used when displaying the comment's title.
+
+| [#page-block-comment-content]#<<page-block-comment-content,Content>>#
+|
+Defines what module field should be used when displaying the comment's content.
+
+| [#page-block-comment-reference]#<<page-block-comment-reference,Reference>>#
+|
+Defines what module field will be used to store the reference to a specific record the comment is for.
+This allows you to show specific comments for specific records.
+
+| [#page-block-comment-sort]#<<page-block-comment-sort,Sort>>#
+|
+Defines the direction in which the comments will be sorted.
+The sorting is done based on when the comment was created at.
+
+|===

@@ -230,7 +230,7 @@ The access is evaluated based on the security context (namely the <<role-importa
 ====
 ****
 
-= Glossary
+== Glossary
 
 [cols="1s,5a"]
 |===

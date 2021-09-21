@@ -42,4 +42,4 @@ The optional `-w` flag will automatically rebuild the bundle when changes occur.
 
 == Linking the package
 
-Run the `yarn link` command to make this package linkable. In corteza-vue and corteza-webapp-* use `yarn link @cortezaproject/corteza-js` command to link this package to them. 
+Run the `yarn link` command to make this package linkable. In corteza-vue and corteza-webapp-* use `yarn link @cortezaproject/corteza-js` command to link this package. 

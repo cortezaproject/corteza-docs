@@ -11,6 +11,7 @@
 ** xref:corteza-server/index.adoc[]
 *** xref:corteza-server/structure.adoc[]
 *** xref:corteza-server/access-control/index.adoc[]
+*** xref:corteza-server/i18n.adoc[]
 *** xref:corteza-server/api.adoc[]
 *** xref:corteza-server/auth.adoc[]
 *** xref:corteza-server/codegen.adoc[]

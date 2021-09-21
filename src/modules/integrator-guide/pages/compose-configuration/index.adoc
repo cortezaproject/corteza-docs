@@ -142,7 +142,7 @@ This allows you to configure the page blocks to react to the currently viewed re
 ====
 If your module does not define a record page, you will not be able to create or update its records through the user interface.
 
-You are still able to view its records, create the records using inline record lists, and create records using xref:automation/index.adoc[automation].
+You are still able to view its records, create the records using inline record lists, the API, or an xref:automation/index.adoc[automation].
 ====
 
 The record page can be created directly from the module edit screen by clicking on the btn:[Create record page] button, or from the module list screen by clicking on the btn:[Create record page] next to a module.
@@ -674,60 +674,3 @@ You can use this to write validators that are context-aware.
 ----
 length(title) < 5
 ----
-
-== Permission configuration
-
-Our flexible access control system (RBAC) allows you to allow or deny access to all resources except for records (we will add this in the future).
-
-=== Namespaces
-
-.To configure permissions for all namespaces:
-. go to menu:{PRODUCT_NAME} {APP_NAME_COMPOSE}[],
-. click on the btn:[Permissions] button.
-
-.To configure permissions for a specific namespace:
-. go to menu:{PRODUCT_NAME} {APP_NAME_COMPOSE}[],
-. click on the btn:[edit icon] button on the namespace,
-. click on the btn:[lock icon] in the top right.
-
-=== Modules and module fields
-
-Enter the namespace you wish to manage.
-
-.To configure permissions for all modules:
-. go to menu:Admin panel[Modules],
-. click on the btn:[Permissions] button.
-
-.To configure permissions for a specific module:
-. go to menu:Admin panel[Modules],
-. click on the btn:[lock icon] next to the module,
-// When in the module editor, click on the btn:[Permissions] button.
-
-.To configure permissions for a specific module field:
-. go to menu:Admin panel[Modules],
-. click on a module to open the editor,
-. click on the btn:[lock icon] next to the module field.
-
-=== Pages
-
-Enter the namespace you wish to manage.
-
-.To configure permissions for all pages:
-. go to menu:Admin panel[Pages],
-. click on the btn:[Permissions] button.
-
-.To configure permissions for a specific page:
-. go to menu:Admin panel[Pages],
-. click on the btn:[lock icon] next to the page,
-
-=== Charts
-
-Enter the namespace you wish to manage.
-
-.To configure permissions for all charts:
-. go to menu:Admin panel[Charts],
-. click on the btn:[Permissions] button.
-
-.To configure permissions for a specific chart:
-. go to menu:Admin panel[Charts],
-. click on the btn:[lock icon] next to the chart,

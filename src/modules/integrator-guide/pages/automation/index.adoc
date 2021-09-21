@@ -31,7 +31,7 @@ There is a mechanism in place to prevent indefinite execution for *workflows*, b
 
 If you need to explicitly update the same resource, define some flags to help you keep track of what is going on.
 Some updates are automatically performed when using implicit automation.
-Refer to xref:automation/execution-flow-details.adoc[execution flow details] for more insight into the internals.
+Refer to xref:automation/execution-flow-details.adoc#exec-flow-implicit[execution flow details] for more insight into the internals.
 
 [#inf-exec-cycle]
 .Diagram outlining the potential infinite execution cycle. Note how the explicit update loops back to the update request step.
@@ -216,7 +216,6 @@ The execution result _may_ dictate on how the initial operation should resolve.
 .A quick outline of how the execution result affects the initial operation:
 * If the automation is asynchronous, the execution result is *ignored* and does not manipulate the initial operation (it is ignored).
 * If the automation results in an *unknown error*, the initial operation is canceled and no additional processing is done.
-* If the automation results in an *aborted error*, the initial operation is allowed to continue and execute additional automation.
 * If the automation results without errors and it returns a zero value, the initial operation continues as if no automation occurred.
 * If the automation results without errors and it returns a non-zero value, the returned value is used to replace the original value, *if* the operation permits it.
 

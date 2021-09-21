@@ -111,7 +111,7 @@ Displays the email as a regular string and not as a clickable link.
 [#field-type-select]
 == Select / dropdown
 
-A `select / dropdown` field type stores a value from a pre-defined set of options..
+A `select / dropdown` field type stores a value from a pre-defined set of options.
 
 The `select / dropdown` field type should be used when you wish to force suers to pick one of the pre-defined values.
 For example, the stage of a case or the stage of a lead.
@@ -328,10 +328,18 @@ When the field is being edited, it is represented as a searchable dropdown box.
 [cols="1s,5a"]
 |===
 
-| [#field-type-user-prefil]#<<field-type-user-prefil,Preset with current user>>#
+| [#field-type-user-prefilter]#<<field-type-user-prefilter,Pre-filter users>>#
 |
 Defines the pre-filter that is used when searching for the related user.
 Refer to the xref:accessing-corteza/ql.adoc[QL reference] for details.
+
+| [#field-type-user-preselect]#<<field-type-user-preselect,Preset with current user>>#
+|
+When checked, the current user will populate the given field by default.
+
+| [#field-type-user-role-filter]#<<field-type-user-role-filter,User roles>>#
+|
+Filters the users based on their membership.
 
 | [#field-type-user-select]#<<field-type-user-select,multiple value input type>>#
 |

@@ -53,7 +53,7 @@ The service is generated from `def/\*.yaml` files.
 To add an entirely new resource, define a new file in the `/def` directory.
 
 The file should follow the pattern of: `\{component\}(.\{resource\}).yaml`.
-For example: `compose.-field.yaml`.
+For example: `compose.module-field.yaml`.
 
 .The content template
 [source,yaml]

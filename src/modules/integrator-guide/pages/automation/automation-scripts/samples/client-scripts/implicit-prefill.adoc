@@ -17,8 +17,8 @@ export default {
   * triggers ({ before }) {
     // This script myst be invoked manually (explicitly)
     yield before('formSubmit')
-      // for a record
-      .for('compose:record')
+      // for a record page on Compose
+      .for('ui:compose:record-page')
       // if the record belongs to the Request module
       .where('module', 'Request')
       // and the module belongs to the crm namespace -- this is the slug
@@ -29,6 +29,17 @@ export default {
   async exec ({ $record, $module }, { Compose }) {
     // Lets get the defaults from a Default module.
     // This allows some more flexibility
+
+    if (['crm'].includes($module.namespace.slug.toLowerCase())) {
+      // interested only in CRM namespace
+      return
+    }
+
+    if (['lead'].includes($module.handle.toLowerCase())) {
+      // interested only in Lead module
+      return
+    }
+
     const defaults = await Compose.findFirstRecord('Defaults')
 
     for (const k in $record.values) {

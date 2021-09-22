@@ -30,9 +30,16 @@ Core contributors should skip this part.
 . navigate to your working folder
 . run the `git clone git@github.com:$YOUR_USERNAME_HERE/corteza-js.git` command
 
+[TIP]
+====
+Refer to the https://github.com/cortezaproject/corteza-js[repository] if you wish to use an alternative method.
+====
+
 === Assure dependencies
 
 Run the `yarn` command to assure that all of the packages are present and up to date.
+
+See the `package.json` file for the supported Node.js versions.
 
 === Build the bundle
 
@@ -41,4 +48,5 @@ The optional `-w` flag will automatically rebuild the bundle when changes occur.
 
 == Linking the package
 
-Run the `yarn link` command to make this package linkable using the `yarn link @cortezaproject/corteza-js` command.
+Run the `yarn link` command to make this package linkable.
+The package can be linked by running `yarn link @cortezaproject/corteza-js` where needed.

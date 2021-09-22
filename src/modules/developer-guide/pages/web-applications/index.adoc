@@ -29,7 +29,12 @@ Core contributors should skip this part.
 .Using the CLI:
 . open the CLI
 . navigate to your working folder
-. run the `git clone git@github.com:$YOUR_USERNAME_HERE/corteza-webapp-$WEB_APPLICATION.git` command
+. run the `git clone git@github.com:cortezaproject/corteza-webapp-$WEB_APPLICATION.git` command
+
+[TIP]
+====
+Refer to the repository if you wish to use an alternative method.
+====
 
 === Configure the environment
 
@@ -42,10 +47,11 @@ Core contributors should skip this part.
 .Define the API in the `public/config.js` by setting:
 [source,js]
 ----
-window.CortezaAPI = '$API_DOMAIN'
+window.CortezaAPI = '$BASE_URL'
 ----
 
-The underlying API client generates the exact request URL that the web application uses.
+The `$BASE_URL` parameter is the location of your {PRODUCT_NAME} server.
+If you are running the server on http://localhost:80, then the value should be `http://localhost:80/api`.
 
 === Set the authentication API
 
@@ -57,17 +63,19 @@ The web application will generate the authentication endpoints based on the `Cor
 .Define the authentication API in the `public/config.js` by setting:
 [source,js]
 ----
-window.CortezaAuth = '$API_DOMAIN/auth'
+window.CortezaAuth = '$BASE_URL/auth'
 ----
 
 === Assure dependencies
 
 [CAUTION]
 ====
-When using modified versions of the `corteza-js` and the `corteza-vue` packages, make sure to link them using `yarn link @cortezaproject/corteza-js` and `yarn link @cortezaproject/corteza-vue`.
+When using modified versions of `corteza-js` and `corteza-vue`, make sure to link them using `yarn link @cortezaproject/corteza-js` and `yarn link @cortezaproject/corteza-vue`.
 ====
 
 Run the `yarn` command to assure that all of the packages are present and up to date.
+
+See the `package.json` file for the supported Node.js versions.
 
 === Run the web application
 

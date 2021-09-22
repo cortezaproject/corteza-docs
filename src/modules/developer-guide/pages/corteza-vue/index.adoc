@@ -28,17 +28,23 @@ Core contributors should skip this part.
 .Using the CLI:
 . open the CLI
 . navigate to your working folder
-. run the `git clone git@github.com:$YOUR_USERNAME_HERE/corteza-vue.git` command
-. you can also run `git clone https://github.com/cortezaproject/corteza-vue.git` command
+. run the `git clone git@github.com:cortezaproject/corteza-vue.git` command
+
+[TIP]
+====
+Refer to the https://github.com/cortezaproject/corteza-vue[repository] if you wish to use an alternative method.
+====
 
 === Assure dependencies
 
 [CAUTION]
 ====
-Make sure to link 'corteza-js' using `yarn link @cortezaproject/corteza-js`.
+When using modified versions of the `corteza-js`, make sure to link it using `yarn link @cortezaproject/corteza-js`.
 ====
 
-Run the `yarn` command to assure that all of the packages are present and up to date. Nodej.js version 13 installs without errors.
+Run the `yarn` command to assure that all of the packages are present and up to date.
+
+See the `package.json` file for the supported Node.js versions.
 
 === Build the bundle
 
@@ -47,4 +53,6 @@ The optional `-w` flag will automatically rebuild the bundle when changes occur.
 
 == Linking the package
 
-Run the `yarn link` command to make this package linkable. In corteza-webapp-* use `yarn link @cortezaproject/corteza-vue` command to link this package. 
+Run the `yarn link` command to make this package linkable.
+The package can be linked by running `yarn link @cortezaproject/corteza-vue` where needed.
+

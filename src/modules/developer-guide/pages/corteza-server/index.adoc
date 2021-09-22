@@ -37,8 +37,11 @@ Core contributors should skip this part.
 . open the CLI
 . navigate to your working folder
 . run the `git clone git@github.com:$YOUR_USERNAME_HERE/corteza-server.git` command
-. you can also run `git clone https://github.com/cortezaproject/corteza-server.git` command
 
+[TIP]
+====
+Refer to the https://github.com/cortezaproject/corteza-server[repository] if you wish to use an alternative method.
+====
 
 === Configure the environment
 
@@ -72,14 +75,23 @@ Refer to the `corteza-server/webapp/README.adoc` file for details on how to set 
 
 [CAUTION]
 ====
-Your local environment default variable in `.env` is `HTTP_ADDR=localhost:80`. Make sure you've properly set the `DOMAIN` `.env` variable to match your local environment variable, for example `DOMAIN=localhost:80`. On Windows machines port 80 does not work, please use other ports like `5000`. The authentication server uses this variable when generating the cookie and the authentication flow will hang if it's not defined. You have to set `DOMAIN` also if you are running web apps from the source code.
+Make sure you've properly set the `HTTP_ADDR` `.env` variable to match your local environment variable, for example `HTTP_ADDR=localhost:80`.
+The default `HTTP_ADDR` value is `HTTP_ADDR=localhost:80`.
+
+Port 80 is not available on Windows.
+====
+
+[CAUTION]
+====
+The authentication server uses the `HTTP_ADDR` and `DOMAIN` variables when generating cookies.
+The authentication flow will hang if it's not defined.
 
 If the login screen _doesn't do anything_ when you try to login, check if the cookie has the correct domain set.
 ====
 
 === Run the server
 
-Run the `make realize` or `make watch` command to start the server.
+Run the `make watch` command to start the server.
 The server will automatically restart when changes to the code are detected.
 
 [CAUTION]

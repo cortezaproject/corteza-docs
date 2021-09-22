@@ -1,0 +1,125 @@
+= DRAFT 3
+
+
+= I18n date,time and number localization
+
+Corteza provides an i18n facility to localize the user date, time and number formatting.
+
+This is achived through ECMAScript Internationalization API, which provides language sensitive string comparison, number formatting, date time and formatting. For date and time forrmating `Intl.DateTimeFormat` format object is used and for number formatting `Intl.NumberFormat` is used.
+
+
+
+
+== Date and time formatting
+There are three functions used for date and time formatting
+
+* `fullDateTime()`
+** formats date and time in a full date and short time format 
+ *** Uses Intl.DateTimeFormat `{ dateStyle: 'full', timeStyle: 'short' }` formatting 
+ *** Example (en-US):
+ **** "Wednesday, September 22, 2021 at 8:28 AM" 
+* `date()`
+** formats date and time in a short format (only date)
+ *** Uses Intl.DateTimeFormat `{ dateStyle: 'short' }` formatting  
+ *** Example (en-US):
+ **** "9/22/21" 
+* `time()`
+ *** Uses Intl.DateTimeFormat `{ timeStyle: 'short' }` 
+** formats time in a hh:mm format
+*** Example (en-US):
+**** 8:30 PM
+
+== Number formatting
+To format numbers, use `number` function
+
+* `number()`
+** Uses Intl.NumberFormatOptions default formatting (en-US)
+*** Example 3,500
+
+=== How do I access it
+== Usage
+
+Import formatter `fmt` object from '@cortezaproject/corteza-js library
+[source,js]
+----
+import { fmt } from '@cortezaproject/corteza-js'
+----
+
+Use the format date and time functions to format your date and time variables
+
+[source,js]
+----
+fmt.fullDateTime(sampleDate, optionalDateTimeFormat)
+fmt.date(sampleDate, optionalDateTimeFormat)
+fmt.time(sampleTime, optionalDateTimeFormat)
+----
+
+
+== Modifying date time and number country localization
+
+=== Changing the default country localization formatting can be done in two ways 
+* By changing the language in your  `browser settings` Corteza will `automatically` change it's date and time formatting and display it according to your local settings
+* Set the desired language by adding it to the return array in function `currentLanguage()` in `formatting/locale.ts` (https://github.com/cortezaproject/corteza-js)
+[source,js]
+----
+export function currentLanguage (): string|string[] {
+  return ['en-US']
+}
+----
+
+
+
+=== Modifying date and time formatting
+* You can pass a custom Intl.DateTimeFormat object with your desired formatting which will automatically override the default formatting
+* Change the default formatting style by editing default parameters of functions fullDateTime(), date() and time() in `formatting/datetime.ts` (https://github.com/cortezaproject/corteza-js)
+
+=== Modifying number formatting
+* You can pass a custom Intl.NumberFormatOptions object with your desired formatting which will automatically override the default formatting
+* Change the default formatting style by editing default parameters of function number() in `https://github.com/cortezaproject/corteza-js/src/formatting/number.ts`
+
+
+
+
+=== Custom date and time formatting with Intl.DateTimeFormat
+
+dateStyle
+
+* "full"
+* "long"
+* "medium"
+* "short"
+
+timeStyle
+
+* "full"
+* "long"
+* "medium"
+* "short"
+
+year
+
+* "numeric" (e.g., 2012)
+* "2-digit" (e.g., 12)
+
+month
+
+* "numeric" (e.g., 2)
+* "2-digit" (e.g., 02)
+* "long" (e.g., March)
+* "short" (e.g., Mar)
+* "narrow" (e.g., M)
+
+day
+
+* "numeric" (e.g., 1)
+* "2-digit" (e.g., 01)
+
+minute
+
+* "numeric" 
+* "2-digit"
+
+second
+
+* "numeric" 
+* "2-digit"

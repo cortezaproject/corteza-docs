@@ -319,6 +319,89 @@ Divides the two numbers together.
 
 |===
 
+== Aggregation
+
+[cols="1s,5a"]
+|===
+| [#expr-aggregation-count]#<<expr-aggregation-count,count>>#
+|
+Returns number of items.
+
+.[#expr-aggregation-count-sig]#<<expr-aggregation-count-sig,Signatures:>>#
+* `count()` => `<Number>`
+
+.[#expr-aggregation-count-ex-a]#<<expr-aggregation-count-ex-a,Expression examples:>>#
+* `count()`
+
+.[#expr-aggregation-count-ex-b]#<<expr-aggregation-count-ex-b,Function examples:>>#
+* `count()`
+|===
+
+
+[cols="1s,5a"]
+|===
+| [#expr-aggregation-sum]#<<expr-aggregation-sum,sum>>#
+|
+Returns the sum.
+
+.[#expr-aggregation-sum-sig]#<<expr-aggregation-sum-sig,Signatures:>>#
+* `sum(<Number>)` => `<Number>`
+
+.[#expr-aggregation-sum-ex-a]#<<expr-aggregation-sum-ex-a,Expression examples:>>#
+* `field + current_column`
+
+.[#expr-aggregation-sum-ex-b]#<<expr-aggregation-sum-ex-b,Function examples:>>#
+* `sum(field)`
+|===
+
+[cols="1s,5a"]
+|===
+| [#expr-aggregation-max]#<<expr-aggregation-max,max>>#
+|
+Returns the max of two values.
+
+.[#expr-aggregation-max-sig]#<<expr-aggregation-max-sig,Signatures:>>#
+* `max(<Number>)` => `<Number>`
+
+.[#expr-aggregation-max-ex-a]#<<expr-aggregation-max-ex-a,Expression examples:>>#
+* `max(field)`
+
+.[#expr-aggregation-max-ex-b]#<<expr-aggregation-max-ex-b,Function examples:>>#
+* `max(field)`
+|===
+
+[cols="1s,5a"]
+|===
+| [#expr-aggregation-min]#<<expr-aggregation-min,min>>#
+|
+Returns the min of two values.
+
+.[#expr-aggregation-min-sig]#<<expr-aggregation-min-sig,Signatures:>>#
+* `min(<Number>)` => `<Number>`
+
+.[#expr-aggregation-min-ex-a]#<<expr-aggregation-min-ex-a,Expression examples:>>#
+* `min(field)`
+
+.[#expr-aggregation-min-ex-b]#<<expr-aggregation-min-ex-b,Function examples:>>#
+* `min(field)`
+|===
+
+[cols="1s,5a"]
+|===
+| [#expr-aggregation-avg]#<<expr-aggregation-avg,avg>>#
+|
+Returns the average of two values.
+
+.[#expr-aggregation-avg-sig]#<<expr-aggregation-avg-sig,Signatures:>>#
+* `avg(<Number>)` => `<Number>`
+
+.[#expr-aggregation-avg-ex-a]#<<expr-aggregation-avg-ex-a,Expression examples:>>#
+* `avg(field)`
+
+.[#expr-aggregation-avg-ex-b]#<<expr-aggregation-avg-ex-b,Function examples:>>#
+* `avg(field)`
+|===
+
 == Date manipulation
 
 [cols="1s,5a"]

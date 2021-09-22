@@ -1,0 +1,9 @@
+= Prefilter
+Presort allows you to sort the items before they are even displayed.
+
+First you add a column you wish to sort by and pick the indended direction.
+If you wish to sort by multiple columns, you can do that by adding another parameter to the presort.
+The first parameter is the primary sort target and all the other ones after it are secondary sort targets.
+That means items will always be sorted by the first parameter and the items with the same primary value will be sorted by the secondary parameter and so on.
+
+image:reporter/presort.svg[]

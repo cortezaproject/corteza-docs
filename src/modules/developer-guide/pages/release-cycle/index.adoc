@@ -8,7 +8,7 @@ include::ROOT:partial$variables.adoc[]
 |===
 | [#rc-terminology-major_version]#<<rc-terminology-major_version,Major version>>#
 |
-The major versions (referred to as a release) occur by the end of each quarter; last weeks of March, June, September, and December.
+The major versions (referred to as a release) occur twice per year: the last weeks of March and September (previously quaterly with an additional release in June and December).
 The versions are prefixed with full year and quarter number (`YYYY.Q`; the https://calver.org/[CalVer] standard); for example, `2020.12` indicates the last release of 2020.
 
 | [#rc-terminology-version_branch]#<<rc-terminology-version_branch,Version branch>>#
@@ -39,9 +39,16 @@ For example, `2021.3.1` indicates the first `2021.3` patch release.
 A patch release is usually referred to as a "release".
 ====
 
+| [#rc-terminology-dev_release]#<<rc-terminology-dev_release,Development Release (dev)>>#
+|
+A development release is an **unstable** release of features currently in the development and planned for the upcoming release.
+The git tag follows the pattern of `YYYY.Q.R-dev.D`, where `D` represents an incremental number (1-based) of that release.
+For example, `2021.3.0-dev.3` indicates the third `2021.3.0` dev release.
+
 | [#rc-terminology-release_candidate]#<<rc-terminology-release_candidate,Release Candidate (RC)>>#
 |
 A release candidate is a git tag on the latest commit on a version branch.
+Release candidate indicates the branch stability is getting ready for a major release. 
 The git tag follows the pattern of `YYYY.Q.R-rc.C`, where `C` represents an incremental number (0-based) of that release.
 For example, `2021.3.0-rc.3` indicates the fourth `2021.3.0` release candidate.
 

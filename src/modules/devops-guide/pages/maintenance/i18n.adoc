@@ -75,7 +75,7 @@ An example following the above setup would look like this:
 // Additional configurations here
 // ...
 
-LOCALE_PATH=../my-locale <1>
+LOCALE_PATH=../my-locale/src <1>
 
 // ...
 // Additional configurations here
@@ -83,7 +83,7 @@ LOCALE_PATH=../my-locale <1>
 ----
 <1> This is where you define the path.
 If you wish to define multiple paths, use the colon (`:`) as the delimiter.
-To exemplify; `LOCALE_PATH="../my-locale-en:../my-locale-de"`.
+To exemplify; `LOCALE_PATH="../my-locale-en/src:../my-locale-de/src"`.
 When multiple paths are used, defiitions are overriden in the same order as defined
 
 === Applying changes

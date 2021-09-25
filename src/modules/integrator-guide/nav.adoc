@@ -64,6 +64,8 @@
 ***** xref:automation/automation-scripts/samples/server-scripts/index.adoc[]
 ***** xref:automation/automation-scripts/samples/client-scripts/index.adoc[]
 
+** xref:api-gw/index.adoc[]
+
 ** xref:expr/index.adoc[]
 *** xref:expr/fnc-reference.adoc[]
 

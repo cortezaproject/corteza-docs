@@ -1,0 +1,340 @@
+include::ROOT:partial$variables.adoc[]
+
+= API Gateway
+
+The API gateway facility allows you to define custom endpoints that can support custom authentication methods, request validation, and rate limiting.
+
+These endpoints can be used to define custom endpoint for incoming webhooks, to process data provided by some external integration, or to proxy requests to another service.
+
+Most of the basic operations can be achieved with the built-in functionality; more advanced operations can be implemented with simple JavaScript code snippets or xref:automation/workflows/index.adoc[workflows].
+
+== Defining a new endpoint
+
+To define a new endpoint, navigate to your {PRODUCT_NAME} instance (for example http://latest.cortezaproject.org/) and click ok tne "admin area" application.
+
+.The screenshot shows the app selector and the admin area application.
+image::apigw/app-selector.png[role="data-zoomable"]
+
+In the admin are, navigate to the menu:System[API Gateway] sub-page.
+From the admin area you can create and update your endpoints endpoints, as well as manage their access control.
+
+.The screenshot shows the route list screen.
+image::apigw/route-list.png[role="data-zoomable"]
+
+When you click on the btn:[new] button, a new screen will appear where you need to provide the base parameters of your endpoint.
+
+.The screenshot shows the user interface for creating a new endpoint.
+image::apigw/route-create.png[role="data-zoomable"]
+
+* *endpoint* defines the path for the endpoint,
+* *method* defines what HTTP method the endpoint will listen for.
+
+The endpoint will be accessible under `$BASE_URL/api/$YOUR_ENDPOINT`.
+To examplify; the `/test-api` endpoint for the `https://latest.cortezaproject.org` instance is available under `https://latest.cortezaproject.org/api/test-api`
+
+[NOTE]
+====
+*DevNote* can I have multiple endpoints with same routes but different methods?
+====
+
+When you submit the forum, an additional "filter list" section opens below the base parameters.
+These filters allow you to validate and process requests; as well as defining the response.
+
+Later sections go more in depth regarding specific filters, what they do, and how they should be used.
+
+.The screenshot shows the user interface for attaching filters to the endpoint.
+image::apigw/route-filters.png[role="data-zoomable"]
+
+== Endpoint filters
+
+Filters allow you to validate and process requests; as well as define the response.
+
+[IMPORTANT]
+====
+Each endpoint can define at most one filter of the given type.
+====
+
+=== Prefilter
+
+Prefilters allow you to validate the request to determine if the given endpoint should process it.
+With prefilters, you can implement custom authentication and validation methods.
+
+[NOTE]
+====
+It is currently not possible to use the built-in authentication facility to authenticate requests.
+This will be added in the future.
+====
+
+.The list of available prefilters:
+[cols="1s,5a"]
+|===
+| [#filters-prefilter-queryparam]#<<filters-prefilter-queryparam,Query parameters>>#
+|
+The query parameters prefilter allows you to define a condition which asserts if the request can be processed by this endpoint based on the query parameters.
+
+The query parameters are passed into the expression evaluation engine as they were provided.
+To examplify; the following query parameters `?param1=value1&param2=value2` would be referenced as `param1` and `param2` in the expression.
+
+Refer to the xref:expr/index.adoc[expression] reference for details regarding writing these expressions.
+
+The following example checks if the given HTTP request defines the `token` query param of `"super-secret-value"`.
+
+.Endpoint definition:
+* endpoint: `/test-query`
+* method: `GET`
+* query parameters prefilter expression: `token == "super-secret-value"`
+
+.An example of an HTTP request that conforms to the filter:
+[source,bash]
+----
+curl -X GET $BASE_URL/api/test-query?token=super-secret-value
+----
+
+.An example of an HTTP request that does not conform to the filter:
+[source,bash]
+----
+curl -X GET $BASE_URL/api/test-query?token=some-other-value-i-guessed
+----
+
+[CAUTION]
+====
+Multi-word query parameters can currently not be used.
+====
+
+[CAUTION]
+====
+Multi-value query parameters can currently not be used.
+====
+
+| [#filters-prefilter-header]#<<filters-prefilter-header,Header>>#
+|
+The header prefilter allows you to define a condition which asserts if the request can be processed by this endpoint based on the request's headers.
+
+All system defined headers are passed into the expression evaluation engine as provided.
+User-define headers will automatically be converted into the `snake-case` + `PascalCase` format.
+To examplify; `test-header` will become `Test-Header` and `test` becomes `Test`.
+
+The following header `test: value` would be referenced as `Test` in the expression.
+
+Refer to the xref:expr/index.adoc[expression] reference for details regarding writing these expressions.
+
+The following example checks if the given HTTP request defines the `Token` header of `"super-secret-value"`.
+
+.Endpoint definition:
+* endpoint: `/test-query`
+* method: `GET`
+* header prefilter expression: `Token == "super-secret-value"`
+
+.An example of an HTTP request that conforms to the filter:
+[source,bash]
+----
+curl -X GET $BASE_URL/api/test-query \
+  -H 'Token: super-secret-value'
+----
+
+.An example of an HTTP request that does not conform to the filter:
+[source,bash]
+----
+curl -X GET $BASE_URL/api/test-query \
+  -H 'Token: some-other-value-i-guessed'
+----
+
+[CAUTION]
+====
+Multi-word headers can currently not be used.
+====
+
+[CAUTION]
+====
+Multi-value headers can currently not be used.
+====
+
+|===
+
+=== Processing
+
+A processor defines the core business logic that the endpoint performs.
+{PRODUCT_NAME} allows you to process arbitrary payloads, such as a structured JSON or a binary attachment.
+
+Most of the basic operations can be achieved with the built-in functionality; more advanced operations can be implemented with simple JavaScript code snippets or xref:automation/workflows/index.adoc[workflows].
+
+.A list of available processors:
+[cols="1s,5a"]
+|===
+| [#filters-proc-wfexec]#<<filters-proc-wfexec,Workflow processer>>#
+|
+The workflow processor allows you to bind a xref:automation/workflows/index.adoc[workflow] to the endpoint.
+
+[NOTE]
+====
+*DevNote* better describe how workflows need to look like, the response, ...
+====
+
+| [#filters-proc-payloadproc]#<<filters-proc-payloadproc,Payload processer>>#
+|
+The payload processor allows you to handle the request's payload with the help of JavaScript.
+
+Refer to the <<js-processing,JavaScript processing>> section for more details.
+
+|===
+
+=== Postfilter
+
+Postfilters allow you to finalize the request lifecycle depending on the result of the processing.
+
+.A list of available postfilters:
+[cols="1s,5a"]
+|===
+| [#filters-postfilter-redirect]#<<filters-postfilter-redirect,Redirection>>#
+|
+The redirect postfilter enriches the response payload with the required redirect HTTP headers.
+
+| [#filters-postfilter-json]#<<filters-postfilter-json,Default JSON response>>#
+|
+The JSON response postfilter enriches the response headers with the `application/json` content type and JSON encodes the processing results.
+
+|===
+
+// == Asynchronous endpoints
+
+// Not in this version yet
+
+// Asynchronous endpoints allow you to process long running operations without forcing the HTTP request to wait for the result.
+// Asynchronous endpoints work exactly the same as synchronous (regular) ones, with the exception that the request is resolved right away.
+
+// [NOTE]
+// ====
+// Asynchronous routes return the HTTP 202 response.
+// Errors are logged in the logging system attached to {PRODUCT_NAME}.
+// @todo factcheck
+// ====
+
+[#js-processing]
+== JavaScript request processing
+
+The API GW processing filter includes support to process the request using arbitrary JavaScript code.
+
+[NOTE]
+====
+*DevNote* what restrictions does Goja implement?
+====
+
+The provided JavaScript code is automatically wrapped by a function with the signature of:
+
+[source,ts]
+----
+function (input: Scope): unknown {
+  // {{snippet}}
+}
+----
+
+To examplify; the code snippet of `return "Hello, World!"` would become:
+
+[source,js]
+----
+function (input) {
+  return "Hello, World!"
+}
+----
+
+The following example code snippet takes in the provided `name` and `surname` of our users and returns an array of `fullname` parameters.
+
+[source,js]
+----
+// We firstly need to get the body of the request
+var b = JSON.parse(readRequestBody(input.Get('request').Body));
+
+return {
+  // Assure correct casing
+  "results":
+    b.map(function({ name, surname }) {
+        return {
+          "fullname": name[0].toUpperCase() + name.substring(1) + " " + surname[0].toUpperCase() + surname.substring(1)
+        }
+    }),
+  "count": b.length
+};
+----
+
+The following cURL example invokes the above JavaScript function.
+
+[source,bash]
+----
+curl -X GET $BASE_URL/api/test-js \
+  -H "Content-Type: application/json" \
+  -d "[{\"name\":\"johnny\", \"surname\":\"mnemonic\"},{\"name\":\"johnny\", \"surname\":\"knoxville\"}]";
+----
+
+=== Function arguments
+
+The code snippet receives a single argument, `input`, that contains the entire request.
+
+.The argument has the signature of:
+[source,ts]
+----
+interface {
+  Set: (k: string, v: unknown) => void;
+  Get: (k: string) => unknown;
+}
+----
+
+.The `input` object parameters:
+[cols="1m,5a"]
+|===
+| [#proc-js-input-request]#<<proc-js-input-request,request>>#
+|
+The entire HTTP request object.
+Refer to the https://pkg.go.dev/net/http?utm_source=gopls#Request[GO documentation] for detils regarding the signature.
+
+| [#proc-js-input-opts]#<<proc-js-input-opts,opts>>#
+|
+API gateway configuration.
+Refer to the https://github.com/cortezaproject/corteza-server/blob/2021.9.x/pkg/options/apigw.gen.go#L16[source] for details.
+
+[NOTE]
+====
+*DevNote* generate above opt. docs
+====
+
+| [#proc-js-input-payload]#<<proc-js-input-payload,payload>>#
+|
+The string encoded request body content.
+The content is extracted from `request.Body`
+
+|===
+
+=== Function result
+
+The result of the JavaScript snippet is provided to the post filters that prepare and return an HTTP response.
+
+When the result is a `string`, such as `Hello, World!`, the result is used as is.
+
+When the result is a non-string value, such as `{ key: "value" }`, the result is JSON encoded.
+
+=== Built-in function reference
+
+[cols="1m,5m,5a,5a"]
+|===
+|Function |Signature |Description |Example
+
+| [#proc-js-fnc-ref-readRequestBody]#<<proc-js-fnc-ref-readRequestBody,readRequestBody>>#
+| readRequestBody
+| readRequestBody(input: reader): string
+| The function returns the contents of the provided request object.
+| `readRequestBody(input.Get('request').Body)` returns the request's body as a string
+
+[CAUTION]
+====
+The `readRequestBody` function may only be invoked once.
+Additional invocations will return an empty response.
+
+Use an intermediate variable if you need to read it multiple times.
+====
+|===
+
+== Debugging
+
+=== System logs
+
+Enable debug logging in your `.env` file.
+Refer to the xref:devops-guide:configuration/server.adoc[DevOps guide] for details.

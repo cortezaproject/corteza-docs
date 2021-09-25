@@ -30,6 +30,10 @@
 //        - Redirection
 //        - Default JSON response
 
+// how the different filters work
+// what the different filters do
+// how the different filters are configured
+
 == DRAFT 3
 
 === Introduction
@@ -67,7 +71,7 @@ image:images/screen2_add_route.png[]
 Once you successfully add a route, you will be able to attach filters to it.
 image:images/screen3_add_filters.png[]
 
-==== Let's walk you through how each filters works.
+=== Let's walk you through how each filters works.
 Filters are divided in 3 steps as Prefilter, Processer and Postfilter.
 image:images/screen3_add_filters.png[]
 
@@ -82,20 +86,59 @@ image:images/screen3_add_filters.png[]
 ** Once the request comes into the system, it can be validated, authenticated or capped via rate or other origin limit.
 ** The authentication layer will eventually be available as separate part from the Corteza authentication mechanism,
 but there is currently ways to limit the API access via query parameters or headers.
-image:images/screen4_prefiltering[]
+image:images/screen4_prefiltering.png[]
+
+* how pre-filters works:
+- Once request comes it validates the query parameters, and request header from prefilters
+and proceed to the processors filter if it's valid
+
+In order to configure we have to apply prefilter routes from the pre-filtering section as per below examples
 
 *** Query parameters
 - It is used to validate query parameter for the request.
-- Once you select query parameter there will be a dialog with status(Active/Disabled) and expression.
 image:images/screen4_1_prefiltering_query_parameter.png[]
 
-*** Origin
-- It is used to validate query parameter for the request.
-- After selecting origin it will open same dialog as above screen, asking for status and expression.
+==== Query parameters filter Examples
+
+[source,text]
+----
+External endpoint# curl -X GET --location "https://api.com/test-filter?foo=bar" \ -H "Accept: application/json"
+
+Corteza APIGw Route:
+Endpoint: /test
+Method: GET
+
+PreFiltering:
+    Query parameter:
+        Enable: true/false
+        expr: "foo" == "bar"
+        expr: "foo" == "bar-baz"
+        expr: match(foo, ""^b\wr\s.*$")
+----
 
 *** Header
 - It is used to validate header part of the request.
-- It also opens the same dialog with status and expression.
+
+===== Query parameters filter Examples
+
+[source,text]
+----
+External endpoint# curl -X GET --location "https://api.com/test-filter"
+                        \ -H "Accept: application/json"
+                        \ -H "Foo: bar"
+
+Corteza APIGw Route:
+Endpoint: /test
+Method: GET
+
+PreFiltering:
+    Header:
+        Enable: true/false
+        expr: "foo" == "bar"
+        expr: "foo" != "bar-baz"
+        expr: match(foo, ""^b\wr\s.*$")
+----
+
 
 * Processers
 ** The processers include most of the business logic for the request flow,
@@ -142,4 +185,3 @@ Even when we have a good API documentation and consistent data structures, we st
 
 Currently, debugging level can be enabled via standard xref:ROOT:devops-guide/pages/configuration/server.adoc[Corteza environment configuration], so any input requests and body data can be logged to the underlying data aggregator or at least docker output.
 
-There is basic performance analysis based on route and filter levels so any bottlenecks can be quickly spotted.

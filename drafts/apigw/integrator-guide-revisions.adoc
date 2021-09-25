@@ -111,8 +111,8 @@ Method: GET
 PreFiltering:
     Query parameter:
         Enable: true/false
-        expr: "foo" == "bar"
-        expr: "foo" == "bar-baz"
+        expr: "foo == bar"
+        expr: "foo == bar-baz"
         expr: match(foo, ""^b\wr\s.*$")
 ----
 
@@ -134,9 +134,9 @@ Method: GET
 PreFiltering:
     Header:
         Enable: true/false
-        expr: "foo" == "bar"
-        expr: "foo" != "bar-baz"
-        expr: match(foo, ""^b\wr\s.*$")
+        expr: "foo == bar"
+        expr: "foo != bar-baz"
+        expr: match(foo, "^b\wr\s.*$")
 ----
 
 
@@ -161,6 +161,11 @@ image:images/screen5_processing.png[]
 *** Workflow processor
 - Adding this filter we can attach Corteza workflow to process the request
 - To attach this filter we have to provide status(Active/Disabled) and workflowID of existing workflow in corteza.
+image:images/workflow_filter.gif[]
+
+.Example of the debugging mode server logs
+image:images/workflow_filter_debug.png[]
+
 
 *** Proxy processor
 - @todo: not sure how to describe it; Input for this: status and location
@@ -175,8 +180,21 @@ which is one of the input along with status to attach this filter.
 image:images/screen6_postfiltering.png[]
 
 *** Redirection
-- For this we have to provide status, HTTP status and location after request is processed then based on response status,
-it returns the given location if Http status matches.
+- Once ApiGw process the request and when it finalises if it returns HTTP status codes 300-399(redirection codes),
+mean that the request had to be redirected, for various reasons.
+These status code may need immediate action, because the redirection could be a pending request,
+and the web browser is stuck somewhere. with help of redirection filter we can provide location url for particular HTTP status.
+
+[source,text]
+----
+- Permanent redirection
+Status: 301
+Location: "http://redire.ct/to"
+
+- Simple redirection
+Status: 302
+Location: "http://redire.ct/to"
+----
 
 ==== Debugging
 When connecting different API’s or receiving web-hooks, we are mostly aware of incoming data structures.

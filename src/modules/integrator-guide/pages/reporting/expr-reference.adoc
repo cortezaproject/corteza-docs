@@ -1,0 +1,516 @@
+include::ROOT:partial$variables.adoc[]
+
+= Expression reference
+
+== Conjunction
+
+[cols="1s,5a"]
+|===
+| [#expr-conjunction-and]#<<expr-conjunction-and,and>>#
+|
+Returns `true` if all elements are `true`, `else` otherwise.
+
+.[#expr-conjunction-and-sig]#<<expr-conjunction-and-sig,Signatures:>>#
+* `<Boolean>[ && <Boolean>[...]]` => `<Boolean>`
+* `<Boolean>[ and <Boolean>[...]]` => `<Boolean>`
+* `and(<Boolean>[, <Boolean>, ...]])` => `<Boolean>`
+
+.[#expr-conjunction-and-ex-a]#<<expr-conjunction-and-ex-a,Expression examples:>>#
+* `bool_field && true`
+* `(field == 'value') && bool_field`
+* `bool_field and true`
+* `(field == 'value') and bool_field`
+
+.[#expr-conjunction-and-ex-b]#<<expr-conjunction-and-ex-b,Function examples:>>#
+* `and(bool_field, true)`
+* `and((field == 'value'), bool_field)`
+
+| [#expr-conjunction-or]#<<expr-conjunction-or,or>>#
+|
+Returns `true` if any element is `true`, `else` otherwise.
+
+.[#expr-conjunction-or-sig]#<<expr-conjunction-or-sig,Signatures:>>#
+* `<Boolean>[ \|\| <Boolean>[...]]` => `<Boolean>`
+* `<Boolean>[ or <Boolean>[...]]` => `<Boolean>`
+* `or(<Boolean>[, <Boolean>, ...]])` => `<Boolean>`
+
+.[#expr-conjunction-or-ex-a]#<<expr-conjunction-or-ex-a,Expression examples:>>#
+* `bool_field \|\| true`
+* `(field == 'value') \|\| bool_field`
+* `bool_field or true`
+* `(field == 'value') or bool_field`
+
+.[#expr-conjunction-or-ex-b]#<<expr-conjunction-or-ex-b,Function examples:>>#
+* `or(bool_field, true)`
+* `or((field == 'value'), bool_field)`
+
+|===
+
+== Comparison
+
+[cols="1s,5a"]
+|===
+| [#expr-comparison-eq]#<<expr-comparison-eq,equals>>#
+|
+Returns `true` if types are comparable and the values match.
+
+.[#expr-comparison-eq-sig]#<<expr-comparison-eq-sig,Signatures:>>#
+* `<Any> = <Any>` => `<Boolean>`
+* `<Any> == <Any>` => `<Boolean>`
+* `<Any> === <Any>` => `<Boolean>`
+* `eq(<Any>, <Any>)` => `<Boolean>`
+
+.[#expr-comparison-eq-ex-a]#<<expr-comparison-eq-ex-a,Expression examples:>>#
+* `field == 'value'`
+* `number == 10`
+* `year(dateField) == year(now())`
+
+.[#expr-comparison-eq-ex-b]#<<expr-comparison-eq-ex-b,Function examples:>>#
+* `eq(field, 'value')`
+* `eq(number, 10)`
+* `eq(year(dateField), year(now()))`
+
+|===
+
+[cols="1s,5a"]
+|===
+| [#expr-comparison-ne]#<<expr-comparison-ne,not equals>>#
+|
+Returns `true` if types are not comparable, or the values don't match.
+
+.[#expr-comparison-ne-sig]#<<expr-comparison-ne-sig,Signatures:>>#
+* `<Any> != <Any>` => `<Boolean>`
+* `<Any> !== <Any>` => `<Boolean>`
+* `ne(<Any>, <Any>)` => `<Boolean>`
+
+.[#expr-comparison-ne-ex-a]#<<expr-comparison-ne-ex-a,Expression examples:>>#
+* `field != 'value'`
+* `number != 10`
+* `year(dateField) != year(now())`
+
+.[#expr-comparison-ne-ex-b]#<<expr-comparison-ne-ex-b,Function examples:>>#
+* `ne(field, 'value')`
+* `ne(number, 10)`
+* `ne(year(dateField), year(now()))`
+
+|===
+
+[cols="1s,5a"]
+|===
+| [#expr-comparison-lt]#<<expr-comparison-lt,less then>>#
+|
+Returns `true` if left value is less then the right value.
+
+.[#expr-comparison-lt-sig]#<<expr-comparison-lt-sig,Signatures:>>#
+* `<Any> < <Any>` => `<Boolean>`
+* `lt(<Any>, <Any>)` => `<Boolean>`
+
+.[#expr-comparison-lt-ex-a]#<<expr-comparison-lt-ex-a,Expression examples:>>#
+* `field < 'value'`
+* `number < 10`
+* `year(dateField) < year(now())`
+
+.[#expr-comparison-lt-ex-b]#<<expr-comparison-lt-ex-b,Function examples:>>#
+* `lt(field, 'value')`
+* `lt(number, 10)`
+* `lt(year(dateField), year(now()))`
+
+|===
+
+[cols="1s,5a"]
+|===
+| [#expr-comparison-le]#<<expr-comparison-le,less or equal then>>#
+|
+Returns `true` if left value is less or equal then the right value.
+
+.[#expr-comparison-le-sig]#<<expr-comparison-le-sig,Signatures:>>#
+* `<Any> <= <Any>` => `<Boolean>`
+* `le(<Any>, <Any>)` => `<Boolean>`
+
+.[#expr-comparison-le-ex-a]#<<expr-comparison-le-ex-a,Expression examples:>>#
+* `field <= 'value'`
+* `number <= 10`
+* `year(dateField) <= year(now())`
+
+.[#expr-comparison-le-ex-b]#<<expr-comparison-le-ex-b,Function examples:>>#
+* `le(field, 'value')`
+* `le(number, 10)`
+* `le(year(dateField), year(now()))`
+
+|===
+
+[cols="1s,5a"]
+|===
+| [#expr-comparison-gt]#<<expr-comparison-gt,greater then>>#
+|
+Returns `true` if left value is greater then the right value.
+
+.[#expr-comparison-gt-sig]#<<expr-comparison-gt-sig,Signatures:>>#
+* `<Any> > <Any>` => `<Boolean>`
+* `gt(<Any>, <Any>)` => `<Boolean>`
+
+.[#expr-comparison-gt-ex-a]#<<expr-comparison-gt-ex-a,Expression exampgts:>>#
+* `field > 'value'`
+* `number > 10`
+* `year(dateField) > year(now())`
+
+.[#expr-comparison-gt-ex-b]#<<expr-comparison-gt-ex-b,Function exampgts:>>#
+* `gt(field, 'value')`
+* `gt(number, 10)`
+* `gt(year(dateField), year(now()))`
+
+|===
+
+[cols="1s,5a"]
+|===
+| [#expr-comparison-ge]#<<expr-comparison-ge,greater or equal then>>#
+|
+Returns `true` if left value is greater or equal then the right value.
+
+.[#expr-comparison-ge-sig]#<<expr-comparison-ge-sig,Signatures:>>#
+* `<Any> >= <Any>` => `<Boolean>`
+* `ge(<Any>, <Any>)` => `<Boolean>`
+
+.[#expr-comparison-ge-ex-a]#<<expr-comparison-ge-ex-a,Expression exampges:>>#
+* `field >= 'value'`
+* `number >= 10`
+* `year(dateField) >= year(now())`
+
+.[#expr-comparison-ge-ex-b]#<<expr-comparison-ge-ex-b,Function exampges:>>#
+* `ge(field, 'value')`
+* `ge(number, 10)`
+* `ge(year(dateField), year(now()))`
+
+|===
+
+== String comparison
+
+[cols="1s,5a"]
+|===
+| [#expr-str-comparison-like]#<<expr-str-comparison-like,like>>#
+|
+Returns `true` if the left value matches the pattern on the right.
+
+.[#expr-str-comparison-like-sig]#<<expr-str-comparison-like-sig,Signatures:>>#
+* `<String> like <String>` => `<Boolean>`
+* `like(<String>, <String>)` => `<Boolean>`
+
+.[#expr-str-comparison-like-ex-a]#<<expr-str-comparison-like-ex-a,Expression examples:>>#
+* `field like 'value'`
+* `field like 'va_ue'`
+* `name like 'test%'`
+
+.[#expr-str-comparison-like-ex-b]#<<expr-str-comparison-like-ex-b,Function examples:>>#
+* `like(field, 'value')`
+* `like(field, 'va_ue')`
+* `like(name, 'test%')`
+
+|===
+
+[cols="1s,5a"]
+|===
+| [#expr-str-comparison-nlike]#<<expr-str-comparison-nlike,not like>>#
+|
+Returns `true` if left value does not match the pattern on the right.
+
+.[#expr-str-comparison-nlike-sig]#<<expr-str-comparison-nlike-sig,Signatures:>>#
+* `<String> not like <String>` => `<Boolean>`
+* `nlike(<String>, <String>)` => `<Boolean>`
+
+.[#expr-str-comparison-nlike-ex-a]#<<expr-str-comparison-nlike-ex-a,Expression examples:>>#
+* `field not like 'value'`
+* `field not like 'va_ue'`
+* `name not like 'test%'`
+
+.[#expr-str-comparison-nlike-ex-b]#<<expr-str-comparison-nlike-ex-b,Function examples:>>#
+* `nlike(field, 'value')`
+* `nlike(field, 'va_ue')`
+* `nlike(name, 'test%')`
+
+|===
+
+== Arithmetic
+
+[cols="1s,5a"]
+|===
+| [#expr-arithmetic-add]#<<expr-arithmetic-add,add>>#
+|
+Adds the two numbers together.
+
+.[#expr-arithmetic-add-sig]#<<expr-arithmetic-add-sig,Signatures:>>#
+* `<Number> + <Number>` => `<Number>`
+* `add(<Number>, <Number>)` => `<Number>`
+
+.[#expr-arithmetic-add-ex-a]#<<expr-arithmetic-add-ex-a,Expression exampges:>>#
+* `100 + 20`
+* `number + 10`
+* `year(dateField) + year(now())`
+
+.[#expr-arithmetic-add-ex-b]#<<expr-arithmetic-add-ex-b,Function exampges:>>#
+* `add(100, 20)`
+* `add(number, 10)`
+* `add(year(dateField), year(now()))`
+
+|===
+
+[cols="1s,5a"]
+|===
+| [#expr-arithmetic-sub]#<<expr-arithmetic-sub,sub>>#
+|
+Subtracts the two numbers together.
+
+.[#expr-arithmetic-sub-sig]#<<expr-arithmetic-sub-sig,Signatures:>>#
+* `<Number> - <Number>` => `<Number>`
+* `sub(<Number>, <Number>)` => `<Number>`
+
+.[#expr-arithmetic-sub-ex-a]#<<expr-arithmetic-sub-ex-a,Expression exampges:>>#
+* `100 - 20`
+* `number - 10`
+* `year(dateField) - year(now())`
+
+.[#expr-arithmetic-sub-ex-b]#<<expr-arithmetic-sub-ex-b,Function exampges:>>#
+* `sub(100, 20)`
+* `sub(number, 10)`
+* `sub(year(dateField), year(now()))`
+
+|===
+
+[cols="1s,5a"]
+|===
+| [#expr-arithmetic-mult]#<<expr-arithmetic-mult,mult>>#
+|
+Multiplies the two numbers together.
+
+.[#expr-arithmetic-mult-sig]#<<expr-arithmetic-mult-sig,Signatures:>>#
+* `<Number> * <Number>` => `<Number>`
+* `mult(<Number>, <Number>)` => `<Number>`
+
+.[#expr-arithmetic-mult-ex-a]#<<expr-arithmetic-mult-ex-a,Expression exampges:>>#
+* `100 * 20`
+* `number * 10`
+* `year(dateField) * year(now())`
+
+.[#expr-arithmetic-mult-ex-b]#<<expr-arithmetic-mult-ex-b,Function exampges:>>#
+* `mult(100, 20)`
+* `mult(number, 10)`
+* `mult(year(dateField), year(now()))`
+
+|===
+
+[cols="1s,5a"]
+|===
+| [#expr-arithmetic-div]#<<expr-arithmetic-div,div>>#
+|
+Divides the two numbers together.
+
+.[#expr-arithmetic-div-sig]#<<expr-arithmetic-div-sig,Signatures:>>#
+* `<Number> / <Number>` => `<Number>`
+* `div(<Number>, <Number>)` => `<Number>`
+
+.[#expr-arithmetic-div-ex-a]#<<expr-arithmetic-div-ex-a,Expression exampges:>>#
+* `100 / 20`
+* `number / 10`
+* `year(dateField) / year(now())`
+
+.[#expr-arithmetic-div-ex-b]#<<expr-arithmetic-div-ex-b,Function exampges:>>#
+* `div(100, 20)`
+* `div(number, 10)`
+* `div(year(dateField), year(now()))`
+
+|===
+
+== Aggregation
+
+[cols="1s,5a"]
+|===
+| [#expr-aggregation-count]#<<expr-aggregation-count,count>>#
+|
+Returns number of items.
+
+.[#expr-aggregation-count-sig]#<<expr-aggregation-count-sig,Signatures:>>#
+* `count()` => `<Number>`
+
+.[#expr-aggregation-count-ex-a]#<<expr-aggregation-count-ex-a,Expression examples:>>#
+* `count()`
+
+.[#expr-aggregation-count-ex-b]#<<expr-aggregation-count-ex-b,Function examples:>>#
+* `count()`
+|===
+
+
+[cols="1s,5a"]
+|===
+| [#expr-aggregation-sum]#<<expr-aggregation-sum,sum>>#
+|
+Returns the sum.
+
+.[#expr-aggregation-sum-sig]#<<expr-aggregation-sum-sig,Signatures:>>#
+* `sum(<Number>)` => `<Number>`
+
+.[#expr-aggregation-sum-ex-a]#<<expr-aggregation-sum-ex-a,Expression examples:>>#
+* `field + current_column`
+
+.[#expr-aggregation-sum-ex-b]#<<expr-aggregation-sum-ex-b,Function examples:>>#
+* `sum(field)`
+|===
+
+[cols="1s,5a"]
+|===
+| [#expr-aggregation-max]#<<expr-aggregation-max,max>>#
+|
+Returns the max of two values.
+
+.[#expr-aggregation-max-sig]#<<expr-aggregation-max-sig,Signatures:>>#
+* `max(<Number>)` => `<Number>`
+
+.[#expr-aggregation-max-ex-a]#<<expr-aggregation-max-ex-a,Expression examples:>>#
+* `max(field)`
+
+.[#expr-aggregation-max-ex-b]#<<expr-aggregation-max-ex-b,Function examples:>>#
+* `max(field)`
+|===
+
+[cols="1s,5a"]
+|===
+| [#expr-aggregation-min]#<<expr-aggregation-min,min>>#
+|
+Returns the min of two values.
+
+.[#expr-aggregation-min-sig]#<<expr-aggregation-min-sig,Signatures:>>#
+* `min(<Number>)` => `<Number>`
+
+.[#expr-aggregation-min-ex-a]#<<expr-aggregation-min-ex-a,Expression examples:>>#
+* `min(field)`
+
+.[#expr-aggregation-min-ex-b]#<<expr-aggregation-min-ex-b,Function examples:>>#
+* `min(field)`
+|===
+
+[cols="1s,5a"]
+|===
+| [#expr-aggregation-avg]#<<expr-aggregation-avg,avg>>#
+|
+Returns the average of two values.
+
+.[#expr-aggregation-avg-sig]#<<expr-aggregation-avg-sig,Signatures:>>#
+* `avg(<Number>)` => `<Number>`
+
+.[#expr-aggregation-avg-ex-a]#<<expr-aggregation-avg-ex-a,Expression examples:>>#
+* `avg(field)`
+
+.[#expr-aggregation-avg-ex-b]#<<expr-aggregation-avg-ex-b,Function examples:>>#
+* `avg(field)`
+|===
+
+== Date manipulation
+
+[cols="1s,5a"]
+|===
+| [#expr-date-now]#<<expr-date-now,now>>#
+|
+Returns the current timestamp.
+
+.[#expr-date-now-sig]#<<expr-date-now-sig,Signatures:>>#
+* `now()` => `<DateTime>`
+
+.[#expr-date-now-ex-a]#<<expr-date-now-ex-a,Expression exampges:>>#
+* `now()`
+
+|===
+
+[cols="1s,5a"]
+|===
+| [#expr-date-quarter]#<<expr-date-quarter,quarter>>#
+|
+Returns the quarter of the timestamp.
+
+.[#expr-date-quarter-sig]#<<expr-date-quarter-sig,Signatures:>>#
+* `quarter(<DateTime>)` => `<Number>`
+
+.[#expr-date-quarter-ex-a]#<<expr-date-quarter-ex-a,Expression exampges:>>#
+* `quarter(date_field)`
+* `quarter(now())`
+* `quarter(date('2021-01-01T01:00:00Z'))`
+
+|===
+
+[cols="1s,5a"]
+|===
+| [#expr-date-year]#<<expr-date-year,year>>#
+|
+Returns the year of the timestamp.
+
+.[#expr-date-year-sig]#<<expr-date-year-sig,Signatures:>>#
+* `year(<DateTime>)` => `<Number>`
+
+.[#expr-date-year-ex-a]#<<expr-date-year-ex-a,Expression exampges:>>#
+* `year(date_field)`
+* `year(now())`
+* `year(date('2021-01-01T01:00:00Z'))`
+
+|===
+
+[cols="1s,5a"]
+|===
+| [#expr-date-month]#<<expr-date-month,month>>#
+|
+Returns the month of the timestamp.
+
+.[#expr-date-month-sig]#<<expr-date-month-sig,Signatures:>>#
+* `month(<DateTime>)` => `<Number>`
+
+.[#expr-date-month-ex-a]#<<expr-date-month-ex-a,Expression exampges:>>#
+* `month(date_field)`
+* `month(now())`
+* `month(date('2021-01-01T01:00:00Z'))`
+
+|===
+
+== Typecast
+
+[cols="1s,5a"]
+|===
+| [#expr-cast-float]#<<expr-cast-float,float>>#
+|
+Casts the value to a float.
+
+.[#expr-cast-float-sig]#<<expr-cast-float-sig,Signatures:>>#
+* `float(<Any>)` => `<Float>`
+
+.[#expr-cast-float-ex-a]#<<expr-cast-float-ex-a,Expression exampges:>>#
+* `float(some_field)`
+* `float('10.9')`
+* `avg(cost) > float(10.9)`
+
+|===
+
+[cols="1s,5a"]
+|===
+| [#expr-cast-int]#<<expr-cast-int,int>>#
+|
+Casts the value to an integer.
+
+.[#expr-cast-int-sig]#<<expr-cast-int-sig,Signatures:>>#
+* `int(<Any>)` => `<Int>`
+
+.[#expr-cast-int-ex-a]#<<expr-cast-int-ex-a,Expression exampges:>>#
+* `int(some_field)`
+* `int('10.9')`
+* `avg(cost) > int(10.9)`
+
+|===
+
+[cols="1s,5a"]
+|===
+| [#expr-date-date]#<<expr-date-date,date>>#
+|
+Casts the value to a timestamp.
+
+.[#expr-date-date-sig]#<<expr-date-date-sig,Signatures:>>#
+* `date(<Ant>)` => `<DateTime>`
+
+.[#expr-date-date-ex-a]#<<expr-date-date-ex-a,Expression exampges:>>#
+* `date(some_field)`
+* `date('2021-01-01T01:00:00Z')`
+
+|===

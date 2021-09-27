@@ -35,6 +35,7 @@
 *** xref:automation/execution-flow-details.adoc[]
 *** xref:automation/workflows/index.adoc[]
 **** xref:automation/workflows/organizing-workflows.adoc[]
+**** xref:workflows/record-selection.adoc[]
 **** xref:automation/workflows/delaying-scheduling.adoc[]
 **** xref:automation/workflows/automation-scripts.adoc[]
 **** xref:automation/workflows/email-send.adoc[]

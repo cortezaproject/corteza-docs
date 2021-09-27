@@ -1,0 +1,40 @@
+include::ROOT:partial$variables.adoc[]
+
+= Processing record selection
+
+Record lists allow you to enable record selection, allowing you to perform automation over a series of records.
+
+[#wf-config]
+== Workflow configuration
+
+.To configure a workflow which supports record selection:
+. navigate to the {APP_NAME_WORKFLOW} application and either create or edit a workflow,
+. add a trigger with a resource of either `Compose Page` or `Compose Record`,
+
+The workflow receives a `selected` scope variable which defines a list of selected record IDs.
+To examplify; the `selected` scope variable may contain a list of `[ '1111', '2222', ..., 'nnnn' ]`.
+
+You can use an item iterator to traverse through the list of selected records.
+From there you can use functions and expressions to implement your feature.
+
+== {APP_NAME_COMPOSE} configuration
+
+[IMPORTANT]
+====
+Make sure you already have some automation which can be used by the record list.
+Refer to <<wf-config,workflow configuration>> for details.
+====
+
+.To enable record selection:
+. navigate to the {APP_NAME_COMPOSE} application and enter the namespace you wish to edit,
+. go to menu:Admin panel[Pages],
+. click on the page builder next to the page you wish to enable record selection for,
+. click on the btn:[edit icon] on the page block with the record list in question,
+. go to the "record list" tab and check the "enable record selection" checkbox.
+
+.To bind an automation button to the record list:
+. navigate to the {APP_NAME_COMPOSE} application and enter the namespace you wish to edit,
+. go to menu:Admin panel[Pages],
+. click on the page builder next to the page you wish to enable record selection for,
+. click on the btn:[edit icon] on the page block with the record list in question,
+. go to the "automation" tab and select the automation you wish to use.

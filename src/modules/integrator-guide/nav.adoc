@@ -52,6 +52,7 @@
 
 ** xref:workflows/index.adoc[]
 *** xref:workflows/organizing-workflows.adoc[]
+*** xref:workflows/record-selection.adoc[]
 *** xref:workflows/delaying-scheduling.adoc[]
 *** xref:workflows/automation-scripts.adoc[]
 *** xref:workflows/style-guide-best-practices.adoc[]

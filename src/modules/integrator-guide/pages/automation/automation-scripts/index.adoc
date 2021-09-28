@@ -159,6 +159,7 @@ Arguments to a client-script are provided via *references* to the original objec
 Arguments to a server-script are provided as *a copy* of the original object, meaning that the changes are *not reflected* on the original object.
 ====
 
+[#execution-context]
 === Execution context
 
 Execution context (the `ctx` parameter of the <<automation-script-signature,`exec` function>>) contains contextual information and utilities that can be used within script execution.

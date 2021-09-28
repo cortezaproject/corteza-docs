@@ -53,9 +53,9 @@ If you're interested in developing custom applications using {PRODUCT_NAME}, ref
 
 == Create with {PRODUCT_NAME}
 
-The xref:integrator-guide:index.adoc[] walks you *through the integration process*; from the xref:integrator-guide:security.adoc[] system, xref:integrator-guide:compose-configuration/index.adoc[], and xref:integrator-guide:automation-scripts/index.adoc[] development.
+The xref:integrator-guide:index.adoc[] walks you *through the integration process*; from xref:integrator-guide:access-control.adoc[] system to xref:integrator-guide:compose-configuration/index.adoc[], xref:integrator-guide:automation/index.adoc[], xref:integrator-guide:reporting/index.adoc[], and xref:integrator-guide:api-gw/index.adoc[].
 
-There are also a bunch of copy-pastable examples, and miscellaneous bits such as xref:integrator-guide:automation-scripts/deploying.adoc[], xref:integrator-guide:automation-scripts/debugging.adoc[automation script debugging] and tips for xref:integrator-guide:accessing-corteza/index.adoc[].
+There are also a bunch of copy-pastable examples, and miscellaneous bits such as xref:integrator-guide:automation/automation-scripts/deploying.adoc[], xref:integrator-guide:automation/automation-scripts/debugging.adoc[automation script debugging] and tips for xref:integrator-guide:accessing-corteza/index.adoc[].
 
 // == Core developers
 

@@ -54,7 +54,7 @@ This way, we can get contextual data to the producer/consumer.
 === Internal {PRODUCT_NAME} messagebus to eventbus flow
 
 {PRODUCT_NAME} {APP_NAME_WORKFLOW} currently has the possibility to incorporate messagebus capabilities via the eventbus mechanism.
-The messagebus producer can in this case be an eventbus handler, in our case the already implemented queue trigger (refer to xref:integrator-guide:workflows/index.adoc[automation/workflows documentation]).
+The messagebus producer can in this case be an eventbus handler, in our case the already implemented queue trigger (refer to xref:integrator-guide:automation/workflows/index.adoc[automation/workflows documentation]).
 
 The queue handler (producer in the diagram) needs to be triggered to write to messagebus queue, this is done via eventbus mechanism.
 Once the payload reaches producer, the payload and the queue name are both pushed to messagebus service internal channel (via exposed method).

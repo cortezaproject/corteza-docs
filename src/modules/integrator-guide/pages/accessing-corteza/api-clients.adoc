@@ -6,7 +6,7 @@ include::ROOT:partial$variables.adoc[]
 
 [TIP]
 ====
-When writing automation scripts, they are provided in the xref:integrator-guide:automation-scripts/script-context.adoc#execution-context[execution context].
+When writing automation scripts, they are provided in the xref:integrator-guide:automation/automation-scripts/index.adoc#execution-context[execution context].
 ====
 
 You can find the source code on https://github.com/cortezaproject/corteza-js[GitHub/cortezaproject/corteza-js].

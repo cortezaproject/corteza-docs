@@ -115,7 +115,7 @@ When the system starts or when there is a change, the triggers are registered on
 ====
 When working with automation scripts and the {APP_AUTOMATION} server is running in production, the {APP_AUTOMATION} server needs to be restarted in order to process new changes.
 
-You can enable the xref:devops-guide_/_configuration/corredor.adoc#CORREDOR_EXT_SERVER_SCRIPTS_WATCH[`CORREDOR_EXT_SERVER_SCRIPTS_WATCH`] and xref:devops-guide_/_configuration/corredor.adoc#CORREDOR_EXT_CLIENT_SCRIPTS_WATCH[`CORREDOR_EXT_CLIENT_SCRIPTS_WATCH`] `.env` variables to watch for changes.
+You can enable the xref:devops-guide:configuration/corredor.adoc#CORREDOR_EXT_SERVER_SCRIPTS_WATCH[`CORREDOR_EXT_SERVER_SCRIPTS_WATCH`] and xref:devops-guide:configuration/corredor.adoc#CORREDOR_EXT_CLIENT_SCRIPTS_WATCH[`CORREDOR_EXT_CLIENT_SCRIPTS_WATCH`] `.env` variables to watch for changes.
 ====
 
 [#internals-overview]

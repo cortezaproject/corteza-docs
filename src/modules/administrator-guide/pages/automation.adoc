@@ -8,7 +8,7 @@ The automation interface can be used to debug issues regarding invalid or missin
 
 [NOTE]
 ====
-Refer to xref:integrator-guide:automation-scripts/deploying.adoc[deploying automation scripts] for details on how to deploy extensions.
+Refer to xref:integrator-guide:automation/automation-scripts/deploying.adoc[deploying automation scripts] for details on how to deploy extensions.
 ====
 
 == Listing automation scripts

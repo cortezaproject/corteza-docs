@@ -6,7 +6,7 @@ Corredor helpers implement the most common operations, such as creating records 
 
 [TIP]
 ====
-Corredor helpers come pre-configured in the xref:integrator-guide:automation-scripts/script-context.adoc#execution-context[execution context].
+Corredor helpers come pre-configured in the xref:integrator-guide:automation/automation-scripts/index.adoc#execution-context[execution context].
 ====
 
 Corredor helpers are context-aware, meaning that they can automatically determine the base parameters required by the operation.

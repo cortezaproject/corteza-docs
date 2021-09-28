@@ -15,7 +15,7 @@ Refer to the xref:expr/index.adoc[] for details on writing expressions.
 ====
 Currently, you can only use values of the current record.
 References are not yet supported.
-If you need to reference data across multiple records, use xref:automation-scripts/index.adoc[automation scripts] or xref:workflows/index.adoc[workflows] instead,
+If you need to reference data across multiple records, use xref:automation/automation-scripts/index.adoc[automation scripts] or xref:automation/workflows/index.adoc[workflows] instead,
 ====
 
 .Available variables in the evaluation context:

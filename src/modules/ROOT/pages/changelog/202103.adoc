@@ -3,7 +3,7 @@ include::ROOT:partial$variables.adoc[]
 [#2021-3-x]
 = `2021.3`
 
-{PRODUCT_NAME} `2021.3` improves the stability and security of the system; and a lot of new features including a visual automation builder (xref:integrator-guide:workflows/index.adoc[{PRODUCT_NAME} {APP_NAME_WORKFLOW}]), support template management and rendering.
+{PRODUCT_NAME} `2021.3` improves the stability and security of the system; and a lot of new features including a visual automation builder (xref:2021.3@integrator-guide:workflows/index.adoc[{PRODUCT_NAME} {APP_NAME_WORKFLOW}]), support template management and rendering.
 {PRODUCT_NAME} also introduces an authentication server that conforms to the https://oauth.net/2/[OAuth2] protocol, which increases security and increases flexibility when it comes to authentication options.
 
 .[#2021_3-important]#<<2021_3-important,Important upgrade notes:>>#
@@ -238,7 +238,7 @@ The call stack limitation prevents implicit workflow invocations from running in
 *Contributors*: Jože Fortun (https://github.com/fajfa[GH]), Tomaž Jerman (https://github.com/tjerman[GH]), Denis Arh (https://github.com/darh[GH]), Mia Arh (https://github.com/zmija[GH]), Peter Grlica (https://github.com/petergrlica[GH])
 
 .[#2021_3_0-added]#<<2021_3_0-added,Added:>>#
-* Added support for low-code/no-code automation via xref:integrator-guide:workflows/index.adoc[{APP_NAME_WORKFLOW}]
+* Added support for low-code/no-code automation via xref:2021.3@integrator-guide:workflows/index.adoc[{APP_NAME_WORKFLOW}]
 * Introduced an authorization server with support for authorization code and client credential OAuth2 flows
 * Added support for document template management and rendering (HTML and PDF)
 * Added support for file encoding via envoy

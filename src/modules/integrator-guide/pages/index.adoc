@@ -16,7 +16,7 @@ For *authentication*, {PRODUCT_NAME} implements the OAuth2 protocol, where {PROD
 Refer to the xref:auth.adoc[authentication] section for details.
 
 For *access control*, {PRODUCT_NAME} implements a https://en.wikipedia.org/wiki/Role-based_access_control[RBAC facility] which allows you to fine tune access permissions to your needs.
-Refer to the xref:security.adoc[security] section for details.
+Refer to the xref:access-control.adoc[] section for details.
 
 == Personalize the design
 

@@ -12,6 +12,28 @@ include::ROOT:partial$variables.adoc[]
 Set the `CORREDOR_ENABLED=true` in your `.env` file if you wish to have it enabled.
 * {PRODUCT_NAME} Messaging is now deprecated and removed.
 
+== `2021.3.12`
+
+*Released on*: 2021-09-15
+
+*Contributors*: sgg-adraynrion (https://github.com/sgg-adraynrion[GH]), Jože Fortun (https://github.com/fajfa[GH]), Vivek Patel (https://github.com/vicpatel[GH]), Tomaž Jerman (https://github.com/tjerman[GH])
+
+.[#2021_3_12-added]#<<2021_3_12-added,Added:>>#
+* Added workflow email builder function to append recipients (https://github.com/cortezaproject/corteza-server/pull/241)
+* Added workflow iterator chunking to be able to process larger datasets
+
+.[#2021_3_12-changed]#<<2021_3_12-changed,Changed:>>#
+* Updated `count` expr function, will return length if executed with only one input
+
+.[#2021_3_12-fixed]#<<2021_3_12-fixed,Fixed:>>#
+* Fixed improper chart value extraction logic https://github.com/cortezaproject/corteza-js/commit/b9f87d79e7bec28d27a23974f4f2c238eb37f933
+* Fixed certain fonts not resolving on Firefox
+* Fixed page block title and description cutting off
+* Fixed record and user selectors cutting off
+* Fixed font-weight definition to support more browsers (https://github.com/cortezaproject/corteza-webapp-admin/commit/d24bf6034b6d6674ea0f598a392f9ae7defa8b7c)
+
+.[#2021_3_12-security]#<<2021_3_12-security,Security:>>#
+
 == `2021.3.11`
 
 .[#2021_3_11-important]#<<2021_3_11-important,Important upgrade notes:>>#
@@ -25,7 +47,6 @@ Set the `CORREDOR_ENABLED=true` in your `.env` file if you wish to have it enabl
 * Added the ability to enable split login form (1st step email, 2nd step password)
 * Added random and additional date manipulation expression functions (https://github.com/cortezaproject/corteza-server/pull/238[#238])
 * Added workflow support for messagebus/queue capabilities
-* Added workflow iterator chunking to be able to process larger datasets
 * Added workflow functions for role membership management
 * Added a deleted indicator when viewing a deleted workflow
 

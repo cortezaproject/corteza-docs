@@ -371,11 +371,9 @@ If the role was somehow removed or changed to the extent where the system can no
 If a role is assigned as a bypass, it may *not* appear as any other role type (such as an authenticated or anonymous).
 In the case where this is not the case, the system will refuse to start.
 
-Only members of the check-bypass role can modify members of that particular role.
-
-[NOTE]
+[IMPORTANT]
 ====
-*DevNote* ^ huh?
+Only members of the bypass role may manage the membership of the bypass role.
 ====
 
 Bypass roles can be listed on auth clients as permitted or prohibited roles but are *silently ignored* when defined under forced roles.

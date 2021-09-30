@@ -10,18 +10,19 @@ Refer to xref:accessing-corteza/ql.adoc#query-mv[menu:accessing {PRODUCT_NAME}[q
 [#page-block-automation]
 == Automation
 
-The automation page block allows your to show xref:automation/index.adoc#automation-application-general[general automation].
-The automation page block allows you to use both xref:automation/automation-scripts/index.adoc[automation scripts] and xref:automation/workflows/index.adoc[workflows].
+The automation page block allows you to show xref:automation/index.adoc#automation-application-general[automation with manual triggers].
 
 image::compose/pageblock-config-automation.png[...,50%,role="preview data-zoomable"]
 
-.If you can't see your automation scripts:
-* make sure there were no compilation errors,
+The automation page block allows you to use both xref:automation/automation-scripts/index.adoc[automation scripts] and xref:automation/workflows/index.adoc[workflows].
+
+.If you can't see your automation scripts make sure:
+* there were no compilation errors,
 * you refreshed your page after you've added the scripts,
 * the trigger defined a `.uiProp('app', 'compose')` constraint.
 
-.If you can't see your workflows:
-* make sure there the workflow doesn't have any errors,
+.If you can't see your workflows make sure:
+* there are no errors in the workflow,
 * the workflow has an `onManual` trigger,
 * the workflow is enabled.
 
@@ -34,12 +35,12 @@ image:compose/pageblock-config-calendar-base.png[...,49%,role="preview data-zoom
 image:compose/pageblock-config-calendar-es.png[...,49%,role="preview data-zoomable"]
 
 .Supported calendar views:
-* month view,
-* week view,
-* day view,
-* agenda view.
+* month view
+* week view
+* day view
+* agenda view
 
-Calendar page blocks support two event sources: *reminders* and *records*.
+Calendar page blocks support two event sources; *reminders* and *records*.
 
 The *reminders* event source allows you to show your reminders as a calendar event.
 
@@ -48,7 +49,7 @@ This allows you to have a module for storing tasks which you can then show on th
 
 [TIP]
 ====
-When using records, you can define a pre-filter, allowing you to show only specific records.
+When using records, you can define a pre-filter, which allows you to show only specific records.
 Refer to the xref:accessing-corteza/ql.adoc[QL reference] for details.
 ====
 
@@ -68,15 +69,15 @@ image::compose/pageblock-config-chart.png[...,50%,role="preview data-zoomable"]
 [#page-block-content]
 == Content
 
-The *content page block* allows you to show some static content on the page.
-This can be an important announcement, a how-to guide, or some other piece of information.
+The *content page block* allows you to show static content on the page.
+This can be an important announcement, a how-to guide, or any other piece of information.
 
 image::compose/pageblock-config-content.png[...,50%,role="preview data-zoomable"]
 
 [#page-block-file]
 == File
 
-The *file page block* allows you to upload static files to the page, such as a TOS, a work schedule, or a brochure.
+The *file page block* allows you to upload static files such as a TOS, a work schedule, or a brochure to the page.
 
 image::compose/pageblock-config-file.png[...,50%,role="preview data-zoomable"]
 
@@ -99,11 +100,12 @@ Defines how the files are presented when they are being viewed.
 [#page-block-iframe]
 == IFrame
 
-The *iframe page block* allows you to embed an external website inside your application.
+The *iframe page block* allows you to embed an external website into your application.
+//Editor's note: One or more external websites? If one, leave it as it is, if more is possible, change "an external website" into "one or more external websites".
 
 [IMPORTANT]
 ====
-Make sure to keep any *iframe embedding limitation* in mind; we are no exception.
+Make sure to keep any *iframe embedding limitation* in mind.
 ====
 
 image::compose/pageblock-config-iframe.png[...,50%,role="preview data-zoomable"]
@@ -112,7 +114,8 @@ image::compose/pageblock-config-iframe.png[...,50%,role="preview data-zoomable"]
 == Metric
 
 The *metric page block* allows you to display a calculated numerical value based on the data in your namespace.
-This is usually an indicator important to your process, such as the total finances in your sales pipeline, or the current number of open accounts.
+This is usually an indicator important to your process. 
+It may be information such as the total finances in your sales pipeline or the current number of open accounts.
 
 image::compose/pageblock-config-metric.png[...,50%,role="preview data-zoomable"]
 
@@ -121,16 +124,16 @@ image::compose/pageblock-config-metric.png[...,50%,role="preview data-zoomable"]
 |===
 | [#page-block-metric-label]#<<page-block-metric-label,Label>>#
 |
-The label defines what the metric shows.
+Defines what the metric shows.
 The label doesn't define any value restrictions, nor is it required.
 
 | [#page-block-metric-d-module]#<<page-block-metric-d-module,Dimension module>>#
 |
-The dimension module defines what records will be used when computing the metric.
+Defines what records will be used when computing the metric.
 
 | [#page-block-metric-d-filter]#<<page-block-metric-d-filter,Dimension filter>>#
 |
-The dimension filter defines how to filter the records when computing the metric.
+Defines how to filter the records when computing the metric.
 Refer to the xref:accessing-corteza/ql.adoc[QL reference] for details.
 
 [TIP]
@@ -140,19 +143,20 @@ The filter supports value interpolation.
 
 | [#page-block-metric-m-field]#<<page-block-metric-m-field,Metric field>>#
 |
-The metric field defines what numerical field will be used when computing the metric.
+Defines what numerical field is to be used when computing the metric.
 Each module has a system-defined `count` field, which represents the total number of records conforming to the specified filter.
 
 | [#page-block-metric-m-agg]#<<page-block-metric-m-agg,Aggregation operation>>#
 |
-The aggregation operation specifies how the values are aggregated when the metric is computed.
+Specifies how the values are aggregated when the metric is computed.
 You can pick one of the `count`, `sum`, `max`, `min`, or `avg` functions.
 
-| [#page-block-metric-m-trans]#<<page-block-metric-m-trans,Transform value>>#
+| [#page-block-metric-m-trans]#<<page-block-metric-m-trans,Value transformation>>#
 |
-The value transformation allows you to define how the result of the metric is transformed before shown in the page block.
+Allows you to define how the result of the metric is transformed before shown in the page block.
 
 They are written as simple JavaScript expressions that return a single number based on the two variables.
+//Editor's note: What does "They" refer to? Make sure the reference of They is clear and understood.
 
 [NOTE]
 ====
@@ -178,14 +182,14 @@ For example, the suffix of `USD/h` and the value of `1000` would result in the l
 
 | [#page-block-metric-m-style]#<<page-block-metric-m-style,Style>>#
 |
-The value styles allow you to define the visual aspects of how the metrics are shown.
+Allows you to define the visual aspects of how the metrics are shown.
 
 |===
 
 [#page-block-record-list]
 == Record list
 
-The *record list page blocks* allows you to display records in a table.
+The *record list page blocks* allow you to display records in a table.
 Record lists also provide the features for adding, importing, and exporting records.
 
 [IMPORTANT]
@@ -208,11 +212,11 @@ image::compose/pageblock-config-record-list-automation.png[...,50%,role="preview
 |===
 | [#page-block-rl-module]#<<page-block-rl-module,Module>>#
 |
-Defines the module that the record list will use when interacting with records.
+Defines the module that the record list is set to use when interacting with records.
 
 | [#page-block-rl-module-fields]#<<page-block-rl-module-fields,Module fields>>#
 |
-The module field selector allows you to define the fields and their order when displaying the table.
+Allows you to define the fields and their order when displaying the table.
 
 | [#page-block-rl-inline]#<<page-block-rl-inline,Allow inline record editing>>#
 |
@@ -225,21 +229,21 @@ This option is only available for *record pages*.
 
 | [#page-block-rl-add-hide]#<<page-block-rl-add-hide,Hide add record button>>#
 |
-Hides the btn:[+ Add record] button preventing you from adding new records from the user interface.
+Hides the btn:[+ Add record] button, which prevents you from adding new records from the user interface.
 
 [CAUTION]
 ====
 This does *not* prevent the records from being created if accessed from another user interface or by an automation.
 ====
 
-| [#page-block-rl-prefilter]#<<page-block-rl-prefilter,Prefilter records>>#
+| [#page-block-rl-prefilter]#<<page-block-rl-prefilter,Pre-filter records>>#
 |
-Defines the prefilter that is used when searching and displaying records in the record list.
+Defines the pre-filter that is used when searching and displaying records on the record list.
 Refer to the xref:accessing-corteza/ql.adoc[QL reference] for details.
 
 | [#page-block-rl-search-hide]#<<page-block-rl-search-hide,Hide search box>>#
 |
-Hides the search input box preventing you applying additional filters to the record list.
+Hides the _search input_ box, which prevents you from applying additional filters to the record list.
 
 [CAUTION]
 ====
@@ -258,7 +262,7 @@ When applying custom sorting from the table, the presort is overwritten.
 
 | [#page-block-rl-sort-hide]#<<page-block-rl-sort-hide,Hide sorting>>#
 |
-Hides the sort controls from the record list preventing you from modifying the initial sort.
+Hides the _sort controls_ from the record list preventing you from modifying the initial sort.
 
 [CAUTION]
 ====
@@ -271,15 +275,15 @@ Defines the maximum number of records that can be shown on a page.
 
 | [#page-block-rl-paging-hide]#<<page-block-rl-paging-hide,Hide paging>>#
 |
-Hides the paging controls from the record list preventing you from navigating between different pages.
+Hides the paging controls from the record list, which prevents you from navigating between different pages.
 
-| [#page-block-rl-paging-full]#<<page-block-rl-paging-full,Hide paging>>#
+| [#page-block-rl-paging-full]#<<page-block-rl-paging-full,Modify paging>>#
 |
-Modifies the previous/next page controls to include a list of available pages, allowing easier navigation between pages.
+Modifies the previous/next page controls to include a list of available pages, which allows easier navigation between pages.
 
 [CAUTION]
 ====
-We suggest you disable this option wen the module contains a large number of records.
+It is advisable that you disable this option when the module contains a large number of records.
 ====
 
 | [#page-block-rl-count]#<<page-block-rl-count,Show total record count>>#
@@ -288,7 +292,7 @@ Shows the total number of records that conform to the defined filters.
 
 [CAUTION]
 ====
-We suggest you disable this option wen the module contains a large number of records.
+We suggest you disable this option when the module contains a large number of records.
 ====
 
 | [#page-block-rl-export]#<<page-block-rl-export,Allow records export>>#
@@ -297,39 +301,39 @@ Enables the record export option and defines the btn:[Export] button in the head
 
 | [#page-block-rl-selection]#<<page-block-rl-selection,Allow record selection>>#
 |
-Adds a series of checkboxes on the record list, allowing you to perform operations over a selection of records.
+Adds a series of checkboxes on the record list, which allows you to perform operations over a selection of records.
 
 | [#page-block-rl-reminder-hide]#<<page-block-rl-reminder-hide,Hide record reminder button>>#
 |
-Hides the create reminder button preventing you from making record-based reminders directly from the record list.
+Hides the _create reminder_ button preventing you from making record-based reminders directly from the record list.
 
-When the feature is enabled, a reminder can be created by clicking on the reminder button next to the record.
+When the feature is enabled, a reminder can be created by clicking on the _reminder_ button next to the record.
 
 | [#page-block-rl-clone-hide]#<<page-block-rl-clone-hide,Hide record clone button>>#
 |
-Hides the clone record button preventing you from cloning records directly from the record list.
+Hides the _clone record_ button, which prevents you from cloning records directly from the record list.
 
-When the feature is enabled, a record can be cloned by clicking on the clone button next to the record.
+When the feature is enabled, a record can be cloned by clicking on the _clone button_ next to the record.
 
 | [#page-block-rl-edit-hide]#<<page-block-rl-edit-hide,Hide record edit button>>#
 |
-Hides the edit record button preventing you from opening the record editor directly from the record list.
+Hides the _edit record_ button, which prevents you from opening the record editor directly from the record list.
 
-When the feature is enabled, the record editor can be opened by clicking on the edit icon next to the record.
+When the feature is enabled, the record editor can be opened by clicking on the _edit_ icon next to the record.
 
 | [#page-block-rl-view-hide]#<<page-block-rl-view-hide,Hide record view button>>#
 |
-Hides the view record button preventing you from opening the record viewer directly from the record list.
+Hides the _view record_ button, which prevents you from opening the record viewer directly from the record list.
 
-When the feature is enabled, the record viewer can be opened by clicking on the view icon next to the record.
+When the feature is enabled, the record viewer can be opened by clicking on the _view_ icon next to the record.
 
 |===
 
 [#page-block-record-organizer]
 == Record organizer
 
-The *record organizer page blocks* allows you to define a series of columns (_stages_) that the record of a given module may reside in.
-The records are moved around using a drag-and-drop interface.
+The *record organizer page blocks* allow you to define a series of columns (_stages_) that the record of a given module may reside in.
+The records are moved around using the drag-and-drop interface.
 
 A single record organizer page block defines one column.
 Add additional record organizer page blocks to define additional columns.
@@ -341,11 +345,11 @@ image::compose/pageblock-config-ro.png[...,50%,role="preview data-zoomable"]
 |===
 | [#page-block-ro-module]#<<page-block-ro-module,Module>>#
 |
-Defines the module that the record list will use when interacting with records.
+Defines the module that the record list is to use when interacting with records.
 
-| [#page-block-ro-prefilter]#<<page-block-ro-prefilter,Prefilter records>>#
+| [#page-block-ro-prefilter]#<<page-block-ro-prefilter,Pre-filter records>>#
 |
-Defines the prefilter that is used when searching and displaying records in the organizer.
+Defines the pre-filter that is used when searching and displaying records in the organizer.
 Refer to the xref:accessing-corteza/ql.adoc[QL reference] for details.
 
 | [#page-block-ro-label]#<<page-block-ro-label,Label field>>#
@@ -359,7 +363,7 @@ Defines additional text that is used when displaying the record in the record or
 | [#page-block-ro-sort]#<<page-block-ro-sort,Record sort field>>#
 |
 Defines what field is used to define the order of the records.
-When a record is repositioned, all of the related records change the fields' value to represent the new order.
+When a record is repositioned, all of the related records change the value of the fields to represent the new order.
 
 | [#page-block-ro-key-f]#<<page-block-ro-key-f,Key field>>#
 |
@@ -368,15 +372,15 @@ When a record is repositioned, the value of the given field changes to represent
 
 | [#page-block-ro-key-v]#<<page-block-ro-key-v,Key value>>#
 |
-Defines what value the key field must have to be shown in the given column.
+Defines what value the key field must have to be shown in a given column.
 
 |===
 
 [#page-block-record]
 == Record
 
-The *record page block* allows you to display the records' contents on the *record page*.
-When creating or editing the record, record page blocks provide a way of inputting or manipulating the values.
+The *record page block* allows you to display the contents of the records on the *record page*.
+When creating or editing the record, record page blocks provide a way of input or manipulation of the values.
 
 [IMPORTANT]
 ====
@@ -387,13 +391,13 @@ image::compose/pageblock-config-record.png[...,50%,role="preview data-zoomable"]
 
 [TIP]
 ====
-You can define multiple record page blocks for the same record page, allowing you to group corresponding things together.
+You can define multiple record page blocks for the same record page, which allows you to group corresponding things together.
 ====
 
 [#page-block-sm]
 == Social media feed
 
-The *social media feed page block* allows you to embed the specified feed directly into your application.
+The *social media feed page block* allows you to embed a specified feed directly into your application.
 
 [NOTE]
 ====
@@ -402,8 +406,8 @@ Currently, only *Twitter feeds* are supported.
 
 When added on a *list page*, the specified feed is provided as a fixed URL address.
 
-When added on a *record page*, the specified feed is provided either as a fixed URL address, or as a URL field.
-Using a module field instead of a fixed value allows the social media feed to change depending on the context.
+When added on a *record page*, the specified feed is provided either as a fixed URL address or as a URL field.
+Using a module field instead of a fixed value allows a social media feed to change depending on the context.
 
 image::compose/pageblock-config-sf.png[...,50%,role="preview data-zoomable"]
 

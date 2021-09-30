@@ -1,14 +1,14 @@
 include::ROOT:partial$variables.adoc[]
 
-= Integrator Guidex
+= Integrator Guide
 
-The integrator guide covers the process of extending {PRODUCT_NAME} to cover your business needs.
-An integration can be as simple as the modification of the login screen to include your brand graphics, or as complex as the implementation of a completely custom {APP_NAME_COMPOSE} application.
+The integrator guide covers the process of extending {PRODUCT_NAME} to cover your business' needs.
+An integration can be as simple as the modification of the login screen to include your brand graphics or as complex as the implementation of a completely custom {APP_NAME_COMPOSE} application.
 
 This guide briefly goes over some administration aspects.
-For a complete insight into system administration (roles and RBAC permissions) refer to the xref:administrator-guide:index.adoc[]
+For a complete insight into system administration (roles and RBAC permissions) refer to the xref:administrator-guide:index.adoc[].
 
-If you haven't yet setup your {PRODUCT_NAME} instance, refer to the xref:devops-guide:index.adoc[DevOps guide].
+    In case you haven't yet setup your {PRODUCT_NAME} instance, refer to the xref:devops-guide:index.adoc[DevOps guide].
 
 == The security model
 
@@ -18,62 +18,64 @@ Refer to the xref:auth.adoc[authentication] section for details.
 For *access control*, {PRODUCT_NAME} implements a https://en.wikipedia.org/wiki/Role-based_access_control[RBAC facility] which allows you to fine tune access permissions to your needs.
 Refer to the xref:security.adoc[security] section for details.
 
-== Personalize the design
+== Personalization of the design
 
-The login screen can be completely personalized to match your brand and give your users a piece of mind when entering their credentials.
+The login screen can be completely personalized to match your brand and to give your users a piece of mind when entering their credentials.
 Refer to the xref:personalization/auth.adoc[menu:personalization[authentication]] section for details.
 
 [TIP]
 ====
-It is a good idea to include your brand graphics where your {PRODUCT_NAME} instance will be accessed by external users.
+It may be a good idea to include your brand graphics where your {PRODUCT_NAME} instance will be accessed by external users.
 ====
 
 To personalize other {PRODUCT_NAME} web applications, you need to do so in the source code and rebuild your custom web application manually.
 
-*DevNote*: add some documentations about this.
+//*DevNote*: add some documentations about this.
+//Editor note: add the documentation as necessary
 
 == Access {PRODUCT_NAME} via the API
 
 {PRODUCT_NAME} is API-centric, meaning that everything can be done via an API endpoint.
-Refer to the xref:accessing-corteza/index.adoc[accessing {PRODUCT_NAME}] sections for details regarding xref:accessing-corteza/index.adoc#authentication[authentication], xref:accessing-corteza/index.adoc#api-endpoints[API endpoints], xref:accessing-corteza/index.adoc#response-format[data format], and the xref:accessing-corteza/ql.adoc[query language].
+Refer to the xref:accessing-corteza/index.adoc[accessing {PRODUCT_NAME}] sections for details regarding to xref:accessing-corteza/index.adoc#authentication[authentication], xref:accessing-corteza/index.adoc#api-endpoints[API endpoints], xref:accessing-corteza/index.adoc#response-format[data format], and the xref:accessing-corteza/ql.adoc[query language].
 
-If you wish to connect an external application with {PRODUCT_NAME} in order to exchange data, you can use our xref:accessing-corteza/api-clients.adoc[Node.js API clients].
+If you wish to connect an external application with {PRODUCT_NAME} in order to exchange data, you are able to do so by using our xref:accessing-corteza/api-clients.adoc[Node.js API clients].
 
-== Create a custom {APP_NAME_COMPOSE} app
+== Creating a custom {APP_NAME_COMPOSE} app
 
-To create your own {APP_NAME_COMPOSE} app is as easy as telling {PRODUCT_NAME} what data you wish to store, how the data is related, and how it should be displayed.
-
-Refer to the xref:compose-configuration/index.adoc[{APP_NAME_COMPOSE} configuration] to get the basic understanding of the different components, what they do and how they are configured.
+Refer to the xref:compose-configuration/index.adoc[{APP_NAME_COMPOSE} configuration] to get the basic understanding of the different components, what they do, and how they are configured.
 
 Refer to the xref:compose-configuration/field-types.adoc[menu:{APP_NAME_COMPOSE} configuration[module field types]] sub section for an overview of the supported field types and their configuration options.
 
 Refer to the xref:compose-configuration/index.adoc[field expressions] sub section to learn how you can define xref:compose-configuration/index.adoc#value-expressions[value expressions (formula fields)], custom xref:compose-configuration/index.adoc#value-sanitizers[value sanitizers] and xref:compose-configuration/index.adoc#value-validators[validators].
 
-== Automate your process
+== Automating your process
 
 {PRODUCT_NAME} provides a powerful automation facility that allows you to implement nearly anything!
 Automation is defined either via xref:automation/workflows/index.adoc[workflows (menu:automation[workflow])] or xref:automation/automation-scripts/index.adoc[automation scripts (menu:automation[automation script])].
 
-A *workflow* is a simplified BPMN diagram, allowing you to describe the automation in a human-friendly manner.
-A workflow is the recommended way to implement an automation as they are easier to read and maintain.
+A *workflow* is a simplified BPMN diagram, which allows you to describe the automation in a user-friendly manner.
+A workflow is the recommended way of implementing an automation.
+Workflows are easier to read and maintain.
 
-An *automation script* is a piece of JavaScript code that performs the desired operation.
+An *automation script* is a piece of JavaScript code that performs a desired operation.
 
 [CAUTION]
 ====
-If the automation requires multiple complex operations that are not natively supported by the workflow engine, an automation script may be a better choice.
+When the automation requires multiple complex operations that are not originally supported by the workflow engine, an automation script is a better choice.
 ====
 
-== Create custom documents
+== Creating custom documents
 
 [IMPORTANT]
 ====
 To enable PDF document rendering, you will need to run the https://thecodingmachine.github.io/gotenberg/[gotenberg] Docker container.
 
 *DevNote*: add instructions on how to setup.
-====
 
-{PRODUCT_NAME} defines a flexible template facility, allowing you to define custom documents (such as marketing emails and PDF quotes) that you will send to your contacts.
+====
+//Editor note: add instructions on how to set up! (line 73)
+
+{PRODUCT_NAME} defines a flexible template facility, which allows you to design custom documents (such as marketing emails and PDF quotes) that you send to your contacts.
 The template facility currently supports *PDF*, *HTML*, and *plain text* formats.
 
 Refer to the xref:templates/index.adoc[templates] section to overview the process of defining a template and rendering a document.
@@ -84,8 +86,9 @@ You can request document rendering from external applications via the REST API.
 
 *DevNote*: add a reference to the endpoint.
 ====
+//Editor note: add a reference to the endpoint! (line 87)
 
 == Do you need help or have suggestions?
 
 Get in touch with us on our https://forum.{DOMAIN}[forum].
-Feedback, questions, and suggestions are always welcome!
+Any feedback, questions or suggestions are always welcome!

@@ -12,18 +12,18 @@ Active voice *identifies the subject* that has performed the given action; for e
 > To configure external login providers go into the administration panel, authentication and configure ...
 
 This style makes the *reader more involved* and therefore makes it friendlier and *more comfortable to read*.
-It also makes it a bit *shorter*.
+It also makes the sentence a bit *shorter*.
 
 There are *some exceptions* to using the active voice.
 
 .Use the passive voice:
 * When you *talk about errors*; the active voice can suggest blaming the user.
-* When it *shortenes* the message.
+* When it *shortens* the message.
 * When *the subject isn't and doesn't need to be recognised*.
 This includes sentences in which you wish to identify the first person.
 ** This often overlaps with the use of tense.
 
-To examplify observe the difference in tone the below sentences;
+To exemplify observe the difference in tone the below sentences;
 
 _I/we have defined this feature that can be used to ..._
 
@@ -67,7 +67,7 @@ Does the average person from your target audience know what you are talking abou
 If you are unsure, either provide a brief explanation of the concept you are talking about or direct the reader to previous documents.
 It is better to repeat then to have your readers confused.
 
-Another thing to keep in mind is that *you are not writing for a friend*; make sure the reflects that.
+Another thing to keep in mind is that *you are not writing for a friend*; make sure the documents you write reflect that.
 Avoid using stylistically marked expressions, emojis, etc.
 
 == Follow the KISS principle!
@@ -80,9 +80,9 @@ Get *straight to the point* and tell the readers *exactly what they want to know
 
 == Keep things structured
 
-When reading, people usually *skim through the content* or stop altogether what they are *looking for* has been found.
+When reading, people usually *skim through the content* or stop altogether when what they are *looking for* has been found.
 
-If we *don't do any separation* between different parts it *all becomes one big blob* of text.
+If we *don't make any separation* between different parts it *all becomes one big blob* of text.
 If we *split things too much* our readers *might miss* any essential bits.
 
 Things that *make sense together* should *stay together*, something that does not make sense together should not stand together. 
@@ -111,4 +111,4 @@ Keep in mind that *UI changes* will require these images to be *updated*.
 == Use syntax checkers (and semantics checkers)
 
 Typos happen.
-There are a lot of great free tools, as well as some paid ones, that provide you with various types of suggestions for change and greater grammaticality of the text in production.
+There are a lot of great, free tools, as well as some paid ones, that provide you with various types of suggestions for change and greater grammaticality of the text in production.

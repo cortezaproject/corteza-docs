@@ -20,7 +20,7 @@ Consistency is crucial.
 It may be good to:
 
 .Visually group
-Make sure you group components that fit together, i.e., discussions of the same concept, concept and an example, subpoints and tips...
+Make sure you group components that fit together, i.e., discussions of the same concept, concept and an example, sub-points and tips...
 
 [NOTE]
 ====
@@ -29,8 +29,8 @@ It is better to add a section than to compromise on coherency and fluidity of th
 ====
 
 .Drawing attention to crucial points
-* Use *bold*, *italic*, *links*, *inline code blocks*, and other formatting to point out crucial points you make.
-* *Do not go overboard*, as highlighting excessively results in the decrease of attentitivenes to a highlighted sections.
+* Use *bold*, *italic*, *links*, *inline code blocks*, and other formatting to point out any crucial points you make.
+* *Do not go overboard*, as highlighting excessively results in the decrease of attentiveness to any highlighted sections.
 
 == Lists
 
@@ -40,8 +40,8 @@ Try to keep lists *short*, as they can make the document harder to read.
 .Punctuation:
 * If a list item is a *proper sentence*, start with a *capital letter*, and end with a *period*.
 * If a list item is *not* a *proper sentence*, start with a *lowercase letter*, and (optionally) end with a *comma*.
-In case you choose to use commas, start the first item with a capital letter end the last one with a period. 
-* If the entire list is one sentece broken down into clauses for each point, make sure to start the first list item with a capital letter, finish up the point with a comma, continue with a lowercase letter in the following point, finish it up with a comma and so on.
+In case you choose to use commas, start the first item with a capital letter and end the last one with a period. 
+* If the entire list is one sentence broken down into clauses for each point, make sure to start the first list item with a capital letter, finish up the point with a comma, continue with a lowercase letter in the following point, finish it up with a comma and so on.
 Wrap the list up with a period.
 * Do not mix sentence patterns when producing a list.
 
@@ -235,7 +235,7 @@ You can also use *anchors* in your `xref`s.
 
 Same page references::
     *Same page references* allow us to link in the same documentation section.
-    use the simple page ID reference syntax (https://docs.antora.org/antora/2.2/asciidoc/in-page-xref/[The Antora documentation]):
+    Use the simple page ID reference syntax (https://docs.antora.org/antora/2.2/asciidoc/in-page-xref/[The Antora documentation]):
 
 [source,adoc]
 ----
@@ -259,7 +259,7 @@ Same page references are simple::
 Keep section IDs simple::
     Section IDs are relevant *only for the given page*.
     They don't need to be *unique* across the entire documentation, just *for the current page*.
-    To examplify; `[#extension-deployment]`
+    To exemplify; `[#extension-deployment]`
 
 Don't go overboard::
-    If somesomething is *required for the understanding* of the given section, add a *quick summary* and link to the complete document afterwards.
+    If something is *required for the understanding* of the given section, add a *quick summary* and link to the complete document afterwards.

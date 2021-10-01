@@ -40,7 +40,7 @@ All memberships and RBAC rules are transferred to the updated role IDs.
 
 *Released on*: TBD
 
-*Contributors*: Tomaž Jerman (https://github.com/tjerman[GH]), Peter Grlica (https://github.com/petergrlica[GH]), Mia Arh (https://github.com/zmija[GH]), Denis Arh (https://github.com/darh[GH]), Katrin Yordanova (https://github.com/katrinDY[GH]), Jože Fortun (https://github.com/fajfa[GH]), Vivek Patel (https://github.com/vicpatel[GH]), Matija Rešek (https://github.com/resek[GH]), Bill Ewanick (https://github.com/billewanick[GH]), Mario Burazer (https://github.com/MarioBur[GH])
+*Contributors*: Tomaž Jerman (https://github.com/tjerman[GH]), Peter Grlica (https://github.com/petergrlica[GH]), Mia Arh (https://github.com/zmija[GH]), Denis Arh (https://github.com/darh[GH]), sgg-adraynrion (https://github.com/sgg-adraynrion[GH]), Katrin Yordanova (https://github.com/katrinDY[GH]), Jože Fortun (https://github.com/fajfa[GH]), Vivek Patel (https://github.com/vicpatel[GH]), Matija Rešek (https://github.com/resek[GH]), Mario Burazer (https://github.com/MarioBur[GH]), Bill Ewanick (https://github.com/billewanick[GH])
 
 .[#2021_9_0-added]#<<2021_9_0-added,Added:>>#
 * Added support for internationalization of {PRODUCT_NAME} web applications (https://github.com/cortezaproject/corteza-server/pull/237[#237], {SERVER_COMMIT_BASE}31132570[`31132570`], {WEBAPP_COMPOSE_COMMIT_BASE}e4eb28b8[`e4eb28b8`], {WEBAPP_ONE_COMMIT_BASE}c3ff0ae1[`c3ff0ae1`]), as well as for some user-provided resources ({APP_NAME_COMPOSE} modules, namespaces, and pages) ({SERVER_COMMIT_BASE}46a7d94d[`46a7d94d`]).

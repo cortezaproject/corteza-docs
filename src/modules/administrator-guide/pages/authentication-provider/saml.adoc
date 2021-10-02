@@ -2,35 +2,107 @@ include::ROOT:partial$variables.adoc[]
 
 = SAML
 
-.To enable SAML authentication, you need to retrieve your application credentials from your IDP:
-. use the public and private keys from the certificate you created/exported on your IDP,
-. add an *IDP URL*,
-. set the *Identity payload name* field, this will be used to populate the new user metadata, usually `name`,
-. set the *Identity payload handle* field, this will be used to populate the new user metadata, usually `nickName` or `handle`,
-. set the *Identity payload default identifier* field, this will be used to identify the new user (this should also be set onyour IDP), usually `emailAddress`.
+== Configuration
 
-[IMPORTANT]
+To enable SAML authentication, you need to exchange credentials from your IdP.
+Configuration process involves optional key generation and setting up IdP in the Admin panel.
+
+=== Generating private and public key pair
+
+[NOTE]
 ====
-Certificate's public and private keys must be in a single line format, end of lines should be marked with *LF character* (`\n`)
+This step is optional.
+You can use your existing key pair for setting up SAML.
 ====
 
-.Example of a private key:
-[source,txt]
+.Minimum required commands for generating private and public keys used for SAML authentication.
+[source,shell script]
 ----
------BEGIN PRIVATE KEY-----\nMIIEvgIBA… …gL4\n-----END PRIVATE KEY-----\n
+openssl req -x509 -sha256 -nodes -days 365 -newkey rsa:2048 \
+  -keyout private.key \
+  -out certificate.crt \
+  -subj "/CN=corteza.your-server.com" <1>
+
+openssl rsa -in private.key -out private-rsa.key <2>
+
+cat certificate.crt private-rsa.key <3>
 ----
+<1> Generates new key pairs
+<2> Converts private key to RSA format
+<3> Prints out both relevant keys you can copy
 
 .Example of a public key:
 [source,txt]
 ----
------BEGIN CERTIFICATE-----\nMIIDITCCAgmgAwIBAgIUK… …JB5EkD4M6A==\n-----END CERTIFICATE-----\n
+-----BEGIN CERTIFICATE-----
+MIICwDCCAagCCQDbTNd4i3X/4zANBgkqhkiG9w0BAQsFADAiMSAwHgYDVQQDDBdj
+b3J0ZXphLnlvdXItc2VydmVyLmNvbTAeFw0yMTEwMDIwNzAwNDVaFw0yMjEwMDIw
+NzAwNDVaMCIxIDAeBgNVBAMMF2NvcnRlemEueW91ci1zZXJ2ZXIuY29tMIIBIjAN
+BgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAzb6QFbaa0IOpso8ZyhhWW6P2nwDn
+N08LTFtHvRl0y0rspz2/PX5DSkUV+4I5Q2La21BZ8WAm28Ttr3BuUVQsnfDzPbSo
+FSdgZYXcJXxeuaumwwtxpHpayvZj8zs0hyaie3diEMX7uqpGs/dL0pCTNmaI8nMo
+LMjqJnYlQCz/HAUC5wrQHflfbLy8LA6KpCJuuTrFZGaMSIhW74HCYyp+2jTc6G1N
+pxwBnwEqMy4RrYi5Mgn3GCPxo2LnSq3SVIurd5KLZb65YWHqAR4dKEncmdvVIbtS
+8s9OgluSL6eXL364gXWW0DPs7saJdd8qclOfNI21Z4wr0PMVk9pyxSEvewIDAQAB
+MA0GCSqGSIb3DQEBCwUAA4IBAQBnfhceUSfyRPZjrDixTcilyz8eLoWGOAqIsAOQ
+Ai/D6/3mGLMOrIzEfhfkx7yHzwz0RnxNSxr6zdMf2vwWv8uCqf4oii51CXV3XllD
+JnXVZjxjzuQbbQUaLHESx3qGpkWDrjMCqkLxTtLyQhG4oHT+re3C5sTodofyPc0Z
+FiizNUs9CrdTmjUb43BpDyIZT9CXYbq75VHY/UB/ZtKBmD0PS524CTjegQ66BvW4
+rL6Rri8GYpcnFNXZXGvJYeJOMT4U8nP5Bqo0bTV7YiRdx4pqVtroFFh304N4q7gl
+aDlfJubiocv/fc4BiqCt/5cPiypAmR5mSTN2x5RjLBGqLhBN
+-----END CERTIFICATE-----
 ----
 
-[NOTE]
-====
-The *Identity payload* fields are present in the IDP to SP communication on user registration/login.
-The above values follow the industry standard, but you should consult your IDP-specific documentation on what is provided as part of user data.
-====
+.Example of a private RSA key:
+[source,txt]
+----
+-----BEGIN RSA PRIVATE KEY-----
+MIIEowIBAAKCAQEAzb6QFbaa0IOpso8ZyhhWW6P2nwDnN08LTFtHvRl0y0rspz2/
+PX5DSkUV+4I5Q2La21BZ8WAm28Ttr3BuUVQsnfDzPbSoFSdgZYXcJXxeuaumwwtx
+pHpayvZj8zs0hyaie3diEMX7uqpGs/dL0pCTNmaI8nMoLMjqJnYlQCz/HAUC5wrQ
+HflfbLy8LA6KpCJuuTrFZGaMSIhW74HCYyp+2jTc6G1NpxwBnwEqMy4RrYi5Mgn3
+GCPxo2LnSq3SVIurd5KLZb65YWHqAR4dKEncmdvVIbtS8s9OgluSL6eXL364gXWW
+0DPs7saJdd8qclOfNI21Z4wr0PMVk9pyxSEvewIDAQABAoIBACLk3fUAylLw8Zf6
+EyqmZAcY0Nv4wD4uJsFlfc5BggB0jZxzqXqZbnorK2ZDmMin/GxTvV1lrFF7ncAy
+dlNOzl5fHjHp8NPdoMi3IjYtWLduuFK+HyEBK2Le1ObMtMTzNX1xKu2jVmU7OdCN
+8YsdwAnq6/EKvNaToLqzMPAocX/jv7DDGUJ1r6LWwelV+RW6fbWHV9alnOwOQoPt
+4o8r3+ZCLz1YsI+qW9cUBcbos1dkKxY9CdBtdtmFhUb+/tTx9/JRb6W+XJEAgCEM
+/xxsu6pKdr9+Rc1YrwgMaMvDRzDQhe6eJM+l84W7axmqm07iuAuOFSE/b8yev/4e
+8izw4fECgYEA9G6y/pk9fGxGgE3PRWVqq3/VsVNfNNjOMFUpFlQ3GlA+t0hSC+TU
+XpxOufOI6WmV6bj+iVbhQk5iFTmW0+UeS+jHFSr0uzyavag6UJz8EuQfozAonkT2
+AXtB9/85MWLo/Eo+CoIhofM+SEKBvcyrx6e+Mn+zEKssWAo5dh9Gd8MCgYEA13so
+ZSnT/7vLaWZwCt2rxqHpnmWFwDF9nBWgiyT7ea3dym4DfXMTKIomqTVK9Vzbd9Oy
+CmJols2otHtaV96hSi1z9tvfy/6om1k1ms75rFf4GatBjrVMzB/HtE2uGuWsW8Ez
+F9BwDU9wX9qs+jCnG0fZm0nzef3lOHZIj3qlJekCgYBbzW/Am4EyR+A6s/6Sy8JC
+YyK5FNz/FiZqlLF3x21inpzPbYQTH4B7gC05PbRAJf296FMA9fZoVtQTsKtrLfQx
+Al4zHw0HfX2ImbQ9Lpil57PSMHYw6ymR6N8f62VpnQJwLtoaTEGhd5/+t6vOwx4J
+QID4qmlwazmeX0ixipGGzQKBgQCq10JXsqoaf9HuZwE+HDIs8gI/S06X6qUkMyFu
+MIwRFQBblo290JbH9YBhd5dOoah/gKAQC6XQqo2vSn1+XUyTeyYN+pWdLvKO+FO/
+wYnCUpyp/VWkx6lzzV6QXWZEfQQCW1Me9mtgojL+TGoIkrpqrrSgoikf92TdNyqg
+VyTIwQKBgGtVa5aJEhau3XUWKUAQbv95QDUNfP9PLs5jHhfflxVkAxlpMc9G4pNV
+6mXFSsl8fnvg3HCmSr4rpV5QHUzvdKgbPkMQ8mUEONn/7ad4Xhsxeoz0xS5a8Tub
+XhV4F/ngKrnQgxp47BCdNe0vC5Z44OImPpvQBsZ5PueqW+Pr5JHO
+-----END RSA PRIVATE KEY-----
+----
+
+=== Setting up IdP in the administration panel
+
+Open your administration panel and navigate to System/Settings.
+
+.SAML settings in the administration panel, System/Settings
+image::authentication-provider/admin-settings.png[Screenshot of the configuration window.]
+
+.Notes on SAML configuration form:
+. If you (temporarily) disable your SAML IdP all settings are kept in Corteza.
+Users will no longer be able to use SAML for login.
+All active login sessions created using SAML are kept - users will not be logged-of
+. Name is displayed on the login form (see below)
+. Identity provider URL must point to the URL that serves provider's metadata.
+Metadata is an XML document providing machine-readable instructions for SAML configuration
+. Name, handle and identifier fields aid in the user creation process.
+When user successfully logs-in using SAML, Corteza performs a lookup using value from identifier field. Value is expected to be an email.
+Values from name and handle are used when creating a new user.
+
 
 .{PRODUCT_NAME} will try to guess the *identifier* among one of:
 * default identifier as defined in settings
@@ -39,3 +111,17 @@ The above values follow the industry standard, but you should consult your IDP-s
 * `urn:oasis:names:tc:SAML:attribute:subject-id`
 * `email`
 * `mail`
+
+[NOTE]
+====
+The above values follow the industry standard, but you should consult your IdP-specific documentation on what is provided as part of user data.
+====
+
+
+=== Login screen with SAML enabled
+
+image::authentication-provider/login-screen.png[Screenshot of the login screen.]
+
+When selecting "Login with Example IdP" (or appropriate button in your scenario), user enters SAML authentication flow.
+Service (Corteza) and identity (IdP) providers exchange information.
+User is automatically redirected back to Corteza after successful log-in on the IdP.

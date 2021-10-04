@@ -1,0 +1,131 @@
+== Service Solution
+Corteza Service Solution is one of the prebuilt applications available when a new Corteza Instance is created. The service solution is highly customizable, scalable, and open source allowing for unrivalled control over customer cases.
+
+.Block image
+image::Images/home-page.png[role="data-zoomable"]
+
+To access the Service Solution select it from the available application page. `
+
+
+.A list of available processors:
+[cols="1s,5a"]
+|===
+| [#filters-proc-wfexec]#<<filters-proc-wfexec,Workflow processer>>#
+|
+The workflow processor allows you to bind a xref:automation/workflows/index.adoc[workflow] to the endpoint.
+
+[NOTE]
+====
+*DevNote* better describe how workflows need to look like, the response, ...
+====
+
+| [#filters-proc-payloadproc]#<<filters-proc-payloadproc,Payload processer>>#
+|
+The payload processor allows you to handle the request's payload with the help of JavaScript.
+
+Refer to the <<js-processing,JavaScript processing>> section for more details.
+
+|===
+`
+
+== Home
+The Home page is a dashboard for your business 
+ 
+
+It provides information on the newest cases entering the system as well as charts providing information on new cases per month, closed cases per month, cases by priority and cases by status.
+
+== Cases
+This page provides an overview of the cases entering the Service Solution. The chart on the left of the page provides a breakdown of cases entering the solution by priority. On the right of the page we see a record list containing a number of cases, Corteza allows for powerful filtering and permission options so this list can be easily customized to only show relevant cases to each user.
+  
+There are three pages dedicated to cases:
+
+=== Cases
+Which provide an overview of all cases in the system
+
+=== All new cases
+
+which only show cases which have the status of “New”
+
+==== My New Cases 
+which only show cases which are assigned to the currently logged in user.
+Record Page for Cases
+To see a more detailed view of a certain case simply click on the case in the record list. This will lead to the record page for the case. 
+ 
+This record page provides a fully detailed look at each individual case. The key parts of a case are as follows
+Case Description
+This is where you find the base information regarding a case, its status, priority, and a related product.
+Case Details
+This is where you can find related fields, such as the account that raised the case, the contact of the case, the internal owner of the case and the cost of the case.
+Updates
+All the updates related to the case are kept here. It can be anything from receiving updates from the clients to us contacting the client and gives you a clear picture of what is going on. It is possible to add a new update by clicking on the "Add Update to this Case" button.
+Knowledge Base
+This is where you can quickly search through the knowledge base to find relevant information in order to get a better understanding of the task at hand.
+The record page also includes automation buttons which trigger Workflows (Link to workflow page). When these workflows are executed, they perform the function displayed on the button, in this case the “Send Email for this case with custom reason”.  
+By pressing the button, we can see that a dialogue pop up appears, simply enter the reason, and click submit and Corteza will send the email.
+Adding a new case
+To add a new case to the Solution, click on the + Add button on the Cases page to open a new record page.
+ 
+Accounts
+To access the accounts page, click Accounts on the home page navigation bar.
+ 
+Accounts are any existing entity that you currently do business with.
+Each account also has a total cost of cases attributed to it and this is displayed in the chart below.
+The Accounts record page
+The Accounts record page contains all the information about the account.
+ 
+The Accounts page also shows the Cases related to the Account.
+ 
+Contacts
+The contacts page is a subpage under Accounts.
+ 
+The contacts page presents information on specific contacts such as first name, last name, email, phone number, the linked account name, and the contact owner. The created at record is a system field of Corteza which 
+The contact record pages can be accessed by clicking on a record. 
+Contact record page
+
+The contact record page contains a more detailed look at the individual record.
+ 
+The record page contains standard information such as first name, last name, and email address. The record page also contains related records, in this instance Account name and Contact owner. 
+Entitlements
+ 
+The entitlements page shows which entitlements each account has access to based on the product purchased, the name of the entitlement and the various types of support available. The record page can be accessed by clicking the record on the table.
+Entitlements record Page
+The entitlements record page shows detailed information about the specific entitlement such as the product related to it, the type of support given in the entitlement and the period that the support is offered for.
+ 
+Product
+The product page displays information on the products you offer to customers. The products page offers a quick and convenient view of all the products you offer and a convenient method of accessing the entitlement template. This list can easily be added to in the case you wish to offer more products to customers. 
+ 
+By clicking on the record, you can navigate to the specific product record page.
+The chart on the right-hand side displays the amount of time spent on supporting specific product families as each product family has a support entitlement. 
+The chart below displays the total cost of cases accrued by the different product families.
+Product Record Page
+ 
+The product record page allows a new product to be created and the information about the product can be modified. If you wish to attach a picture or manual of the product this can easily be done by uploading the file using the buttons provided.
+Entitlements Template
+Here we see a list of the Entitlements Templates. 
+ 
+Each Template has a name, type of support offered, a term that is in numbers and the term type. To get a more detailed view of the desired template simply click on the template in the record list.
+ 
+This will navigate to the template record page. The template record shows the relevant information on the left. The block on the right-hand side shows a list of products that use this entitlement template.  
+
+This page allows you to quickly navigate to the product which uses the selected entitlement template.
+Knowledge Base
+The knowledge base provides a location to keep detailed notes regarding specific cases. 
+ 
+From this list the desired knowledge base record can be selected by clicking on the desired record. This will navigate to the record page of that record.
+The chart below displays the number of new Knowledge Base articles created per day.
+Knowledge base record page
+ 
+This is the record page for an entry to the Knowledge base. Standard information is found in the block on the right of the page. The middle of the page contains information about the record being viewed such as the record ID, title, and the content of the record. The right-hand side of the page show cases which reference this record.
+Departments
+Your organisation may have multiple departments which handle cases regarding different topics such as marketing or engineering. These departments may have massively different cases that require different knowledge and as such different rates apply to different departments.
+ 
+The Departments page provides an overview of the different departments within your organisation, the employees in each department, the cost of the department for an hour, the total time spent on all cases and the cost of all cases. The pie chart on the right of the page provides a breakdown of the total time spent per department.
+The chart below displays the total case costs per department this is because each case can have multiple departments assigned to it and each department may have a different cost per hour.
+To access a department record page, simply click on the desired record in the table and Corteza will navigate to the record page. 
+Department Record Page
+ 
+The record page consists of department details such as the name of the department, which employees are in the department and the rate for the department to do work for an hour. The right-hand side shows the total time and costs of all cases the department has worked on and the departments they have worked on cases with. The list below lists the case updates which the department has been a part of.
+Dashboard
+The dashboard provides a convenient location to gain a high-level view of the various pages of the case management solution. The dashboard is highly configurable to the needs 
+ 
+

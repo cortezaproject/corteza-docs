@@ -238,6 +238,12 @@ image::workflow/expr-example-end.png[role="data-zoomable"]
 A *function step* image:workflow/function.svg[width=20px] defines what operation should be performed when the function step is executed.
 Think of this as defining a macro in Spreadsheets.
 
+[IMPORTANT]
+====
+If you're using logging functions, make sure to correctly set your environment variables.
+Refer to the xref:devops-guide:logging.adoc[DevOps guide] for details.
+====
+
 .Examples of usage:
 * create a new quote for an account,
 * send an email notification to your mailing list,

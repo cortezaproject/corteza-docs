@@ -1,0 +1,171 @@
+include::ROOT:partial$variables.adoc[]
+
+= Logging
+
+Logging can be configured in the `.env` file using the `LOG_*` variables.
+
+== Log levels
+
+[NOTE]
+====
+`LOG_DEBUG=true` acts like setting `LOG_LEVEL=ALL`
+====
+
+[cols="1s,5a"]
+|===
+| [#log-level-all]#<<log-level-all,ALL>>#
+|
+The `LOG_LEVEL=ALL` logs all system and custom defined log levels.
+
+| [#log-level-debug]#<<log-level-debug,DEBUG>>#
+|
+The `LOG_LEVEL=DEBUG` logs diagnostic information in a verbose, detailed manner.
+The log level should be used for testing, diagnostic, and troubleshooting purposes.
+
+| [#log-level-info]#<<log-level-info,INFO>>#
+|
+The `LOG_LEVEL=INFO` logs informative outputs of the system, such as services stopping or starting.
+The log level can be used to describe what a particular task has done, such as what data it has accessed and what interactions it performed.
+
+| [#log-level-warn]#<<log-level-warn,WARN>>#
+|
+The `LOG_LEVEL=WARN` logs unexpected issues that may occur when the particular service isn't sure on what it should do with the input or the provided data is malformed.
+The log level is used when the system functions correctly, but the issue should be looked into.
+
+| [#log-level-error]#<<log-level-error,ERROR>>#
+|
+The `LOG_LEVEL=ERROR` logs unexpected issues that prevent the system from functioning properly, such as inability to access files, other {PRODUCT_NAME} services, or external services.
+The log level is used when the issue is blocking the system from functioning properly, and it should be addressed as a priority.
+
+| [#log-level-dpanic]#<<log-level-dpanic,DPANIC>>#
+|
+Reserved; unused.
+
+| [#log-level-panic]#<<log-level-panic,PANIC>>#
+|
+Reserved; unused.
+
+| [#log-level-fatal]#<<log-level-fatal,FATAL>>#
+|
+The `LOG_LEVEL=FATAL` logs unexpected issues which may cause a serious problem or a corruption to happen.
+The log level is used to indicate a catastrophic state of the system, which must be addressed on a priority.
+
+| [#log-level-off]#<<log-level-off,OFF>>#
+|
+If both logging `.env` variables are not set (`LOG_DEBUG` and `LOG_LEVEL`), logs are not recorded.
+|===
+
+== Env variables:
+[source,.env]
+----
+# Logging level we want to use (values: debug, info, warn, error, dpanic, panic, fatal)
+# Minimise the logging level. If set to "warn", Levels warn, error, dpanic panic and fatal will be logged.
+LOG_LEVEL=debug
+
+# Disables JSON format for logging and enables more human-readable output with colors.
+# Disable for production.
+LOG_DEBUG=true/false
+
+# Log filtering rules by level and name (log-level:log-namespace).
+# Please note that level (LOG_LEVEL) is applied before filter and it affects the final output!
+# Leave unset for production.
+# Log warnings, errors, panic, fatals. Everything from workflow is logged.
+# See more examples and documentation here: https://github.com/moul/zapfilter
+LOG_FILTER=warn+:workflow.*
+
+# Set to true to see where the logging was called from.
+# Disable for production.
+LOG_INCLUDE_CALLER=true/false
+
+# Include stack-trace when logging at a specified level or below.
+# Disable for production.
+# Default value: "dpanic"
+# Possible values: debug, info, warn, error, dpanic, panic, fatal
+LOG_STACKTRACE_LEVEL
+
+----
+
+== Workflow logging
+
+The xref:integrator-guide:automation/workflows/index.adoc#functions[workflow function steps] allow you to log messages from inside a workflow.
+
+Make sure that the `.env` variables are set accordingly.
+
+[TIP]
+====
+You can use a `LOG_FILTER` to show only the logs that match the provided pattern.
+
+[source,.env]
+----
+# Log filtering rules by level and name (log-level:log-namespace).
+# Please note that level (LOG_LEVEL) is applied before filter and it affects the final output!
+# Leave unset for production.
+# Log warnings, errors, panic, fatals. Everything from workflow is logged.
+# LOG_FILTER={LOG_LEVEL}+:workflow.*
+LOG_FILTER=warn+:workflow.*
+
+# For colorful and human-readable output
+LOG_DEBUG=true
+----
+====
+
+[cols="1s,5a"]
+|===
+| Function | .env configuration
+
+| [#workflow-log-debug]#<<workflow-log-debug,Log debug message>>#
+|
+[source,.env]
+----
+LOG_DEBUG=true
+
+# OR
+
+LOG_LEVEL=debug
+----
+
+| [#workflow-log-info]#<<workflow-log-info,Log info message>>#
+|
+[source,.env]
+----
+LOG_DEBUG=true
+
+# OR
+
+LOG_LEVEL=debug
+# OR
+LOG_LEVEL=info
+----
+
+| [#workflow-log-warning]#<<workflow-log-warning,Log warning message>>#
+|
+[source,.env]
+----
+LOG_DEBUG=true
+
+# OR
+
+LOG_LEVEL=debug
+# OR
+LOG_LEVEL=info
+# OR
+LOG_LEVEL=warn
+----
+
+| [#workflow-log-error]#<<workflow-log-error,Log error message>>#
+|
+[source,.env]
+----
+LOG_DEBUG=true
+
+# OR
+
+LOG_LEVEL=debug
+# OR
+LOG_LEVEL=info
+# OR
+LOG_LEVEL=warn
+# OR
+LOG_LEVEL=error
+----
+|===

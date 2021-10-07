@@ -4,6 +4,8 @@
 
 ** xref:prerequisites.adoc[]
 
+** xref:logging.adoc[]
+
 ** System configuration
 *** xref:configuration/server.adoc[]
 *** xref:configuration/corredor.adoc[]

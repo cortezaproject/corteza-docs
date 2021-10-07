@@ -5,9 +5,14 @@ include::ROOT:partial$variables.adoc[]
 == Configuration
 
 To enable SAML authentication, you need to exchange credentials from your IdP.
-Configuration process involves optional key generation and setting up IdP in the Admin panel.
+The configuration process involves the optional key generation and setting up IdP in the Admin panel.
 
 === Generating private and public key pair
+
+[CAUTION]
+====
+The example credentials displayed in this document *should not* be used in your instances.
+====
 
 [NOTE]
 ====
@@ -27,11 +32,16 @@ openssl rsa -in private.key -out private-rsa.key <2>
 
 cat certificate.crt private-rsa.key <3>
 ----
-<1> Generates new key pairs
-<2> Converts private key to RSA format
-<3> Prints out both relevant keys you can copy
+<1> The command generates a new key pair.
+<2> The command converts the private key to RSA format.
+<3> The command prints out the relevant keys you can copy.
 
-.Example of a public key:
+[CAUTION]
+====
+The example credentials displayed in this document *should not* be used in your instances.
+====
+
+.The following snippet shows an example of a public key:
 [source,txt]
 ----
 -----BEGIN CERTIFICATE-----
@@ -53,7 +63,7 @@ aDlfJubiocv/fc4BiqCt/5cPiypAmR5mSTN2x5RjLBGqLhBN
 -----END CERTIFICATE-----
 ----
 
-.Example of a private RSA key:
+.The following snippet shows an example of a private RSA key:
 [source,txt]
 ----
 -----BEGIN RSA PRIVATE KEY-----
@@ -85,26 +95,25 @@ XhV4F/ngKrnQgxp47BCdNe0vC5Z44OImPpvQBsZ5PueqW+Pr5JHO
 -----END RSA PRIVATE KEY-----
 ----
 
-=== Setting up IdP in the administration panel
+=== Setting up the IdP in the administration panel
 
-Open your administration panel and navigate to System/Settings.
+Open your administration panel and navigate to menu:system[settings].
 
-.SAML settings in the administration panel, System/Settings
-image::authentication-provider/admin-settings.png[Screenshot of the configuration window.]
+.The screenshot shows the SAML settings in the administration panel under menu:system[settings].
+image::authentication-provider/admin-settings.png[Screenshot of the configuration window.,role="data-zoomable"]
 
-.Notes on SAML configuration form:
-. If you (temporarily) disable your SAML IdP all settings are kept in Corteza.
+.Notes on the SAML configuration form:
+. If you disable your SAML IdP, all settings are kept in {PRODUCT_NAME}.
 Users will no longer be able to use SAML for login.
-All active login sessions created using SAML are kept - users will not be logged-of
-. Name is displayed on the login form (see below)
-. Identity provider URL must point to the URL that serves provider's metadata.
-Metadata is an XML document providing machine-readable instructions for SAML configuration
+All active login sessions created using SAML are kept; users will not be logged-of
+. Name is displayed on the login form (refer to the <<saml-login-ui,bellow screenshot>>)
+. Identity provider URL must point to the URL of the server which provides the metadata.
+The metadata is an XML document providing machine-readable instructions for SAML configuration.
 . Name, handle and identifier fields aid in the user creation process.
-When user successfully logs-in using SAML, Corteza performs a lookup using value from identifier field. Value is expected to be an email.
+When a user successfully logs in using SAML, {PRODUCT_NAME} performs a lookup using a value from the identifier field, which is expected to be an email.
 Values from name and handle are used when creating a new user.
 
-
-.{PRODUCT_NAME} will try to guess the *identifier* among one of:
+.{PRODUCT_NAME} will try to guess the identifier among one of:
 * default identifier as defined in settings
 * `emailAddress`
 * `urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress`
@@ -117,11 +126,11 @@ Values from name and handle are used when creating a new user.
 The above values follow the industry standard, but you should consult your IdP-specific documentation on what is provided as part of user data.
 ====
 
-
 === Login screen with SAML enabled
 
-image::authentication-provider/login-screen.png[Screenshot of the login screen.]
+[#saml-login-ui]
+.The screenshot shows the login screen when SAML authentication is enabled.
+image::authentication-provider/login-screen.png[Screenshot of the login screen.,role="data-zoomable"]
 
-When selecting "Login with Example IdP" (or appropriate button in your scenario), user enters SAML authentication flow.
-Service (Corteza) and identity (IdP) providers exchange information.
-User is automatically redirected back to Corteza after successful log-in on the IdP.
+When clicking on the appropriate button (in our example, this is btn:["Login with Example IdP"]), the user enters the SAML authentication flow where the service ({PRODUCT_NAME}) and the identity providers (IdP) exchange information.
+The user is automatically redirected back to {PRODUCT_NAME} after successful login on the IdP.

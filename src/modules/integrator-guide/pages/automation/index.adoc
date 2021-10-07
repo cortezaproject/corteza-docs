@@ -10,7 +10,7 @@ The <<applications,applications>> section covers the applications that the autom
 
 [TIP]
 ====
-Our https://github.com/cortezaproject/corteza-ext/blob/2021.3.x/crm/config/1600_workflows.yaml[CRM] and https://github.com/cortezaproject/corteza-ext/blob/2021.3.x/service-solution/config/1600_workflows.yaml[Service Solution] applications are also open-source.
+Our https://github.com/cortezaproject/corteza-ext/blob/2021.3.x/crm/config/1600_workflows.yaml[CRM] and https://github.com/cortezaproject/corteza-ext/blob/2021.3.x/case-management/config/1600_workflows.yaml[Case Management] applications are also open-source.
 You can refer to their workflows if you need some inspiration.
 ====
 
@@ -334,7 +334,7 @@ To go into more details regarding the execution flow and what happens under-the-
 
 Refer to the xref:automation/workflows/index.adoc[workflows] section and the xref:automation/automation-scripts/index.adoc[automation scripts] section to learn about the two automation systems.
 
-To see some actual examples, refer to out https://github.com/cortezaproject/corteza-ext/blob/2021.3.x/crm/config/1600_workflows.yaml[CRM] and https://github.com/cortezaproject/corteza-ext/blob/2021.3.x/service-solution/config/1600_workflows.yaml[Service Solution] applications.
+To see some actual examples, refer to out https://github.com/cortezaproject/corteza-ext/blob/2021.3.x/crm/config/1600_workflows.yaml[CRM] and https://github.com/cortezaproject/corteza-ext/blob/2021.3.x/case-management/config/1600_workflows.yaml[Case Management] applications.
 You can use these workflows as a base to implement your own.
 
 You can get in touch with us on our https://forum.cortezaproject.org/[forum] with any questions and suggestions.

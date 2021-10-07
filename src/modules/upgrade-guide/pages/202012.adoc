@@ -19,7 +19,7 @@ Refer to xref:2020.12@ROOT:developer-guide/pagination.adoc#_pagination[developer
 === Field expressions and automation scripts
 
 With the introduction of field expressions, some {APP_AUTOMATION} automation scripts became obsolete and were removed from the 2020.12 release.
-This affects existing deployments that use CRM and Service Solution applications.
+This affects existing deployments that use CRM and Case Management applications.
 
 We did not want to make an automated upgrade and change your module fields on those applications (namespaces).
 It's not possible to know what kind of changes you might have made in your modules.

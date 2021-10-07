@@ -88,12 +88,12 @@ When you click on the configuration icon image:workflow/cog.svg[width=20px] in t
 
 When defining a "loose trigger" you can run into a situation where some events may trigger the workflow even though they shouldn't.
 
-An example of this is the case module in our CRM and in our Service Solution.
+An example of this is the case module in our CRM and in our Case Management.
 
 .Defining a trigger with these constraints:
 image:workflow/bp-constraints-no.png[]
 
-If the case was created in the CRM or in the Service Solution, it causes the workflow to execute regardless.
+If the case was created in the CRM or in the Case Management, it causes the workflow to execute regardless.
 
 To fix this edge-case, we can define an extra constraint that checks the namespace:
 

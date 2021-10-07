@@ -22,7 +22,7 @@ An account stores essential data regarding the company, along with a set of cont
 
 [NOTE]
 ====
-Refer to xref:service-solution/index.adoc#cases[the cases section] for additional details.
+Refer to xref:case-management/index.adoc#cases[the cases section] for additional details.
 ====
 
 [#account-add-entitlement]

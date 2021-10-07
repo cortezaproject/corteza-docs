@@ -67,8 +67,8 @@ Enter a default time that should be used when working on a case update.
 . Navigate to the "Pages" of your admin panel,
 . find the page called `Record page for module "Case"`,
 . copy the page ID (this is the long number at the end of the address, similar to the above channel ID),
-. insert `{APP_COMPOSE_BASE_URL}/ns/service-solution/pages/<page_ID_here>/record`.
-For example: `{APP_COMPOSE_BASE_URL}/ns/service-solution/pages/111502308285612036/record`
+. insert `{APP_COMPOSE_BASE_URL}/ns/case-management/pages/<page_ID_here>/record`.
+For example: `{APP_COMPOSE_BASE_URL}/ns/case-management/pages/111502308285612036/record`
 
 [TIP]
 ====

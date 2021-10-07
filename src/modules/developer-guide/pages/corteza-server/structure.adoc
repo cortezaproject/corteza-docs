@@ -13,7 +13,7 @@ The `cmd` package initializes the CLI commands that are provided by the `corteza
 == `/provision`
 
 The `/provision` directory contains all of the core resources used when running the provision step.
-This includes the base roles, access control, and built-in extensions (CRM and Service Solution).
+This includes the base roles, access control, and built-in extensions (CRM and Case Management).
 
 [CAUTION]
 ====

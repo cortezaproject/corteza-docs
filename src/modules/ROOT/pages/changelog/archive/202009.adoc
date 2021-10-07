@@ -23,7 +23,7 @@ include::partial$variables.adoc[]
 * Compose config importer/exporter fixed & improved (fields, charts, moduel resolving).
 * More flexible actionlog configuration, added logging policies.
 * Fix page reordering on the root node.
-* Upgrade all provisioned config, "Service Cloud" renamed to "Service Solution".
+* Upgrade all provisioned config, "Service Cloud" renamed to "Case Management".
 * All *after events are no longer async; service waits for results.
 
 .Contributors:
@@ -52,7 +52,7 @@ include::partial$variables.adoc[]
 == {PRODUCT_NAME} extensions
 
 .{PRODUCT_NAME} Service Cloud:
-* Rename to Service Solution.
+* Rename to Case Management.
 
 .{PRODUCT_NAME} CRM:
 * Improve campaigns to keep track of related leads, contacts, accounts, all opportunities, won opportunities and the aggregated opportunity amount.

@@ -9,7 +9,7 @@ It allows you to keep track of various customer complaints, disputes or similar.
 
 [IMPORTANT]
 ====
-The CRM and the xref:service-solution/index.adoc[Service Solution] do not share data.
+The CRM and the xref:case-management/index.adoc[Case Management] do not share data.
 ====
 
 Cases can be linked to accounts, contacts, products or even to other cases.

@@ -2,7 +2,7 @@
 
 ** Applications
 *** xref:crm/index.adoc[]
-*** xref:service-solution/index.adoc[]
+*** xref:case-management/index.adoc[]
 
 ** Packages
 *** xref:renderer/index.adoc[]

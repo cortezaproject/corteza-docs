@@ -8,7 +8,7 @@ A product or service typically comes with entitlement to support.
 For example, a software license may allow the client to contact you by phone when they have issues or questions.
 Or, when you sell hardware, you may need to offer a period of guarantee, allowing the client to contact you when in case product breaks within that period.
 
-Service Solution provides an easy way of defining the most common entitlements as entitlement templates.
+Case Management provides an easy way of defining the most common entitlements as entitlement templates.
 After creating a template, you bind it to a product.
 Now, whenever an entitlement is created for that product, the template will be used to prefill the base information regarding the entitlement.
 

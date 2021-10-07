@@ -1,8 +1,8 @@
 include::ROOT:partial$variables.adoc[]
 
-= Service Solution
+= Case Management
 
-{PRODUCT_NAME} Service Solution is a *highly flexible*, *scalable* and *open source* solution for keeping up with customer cases.
+{PRODUCT_NAME} Case Management is a *highly flexible*, *scalable* and *open source* solution for keeping up with customer cases.
 
 :leveloffset: +1
 

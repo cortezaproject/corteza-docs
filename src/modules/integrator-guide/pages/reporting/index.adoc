@@ -119,7 +119,7 @@ image::reporter/load.png[role="data-zoomable"]
 |===
 | [#ds-load-records-namespace]#<<ds-load-records-namespace,Namespace>>#
 |
-The namespace defines what {APP_NAME_COMPOSE} namespace we will be accessing; for example "CRM" or "Service Solution".
+The namespace defines what {APP_NAME_COMPOSE} namespace we will be accessing; for example "CRM" or "Case Management".
 
 | [#ds-load-records-module]#<<ds-load-records-module,Module>>#
 |

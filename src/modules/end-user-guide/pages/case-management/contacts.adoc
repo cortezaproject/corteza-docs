@@ -50,5 +50,5 @@ Emails::
 
 [NOTE]
 ====
-Refer to xref:service-solution/index.adoc#cases[the cases section] for additional details.
+Refer to xref:case-management/index.adoc#cases[the cases section] for additional details.
 ====

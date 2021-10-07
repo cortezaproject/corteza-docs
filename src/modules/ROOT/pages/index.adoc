@@ -42,7 +42,7 @@ If you wish to deploy {PRODUCT_NAME} elsewhere (for example, bare metal) you wil
 
 // .Here are a few shortcuts:
 // * xref:end-user-guide:crm/index.adoc[]
-// * xref:end-user-guide:service-solution/index.adoc[]
+// * xref:end-user-guide:case-management/index.adoc[]
 // * xref:end-user-guide:shell/index.adoc[]
 
 == System administration

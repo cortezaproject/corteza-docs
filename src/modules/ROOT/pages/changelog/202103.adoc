@@ -12,6 +12,34 @@ include::ROOT:partial$variables.adoc[]
 Set the `CORREDOR_ENABLED=true` in your `.env` file if you wish to have it enabled.
 * {PRODUCT_NAME} Messaging is now deprecated and removed.
 
+== `2021.3.13`
+
+*Released on*: 2021-10-07
+
+*Contributors*: Katrin Yordanova (https://github.com/katrinDY[GH]), Vivek Patel (https://github.com/vicpatel[GH]), Jože Fortun (https://github.com/fajfa[GH]), Denis Arh (https://github.com/darh[GH]), Tomaž Jerman (https://github.com/tjerman[GH])
+
+.[#2021_3_13-added]#<<2021_3_13-added,Added:>>#
+* Added the invoker and runner credentials in the initial workflow scope (https://github.com/cortezaproject/corteza-server/commit/687d98a6[`687d98a6`]).
+
+.[#2021_3_13-changed]#<<2021_3_13-changed,Changed:>>#
+* Improved record value access expressions when no record value is provided.
+The check if the values property is present is no longer needed (https://github.com/cortezaproject/corteza-server/commit/47706610[`47706610`]).
+
+.[#2021_3_13-fixed]#<<2021_3_13-fixed,Fixed:>>#
+* Added the missing selected workflow scope variable which defines the selected records (https://github.com/cortezaproject/corteza-server/commit/64821e76[`64821e76`]).
+* Fixed improper boolean record value to workflow variable casting (https://github.com/cortezaproject/corteza-server/commit/47706610[`47706610`]).
+* Fixed workflow trigger loading access control issues (https://github.com/cortezaproject/corteza-server/commit/c0024b0f[`c0024b0f`]).
+* Fixed pointer errors for the `count` expression when used within workflows (https://github.com/cortezaproject/corteza-server/commit/9ce01d2d[`9ce01d2d`]).
+* Fixed expressions duplicating record values for multi value module fields (https://github.com/cortezaproject/corteza-server/commit/53ebbe0a[`53ebbe0a`]).
+* Fixed improper workflow automation button removal (https://github.com/cortezaproject/corteza-server/commit/4f98192e[`4f98192e`]).
+* Fixed record duplication when filtering over multi value fields (https://github.com/cortezaproject/corteza-server/commit/ea2aa53b[`ea2aa53b`]).
+* Fixed invalid encoding of selected module fields when exporting pages (https://github.com/cortezaproject/corteza-server/commit/3eaa56f3[`3eaa56f3`]).
+* Fixed duplicated page block description (https://github.com/cortezaproject/corteza-server/commit/57e860e0[`57e860e0`]).
+* Fixed User field editor (https://github.com/cortezaproject/corteza-server/commit/bbe276ca[`bbe276ca`], https://github.com/cortezaproject/corteza-server/commit/ea75a2fb[`ea75a2fb`]).
+* Fixed broken Corredor alerts due to the internal redesign (https://github.com/cortezaproject/corteza-server/commit/b6997af2[`b6997af2`]).
+* Fixed improper record page back button redirect (https://github.com/cortezaproject/corteza-server/commit/4a8db556[`4a8db556`]).
+* Fixed improper actionlog type casting which resulted in broken log messages when the front-end technology stack was unable to parse the values (https://github.com/cortezaproject/corteza-server/commit/9483b16b[`9483b16b`]).
+
 == `2021.3.12`
 
 *Released on*: 2021-09-15
@@ -31,8 +59,6 @@ Set the `CORREDOR_ENABLED=true` in your `.env` file if you wish to have it enabl
 * Fixed page block title and description cutting off
 * Fixed record and user selectors cutting off
 * Fixed font-weight definition to support more browsers (https://github.com/cortezaproject/corteza-webapp-admin/commit/d24bf6034b6d6674ea0f598a392f9ae7defa8b7c)
-
-.[#2021_3_12-security]#<<2021_3_12-security,Security:>>#
 
 == `2021.3.11`
 

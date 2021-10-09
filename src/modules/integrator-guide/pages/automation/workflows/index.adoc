@@ -26,7 +26,7 @@ You are not required to have any BPMN knowledge, although it might be helpful.
 
 To create a workflow, navigate to your {PRODUCT_NAME} instance (for example http://latest.cortezaproject.org/) and click ok tne "Workflows" application.
 
-image::workflow/wf-access-1.svg[role="data-zoomable"]
+image::workflow/accessing-workflows-1.png[role="data-zoomable"]
 
 A new screen showing you all of the available workflows will appear.
 
@@ -37,7 +37,7 @@ A new screen showing you all of the available workflows will appear.
 * manage workflow-specific permissions by clicking on the "Lock" icon next to the workflow, or
 * import/export workflows by clicking on the btn:[Import]/btn:[Export] buttons.
 
-image::workflow/wf-access-2.png[role="data-zoomable"]
+image::workflow/accessing-workflows-2.png[role="data-zoomable"]
 
 When you click on the btn:[New Workflow] button, a new screen will appear with an open modal window, where you insert initial parameters to describe the workflow.
 
@@ -51,7 +51,7 @@ A label doesn't define any special constraints.
 .Handle constraints:
 include::partial$handle-constraints.adoc[]
 
-image::workflow/wf-access-3.png[role="data-zoomable"]
+image::workflow/accessing-workflows-3.png[role="data-zoomable"]
 
 == Learn the workflow editor
 

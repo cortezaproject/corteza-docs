@@ -1,0 +1,4 @@
+= Annotation preprocessor
+
+An Antora plugin to programmatically apply annotations to images.
+The plugin was inspired by https://github.com/Mogztter/asciidoctor-kroki[asciidoctor-kroki].

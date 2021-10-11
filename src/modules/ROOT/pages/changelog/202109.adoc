@@ -145,7 +145,7 @@ The authentication clients user interface now provides a series of cURL examples
 More notable changes:
 ** the navigation was moved under the left sidebar,
 ** the top bar defines shortcuts to the more common operations related to the viewed page,
-** the module field picker was completely reworked ({compose}8364da10[`8364da10`]).
+** the module field picker was completely reworked ({SERVER_COMMIT_BASE}8364da10[`8364da10`]).
 //
 * Changed the file field preview to show the last uploaded attachment when the single image option is selected ({WEBAPP_COMPOSE_COMMIT_BASE}2d593af0[`2d593af0`]).
 //

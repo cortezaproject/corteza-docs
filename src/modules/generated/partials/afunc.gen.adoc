@@ -7,11 +7,15 @@
 //  - automation/automation/corredor_handler.yaml
 //  - automation/automation/email_handler.yaml
 //  - automation/automation/http_request_handler.yaml
+//  - automation/automation/jsenv_handler.yaml
 //  - automation/automation/log_handler.yaml
 //  - automation/automation/loop_handler.yaml
+//  - automation/automation/oauth2_handler.yaml
+//  - automation/automation/queue_handler.yaml
 //  - compose/automation/modules_handler.yaml
 //  - compose/automation/namespaces_handler.yaml
 //  - compose/automation/records_handler.yaml
+//  - system/automation/rbac_handler.yaml
 //  - system/automation/roles_handler.yaml
 //  - system/automation/templates_handler.yaml
 //  - system/automation/users_handler.yaml
@@ -161,7 +165,24 @@
 (
    `String`,)
 
-| [#fnc-email-setaddress]#<<fnc-email-setaddress,Email address>>#
+| [#fnc-email-setaddress]#<<fnc-email-setaddress,Email set address>>#
+| Sets the recipient, sender or reply-to addresses
+|
+.Parameters:
+* #*# `Message to be sent`
+(
+   `EmailMessage`,)
+* #*# `Type`
+(
+   `String`,)
+* #*# `Address`
+(
+   `String`,)
+* `Name`
+(
+   `String`,)
+
+| [#fnc-email-addaddress]#<<fnc-email-addaddress,Email add address>>#
 | Adds new recipient, sender or reply-to address
 |
 .Parameters:
@@ -266,6 +287,31 @@
 * body (`Reader`)
 
 |===
+= `jsenv`
+
+[cols="2m,4a,3a"]
+|===
+| Name | Description | I/O
+
+| [#fnc-jsenv-execute]#<<fnc-jsenv-execute,Process arbitrary data in jsenv>>#
+| 
+|
+.Parameters:
+* #*# `scope`
+(
+   `Any`,
+   `String`,
+   `Reader`,)
+* #*# `source`
+(
+   `String`,)
+
+.Results:
+* resultString (`String`)
+* resultInt (`Integer`)
+* resultAny (`Any`)
+
+|===
 = `log`
 
 [cols="2m,4a,3a"]
@@ -322,6 +368,54 @@
 [cols="2m,4a,3a"]
 |===
 | Name | Description | I/O
+
+|===
+= `oauth2`
+
+[cols="2m,4a,3a"]
+|===
+| Name | Description | I/O
+
+| [#fnc-oauth2-authenticate]#<<fnc-oauth2-authenticate,Authentication: OAUTH2>>#
+| 
+|
+.Parameters:
+* #*# `client`
+(
+   `String`,)
+* #*# `secret`
+(
+   `String`,)
+* #*# `scope`
+(
+   `String`,)
+* #*# `tokenUrl`
+(
+   `String`,)
+
+.Results:
+* accessToken (`String`)
+* refreshToken (`String`)
+* token (`Any`)
+
+|===
+= `queue`
+
+[cols="2m,4a,3a"]
+|===
+| Name | Description | I/O
+
+| [#fnc-queue-write]#<<fnc-queue-write,Queue message send>>#
+| 
+|
+.Parameters:
+* #*# `payload`
+(
+   `String`,
+   `Reader`,)
+* #*# `queue`
+(
+   `String`,)
 
 |===
 = `modules`
@@ -564,6 +658,78 @@
 * Complex structure holding complete records report (`Any`)
 
 |===
+= `rbac`
+
+[cols="2m,4a,3a"]
+|===
+| Name | Description | I/O
+
+| [#fnc-rbac-allow]#<<fnc-rbac-allow,RBAC: Allow operation on resource to a role>>#
+| 
+|
+.Parameters:
+* #*# `resource`
+(
+   `RbacResource`,)
+* #*# `role`
+(
+   `ID`,
+   `Handle`,
+   `Role`,)
+* #*# `operation`
+(
+   `String`,)
+
+| [#fnc-rbac-deny]#<<fnc-rbac-deny,RBAC: Deny operation on resource to a role>>#
+| 
+|
+.Parameters:
+* #*# `resource`
+(
+   `RbacResource`,)
+* #*# `role`
+(
+   `ID`,
+   `Handle`,
+   `Role`,)
+* #*# `operation`
+(
+   `String`,)
+
+| [#fnc-rbac-inherit]#<<fnc-rbac-inherit,RBAC: Remove allow/deny operation of a role from resource>>#
+| 
+|
+.Parameters:
+* #*# `resource`
+(
+   `RbacResource`,)
+* #*# `role`
+(
+   `ID`,
+   `Handle`,
+   `Role`,)
+* #*# `operation`
+(
+   `String`,)
+
+| [#fnc-rbac-check]#<<fnc-rbac-check,RBAC: Can user perform an operation on a resource>>#
+| 
+|
+.Parameters:
+* #*# `resource`
+(
+   `RbacResource`,)
+* #*# `operation`
+(
+   `String`,)
+* `user`
+(
+   `User`,)
+
+.Results:
+* can (`Boolean`)
+
+|===
 = `roles`
 
 [cols="2m,4a,3a"]
@@ -582,6 +748,52 @@
 
 .Results:
 * role (`Role`)
+
+| [#fnc-roles-searchmembers]#<<fnc-roles-searchmembers,Role members search>>#
+| Find members for a specific roleby ID or handle
+|
+.Parameters:
+* #*# `lookup`
+(
+   `ID`,
+   `Handle`,
+   `Role`,)
+
+.Results:
+* users (`User`)
+* total (`UnsignedInteger`)
+
+| [#fnc-roles-addmember]#<<fnc-roles-addmember,Role membership add>>#
+| 
+|
+.Parameters:
+* #*# `role`
+(
+   `ID`,
+   `Handle`,
+   `Role`,)
+* #*# `user`
+(
+   `ID`,
+   `Handle`,
+   `String`,
+   `User`,)
+
+| [#fnc-roles-removemember]#<<fnc-roles-removemember,Role membership remove>>#
+| 
+|
+.Parameters:
+* #*# `role`
+(
+   `ID`,
+   `Handle`,
+   `Role`,)
+* #*# `user`
+(
+   `ID`,
+   `Handle`,
+   `String`,
+   `User`,)
 
 | [#fnc-roles-search]#<<fnc-roles-search,Roles search>>#
 | 
@@ -836,6 +1048,40 @@
 
 .Results:
 * user (`User`)
+
+| [#fnc-users-searchmembership]#<<fnc-users-searchmembership,User role search>>#
+| Search user role membership by ID, handle or string
+|
+.Parameters:
+* #*# `lookup`
+(
+   `ID`,
+   `Handle`,
+   `String`,
+   `User`,)
+
+.Results:
+* roles (`Role`)
+* total (`UnsignedInteger`)
+
+| [#fnc-users-checkmembership]#<<fnc-users-checkmembership,User membership check>>#
+| Find user role membership by ID, handle or string
+|
+.Parameters:
+* #*# `user`
+(
+   `ID`,
+   `Handle`,
+   `String`,
+   `User`,)
+* #*# `role`
+(
+   `ID`,
+   `Handle`,
+   `Role`,)
+
+.Results:
+* member (`Boolean`)
 
 | [#fnc-users-search]#<<fnc-users-search,User search>>#
 | 

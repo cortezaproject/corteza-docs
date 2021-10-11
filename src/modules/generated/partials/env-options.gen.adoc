@@ -7,21 +7,29 @@
 //  - pkg/options/DB.yaml
 //  - pkg/options/HTTPClient.yaml
 //  - pkg/options/HTTPServer.yaml
+//  - pkg/options/RBAC.yaml
 //  - pkg/options/SCIM.yaml
 //  - pkg/options/SMTP.yaml
 //  - pkg/options/actionLog.yaml
+//  - pkg/options/apigw.yaml
 //  - pkg/options/auth.yaml
 //  - pkg/options/corredor.yaml
 //  - pkg/options/environment.yaml
 //  - pkg/options/eventbus.yaml
 //  - pkg/options/federation.yaml
+//  - pkg/options/limit.yaml
+//  - pkg/options/locale.yaml
+//  - pkg/options/log.yaml
+//  - pkg/options/messagebus.yaml
 //  - pkg/options/monitor.yaml
 //  - pkg/options/objectStore.yaml
 //  - pkg/options/provision.yaml
+//  - pkg/options/seeder.yaml
 //  - pkg/options/sentry.yaml
 //  - pkg/options/template.yaml
 //  - pkg/options/upgrade.yaml
 //  - pkg/options/waitFor.yaml
+//  - pkg/options/websocket.yaml
 //  - pkg/options/workflow.yaml
 include::ROOT:partial$variables.adoc[]
 
@@ -286,6 +294,23 @@ true
 
 Report HTTP panic to Sentry.
 
+== *HTTP_BASE_URL*
+
+=== Type
+
+`string`
+
+=== Default
+
+[source]
+----
+"/"
+----
+
+=== Description
+
+Base URL (prefix) for all routes (<baseUrl>/auth, <baseUrl>/api, ...)
+
 == *HTTP_API_ENABLED*
 
 === Type
@@ -306,6 +331,17 @@ true
 
 `string`
 
+=== Default
+
+[source]
+----
+"/"
+----
+
+=== Description
+
+When webapps are enabled (HTTP_WEBAPP_ENABLED) this is moved to '/api' if not explicitly set otherwise.
+API base URL is internaly prefixed with baseUrl
 
 == *HTTP_WEBAPP_ENABLED*
 
@@ -334,6 +370,9 @@ false
 "/"
 ----
 
+=== Description
+
+Webapp base URL is internaly prefixed with baseUrl
 
 == *HTTP_WEBAPP_BASE_DIR*
 
@@ -345,7 +384,7 @@ false
 
 [source]
 ----
-"webapp/public"
+"./webapp/public"
 ----
 
 
@@ -359,9 +398,105 @@ false
 
 [source]
 ----
-"admin,compose,workflow"
+"admin,compose,workflow,reporter"
 ----
 
+
+== *HTTP_SSL_TERMINATED*
+
+=== Type
+
+`bool`
+
+=== Default
+
+[source]
+----
+isSecure()
+----
+
+=== Description
+
+Is SSL termination enabled in ingres, proxy or load balancer that is in front of Corteza?
+By default, Corteza checks for presence of LETSENCRYPT_HOST environmental variable.
+This DOES NOT enable SSL termination in Cortreza!
+
+= RBAC options
+
+== *RBAC_LOG*
+
+=== Type
+
+`bool`
+
+=== Description
+
+Log RBAC related events and actions
+
+== *RBAC_SERVICE_USER*
+
+=== Type
+
+`string`
+
+
+== *RBAC_BYPASS_ROLES*
+
+=== Type
+
+`string`
+
+=== Default
+
+[source]
+----
+"super-admin"
+----
+
+=== Description
+
+Space delimited list of role handles.
+These roles causes short-circuiting access control check and allowing all operations.
+System will refuse to start if check-bypassing roles are also listed as authenticated or anonymous auto-assigned roles.
+
+== *RBAC_AUTHENTICATED_ROLES*
+
+=== Type
+
+`string`
+
+=== Default
+
+[source]
+----
+"authenticated"
+----
+
+=== Description
+
+Space delimited list of role handles.
+These roles are automatically assigned to authenticated user.
+Memberships can not be managed for these roles.
+System will refuse to start if roles listed here are also listed under anonymous roles
+
+== *RBAC_ANONYMOUS_ROLES*
+
+=== Type
+
+`string`
+
+=== Default
+
+[source]
+----
+"anonymous"
+----
+
+=== Description
+
+Space delimited list of role handles.
+These roles are automatically assigned to anonymous user.
+Memberships can not be managed for these roles.
 
 = SCIM Server
 
@@ -551,6 +686,127 @@ false
 ----
 
 
+= API Gateway
+
+== *APIGW_ENABLED*
+
+=== Type
+
+`bool`
+
+=== Default
+
+[source]
+----
+true
+----
+
+=== Description
+
+Enable API Gateway
+
+== *APIGW_DEBUG*
+
+=== Type
+
+`bool`
+
+=== Default
+
+[source]
+----
+false
+----
+
+=== Description
+
+Enable API Gateway debugging info
+
+== *APIGW_LOG_ENABLED*
+
+=== Type
+
+`bool`
+
+=== Default
+
+[source]
+----
+false
+----
+
+=== Description
+
+Enable extra logging
+
+== *APIGW_LOG_REQUEST_BODY*
+
+=== Type
+
+`bool`
+
+=== Default
+
+[source]
+----
+false
+----
+
+=== Description
+
+Enable incoming request body output in logs
+
+== *APIGW_PROXY_ENABLE_DEBUG_LOG*
+
+=== Type
+
+`bool`
+
+=== Default
+
+[source]
+----
+false
+----
+
+=== Description
+
+Enable full debug log on requests / responses - warning, includes sensitive data
+
+== *APIGW_PROXY_FOLLOW_REDIRECTS*
+
+=== Type
+
+`bool`
+
+=== Default
+
+[source]
+----
+true
+----
+
+=== Description
+
+Follow redirects on proxy requests
+
+== *APIGW_PROXY_OUTBOUND_TIMEOUT*
+
+=== Type
+
+`time.Duration`
+
+=== Default
+
+[source]
+----
+time.Second * 30
+----
+
+=== Description
+
+Outbound request timeout
+
 = Authentication
 
 == *AUTH_LOG_ENABLED*
@@ -613,7 +869,7 @@ Experation time for the auth JWT tokens.
 
 [source]
 ----
-guessBaseURL() + "/auth/external/{provider}/callback"
+fullURL("/auth/external/{provider}/callback")
 ----
 
 === Description
@@ -655,12 +911,13 @@ Generated secret will change if you change any of these variables.
 
 [source]
 ----
-guessBaseURL() + "/auth"
+fullURL("/auth")
 ----
 
 === Description
 
-Frontend base URL. Must be an absolute URL
+Frontend base URL. Must be an absolute URL, with the domain.
+This is used for some redirects and links in auth emails.
 
 == *AUTH_SESSION_COOKIE_NAME*
 
@@ -689,7 +946,7 @@ Session cookie name
 
 [source]
 ----
-"/auth"
+pathPrefix("/auth")
 ----
 
 === Description
@@ -723,12 +980,12 @@ Session cookie domain
 
 [source]
 ----
-strings.HasPrefix(guessBaseURL(), "https://")
+isSecure()
 ----
 
 === Description
 
-Defaults to true when HTTPS is used.
+Defaults to true when HTTPS is used. Corteza will try to guess the this setting by
 
 == *AUTH_SESSION_LIFETIME*
 
@@ -1322,6 +1579,238 @@ Delay in seconds for data sync
 
 Bulk size in fetching for data sync
 
+= Limits
+
+== *LIMIT_SYSTEM_USERS*
+
+=== Type
+
+`int`
+
+=== Description
+
+Maximum number of valid (not deleted, not suspended) users
+
+= locale
+
+== *LOCALE_LANGUAGES*
+
+=== Type
+
+`string`
+
+=== Default
+
+[source]
+----
+"en"
+----
+
+=== Description
+
+List of compa delimited languages (language tags) to enable.
+In case when an enabled language can not be loaded, error is logged.
+
+When loading language configurations (config.xml) from the configured path(s).
+
+
+== *LOCALE_PATH*
+
+=== Type
+
+`string`
+
+=== Description
+
+One or more paths to locale config and translation files, separated by colon
+
+== *LOCALE_QUERY_STRING_PARAM*
+
+=== Type
+
+`string`
+
+=== Default
+
+[source]
+----
+"lng"
+----
+
+=== Description
+
+Name of the query string parameter used to pass the language tag (it overrides Accept-Language header).
+Set it to empty string to disable detection from the query string.
+This parameter is ignored if only one language is enabled
+
+
+== *LOCALE_RESOURCE_TRANSLATIONS_ENABLED*
+
+=== Type
+
+`bool`
+
+=== Description
+
+When enabled, Corteza all
+
+== *LOCALE_LOG*
+
+=== Type
+
+`bool`
+
+=== Description
+
+Log locale related events and actions
+
+== *LOCALE_DEVELOPMENT_MODE*
+
+=== Type
+
+`bool`
+
+=== Description
+
+When enabled, Corteza reloads language files on every request
+Enable this for debugging or developing.
+
+= log
+
+== *LOG_DEBUG*
+
+=== Type
+
+`bool`
+
+=== Description
+
+Disables JSON format for logging and enables more human-readable output with colors.
+
+Disable for production.
+
+
+== *LOG_LEVEL*
+
+=== Type
+
+`string`
+
+=== Default
+
+[source]
+----
+"warn"
+----
+
+=== Description
+
+Minimum logging level. If set to "warn",
+Levels warn, error, dpanic panic and fatal will be logged.
+
+Recommended value for production: warn
+
+Possible values: debug, info, warn, error, dpanic, panic, fatal
+
+
+== *LOG_FILTER*
+
+=== Type
+
+`string`
+
+=== Description
+
+Log filtering rules by level and name (log-level:log-namespace).
+Please note that level (LOG_LEVEL) is applied before filter and it affects the final output!
+
+Leave unset for production.
+
+Example:
+`warn+:* *:auth,workflow.*`
+Log warnings, errors, panic, fatals. Everything from auth and workflow is logged.
+
+
+See more examples and documentation here: https://github.com/moul/zapfilter
+
+
+== *LOG_INCLUDE_CALLER*
+
+=== Type
+
+`bool`
+
+=== Default
+
+[source]
+----
+false
+----
+
+=== Description
+
+Set to true to see where the logging was called from.
+
+Disable for production.
+
+
+== *LOG_STACKTRACE_LEVEL*
+
+=== Type
+
+`string`
+
+=== Default
+
+[source]
+----
+"dpanic"
+----
+
+=== Description
+
+Include stack-trace when logging at a specified level or below.
+Disable for production.
+
+Possible values: debug, info, warn, error, dpanic, panic, fatal
+
+
+= Messaging queue
+
+== *MESSAGEBUS_ENABLED*
+
+=== Type
+
+`bool`
+
+=== Default
+
+[source]
+----
+true
+----
+
+=== Description
+
+Enable messagebus
+
+== *MESSAGEBUS_LOG_ENABLED*
+
+=== Type
+
+`bool`
+
+=== Default
+
+[source]
+----
+false
+----
+
+=== Description
+
+Enable extra logging for messagebus watchers
+
 = Monitoring
 
 == *MONITOR_INTERVAL*
@@ -1487,6 +1976,18 @@ Controls if provision should run when the server starts.
 === Description
 
 Colon seperated paths to config files for provisioning.
+
+= Seeder
+
+== *SEEDER_LOG_ENABLED*
+
+=== Type
+
+`bool`
+
+=== Description
+
+Enable extra logging // fixme add some more description
 
 = Sentry monitoring
 
@@ -1793,6 +2294,63 @@ time.Second * 5
 
 Interval between service probes.
 
+= Websocket server
+
+== *WEBSOCKET_LOG_ENABLED*
+
+=== Type
+
+`bool`
+
+=== Description
+
+Enable extra logging for authentication flows
+
+== *WEBSOCKET_TIMEOUT*
+
+=== Type
+
+`time.Duration`
+
+=== Default
+
+[source]
+----
+15 * time.Second
+----
+
+=== Description
+
+Time before `WsServer` gets timed out.
+
+== *WEBSOCKET_PING_TIMEOUT*
+
+=== Type
+
+`time.Duration`
+
+=== Default
+
+[source]
+----
+120 * time.Second
+----
+
+
+== *WEBSOCKET_PING_PERIOD*
+
+=== Type
+
+`time.Duration`
+
+=== Default
+
+[source]
+----
+((120 * time.Second) * 9) / 10
+----
+
+
 = Workflow
 
 == *WORKFLOW_REGISTER*
@@ -1828,3 +2386,20 @@ false
 === Description
 
 Enables verbose logging for workflow execution
+
+== *WORKFLOW_CALL_STACK_SIZE*
+
+=== Type
+
+`int`
+
+=== Default
+
+[source]
+----
+16
+----
+
+=== Description
+
+Defines the maximum call stack size between workflows

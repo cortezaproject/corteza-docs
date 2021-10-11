@@ -66,6 +66,16 @@
 
 
 
+| [#objref-queuemessage]#<<objref-queuemessage,QueueMessage>>#
+|
+[source]
+----
+{
+   Queue (String)
+   Payload (String)
+}
+----
+
 | [#objref-rendereddocument]#<<objref-rendereddocument,RenderedDocument>>#
 |
 [source]

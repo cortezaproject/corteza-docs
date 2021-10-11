@@ -1,0 +1,39 @@
+include::ROOT:partial$variables.adoc[]
+
+= Workflow processing
+
+When your API gateway endpoint requires additional processing and the built-in processors do not suffice, you can bind a workflow to the endpoint to handle requests.
+
+To bind a workflow to an API gateway route, you firstly need to properly configure the workflow, and then bind it to the route's xref:api-gw/index.adoc#filters-proc-wfexec[workflow processor].
+
+== Workflow configuration
+
+If you wish for a workflow to be executable by the API gateway, the workflow must define a proper trigger.
+
+.To configure your workflow:
+. Create a new workflow or edit an existent workflow.
+Refer to the xref:automation/workflows/index.adoc[workflow documentation] for details.
+. Assure that the workflow in question defines a trigger with the resource of `System` and an event of `onManual`.
+
+[NOTE]
+====
+*DevNote* add some examples.
+====
+
+== API gateway route configuration
+
+.To bind a workflow to the API gateway endpoint:
+. Create a new API gateway endpoint or edit an existing endpoint.
+Refer to the xref:api-gw/index.adoc[API gatewaydocumentation] for details.
+. Add a xref:api-gw/index.adoc#filters-proc-wfexec[workflow processor] to the endpoint.
+. Select the workflow you wish to bind from the dropdown in the modal window.
+. Confirm the selection and press on the btn:[save] button to update the endpoint.
+
+[NOTE]
+====
+*DevNote* add some examples.
+====
+
+== Testing
+
+To test if the API gateway route and the workflow are properly interacting, initiate an HTTP request using Postman or any other tool such as cURL.

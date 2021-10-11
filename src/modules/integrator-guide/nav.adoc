@@ -66,6 +66,7 @@
 ***** xref:automation/automation-scripts/samples/client-scripts/index.adoc[]
 
 ** xref:api-gw/index.adoc[]
+*** xref:api-gw/workflow-processing.adoc[]
 
 ** xref:reporting/index.adoc[]
 *** xref:reporting/expr-reference.adoc[]

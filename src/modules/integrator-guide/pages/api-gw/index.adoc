@@ -164,11 +164,7 @@ Most of the basic operations can be achieved with the built-in functionality; mo
 | [#filters-proc-wfexec]#<<filters-proc-wfexec,Workflow processer>>#
 |
 The workflow processor allows you to bind a xref:automation/workflows/index.adoc[workflow] to the endpoint.
-
-[NOTE]
-====
-*DevNote* better describe how workflows need to look like, the response, ...
-====
+Refer to the xref:api-gw/workflow-processing.adoc[workflow processing] for details regarding the interaction.
 
 | [#filters-proc-payloadproc]#<<filters-proc-payloadproc,Payload processer>>#
 |
@@ -338,3 +334,42 @@ Use an intermediate variable if you need to read it multiple times.
 
 Enable debug logging in your `.env` file.
 Refer to the xref:devops-guide:configuration/server.adoc[DevOps guide] for details.
+
+=== Inspecting docker logs
+
+By default, {PRODUCT_NAME} logs are accessible via Docker logs.
+To access these logs, you need to firstly navigate to the directory where your {PRODUCT_NAME} instance resides in.
+
+.An example of navigating to the {PRODUCT_NAME} instance directory:
+[source,bash]
+----
+cd /opt/deploy/{CORTEZA_INSTANCE}/
+----
+
+You can use the `docker-compose logs server` command to access the logs outputted by the `server`.
+
+[TIP]
+====
+Refer to the `docker-compose logs` documentation for available flags.
+Using `docker-compose logs -f --tail=20 server` will follow the logs (new logs will be appended at the bottom) and limit the output to last 20 logs.
+====
+
+.A truncated example of running the log command:
+[source,bash]
+----
+docker-compose logs -f --tail=20 server
+
+server_1  | 12:53:14.862        DEBUG   rbac    rbac/service.go:102     allow delete for corteza::compose:record/245030892240891907/245030893465497603/246932114543603715       {"bypass": [], "context": [], "common": [245030892072923139], "authenticated": [245030891334791171], "anonymous": [], "identity": 250804535289769987, "indexed": 63, "rules": 420}
+----
+
+You can also use `grep` or log filtering to show only specific logs.
+Refer to the xref:devops-guide:logging.adoc[DevOps guide] for details regarding logging.
+
+.An example of using `grep` to show only debug logs:
+[source,bash]
+----
+user@server:/opt/deploy/{CORTEZA_INSTANCE}/$ docker-compose logs -f --tail=20 server | grep DEBUG
+server_1  | 13:52:29.636        DEBUG   rbac    rbac/service.go:102     allow triggers.manage for corteza::automation:workflow/248229091554160643
+Last updated 2021-09-27 18:01:45 +0200
+Some content has been disabled in this document
+----

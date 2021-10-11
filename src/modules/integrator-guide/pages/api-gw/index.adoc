@@ -1,8 +1,8 @@
 include::ROOT:partial$variables.adoc[]
 
-= API Gateway
+= Integration Gateway
 
-The API gateway facility allows you to define custom endpoints that can support custom authentication methods, request validation, and rate limiting.
+The Integration gateway facility allows you to define custom endpoints that can support custom authentication methods, request validation, and rate limiting.
 
 These endpoints can be used to define custom endpoint for incoming webhooks, to process data provided by some external integration, or to proxy requests to another service.
 
@@ -15,7 +15,7 @@ To define a new endpoint, navigate to your {PRODUCT_NAME} instance (for example 
 .The screenshot shows the app selector and the admin area application.
 image::apigw/app-selector.png[role="data-zoomable"]
 
-In the admin are, navigate to the menu:System[API Gateway] sub-page.
+In the admin are, navigate to the menu:System[Integration Gateway] sub-page.
 From the admin area you can create and update your endpoints endpoints, as well as manage their access control.
 
 .The screenshot shows the route list screen.
@@ -284,7 +284,7 @@ Refer to the https://pkg.go.dev/net/http?utm_source=gopls#Request[GO documentati
 
 | [#proc-js-input-opts]#<<proc-js-input-opts,opts>>#
 |
-API gateway configuration.
+Integration gateway configuration.
 Refer to the https://github.com/cortezaproject/corteza-server/blob/2021.9.x/pkg/options/apigw.gen.go#L16[source] for details.
 
 [NOTE]

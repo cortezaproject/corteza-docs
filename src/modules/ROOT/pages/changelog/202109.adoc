@@ -44,9 +44,9 @@ With contextual roles, you can cover cases where a user is only allowed to acces
 The authentication flow is now more flexible by introducing support for xref:administrator-guide:authentication-provider/saml.adoc[SAML] and split credential flow.
 Further improvements to the authentication token generator and handler help increase the stability and security of the system.
 
-*API gateway*
+*Integration gateway*
 
-Responding to the needs of defining custom API endpoints, we've expanded the sink route facility and introduced the xref:integrator-guide:api-gw/index.html[API gateway].
+Responding to the needs of defining custom API endpoints, we've expanded the sink route facility and introduced the xref:integrator-guide:api-gw/index.html[Integration gateway].
 The improved facility simplifies the process of defining and managing custom API endpoints and defining processing for HTTP requests either via the built-in functions, workflows, or xref:integrator-guide:api-gw/index.adoc#js-processing[custom code].
 
 [NOTE]
@@ -216,7 +216,7 @@ More notable changes:
 //
 
 .[#2021_9_0-development]#<<2021_9_0-development,Development:>>#
-* Defined a proper facility for testing API gateway handling logic ({SERVER_COMMIT_BASE}6ceadf40[`6ceadf40`]).
+* Defined a proper facility for testing Integration gateway handling logic ({SERVER_COMMIT_BASE}6ceadf40[`6ceadf40`]).
 * Allow store function codegen logic to define imports specific to them ({SERVER_COMMIT_BASE}b95e878c[`b95e878c`]).
 * Build and integration pipelines moved to Github Actions.
 * Removed misleading federation `etc/` ({SERVER_COMMIT_BASE}d4505482[`d4505482`]).

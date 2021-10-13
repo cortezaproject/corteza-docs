@@ -7,7 +7,7 @@ From the <<ui-translations,user interface>> to custom <<resource-translations,{A
 
 [IMPORTANT]
 ====
-Although you are able to define and translate into any language, some of the more "exotic" cases, such as right-to-left, are not yet fully supported.
+Although you are able to define and translate into any language, some use cases, such as right-to-left, are not yet fully supported.
 ====
 
 [#ui-translations]

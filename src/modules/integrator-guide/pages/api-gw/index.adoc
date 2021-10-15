@@ -10,13 +10,13 @@ Most of the basic operations can be achieved with the built-in functionality; mo
 
 == Defining a new endpoint
 
-To define a new endpoint, navigate to your {PRODUCT_NAME} instance (for example http://latest.cortezaproject.org/) and click ok tne "admin area" application.
+To define a new endpoint, navigate to your {PRODUCT_NAME} instance (for example http://latest.cortezaproject.org/) and click on the "admin area" application.
 
 .The screenshot shows the app selector and the admin area application.
 image::apigw/app-selector.png[role="data-zoomable"]
 
-In the admin are, navigate to the menu:System[Integration Gateway] sub-page.
-From the admin area you can create and update your endpoints endpoints, as well as manage their access control.
+In the admin area, navigate to the menu:System[Integration Gateway] sub-page.
+From the admin area you can create and update your endpoints, as well as manage their access control.
 
 .The screenshot shows the route list screen.
 image::apigw/route-list.png[role="data-zoomable"]

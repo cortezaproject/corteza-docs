@@ -17,7 +17,7 @@ In addition, we've improved the overall design and user experience, improved the
 
 With xref:integrator-guide:personalization/i18n.adoc[internationalization], we add support for the translation of user interfaces, as well as locale specific date-time and number formatting.
 {PRODUCT_NAME} allows you to modify the built-in translations entirely as well as define translations for additional languages you might need or any custom web application modifications you might have performed.
-YOu can also translate most of the user-provided configurations (such as namespaces and module fields), allowing you to configure your {APP_NAME_COMPOSE} applications to be accessible.
+You can also translate most of the user-provided configurations (such as namespaces and module fields), allowing you to configure your {APP_NAME_COMPOSE} applications to be accessible.
 
 [IMPORTANT]
 ====

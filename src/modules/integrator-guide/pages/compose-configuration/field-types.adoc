@@ -8,6 +8,7 @@ The field type and workflow type may not refer to the same type.
 
 *DevNote* add some additional context about this.
 ====
+//Editor's note: line 7; refer to the same type of what?
 
 [#field-type-checkbox]
 == Checkbox (Y/N)
@@ -15,7 +16,7 @@ The field type and workflow type may not refer to the same type.
 A `Checkbox` field stores a true/false (truthy/faulty) value (a boolean).
 
 A `Checkbox` field should be used when you wish to store a truthy/faulty value.
-For example, was the subscription paid, or is the contact subscribed to your newsletter.
+For example, if the subscription was paid or whether the contact is subscribed to your newsletter.
 
 A field of type `Checkbox` is represented as a label when it is being viewed.
 When the field is being edited, it is represented as a checkbox.
@@ -26,23 +27,23 @@ When the field is being edited, it is represented as a checkbox.
 
 | [#field-type-checkbox-label-true]#<<field-type-checkbox-label-true,True label>>#
 |
-The option allows you to specify the display label of truthy values.
+This option allows you to specify the display label of truthy values.
 
 | [#field-type-checkbox-label-false]#<<field-type-checkbox-label-false,False label>>#
 |
-The option allows you to specify the display label of faulty values.
+This option allows you to specify the display label of faulty values.
 
 |===
 
 [#field-type-datetime]
 == Date and time
 
-A `Date and time` field type stores a temporal value (a timestamp).
+The `Date and time` field type stores a temporal value (a timestamp).
 
 The `Date and time` field type should be used when you wish to store some temporal information; a date, a time, or both.
 For example, the time that the lead was converted.
 
-A field of type `Date and time` is represented as a formatted string when viewed.
+A field of the `Date and time` type is represented as a formatted string when viewed.
 When the field is being edited, it is represented as a date input, a time input, or a date-time input (depending on the configuration).
 
 .Additional configurations:
@@ -86,8 +87,7 @@ The field supports all of the https://momentjs.com/docs/#/displaying/format/[mom
 
 An `Email` field type stores an email address.
 
-The `Email` field type should be used when you wish to store an email.
-For example, the primary email address of the client.
+The `Email` field type should be used when you wish to store an email, for example, the primary email address of the client.
 
 A field of type `Email` is represented as a label or a clickable link when it is being viewed (depends on the configuration).
 When the field is being edited, it is represented as an email input box.
@@ -111,7 +111,7 @@ Displays the email as a regular string and not as a clickable link.
 [#field-type-select]
 == Select / dropdown
 
-A `select / dropdown` field type stores a value from a pre-defined set of options..
+A `select / dropdown` field type stores a value from a pre-defined set of options.
 
 The `select / dropdown` field type should be used when you wish to force suers to pick one of the pre-defined values.
 For example, the stage of a case or the stage of a lead.
@@ -134,6 +134,7 @@ An option is a value-label pair, where the label defines how the value is displa
 ====
 When working with selects inside automation, use the value when working with values.
 ====
+//Editor's note: I can't make sense of the IMPORTANT section above, please restructure.
 
 | [#field-type-select-select]#<<field-type-select-select,Multiple value input type>>#
 |
@@ -168,12 +169,12 @@ For example, the prefix of `$` and the value of `1000` would result in the label
 
 | [#field-type-number-suffix]#<<field-type-number-suffix,Suffix>>#
 |
-The specified suffix to the numeric value.
+Adds the specified suffix to the numeric value.
 For example, the suffix of `USD/h` and the value of `1000` would result in the label of `1000USD/h`.
 
 | [#field-type-number-precision]#<<field-type-number-precision,Precision>>#
 |
-Defines the precision at which to store the value.
+Defines the precision at which the value is to be stored.
 For example, the precision of 3 would allow you to store numbers with up to three decimal places.
 
 [IMPORTANT]
@@ -200,7 +201,7 @@ If you wish to access the values of the referenced record, you need to fetch it 
 ====
 
 The `Record` field type should be used when you wish to define a relation between two modules.
-For example, the parent transaction, or the account owner.
+For example, the parent transaction or the account owner.
 
 [CAUTION]
 ====
@@ -216,7 +217,7 @@ When the field is being edited, it is represented as a searchable dropdown box.
 
 | [#field-type-record-module]#<<field-type-record-module,Module>>#
 |
-Defines what module's records this field is linked to.
+Defines - the records of which module a field is linked to.
 
 | [#field-type-record-label]#<<field-type-record-label,Record label field>>#
 |
@@ -247,7 +248,7 @@ Defines how the multi-value variant of the field is represented.
 
 A `String` field type stores a generic text value.
 
-The `String` field type should be used when you wish to store some text.
+The `String` field type should be used when you wish to store text.
 For example, the name of a contact or the TOS that should be shown to the client.
 
 A field of type `String` is represented as a text when it is being viewed.
@@ -259,12 +260,12 @@ When the field is being edited, it is represented as a text input box or a rich 
 
 | [#field-type-string-multi]#<<field-type-string-multi,Multi-line>>#
 |
-Changes the simple input box to be a multi-line textarea.
+Changes the simple input box to be a multi-line text area.
 
 | [#field-type-string-rte]#<<field-type-string-rte,Use rich text editor>>#
 |
-Changes the simple string imput to be a multi-line rich text editor.
-The value is encoded as a standard HTML document, so the value can be used in applications where HTML is accepted.
+Changes the simple string input to be a multi-line rich text editor.
+The value is encoded as a standard HTML document, therefore the value can be used in applications where HTML is accepted.
 
 |===
 
@@ -274,14 +275,14 @@ The value is encoded as a standard HTML document, so the value can be used in ap
 A `URL` field type stores a URL address.
 
 The `URL` field type should be used when you wish to store a URL address.
-For example, the link to the clients' homepage.
+For example, the link to the client's homepage.
 
 A field of type `URL` is represented as a label or a clickable link when it is being viewed (depending on the configuration).
 When the field is being edited, it is represented as a URL input box.
 
 [IMPORTANT]
 ====
-Internally, the URL is stored as a plain-text regardless of the configuration.
+Internally, a URL is stored as a plain-text regardless of the configuration.
 Display formatting is performed in the front-end application.
 ====
 
@@ -333,7 +334,7 @@ When the field is being edited, it is represented as a searchable dropdown box.
 Defines the pre-filter that is used when searching for the related user.
 Refer to the xref:accessing-corteza/ql.adoc[QL reference] for details.
 
-| [#field-type-user-select]#<<field-type-user-select,multiple value input type>>#
+| [#field-type-user-select]#<<field-type-user-select,Multiple value input type>>#
 |
 Defines how the multi-value variant of the field is represented.
 
@@ -350,11 +351,11 @@ The stored value is the `attachmentID` to the referenced user.
 If you wish to access the values of the referenced file, you need to fetch it from the REST API.
 ====
 
-The `File upload` field type should be used when you wish to attach some document to the record.
-For example, the clients' quote or a legal document.
+The `File upload` field type should be used when you wish to attach a document to the record.
+For example, a client's quote or a legal document.
 
 A field of type `File upload` is represented as clickable link when it is being viewed.
-When the field is being edited, it is represented as a drag'n drop file upload box.
+When the field is being edited, it is represented as a drag-and-drop file upload box.
 
 .Additional configurations:
 [cols="1s,5a"]

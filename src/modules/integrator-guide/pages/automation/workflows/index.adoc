@@ -1,7 +1,7 @@
 include::ROOT:partial$variables.adoc[]
 
 = Workflows
-:description: {PRODUCT_NAME} workflow allow you to implement custom business logic without the need for any programming knowledge.
+:description: {PRODUCT_NAME} workflow allows you to implement custom business logic without the need for any programming knowledge.
 :keywords: low code, no code, automation, workflow, workflows, {PRODUCT_NAME}
 
 {PRODUCT_NAME} workflow allows you to implement custom business logic without the need for any programming knowledge.
@@ -27,6 +27,7 @@ You are not required to have any BPMN knowledge, although it might be helpful.
 To create a workflow, navigate to your {PRODUCT_NAME} instance (for example http://latest.cortezaproject.org/) and click ok tne "Workflows" application.
 
 image::workflow/wf-access-1.svg[role="data-zoomable"]
+//Editor's note: Add an image description
 
 A new screen showing you all of the available workflows will appear.
 
@@ -38,29 +39,31 @@ A new screen showing you all of the available workflows will appear.
 * import/export workflows by clicking on the btn:[Import]/btn:[Export] buttons.
 
 image::workflow/wf-access-2.png[role="data-zoomable"]
+//Editor's note: Add an image description
 
-When you click on the btn:[New Workflow] button, a new screen will appear with an open modal window, where you insert initial parameters to describe the workflow.
+When you click on the *btn:[New Workflow]* button, a new screen will appear with an open modal window, where you should insert initial parameters to describe the workflow.
 
-* *Label* provides a human-friendly identifier for the workflow; for example "Test Workflow".
+* *Label* provides a user-friendly identifier for the workflow, for example "Test Workflow".
 A label doesn't define any special constraints.
 * *Handle* defines a <<wf-handle-constraints,unique value>> that may be used instead of the system identifier for easier referencing.
-* *Description* defines a verbose description of the workflow to better explain what the workflow does.
-* *Run as* defines what user should be used when executing this workflow (the invoking user).
+* *Description* defines a verbose description of the workflow in order to better explain what the workflow does.
+* *Run as* defines which user should be used when executing this workflow (the invoking user).
 
 [#wf-handle-constraints]
 .Handle constraints:
 include::partial$handle-constraints.adoc[]
 
 image::workflow/wf-access-3.png[role="data-zoomable"]
+//Editor's note: Add an image description
 
-== Learn the workflow editor
+== About the workflow editor
 
 The workflow editor consists of four main parts; workflow configuration screen, toolbar, canvas, and step configurator.
 
 . *Workflow configuration* (accessible by clicking on the configuration icon image:workflow/cog.svg[width=20px] in the header) is where you provide basic workflow configurations.
 . *Toolbar* is where you can find all of the available steps.
-. *Canvas* is where you build and configure the workflow.
-. *Step configurator* is where you configure the workflow steps.
+. *Canvas* is where you can build and configure the workflow.
+. *Step configurator* is where you can configure the workflow steps.
 
 .The workflow editor user interface.
 image::workflow/ui.svg[role="data-zoomable"]
@@ -71,10 +74,12 @@ To start building your workflow, simply drag-and-drop different elements (furthe
 If you are using similar steps with similar configurations, using copy-paste to duplicate existing steps might be faster (kbd:[cmd+c] and kbd:[cmd+v]).
 
 image::workflow/step-add.svg[role="data-zoomable"]
+//Editor's note: Add an image description
 
 To define the flow of your workflow, simply connect the steps by drawing a connector between them.
 
 image::workflow/step-connect.svg[role="data-zoomable"]
+//Editor's note: Add an image description
 
 To change the start point or the end point of the connector, click on the connector to view its points; then hover over the connecting point and drag it to another connector point.
 
@@ -86,7 +91,7 @@ image::workflow/step-connect-move-to.svg[role="data-zoomable"]
 
 Add some extra steps to get the feel for the interface.
 The resulting workflow doesn't need to be valid or make any sense.
-We will address all of the available steps and their configuration in detail in later sections.
+All of the available steps and their configuration will be addressed in detail in the following sections.
 
 .Gesture reference:
 * Click and hold the right mouse button, drag the mouse to *pan the canvas*.
@@ -105,25 +110,28 @@ The termination step image:workflow/termination.svg[width=20px] is optional, but
 A single workflow can have multiple triggers and multiple termination steps.
 ====
 
-When you're happy with your workflow or wish to save your progress, click on the save button on the bottom of the screen, or use the kbd:[ctrl+s] shortcut.
+When you're satisfied with your workflow or wish to save your progress, click on the save button on the bottom of the screen, or use the kbd:[ctrl+s] shortcut.
 
 image::workflow/save.svg[role="data-zoomable"]
+//Editor's note: Add an image description
 
 === Configuring the workflow
 
 Out of the box most workflow steps don't do anything unless we configure them to perform some task such as evaluating an expression or executing a complex function.
+//Editor's note: Clarify what is meant by "out if the box" - outside of a certain menu, section...?
 
 In order to configure specific steps, click on the configuration icon image:workflow/cog.svg[width=20px] in the header of the step.
-To configure a specific connector, click on it's label or double click on it.
+To configure a specific connector, click on its label or double click on it.
 
 The configuration is automatically saved to the step.
 The workflow needs to be saved in order for the configuration to take affect.
 
 image::workflow/step-config.svg[role="data-zoomable"]
+//Editor's note: Add an image description
 
 == Execution control
 
-Execution control allows you to indicate where the workflow starts, the steps, and where the workflow ends.
+Execution control allows you to indicate where the workflow starts, its steps, and where the workflow ends.
 
 [cols="1s,5a"]
 |===
@@ -139,15 +147,17 @@ Multiple triggers allow you to define fewer workflows for different events.
 ====
 
 Every time an action occurs (e.g. a record is created or a user signed-up) the system finds all of the workflows with a trigger that conform to that operation.
-To examplify; when a client signs-up for your newsletter, the system finds all of the workflows where the trigger listens to a "user signed up" event.
+To exemplify; when a client signs-up for your newsletter, the system finds all of the workflows where the trigger listens to a "user signed up" event.
 
 .A trigger consists of four main components (click on the configuration icon image:workflow/cog.svg[width=20px] in the header):
 . a *resource* which specifies what system resource the trigger reacts to,
 . an *event* which specifies what system events the trigger reacts to,
-. a series of *constraints* which specifies how an event should look like in order for the trigger to react.
-** To examplify; we can react to a {PRODUCT_NAME} created event only when the record was created for a lead module under the CRM namespace,
+. a series of *constraints* which specify how an event should look like in order for the trigger to react.
+** To exemplify; we can react to a {PRODUCT_NAME} created event only when the record was created for a lead module under the CRM namespace,
 . an *initial scope* which specifies what variables are available out of the box, without the need to do any work on your end.
-When working with records this will be the current record, the previous version of it, the related module, the related namespace, and any record validation errors.
+//Editor's note: Specify what "out of the box" means here
+When working with records this is the current record, the previous version of it, the related module, the related namespace, and any record validation errors.
+
 
 [TIP]
 ====
@@ -159,13 +169,13 @@ image::workflow/multi-start.svg[role="data-zoomable"]
 
 | [#step-exec-terminator]#<<step-exec-terminator,Terminators>>#
 |
-A *termination step* image:workflow/termination.svg[width=20px] terminates the execution of the workflow.
+A *termination step* image:workflow/termination.svg[width=20px] terminates the execution of a workflow.
 The termination step is not required, and is implied wherever the workflow is unable to continue due to the lack of steps.
 
 [NOTE]
 ====
 A single workflow can have multiple termination steps.
-Multiple termination steps allow you to explicitly terminate the workflows' execution.
+Multiple termination steps allow you to explicitly terminate the execution of a workflow.
 ====
 
 .An example of a workflow with multiple termination steps.
@@ -177,7 +187,8 @@ image::workflow/multi-end.svg[role="data-zoomable"]
 == Expressions
 
 An *expression step* image:workflow/expressions.svg[width=20px] defines a set of expressions which allow you to directly interact with values defined in your workflow.
-Think of this as defining an equation in Spreadsheets.
+Think of this as defining an equation in spreadsheets.
+//Editor's note: only keep the capital S in spreadsheets if that is a title/subtitle/name of sth...
 
 A single expression step can define multiple expressions, allowing you to aggregate similar operations under a single step; this reduces the size and increases readability.
 Refer to xref:expr/index.adoc[] for more details regarding expression definition.
@@ -237,6 +248,7 @@ image::workflow/expr-example-end.png[role="data-zoomable"]
 
 A *function step* image:workflow/function.svg[width=20px] defines what operation should be performed when the function step is executed.
 Think of this as defining a macro in Spreadsheets.
+//Editor's note: only keep the capital S in spreadsheets if that is a title/subtitle/name of sth...
 
 .Examples of usage:
 * create a new quote for an account,
@@ -258,7 +270,7 @@ Select what function you wish to perform in the dropdown select box under the "t
 When you select a function, the list of function arguments appears.
 
 An argument defines what piece of data the function should use to perform some operation.
-To examplify; the `message` parameter in the "log debug message" function defines the message displayed in the debug log.
+To exemplify; the `message` parameter in the "log debug message" function defines the message displayed in the debug log.
 
 .The function configuration interface with defined parameters.
 image::workflow/fnc-example-end.png[role="data-zoomable"]
@@ -296,7 +308,7 @@ The function step in the above example creates a log entry based on the provided
 ****
 
 .Function arguments can be passed in two different ways:
-. *Constant values* which are passed into function in its present condition.
+. *Constant values* which are passed into function in their present condition.
 Use constant values when the passed data should not change.
 . *Expressions* are evaluated and the result is passed into function.
 This is useful when you wish to change the input without the need for an additional expression step.
@@ -340,7 +352,7 @@ Most item iterators are able to *fetch and iterate* over items.
 
 [#iterator-kind-stream]#<<iterator-kind-stream,Stream iterators>>#::
   A stream iterator traverses the provided file one line at a time.
-  To examplify; we provide a text document containing 10 email addresses each in it's own line, therefore the iterator repeats 10 times, once for each line (in this case email address).
+  To exemplify; we provide a text document containing 10 email addresses each in its own line, therefore the iterator repeats 10 times, once for each line (in this case email address).
 
 [CAUTION]
 ====
@@ -360,6 +372,7 @@ This is useful when you wish to change the input without the need for an additio
 
 // check vv
 // Use expressions when the passed data should change based on the workflows' scope.
+//Editor's note: You talk about how the Iterator arguments can be passed in 3 different ways yet mention only 2!
 
 | [#step-iterator-rsp]#<<step-iterator-rsp,Iterator results>>#
 |
@@ -378,7 +391,7 @@ The second connector indicates where the execution continues after the iterator 
 Note the "body" and the "end" labels on the outgoing connectors.
 ====
 
-Use the iterator body to define what should happen to the items in processing, for example; if our intent is to send out email notifications, this is where you would do that.
+Use the iterator body to define what should happen to the items in processing, for example; if our intent is to send out email notifications, this is where you do that.
 
 The iterator body is implicitly terminated by the continue image:workflow/continue.svg[width=20px] step if neither of the iterator execution control steps are used prior.
 
@@ -421,7 +434,7 @@ image::workflow/multi-continue.svg[role="data-zoomable"]
 |
 The break step image:workflow/break.svg[width=20px] terminates the ongoing iteration and any additional iterations performed by the iterator.
 The break step should be used to prematurely terminate the entire iterator.
-To examolify; when a system error occurs or when you find the item you are looking for.
+To exemplify; when a system error occurs or when you find the item you are looking for.
 
 .An example of a prematurely terminating the iterator.
 image::workflow/break-example.svg[role="data-zoomable"]
@@ -431,7 +444,7 @@ image::workflow/break-example.svg[role="data-zoomable"]
 [#working-with-errors]
 == Error handling
 
-Whenever you work with dynamic data (especially end-user input) and external services you are always reminded that errors can and will occur.
+Whenever you work with dynamic data (especially end-user input) and external services, you are always reminded that errors can and will occur.
 We define two steps for working with errors; error handler step image:workflow/error-handler.svg[width=20px] and error step image:workflow/error.svg[width=20px].
 
 [cols="1s,5a"]
@@ -453,7 +466,7 @@ If any step in the "dangerous" zone fails, the execution continues along the "Ca
 
 | [#step-errors-throw]#<<step-errors-throw,Error>>#
 |
-An *error step* image:workflow/error.svg[width=20px] allows you to manually throw (trigger) an error during the execution of a workflow.
+An *error step* image:workflow/error.svg[width=20px] allows you to manually trigger an error during the execution of a workflow.
 Forcefully terminating the workflow using an error step prevents additional operations from executing (such as the record is not saved or a user is not suspended).
 
 [NOTE]
@@ -527,7 +540,7 @@ Workflow execution, by design, does not timeout unless forcefully terminated.
 
 You can resolve this by reworking your workflow logic to avoid such cases.
 
-.An example of a workflow that will never resolve:
+.An example of a workflow that will never resolve
 image::workflow/gateway-inclusive-inf.png[role="data-zoomable"]
 
 |===
@@ -547,7 +560,7 @@ The *prompt step* image:workflow/prompt.svg[width=20px] allows you to interact w
 |===
 | [#step-prompt-redirect]#<<step-prompt-redirect,External redirect>>#
 |
-An *External redirect* redirects the receiving user to the specified URL anywhere on the internet.
+An *external redirect* redirects the receiving user to the specified URL anywhere on the internet.
 
 [TIP]
 ====
@@ -562,7 +575,7 @@ Refer to the `/src/views/routes.js` JS file of each {PRODUCT_NAME} web applicati
 | [#step-prompt-recordPage]#<<step-prompt-recordPage,Record page redirect>>#
 |
 A *record page redirect prompt* redirects the receiving user to the specified record page.
-This can be useful to redirect the user to the newly created record.
+This can be used to redirect the user to the newly created record.
 
 | [#step-prompt-notification]#<<step-prompt-notification,Notification>>#
 |

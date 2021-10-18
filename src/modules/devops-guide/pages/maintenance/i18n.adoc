@@ -50,7 +50,7 @@ services:
 // ...
 
   server:
-    image: cortezaproject/corteza-server:${VERSION}
+    image: cortezaproject/corteza:${VERSION}
     restart: on-failure
     env_file: [ .env ]
     depends_on: [ db ]

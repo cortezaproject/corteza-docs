@@ -29,8 +29,8 @@ image::apigw/route-create.png[role="data-zoomable"]
 * *endpoint* defines the path for the endpoint,
 * *method* defines what HTTP method the endpoint will listen for.
 
-The endpoint will be accessible under `$BASE_URL/api/$YOUR_ENDPOINT`.
-To examplify; the `/test-api` endpoint for the `https://latest.cortezaproject.org` instance is available under `https://latest.cortezaproject.org/api/test-api`
+The endpoint will be accessible under `$BASE_URL/api/gateway$YOUR_ENDPOINT`.
+To exemplify; the `/test-api` endpoint for the `https://latest.cortezaproject.org` instance is available under `https://latest.cortezaproject.org/api/gateway/test-api`
 
 [NOTE]
 ====

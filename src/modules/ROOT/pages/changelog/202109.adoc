@@ -82,6 +82,45 @@ All memberships and RBAC rules are transferred to the updated role IDs.
 
 |===
 
+== `2021.9.1`
+
+*Released on*: 2021-10-18
+
+*Contributors*: Peter Grlica (https://github.com/petergrlica[GH]), Denis Arh (https://github.com/darh[GH]), Katrin Yordanova (https://github.com/katrinDY[GH]), Jože Fortun (https://github.com/fajfa[GH]), Vivek Patel (https://github.com/vicpatel[GH]), Matija Rešek (https://github.com/resek[GH]), Mario Burazer (https://github.com/MarioBur[GH])
+
+.[#2021_9_1-added]#<<2021_9_1-added,Added:>>#
+* Added handle/slug error text in Compose ({WEBAPP_COMPOSE_COMMIT_BASE}c7f543ec[`c7f543ec`]).
+//
+* Extend record export with filter in Compose ({WEBAPP_COMPOSE_COMMIT_BASE}1f5d2abf[`1f5d2abf`]).
+//
+* Added tooltip for API Getaway endpoint in Admin ({WEBAPP_ADMIN_COMMIT_BASE}d897ba3d[`d897ba3d`]).
+//
+* Added server sorting fields to integration gateway to support UI ({SERVER_COMMIT_BASE}c388f8[`c388f8`]).
+//
+* Added Bytes ([]byte) expression type ({SERVER_COMMIT_BASE}614237[`614237`]).
+
+.[#2021_9_1-changed]#<<2021_9_1-changed,Changed:>>#
+* Improved colour scheme picker in Compose ({WEBAPP_COMPOSE_COMMIT_BASE}211227ba[`211227ba`]).
+//
+* Open Admin template previews in new tab ({WEBAPP_ADMIN_COMMIT_BASE}88f05df2[`88f05df2`]).
+//
+* Refactored message bus to conform to rbac, service and package layer architecture ({SERVER_COMMIT_BASE}54b716[`54b716`]).
+//
+* Improved API Getaway filter handling ({WEBAPP_ADMIN_COMMIT_BASE}c6e3d0e9[`c6e3d0e9`]).
+
+.[#2021_9_1-fixed]#<<2021_9_1-fixed,Fixed:>>#
+* Fixed Compose calendar buttons styles.
+//
+* Fixed Admin compose settings not reflected in Compose ({WEBAPP_COMPOSE_COMMIT_BASE}bf9e7064[`bf9e7064`]).
+//
+* Fixed for unsupported MIME types error message not showing in Compose ({WEBAPP_COMPOSE_COMMIT_BASE}8561dca6[`8561dca6`]).
+//
+* Fixed query handling when exporting records in Compose ({WEBAPP_COMPOSE_COMMIT_BASE}78e6d296[`78e6d296`]).
+//
+* Fixed server workflow step duplicate issue ({SERVER_COMMIT_BASE}e2e751[`e2e751`]).
+//
+* Fixed unique constraint matching on resources on server ({SERVER_COMMIT_BASE}59ffe7[`59ffe7`]).
+
 == `2021.9.0`
 
 *Released on*: TBD

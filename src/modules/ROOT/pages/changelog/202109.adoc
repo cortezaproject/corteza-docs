@@ -111,6 +111,8 @@ All memberships and RBAC rules are transferred to the updated role IDs.
 .[#2021_9_1-fixed]#<<2021_9_1-fixed,Fixed:>>#
 * Fixed Compose calendar buttons styles.
 //
+* Fixed back-button on record viewer.
+//
 * Fixed Admin compose settings not reflected in Compose ({WEBAPP_COMPOSE_COMMIT_BASE}bf9e7064[`bf9e7064`]).
 //
 * Fixed for unsupported MIME types error message not showing in Compose ({WEBAPP_COMPOSE_COMMIT_BASE}8561dca6[`8561dca6`]).

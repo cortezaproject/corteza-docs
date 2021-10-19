@@ -88,6 +88,8 @@ The rest of the repositories depend on these two, so you should handle them firs
 * corteza-webapp-admin: ({GIT_REPO_LINK_PREFIX}-webapp-admin)
 * corteza-webapp-compose: ({GIT_REPO_LINK_PREFIX}-webapp-compose)
 * corteza-webapp-workflow: ({GIT_REPO_LINK_PREFIX}-webapp-workflow)
+* corteza-webapp-reporter: ({GIT_REPO_LINK_PREFIX}-webapp-reporter)
+
 
 == Server
 

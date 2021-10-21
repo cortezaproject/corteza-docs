@@ -115,6 +115,9 @@ Jože Fortun (https://github.com/fajfa[GH]),
 * Fix on-boot workflow initialization that caused server to crash on start if workflows with invalid trigger configurations were enabled ({SERVER_COMMIT_BASE}415982c8[`415982c8`]).
 * Boolean labels on compose not showing properly when value was false ({WEBAPP_COMPOSE_COMMIT_BASE}0330e31[`0330e31`], {WEBAPP_JS_COMMIT_BASE}aef1a14[`aef1a14`]).
 * Workflow step configurator sometimes not saving properly if sidebar was opened ({WEBAPP_WORKFLOW_COMMIT_BASE}6d8796e[`6d8796e`]).
+* Accent & HTML escaping in translated strings ({SERVER_COMMIT_BASE}556ffc5e[`556ffc5e`]).
+* Fixes issues with resource translations (current language, accents, escaped HTML)  ({webapp_compose_commit_base}05178c2b[`05178c2b`]).
+
 //
 //
 

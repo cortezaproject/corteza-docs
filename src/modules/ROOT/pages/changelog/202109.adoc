@@ -93,7 +93,7 @@ All memberships and RBAC rules are transferred to the updated role IDs.
 //
 * Extend record export with filter in Compose ({WEBAPP_COMPOSE_COMMIT_BASE}1f5d2abf[`1f5d2abf`]).
 //
-* Added tooltip for API Getaway endpoint in Admin ({WEBAPP_ADMIN_COMMIT_BASE}d897ba3d[`d897ba3d`]).
+* Added tooltip for Integration Gateway endpoint in Admin ({WEBAPP_ADMIN_COMMIT_BASE}d897ba3d[`d897ba3d`]).
 //
 * Added server sorting fields to integration gateway to support UI ({SERVER_COMMIT_BASE}c388f8[`c388f8`]).
 //
@@ -106,7 +106,7 @@ All memberships and RBAC rules are transferred to the updated role IDs.
 //
 * Refactored message bus to conform to rbac, service and package layer architecture ({SERVER_COMMIT_BASE}54b716[`54b716`]).
 //
-* Improved API Getaway filter handling ({WEBAPP_ADMIN_COMMIT_BASE}c6e3d0e9[`c6e3d0e9`]).
+* Improved Integration Gateway filter handling ({WEBAPP_ADMIN_COMMIT_BASE}c6e3d0e9[`c6e3d0e9`]).
 
 .[#2021_9_1-fixed]#<<2021_9_1-fixed,Fixed:>>#
 * Fixed Compose calendar buttons styles.

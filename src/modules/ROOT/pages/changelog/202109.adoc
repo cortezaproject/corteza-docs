@@ -102,6 +102,7 @@ Denis Arh (https://github.com/darh[GH]),
 //
 
 .[#2021_9_2-changed]#<<2021_9_2-changed,Changed:>>#
+* Compose module fields do not accept reserved system names anymore: `recordID`, `ownedBy`, `createdBy`, `createdAt`, `updatedBy`, `updatedAt`, `deletedBy`, `deletedAt` ({SERVER_COMMIT_BASE}20757e58[`20757e58`], {WEBAPP_ADMIN_COMMIT_BASE}20a85d8[`20a85d8`]).
 
 // placeholder
 

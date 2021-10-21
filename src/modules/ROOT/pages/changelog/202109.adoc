@@ -88,7 +88,7 @@ All memberships and RBAC rules are transferred to the updated role IDs.
 
 *Contributors*:
 //Peter Grlica (https://github.com/petergrlica[GH]),
-//Denis Arh (https://github.com/darh[GH]),
+Denis Arh (https://github.com/darh[GH]),
 //Katrin Yordanova (https://github.com/katrinDY[GH]),
 //Jože Fortun (https://github.com/fajfa[GH]),
 //Vivek Patel (https://github.com/vicpatel[GH]),
@@ -96,8 +96,7 @@ All memberships and RBAC rules are transferred to the updated role IDs.
 //Mario Burazer (https://github.com/MarioBur[GH])
 
 .[#2021_9_2-added]#<<2021_9_2-added,Added:>>#
-
-// placeholder
+* SMTP server settings can now be changed via settings and without the server restart ({SERVER_COMMIT_BASE}0b69d1a2[`0b69d1a2`], {WEBAPP_ADMIN_COMMIT_BASE}20a85d8[`20a85d8`]).
 
 //
 //
@@ -110,6 +109,7 @@ All memberships and RBAC rules are transferred to the updated role IDs.
 //
 
 .[#2021_9_2-fixed]#<<2021_9_2-fixed,Fixed:>>#
+* Fix on-boot workflow initialization that caused server to crash on start if workflows with invalid trigger configurations were enabled ({SERVER_COMMIT_BASE}415982c8[`415982c8`]).
 
 //
 //

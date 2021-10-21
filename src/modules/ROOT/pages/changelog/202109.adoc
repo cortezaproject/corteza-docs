@@ -129,7 +129,7 @@ All memberships and RBAC rules are transferred to the updated role IDs.
 
 == `2021.9.0`
 
-*Released on*: TBD
+*Released on*: 2021-10-11
 
 *Contributors*: Tomaž Jerman (https://github.com/tjerman[GH]), Peter Grlica (https://github.com/petergrlica[GH]), Mia Arh (https://github.com/zmija[GH]), Denis Arh (https://github.com/darh[GH]), sgg-adraynrion (https://github.com/sgg-adraynrion[GH]), Katrin Yordanova (https://github.com/katrinDY[GH]), Jože Fortun (https://github.com/fajfa[GH]), Vivek Patel (https://github.com/vicpatel[GH]), Matija Rešek (https://github.com/resek[GH]), Mario Burazer (https://github.com/MarioBur[GH]), Bill Ewanick (https://github.com/billewanick[GH])
 

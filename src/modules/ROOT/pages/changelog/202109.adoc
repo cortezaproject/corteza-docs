@@ -82,6 +82,69 @@ All memberships and RBAC rules are transferred to the updated role IDs.
 
 |===
 
+== `2021.9.2`
+
+*Released on*: TBD
+
+*Contributors*:
+//Peter Grlica (https://github.com/petergrlica[GH]),
+//Denis Arh (https://github.com/darh[GH]),
+//Katrin Yordanova (https://github.com/katrinDY[GH]),
+//Jože Fortun (https://github.com/fajfa[GH]),
+//Vivek Patel (https://github.com/vicpatel[GH]),
+//Matija Rešek (https://github.com/resek[GH]),
+//Mario Burazer (https://github.com/MarioBur[GH])
+
+.[#2021_9_2-added]#<<2021_9_2-added,Added:>>#
+
+// placeholder
+
+//
+//
+
+.[#2021_9_2-changed]#<<2021_9_2-changed,Changed:>>#
+
+// placeholder
+
+//
+//
+
+.[#2021_9_2-fixed]#<<2021_9_2-fixed,Fixed:>>#
+
+//
+//
+
+.[#2021_9_2-removed]#<<2021_9_2-removed,Removed:>>#
+
+// placeholder
+
+//
+//
+
+.[#2021_9_2-fixed]#<<2021_9_2-fixed,Fixed:>>#
+
+// placeholder
+
+//
+//
+
+.[#2021_9_2-security]#<<2021_9_2-security,Security:>>#
+
+// placeholder
+
+//
+//
+
+.[#2021_9_2-development]#<<2021_9_2-development,Development:>>#
+
+// placeholder
+
+//
+//
+
+
+
+
 == `2021.9.1`
 
 *Released on*: 2021-10-18

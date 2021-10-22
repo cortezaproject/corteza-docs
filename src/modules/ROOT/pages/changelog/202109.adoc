@@ -117,6 +117,7 @@ Jože Fortun (https://github.com/fajfa[GH]),
 * Workflow step configurator sometimes not saving properly if sidebar was opened ({WEBAPP_WORKFLOW_COMMIT_BASE}6d8796e[`6d8796e`]).
 * Accent & HTML escaping in translated strings ({SERVER_COMMIT_BASE}556ffc5e[`556ffc5e`]).
 * Fixes issues with resource translations (current language, accents, escaped HTML)  ({webapp_compose_commit_base}05178c2b[`05178c2b`]).
+* Hide pages if the parent page is marked as not visible  ({WEBAPP_COMPOSE_COMMIT_BASE}957a9de2[`957a9de2`]).
 
 //
 //

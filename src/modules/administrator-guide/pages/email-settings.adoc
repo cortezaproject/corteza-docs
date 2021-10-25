@@ -10,8 +10,8 @@ In case of any TLS/certificate issues you can adjust server name for the TLS che
 
 [IMPORTANT]
 ====
-Initial settings are copied from the `SMTP_*` environmental variables.
-Corteza will log a warning if you keep the environmental variables and make changes to either variables or settings.
+Initial settings are copied from the xref:devops-guide:configuration/server.adoc#\_email_sending[`SMTP_*` environmental variables].
+{PRODUCT_NAME} will log a warning if you keep the environmental variables and make changes to either variables or settings.
 ====
 
 [#settings-email]
@@ -19,14 +19,13 @@ Corteza will log a warning if you keep the environmental variables and make chan
 
 Open your administration panel and navigate to menu:System[Email settings].
 
-.The screenshot shows the SMTP server settings in the administration panel under
-image::email-settings/form.png[Screenshot of the configuration window.,role="data-zoomable"]
-
-Provide the required server name and port and optional username and password.
-
-Changes are applied immediately and do not require server restart!
-
-[NOTE]
+[CAUTION]
 ====
 Diagnostics and additional information in case of misconfiguration are only available in the server logs.
 ====
+
+.The screenshot shows the SMTP server settings in the administration panel under.
+image::email-settings/form.png[Screenshot of the configuration window.,role="data-zoomable"]
+
+Provide the required server name and port and optional username and password.
+Changes are applied immediately and do not require server restart.

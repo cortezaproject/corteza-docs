@@ -22,7 +22,7 @@ services:
   db_origin:
     image: percona:8.0
     container_name: db_origin
-    restart: on-failure
+    restart: always
     environment:
       MYSQL_DATABASE:      corteza
       MYSQL_USER:          corteza
@@ -36,7 +36,7 @@ services:
   db_destination:
     image: percona:8.0
     container_name: db_destination
-    restart: on-failure
+    restart: always
     environment:
       MYSQL_DATABASE:      corteza
       MYSQL_USER:          corteza
@@ -56,7 +56,7 @@ services:
       - "../../:/app"
       - "./.env.orig:/app/.env"
     working_dir: /app
-    restart: on-failure
+    restart: always
     ports:
       - 8084:8084
 
@@ -69,7 +69,7 @@ services:
       - "../../:/app"
       - "./.env.dest:/app/.env"
     working_dir: /app
-    restart: on-failure
+    restart: always
     ports:
       - 8085:8084
 ----

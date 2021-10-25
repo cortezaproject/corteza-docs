@@ -4,7 +4,7 @@ services:
   server:
     image: cortezaproject/corteza:${VERSION}
     networks: [ proxy, internal ]
-    restart: on-failure
+    restart: always
     env_file: [ .env ]
     depends_on: [ db ]
     volumes: [ "./data/server:/data" ]
@@ -23,7 +23,7 @@ services:
     # See https://hub.docker.com/_/postgres for details
     image: postgres:13
     networks: [ internal ]
-    restart: on-failure
+    restart: always
     healthcheck: { test: ["CMD-SHELL", "pg_isready -U corteza"], interval: 10s, timeout: 5s, retries: 5 }
     environment:
       # Warning: these are values that are only used on 1st start

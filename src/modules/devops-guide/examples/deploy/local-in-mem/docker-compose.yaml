@@ -3,7 +3,7 @@ version: '3.5'
 services:
   server:
     image: cortezaproject/corteza:2021.9
-    restart: on-failure
+    restart: always
     # Direct your browser to http://localhost:18080
     ports: [ "127.0.0.1:18080:80" ]
     environment:

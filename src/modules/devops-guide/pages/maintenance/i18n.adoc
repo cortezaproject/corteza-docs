@@ -51,7 +51,7 @@ services:
 
   server:
     image: cortezaproject/corteza:${VERSION}
-    restart: on-failure
+    restart: always
     env_file: [ .env ]
     depends_on: [ db ]
     volumes: ["./my-locale:/my-locale"] <1>

@@ -131,6 +131,10 @@
 | `*types.Namespace`
 | no
 
+| `selected`
+| `[]interface{}`
+| no
+
 | `invoker`
 | `auth.Identifiable`
 | yes
@@ -176,6 +180,10 @@
 | `recordValueErrors`
 | `*types.RecordValueErrorSet`
 | yes
+
+| `selected`
+| `[]interface{}`
+| no
 
 | `invoker`
 | `auth.Identifiable`

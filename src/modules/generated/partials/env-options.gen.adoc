@@ -1828,3 +1828,20 @@ false
 === Description
 
 Enables verbose logging for workflow execution
+
+== *WORKFLOW_CALL_STACK_SIZE*
+
+=== Type
+
+`int`
+
+=== Default
+
+[source]
+----
+16
+----
+
+=== Description
+
+Defines the maximum call stack size between workflows

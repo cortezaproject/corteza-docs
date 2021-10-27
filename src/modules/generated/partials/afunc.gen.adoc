@@ -161,7 +161,24 @@
 (
    `String`,)
 
-| [#fnc-email-setaddress]#<<fnc-email-setaddress,Email address>>#
+| [#fnc-email-setaddress]#<<fnc-email-setaddress,Email set address>>#
+| Sets the recipient, sender or reply-to addresses
+|
+.Parameters:
+* #*# `Message to be sent`
+(
+   `EmailMessage`,)
+* #*# `Type`
+(
+   `String`,)
+* #*# `Address`
+(
+   `String`,)
+* `Name`
+(
+   `String`,)
+
+| [#fnc-email-addaddress]#<<fnc-email-addaddress,Email add address>>#
 | Adds new recipient, sender or reply-to address
 |
 .Parameters:
@@ -583,6 +600,52 @@
 .Results:
 * role (`Role`)
 
+| [#fnc-roles-searchmembers]#<<fnc-roles-searchmembers,Role members search>>#
+| Find members for a specific roleby ID or handle
+|
+.Parameters:
+* #*# `lookup`
+(
+   `ID`,
+   `Handle`,
+   `Role`,)
+
+.Results:
+* users (`User`)
+* total (`UnsignedInteger`)
+
+| [#fnc-roles-addmember]#<<fnc-roles-addmember,Role membership add>>#
+| 
+|
+.Parameters:
+* #*# `role`
+(
+   `ID`,
+   `Handle`,
+   `Role`,)
+* #*# `user`
+(
+   `ID`,
+   `Handle`,
+   `String`,
+   `User`,)
+
+| [#fnc-roles-removemember]#<<fnc-roles-removemember,Role membership remove>>#
+| 
+|
+.Parameters:
+* #*# `role`
+(
+   `ID`,
+   `Handle`,
+   `Role`,)
+* #*# `user`
+(
+   `ID`,
+   `Handle`,
+   `String`,
+   `User`,)
+
 | [#fnc-roles-search]#<<fnc-roles-search,Roles search>>#
 | 
 |
@@ -836,6 +899,40 @@
 
 .Results:
 * user (`User`)
+
+| [#fnc-users-searchmembership]#<<fnc-users-searchmembership,User role search>>#
+| Search user role membership by ID, handle or string
+|
+.Parameters:
+* #*# `lookup`
+(
+   `ID`,
+   `Handle`,
+   `String`,
+   `User`,)
+
+.Results:
+* roles (`Role`)
+* total (`UnsignedInteger`)
+
+| [#fnc-users-checkmembership]#<<fnc-users-checkmembership,User membership check>>#
+| Find user role membership by ID, handle or string
+|
+.Parameters:
+* #*# `user`
+(
+   `ID`,
+   `Handle`,
+   `String`,
+   `User`,)
+* #*# `role`
+(
+   `ID`,
+   `Handle`,
+   `Role`,)
+
+.Results:
+* member (`Boolean`)
 
 | [#fnc-users-search]#<<fnc-users-search,User search>>#
 | 

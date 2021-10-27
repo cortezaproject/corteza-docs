@@ -72,7 +72,7 @@
 ----
 {
    Queue (String)
-   Payload (String)
+   Payload (Bytes)
 }
 ----
 

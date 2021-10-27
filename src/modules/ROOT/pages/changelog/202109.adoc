@@ -124,8 +124,8 @@ All memberships and RBAC rules are transferred to the updated role IDs.
 * Fixed unique constraint matching on resources on server ({SERVER_COMMIT_BASE}59ffe7[`59ffe7`]).
 //
 * Fixed: Missing Corteza server image root ssl certificates that caused issues with outbound HTTP and SMTP requests ({SERVER_COMMIT_BASE}8b008545[`8b008545`]).
-
-
+//
+* Fixed invalid z-index for record list filter components ({WEBAPP_COMPOSE_COMMIT_BASE}6171af5b[`6171af5b`]).
 
 == `2021.9.0`
 

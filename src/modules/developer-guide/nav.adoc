@@ -30,6 +30,9 @@
 
 ** xref:web-applications/index.adoc[]
 *** xref:web-applications/structure.adoc[]
+*** xref:web-applications/i18n.adoc[]
+*** xref:web-applications/c3.adoc[]
+*** xref:web-applications/record-list-filtering.adoc[]
 
 ** xref:corteza-js/index.adoc[]
 *** xref:corteza-js/structure.adoc[]

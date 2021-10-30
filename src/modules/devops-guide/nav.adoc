@@ -32,3 +32,4 @@
 ** Extension requirements
 *** xref:extension-requirements/email-relay.adoc[]
 *** xref:extension-requirements/sink-route.adoc[]
+*** xref:extension-requirements/pdf-renderer.adoc[]

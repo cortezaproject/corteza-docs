@@ -221,6 +221,29 @@ The output should look like this:
 include::example$deploy/prod-proxy-nginx/output-ps.txt[]
 ----
 
+=== Setup websocket proxying
+
+This part define https://datatracker.ietf.org/doc/html/rfc2616#section-13.5.1[hop-by-hop] headers to be passed from a client to proxied server.
+This will allow websockets proxying to works with your nginx configuration above.
+
+[IMPORTANT]
+====
+The complete guide is available on https://nginx.org/en/docs/http/websocket.html[nginx documentation website] and provide much more information and examples.
+====
+
+Inside your `nginx.conf` file (default placed under `/etc/nginx` directory) add these following lines inside your "server" configuration section.
+
+[source]
+----
+location /api/websocket {
+  proxy_pass http://server:80;
+  proxy_http_version 1.1;
+  proxy_set_header Upgrade $http_upgrade;
+  proxy_set_header Connection "Upgrade";
+  proxy_set_header Host $host;
+}
+----
+
 === Configure docker-compose.yaml
 
 ⚠️ We are inside the `my-corteza` directory.

@@ -80,6 +80,7 @@
 
 ** xref:templates/index.adoc[]
 *** xref:templates/variables.adoc[]
+** xref:server-plugins/index.adoc[]
 // *** Examples
 // **** ...
 

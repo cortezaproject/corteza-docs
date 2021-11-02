@@ -9,6 +9,7 @@
 ** System configuration
 *** xref:configuration/server.adoc[]
 *** xref:configuration/corredor.adoc[]
+*** xref:server-plugins/index.adoc[]
 
 ** Offline deployment
 *** xref:offline-deployment/multi-mysql.adoc[]

@@ -149,6 +149,11 @@ If you did not configure your SMTP settings, all sign-ups are marked as confirme
 [#deploy-online]
 == Deploy online
 
+[NOTE]
+====
+If you're using Nginx and the WebSocket connection is failing, refer to xref:maintenance/troubleshooting.adoc#ws-nginx-connection-fail[menu:Maintenance[Troubleshooting]].
+====
+
 Online setups separate your services into two networks; internal and proxy.
 The internal network hides most of the system from the internet.
 This section provides a minimum setup with MySQL as the persistent database storage with {APP_AUTOMATION} server enabled.
@@ -219,29 +224,6 @@ The output should look like this:
 [source]
 ----
 include::example$deploy/prod-proxy-nginx/output-ps.txt[]
-----
-
-=== Setup websocket proxying
-
-This part define https://datatracker.ietf.org/doc/html/rfc2616#section-13.5.1[hop-by-hop] headers to be passed from a client to proxied server.
-This will allow websockets proxying to works with your nginx configuration above.
-
-[IMPORTANT]
-====
-The complete guide is available on https://nginx.org/en/docs/http/websocket.html[nginx documentation website] and provide much more information and examples.
-====
-
-Inside your `nginx.conf` file (default placed under `/etc/nginx` directory) add these following lines inside your "server" configuration section.
-
-[source]
-----
-location /api/websocket {
-  proxy_pass http://server:80;
-  proxy_http_version 1.1;
-  proxy_set_header Upgrade $http_upgrade;
-  proxy_set_header Connection "Upgrade";
-  proxy_set_header Host $host;
-}
 ----
 
 === Configure docker-compose.yaml

@@ -109,6 +109,7 @@ Jože Fortun (https://github.com/fajfa[GH]),
 * Resource translations no longer fallback to base language in case of a missing translation ({SERVER_COMMIT_BASE}4cd54a58[`4cd54a58`]).
 * Compose webapp now sends `Content-Language and `Accept-Language` HTTP headers ({WEBAPP_COMPOSE_COMMIT_BASE}f8427346[`f8427346`]).
 * Server source is now built with -trimpath and without -mod=readonly flags ({SERVER_COMMIT_BASE}0b02535c[`0b02535c`]).
+* Namespace export no longer preserves logo/icon references ({SERVER_COMMIT_BASE}dab413ece[`dab413ece`]).
 
 //
 //

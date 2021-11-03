@@ -99,6 +99,7 @@ Jože Fortun (https://github.com/fajfa[GH]),
 .[#2021_9_2-added]#<<2021_9_2-added,Added:>>#
 * SMTP server settings can now be changed via settings and without the server restart ({SERVER_COMMIT_BASE}0b69d1a2[`0b69d1a2`], {WEBAPP_ADMIN_COMMIT_BASE}20a85d8[`20a85d8`]).
 * Support interaction with action log (search, record) from workflows; ACTIONLOG_ENABLE_WORKFLOW_FUNCTIONS needs to be set to true ({SERVER_COMMIT_BASE}1014f53a[`1014f53a`]).
+* Support for server plugins ({SERVER_COMMIT_BASE}614d2b30[`614d2b30`]).
 
 //
 //
@@ -107,6 +108,7 @@ Jože Fortun (https://github.com/fajfa[GH]),
 * Compose module fields do not accept reserved system names anymore: `recordID`, `ownedBy`, `createdBy`, `createdAt`, `updatedBy`, `updatedAt`, `deletedBy`, `deletedAt` ({SERVER_COMMIT_BASE}20757e58[`20757e58`], {WEBAPP_ADMIN_COMMIT_BASE}20a85d8[`20a85d8`]).
 * Resource translations no longer fallback to base language in case of a missing translation ({SERVER_COMMIT_BASE}4cd54a58[`4cd54a58`]).
 * Compose webapp now sends `Content-Language and `Accept-Language` HTTP headers ({WEBAPP_COMPOSE_COMMIT_BASE}f8427346[`f8427346`]).
+* Server source is now built with -trimpath and without -mod=readonly flags ({SERVER_COMMIT_BASE}0b02535c[`0b02535c`]).
 
 //
 //

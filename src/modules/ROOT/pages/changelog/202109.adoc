@@ -123,6 +123,7 @@ Jože Fortun (https://github.com/fajfa[GH]),
 * Hide pages if the parent page is marked as not visible ({WEBAPP_COMPOSE_COMMIT_BASE}957a9de2[`957a9de2`]).
 * Fix broken permission setting from Compose admin on Module for fields & records ({WEBAPP_COMPOSE_COMMIT_BASE}8ae2a48d[`8ae2a48d`]).
 * Fix RenderOptions expr value assignment via selectors ({SERVER_COMMIT_BASE}556ffc5e[`445f0ed5`]).
+* RBAC rule migration crash on duplicate rules ({SERVER_COMMIT_BASE}e8bc6141[`e8bc6141`]).
 
 //
 //

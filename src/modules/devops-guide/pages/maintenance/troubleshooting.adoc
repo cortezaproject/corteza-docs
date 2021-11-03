@@ -24,6 +24,34 @@ You can also replace the value for `services.server.ports` in `docker-compose.ya
 
 ⚠️ Make sure also to change the port everywhere else.
 
+[#ws-nginx-connection-fail]
+== WebSocket connection failing with Nginx
+
+If the WebSocket connection is failing to establish, you might need to enable Nginx WebSocket proxying.
+
+[NOTE]
+====
+You can find detailed instructions and further examples in the https://nginx.org/en/docs/http/websocket.html[Nginx documentation].
+====
+
+Inside your `nginx.conf` file (by default, it is located inside the `/etc/nginx` directory), add the following lines to the `server` configuration section.
+
+[CAUTION]
+====
+Make sure to adjust the location if you've defined a custom configuration that affects the base path.
+====
+
+[source]
+----
+location /api/websocket {
+  proxy_pass http://server:80;
+  proxy_http_version 1.1;
+  proxy_set_header Upgrade $http_upgrade;
+  proxy_set_header Connection "Upgrade";
+  proxy_set_header Host $host;
+}
+----
+
 == Connection to {APP_AUTOMATION} server
 
 You might see one or more connection refused errors in server container logs (`docker-compose logs -f server`):

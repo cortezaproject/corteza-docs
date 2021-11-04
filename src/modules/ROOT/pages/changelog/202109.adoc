@@ -123,6 +123,7 @@ Tomaž Jerman (https://github.com/tjerman[GH])
 * Fixed broken permission setting from {APP_NAME_COMPOSE} admin panel on module for fields & records ({WEBAPP_COMPOSE_COMMIT_BASE}8ae2a48d[`8ae2a48d`]).
 * Fixed RenderOptions expr value assignment via selectors ({SERVER_COMMIT_BASE}556ffc5e[`445f0ed5`]).
 * Fixed RBAC rule migration crash on duplicate rules ({SERVER_COMMIT_BASE}e8bc6141[`e8bc6141`]).
+* Docker container healthcheck ({SERVER_COMMIT_BASE}9d7cf23c[`9d7cf23c`]).
 
 == `2021.9.1`
 

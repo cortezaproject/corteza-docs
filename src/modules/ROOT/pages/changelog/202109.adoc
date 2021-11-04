@@ -5,6 +5,7 @@ include::ROOT:partial$variables.adoc[]
 :WEBAPP_ONE_COMMIT_BASE: https://github.com/cortezaproject/corteza-webapp-one/commit/
 :WEBAPP_ADMIN_COMMIT_BASE: https://github.com/cortezaproject/corteza-webapp-admin/commit/
 :WEBAPP_WORKFLOW_COMMIT_BASE: https://github.com/cortezaproject/corteza-webapp-workflow/commit/
+:WEBAPP_REPORTER_COMMIT_BASE: https://github.com/cortezaproject/corteza-webapp-reporter/commit/
 :WEBAPP_JS_COMMIT_BASE: https://github.com/cortezaproject/corteza-js/commit/
 :WEBAPP_VUE_COMMIT_BASE: https://github.com/cortezaproject/corteza-vue/commit/
 
@@ -99,6 +100,7 @@ Tomaž Jerman (https://github.com/tjerman[GH])
 * Added a user interface to configure SMPT setting; such configuration does not require server restart ({SERVER_COMMIT_BASE}0b69d1a2[`0b69d1a2`], {WEBAPP_ADMIN_COMMIT_BASE}20a85d8[`20a85d8`]).
 * Added support for workflow - action log interaction (search, create) ({SERVER_COMMIT_BASE}1014f53a[`1014f53a`]).
 * Added support for server plugins ({SERVER_COMMIT_BASE}614d2b30[`614d2b30`]).
+* Added workflow import note ({WEBAPP_WORKFLOW_COMMIT_BASE}9d98170[`9d98170`]).
 
 //
 //
@@ -124,6 +126,10 @@ Tomaž Jerman (https://github.com/tjerman[GH])
 * Fixed RenderOptions expr value assignment via selectors ({SERVER_COMMIT_BASE}556ffc5e[`445f0ed5`]).
 * Fixed RBAC rule migration crash on duplicate rules ({SERVER_COMMIT_BASE}e8bc6141[`e8bc6141`]).
 * Docker container healthcheck ({SERVER_COMMIT_BASE}9d7cf23c[`9d7cf23c`]).
+* Fixed compose false value label ({WEBAPP_JS_COMMIT_BASE}6da6989[`6da6989`]).
+* Fixed sidebar shadow ({WEBAPP_VUE_COMMIT_BASE}4a02d90[`4a02d90`]).
+* Fixed reporter table column reordering ({WEBAPP_REPORTER_COMMIT_BASE}6b25473[`6b25473`]).
+
 
 == `2021.9.1`
 

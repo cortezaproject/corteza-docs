@@ -29,3 +29,12 @@
 :GIT_REPO_LINK_PREFIX:  https://github.com/{GIT_REPO_GROUP}/{GIT_REPO_PREFIX}
 
 :LOCAL_HOSTNAME:        local.cortezaproject.org
+
+:SERVER_COMMIT_BASE: https://github.com/cortezaproject/corteza-server/commit/
+:WEBAPP_COMPOSE_COMMIT_BASE: https://github.com/cortezaproject/corteza-webapp-compose/commit/
+:WEBAPP_ONE_COMMIT_BASE: https://github.com/cortezaproject/corteza-webapp-one/commit/
+:WEBAPP_ADMIN_COMMIT_BASE: https://github.com/cortezaproject/corteza-webapp-admin/commit/
+:WEBAPP_WORKFLOW_COMMIT_BASE: https://github.com/cortezaproject/corteza-webapp-workflow/commit/
+:WEBAPP_REPORTER_COMMIT_BASE: https://github.com/cortezaproject/corteza-webapp-reporter/commit/
+:WEBAPP_JS_COMMIT_BASE: https://github.com/cortezaproject/corteza-js/commit/
+:WEBAPP_VUE_COMMIT_BASE: https://github.com/cortezaproject/corteza-vue/commit/

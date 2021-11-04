@@ -1,0 +1,86 @@
+include::ROOT:partial$variables.adoc[]
+
+[#2021-9-x]
+= `2021.9`
+
+With {PRODUCT_NAME} `2021.9`, we continue to improve accessibility by introducing internationalization for the user interface as well as user-defined configurations.
+In addition, we've improved the overall design and user experience, improved the authentication and access control facilities, expanded on the existing feature set, and introduced a few new additions.
+
+*Internationalization*
+
+With xref:integrator-guide:personalization/i18n.adoc[internationalization], we add support for the translation of user interfaces, as well as locale specific date-time and number formatting.
+{PRODUCT_NAME} allows you to modify the built-in translations entirely as well as define translations for additional languages you might need or any custom web application modifications you might have performed.
+You can also translate most of the user-provided configurations (such as namespaces and module fields), allowing you to configure your {APP_NAME_COMPOSE} applications to be accessible.
+
+[IMPORTANT]
+====
+To enable translations for custom configuration, you will need to set the `LOCALE_RESOURCE_TRANSLATIONS_ENABLED=true` `.env` variable.
+====
+
+*UI/UX*
+
+Building on the `2021.3` release, we continue to improve the user interface design as well as the overall experience when interacting with {PRODUCT_NAME} web applications.
+Most notably, we've reworked page navigation, improved consistency between different web applications, and added a more granular record list filter.
+
+*Access control*
+
+The xref:integrator-guide:access-control.adoc[access control facility] received an upgrade, providing more fine-grained control over the access to your data, such as specific records or modules of particular namespaces.
+xref:integrator-guide:access-control.adoc#role-type-ctx[Contextual roles] allow you to determine role membership and thus access to resources based on the xref:integrator-guide:access-control.adoc#ctx-role-evaluation[state the system is in] (such as what record we are editing).
+
+[TIP]
+====
+With contextual roles, you can cover cases where a user is only allowed to access or manage data created or owned by them.
+====
+
+*Authentication and security*
+
+The authentication flow is now more flexible by introducing support for xref:administrator-guide:authentication-provider/saml.adoc[SAML] and split credential flow.
+Further improvements to the authentication token generator and handler help increase the stability and security of the system.
+
+*Integration gateway*
+
+Responding to the needs of defining custom API endpoints, we've expanded the sink route facility and introduced the xref:integrator-guide:api-gw/index.html[Integration gateway].
+The improved facility simplifies the process of defining and managing custom API endpoints and defining processing for HTTP requests either via the built-in functions, workflows, or xref:integrator-guide:api-gw/index.adoc#js-processing[custom code].
+
+[NOTE]
+====
+The legacy sink route facility is still present and works as it did before, but we aim to replace the sink routes.
+====
+
+*Reporter*
+
+xref:integrator-guide:reporting/index.adoc[The reporter] provides a dedicated facility to define and view reports based on the data your {PRODUCT_NAME} {APP_NAME_COMPOSE} defines.
+
+.[#2021_3-important]#<<2021_3-important,Important upgrade notes:>>#
+[cols="1s,5a"]
+|===
+| [#2021_3-important-rbac]#<<2021_3-important-rbac,Access control>>#
+|
+
+{PRODUCT_NAME} 2021.9 reworks the internals of our RBAC facility.
+From the access evaluation flow, to how rules are encoded.
+
+.When upgrading to `2021.9`:
+* {PRODUCT_NAME} will automatically scan all existing RBAC rules, remove any obsolete rules like messaging, sanitize existing (federation module renaming) and properly change change resource IDs.
+* {PRODUCT_NAME} will automatically upgrade, add, remove, and rename roles as needed based on the reworked system:
+** authenticated, anonymous, super admin roles are added,
+** `everyone` role is *removed*
+** all RBAC rules owned by the now deprecated `everyone` role are migrated to the role `authenticated`
+** static role IDs (1 for everyone and 2 for admin) are replaced by sequential IDs.
+All memberships and RBAC rules are transferred to the updated role IDs.
+* {PRODUCT_NAME} will automatically add the following system users:
+** Corteza Provisioner (`provision@corteza.local`, `corteza-provisioner`); member of super admin account, used for all provisioning actions.
+** Corteza Service Account  (`service@corteza.local`, `corteza-service`); member of super admin account, used for all service activities, CLI interface.
+** Corteza Federation (`federation@corteza.local`, `corteza-federation`); member of super admin account, used for all federation activities.
+
+|===
+
+:leveloffset: +1
+
+include::02.adoc[]
+
+include::01.adoc[]
+
+include::00.adoc[]
+
+:leveloffset: -1

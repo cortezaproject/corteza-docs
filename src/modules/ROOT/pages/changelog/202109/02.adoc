@@ -1,0 +1,52 @@
+include::ROOT:partial$variables.adoc[]
+
+= `2021.9.2`
+
+.[#2021_9_2-important]#<<2021_9_2-important,Important upgrade notes:>>#
+* If you wish to enable functions for workflow - action log interaction, the `ACTIONLOG_ENABLE_WORKFLOW_FUNCTIONS` `.env` variable must be set.
+
+*Released on*: 2021-11-04
+
+*Contributors*:
+Denis Arh (https://github.com/darh[GH]),
+Jože Fortun (https://github.com/fajfa[GH]),
+Tomaž Jerman (https://github.com/tjerman[GH]),
+Katrin Yordanova (https://github.com/katrinDY[GH])
+
+.[#2021_9_2-added]#<<2021_9_2-added,Added:>>#
+* Added a user interface to configure SMPT setting; such configuration does not require server restart ({SERVER_COMMIT_BASE}0b69d1a2[`0b69d1a2`], {WEBAPP_ADMIN_COMMIT_BASE}20a85d8[`20a85d8`]).
+* Added support for workflow - action log interaction (search, create) ({SERVER_COMMIT_BASE}1014f53a[`1014f53a`]).
+* Added support for server plugins ({SERVER_COMMIT_BASE}614d2b30[`614d2b30`]).
+* Added workflow import note ({WEBAPP_WORKFLOW_COMMIT_BASE}9d98170[`9d98170`]).
+
+//
+//
+
+.[#2021_9_2-changed]#<<2021_9_2-changed,Changed:>>#
+* Compose module fields no longer accept reserved system names -- `recordID`, `ownedBy`, `createdBy`, `createdAt`, `updatedBy`, `updatedAt`, `deletedBy`, and `deletedAt` ({SERVER_COMMIT_BASE}20757e58[`20757e58`], {WEBAPP_ADMIN_COMMIT_BASE}20a85d8[`20a85d8`]).
+* Resource translations no longer fallback to base language in case of a missing translations ({SERVER_COMMIT_BASE}4cd54a58[`4cd54a58`]).
+* Compose webapp now sends `Content-Language and `Accept-Language` HTTP headers ({WEBAPP_COMPOSE_COMMIT_BASE}f8427346[`f8427346`]).
+* Server source is now built with -trimpath and without -mod=readonly flags ({SERVER_COMMIT_BASE}0b02535c[`0b02535c`]).
+* Namespace export no longer preserves logo/icon references ({SERVER_COMMIT_BASE}dab413ece[`dab413ece`]).
+* Initial documentation site redesign (https://github.com/cortezaproject/corteza-docs/commit/14550adf[14550adf]).
+
+//
+//
+
+.[#2021_9_2-fixed]#<<2021_9_2-fixed,Fixed:>>#
+* Fixed boot-level workflow initialization logic which crashed the server if an enabled workflow defined an invalid trigger configuration ({SERVER_COMMIT_BASE}415982c8[`415982c8`]).
+* Fixed workflow saving when the configuration sidebar was opened ({WEBAPP_WORKFLOW_COMMIT_BASE}6d8796e[`6d8796e`]).
+* Fixed improper {APP_NAME_COMPOSE} `Checkbox` labels representation for false values ({WEBAPP_COMPOSE_COMMIT_BASE}0330e31[`0330e31`], {WEBAPP_JS_COMMIT_BASE}aef1a14[`aef1a14`]).
+* Fixed accent & HTML escaping in translated strings ({SERVER_COMMIT_BASE}556ffc5e[`556ffc5e`]).
+* Fixed resource translation issues for current language, accents, and escaped HTML ({webapp_compose_commit_base}05178c2b[`05178c2b`]).
+* Hide pages if the parent page is marked as not visible ({WEBAPP_COMPOSE_COMMIT_BASE}957a9de2[`957a9de2`]).
+* Fixed broken permission setting from {APP_NAME_COMPOSE} admin panel on module for fields & records ({WEBAPP_COMPOSE_COMMIT_BASE}8ae2a48d[`8ae2a48d`]).
+* Fixed RenderOptions expr value assignment via selectors ({SERVER_COMMIT_BASE}556ffc5e[`445f0ed5`]).
+* Fixed RBAC rule migration crash on duplicate rules ({SERVER_COMMIT_BASE}e8bc6141[`e8bc6141`]).
+* Docker container healthcheck ({SERVER_COMMIT_BASE}9d7cf23c[`9d7cf23c`]).
+* Fixed compose false value label ({WEBAPP_JS_COMMIT_BASE}6da6989[`6da6989`]).
+* Fixed sidebar shadow ({WEBAPP_VUE_COMMIT_BASE}4a02d90[`4a02d90`]).
+* Fixed reporter table column reordering ({WEBAPP_REPORTER_COMMIT_BASE}6b25473[`6b25473`]).
+* Fixed {APP_NAME_COMPOSE} error when the automation scripts are not loaded ({WEBAPP_COMPOSE_COMMIT_BASE}bb94645[`bb94645`]).
+* Disabled the load button in chart editor ({WEBAPP_COMPOSE_COMMIT_BASE}6912fcd[`6912fcd`]).
+* Fixed improper prefilter handling in the chart editor ({WEBAPP_COMPOSE_COMMIT_BASE}aeceb35[`aeceb35`]).

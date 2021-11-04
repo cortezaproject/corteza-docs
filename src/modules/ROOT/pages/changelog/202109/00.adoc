@@ -1,0 +1,153 @@
+include::ROOT:partial$variables.adoc[]
+
+= `2021.9.0`
+
+*Released on*: 2021-10-11
+
+*Contributors*:
+Tomaž Jerman (https://github.com/tjerman[GH]),
+Peter Grlica (https://github.com/petergrlica[GH]),
+Mia Arh (https://github.com/zmija[GH]),
+Denis Arh (https://github.com/darh[GH]),
+sgg-adraynrion (https://github.com/sgg-adraynrion[GH]),
+Katrin Yordanova (https://github.com/katrinDY[GH]),
+Jože Fortun (https://github.com/fajfa[GH]),
+Vivek Patel (https://github.com/vicpatel[GH]),
+Matija Rešek (https://github.com/resek[GH]),
+Mario Burazer (https://github.com/MarioBur[GH]),
+Bill Ewanick (https://github.com/billewanick[GH])
+
+.[#2021_9_0-added]#<<2021_9_0-added,Added:>>#
+* Added support for internationalization of {PRODUCT_NAME} web applications (https://github.com/cortezaproject/corteza-server/pull/237[#237], {SERVER_COMMIT_BASE}31132570[`31132570`], {WEBAPP_COMPOSE_COMMIT_BASE}e4eb28b8[`e4eb28b8`], {WEBAPP_ONE_COMMIT_BASE}c3ff0ae1[`c3ff0ae1`]), as well as for some user-provided resources ({APP_NAME_COMPOSE} modules, namespaces, and pages) ({SERVER_COMMIT_BASE}46a7d94d[`46a7d94d`]).
+Locale specific number and date-time formatting are also included ({WEBAPP_JS_COMMIT_BASE}da9a450f[`da9a450f`]).
+//
+* Added a system-managed facility for defining and handling custom API endpoints (https://github.com/cortezaproject/corteza-server/pull/232[#232], {WEBAPP_ADMIN_COMMIT_BASE})652cc074[`652cc074`].
+The facility allows you to trivially define new API endpoints for webhooks or custom integrations needed by your business processes.
+The facility defines a tight integration with xref:integrator-guide:automation/workflows/index.adoc[] for request processing (https://github.com/cortezaproject/corteza-server/pull/245[#245]).
+//
+* Added a specialized facility for creating, managing, and running reports({SERVER_COMMIT_BASE}02b3e833[02b3e833]).
+The reporting facility defines a dedicated user interface (https://github.com/cortezaproject/corteza-webapp-reporter[corteza-webapp-reporter]).
+//
+* Extended {APP_NAME_COMPOSE} feature set:
+** added role based filtering to user module fields ({WEBAPP_COMPOSE_COMMIT_BASE}da181c30[`da181c30`]),
+** added advanced record list filtering using field-specific filters ({WEBAPP_COMPOSE_COMMIT_BASE}5e7e8ce5[`5e7e8ce5`]),
+** added a comment page block ({WEBAPP_COMPOSE_COMMIT_BASE}1032399f[`1032399f`]), and general UI/UX tweaks for easier navigation,
+** added configurable module field descriptions and hints,
+** Added an additional `namespaceID` parameter when searching over namespaces ({SERVER_COMMIT_BASE}21a3c5e6[`21a3c5e6`]).
+//
+* Added a fake data generator which can be used to create placeholder records and users (https://github.com/cortezaproject/corteza-server/pull/216[#216]).
+The data generator is invoked through the CLI @todo CLI ref.
+//
+* Added support for entire {APP_NAME_COMPOSE} namespace duplication, import, and export directly from the {APP_NAME_COMPOSE} interface ({SERVER_COMMIT_BASE}000664ef[`000664ef`], {SERVER_COMMIT_BASE}533b534f[`533b534f`]).
+//
+* Extended authentication feature set; allowing authentication sessions to be manually revoked (https://github.com/cortezaproject/corteza-server/pull/254[#254], https://github.com/cortezaproject/corteza-server/pull/210[#210], {SERVER_COMMIT_BASE}1cb2e64d[`1cb2e64d`]), improved the users CLI commands with additional options ({SERVER_COMMIT_BASE}bed63c4f[`bed63c4f`], {SERVER_COMMIT_BASE}e4cd1f5b[`e4cd1f5b`]), and added the `client_credentials` and user impersonation ({SERVER_COMMIT_BASE}b245726c[`b245726c`], {SERVER_COMMIT_BASE}25e4d11f[`25e4d11f`]).
+The authentication clients user interface now provides a series of cURL examples for interacting with authentication clients ({WEBAPP_ADMIN_COMMIT_BASE}16ae4c22[`16ae4c22`]).
+//
+* Added support for SAML authentication providers (https://github.com/cortezaproject/corteza-server/pull/188[#188], {SERVER_COMMIT_BASE}aedb2aef[`aedb2aef`], {SERVER_COMMIT_BASE}670b1609[`670b1609`]).
+//
+* Added `*.search` RBAC access control operations for all resources {SERVER_COMMIT_BASE}92d2de86[`92d2de86`], {SERVER_COMMIT_BASE}f630a3d9[`f630a3d9`], {SERVER_COMMIT_BASE}0a388382[`0a388382`].
+//
+* Added support for automation which is triggered before or after a user is suspended ({SERVER_COMMIT_BASE}13fc9d26[`13fc9d26`]).
+//
+* Extended {APP_NAME_WORKFLOW} feature set:
+** added the invoker and runner credentials in the initial scope ({SERVER_COMMIT_BASE}806dbfaa[`806dbfaa`]),
+** improved trigger validation based on the workflow configuration ({SERVER_COMMIT_BASE}f40f7982[`f40f7982`]),
+** added functions to interact with the RBAC facility ({SERVER_COMMIT_BASE}89ae50db[`89ae50db`]),
+** improved the user interface to display configuration and debug errors (the triggers now also show errors),
+** added an indicator for when the workflow try-run is running.
+//
+* Expended the feature set of the expression engine:
+** improved support for regular expression ({SERVER_COMMIT_BASE}767f86f0[`767f86f0`]),
+** improved KV-like structure usage ({SERVER_COMMIT_BASE}14b3f079[`14b3f079`], {SERVER_COMMIT_BASE}044d02bb[`044d02bb`]).
+//
+* Improved system setup and configuration flow as well as overall stability ({SERVER_COMMIT_BASE}5a67ecf7[`5a67ecf7`], {SERVER_COMMIT_BASE}a94e39b3[`a94e39b3`], {SERVER_COMMIT_BASE}a229d0ec[`a229d0ec`]):
+** Added option to limit the number of users ({SERVER_COMMIT_BASE}1b3a811c[`1b3a811c`]),
+** Added support for `.env` file configuration from arbitrary location via the `--env-file` command parameter ({SERVER_COMMIT_BASE6496027a[6496027a]}).
+//
+* Prepared the store infrastructure for cockroachDB support ({SERVER_COMMIT_BASE}109e23fc[`109e23fc`]).
+
+//
+//
+
+.[#2021_9_0-changed]#<<2021_9_0-changed,Changed:>>#
+* The user interface of the {PRODUCT_NAME} web applications was changed to increase consistency, accessibility (({SERVER_COMMIT_BASE}58aa46ee[`58aa46ee`], {SERVER_COMMIT_BASE}89ad4311[`89ad4311`])), and better user experience.
+More notable changes:
+** the navigation was moved under the left sidebar,
+** the top bar defines shortcuts to the more common operations related to the viewed page,
+** the module field picker was completely reworked ({SERVER_COMMIT_BASE}8364da10[`8364da10`]).
+//
+* Changed the file field preview to show the last uploaded attachment when the single image option is selected ({WEBAPP_COMPOSE_COMMIT_BASE}2d593af0[`2d593af0`]).
+//
+* Reworked the RBAC access control facility allowing greater flexibility with resource-specific rules, contextual roles ({SERVER_COMMIT_BASE}2f2c055e[`2f2c055e`]), and improved logging ({SERVER_COMMIT_BASE}922f4c31[`922f4c31`]).
+{PRODUCT_NAME} now defines a series of system users and roles which are used for system tasks, such as provisioning and federation.
+//
+* {APP_NAME_COMPOSE} module, module field, and record RBAC rule configuration buttons are now located under a single drop-down.
+//
+* Added the reporter webapp to the default list of webapps ({SERVER_COMMIT_BASE}e6950812[`e6950812`]).
+//
+* Changed workflow deferred triggers to ignore and skip empty constraint values ({SERVER_COMMIT_BASE}8d9a3d54[`8d9a3d54`]).
+//
+* Upgraded zap logger to v1.19 ({SERVER_COMMIT_BASE}e48ffb2e[`e48ffb2e`]).
+//
+* Tweaked system logging:
+** replaced errors with warnings for runtime OAuth issues ({SERVER_COMMIT_BASE}0cb91793[`0cb91793`]),
+** tweaked log stacktrace and added support for depth level control using the `LOG_STACKTRACE_LEVEL` `.env` variable ({SERVER_COMMIT_BASE}28e1774c[`28e1774c`]).
+//
+* Moved `PROVISION_SETTINGS_` settings into a YAML provision file ({SERVER_COMMIT_BASE}2d78ae42[`2d78ae42`]).
+//
+* Switch the base image to deb/ubuntu due to library incompatibilities ({SERVER_COMMIT_BASE}00ba60e5[`00ba60e5`]).
+
+//
+//
+
+.[#2021_9_0-removed]#<<2021_9_0-removed,Removed:>>#
+* Removed `PROVISION_SETTINGS_` in favour of a YAML provision file ({SERVER_COMMIT_BASE}2d78ae42[`2d78ae42`]).
+* Removed the `query` parameter from the record list filter endpoint ({SERVER_COMMIT_BASE}10e8b77d[`10e8b77d`]).
+* Removed Google maps from the provisioned application list ({SERVER_COMMIT_BASE}d6f24605[`d6f24605`]).
+* Removed obsolete settings for the namespace sidebar and {PRODUCT_NAME} {APP_NAME_SHELL} ({SERVER_COMMIT_BASE}b459bd35[`b459bd35`]).
+* Removed tabs and panels on {PRODUCT_NAME} {APP_NAME_SHELL}.
+
+//
+//
+
+.[#2021_9_0-fixed]#<<2021_9_0-fixed,Fixed:>>#
+* Fix broken links in README ({SERVER_COMMIT_BASE}7974ca65[`7974ca65`]).
+* Fix inconsistent `grant-validGrant` auth client JSON prop name ({SERVER_COMMIT_BASE}40ddb9db[`40ddb9db`]).
+* Fixed attachment upload errors when an empty attachment or an ico file were uploaded ({SERVER_COMMIT_BASE}f5532acf[`f5532acf`]).
+* Removed unneeded content from the served webapp content evaluation check ({SERVER_COMMIT_BASE}3638ecac[`3638ecac`]).
+* Fixed failing mount when webapps are disabled ({SERVER_COMMIT_BASE}63dbe702[`63dbe702`]).
+* Exclude deleted reminders from the reminder list API endpoint ({SERVER_COMMIT_BASE}9f74d5c0[`9f74d5c0`]).
+* Prevented duplicate values on multi-value selection fields.
+* Fixed the task duplication bug on calendars ({WEBAPP_JS_COMMIT_BASE}2e322054[`2e322054`]).
+* Fixed namespace searching be case insensitive ({WEBAPP_COMPOSE_COMMIT_BASE}5ce9572d[`5ce9572d`]).
+* Fixed improper actionlog type casting which resulted in broken log messages when the front-end technology stack was unable to parse the values ({SERVER_COMMIT_BASE}5ac8790b[`5ac8790b`], {SERVER_COMMIT_BASE}d1ccbc3e[`d1ccbc3e`]).
+* Fix invalid error message if the user is not allowed to search over namespaces ({SERVER_COMMIT_BASE}7cf6c18d[`7cf6c18d`]).
+* Fixed missing notifications across web applications.
+* Fixed typos in envoy error messages ({SERVER_COMMIT_BASE}0a241fab[`0a241fab`]).
+* Fixed notifications disappearing when changing the current page.
+* Fix ClaimsToIdentify to return identity with all authenticated roles ({SERVER_COMMIT_BASE}67d7882b[`67d7882b`]).
+* Added missing access control properties to resource responses ({SERVER_COMMIT_BASE}774354d6[`774354d6`]).
+* Addedd missing access control checks for reminders ({SERVER_COMMIT_BASE}03344782[`03344782`]).
+* Fixed improper admin webapp permission display if the user does not have sufficient permissions..
+* Fixed improper automation session state representation for prompted sessions ({SERVER_COMMIT_BASE}234d3795[`234d3795`]).
+* Fixed expression function parameter and return value casting for string functions.
+* Added missing federation structure sync response wrappers ({SERVER_COMMIT_BASE}8ee91eb7[`8ee91eb7`]).
+* General stability of the system has been improved.
+
+//
+//
+
+.[#2021_9_0-security]#<<2021_9_0-security,Security:>>#
+* CLI commands now use the system user when executing commands ({SERVER_COMMIT_BASE}dca5757f[`dca5757f`]).
+* Moved import/provisioning access control from Envoy to the invoking service ({SERVER_COMMIT_BASE}a2b964c5[`a2b964c5`]).
+
+//
+//
+
+.[#2021_9_0-development]#<<2021_9_0-development,Development:>>#
+* Defined a proper facility for testing Integration gateway handling logic ({SERVER_COMMIT_BASE}6ceadf40[`6ceadf40`]).
+* Allow store function codegen logic to define imports specific to them ({SERVER_COMMIT_BASE}b95e878c[`b95e878c`]).
+* Build and integration pipelines moved to Github Actions.
+* Removed misleading federation `etc/` ({SERVER_COMMIT_BASE}d4505482[`d4505482`]).
+* Removed the long deprecated storybook ({WEBAPP_COMPOSE_COMMIT_BASE}76270476[`76270476`]).
+* Implemented the C3 feature and applied it to web applications ({WEBAPP_COMPOSE_COMMIT_BASE}a318b380[`a318b380`], {WEBAPP_VUE_COMMIT_BASE}4c5e2c24[`4c5e2c24`]).

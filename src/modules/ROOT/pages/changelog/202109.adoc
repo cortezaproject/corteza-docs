@@ -94,7 +94,8 @@ All memberships and RBAC rules are transferred to the updated role IDs.
 *Contributors*:
 Denis Arh (https://github.com/darh[GH]),
 Jože Fortun (https://github.com/fajfa[GH]),
-Tomaž Jerman (https://github.com/tjerman[GH])
+Tomaž Jerman (https://github.com/tjerman[GH]),
+Katrin Yordanova (https://github.com/katrinDY[GH])
 
 .[#2021_9_2-added]#<<2021_9_2-added,Added:>>#
 * Added a user interface to configure SMPT setting; such configuration does not require server restart ({SERVER_COMMIT_BASE}0b69d1a2[`0b69d1a2`], {WEBAPP_ADMIN_COMMIT_BASE}20a85d8[`20a85d8`]).
@@ -111,6 +112,7 @@ Tomaž Jerman (https://github.com/tjerman[GH])
 * Compose webapp now sends `Content-Language and `Accept-Language` HTTP headers ({WEBAPP_COMPOSE_COMMIT_BASE}f8427346[`f8427346`]).
 * Server source is now built with -trimpath and without -mod=readonly flags ({SERVER_COMMIT_BASE}0b02535c[`0b02535c`]).
 * Namespace export no longer preserves logo/icon references ({SERVER_COMMIT_BASE}dab413ece[`dab413ece`]).
+* Docs restyle https://github.com/cortezaproject/corteza-docs/commit/14550adf[14550adf].
 
 //
 //
@@ -129,7 +131,9 @@ Tomaž Jerman (https://github.com/tjerman[GH])
 * Fixed compose false value label ({WEBAPP_JS_COMMIT_BASE}6da6989[`6da6989`]).
 * Fixed sidebar shadow ({WEBAPP_VUE_COMMIT_BASE}4a02d90[`4a02d90`]).
 * Fixed reporter table column reordering ({WEBAPP_REPORTER_COMMIT_BASE}6b25473[`6b25473`]).
-
+* Error when corredor scripts are not loaded ({WEBAPP_COMPOSE_COMMIT_BASE}bb94645[`bb94645`]). 
+* Disabled load button in chart edit ({WEBAPP_COMPOSE_COMMIT_BASE}6912fcd[`6912fcd`]). 
+* Fix prefilter error on load in chart edit ({WEBAPP_COMPOSE_COMMIT_BASE}aeceb35[`aeceb35`]). 
 
 == `2021.9.1`
 

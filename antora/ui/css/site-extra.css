@@ -33,7 +33,8 @@ body img.medium-zoom-image--opened {
 .navbar-item > a,
 .nav-menu h3.title,
 .toc-menu h3,
-.doc h2 {
+.doc h2,
+.is-current-page {
   font-family: 'Poppins-SemiBold';
 }
 
@@ -43,7 +44,8 @@ body img.medium-zoom-image--opened {
 }
 
 .custom-search,
-.sectionbody {
+.sectionbody,
+.nav-list {
   font-family: 'Poppins-Regular';
 }
 
@@ -99,7 +101,6 @@ body img.medium-zoom-image--opened {
 .page-versions,
 .edit-this-page,
 .notice,
-.nav-menu > .nav-list,
 .toc-menu ul {
   font-family: 'Poppins-Medium' !important;
 }

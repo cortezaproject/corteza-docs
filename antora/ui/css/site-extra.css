@@ -239,8 +239,9 @@ strong,
 }
 
 .nav-menu h3.title,
-.toc-menu h3 {
+.toc .toc-menu h3 {
   font-size: 18px !important;
+  margin-bottom: 15px;
 }
 
 .nav-menu ul li,

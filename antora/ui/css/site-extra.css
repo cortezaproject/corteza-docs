@@ -16,6 +16,14 @@ body img.medium-zoom-image--opened {
   width: 100%;
 }
 
+b,
+strong,
+.paragraph > p > a,
+.doc .admonitionblock .icon,
+.doc h1 {
+  font-family: 'Poppins-Bold';
+}
+
 .navbar-item:hover,
 #topbar-nav > div > a.navbar-link:hover,
 #topbar-nav > div > a.navbar-item:hover {
@@ -289,12 +297,6 @@ body img.medium-zoom-image--opened {
   box-shadow: 3px 6px 48px #2C2C2C26;
   opacity: 1;
   background: #FFFFFF;
-}
-
-.paragraph > p > a,
-.doc .admonitionblock .icon,
-.doc h1 {
-  font-family: 'Poppins-Bold';
 }
 
 @media screen and (min-width: 769px) {

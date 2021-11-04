@@ -206,7 +206,16 @@ aside.nav,
 }
 
 .nav {
+  position: sticky;
+  top: 7em;
   margin-left: 5px;
+  height: auto;
+}
+
+@media screen and (min-width: 1024px) {
+  .nav {
+    height: auto;
+  }
 }
 
 .nav-panel-menu {
@@ -247,8 +256,12 @@ aside.nav,
   margin: 20px;
 }
 
+.nav-panel-menu > nav > ul > li:last-child {
+  margin-bottom: 1.5em;
+}
+
 .nav-menu {
-  padding: .5rem 0;
+  padding: .5rem 0.2rem;
 }
 
 .nav-menu h3.title,
@@ -275,7 +288,7 @@ aside.nav,
 }
 
 .nav-container {
-  margin-right: 1em;
+  margin-right: 2em;
 }
 
 .toc.sidebar {
@@ -285,7 +298,7 @@ aside.nav,
 }
 
 .toc.sidebar .toc-menu {
-  margin-top: 1.3em;
+  margin-top: 1.6em;
 }
 
 .toc .toc-menu {

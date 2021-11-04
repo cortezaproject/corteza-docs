@@ -112,7 +112,7 @@ Katrin Yordanova (https://github.com/katrinDY[GH])
 * Compose webapp now sends `Content-Language and `Accept-Language` HTTP headers ({WEBAPP_COMPOSE_COMMIT_BASE}f8427346[`f8427346`]).
 * Server source is now built with -trimpath and without -mod=readonly flags ({SERVER_COMMIT_BASE}0b02535c[`0b02535c`]).
 * Namespace export no longer preserves logo/icon references ({SERVER_COMMIT_BASE}dab413ece[`dab413ece`]).
-* Docs restyle https://github.com/cortezaproject/corteza-docs/commit/14550adf[14550adf].
+* Initial documentation site redesign (https://github.com/cortezaproject/corteza-docs/commit/14550adf[14550adf]).
 
 //
 //
@@ -131,9 +131,9 @@ Katrin Yordanova (https://github.com/katrinDY[GH])
 * Fixed compose false value label ({WEBAPP_JS_COMMIT_BASE}6da6989[`6da6989`]).
 * Fixed sidebar shadow ({WEBAPP_VUE_COMMIT_BASE}4a02d90[`4a02d90`]).
 * Fixed reporter table column reordering ({WEBAPP_REPORTER_COMMIT_BASE}6b25473[`6b25473`]).
-* Error when corredor scripts are not loaded ({WEBAPP_COMPOSE_COMMIT_BASE}bb94645[`bb94645`]). 
-* Disabled load button in chart edit ({WEBAPP_COMPOSE_COMMIT_BASE}6912fcd[`6912fcd`]). 
-* Fix prefilter error on load in chart edit ({WEBAPP_COMPOSE_COMMIT_BASE}aeceb35[`aeceb35`]). 
+* Fixed {APP_NAME_COMPOSE} error when the automation scripts are not loaded ({WEBAPP_COMPOSE_COMMIT_BASE}bb94645[`bb94645`]).
+* Disabled the load button in chart editor ({WEBAPP_COMPOSE_COMMIT_BASE}6912fcd[`6912fcd`]).
+* Fixed improper prefilter handling in the chart editor ({WEBAPP_COMPOSE_COMMIT_BASE}aeceb35[`aeceb35`]).
 
 == `2021.9.1`
 

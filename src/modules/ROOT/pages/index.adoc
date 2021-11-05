@@ -38,7 +38,7 @@ If you wish to deploy {PRODUCT_NAME} elsewhere (for example, bare metal) you wil
 // == Learning {PRODUCT_NAME}
 
 // The xref:end-user-guide:index.adoc[] covers *all {PRODUCT_NAME} applications*, their *features*, and *how to use* them.
-// We've designed the end-user guide to be easily understandable by non-techy people, so you don't need to be a field expert.
+// We've designed the application end-user guide to be easily understandable by non-techy people, so you don't need to be a field expert.
 
 // .Here are a few shortcuts:
 // * xref:end-user-guide:crm/index.adoc[]
@@ -63,7 +63,7 @@ There are also a bunch of copy-pastable examples, and miscellaneous bits such as
 
 // [NOTE]
 // ====
-// The developer guide should provide enough abstract overview to help you get started.
+// The platform developer guide should provide enough abstract overview to help you get started.
 // The guide is fairly... !complete so feel free to get in touch with us if you're stuck.
 // ====
 

@@ -3,12 +3,11 @@ title: Corteza Guides
 version: '2021.9'
 display_version: '2021.9'
 nav:
-  - modules/devops-guide/nav.adoc
+  - modules/integrator-guide/nav.adoc
   - modules/end-user-guide/nav.adoc
   - modules/administrator-guide/nav.adoc
-  - modules/integrator-guide/nav.adoc
-  - modules/developer-guide/nav.adoc
-  - modules/extensions/nav.adoc
-  - modules/extensions/nav.adoc
   - modules/upgrade-guide/nav.adoc
+  - modules/developer-guide/nav.adoc
+  - modules/devops-guide/nav.adoc
   - modules/ROOT/nav.adoc
+  # - modules/extensions/nav.adoc

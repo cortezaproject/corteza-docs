@@ -12,7 +12,7 @@ There is no "cookie-cutter" solution::
 
 Tell me everything!!::
     Let's not make our readers jump from one doc to another just because it's easier that way or it shortens the thing.
-    As a reader of the "Integrator Guide" I want to have *all the relevant information* without the need reading up on another one.
+    As a reader of the "Low-Code Platform Developer Guide" I want to have *all the relevant information* without the need reading up on another one.
 
 Copy-paste is ok (sometimes)::
     If different roles are *interested in the same thing*, for example, module field types, let's not make them jump to another documentation just to read up on that and get lost in the process.
@@ -39,7 +39,7 @@ Provide a fairly *high-level overview* over all parts that a DevOps person cares
 
 Here, we don't define a strict structure, so you are allowed to *structure as you see fit*.
 
-== End-User Guide
+== Application End-User Guide
 
 Provide a *high-level overview* over all features from the *end-user perspective*.
 
@@ -107,7 +107,7 @@ Security::
     Describe in detail *how the security system works* - users, roles, access control, permissions and permission states (allow, deny and inherit).
     Aggregate all the available permissions for each system.
 
-== Integrator Guide
+== Low-Code Platform Developer Guide
 
 Provide a *detailed overview* of the entire *integration process*.
 The document should be written for *field experts*, so we needn't worry about their limited knowledge on the subject.
@@ -129,7 +129,7 @@ Security::
 Tips and Tricks::
     Hack down some *findings* and *good practices* discovered from past projects, such as creating a portal for end-users.
 
-== Developer Guide
+== Platform Developer Guide
 
 Provide a *low-level overview* over the entire system and all the available features.
 

@@ -1,15 +1,15 @@
 include::ROOT:partial$variables.adoc[]
 
-= Developer Guide
+= Platform Developer Guide
 
-The *developer guide* is designed for *core {PRODUCT_NAME} maintainers* and *our contributors*.
-If you wish to *develop applications* using {PRODUCT_NAME}, refer to the xref:ROOT:integrator-guide/index.adoc[*integrator guide*].
+The *platform developer guide* is designed for *core {PRODUCT_NAME} maintainers* and *our contributors*.
+If you wish to *develop applications* using {PRODUCT_NAME}, refer to the xref:ROOT:integrator-guide/index.adoc[*low-code platform developer guide*].
 
 Use this guide as a reference when *adding new*, or *maintaining features*.
 
 [IMPORTANT]
 ====
-The developer guide covers the _high-level_ of the low-level -- the idea behind specific features, how you can add something for example.
+The platform developer guide covers the _high-level_ of the low-level -- the idea behind specific features, how you can add something for example.
 
 The documentation *compliments the source code*.
 ====

@@ -22,9 +22,9 @@ All relevant guides must be updated::
     For example, your feature introduces *a new application* with a new *API* and a *user interface*.
     You should update the:
 
-    * developer guide;
+    * platform developer guide;
     * administrator guide; and the
-    * end-user guide.
+    * application end-user guide.
 
 Consistent style of writing::
     Be consistent with other contributors as we wish to have a consistent, easy to read documentation.

@@ -1,10 +1,10 @@
 include::ROOT:partial$variables.adoc[]
 
-= End-User Guide
-:description: {PRODUCT_NAME} end-user guide covers all aspects of using core {PRODUCT_NAME} applications. It's designed to to be easily understandable by non-techy people.
-:keywords: end-user, end-user guide, crm, case management, application, {PRODUCT_NAME}
+= Application End-User Guide
+:description: {PRODUCT_NAME} application end-user guide covers all aspects of using core {PRODUCT_NAME} applications. It's designed to to be easily understandable by non-techy people.
+:keywords: end-user, application end-user guide, crm, case management, application, {PRODUCT_NAME}
 
-The end-user guide covers all of the applications that are built by the {PRODUCT_NAME} team.
+The application end-user guide covers all of the applications that are built by the {PRODUCT_NAME} team.
 The guide teaches you how to use the applications without requiring any technical knowledge.
 
 [NOTE]

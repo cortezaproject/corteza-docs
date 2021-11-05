@@ -6,7 +6,7 @@ include::ROOT:partial$variables.adoc[]
 
 {PRODUCT_NAME} workflow allows you to implement custom business logic without the need for any programming knowledge.
 This section focuses on the most important aspects of the system.
-If you wish to learn more about a specific topic, refer to the subsections under menu:Integrator Guide[Automation,Workflows].
+If you wish to learn more about a specific topic, refer to the subsections under menu:Low-Code Platform Developer Guide[Automation,Workflows].
 
 In contrast to xref:automation/automation-scripts/index.adoc[automation scripts], workflows are presented as a simplified BPMN diagram, allowing you to configure instead of code.
 You are not required to have any BPMN knowledge, although it might be helpful.
@@ -599,7 +599,7 @@ This can be used as a more verbose <<step-prompt-choice,choice prompt>> or a mor
 
 == Ready for more?
 
-.The sub-sections under menu:Integrator Guide[Automation,Workflows] go into more details regarding specific topics, such as:
+.The sub-sections under menu:Low-Code Platform Developer Guide[Automation,Workflows] go into more details regarding specific topics, such as:
 * the xref:automation/workflows/style-guide-best-practices.adoc[style guide and best practices],
 * an introduction into our xref:automation/workflows/testing-debugging.adoc[testing and debugging facility],
 * how to xref:automation/workflows/organizing-workflows.adoc[manage and organize larger workflows],

@@ -5,7 +5,7 @@ include::ROOT:partial$variables.adoc[]
 
 Templates allow you to define the generic document structure (such as a welcome email message or a quote PDF), which is then converted into an actual document based on the provided data.
 
-If you wish to learn more about a specific topic, refer to the subsections under menu:Integrator Guide[Templates].
+If you wish to learn more about a specific topic, refer to the subsections under menu:Low-Code Platform Developer Guide[Templates].
 
 == Creating a template
 

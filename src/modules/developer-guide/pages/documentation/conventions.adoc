@@ -46,9 +46,9 @@ Wrap the list up with a period.
 * Do not mix sentence patterns when producing a list.
 
 .Example of a proper sentence; the outline of our documents:
-* The *end-user guide* talks about things relevant to the end-users.
-* The *integrator guide* talks about creating new things based on the {PRODUCT_NAME}.
-* The *developer guide* helps the core developers keep track on how to maintain different features.
+* The *application end-user guide* talks about things relevant to the end-users.
+* The *low-code platform developer guide* talks about creating new things based on the {PRODUCT_NAME}.
+* The *platform developer guide* helps the core developers keep track on how to maintain different features.
 
 === Ordered lists
 
@@ -112,12 +112,12 @@ DevOps guide::
     The DevOps guide covers all of the DevOps related bits, such as deploying and maintaining.
     ...
 
-End-user guide::
-    The end-user guide serves as a reference for end-users that need help with using the Corteza's user interface.
+Application end-user guide::
+    The application end-user guide serves as a reference for end-users that need help with using the Corteza's user interface.
     ...
 
-Integrator guide::
-    The integrator guide serves as a reference for integrators -- people that want to build things with Corteza.
+Low-Code platform developer guide::
+    The low-code platform developer guide serves as a reference for integrators -- people that want to build things with Corteza.
     ...
 
 ----

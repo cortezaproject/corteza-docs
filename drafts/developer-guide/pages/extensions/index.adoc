@@ -6,7 +6,7 @@ include::ROOT:partial$variables.adoc[]
 [NOTE]
 ====
 This section covers the system behind extensions.
-If you're interested in extension development, refer to the xref:ROOT:integrator-guide/index.adoc[integrator guide].
+If you're interested in extension development, refer to the xref:ROOT:integrator-guide/index.adoc[low-code platform developer guide].
 ====
 
 :leveloffset: +1

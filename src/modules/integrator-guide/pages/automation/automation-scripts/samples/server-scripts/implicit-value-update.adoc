@@ -20,7 +20,7 @@ export default {
       .where('namespace', 'crm')
   },
 
-  // Refer to the integrator guide for details on these two parameters
+  // Refer to the low-code platform developer guide for details on these two parameters
   async exec ({ $record }, { Compose }) {
     if (!$record.values.LeadSource) {
       // This will use the original record, since no changes are required.

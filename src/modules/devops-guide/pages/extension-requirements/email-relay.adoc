@@ -10,10 +10,10 @@ You can implement automatic responses, create records based on the email content
 [NOTE]
 ====
 Here, we only cover how to setup an email relay.
-Refer to the xref:integrator-guide:index.adoc[integrator guide] for details on using this feature.
+Refer to the xref:integrator-guide:index.adoc[low-code platform developer guide] for details on using this feature.
 ====
 
-// Move this to the integrator guide
+// Move this to the low-code platform developer guide
 //
 // [IMPORTANT]
 // ====

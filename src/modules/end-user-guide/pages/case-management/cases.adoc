@@ -53,4 +53,4 @@ Knowledge Base::
 
 == Email template
 
-Refer to the xref:integrator-guide:templates/index.adoc[menu:Integrator Guide[Templates]] for details on how to add a new or modify existing templates.
+Refer to the xref:integrator-guide:templates/index.adoc[menu:Low-Code Platform Developer Guide[Templates]] for details on how to add a new or modify existing templates.

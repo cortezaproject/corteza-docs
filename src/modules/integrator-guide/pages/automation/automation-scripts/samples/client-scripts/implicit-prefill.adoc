@@ -25,7 +25,7 @@ export default {
       .where('namespace', 'crm')
   },
 
-  // Refer to the integrator guide for details on these two parameters
+  // Refer to the low-code platform developer guide for details on these two parameters
   async exec ({ $record, $module }, { Compose }) {
     // Lets get the defaults from a Default module.
     // This allows some more flexibility

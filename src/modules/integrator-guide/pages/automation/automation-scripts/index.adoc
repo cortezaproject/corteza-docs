@@ -12,7 +12,7 @@ Automation scripts are written in plain JavaScript with the support for node pac
 As of xref:ROOT:changelog/202103.adoc[], with the introduction of workflows, automation scripts are disabled by default.
 ====
 
-Take a look at our samples (menu:Integrator Guide[Automation scripts,Samples]) and <<sample-project,the sample project>> to get started.
+Take a look at our samples (menu:Low-Code Platform Developer Guide[Automation scripts,Samples]) and <<sample-project,the sample project>> to get started.
 
 [TIP]
 ====

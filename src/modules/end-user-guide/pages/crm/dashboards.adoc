@@ -7,10 +7,10 @@ The Dashboards page is accessible by clicking on the menu:Dashboards[] section i
 Dashboards help you to visually understand changing business conditions so you can make decisions based on the real-time data of your CRM.
 
 {PRODUCT_NAME} CRM comes built-in with a handful of predefined dashboards that should give you enough understanding about the business.
-Refer to the xref:integrator-guide:compose-configuration/index.adoc[menu:Integrator Guide[Low Code configuration]] if you wish to add additional dashboards.
+Refer to the xref:integrator-guide:compose-configuration/index.adoc[menu:Low-Code Platform Developer Guide[Low Code configuration]] if you wish to add additional dashboards.
 
 [TIP]
 ====
 You can include social media feeds with your dashboards.
-Refer to the xref:integrator-guide:compose-configuration/index.adoc[menu:Integrator Guide[Low Code configuration]] for more information.
+Refer to the xref:integrator-guide:compose-configuration/index.adoc[menu:Low-Code Platform Developer Guide[Low Code configuration]] for more information.
 ====

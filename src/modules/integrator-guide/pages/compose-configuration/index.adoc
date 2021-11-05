@@ -10,7 +10,7 @@ include::ROOT:partial$variables.adoc[]
 With {PRODUCT_NAME} {APP_NAME_COMPOSE} we defines the logical data structure, how the data is displayed, and how it should be visualized.
 The second part is the xref:automation/index.adoc[automation] process, which allows you to implement custom business logic and automate tasks.
 
-If you wish to learn more about a specific topic, refer to the subsections under menu:Integrator Guide[{APP_NAME_COMPOSE} configuration].
+If you wish to learn more about a specific topic, refer to the subsections under menu:Low-Code Platform Developer Guide[{APP_NAME_COMPOSE} configuration].
 
 == App configuration
 

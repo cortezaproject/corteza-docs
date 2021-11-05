@@ -200,6 +200,11 @@ strong,
   background-color: #F3F3F5 !important;
 }
 
+aside.nav,
+.panels {
+  width: 100%;
+}
+
 .nav {
   margin-left: 5px;
 }
@@ -211,6 +216,14 @@ strong,
 .navbar-menu {
   line-height: 1.7;
   padding-right: 35px;
+}
+
+.nav-link,
+.nav-text,
+.nav-item[data-depth="1"] > .nav-list:first-child {
+  display: block;
+  margin-bottom: 10px;
+  padding-left: 5px;
 }
 
 .nav-item-toggle {
@@ -235,7 +248,7 @@ strong,
 }
 
 .nav-menu {
-  padding: .5rem .2rem;
+  padding: .5rem 0;
 }
 
 .nav-menu h3.title,

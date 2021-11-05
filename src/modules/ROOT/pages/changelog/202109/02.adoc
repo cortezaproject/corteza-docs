@@ -14,7 +14,7 @@ Tomaž Jerman (https://github.com/tjerman[GH]),
 Katrin Yordanova (https://github.com/katrinDY[GH])
 
 .[#2021_9_2-added]#<<2021_9_2-added,Added:>>#
-* Added a user interface to configure SMPT setting; such configuration does not require server restart ({SERVER_COMMIT_BASE}0b69d1a2[`0b69d1a2`], {WEBAPP_ADMIN_COMMIT_BASE}20a85d8[`20a85d8`]).
+* Added a user interface to configure SMTP setting; such configuration does not require server restart ({SERVER_COMMIT_BASE}0b69d1a2[`0b69d1a2`], {WEBAPP_ADMIN_COMMIT_BASE}20a85d8[`20a85d8`]).
 * Added support for workflow - action log interaction (search, create) ({SERVER_COMMIT_BASE}1014f53a[`1014f53a`]).
 * Added support for server plugins ({SERVER_COMMIT_BASE}614d2b30[`614d2b30`]).
 * Added workflow import note ({WEBAPP_WORKFLOW_COMMIT_BASE}9d98170[`9d98170`]).

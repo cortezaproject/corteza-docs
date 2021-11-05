@@ -50,3 +50,4 @@ Katrin Yordanova (https://github.com/katrinDY[GH])
 * Fixed {APP_NAME_COMPOSE} error when the automation scripts are not loaded ({WEBAPP_COMPOSE_COMMIT_BASE}bb94645[`bb94645`]).
 * Disabled the load button in chart editor ({WEBAPP_COMPOSE_COMMIT_BASE}6912fcd[`6912fcd`]).
 * Fixed improper prefilter handling in the chart editor ({WEBAPP_COMPOSE_COMMIT_BASE}aeceb35[`aeceb35`]).
+* Fixed improper {APP_NAME_COMPOSE} page exporting with un configured or partially configured page blocks ({SERVER_COMMIT_BASE}032566d9[`032566d9`]).

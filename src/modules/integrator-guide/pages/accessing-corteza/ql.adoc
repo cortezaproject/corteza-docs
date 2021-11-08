@@ -74,6 +74,32 @@ Division::
 * `AND`: truthy when left and right are truthy
 * `OR`: truthy when left or right is truthy
 
+[#query-mv]
+=== Multi-value fields
+
+Filters for multi-value fields look precisely the same as they would for regular fields.
+
+.To exemplify; let us consider a module with the following fields:
+* Field name: `users`, field type: `user selector`, multi value option checked.
+* Field name: `selects`, field type: `Select / dropdown`, multi value option checked.
+
+.The following table provides a series of examples with the corresponding query and the expected output:
+[cols="2s,5m,5a"]
+|===
+| [#query-mv-example-1]#<<query-mv-example-2,Filter for current user>>#
+| users = $\{userID}
+| The filter returns the records where either one of the multi-value values matches the current user.
+
+| [#query-mv-example-3]#<<query-mv-example-4,Filter select for pattern>>#
+| selects LIKE 'a%'
+| The filter returns the records where either one of the multi-value select options matches the `a%` pattern.
+
+| [#query-mv-example-5]#<<query-mv-example-6,Filter select for value>>#
+| selects = 'a2'
+| The filter returns the records where either one of the multi-value select options equals `a2`.
+
+|===
+
 == Sorting
 
 .The general template for constructing a sort looks like this:
@@ -104,6 +130,13 @@ For the following examples, let us assume that we have a module named `test` wit
 ----
 price DESC, quantity
 ----
+
+=== Multi-value fields
+
+[IMPORTANT]
+====
+Sorting over multi-value fields is currently not supported.
+====
 
 == Utilities
 

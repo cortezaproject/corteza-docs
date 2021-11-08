@@ -2,6 +2,11 @@ include::ROOT:partial$variables.adoc[]
 
 = Page block reference
 
+[NOTE]
+====
+Refer to xref:accessing-corteza/ql.adoc#query-mv[menu:accessing {PRODUCT_NAME}[query language]] for details on how to filter multi-value fields.
+====
+
 [#page-block-automation]
 == Automation
 

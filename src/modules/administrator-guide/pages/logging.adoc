@@ -1,0 +1,86 @@
+include::ROOT:partial$variables.adoc[]
+
+= Logging
+
+{PRODUCT_NAME} logs most of the operations that have occurred in the system in the *action log*.
+The *action log* user interface provides an overview of events such as users that have registered or logged in, records that have been created, and templates that have been rendered.
+
+[TIP]
+====
+Errors reported by the {APP_AUTOMATION} server are also visible in the action log.
+====
+
+You can use the action log for debugging and detecting suspicious behavior as it provides a rich insight into that has occurred.
+
+== The action log interface
+
+The action log user interface resides in the xref:index.adoc#webapp-admin[{PRODUCT_NAME} {APP_NAME_ADMIN}] web application, under menu:system[action log].
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "action-log.png",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {},
+  "annotations": [{
+    "kind": "box",
+    "x": 16,
+    "y": 437,
+    "w": 288,
+    "h": 37
+  }]
+}
+----
+
+== Listing actions
+
+.To list current action log entries:
+. Navigate to menu:system[action log],
+. optionally insert the filtering parameters and click on the btn:[search] button.
+
+image::action-log.png[role="data-zoomable"]
+
+== Inspecting actions
+
+.To inspect a specific action:
+. Navigate to menu:system[action log],
+. optionally insert the filtering parameters and click on the btn:[search] button,
+. click on the action you wish to inspect.
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "action-log-inspect.png",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {},
+  "annotations": [{
+    "kind": "box",
+    "x": 563,
+    "y": 487,
+    "w": 1110,
+    "h": 381
+  }]
+}
+----
+
+== Action severity
+
+[NOTE]
+====
+*DevNote* take note of the severities
+
+* emergency: 'Emergency'
+* alert: 'Alert'
+* critical: 'Critical'
+* error: 'Error'
+* warning: 'Warning'
+* notice: 'Notice'
+* info: 'Info'
+* debug: 'Debug'
+====

@@ -1,97 +1,98 @@
 include::ROOT:partial$variables.adoc[]
 
-[#admin-panel-role]
-= Roles
+= Role management
 
-The *roles* interface provides an overview of *system roles*; you can *inspect*, *edit*, and *delete* them.
+A role is a security group which may or may not have access to specific user interfaces or system resources based on your security model.
 
-*A role* defines a *user group* that specifies a set of *permissions* for the system resources.
+A role can have a series of xref:users.adoc[users] which inherit the security model defined on the given role.
+
+Refer to the xref:access-control/index.adoc[access control] section for details on how to define your security model.
+
+== The user interface
+
+The role management user interface resides in the xref:index.adoc#webapp-admin[{PRODUCT_NAME} {APP_NAME_ADMIN}] web application, under menu:system[roles].
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "role-list.png",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {},
+  "annotations": [{
+    "kind": "box",
+    "x": 16,
+    "y": 180,
+    "w": 288,
+    "h": 37
+  }]
+}
+----
+
+== Tips and tricks
+
+=== Modular design
+
+[NOTE]
+====
+*DevNote* @todo
+====
 
 == Listing roles
 
 .To list current system roles:
-. navigate to the {PRODUCT_NAME} {APP_NAME_ADMIN},
-. click on the "Roles" in the navigation drawer,
-. optionally insert the filtering parameters; the list refreshes automatically.
+. Navigate to menu:system[roles],
+. optionally insert the filtering parameters (the list refreshes automatically).
+
+image::role-list.png[role="data-zoomable"]
 
 == Creating roles
-
-.To create a new role:
-. navigate to the {PRODUCT_NAME} {APP_NAME_ADMIN},
-. click on the "Roles" in the navigation drawer,
-. click on the "New" button in the top right corner,
-. provide the requested data (see <<role-parameters,role parameters>>),
-. press the "Submit" button.
 
 [IMPORTANT]
 ====
 You can only define permissions for existing roles.
 ====
 
+.To create a new role:
+. Navigate to menu:system[roles],
+. click on the btn:[new] button,
+. insert the parameters for the new role,
+. press the btn:[submit] button.
+
+image::role-create.png[role="data-zoomable"]
+
 == Editing roles
 
 .To edit an existing role:
-. navigate to the {PRODUCT_NAME} {APP_NAME_ADMIN},
-. click on the "Roles" in the navigation drawer,
-. click on the edit icon next to the role you wish to edit,
-. provide the requested data (see <<role-parameters,role parameters>>),
-. press the "Submit" button.
+. Navigate to menu:system[roles],
+. click on the btn:[edit] button next to the role you wish to edit,
+. update the parameters for the updated role,
+. press the btn:[submit] button.
+
+image::role-edit.png[role="data-zoomable"]
 
 [#archiving-roles]
 == Archiving roles
 
 .To archive an existing role:
-. navigate to the {PRODUCT_NAME} {APP_NAME_ADMIN},
-. click on the "Roles" in the navigation drawer,
-. click on the edit icon next to the role you wish to archive,
-. click and confirm the "Archive" button in the "Basic information" section.
+. Navigate to menu:system[roles],
+. click on the btn:[edit] button next to the role you wish to archive,
+. click and confirm the btn:[archive] button.
+
+image::role-edit.png[role="data-zoomable"]
 
 == Deleting roles
 
 [TIP]
 ====
-You can instead <<archiving-roles,archive the role>>.
+Instead of deleting roles, you can <<archiving-roles,archive the role>>.
 ====
 
 .To delete an existing role:
-. navigate to the {PRODUCT_NAME} {APP_NAME_ADMIN},
-. click on the "Roles" in the navigation drawer,
-. click on the edit icon next to the role you wish to delete,
-. click and confirm the "Delete" button in the "Basic information" section.
+. Navigate to menu:system[roles],
+. click on the btn:[edit] button next to the role you wish to delete,
+. click and confirm the btn:[delete] button.
 
-== Assign members
-
-.To assign users to a role:
-. navigate to the {PRODUCT_NAME} {APP_NAME_ADMIN},
-. click on the "Roles" in the navigation drawer,
-. click on the edit icon next to the role you wish to assign to,
-. select the users in the "Role members" section,
-. press the "Submit" button.
-
-[IMPORTANT]
-====
-You can only assign members to existing roles.
-====
-
-[#role-parameters]
-== Role parameters
-
-Basic information::
-    *The basic role information* such as the name and the handle (system identifier).
-
-Role membership::
-    *Role members* lets you add members to a specific role.
-
-[IMPORTANT]
-====
-The *Role members* section is available only *for existing roles*.
-====
-
-== Permissions for all roles
-
-include::partial$permissions/system-roles.adoc[]
-
-[#role-permissions-specific]
-== Permissions for a specific role
-
-include::partial$permissions/system-role-specific.adoc[]
+image::role-edit.png[role="data-zoomable"]

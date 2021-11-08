@@ -2,37 +2,145 @@ include::ROOT:partial$variables.adoc[]
 
 = Automation
 
-The automation interface provides an overview of processed automation scripts.
+The {PRODUCT_NAME} {APP_NAME_ADMIN} provides an overview of the automation defined for your {PRODUCT_NAME} instance.
+
+[NOTE]
+====
+The administrator guide doesn't touch automation configuration.
+Refer to the xref:integrator-guide:automation/index.adoc[] for details on configuring automation for your low-code application.
+====
+
+== User interfaces
+
+The automation management user interfaces resides in the xref:index.adoc#webapp-admin[{PRODUCT_NAME} {APP_NAME_ADMIN}] web application, under the "automation" navigation group.
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "webapp-admin-dashboard.png",
+    "alias": "webapp-admin-automation",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {},
+  "annotations": [{
+    "kind": "box",
+    "x": 16,
+    "y": 660,
+    "w": 288,
+    "h": 177
+  }]
+}
+----
+
+== Listing workflows
+
+.To list current workflows:
+. Navigate to menu:system[workflows],
+. optionally insert the filtering parameters (the list refreshes automatically).
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "workflow-list.png",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {},
+  "annotations": [{
+    "kind": "box",
+    "x": 16,
+    "y": 680,
+    "w": 288,
+    "h": 37
+  }]
+}
+----
+
+== Listing sessions
+
+An automation session describes an automation that has or is still executing.
+Sessions can be used to debug a failing automation and to identify any infinite cycling issues preventing your system from working properly.
+
+.To list current sessions:
+. Navigate to menu:system[sessions],
+. optionally insert the filtering parameters (the list refreshes automatically).
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "sessions-list.png",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {},
+  "annotations": [{
+    "kind": "box",
+    "x": 16,
+    "y": 717,
+    "w": 288,
+    "h": 37
+  }]
+}
+----
+
+=== Session states
+
+[NOTE]
+====
+*DevNote* take note of the states
+
+* completed: Completed
+* excluded: Without
+* exclusive: Only
+* failed: Failed
+* inProgress: completed sessions
+* inclusive: Including
+* prompted: Prompted
+* sessions: sessions
+* started: Started
+* suspended: Suspended
+====
+
+== {APP_AUTOMATION} scripts
+
+The {APP_AUTOMATION} scripts (also referred to as automation scripts or scripts) user interface provides a list of registered {APP_AUTOMATION} scripts and their details such as triggers.
 
 The automation interface can be used to debug issues regarding invalid or missing automation scripts.
 
 [NOTE]
 ====
-Refer to xref:integrator-guide:automation/automation-scripts/deploying.adoc[deploying automation scripts] for details on how to deploy extensions.
+Refer to xref:integrator-guide:automation/automation-scripts/deploying.adoc[deploying automation scripts] for details on how to deploy your scripts.
 ====
 
-== Listing automation scripts
 
-.To list current automation scripts:
-. navigate to the {PRODUCT_NAME} {APP_NAME_ADMIN},
-. click on the "Automation" in the navigation drawer,
-. optionally insert the filtering parameters; the list refreshes automatically.
+.To list current {APP_AUTOMATION} scripts:
+. Navigate to menu:system[{APP_AUTOMATION} scripts],
+. optionally insert the filtering parameters (the list refreshes automatically).
 
 [NOTE]
 ====
-Invalid automation scripts show an error message.
+*DevNote* provide a nicer screenshot here
 ====
 
-== Inspecting automation scripts
-
-.To inspect specific automation scripts:
-. navigate to the {PRODUCT_NAME} {APP_NAME_ADMIN},
-. click on the "Automation" in the navigation drawer,
-. click on the blue button next to the label.
-
-You can inspect the automation script properties, such as the trigger and security context.
-
-[NOTE]
-====
-Invalid automation scripts show an error message.
-====
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "scripts-list.png",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {},
+  "annotations": [{
+    "kind": "box",
+    "x": 16,
+    "y": 754,
+    "w": 288,
+    "h": 37
+  }]
+}
+----

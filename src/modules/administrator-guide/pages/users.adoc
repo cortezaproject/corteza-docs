@@ -1,115 +1,126 @@
 include::ROOT:partial$variables.adoc[]
 
-[#admin-panel-user]
-= Users
+= User management
 
-The *users* interface provides an overview of *system users*; you can *inspect*, *edit*, and *delete* them.
+A user is an entity which is allowed to interact with your {PRODUCT_NAME}.
+A user can be an employee who needs to interact with their leads or a system user which may be used to identify external integrations or webhook requests.
 
-[TIP]
-====
-You can use the users' interface to *manually register users* that are allowed to access the system.
-====
+A user can be assigned to a series of xref:roles.adoc[roles] which define the scope of the access for the given user.
 
 [IMPORTANT]
 ====
-For privacy reasons, personal information (name and email) is masked by default.
-You can configure this with <<user-permissions-all,permissions for all users>> or <<user-permissions-specific,permissions for specific users>>.
+For privacy reasons, personal information is masked by default.
+This can be configured by setting appropriate access control rules for either all users or a specific user.
+
+.To change information masking for all users:
+. Click on the btn:[permissions] button in the top right corner,
+. select the role you wish to change this for,
+. select the appropriate access option for the "show email details for any user" or "show name details for any user".
+
+.To change information masking for specific users:
+. Click on the edit icon next to the user you wish to change this for,
+. Click on the btn:[permissions] button in the top right corner,
+. select the role you wish to change this for,
+. select the appropriate access option for the "show email details for (name here)" or "show name details for (name here)".
 ====
+
+== The user interface
+
+The user management user interface resides in the xref:index.adoc#webapp-admin[{PRODUCT_NAME} {APP_NAME_ADMIN}] web application, under menu:system[users].
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "user-list.png",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {},
+  "annotations": [{
+    "kind": "box",
+    "x": 16,
+    "y": 144,
+    "w": 288,
+    "h": 37
+  }]
+}
+----
 
 == Listing users
 
 .To list current system users:
-. navigate to the {PRODUCT_NAME} {APP_NAME_ADMIN},
-. click on the "Users" in the navigation drawer,
-. optionally insert the filtering parameters; the list refreshes automatically.
+. Navigate to menu:system[users],
+. optionally insert the filtering parameters (the list refreshes automatically).
+
+image::user-list.png[role="data-zoomable"]
 
 == Creating users
 
-.To create a new user:
-. navigate to the {PRODUCT_NAME} {APP_NAME_ADMIN},
-. click on the "Users" in the navigation drawer,
-. click on the "New" button in the top right corner,
-. provide the requested data (see <<user-parameters,user parameters>>),
-. press the "Submit" button.
-
 [IMPORTANT]
 ====
-You can only define permissions for existing users.
+Permissions can only be defined on existing users.
 ====
+
+.To create a new user:
+. Navigate to menu:system[users],
+. click on the btn:[new] button in the top right corner,
+. provide the requested data,
+. press the btn:[submit] button.
+
+image::user-create.png[role="data-zoomable"]
 
 == Editing users
 
 .To edit an existing user:
-. navigate to the {PRODUCT_NAME} {APP_NAME_ADMIN},
-. click on the "Users" in the navigation drawer,
-. click on the edit icon next to the user you wish to edit,
-. provide the requested data (see <<user-parameters,user parameters>>),
-. press the "Submit" button.
+. Navigate to menu:system[users],
+. click on the btn:[edit] icon next to the user you wish to edit,
+. update the parameters you wish to change,
+. press the btn:[submit] button.
+
+image::user-edit.png[role="data-zoomable"]
 
 [#suspending-users]
 == Suspending users
 
 .To suspend an existing user:
-. navigate to the {PRODUCT_NAME} {APP_NAME_ADMIN},
-. click on the "Users" in the navigation drawer,
-. click on the edit icon next to the user you wish to suspend,
-. click and confirm the "Suspend" button in the "Basic information" section.
+. Navigate to menu:system[users],
+. click on the btn:[edit] icon next to the user you wish to suspend,
+. press and confirm the btn:[suspend] button.
+
+image::user-edit.png[role="data-zoomable"]
 
 == Deleting users
 
 [TIP]
 ====
-You can instead <<suspending-users,suspend the user>>.
+Instead of deleting users, you can temporarily <<suspending-users,suspend them>>.
 ====
 
 .To delete an existing user:
-. navigate to the {PRODUCT_NAME} {APP_NAME_ADMIN},
-. click on the "Users" in the navigation drawer,
-. click on the edit icon next to the user you wish to delete,
-. click and confirm the "Delete" button in the "Basic information" section.
+. Navigate to menu:system[users],
+. click on the btn:[edit] icon next to the user you wish to suspend,
+. press and confirm the btn:[delete] button.
+
+image::user-edit.png[role="data-zoomable"]
 
 == Assign role
 
-[IMPORTANT]
+[CAUTION]
 ====
-*Each user* is automatically *a member of the "Everyone" role*.
+In order for the role membership to reflect on the user, they need to re-login.
 ====
 
 .To assign a role to an existing user:
-. navigate to the {PRODUCT_NAME} {APP_NAME_ADMIN},
-. click on the "Users" in the navigation drawer,
-. click on the edit icon next to the user you wish to edit,
-. select the roles in the "Role membership" section,
-. press the "Submit" button.
+. Navigate to menu:system[users],
+. click on the btn:[edit] icon next to the user you wish to edit,
+. navigate to the "role membership" section and assign appropriate roles,
+. press the btn:[submit] button.
 
-[IMPORTANT]
+[NOTE]
 ====
-You can only assign roles to existing users.
-====
-
-[#user-parameters]
-== User parameters
-
-Basic information::
-    *The basic user information* such as their email, name and a handle (username of a sort).
-
-Password::
-    *The password* section lets you set the user's password.
-
-Role membership::
-    *Role membership* lets you assign roles to a specific user.
-
-[IMPORTANT]
-====
-The *Password* and *Role membership* sections are available only *for existing users*.
+Refer to xref:access-control/index.adoc[access control] for more information regarding roles and access control.
 ====
 
-[#user-permissions-all]
-== Permissions for all users
+image::user-edit.png[role="data-zoomable"]
 
-include::partial$permissions/system-users.adoc[]
-
-[#user-permissions-specific]
-== Permissions for a specific user
-
-include::partial$permissions/system-user-specific.adoc[]

@@ -2,12 +2,10 @@ include::ROOT:partial$variables.adoc[]
 
 = SAML
 
-== Configuration
-
 To enable SAML authentication, you need to exchange credentials from your IdP.
 The configuration process involves the optional key generation and setting up IdP in the Admin panel.
 
-=== Generating private and public key pair
+== Generating private and public key pair
 
 [CAUTION]
 ====
@@ -95,7 +93,7 @@ XhV4F/ngKrnQgxp47BCdNe0vC5Z44OImPpvQBsZ5PueqW+Pr5JHO
 -----END RSA PRIVATE KEY-----
 ----
 
-=== Setting up the IdP in the administration panel
+== Setting up the IdP in the administration panel
 
 Open your administration panel and navigate to menu:system[settings].
 
@@ -126,7 +124,7 @@ Values from name and handle are used when creating a new user.
 The above values follow the industry standard, but you should consult your IdP-specific documentation on what is provided as part of user data.
 ====
 
-=== Login screen with SAML enabled
+== Login screen with SAML enabled
 
 [#saml-login-ui]
 .The screenshot shows the login screen when SAML authentication is enabled.

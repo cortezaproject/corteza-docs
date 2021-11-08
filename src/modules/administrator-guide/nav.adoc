@@ -1,34 +1,14 @@
 * xref:index.adoc[]
 
+** xref:users.adoc[]
+** xref:roles.adoc[]
+
+** xref:authentication/index.adoc[]
+*** xref:authentication/mfa.adoc[]
+*** xref:authentication/authentication-providers/index.adoc[]
+
 ** xref:access-control/index.adoc[]
-*** xref:access-control/examples-contextual.adoc[]
 
-** xref:authentication.adoc[]
-
-** Corteza Admin
-*** xref:action-log.adoc[]
-*** xref:users.adoc[]
-*** xref:roles.adoc[]
-*** xref:applications.adoc[]
-*** xref:settings.adoc[]
-*** xref:email-settings.adoc[]
-*** xref:permissions.adoc[]
-*** xref:automation.adoc[]
-*** xref:messagebus.adoc[]
-
-** Corteza Low Code
-*** xref:namespaces.adoc[]
-*** xref:modules.adoc[]
-*** xref:pages.adoc[]
-*** xref:charts.adoc[]
-
+** xref:automation.adoc[]
+** xref:logging.adoc[]
 ** xref:federation/index.adoc[]
-*** xref:federation/nodes.adoc[]
-*** xref:federation/share-data.adoc[]
-
-** Authentication providers
-*** xref:authentication-provider/google.adoc[]
-*** xref:authentication-provider/facebook.adoc[]
-*** xref:authentication-provider/github.adoc[]
-*** xref:authentication-provider/linkedin.adoc[]
-*** xref:authentication-provider/saml.adoc[]

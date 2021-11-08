@@ -1,0 +1,17 @@
+include::ROOT:partial$variables.adoc[]
+
+= External authentication providers
+
+:leveloffset: +1
+
+include::google.adoc[]
+
+include::facebook.adoc[]
+
+include::github.adoc[]
+
+include::linkedin.adoc[]
+
+include::saml.adoc[]
+
+:leveloffset: -1

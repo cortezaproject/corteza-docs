@@ -1,0 +1,90 @@
+include::ROOT:partial$variables.adoc[]
+
+= Authentication
+
+== Auth client
+
+An authentication client (an auth client for short) is a facility that allows you to define how an external application can {PRODUCT_NAME} to authenticate and what access the authenticated users may have.
+
+The menu:system[auth clients] user interface allows you to inspect and manage your auth clients.
+
+image::auth-client-list.png[role="data-zoomable"]
+
+.From there you can:
+* List the auth clients created inside your {PRODUCT_NAME} instance.
+* create a new auth client by clicking on the btn:[new] button,
+* edit an existing auth client by clicking on the btn:[edit] icon next to the auth client,
+* manage global auth client permissions by clicking on the btn:[permissions button].
+
+=== Listing auth clients
+
+.To list current system auth clients:
+. Navigate to menu:system[auth clients],
+. optionally insert the filtering parameters (the list refreshes automatically).
+
+image::auth-client-list.png[role="data-zoomable"]
+
+=== Creating auth clients
+
+[IMPORTANT]
+====
+Permissions can only be defined on existing auth clients.
+====
+
+.To create a new auth client:
+. Navigate to menu:system[auth clients],
+. click on the btn:[new] button in the top right corner,
+. provide the requested data,
+. press the btn:[submit] button.
+
+image::auth-client-create.png[role="data-zoomable"]
+
+=== Editing auth clients
+
+.To edit an existing auth client:
+. Navigate to menu:system[auth clients],
+. click on the btn:[edit] icon next to the auth client you wish to edit,
+. update the parameters you wish to change,
+. press the btn:[submit] button.
+
+image::auth-client-edit.png[role="data-zoomable"]
+
+=== Deleting auth clients
+
+.To delete an existing auth client:
+. Navigate to menu:system[auth clients],
+. click on the btn:[edit] icon next to the auth client you wish to suspend,
+. press and confirm the btn:[delete] button.
+
+image::auth-client-edit.png[role="data-zoomable"]
+
+== Grant types
+
+{PRODUCT_NAME} authentication supports two OAuth2 grant types: authorization code and client credentials.
+
+.Authentication grant types:
+[cols="1s,5a"]
+|===
+| [#auth-client-grant-authorization-code]#<<auth-client-grant-authorization-code,Authorization code>>#
+|
+The *authorization code* grant type is used to authenticate users with the classic OAuth2 flow.
+
+To enable the grant type, select the "will be used to authenticate users (grant type = authorization_code)" option.
+
+image::auth-client-edit.png[role="data-zoomable"]
+
+| [#auth-client-grant-client-credentials]#<<auth-client-grant-client-credentials,Client credentials>>#
+|
+The *client credentials* grant type is the simplified authentication flow, normally used to authenticate machines, such as external services or applications.
+
+[IMPORTANT]
+====
+Client credentials grant type requires you to populate the "impersonate user" option.
+The impersonated user will be used to create the security context of the JWT token.
+====
+
+To enable the grant type, select the "will be used to authenticate machines (grant type = client_credentials)" option.
+
+image::auth-client-edit.png[role="data-zoomable"]
+
+|===

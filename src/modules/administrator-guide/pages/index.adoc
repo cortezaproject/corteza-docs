@@ -2,7 +2,267 @@ include::ROOT:partial$variables.adoc[]
 
 = Administrator Guide
 
-****
-The landing page for the administrator guide is under construction.
-Please refer to the side navigation menu:Administrator Guide[] to access the topic you are curious about.
-****
+The administrator guided covers the process of performing administration tasks such as defining roles and role membership, configuring your security model, and monitoring the system.
+
+This page provides a general overview of the two web applications involved in {PRODUCT_NAME} administration -- <<webapp-admin,{PRODUCT_NAME} {APP_NAME_ADMIN}>> and <<webapp-compose,{PRODUCT_NAME} {APP_NAME_COMPOSE}>>.
+Specific topics are available in the side navigation under the *administrator guide*.
+
+If you haven't yet setup your {PRODUCT_NAME} instance, refer to the xref:devops-guide:index.adoc[].
+
+If you want to learn about low-code application development, refer to the xref:integrator-guide:index.adoc[].
+
+[#webapp-admin]
+== {PRODUCT_NAME} {APP_NAME_ADMIN}
+
+The {PRODUCT_NAME} {APP_NAME_ADMIN} web application provides a user interface to perform general system-wide administration tasks such as creating roles, managing role membership, and monitoring the system.
+
+[IMPORTANT]
+====
+You need sufficient permissions to access the {PRODUCT_NAME} {APP_NAME_ADMIN} web application.
+====
+
+.The main administration tasks performed from the {PRODUCT_NAME} {APP_NAME_ADMIN} web applications include:
+* xref:users.adoc[user] and xref:roles.adoc[role] management,
+* security model adjustments by managing xref:authentication/index.adoc[authentication] and xref:access-control/index.adoc[access control],
+* inspecting xref:logging.adoc[log] and xref:automation.adoc[automation] contents to identify and solve configuration issues.
+
+To access the {PRODUCT_NAME} {APP_NAME_ADMIN} web application, go to your {PRODUCT_NAME} instance and click on the admin area application.
+
+image::corteza-one-app-selector.png[role="data-zoomable"]
+
+After clicking on the application, you are presented with a dashboard showing you some basic parameters about your system.
+
+image::webapp-admin-dashboard.png[role="data-zoomable"]
+
+Use the navigation in the left sidebar to access the rest of the web application.
+
+image::webapp-admin-dashboard.png[role="data-zoomable"]
+
+[#webapp-compose]
+== {PRODUCT_NAME} {APP_NAME_COMPOSE}
+
+The {PRODUCT_NAME} {APP_NAME_COMPOSE} web application -- from the administrator's perspective -- provides a user interface for managing access control permissions for general web application usage as well as specific low-code applications.
+
+[IMPORTANT]
+====
+You need sufficient permissions to access {PRODUCT_NAME} {APP_NAME_COMPOSE} administration user interfaces.
+====
+
+*@todo* pointers to core features
+
+To access the {PRODUCT_NAME} {APP_NAME_COMPOSE} web application, go to your {PRODUCT_NAME} instance and click on the {APP_NAME_COMPOSE} application.
+
+image::corteza-one-app-selector.png[role="data-zoomable"]
+
+After clicking on the application, you are presented with the web application's home page -- the list of all namespaces.
+
+image::webapp-compose-homepage.png[role="data-zoomable"]
+
+From the home page (the list of all namespaces) you can manage general access control, such as what role is allowed to create namespaces and what roles are allowed to access specific namespaces.
+
+Click on the btn:[permissions] button on the top of the list to see all of the available access control rules.
+
+image::webapp-compose-homepage.png[role="data-zoomable"]
+
+To perform administration tasks for a specific low-code application, click on the btn:[visit namespace] button on the namespace you wish to manage, expand the left navigation sidebar, and click on the btn:[admin panel] button.
+
+image::webapp-compose-app-homepage.png[role="data-zoomable"]
+
+From the {APP_NAME_COMPOSE} admin panel you can manage access control permissions for resources defined by the namespace, such as who can edit modules, create records, and edit charts.
+
+[NOTE]
+====
+The administrator guide doesn't touch low-code app configuration.
+Refer to the xref:integrator-guide:index.adoc[] for details on configuring your own low-code application.
+====
+
+image::webapp-compose-app-admin-panel.png[role="data-zoomable"]
+
+== System settings
+
+The majority of system configuration which affects how the system behaves is performed on the deployment-level.
+
+Refer to the xref:devops-guide:index.adoc[] for details.
+
+=== User interfaces
+
+The role management user interface resides in the xref:index.adoc#webapp-admin[{PRODUCT_NAME} {APP_NAME_ADMIN}] web application, under:
+
+* menu:system[settings]
+* menu:system[email settings]
+* menu:compose[settings]
+* menu:user interface[settings]
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "webapp-admin-dashboard.png",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {},
+  "annotations": [{
+    "kind": "box",
+    "x": 16,
+    "y": 295,
+    "w": 288,
+    "h": 30
+  }, {
+    "kind": "box",
+    "x": 16,
+    "y": 335,
+    "w": 288,
+    "h": 30
+  }, {
+    "kind": "box",
+    "x": 16,
+    "y": 583,
+    "w": 288,
+    "h": 37
+  }, {
+    "kind": "box",
+    "x": 16,
+    "y": 868,
+    "w": 288,
+    "h": 37
+  }]
+}
+----
+
+=== System settings
+
+*System settings* are located under menu:system[settings] in the left navigation menu.
+
+System settings allow you to configure internal and external authentication, as well as <<auth-mfa,multi factor authentication>> and different authentication flows.
+
+[TIP]
+====
+You can disable internal sign-up and manually add users that are allowed to access your system.
+====
+
+Refer to the xref:authentication/authentication-providers/index.adoc[] for details on how to configure external providers.
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "system-settings.png",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {},
+  "annotations": [{
+    "kind": "box",
+    "x": 16,
+    "y": 295,
+    "w": 288,
+    "h": 30
+  }]
+}
+----
+
+=== Email settings
+
+*Email settings* are located under menu:system[email settings] in the left navigation menu.
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "email-settings.png",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {},
+  "annotations": [{
+    "kind": "box",
+    "x": 16,
+    "y": 335,
+    "w": 288,
+    "h": 30
+  }]
+}
+----
+
+The email settings interface allows you to configure SMTP servers for sending emails from {PRODUCT_NAME}.
+Please consult your email services provider for SMTP server information (host, port, user, password).
+
+[CAUTION]
+====
+Diagnostics and additional information in case of misconfiguration are only available in the server logs.
+====
+
+In case of any TLS/certificate issues you can adjust server name for the TLS check or disable checking and allow use of invalid certificates
+
+[IMPORTANT]
+====
+Initial settings are copied from the xref:devops-guide:configuration/server.adoc#\_email_sending[`SMTP_*` environmental variables].
+{PRODUCT_NAME} will log a warning if you keep the environmental variables and make changes to either variables or settings.
+====
+
+Open your administration panel and navigate to menu:System[Email settings].
+
+.The screenshot shows the SMTP server settings in the administration panel under.
+image::email-settings/form.png[Screenshot of the configuration window.,role="data-zoomable"]
+
+Provide the required server name and port and optional username and password.
+Changes are applied immediately and do not require server restart.
+
+
+=== {APP_NAME_COMPOSE} settings
+
+*{APP_NAME_COMPOSE} settings* are located under menu:compose[settings] in the left navigation menu.
+{APP_NAME_COMPOSE} settings allow you to configure general attachment settings, such as the maximum size and allow lists.
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "compose-settings.png",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {},
+  "annotations": [{
+    "kind": "box",
+    "x": 16,
+    "y": 583,
+    "w": 288,
+    "h": 37
+  }]
+}
+----
+
+=== User interface settings
+
+*User interface settings* are located under menu:user interface[settings] in the left navigation menu.
+User interface settings allow you to configure the main and icon logos that should be used by the {PRODUCT_NAME} instance.
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "ui-settings.png",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {},
+  "annotations": [{
+    "kind": "box",
+    "x": 16,
+    "y": 868,
+    "w": 288,
+    "h": 37
+  }]
+}
+----
+
+== Where to next?
+
+Refer to the side navigation to discover additional features and tasks relevant to {PRODUCT_NAME} administrators.
+
+.The main administration features include:
+* xref:users.adoc[user] and xref:roles.adoc[role] management,
+* security model adjustments by managing xref:authentication/index.adoc[authentication] and xref:access-control/index.adoc[access control],
+* inspecting xref:logging.adoc[log] and xref:automation.adoc[automation] contents to identify and solve configuration issues.

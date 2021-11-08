@@ -1,4 +1,33 @@
+include::ROOT:partial$variables.adoc[]
+
 = Access control
+
+[NOTE]
+====
+Most of the {PRODUCT_NAME} resources allow you to define what xref:roles.adoc[roles] are allowed to access the resource.
+Locate the btn:[permissions] button in the user interface for managing the resource.
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "general-permissions-button.png",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {},
+  "annotations": [{
+    "kind": "box",
+    "x": 1536,
+    "y": 80,
+    "w": 134,
+    "h": 30
+  }]
+}
+----
+
+*DevNote* generate a reference for all permission options.
+====
 
 :leveloffset: +1
 

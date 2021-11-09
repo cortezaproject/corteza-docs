@@ -1,0 +1,26 @@
+include::ROOT:partial$variables.adoc[]
+
+= `2021.9.3`
+
+*Released on*: TBD
+
+*Contributors*:
+Denis Arh (https://github.com/darh[GH]),
+Jože Fortun (https://github.com/fajfa[GH]),
+Tomaž Jerman (https://github.com/tjerman[GH])
+Matija Rešek (https://github.com/resek[GH]
+
+.[#2021_9_3-changed]#<<2021_9_3-changed,Changed:>>#
+* All user's access tokens are now removed after password change ({SERVER_COMMIT_BASE}01577191[`01577191`]).
+
+.[#2021_9_3-fixed]#<<2021_9_3-fixed,Fixed:>>#
+* Fixed improper page block ref validation for yaml encode ({SERVER_COMMIT_BASE}5afc715f[`5afc715f`]).
+* Fixed unstable RBAC check that was caused by more complex setup of roles and RBAC rules ({SERVER_COMMIT_BASE}a385fe1c[`a385fe1c`]).
+* Fixed multi value required field errors ({WEBAPP_COMPOSE_COMMIT_BASE}a5e4fb21[`a5e4fb21`]).
+* Fixed display elements configurator sometimes not loading correct information when switching between elements ({WEBAPP_REPORTER_COMMIT_BASE}b8121e5[`b8121e5`]).
+
+.[#2021_9_1-added]#<<2021_9_3-added,Added:>>#
+* Added handle error text in Admin ({WEBAPP_ADMIN_COMMIT_BASE}d903a735[`d903a735`]).
+* Added handle error text in Reporter ({WEBAPP_REPORTER_COMMIT_BASE}963c2161[`963c2161`]).
+* Added handle error text in Workflow ({WEBAPP_WORKFLOW_COMMIT_BASE}cb1b42b3[`cb1b42b3`]).
+* Added scenario switcher to Reporter ({SERVER_COMMIT_BASE}4b6b52b3f[`4b6b52b3f`] {WEBAPP_REPORTER_COMMIT_BASE}b8121e5[`b8121e5`], {WEBAPP_JS_COMMIT_BASE}79e13cb[`79e13cb`]).

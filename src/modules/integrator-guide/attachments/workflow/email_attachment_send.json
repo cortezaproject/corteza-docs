@@ -1,0 +1,358 @@
+{
+  "workflows": [
+    {
+      "handle": "attachments",
+      "enabled": true,
+      "meta": {
+        "name": "Attachments",
+        "description": "",
+        "visual": null
+      },
+      "keepSessions": 0,
+      "steps": [
+        {
+          "stepID": "6",
+          "kind": "function",
+          "ref": "templatesRender",
+          "arguments": [
+            {
+              "target": "lookup",
+              "value": "quote",
+              "type": "Handle"
+            },
+            {
+              "target": "documentName",
+              "value": "quote",
+              "type": "String"
+            },
+            {
+              "target": "documentType",
+              "value": "application/pdf",
+              "type": "String"
+            },
+            {
+              "target": "options",
+              "expr": "{\n    \"documentSize\": \"A4\",\n    \"contentScale\": \"1\",\n    \"orientation\": \"portrait\",\n    \"margin\": \"0.3\"\n  }",
+              "type": "RenderOptions"
+            }
+          ],
+          "results": [
+            {
+              "target": "quote",
+              "expr": "document"
+            }
+          ],
+          "meta": {
+            "name": "",
+            "description": "",
+            "visual": {
+              "id": "6",
+              "parent": "1",
+              "value": "(2) Render quote",
+              "xywh": [
+                2680,
+                1920,
+                200,
+                80
+              ]
+            }
+          }
+        },
+        {
+          "stepID": "7",
+          "kind": "function",
+          "ref": "emailMessage",
+          "arguments": [
+            {
+              "target": "subject",
+              "value": "Quote for your product",
+              "type": "String"
+            },
+            {
+              "target": "to",
+              "value": "example@mail.tld",
+              "type": "String"
+            },
+            {
+              "target": "html",
+              "expr": "content.document",
+              "type": "Reader"
+            }
+          ],
+          "results": [
+            {
+              "target": "email",
+              "expr": "message"
+            }
+          ],
+          "meta": {
+            "name": "",
+            "description": "",
+            "visual": {
+              "id": "7",
+              "parent": "1",
+              "value": "(4) Build base email",
+              "xywh": [
+                2400,
+                2080,
+                200,
+                80
+              ]
+            }
+          }
+        },
+        {
+          "stepID": "8",
+          "kind": "function",
+          "ref": "emailEmbed",
+          "arguments": [
+            {
+              "target": "message",
+              "expr": "email",
+              "type": "EmailMessage"
+            },
+            {
+              "target": "content",
+              "expr": "quote.document",
+              "type": "Reader"
+            },
+            {
+              "target": "name",
+              "value": "quote.pdf",
+              "type": "String"
+            }
+          ],
+          "results": [],
+          "meta": {
+            "name": "",
+            "description": "",
+            "visual": {
+              "id": "8",
+              "parent": "1",
+              "value": "(5) Attach rendered template",
+              "xywh": [
+                2680,
+                2080,
+                200,
+                80
+              ]
+            }
+          }
+        },
+        {
+          "stepID": "9",
+          "kind": "function",
+          "ref": "emailSendMessage",
+          "arguments": [
+            {
+              "target": "message",
+              "expr": "email",
+              "type": "EmailMessage"
+            }
+          ],
+          "results": [],
+          "meta": {
+            "name": "",
+            "description": "",
+            "visual": {
+              "id": "9",
+              "parent": "1",
+              "value": "(6) Send email",
+              "xywh": [
+                2960,
+                2080,
+                200,
+                80
+              ]
+            }
+          }
+        },
+        {
+          "stepID": "11",
+          "kind": "function",
+          "ref": "templatesRender",
+          "arguments": [
+            {
+              "target": "lookup",
+              "value": "content",
+              "type": "Handle"
+            },
+            {
+              "target": "documentType",
+              "value": "text/html",
+              "type": "String"
+            }
+          ],
+          "results": [
+            {
+              "target": "content",
+              "expr": "document"
+            }
+          ],
+          "meta": {
+            "name": "",
+            "description": "",
+            "visual": {
+              "id": "11",
+              "parent": "1",
+              "value": "(3) Render email",
+              "xywh": [
+                2960,
+                1920,
+                200,
+                80
+              ]
+            }
+          }
+        },
+        {
+          "stepID": "21",
+          "kind": "termination",
+          "ref": "",
+          "arguments": null,
+          "results": null,
+          "meta": {
+            "name": "",
+            "description": "",
+            "visual": {
+              "id": "21",
+              "parent": "1",
+              "value": "(7) Done",
+              "xywh": [
+                2960,
+                2240,
+                200,
+                80
+              ]
+            }
+          }
+        }
+      ],
+      "paths": [
+        {
+          "parentID": "6",
+          "childID": "11",
+          "meta": {
+            "name": "",
+            "description": "",
+            "visual": {
+              "id": "13",
+              "parent": "1",
+              "points": [],
+              "style": "exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;",
+              "value": null
+            }
+          }
+        },
+        {
+          "parentID": "7",
+          "childID": "8",
+          "meta": {
+            "name": "",
+            "description": "",
+            "visual": {
+              "id": "14",
+              "parent": "1",
+              "points": [],
+              "style": "exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;",
+              "value": null
+            }
+          }
+        },
+        {
+          "parentID": "8",
+          "childID": "9",
+          "meta": {
+            "name": "",
+            "description": "",
+            "visual": {
+              "id": "15",
+              "parent": "1",
+              "points": [],
+              "style": "exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;",
+              "value": null
+            }
+          }
+        },
+        {
+          "parentID": "11",
+          "childID": "7",
+          "meta": {
+            "name": "",
+            "description": "",
+            "visual": {
+              "id": "18",
+              "parent": "1",
+              "points": [],
+              "style": "exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;",
+              "value": null
+            }
+          }
+        },
+        {
+          "parentID": "9",
+          "childID": "21",
+          "meta": {
+            "name": "",
+            "description": "",
+            "visual": {
+              "id": "22",
+              "parent": "1",
+              "points": [],
+              "style": "exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;",
+              "value": null
+            }
+          }
+        }
+      ],
+      "triggers": [
+        {
+          "resourceType": "system",
+          "eventType": "onManual",
+          "constraints": [
+            {
+              "name": "",
+              "op": "=",
+              "values": [
+                ""
+              ]
+            }
+          ],
+          "enabled": true,
+          "stepID": "6",
+          "meta": {
+            "description": "",
+            "visual": {
+              "edges": [
+                {
+                  "childID": "6",
+                  "meta": {
+                    "description": "",
+                    "label": "",
+                    "visual": {
+                      "id": "20",
+                      "parent": "1",
+                      "points": [],
+                      "style": "exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;",
+                      "value": null
+                    }
+                  },
+                  "parentID": "3"
+                }
+              ],
+              "id": "3",
+              "parent": "1",
+              "value": "(1) System; onManual",
+              "xywh": [
+                2400,
+                1800,
+                200,
+                80
+              ]
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

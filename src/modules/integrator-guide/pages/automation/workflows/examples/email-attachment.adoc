@@ -1,0 +1,160 @@
+= Add an attachment to an email
+:attachment-path: ../../_attachments/workflow/
+
+For this example, let's assume we want to send out customer a quote for the new product they've ordered.
+The quote will be provided by our xref:templates/index.adoc[template system].
+
+[IMPORTANT]
+====
+In order to render templates as PDF documents, xref:devops-guide:extension-requirements/pdf-renderer.adoc[PDF rendering must be setup].
+====
+
+.The screenshot outlines the workflow that can be used to send an attachment via email.
+image::workflow/example-email-attachment/workflow.png[role="data-zoomable"]
+
+The link:{attachment-path}email_attachment_send.json[source code] for the workflow example.
+
+****
+.Workflow step details:
+[%collapsible.result]
+====
+1. *(1) System; onManual*:
+** *resource*: `System`
+** *event*: `onManual`
+** *enabled*: checked
+2. *(2) Render quote*:
+** *type*: `Template render`
+** *arguments*:
+*** *lookup*:
+**** *type*: `Handle`
+**** *value type*: constant
+**** *value*: `quote`
+*** *documentName*:
+**** *value type*: constant
+**** *value*: `quote`
+*** *documentType*:
+**** *value type*: constant
+**** *value*: `application/pdf`
+*** *options*:
+**** *value type*: constant
+**** *value*: `{ "documentSize": "A4", "contentScale": "1", "orientation": "portrait", "margin": "0.3" }`
+** *results*:
+*** *document target*: `quote`
+3. *(3) Render email*:
+** *type*: `Template render`
+** *arguments*:
+*** *lookup*:
+**** *type*: `Handle`
+**** *value type*: constant
+**** *value*: `content`
+*** *documentType*:
+**** *value type*: constant
+**** *value*: `text/html`
+** *results*:
+*** *document target*: `content`
+4. *(4) Build base email*:
+** *type*: `Email builder`
+** *arguments*:
+*** *subject*:
+**** *type*: `String`
+**** *value type*: constant
+**** *value*: `Quote for your product`
+*** *to*:
+**** *type*: `String`
+**** *value type*: constant
+**** *value*: `example@mail.tld`
+*** *html*:
+**** *type*: `Reader`
+**** *value type*: expression
+**** *value*: `content.document`
+** *results*:
+*** *message target*: `email`
+5. *(5) Attach rendered template*:
+** *type*: `Email embedded attachment`
+** *arguments*:
+*** *message*:
+**** *type*: `EmailMessage`
+**** *value type*: expression
+**** *value*: `email`
+*** *content*:
+**** *type*: `Reader`
+**** *value type*: expression
+**** *value*: `quote.document`
+*** *name*:
+**** *type*: `String`
+**** *value type*: constant
+**** *value*: `quote.pdf`
+6. *(6) Send email*:
+** *type*: `Email sender`
+** *arguments*:
+*** *message*:
+**** *type*: `EmailMessage`
+**** *value type*: expression
+**** *value*: `email`
+7. *(7) Done*
+====
+****
+
+[CAUTION]
+====
+Make sure that the `name` parameter of the `email embedded attachment` uses a correct extension, such as `.txt` for plain text and `.pdf` for PDF.
+If the extension is omitted or incorrect, some email clients may display the attachment incorrectly or ignore it altogether.
+====
+
+The resulting email message includes the quote PDF as an attachment.
+
+.The screenshot outlines the raw received email message.
+image::workflow/example-email-attachment/email-mime-contents.png[role="data-zoomable"]
+
+== Example templates
+
+The above example uses two templates: `quote` and `content`
+
+.The screenshot outlines the basic email content template used in the example.
+image::workflow/example-email-attachment/template-base-content.png[role="data-zoomable"]
+
+.The source code for the email content template:
+[source,html]
+----
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset='utf-8'>
+  <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+  <title>Quote for our services</title>
+  <meta name='viewport' content='width=device-width, initial-scale=1'>
+</head>
+<body>
+  <h1>Hello!</h1>
+  <p>
+    Attached is the quote for our services.
+  </p>
+  <p>
+    Best, Team ltd
+  </p>
+</body>
+</html>
+----
+
+.The screenshot outlines the basic quote template used in the example.
+image::workflow/example-email-attachment/template-base-quote.png[role="data-zoomable"]
+
+.The source code for the quote template:
+[source,html]
+----
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset='utf-8'>
+  <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+  <title>Quote#012356</title>
+  <meta name='viewport' content='width=device-width, initial-scale=1'>
+</head>
+<body>
+  <h1>Quote#012356</h1>
+  <p>
+    Service quote for our services
+  </p>
+</body>
+</html>
+----

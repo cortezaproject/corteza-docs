@@ -256,3 +256,7 @@ The function embeds an attachment to the email message.
   Examples:
   * `{"test@mail.tld": "Testko Test"}`
   * `{"test@mail.tld": "Testko Test", "test2@mail.tld": "Test2"}`
+
+== Send attachments
+
+Refer to the xref:automation/workflows/examples/email-attachment.adoc[example workflow] for sending attachments.

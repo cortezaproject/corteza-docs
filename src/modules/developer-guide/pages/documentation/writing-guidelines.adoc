@@ -100,6 +100,11 @@ The reader is more likely to *pay extra attention* to something *important* if i
 
 *Don't provide excessive visual material* by showing every single step of a process or, even worse, by just pasting a screenshot with no context of what we are looking at.
 
+[NOTE]
+====
+Refer to xref:documentation/annotations.adoc[] for instructions on image annotations.
+====
+
 When including images, make sure to *indicate what the image represents* and to provide an *image caption* that outlines *what goes on* in the image.
 An image may allow the reader to *quickly refresh their memory* if they are already familiar with something.
 

@@ -1,6 +1,7 @@
 * xref:index.adoc[]
 
 ** xref:documentation/index.adoc[]
+*** xref:documentation/annotations.adoc[]
 *** xref:documentation/examples/index.adoc[]
 *** xref:documentation/changelog.adoc[]
 

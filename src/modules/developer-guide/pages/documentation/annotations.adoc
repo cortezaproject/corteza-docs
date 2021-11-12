@@ -1,0 +1,447 @@
+include::ROOT:partial$variables.adoc[]
+
+= Image annotations
+
+Whenever possible, image annotations should be *done programmatically* to reduce the amount of effort needed to make images look consistent and conform to our brand guidelines.
+
+[IMPORTANT]
+====
+These instructions should be used whenever possible, but exceptions may apply.
+For cases where this is not feasible, you may use external programs as long as you follow the style guide and brand guidelines.
+====
+
+[NOTE]
+====
+*DevNote* add style guide and brand guideline references.
+====
+
+== Taking screenshots
+
+Screenshots may be taken in any browser you prefer.
+We suggest you either use Firefox or a Chromium-based browser.
+
+[#setup]
+=== Setting up
+
+*Define a new device* for taking screenshots.
+We can define the device with a specific screen parameters so that we can make our screenshots look as consistent as possible.
+
+.In the developer tools:
+. click on the btn:[toggle device toolbar] button,
+. click on the dropdown containing the list of devices,
+. click on the edit option, btn:[add custom device].
+
+[cols="1s,5a"]
+|===
+| Name
+|
+The name does not matter; I (the writer) use "{PRODUCT_NAME} screenshots".
+
+| Width
+|
+The width *must be* `1920` pixels.
+Any resizing should be done by the annotation plugin.
+
+| Height
+|
+The width *must be* `1080` pixels.
+Any resizing should be done by the annotation plugin.
+
+| Device pixel ratio
+|
+The device pixel ratio must be set to `1`.
+
+| User agent type
+|
+The user agent type must be set do desktop.
+*Firefox* users may use the following value.
+
+[source]
+----
+Mozilla/5.0 (X11; Linux x86_64; rv:89.0) Gecko/20100101 Firefox/89.0
+----
+
+|===
+
+*Add a ruler extension* to simplify the process of figuring out the pixel position of specific elements on the page.
+I (the writer) use https://chrome.google.com/webstore/detail/smart-page-ruler/nmibbjghlmdiafjolcphdggihcbcedmg/related?hl=en[Smart Page Ruler] as I've found it to be the best and simplest to use from the offerings at the time of writing.
+
+If you do not wish or can not find an appropriate extension for your browser, you may determine positions manually as long as you follow the brand guidelines and you are consistent.
+
+=== Screenshots
+
+.To take the screenshot:
+. Prepare the page state to contain all of the information you wish to capture (for example, open modals and populate inputs).
+. Open the developer tools and click on the btn:[toggle device toolbar] button.
+. Click on the dropdown containing the list of devices and select the device you've prepared in the <<setup,setup section>>.
+
+.The screenshot indicates the location of the capture screenshot button for Firefox.
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "documentation/screenshot-firefox.png",
+    "w": 977,
+    "h": 557
+  },
+  "view": {},
+  "annotations": [{
+    "kind": "box-light",
+    "x": 315,
+    "y": 5,
+    "w": 40,
+    "h": 40
+  }]
+}
+----
+
+.The screenshot indicates the location of the capture screenshot button for Chromium-based browser (Brave).
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "documentation/screenshot-brave.png",
+    "w": 711,
+    "h": 723
+  },
+  "view": {},
+  "annotations": [{
+    "kind": "box-light",
+    "x": 200,
+    "y": 175,
+    "w": 250,
+    "h": 40
+  }]
+}
+----
+
+== Annotate
+
+.An example annotation:
+```
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "workflow/accessing-workflows-1.png",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {
+    "x": 0,
+    "y": 0,
+    "w": 1920,
+    "h": 1080
+  },
+  "annotations": [{
+    "kind": "box",
+    "x": 818,
+    "y": 516,
+    "w": 288,
+    "h": 250
+  }]
+}
+----
+```
+
+The `image` parameter describes the base image you would like to annotate.
+The image *must* define the size of the source image (might be improved later).
+The `rel` parameter follows the same rules as https://docs.antora.org/antora/2.0/asciidoc/insert-image/[the regular image path].
+
+[CAUTION]
+====
+If you are planning on using the same image multiple times with different annotations, make sure that you define an `alias` parameter to the `image`.
+
+.To examplify:
+```
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "documentation/example-blank.png",
+    "alias": "example-blank-box",
+    "w": 516,
+    "h": 353
+  },
+  "view": {},
+  "annotations": [{
+    "kind": "box",
+    "x": 50,
+    "y": 50,
+    "w": 403,
+    "h": 240
+  }]
+}
+----
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "documentation/example-blank.png",
+    "alias": "example-blank-box-danger",
+    "w": 516,
+    "h": 353
+  },
+  "view": {},
+  "annotations": [{
+    "kind": "box-danger",
+    "x": 50,
+    "y": 50,
+    "w": 403,
+    "h": 240
+  }]
+}
+----
+```
+====
+
+The `view` parameter defines what portion of the source image should actually be shown.
+This allows you to offset the view and crop the image.
+
+The `annotations` parameter allows you to define an array of predefined annotation objects.
+
+=== Box annotations
+
+[NOTE]
+====
+*DevNote* will be added as requirements change and brand guidelines establish.
+====
+
+.A list of predefined box annotations:
+[cols="2s,5a,5a"]
+|===
+| [#annotation-box-default]#<<annotation-box-default,Default>>#
+|
+```
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "documentation/example-blank.png",
+    "alias": "example-blank-box",
+    "w": 516,
+    "h": 353
+  },
+  "view": {},
+  "annotations": [{
+    "kind": "box",
+    "x": 50,
+    "y": 50,
+    "w": 403,
+    "h": 240
+  }]
+}
+----
+```
+|
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "documentation/example-blank.png",
+    "alias": "example-blank-box",
+    "w": 516,
+    "h": 353
+  },
+  "view": {},
+  "annotations": [{
+    "kind": "box",
+    "x": 50,
+    "y": 50,
+    "w": 403,
+    "h": 240
+  }]
+}
+----
+
+| [#annotation-box-danger]#<<annotation-box-danger,Danger>>#
+|
+```
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "documentation/example-blank.png",
+    "alias": "example-blank-box-danger",
+    "w": 516,
+    "h": 353
+  },
+  "view": {},
+  "annotations": [{
+    "kind": "box-danger",
+    "x": 50,
+    "y": 50,
+    "w": 403,
+    "h": 240
+  }]
+}
+----
+```
+|
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "documentation/example-blank.png",
+    "alias": "example-blank-box-danger",
+    "w": 516,
+    "h": 353
+  },
+  "view": {},
+  "annotations": [{
+    "kind": "box-danger",
+    "x": 50,
+    "y": 50,
+    "w": 403,
+    "h": 240
+  }]
+}
+----
+
+| [#annotation-box-light]#<<annotation-box-light,Light>>#
+|
+```
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "documentation/example-blank.png",
+    "alias": "example-blank-box-light",
+    "w": 516,
+    "h": 353
+  },
+  "view": {},
+  "annotations": [{
+    "kind": "box-light",
+    "x": 50,
+    "y": 50,
+    "w": 403,
+    "h": 240
+  }]
+}
+----
+```
+|
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "documentation/example-blank.png",
+    "alias": "example-blank-box-light",
+    "w": 516,
+    "h": 353
+  },
+  "view": {},
+  "annotations": [{
+    "kind": "box-light",
+    "x": 50,
+    "y": 50,
+    "w": 403,
+    "h": 240
+  }]
+}
+----
+
+|===
+
+
+=== Cropping images
+
+To crop an image adjust the the `view` property.
+
+.The `view` property has the following parameters:
+[cols="2s,5a"]
+|===
+| x
+| The horizontal offset from the top-left corner of the original image.
+
+| y
+| The vertical offset from the top-left corner of the original image.
+
+| w
+| The width of the resulting image (the area you wish to show).
+
+| h
+| The height of the resulting image (the area you wish to show).
+|===
+
+To examplify, lets remove the header and navigation from the following image.
+
+image::documentation/example-crop-base.png[role="data-zoomable"]
+
+.The following configuration performs the desired cropping:
+```
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "documentation/example-crop-base.png",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {
+    "x": 545,
+    "y": 100,
+    "w": 900,
+    "h": 970
+  },
+  "annotations": []
+}
+----
+```
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "documentation/example-crop-base.png",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {
+    "x": 545,
+    "y": 100,
+    "w": 900,
+    "h": 970
+  },
+  "annotations": []
+}
+----
+
+== Tips and tricks
+
+=== Determine element positions
+
+You can use a ruler extension setup in the <<setup,setup section>> to have an easier time of determining element positions.
+
+.The screenshot shows the use of a ruler extension to determine the position of elements on the screen.
+image::documentation/ruler-extension-example.png[role="data-zoomable"]
+
+=== Easier annotation placement
+
+Placing annotations may be a tedious process if you need to do some finishing touches such as assuring alignment.
+
+Annotations are rendered as SVG images which allows you to either use dedicated programs like https://inkscape.org/[Inkscape] or the browser developer console to adjust annotation positioning.
+
+To use the *dedicated program* simply download the annotated SVG image and open it in the program.
+You can then adjust the parameters of the annotation configuration based on the adjustments in your SVG editing program.
+
+To use the *developer console* right-click the annotated image and select the *open image in new tab* option.
+Inspect the SVG image and adjust the annotations as you see fit.
+Use the adjusted parameters to update the annotation configuration.
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "documentation/annotation-edit-browser.png",
+    "w": 1920,
+    "h": 987
+  },
+  "view": {
+    "h": 500
+  },
+  "annotations": []
+}
+----

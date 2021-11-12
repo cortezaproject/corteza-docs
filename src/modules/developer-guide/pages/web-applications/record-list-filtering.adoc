@@ -1,0 +1,46 @@
+include::ROOT:partial$variables.adoc[]
+
+= Record list filter
+
+The record list filter provides a set of components which allow you to provide flexible record filtering.
+
+All of the logic is contained within the https://github.com/cortezaproject/corteza-webapp-compose[corteza-webapp-compose] repository.
+
+Refer to the https://github.com/cortezaproject/corteza-webapp-compose/blob/2021.9.x/src/components/PageBlocks/RecordListBase.vue[record list implementation] for an example usage.
+
+[NOTE]
+====
+In future releases, the component may become generalized for different applications.
+====
+
+== Structure overview
+
+=== `components/Common/RecordListFilter.vue`
+
+The `components/Common/RecordListFilter.vue` file defines the core components of the record list filter feature.
+
+.Example usage:
+[source,js]
+----
+<record-list-filter
+    :selectedField="field.moduleField" <1>
+    :namespace="namespace" <2>
+    :module="recordListModule" <3>
+    :recordListFilter="recordListFilter" <4>
+    @filter="onFilter"
+/>
+----
+<1> the `selectedField` property defines the default field that should be used when defining filters.
+<2> the `namespace` property defines the namespace object we are defining the filter based on.
+<3> the `module` property defines the module object we are defining the filter based on.
+<4> the `recordListFilter` property defines the filter you wish to show in the given component.
+
+=== `/src/lib/record-filter.js`
+
+The `/src/lib/record-filter.js` file defines the logic for converting the output of the `RecordListFilter` component into a query which can be used with the {PRODUCT_NAME} server.
+
+.Example usage:
+[source,js]
+----
+import { queryToFilter } from 'corteza-webapp-compose/src/lib/record-filter'
+----

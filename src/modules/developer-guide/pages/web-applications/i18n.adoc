@@ -1,0 +1,100 @@
+include::ROOT:partial$variables.adoc[]
+
+= Internationalization
+
+{PRODUCT_NAME} allows you to fully translate most aspect of the system.
+From the user interface to custom {APP_NAME_COMPOSE} configurations such as modules and their fields.
+
+Additionally, {PRODUCT_NAME} adjusts value formatting based on the locale, such as custom temporal and numerical strings.
+Value formatting uses the native ECMAScript internationalization API.
+
+== Structure overview
+
+=== `corteza-js/src/formatting/datetime.ts`
+
+The `corteza-js/src/formatting/datetime.ts` file defines the functions which should be used when localizing temporal values such as dates and timestamps.
+
+The current implementation defines three functions which should be used for different applications.
+
+* `fullDateTime`: outputs locally formatted date and time, no seconds.
+* `date`: outputs locally formatted date without time.
+* `time`: outputs locally formatted time.
+
+=== `corteza-js/src/formatting/number.ts`
+
+The `corteza-js/src/formatting/number.ts` file defines the functions which should be used when localizing numeric values.
+
+== Usage
+
+.Example use case:
+[source,js]
+----
+import { fmt } from '@cortezaproject/corteza-js'
+
+// ...
+
+fmt.fullDateTime(sampleDate, optionalDateTimeFormat)
+fmt.date(sampleDate, optionalDateTimeFormat)
+fmt.time(sampleTime, optionalDateTimeFormat)
+----
+
+If you wish to test the output for different locales, you will need to change the locale in your browser settings.
+{PRODUCT_NAME} will respond to the change and use the newly assigned locale.
+
+== Modify formatting
+
+To modify the default formatting, pass in the https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat[`Intl.DateTimeFormat`] object as the last argument to the function call.
+
+.An example of overwriting the default format:
+[source,js]
+----
+fmt.fullDateTime(sampleDate, {
+  day: "numeric",
+  month: "numeric",
+  year: "numeric",
+  hour: "numeric",
+  minute: "numeric",
+})
+----
+
+[NOTE]
+====
+Refer to the https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat[`Intl.DateTimeFormat documentation`] for details.
+====
+
+=== Custom format reference
+
+.`dateStyle`:
+* `full`
+* `long`
+* `medium`
+* `short`
+
+.`timeStyle`:
+* `full`
+* `long`
+* `medium`
+* `short`
+
+.`year`:
+* `numeric` (example output: `2012`)
+* `2-digit` (example output: `12`)
+
+.`month`:
+* `numeric` (example output: `2`)
+* `2-digit` (example output: `02`)
+* `long` (example output: `March`)
+* `short` (example output: `Mar`)
+* `narrow` (example output: `M`)
+
+.`day`:
+* `numeric` (example output: `1`)
+* `2-digit` (example output: `01`)
+
+.`minute`:
+* `numeric`
+* `2-digit`
+
+.`second`:
+* `numeric`
+* `2-digit`

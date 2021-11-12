@@ -76,6 +76,7 @@
 
 ** xref:expr/index.adoc[]
 *** xref:expr/fnc-reference.adoc[]
+*** xref:expr/type-reference.adoc[]
 
 ** xref:templates/index.adoc[]
 *** xref:templates/variables.adoc[]

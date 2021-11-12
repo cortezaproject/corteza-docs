@@ -1,0 +1,20 @@
+= Type reference
+
+[NOTE]
+====
+*DevNote* generate the rest.
+====
+
+:leveloffset: +1
+
+include::partial$expr/type-reference.adoc[]
+
+:leveloffset: -1
+
+== Initialization patterns
+
+:leveloffset: +2
+
+include::partial$expr/type-init.adoc[]
+
+:leveloffset: -2

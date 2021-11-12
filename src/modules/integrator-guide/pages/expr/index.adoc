@@ -2,10 +2,262 @@ include::ROOT:partial$variables.adoc[]
 
 = Expressions
 
-****
-The expression reference is under construction.
-The content is here, but it is missing some finishing touches.
+{PRODUCT_NAME} defines an expression language which is used when defining xref:compose-configuration/index.adoc#field-expressions[field expressions], xref:automation/workflows/index.adoc[workflow steps], as well as xref:administrator-guide:access-control/index.adoc#role-type-ctx[contextual roles].
 
-For the meantime please use https://github.com/PaesslerAG/gval.
-For the available functions, see the xref:expr/fnc-reference.adoc[].
-****
+[NOTE]
+====
+Under the hood, we use https://github.com/PaesslerAG/gval[Gval] as the expression evaluation engine.
+Refer to the official documentation for technical details.
+====
+
+== Syntax
+
+.The most basic form of an expression would follow the following pattern:
+[source]
+----
+<variable|constant|function> <operator> <variable|constant|function>
+----
+
+[NOTE]
+====
+In later texts, we alias the above string and its variations with `expression`.
+====
+
+.To examplify:
+[source]
+----
+lead.values.totalCost / 10
+----
+
+You can expand the expression by applying additional constructs such as addition and division.
+
+.To examplify:
+[source]
+----
+average(min(lead.values.a, lead.values.b), abs(lead.values.c))
+----
+
+== Variables
+
+The expression engine does *not* allow you to define custom variables within the expression itself.
+All variables are defined by the system where the expression is being executed in.
+
+The available variables are either documented in the system's user interface or in dedicated documentation pages.
+
+== Objects
+
+Objects allow you to encapsulate different bits of information into a single variable, such as a user, role, or record.
+
+The primitive object-like data types include xref:expr/type-reference.adoc#datatype-kv[`KV`] and xref:expr/type-reference.adoc#datatype-kvv[`KVV`]; other component defined object-like data types can be found xref:expr/type-reference.adoc#object-reference[here]
+
+.In the simplest form, an object is defined like so:
+[source]
+----
+{
+  "username": "testUser",
+  "email": "test@mail.tld"
+}
+----
+
+.If we would like to reference the entire object, we would reference the variable; for example:
+[source]
+----
+newUser // results with { "username": "testUser", "email": "test@mail.tld" }
+----
+
+.If we would like to reference specific properties of the object, we would use a selector; for example:
+[source]
+----
+newUser.username // results with "testUser"
+newUser["email"] // results with "test@mail.tld"
+----
+
+[NOTE]
+====
+An object selector can use either the `[]` or the `.` notation.
+====
+
+=== Missing properties
+
+[NOTE]
+====
+*DevNote* todo
+====
+
+== Arrays
+
+Arrays allow you to encapsulate a series of values into a single variable, such as a list of leads or contacts we would like to create.
+
+xref:expr/type-reference.adoc#datatype-array[`Array`] is the only native array data type.
+An array can contain any data type, including another array.
+
+[TIP]
+====
+Nested arrays allow you to define a multidimensional matrix.
+====
+
+.In the simplest form, an array is defined like so:
+[source]
+----
+[{
+  "username": "testUser1",
+  "email": "test+1@mail.tld"
+}, {
+  "username": "testUser2",
+  "email": "test+2@mail.tld"
+}]
+----
+
+.If we would like to reference the entire array, we would reference the variable; for example:
+[source]
+----
+newUsers // results with [{ "username": "testUser1", "email": "test+1@mail.tld" }, { "username": "testUser2", "email": "test+2@mail.tld" }]
+----
+
+.If we would like to reference specific elements of the array, we would use a selector; for example:
+[source]
+----
+newUser[0] // results with { "username": "testUser1", "email": "test+1@mail.tld" }
+newUser[1] // results with { "username": "testUser2", "email": "test+2@mail.tld" }
+----
+
+.If we wanted to access a property of the object that is inside an array, we would add an object selector:
+[source]
+----
+newUser[0]["email"] // results with "test+1@mail.tld"
+----
+
+[NOTE]
+====
+An array selector can only use the `[]` notation.
+====
+
+== Operators
+
+[cols="2m,5a"]
+|===
+| [#expr-op-arithmetic]#<<expr-op-arithmetic,Arithmetic>>#
+|
+* `+` (addition)
+* `-` (subtraction)
+* `*` (multiplication)
+* `**` (power of)
+* `/` (division)
+* `%` (modulo)
+
+| [#expr-op-comparison]#<<expr-op-comparison,Comparison>>#
+|
+* `<` (less then)
+* `<=` (less or equal then)
+* `>` (greater then)
+* `>=` (greater or equal then)
+* `==` (equal)
+* `!=` (not equal)
+
+.String comparison only:
+* `=~` (equal regular expression)
+* `!~` (not equal regular expression)
+
+| [#expr-op-boolean-algebra]#<<expr-op-boolean-algebra,Boolean algebra>>#
+|
+* `&&` (and)
+* `\|\|` (or)
+* `!` (not)
+
+| [#expr-op-bit-operations]#<<expr-op-bit-operations,Bit operations>>#
+|
+* `<<` (shift)
+* `>>` (un shift)
+* `&` (bitwise and)
+* `\|` (bitwise or)
+
+|===
+
+=== Order of execution
+
+Expressions follow "the usual order" of execution where the order is initially based on *operator precedence* where the operators with equal precedence are executed *left to right*.
+
+To examplify; the order of execution for the expression of `a + b + (c + d * e)` would be:
+
+. `d * e` (`x1`)
+. `c + x1` (`x2`)
+. `a + b` (`x3`)
+. `x3 + x2`
+
+The execution order may be controlled by enclosing parts of the expression within brackets `()`.
+
+=== Operator precedence
+
+[cols="1m,3a,5a"]
+|===
+| 0
+| left to right
+|
+* `()`
+* `[]`
+* `.`
+
+| 1
+| right to left
+|
+* `+`
+* `-`
+* `!`
+
+| 2
+| left to right
+|
+* `*`
+* `**`
+* `/`
+* `%`
+
+| 3
+| left to right
+|
+* `+`
+* `-`
+
+| 4
+| left to right
+|
+* `<<`
+* `>>`
+
+| 5
+| left to right
+|
+* `<`
+* `<=`
+* `>`
+* `>=`
+
+| 6
+| left to right
+|
+* `==`
+* `!=`
+* `=~`
+* `!~`
+
+| 7
+| left to right
+|
+* `&`
+
+| 8
+| left to right
+|
+* `\|`
+
+| 9
+| left to right
+|
+* `&&`
+
+| 10
+| left to right
+|
+* `\|\|`
+
+|===

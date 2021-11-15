@@ -1,0 +1,95 @@
+include::ROOT:partial$variables.adoc[]
+
+= Bulk record creation
+
+{PRODUCT_NAME} allows you to create create, update or update multiple records with one request.
+
+== Create records
+
+A bulk payload where records only define their values will create a new record for each entry.
+
+[source,bash]
+----
+curl -X POST "$BASE_URL/api/compose/namespace/$NAMESPACE_ID/module/$MODULE_ID/record/" \
+  -H 'accept: application/json, text/plain, */*' \
+  -H "authorization: Bearer $JWT" \
+  -H 'content-type: application/json' \
+  --data-raw '{
+    "records": [{
+      "set": [
+        {"values":[{"name":"f1","value":"a"},{"name":"f1","value":"b"}]},
+        {"values":[{"name":"f1","value":"a"},{"name":"f1","value":"b"}]}
+      ]
+    }]
+  }' \
+  --compressed
+----
+
+.Where:
+* `$BASE_URL` is the URL to your {PRODUCT_NAME} instance (e.g. `https://corteza.mydomain.tld`),
+* `$NAMESPACE_ID` is the namespace identifier for which you wish to create records (e.g. `257934065070534659`),
+* `$MODULE_ID` is the module identifier for which you wish to create records (e.g. `257934099950366723`),
+* `$JWT` is the access token to authorize the request.
+
+== Update records
+
+A bulk payload where records define their `recordID` and their values will update existing records and their values.
+
+[CAUTION]
+====
+{PRODUCT_NAME} will remove any value omitted from the request for the updated record from the existing record.
+If you wish to preserve it, you must provide it in the request.
+====
+
+[source,bash]
+----
+curl -X POST "$BASE_URL/api/compose/namespace/$NAMESPACE_ID/module/$MODULE_ID/record/" \
+  -H 'accept: application/json, text/plain, */*' \
+  -H "authorization: Bearer $JWT" \
+  -H 'content-type: application/json' \
+  --data-raw '{
+    "records": [{
+      "set": [
+        {"recordID": "257936153397719043", "values":[{"name":"f1","value":"a edited"},{"name":"f1","value":"b edited"}]},
+        {"recordID": "257936153565556739", "values":[{"name":"f1","value":"a edited"},{"name":"f1","value":"b edited 2"}]}
+      ]
+    }]
+}' \
+  --compressed
+----
+
+.Where:
+* `$BASE_URL` is the URL to your {PRODUCT_NAME} instance (e.g. `https://corteza.mydomain.tld`),
+* `$NAMESPACE_ID` is the namespace identifier for which you wish to update records (e.g. `257934065070534659`),
+* `$MODULE_ID` is the module identifier for which you wish to update records (e.g. `257934099950366723`),
+* `$RECORD_ID_*` is the `recordID` for which you wish to update (e.g. `257936153397719043`),
+* `$JWT` is the access token to authorize the request.
+
+== Delete records
+
+A bulk payload where records define their `recordID` and a `deletedAt` timestamp will delete the specified records and their values.
+
+[source,bash]
+----
+curl -X POST "$BASE_URL/api/compose/namespace/$NAMESPACE_ID/module/$MODULE_ID/record/" \
+  -H 'accept: application/json, text/plain, */*' \
+  -H "authorization: Bearer $JWT" \
+  -H 'content-type: application/json' \
+  --data-raw '{
+    "records": [{
+      "set": [
+        { "recordID": "$RECORD_ID_0", "deletedAt": "2021-11-15T09:49:22Z" },
+        { "recordID": "$RECORD_ID_1", "deletedAt": "2021-11-15T09:49:22Z" },
+        { "recordID": "$RECORD_ID_2", "deletedAt": "2021-11-15T09:49:22Z" }
+      ]
+    }]
+}' \
+  --compressed
+----
+
+.Where:
+* `$BASE_URL` is the URL to your {PRODUCT_NAME} instance (e.g. `https://corteza.mydomain.tld`),
+* `$NAMESPACE_ID` is the namespace identifier for which you wish to delete records (e.g. `257934065070534659`),
+* `$MODULE_ID` is the module identifier for which you wish to delete records (e.g. `257934099950366723`),
+* `$RECORD_ID_*` is the `recordID` for which you wish to delete (e.g. `257936153397719043`),
+* `$JWT` is the access token to authorize the request.

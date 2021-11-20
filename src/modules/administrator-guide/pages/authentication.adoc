@@ -1,0 +1,43 @@
+include::ROOT:partial$variables.adoc[]
+
+= Authentication
+
+== Defining password constraints
+
+{PRODUCT_NAME} allows you to define custom password constraints which enables you to better conform to your security model.
+
+Password constraints are configured on the {PRODUCT_NAME} {APP_NAME_ADMIN} web application under menu:system[settings] in the "password constraints" section.
+
+image::authentication/password-constraints.png[role="data-zoomable"]
+
+[cols="2s,5a"]
+|===
+| [#auth-password-constraint-len]#<<auth-password-constraint-len,Minimum length>>#
+|
+The minimum length parameter allows you to restrict your users from using short, insecure passwords.
+You can not set the minimum length below 8.
+
+The maximum password length is not configurable and is set to 256.
+
+| [#auth-password-constraint-numbers]#<<auth-password-constraint-numbers,Minimum number of numbers>>#
+|
+The minimum number of numbers allows you to require your users to use numerical values in their passwords.
+The requirement is disabled if left at 0.
+
+| [#auth-password-constraint-symbols]#<<auth-password-constraint-symbols,Minimum number of special characters>>#
+|
+The minimum number of special characters allows you to require your users to use special characters in their passwords.
+The requirement is disabled if left at 0.
+
+|===
+
+[CAUTION]
+====
+The `AUTH_PASSWORD_SECURITY` `.env` variable allows you to disable password requirements checking by setting it to `false`.
+This is handy for local development where we may not wish to handle complex password constraints.
+
+The option should be *disabled* for any production deployment.
+If the password security is disabled, a warning message is displayed in the UI.
+
+image::authentication/password-security-disabled.png[role="data-zoomable"]
+====

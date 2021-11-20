@@ -3,6 +3,8 @@
 ** xref:access-control/index.adoc[]
 *** xref:access-control/examples-contextual.adoc[]
 
+** xref:authentication.adoc[]
+
 ** Corteza Admin
 *** xref:action-log.adoc[]
 *** xref:users.adoc[]

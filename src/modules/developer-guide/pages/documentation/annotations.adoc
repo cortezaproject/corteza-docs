@@ -86,11 +86,11 @@ If you do not wish or can not find an appropriate extension for your browser, yo
   },
   "view": {},
   "annotations": [{
-    "kind": "box-light",
-    "x": 315,
-    "y": 5,
-    "w": 40,
-    "h": 40
+    "kind": "box-note",
+    "x": 335,
+    "y": 25,
+    "w": 0,
+    "h": 0
   }]
 }
 ----
@@ -106,11 +106,11 @@ If you do not wish or can not find an appropriate extension for your browser, yo
   },
   "view": {},
   "annotations": [{
-    "kind": "box-light",
-    "x": 200,
-    "y": 175,
-    "w": 250,
-    "h": 40
+    "kind": "box-note",
+    "x": 215,
+    "y": 185,
+    "w": 220,
+    "h": 20
   }]
 }
 ----
@@ -211,137 +211,37 @@ The `annotations` parameter allows you to define an array of predefined annotati
 .A list of predefined box annotations:
 [cols="2s,5a,5a"]
 |===
-| [#annotation-box-default]#<<annotation-box-default,Default>>#
+| [#annotation-box-note]#<<annotation-box-note,Note>>#
 |
 ```
-[annotation,role="data-zoomable"]
-----
-{
-  "image": {
-    "rel": "documentation/example-blank.png",
-    "alias": "example-blank-box",
-    "w": 516,
-    "h": 353
-  },
-  "view": {},
-  "annotations": [{
-    "kind": "box",
-    "x": 50,
-    "y": 50,
-    "w": 403,
-    "h": 240
-  }]
-}
-----
+include::partial$documentation/annotation-note.adoc[]
 ```
 |
-[annotation,role="data-zoomable"]
-----
-{
-  "image": {
-    "rel": "documentation/example-blank.png",
-    "alias": "example-blank-box",
-    "w": 516,
-    "h": 353
-  },
-  "view": {},
-  "annotations": [{
-    "kind": "box",
-    "x": 50,
-    "y": 50,
-    "w": 403,
-    "h": 240
-  }]
-}
-----
+include::partial$documentation/annotation-note.adoc[]
+
+| [#annotation-box-success]#<<annotation-box-success,Success>>#
+|
+```
+include::partial$documentation/annotation-success.adoc[]
+```
+|
+include::partial$documentation/annotation-success.adoc[]
 
 | [#annotation-box-danger]#<<annotation-box-danger,Danger>>#
 |
 ```
-[annotation,role="data-zoomable"]
-----
-{
-  "image": {
-    "rel": "documentation/example-blank.png",
-    "alias": "example-blank-box-danger",
-    "w": 516,
-    "h": 353
-  },
-  "view": {},
-  "annotations": [{
-    "kind": "box-danger",
-    "x": 50,
-    "y": 50,
-    "w": 403,
-    "h": 240
-  }]
-}
-----
+include::partial$documentation/annotation-danger.adoc[]
 ```
 |
-[annotation,role="data-zoomable"]
-----
-{
-  "image": {
-    "rel": "documentation/example-blank.png",
-    "alias": "example-blank-box-danger",
-    "w": 516,
-    "h": 353
-  },
-  "view": {},
-  "annotations": [{
-    "kind": "box-danger",
-    "x": 50,
-    "y": 50,
-    "w": 403,
-    "h": 240
-  }]
-}
-----
+include::partial$documentation/annotation-danger.adoc[]
 
-| [#annotation-box-light]#<<annotation-box-light,Light>>#
+| [#annotation-box-warning]#<<annotation-box-warning,Warning>>#
 |
 ```
-[annotation,role="data-zoomable"]
-----
-{
-  "image": {
-    "rel": "documentation/example-blank.png",
-    "alias": "example-blank-box-light",
-    "w": 516,
-    "h": 353
-  },
-  "view": {},
-  "annotations": [{
-    "kind": "box-light",
-    "x": 50,
-    "y": 50,
-    "w": 403,
-    "h": 240
-  }]
-}
-----
+include::partial$documentation/annotation-warning.adoc[]
 ```
 |
-[annotation,role="data-zoomable"]
-----
-{
-  "image": {
-    "rel": "documentation/example-blank.png",
-    "alias": "example-blank-box-light",
-    "w": 516,
-    "h": 353
-  },
-  "view": {},
-  "annotations": [{
-    "kind": "box-light",
-    "x": 50,
-    "y": 50,
-    "w": 403,
-    "h": 240
-  }]
-}
-----
+include::partial$documentation/annotation-warning.adoc[]
 
 |===
 
@@ -408,6 +308,19 @@ image::documentation/example-crop-base.png[role="data-zoomable"]
   "annotations": []
 }
 ----
+
+=== Cropping and annotating images
+
+To examplify, lets only include the second subject of the following image (the top-right square).
+
+image::documentation/annotation-canvas.png[width=500px,role="data-zoomable"]
+
+.The following configuration performs the desired cropping:
+```
+include::partial$documentation/annotation-cropped.adoc[]
+```
+
+include::partial$documentation/annotation-cropped.adoc[]
 
 == Tips and tricks
 

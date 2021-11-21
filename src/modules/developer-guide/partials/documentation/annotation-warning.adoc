@@ -1,0 +1,37 @@
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "documentation/annotation-canvas.png",
+    "alias": "annotation-canvas_warning",
+    "w": 1000,
+    "h": 1000
+  },
+  "view": {},
+  "annotations": [{
+    "kind": "box-warning",
+    "x": 111,
+    "y": 203,
+    "w": 279,
+    "h": 95
+  }, {
+    "kind": "box-warning",
+    "x": 611,
+    "y": 203,
+    "w": 279,
+    "h": 95
+  }, {
+    "kind": "box-warning",
+    "x": 111,
+    "y": 703,
+    "w": 279,
+    "h": 95
+  }, {
+    "kind": "box-warning",
+    "x": 611,
+    "y": 703,
+    "w": 279,
+    "h": 95
+  }]
+}
+----

@@ -1,0 +1,143 @@
+{
+  "type": "module",
+  "list": [
+    {
+      "moduleID": "258985807719711857",
+      "namespaceID": "258985709489112177",
+      "name": "user",
+      "handle": "user",
+      "fields": [
+        {
+          "fieldID": "258985807719777393",
+          "name": "name",
+          "kind": "String",
+          "label": "Name",
+          "defaultValue": [],
+          "maxLength": 0,
+          "isRequired": false,
+          "isPrivate": false,
+          "isMulti": false,
+          "isSystem": false,
+          "isSortable": true,
+          "options": {
+            "description": {
+              "view": ""
+            },
+            "hint": {
+              "view": ""
+            },
+            "multiLine": false,
+            "useRichTextEditor": false,
+            "multiDelimiter": "\n"
+          },
+          "expressions": {},
+          "canUpdateRecordValue": true,
+          "canReadRecordValue": true
+        },
+        {
+          "fieldID": "258985807719842929",
+          "name": "status",
+          "kind": "Select",
+          "label": "Status",
+          "defaultValue": [],
+          "maxLength": 0,
+          "isRequired": false,
+          "isPrivate": false,
+          "isMulti": false,
+          "isSystem": false,
+          "isSortable": true,
+          "options": {
+            "description": {
+              "view": ""
+            },
+            "hint": {
+              "view": ""
+            },
+            "options": [
+              {
+                "value": "active",
+                "text": "active"
+              },
+              {
+                "value": "inactive",
+                "text": "inactive"
+              }
+            ],
+            "selectType": "default",
+            "multiDelimiter": "\n"
+          },
+          "expressions": {},
+          "canUpdateRecordValue": true,
+          "canReadRecordValue": true
+        },
+        {
+          "fieldID": "258985807719908465",
+          "name": "joined",
+          "kind": "DateTime",
+          "label": "Joined",
+          "defaultValue": [],
+          "maxLength": 0,
+          "isRequired": false,
+          "isPrivate": false,
+          "isMulti": false,
+          "isSystem": false,
+          "isSortable": true,
+          "options": {
+            "description": {
+              "view": ""
+            },
+            "hint": {
+              "view": ""
+            },
+            "format": "",
+            "multiDelimiter": "\n",
+            "onlyDate": false,
+            "onlyFutureValues": false,
+            "onlyPastValues": false,
+            "onlyTime": false,
+            "outputRelative": false
+          },
+          "expressions": {},
+          "canUpdateRecordValue": true,
+          "canReadRecordValue": true
+        },
+        {
+          "fieldID": "258985807719974001",
+          "name": "counter",
+          "kind": "Number",
+          "label": "Counter",
+          "defaultValue": [],
+          "maxLength": 0,
+          "isRequired": false,
+          "isPrivate": false,
+          "isMulti": false,
+          "isSystem": false,
+          "isSortable": true,
+          "options": {
+            "description": {
+              "view": ""
+            },
+            "hint": {
+              "view": ""
+            },
+            "format": "",
+            "prefix": "",
+            "suffix": "",
+            "precision": 0,
+            "multiDelimiter": "\n"
+          },
+          "expressions": {},
+          "canUpdateRecordValue": true,
+          "canReadRecordValue": true
+        }
+      ],
+      "meta": {},
+      "labels": {},
+      "createdAt": "2021-11-22T15:52:51.000Z",
+      "canUpdateModule": true,
+      "canDeleteModule": true,
+      "canCreateRecord": true,
+      "canGrant": true
+    }
+  ]
+}

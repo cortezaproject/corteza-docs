@@ -1,0 +1,146 @@
+{
+  "workflows": [
+    {
+      "handle": "examples",
+      "enabled": true,
+      "meta": {
+        "name": "examples",
+        "description": "",
+        "visual": null
+      },
+      "keepSessions": 0,
+      "steps": [
+        {
+          "stepID": "4",
+          "kind": "function",
+          "ref": "composeRecordsSearch",
+          "arguments": [
+            {
+              "target": "module",
+              "value": "user",
+              "type": "Handle"
+            },
+            {
+              "target": "namespace",
+              "value": "wfex",
+              "type": "Handle"
+            },
+            {
+              "target": "query",
+              "value": "DATE(DATE_ADD(now(), INTERVAL 2 DAY)) = DATE(joined)",
+              "type": "String"
+            }
+          ],
+          "results": [
+            {
+              "target": "records",
+              "expr": "records"
+            }
+          ],
+          "meta": {
+            "name": "",
+            "description": "",
+            "visual": {
+              "id": "4",
+              "parent": "1",
+              "value": null,
+              "xywh": [
+                2400,
+                1920,
+                200,
+                80
+              ]
+            }
+          }
+        },
+        {
+          "stepID": "5",
+          "kind": "debug",
+          "ref": "",
+          "arguments": null,
+          "results": null,
+          "meta": {
+            "name": "",
+            "description": "",
+            "visual": {
+              "id": "5",
+              "parent": "1",
+              "value": null,
+              "xywh": [
+                2680,
+                1920,
+                200,
+                80
+              ]
+            }
+          }
+        }
+      ],
+      "paths": [
+        {
+          "parentID": "4",
+          "childID": "5",
+          "meta": {
+            "name": "",
+            "description": "",
+            "visual": {
+              "id": "7",
+              "parent": "1",
+              "points": [],
+              "style": "exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;",
+              "value": null
+            }
+          }
+        }
+      ],
+      "triggers": [
+        {
+          "resourceType": "compose",
+          "eventType": "onManual",
+          "constraints": [
+            {
+              "name": "",
+              "op": "=",
+              "values": [
+                ""
+              ]
+            }
+          ],
+          "enabled": true,
+          "stepID": "4",
+          "meta": {
+            "description": "",
+            "visual": {
+              "edges": [
+                {
+                  "childID": "4",
+                  "meta": {
+                    "description": "",
+                    "label": "",
+                    "visual": {
+                      "id": "6",
+                      "parent": "1",
+                      "points": [],
+                      "style": "exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;",
+                      "value": null
+                    }
+                  },
+                  "parentID": "3"
+                }
+              ],
+              "id": "3",
+              "parent": "1",
+              "value": null,
+              "xywh": [
+                2120,
+                1920,
+                200,
+                80
+              ]
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

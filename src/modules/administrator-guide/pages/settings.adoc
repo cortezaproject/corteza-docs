@@ -6,7 +6,7 @@ The settings interface allows you to configure some core system settings.
 
 [IMPORTANT]
 ====
-There is a separate view for <<settings-system,system>>, <<settings-compose,{PRODUCT_NAME} {APP_NAME_COMPOSE}>>, and <<settings-shell,{PRODUCT_NAME} {APP_NAME_SHELL}>>.
+There is a separate view for <<settings-system,system>>, <<settings-compose,compose>>, and <<settings-ui,user interface>>.
 ====
 
 [#settings-system]
@@ -25,16 +25,14 @@ You can disable internal sign-up and manually add users that are allowed to acce
 ====
 
 [#settings-compose]
-== {APP_NAME_COMPOSE}
+== Compose
 
 Basic::
     Basic system configuration such as UI tweaks and attachment constraints (size and type).
 
-[#settings-shell]
-== {APP_NAME_SHELL}
+[#settings-ui]
+== User interface
 
 Logo::
-    The logo section lets you replace the default {PRODUCT_NAME} logo with your own.
+    The logo section lets you replace main {PRODUCT_NAME} logo and icon with your own.
 
-Panels::
-    The panels section lets you define the default layout for your users.

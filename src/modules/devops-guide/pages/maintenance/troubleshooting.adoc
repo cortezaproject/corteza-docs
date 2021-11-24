@@ -75,11 +75,12 @@ ERROR: Network proxy declared as external, but could not be found. Please create
 
 Make sure your nginx-proxy service is up and running before running {PRODUCT_NAME}.
 
-== Blank screen on /auth with "state does not match" error in the browser console
+== Blank screen on `/auth` with the "state does not match" error in the browser console
 
-"State does not match" is an error that usually occurs in development environment or where {PRODUCT_NAME} server is frequently restarted
-State that users going through authentication flow carry with them is not persistent and will perish on server restart.
-If problem occurs and persists on production environment verify `AUTH_SESSION_*` settings (in case you have modified them).
+The `state does not match` error usually occurs in the development environment or where the {PRODUCT_NAME} server is frequently restarted.
+
+The authentication state which is carried through the user authentication flow is not persistent and will perish on server restart.
+If the error occurs and persists on the production environment, verify your `AUTH_SESSION_*` `.env` settings (in case you have modified them).
 
 == Further troubleshooting
 

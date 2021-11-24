@@ -69,20 +69,57 @@ newUser // results with { "username": "testUser", "email": "test@mail.tld" }
 [source]
 ----
 newUser.username // results with "testUser"
-newUser["email"] // results with "test@mail.tld"
+newUser["username"] // results with "testUser"
 ----
 
 [NOTE]
 ====
-An object selector can use either the `[]` or the `.` notation.
+An object selector can use either the `["<selector>"]` or the `.<selector>` notation.
 ====
 
 === Missing properties
 
-[NOTE]
-====
-*DevNote* todo
-====
+Accessing missing (non-existing) properties throws an error:
+
+[source]
+----
+myKV = { "a": "value-of-a" }
+myB = myKV.b // throws an error: unknown parameter myKV.b
+----
+
+.Use the https://en.wikipedia.org/wiki/%3F:[ternay operator] to make a simple, one-line test expression.
+[source]
+----
+myB = has(myKV, "b") ? myKV.b : "b does not exist"
+----
+
+.Deeper structures can also be checked in a similar way
+[source]
+----
+deepKV = { "a": { "b": 42 } }
+myB = has(deepKV, "a") && has(deepKV.a, "b") ? deepKV.a.b : "a.b does not exist"
+----
+
+=== Missing record values
+
+Record values can be accessed in the same way as object and other key-value types.
+Underlying selector mechanism on record values performs extra checks and allows selection (reading) of unset values as long as the module field exists.
+
+[source]
+----
+// Accessing defined fields on a record
+hit1 = myRecord.values.existingFieldWithValueSet
+hit2 = myRecord.values.existingFieldWithoutAValue
+
+// Accessing undefined fields on a record
+miss = myRecord.values.unknownField // will raise an error: "unknown parameter myRecord.values.unknownField"
+----
+
+.Use the https://en.wikipedia.org/wiki/Null_coalescing_operator[null coalescing operator] to make a simple one-line test expression for unset fields.
+[source]
+----
+failsafe = myRecord.values.existingFieldWithoutAValue ?? 'value was not yet set'
+----
 
 == Arrays
 
@@ -170,6 +207,11 @@ An array selector can only use the `[]` notation.
 * `>>` (un shift)
 * `&` (bitwise and)
 * `\|` (bitwise or)
+
+| [#ternary-cond-operations]#<<ternary-cond-operations,Ternary conditional>>#
+|
+* `?:` (ternary: `a?b:c` if-a-then-b-else-c)
+* `??` (null coalescing operator: `a??b` if-a-is-not-null-then-a-else-b)
 
 |===
 

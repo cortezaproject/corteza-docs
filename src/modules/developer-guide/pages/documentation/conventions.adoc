@@ -20,7 +20,7 @@ Consistency is crucial.
 It may be good to:
 
 .Visually group
-Make sure you group components that fit together, i.e., discussions of the same concept, concept and an example, sub-points and tips...
+* Make sure you group components that fit together, i.e., discussions of the same concept, concept and an example, sub-points and tips...
 
 [NOTE]
 ====

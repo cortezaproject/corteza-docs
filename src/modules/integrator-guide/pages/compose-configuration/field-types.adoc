@@ -8,7 +8,6 @@ The field type and workflow type may not refer to the same type.
 
 *DevNote* add some additional context about this.
 ====
-//Editor's note: line 7; refer to the same type of what?
 
 [#field-type-checkbox]
 == Checkbox (Y/N)
@@ -132,9 +131,9 @@ An option is a value-label pair, where the label defines how the value is displa
 
 [IMPORTANT]
 ====
-When working with selects inside automation, use the value when working with values.
+Internally, the select field is represented by the *value* and not the label.
+When you're referencing the field via automation or an external integration, make sure to use the value and not the label.
 ====
-//Editor's note: I can't make sense of the IMPORTANT section above, please restructure.
 
 | [#field-type-select-select]#<<field-type-select-select,Multiple value input type>>#
 |

@@ -141,7 +141,7 @@ This allows you to configure the page blocks to react to the currently viewed re
 
 [IMPORTANT]
 ====
-In case your module does not define a record page, you are not be able to create or update its records through the user interface.
+In case your module does not define a record page, you are not able to create or update its records through the user interface.
 
 You are still able to view its records, create the records using inline record lists, the API, or an xref:automation/index.adoc[automation].
 ====
@@ -187,8 +187,7 @@ A *list page* defines how the application is presented to the user when interact
 A list page consists of a series of page blocks that are defined with the <<page-builder,page builder>>.
 
 In contrast to record pages, list pages are broader and only bound to the namespace they are on.
-They are general purpure and used to provide access to different record pages via record lists, dashboards, and other layouts.
-//Editor's note: general purpure? Couldn't find what purpure is. Check the spelling, maybe I missed sth
+They are general purpose and used to provide access to different record pages via record lists, dashboards, and other layouts.
 
 When configuring a new namespace, you are presented with an onboarding screen.
 From there you click on the btn:[Build Page] button in order to create your first page.
@@ -438,7 +437,7 @@ Select which values you wish to show and their order.
 The metric section allows you to specify what field is to be used to determine each dimension's value.
 
 You may only use numeric fields as dimension fields.
-A `count` field returns the number of records that match the configuration parameters.
+The `count` field returns the number of records that match the configuration parameters.
 
 |===
 
@@ -476,7 +475,7 @@ The colours are defined based on the set colour scheme.
 The metric section allows you to specify how the value of the gauge is calculated.
 
 You may only use numeric fields as dimension fields.
-A `count` field returns the number of records that match the configuration parameters.
+The `count` field returns the number of records that match the configuration parameters.
 
 ****
 There is a special post-processing function input set up; it allows you to transform the generated values by the reporting system.
@@ -633,7 +632,10 @@ Validators validate the field value by raising errors when the value is not vali
 A validator is a simple expression that results in a single value, either `true` or `false`.
 The value validation is considered invalid when the expression results in `true`.
 
-Validators can not change their value.
+[IMPORTANT]
+====
+Validators can not change the field's value.
+====
 
 Built-in field validators can be disabled; required and unique-multi-value validators can not be disabled.
 

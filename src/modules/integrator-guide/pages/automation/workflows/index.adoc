@@ -26,8 +26,25 @@ You are not required to have any BPMN knowledge, although it might be helpful.
 
 To create a workflow, navigate to your {PRODUCT_NAME} instance (for example http://latest.cortezaproject.org/) and click ok tne "Workflows" application.
 
-image::workflow/accessing-workflows-1.png[role="data-zoomable"]
-//Editor's note: Add an image description
+.The screenshot indicates how to access the workflow web application.
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "workflow/accessing-workflows-1.png",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {},
+  "annotations": [{
+    "kind": "box-note",
+    "x": 827,
+    "y": 515,
+    "w": 267,
+    "h": 252
+  }]
+}
+----
 
 A new screen showing you all of the available workflows will appear.
 
@@ -38,8 +55,25 @@ A new screen showing you all of the available workflows will appear.
 * manage workflow-specific permissions by clicking on the "Lock" icon next to the workflow, or
 * import/export workflows by clicking on the btn:[Import]/btn:[Export] buttons.
 
-image::workflow/accessing-workflows-2.png[role="data-zoomable"]
-//Editor's note: Add an image description
+.The screenshot indicates how to create a new workflow.
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "workflow/accessing-workflows-2.png",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {},
+  "annotations": [{
+    "kind": "box-note",
+    "x": 425,
+    "y": 96,
+    "w": 146,
+    "h": 42
+  }]
+}
+----
 
 When you click on the *btn:[New Workflow]* button, a new screen will appear with an open modal window, where you should insert initial parameters to describe the workflow.
 
@@ -53,8 +87,8 @@ A label doesn't define any special constraints.
 .Handle constraints:
 include::partial$handle-constraints.adoc[]
 
+.The screenshot shows the newly created workflow where the modal window for the initial parameters is open.
 image::workflow/accessing-workflows-3.png[role="data-zoomable"]
-//Editor's note: Add an image description
 
 == About the workflow editor
 
@@ -73,13 +107,13 @@ image::workflow/ui.svg[role="data-zoomable"]
 To start building your workflow, simply drag-and-drop different elements (further referred to as steps) from the toolbar to the canvas.
 If you are using similar steps with similar configurations, using copy-paste to duplicate existing steps might be faster (kbd:[cmd+c] and kbd:[cmd+v]).
 
+.Example of adding a new step from the toolbar to the canvas.
 image::workflow/step-add.svg[role="data-zoomable"]
-//Editor's note: Add an image description
 
 To define the flow of your workflow, simply connect the steps by drawing a connector between them.
 
+.Example of connecting two steps.
 image::workflow/step-connect.svg[role="data-zoomable"]
-//Editor's note: Add an image description
 
 To change the start point or the end point of the connector, click on the connector to view its points; then hover over the connecting point and drag it to another connector point.
 
@@ -112,13 +146,12 @@ A single workflow can have multiple triggers and multiple termination steps.
 
 When you're satisfied with your workflow or wish to save your progress, click on the save button on the bottom of the screen, or use the kbd:[ctrl+s] shortcut.
 
+.The screenshot shows how to save the workflow.
 image::workflow/save.svg[role="data-zoomable"]
-//Editor's note: Add an image description
 
 === Configuring the workflow
 
-Out of the box most workflow steps don't do anything unless we configure them to perform some task such as evaluating an expression or executing a complex function.
-//Editor's note: Clarify what is meant by "out if the box" - outside of a certain menu, section...?
+Without any configuration, most workflow steps don't do anything unless we configure them to perform some task such as evaluating an expression or executing a complex function.
 
 In order to configure specific steps, click on the configuration icon image:workflow/cog.svg[width=20px] in the header of the step.
 To configure a specific connector, click on its label or double click on it.
@@ -126,8 +159,8 @@ To configure a specific connector, click on its label or double click on it.
 The configuration is automatically saved to the step.
 The workflow needs to be saved in order for the configuration to take affect.
 
+.The screenshot shows the step connector for the expression step.
 image::workflow/step-config.svg[role="data-zoomable"]
-//Editor's note: Add an image description
 
 == Execution control
 
@@ -154,10 +187,8 @@ To exemplify; when a client signs-up for your newsletter, the system finds all o
 . an *event* which specifies what system events the trigger reacts to,
 . a series of *constraints* which specify how an event should look like in order for the trigger to react.
 ** To exemplify; we can react to a {PRODUCT_NAME} created event only when the record was created for a lead module under the CRM namespace,
-. an *initial scope* which specifies what variables are available out of the box, without the need to do any work on your end.
-//Editor's note: Specify what "out of the box" means here
+. an *initial scope* which specifies what variables are available to the workflow as soon as it is executed.
 When working with records this is the current record, the previous version of it, the related module, the related namespace, and any record validation errors.
-
 
 [TIP]
 ====
@@ -188,7 +219,6 @@ image::workflow/multi-end.svg[role="data-zoomable"]
 
 An *expression step* image:workflow/expressions.svg[width=20px] defines a set of expressions which allow you to directly interact with values defined in your workflow.
 Think of this as defining an equation in spreadsheets.
-//Editor's note: only keep the capital S in spreadsheets if that is a title/subtitle/name of sth...
 
 A single expression step can define multiple expressions, allowing you to aggregate similar operations under a single step; this reduces the size and increases readability.
 Refer to xref:expr/index.adoc[] for more details regarding expression definition.
@@ -247,8 +277,7 @@ image::workflow/expr-example-end.png[role="data-zoomable"]
 == Functions
 
 A *function step* image:workflow/function.svg[width=20px] defines what operation should be performed when the function step is executed.
-Think of this as defining a macro in Spreadsheets.
-//Editor's note: only keep the capital S in spreadsheets if that is a title/subtitle/name of sth...
+Think of this as defining a macro in spreadsheets.
 
 [IMPORTANT]
 ====
@@ -370,7 +399,7 @@ File types and encodings may cause unwanted behavior.
 |
 Iterator arguments allow you to specify the data that the iterator is allowed to work with.
 
-.Iterator arguments can be passed in three different ways:
+.Iterator arguments can be passed in two different ways:
 . *Constant values* are passed into the iterator function in its present condition.
 Use constant values when the passed data should not change.
 . *Expressions* are evaluated and the result is passed into the iterator.
@@ -378,7 +407,6 @@ This is useful when you wish to change the input without the need for an additio
 
 // check vv
 // Use expressions when the passed data should change based on the workflows' scope.
-//Editor's note: You talk about how the Iterator arguments can be passed in 3 different ways yet mention only 2!
 
 | [#step-iterator-rsp]#<<step-iterator-rsp,Iterator results>>#
 |
@@ -546,7 +574,7 @@ Workflow execution, by design, does not timeout unless forcefully terminated.
 
 You can resolve this by reworking your workflow logic to avoid such cases.
 
-.An example of a workflow that will never resolve
+.An example of a workflow that will never resolve.
 image::workflow/gateway-inclusive-inf.png[role="data-zoomable"]
 
 |===

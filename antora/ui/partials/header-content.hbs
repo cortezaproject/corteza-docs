@@ -4,15 +4,12 @@
       <div class="navbar-item">
         <a href="https://cortezaproject.org">Corteza Project</a>
       </div>
-      <div class="search-container">
-        {{#if env.ALGOLIA_API_KEY}}
-        <input id="search-input" class="custom-search" type="text" placeholder="Search the documentation...">
-        <img class="search-icon" src="{{siteRootPath}}/search-solid.svg">
-        {{/if}}
-      </div>
     </div>
     <div id="topbar-nav" class="navbar-menu">
       <div class="navbar-end">
+        {{#if env.ALGOLIA_API_KEY}}
+        <div id="search-container"></div>
+        {{/if}}
         <a class="navbar-link" href="https://forum.cortezaproject.org">Community</a>
         <a class="navbar-item" href="https://twitter.com/cortezaproject">
           <span class="icon">

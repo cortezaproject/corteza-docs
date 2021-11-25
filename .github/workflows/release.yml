@@ -11,6 +11,7 @@ jobs:
     env:
       ALGOLIA_API_KEY: ${{ secrets.ALGOLIA_API_KEY }}
       ALGOLIA_INDEX_NAME: ${{ secrets.ALGOLIA_INDEX_NAME }}
+      ALGOLIA_APP_ID: ${{ secrets.ALGOLIA_APP_ID }}
 
     steps:
       - run: echo "BUILD_VERSION=${GITHUB_REF#refs/tags/}" >> $GITHUB_ENV
@@ -20,6 +21,6 @@ jobs:
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
-      - run: docker build --build-arg ALGOLIA_API_KEY="$ALGOLIA_API_KEY" --build-arg ALGOLIA_INDEX_NAME="$ALGOLIA_INDEX_NAME" -t cortezaproject/corteza-docs:${{ env.BUILD_VERSION }} .
+      - run: docker build --build-arg ALGOLIA_APP_ID="$ALGOLIA_APP_ID" --build-arg ALGOLIA_API_KEY="$ALGOLIA_API_KEY" --build-arg ALGOLIA_INDEX_NAME="$ALGOLIA_INDEX_NAME" -t cortezaproject/corteza-docs:${{ env.BUILD_VERSION }} .
       - run: docker push cortezaproject/corteza-docs:${{ env.BUILD_VERSION }}
         if: ${{ !env.ACT }}

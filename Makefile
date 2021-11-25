@@ -37,3 +37,7 @@ image-push:
 # Can be used to compile docs from current (HEAD) version
 dev:
 	docker run -it --rm --volume $(CURDIR):/antora --entrypoint /antora/dev-docker-entryfile.sh antora/antora
+
+# Defines the environment required by DocSearch
+dev.search:
+	docker run -it -e ALGOLIA_API_KEY -e ALGOLIA_INDEX_NAME -e ALGOLIA_APP_ID --rm --volume $(CURDIR):/antora --entrypoint /antora/dev-docker-entryfile.sh antora/antora

@@ -10,8 +10,9 @@
 docsearch({
   apiKey: '{{env.ALGOLIA_API_KEY}}',
   indexName: '{{env.ALGOLIA_INDEX_NAME}}',
-  inputSelector: '#search-input',
-  algoliaOptions: {
+  appId: '{{env.ALGOLIA_APP_ID}}',
+  container: '#search-container',
+  searchParameters: {
     facetFilters: ['version:{{page.version}}']
   },
 });

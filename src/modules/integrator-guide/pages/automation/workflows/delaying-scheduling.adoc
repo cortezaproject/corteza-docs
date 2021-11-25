@@ -1,6 +1,6 @@
 include::ROOT:partial$variables.adoc[]
 
-= The Delay and Scheduling of Workflows
+= Delay and schedule Workflows
 
 {PRODUCT_NAME} workflow allows you to schedule or delay its execution.
 This can be a powerful tool when working with external services that throttle their API usage or when a task should be performed in an interval, for example monthly subscription renewal.
@@ -52,7 +52,7 @@ The form of the above example should not be used in production.
 The actual workflow should implement error handling, transaction logging, and email notifications.
 ====
 
-An event is defined as an interval in the trigger configuration (click on the configuration icon image:workflow/cog.svg[width=20px]), and an interval by specifying the resource as a system.
+To define an interval trigger, click on the click on the configuration icon image:workflow/cog.svg[width=20px] and specify the system as the resource resource with the on interval event.
 
 The interval is defined as a https://en.wikipedia.org/wiki/Cron[chron expression] and can be extremely flexible.
 You can also use https://crontab.guru/[this amazing tool] to verify that your expressions are valid.

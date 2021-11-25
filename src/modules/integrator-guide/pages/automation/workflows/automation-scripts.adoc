@@ -23,7 +23,9 @@ export default {
   description: 'This script will be called from workflow function',
   triggers ({ on }) {
     /**
-     * Due to how the Corredor scripting system is designed right now, triggers still need to be defined (even if the script is executed explicitly from the workflow).
+     * Due to how the Corredor scripting system is designed right now,
+     * triggers still need to be defined (even if the script is
+     * executed explicitly from the workflow).
      */
     return on('manual').for('system')
   },
@@ -68,7 +70,6 @@ scriptArgs.workflow (String)  = "some string" <3>
 <1> Define a new set of variables that will be passed to the automation script.
 <2> Define a `from` variable with the value of `false`.
 <3> Define a `workflow` variable with the value of `"some string"`.
-//Editor's note: some string in line 67 does not work if it is not a name of a string - try "any string" or elaborate further if that does not work, so I can find sth that does work. Thank you.
 
 Update the function step and set the `args` argument to `scriptArgs` (the variables we've defined in the expression step).
 
@@ -108,7 +109,7 @@ The automation script should return an object.
 [CAUTION]
 ====
 Standard automation script rules for return values apply.
-If the automation script returns a `false` string, we consider this an `Abort` signal and the workflow results with an error.
+If the automation script returns a `false`, we consider this an `Abort` signal and the workflow results with an error.
 ====
 
 .An example of an automation script that returns a result:

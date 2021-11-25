@@ -14,25 +14,22 @@ For larger projects however, swimlanes can be an orderly addition as they help y
 Let's first build a basic example;
 on the case record page, we wish to have a button that changes the status of the case from pending to accepted.
 
-.The workflow looks like the below image/graph/chart...?:
-image:workflow/organizing-1.png[]
+.The screenshot shows the base workflow definition.
+image::workflow/organizing-1.png[role="data-zoomable"]
 
 Let us expand the requirement by notifying the related client and the CRM administrator about the change.
 
-.The workflow now looks like the below image/graph/chart...?:
-image:workflow/organizing-2.png[]
+.The screenshot shows the upgraded workflow definition.
+image::workflow/organizing-2.png[role="data-zoomable"]
 
 Another great feature is the possibility of tracking the changes using an audit log.
 To do this, you need to create a new record for the audit log module.
 
-
-.The workflow now looks like the below image/graph/chart...?:
-image:workflow/organizing-3.png[]
+.The screenshot shows the upgraded workflow definition.
+image::workflow/organizing-3.png[role="data-zoomable"]
 
 We could keep going, but I think we can already see that this will become unmaintainable in the future.
 To help us group steps by their purpose by using a swimlane image:workflow/swimlane.svg[width=20px].
 
-.Adding a few swimlanes and doing some reordering we get something like the below image/graph/chart...?:
-image:workflow/organizing-4.png[]
-
-//Editor's note: choose something else instead of "this" in lines 17,22, 29 and 35. I've provided some examples, if none fit, provide your own.
+.The screenshot shows the refactored workflow with swimlanes to group operations.
+image::workflow/organizing-4.png[role="data-zoomable"]

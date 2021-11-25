@@ -101,7 +101,6 @@ Defines how the files are presented when they are being viewed.
 == IFrame
 
 The *iframe page block* allows you to embed an external website into your application.
-//Editor's note: One or more external websites? If one, leave it as it is, if more is possible, change "an external website" into "one or more external websites".
 
 [IMPORTANT]
 ====
@@ -155,8 +154,7 @@ You can pick one of the `count`, `sum`, `max`, `min`, or `avg` functions.
 |
 Allows you to define how the result of the metric is transformed before shown in the page block.
 
-They are written as simple JavaScript expressions that return a single number based on the two variables.
-//Editor's note: What does "They" refer to? Make sure the reference of They is clear and understood.
+Value transformation expressions are written as simple JavaScript expressions that return a single number based on the two variables.
 
 [NOTE]
 ====

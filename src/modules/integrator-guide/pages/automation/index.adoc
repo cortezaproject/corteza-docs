@@ -14,14 +14,15 @@ Our https://github.com/cortezaproject/corteza-ext/blob/2021.3.x/crm/config/1600_
 You can refer to their workflows if you need some inspiration.
 ====
 
-=== Execution cycles
+== Important notes
 
 [IMPORTANT]
 ====
 Please read this sub-section carefully.
 It outlines some system design decisions that may not work as expected if not used properly or if their function is assumed.
 ====
-//Editor note: "if their function is assumed"; I hope I got this correctly, if not, restructure.
+
+=== Execution cycles
 
 When your automation interacts with {PRODUCT_NAME}, that interaction may execute additional automation.
 
@@ -89,7 +90,6 @@ Automation scripts are low-level and require programming knowledge, as well as s
 ====
 As of xref:ROOT:changelog/202103.adoc[2021.3], when the workflow feature was introduced, automation scripts are disabled by default and can be enabled by setting the xref:devops-guide:configuration/server.adoc#_corredor_enabled[`CORREDOR_ENABLED=true`] `.env` variable.
 ====
-//Editor's note: check if the above is still correct.
 
 A xref:automation/workflows/index.adoc[workflow] is presented as a simplified BPMN diagram, which allows you to configure instead of code.
 Workflows are easier to visualize and maintain, therefore they should be used whenever possible.
@@ -205,7 +205,7 @@ Some flows may bypass the event bus and execute a specific automation directly.
 
 [CAUTION]
 ====
-An automation obtains the permissions of the *invoking user*.
+An automation obtains the permissions of the *invoking user* (the user that caused the automation to execute).
 A workflow that attempts to perform operations (such as accessing sensitive data), for which the invoking user does not have sufficient permissions, fails.
 
 The invoking user may be overwritten by explicitly setting the security context (the *`runAs`* parameter).
@@ -307,14 +307,12 @@ Explicit triggers can be invoked via the REST API which may allow you to avoid s
 ====
 
 Define explicit triggers by defining the `onManual` event.
-An explicit automation is usually represented as a button on of the {PRODUCT_NAME} user interfaces.
-//Editor's note: a button where?
+An explicit automation is usually represented as a button on of the {PRODUCT_NAME} user interfaces either inside the xref:compose-configuration/page-blocks.adoc#page-block-automation[automation] or the xref:compose-configuration/page-blocks.adoc#page-block-record-list[record list] page block.
 
 [NOTE]
 ====
-Explicit automation can be defined or specific resources (such as records and users) which indicate the initial scope (execution arguments) of the automation may be used.
+Explicit automation can be defined or specific resources (such as records and users) which indicate the initial scope (execution arguments) of the automation.
 ====
-//Editor's note: check the accuracy of the line 317
 
 Refer to xref:automation/execution-flow-details.adoc#exec-flow-explicit[execution flow details] for more information.
 

@@ -8,7 +8,7 @@ An integration can be as simple as the modification of the login screen to inclu
 This guide briefly goes over some administration aspects.
 For a complete insight into system administration (roles and RBAC permissions) refer to the xref:administrator-guide:index.adoc[].
 
-    In case you haven't yet setup your {PRODUCT_NAME} instance, refer to the xref:devops-guide:index.adoc[DevOps guide].
+In case you haven't yet setup your {PRODUCT_NAME} instance, refer to the xref:devops-guide:index.adoc[DevOps guide].
 
 == The security model
 
@@ -30,8 +30,10 @@ It may be a good idea to include your brand graphics where your {PRODUCT_NAME} i
 
 To personalize other {PRODUCT_NAME} web applications, you need to do so in the source code and rebuild your custom web application manually.
 
-//*DevNote*: add some documentations about this.
-//Editor note: add the documentation as necessary
+[NOTE]
+====
+*DevNote* add some documentations about this.
+====
 
 == Access {PRODUCT_NAME} via the API
 
@@ -70,10 +72,8 @@ When the automation requires multiple complex operations that are not originally
 ====
 To enable PDF document rendering, you will need to run the https://thecodingmachine.github.io/gotenberg/[gotenberg] Docker container.
 
-*DevNote*: add instructions on how to setup.
-
+Refer to the xref:devops-guide:extension-requirements/pdf-renderer.adoc[DevOps guide] for details on how to set it up.
 ====
-//Editor note: add instructions on how to set up! (line 73)
 
 {PRODUCT_NAME} defines a flexible template facility, which allows you to design custom documents (such as marketing emails and PDF quotes) that you send to your contacts.
 The template facility currently supports *PDF*, *HTML*, and *plain text* formats.
@@ -84,9 +84,8 @@ Refer to the xref:templates/index.adoc[templates] section to overview the proces
 ====
 You can request document rendering from external applications via the REST API.
 
-*DevNote*: add a reference to the endpoint.
+*DevNote* add a reference to the endpoint.
 ====
-//Editor note: add a reference to the endpoint! (line 87)
 
 == Do you need help or have suggestions?
 

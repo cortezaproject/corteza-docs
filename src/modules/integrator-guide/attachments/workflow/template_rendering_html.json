@@ -1,0 +1,167 @@
+{
+  "workflows": [
+    {
+      "handle": "template_rendering_html",
+      "enabled": true,
+      "meta": {
+        "name": "Template rendering - HTML",
+        "description": "",
+        "visual": null
+      },
+      "keepSessions": 0,
+      "steps": [
+        {
+          "stepID": "3",
+          "kind": "function",
+          "ref": "templatesRender",
+          "arguments": [
+            {
+              "target": "lookup",
+              "value": "email-template",
+              "type": "Handle"
+            },
+            {
+              "target": "documentName",
+              "value": "Email template",
+              "type": "String"
+            },
+            {
+              "target": "documentType",
+              "value": "text/html",
+              "type": "String"
+            }
+          ],
+          "results": [
+            {
+              "target": "renderedTemplate",
+              "expr": "document"
+            }
+          ],
+          "meta": {
+            "name": "",
+            "description": "",
+            "visual": {
+              "id": "3",
+              "parent": "1",
+              "value": "(2) Render template",
+              "xywh": [
+                2360,
+                1920,
+                200,
+                80
+              ]
+            }
+          }
+        },
+        {
+          "stepID": "14",
+          "kind": "function",
+          "ref": "emailSend",
+          "arguments": [
+            {
+              "target": "subject",
+              "value": "Email template",
+              "type": "String"
+            },
+            {
+              "target": "from",
+              "value": "demo@mail.com",
+              "type": "String"
+            },
+            {
+              "target": "to",
+              "value": "test@mail.com",
+              "type": "String"
+            },
+            {
+              "target": "html",
+              "expr": "renderedTemplate.document",
+              "type": "Reader"
+            }
+          ],
+          "results": [],
+          "meta": {
+            "name": "",
+            "description": "",
+            "visual": {
+              "id": "14",
+              "parent": "1",
+              "value": "(3) Send email",
+              "xywh": [
+                2640,
+                1920,
+                200,
+                80
+              ]
+            }
+          }
+        }
+      ],
+      "paths": [
+        {
+          "parentID": "3",
+          "childID": "14",
+          "meta": {
+            "name": "",
+            "description": "",
+            "visual": {
+              "id": "8",
+              "parent": "1",
+              "points": [],
+              "style": "exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;",
+              "value": null
+            }
+          }
+        }
+      ],
+      "triggers": [
+        {
+          "resourceType": "system",
+          "eventType": "onManual",
+          "constraints": [
+            {
+              "name": "",
+              "op": "=",
+              "values": [
+                ""
+              ]
+            }
+          ],
+          "enabled": true,
+          "stepID": "3",
+          "meta": {
+            "description": "",
+            "visual": {
+              "edges": [
+                {
+                  "childID": "3",
+                  "meta": {
+                    "description": "",
+                    "label": "",
+                    "visual": {
+                      "id": "13",
+                      "parent": "1",
+                      "points": [],
+                      "style": "exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;",
+                      "value": null
+                    }
+                  },
+                  "parentID": "12"
+                }
+              ],
+              "id": "12",
+              "parent": "1",
+              "value": "(1) System; onManual",
+              "xywh": [
+                2080,
+                1920,
+                200,
+                80
+              ]
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

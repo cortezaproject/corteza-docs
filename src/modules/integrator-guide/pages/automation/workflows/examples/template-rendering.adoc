@@ -1,0 +1,169 @@
+= Template rendering
+:attachment-path: ../../../_attachments/workflow/
+
+In this example, we'll take a look at how to render different templates that were made in our xref:templates/index.adoc[template system].
+
+To start, create a template of type HTML in our templating system located in the admin area.
+
+== Rendering an HTML template
+
+Create a workflow similar to the one below.
+
+Make sure to look at the step details of steps (2) and (3).
+
+.The screenshot outlines the workflow that renders an HTML template and sends it as an email.
+image::workflow/example-template-rendering/html-workflow.png[role="data-zoomable"]
+
+The source code for the workflow can be found link:{attachment-path}template_rendering_html.json[here].
+
+****
+.Workflow step details:
+[%collapsible.result]
+====
+1. *(1) System; onManual*:
+** *resource*: `System`
+** *event*: `onManual`
+** *enabled*: checked
+2. *(2) Render template*:
+** *type*: `Template render`
+** *arguments*:
+*** *lookup*:
+**** *type*: `Handle`
+**** *value type*: constant
+**** *value*: `email-template`
+*** *documentName*:
+**** *value type*: constant
+**** *value*: `Email template`
+*** *documentType*:
+**** *value type*: constant
+**** *value*: `text/html`
+** *results*:
+*** *document target*: `renderedTemplate`
+3. *(3) Send email*:
+** *type*: `Email`
+** *arguments*:
+*** *subject*:
+**** *type*: `String`
+**** *value type*: constant
+**** *value*: `Email template`
+*** *from*:
+**** *type*: `String`
+**** *value type*: constant
+**** *value*: `demo@mail.com`
+*** *to*:
+**** *type*: `String`
+**** *value type*: constant
+**** *value*: `test@mail.com`
+*** *html*:
+**** *type*: `Reader`
+**** *value type*: expression
+**** *value*: `renderedTemplate.document`
+** *results*:
+*** *document target*: `content`
+====
+****
+
+[CAUTION]
+====
+Make sure that the `documentType` parameter of the `(2) Render template` is of value `text/html`.
+====
+
+== Rendering a PDF template
+The difference between HTML and PDF rendering is that the `documentType` parameter changes to `application/pdf`.
+
+With PDFs you can also adjust the xref:integrator-guide:templates/index.adoc#tpl-render-options_marginBottom[render options] to modify how the final PDF is rendered.
+
+[IMPORTANT]
+====
+In order to render templates as PDF documents, you need to setup xref:devops-guide:extension-requirements/pdf-renderer.adoc[PDF rendering].
+====
+
+.The screenshot outlines the workflow that renders a PDF template and sends it as an email attachment.
+image::workflow/example-template-rendering/pdf-workflow.png[role="data-zoomable"]
+
+The source code for the workflow can be found link:{attachment-path}template_rendering_pdf.json[here].
+
+****
+.Workflow step details:
+[%collapsible.result]
+====
+1. *(1) System; onManual*:
+** *resource*: `System`
+** *event*: `onManual`
+** *enabled*: checked
+2. *(2) Render template*:
+** *type*: `Template render`
+** *arguments*:
+*** *lookup*:
+**** *type*: `Handle`
+**** *value type*: constant
+**** *value*: `pdf-template`
+*** *documentName*:
+**** *value type*: constant
+**** *value*: `PDF template`
+*** *documentType*:
+**** *value type*: constant
+**** *value*: `application/pdf`
+*** *options*:
+**** *type*: `renderOptions`
+**** *value type*: expression
+**** *value*: `{
+  "documentSize": "A4",
+  "contentScale": "1",
+  "orientation": "portrait",
+  "margin": "0.3"
+}`
+** *results*:
+*** *document target*: `renderedTemplate`
+3. *(3) Build email*:
+** *type*: `Email builder`
+** *arguments*:
+*** *subject*:
+**** *type*: `String`
+**** *value type*: constant
+**** *value*: `PDF template`
+*** *from*:
+**** *type*: `String`
+**** *value type*: constant
+**** *value*: `test@mail.com`
+*** *to*:
+**** *type*: `String`
+**** *value type*: constant
+**** *value*: `example@mail.com`
+*** *html*:
+**** *type*: `Reader`
+**** *value type*: expression
+**** *value*: `content.document`
+** *results*:
+*** *message target*: `email`
+4. *(4) Attach PDF template*:
+** *type*: `Attach PDF template`
+** *arguments*:
+*** *message*:
+**** *type*: `EmailMessage`
+**** *value type*: expression
+**** *value*: `email`
+*** *content*:
+**** *type*: `Reader`
+**** *value type*: expression
+**** *value*: `renderedTemplate.document`
+*** *name*:
+**** *type*: `String`
+**** *value type*: constant
+**** *value*: `PDF template.pdf`
+5. *(5) Send email*:
+** *type*: `Email sender`
+** *arguments*:
+*** *message*:
+**** *type*: `EmailMessage`
+**** *value type*: expression
+**** *value*: `email`
+====
+****
+
+[TIP]
+====
+You can combine both types of templates to render dynamic emails with PDF attachments.
+
+The example for the workflow can be found xref:integrator-guide:automation/workflows/examples/email-attachment.adoc[here]
+====

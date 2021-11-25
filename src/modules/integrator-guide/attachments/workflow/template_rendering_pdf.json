@@ -1,0 +1,268 @@
+{
+  "workflows": [
+    {
+      "handle": "template_rendering_pdf",
+      "enabled": true,
+      "meta": {
+        "name": "Template rendering - PDF",
+        "description": "",
+        "visual": null
+      },
+      "keepSessions": 0,
+      "steps": [
+        {
+          "stepID": "3",
+          "kind": "function",
+          "ref": "templatesRender",
+          "arguments": [
+            {
+              "target": "lookup",
+              "value": "pdf-template",
+              "type": "Handle"
+            },
+            {
+              "target": "documentName",
+              "value": "PDF template",
+              "type": "String"
+            },
+            {
+              "target": "documentType",
+              "value": "application/pdf",
+              "type": "String"
+            },
+            {
+              "target": "options",
+              "expr": "{\n  \"documentSize\": \"A4\",\n  \"contentScale\": \"1\",\n  \"orientation\": \"portrait\",\n  \"margin\": \"0.3\"\n}",
+              "type": "RenderOptions"
+            }
+          ],
+          "results": [
+            {
+              "target": "renderedTemplate",
+              "expr": "document"
+            }
+          ],
+          "meta": {
+            "name": "",
+            "description": "",
+            "visual": {
+              "id": "3",
+              "parent": "1",
+              "value": "(2) Render template",
+              "xywh": [
+                2640,
+                1960,
+                200,
+                80
+              ]
+            }
+          }
+        },
+        {
+          "stepID": "8",
+          "kind": "function",
+          "ref": "emailMessage",
+          "arguments": [
+            {
+              "target": "subject",
+              "value": "PDF template",
+              "type": "String"
+            },
+            {
+              "target": "from",
+              "value": "test@mail.com",
+              "type": "String"
+            },
+            {
+              "target": "to",
+              "value": "example@mail.com",
+              "type": "String"
+            }
+          ],
+          "results": [
+            {
+              "target": "email",
+              "expr": "message"
+            }
+          ],
+          "meta": {
+            "name": "",
+            "description": "",
+            "visual": {
+              "id": "8",
+              "parent": "1",
+              "value": "(3) Build email",
+              "xywh": [
+                2920,
+                1960,
+                200,
+                80
+              ]
+            }
+          }
+        },
+        {
+          "stepID": "10",
+          "kind": "function",
+          "ref": "emailAttach",
+          "arguments": [
+            {
+              "target": "message",
+              "expr": "email",
+              "type": "EmailMessage"
+            },
+            {
+              "target": "content",
+              "expr": "renderedTemplate.document",
+              "type": "Reader"
+            },
+            {
+              "target": "name",
+              "value": "PDF template.pdf",
+              "type": "String"
+            }
+          ],
+          "results": [],
+          "meta": {
+            "name": "",
+            "description": "",
+            "visual": {
+              "id": "10",
+              "parent": "1",
+              "value": "(4) Attach PDF template",
+              "xywh": [
+                2640,
+                2120,
+                200,
+                80
+              ]
+            }
+          }
+        },
+        {
+          "stepID": "12",
+          "kind": "function",
+          "ref": "emailSendMessage",
+          "arguments": [
+            {
+              "target": "message",
+              "expr": "email",
+              "type": "EmailMessage"
+            }
+          ],
+          "results": [],
+          "meta": {
+            "name": "",
+            "description": "",
+            "visual": {
+              "id": "12",
+              "parent": "1",
+              "value": "(5) Send email",
+              "xywh": [
+                2920,
+                2120,
+                200,
+                80
+              ]
+            }
+          }
+        }
+      ],
+      "paths": [
+        {
+          "parentID": "3",
+          "childID": "8",
+          "meta": {
+            "name": "",
+            "description": "",
+            "visual": {
+              "id": "9",
+              "parent": "1",
+              "points": [],
+              "style": "exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;",
+              "value": null
+            }
+          }
+        },
+        {
+          "parentID": "8",
+          "childID": "10",
+          "meta": {
+            "name": "",
+            "description": "",
+            "visual": {
+              "id": "11",
+              "parent": "1",
+              "points": [],
+              "style": "exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;",
+              "value": null
+            }
+          }
+        },
+        {
+          "parentID": "10",
+          "childID": "12",
+          "meta": {
+            "name": "",
+            "description": "",
+            "visual": {
+              "id": "13",
+              "parent": "1",
+              "points": [],
+              "style": "exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;",
+              "value": null
+            }
+          }
+        }
+      ],
+      "triggers": [
+        {
+          "resourceType": "system",
+          "eventType": "onManual",
+          "constraints": [
+            {
+              "name": "",
+              "op": "=",
+              "values": [
+                ""
+              ]
+            }
+          ],
+          "enabled": true,
+          "stepID": "3",
+          "meta": {
+            "description": "",
+            "visual": {
+              "edges": [
+                {
+                  "childID": "3",
+                  "meta": {
+                    "description": "",
+                    "label": "",
+                    "visual": {
+                      "id": "7",
+                      "parent": "1",
+                      "points": [],
+                      "style": "exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;",
+                      "value": null
+                    }
+                  },
+                  "parentID": "5"
+                }
+              ],
+              "id": "5",
+              "parent": "1",
+              "value": "(1) System; onManual",
+              "xywh": [
+                2360,
+                1960,
+                200,
+                80
+              ]
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

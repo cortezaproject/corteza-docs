@@ -6,23 +6,23 @@
 
 | v (Integer)
 | 0
-| Initializing integer variable without value, defaults to 0.
+| Initializes an integer variable without value, defaults to 0.
 
 | v (Integer) = 42
 | 42
-| Initializing integer variable with an integer value.
+| Initializes an integer variable with an integer value.
 
 | v (Integer) = 3.14
 | 3
-| Initializing integer variable with a float will cut of the decimals.
+| Initializes an integer variable with a float will cut of the decimals.
 
 | v (Integer) = "42"
 | 42
-| Initializing integer variable with a string that contains a valid integer.
+| Initializes an integer variable with a string that contains a valid integer.
 
 | v (Integer) = "forty two"
 | ERROR
-| Initializing integer variable with a string that contains a invalid integer will result in an error.
+| Initializing integer variable with a string that contains a invalid integer results in an error.
 |===
 
 [#dt-init-bool]
@@ -33,11 +33,11 @@
 
 | v (Bool)
 | false
-| Initializing boolean variable without value, defaults to false.
+| Initializes boolean variable without value, defaults to false.
 
 | v (Boolean) = true
 | true
-| Initializing boolean variable with an boolean value.
+| Initializes boolean variable with an boolean value.
 
 | v (Boolean) = "true"
 | true
@@ -48,5 +48,5 @@
 
 | v (Boolean) = 10 == 0
 | true
-| Initializing boolean variable as result of an expression.
+| Initializes boolean variable as result of an expression.
 |===

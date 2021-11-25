@@ -5,7 +5,7 @@ include::ROOT:partial$variables.adoc[]
 | Type | Primitive | Description
 
 | [#datatype-any]#<<datatype-any,Any>>#
-|
+| N/A
 |
 A variable of type `Any` does not perform any type checks and can store anything.
 The use of this is not recommended, but it can be used.
@@ -13,7 +13,7 @@ The use of this is not recommended, but it can be used.
 | [#datatype-vars]#<<datatype-vars,Vars>>#
 | No
 |
-Like <<datatype-kv,`KV`>> but for complex structures.
+Identical to <<datatype-kv,`KV`>> but used for complex structures.
 
 | [#datatype-boolean]#<<datatype-boolean,Boolean>>#
 | Yes
@@ -29,8 +29,8 @@ A `DateTime` can easily be manipulated using xref:expr/fnc-reference.adoc#dateti
 | [#datatype-duration]#<<datatype-duration,Duration>>#
 | Yes
 |
-A `Duration` contains a relative temporal value.
-A `Duration` is usually used in combination with <<datatype-datetime,DateTime>> values to calculate offsets.
+A `Duration` variable contains a relative temporal value.
+It is usually used in combination with <<datatype-datetime,DateTime>> values to calculate offsets.
 
 | [#datatype-float]#<<datatype-float,Float>>#
 | Yes
@@ -50,21 +50,22 @@ An `UnsignedInteger` is a 64bit unsigned integer; range `0` through `18446744073
 | [#datatype-string]#<<datatype-string,String>>#
 | Yes
 |
-A `String` is a string.
+A `String` variable contains a text (a string).
 
 | [#datatype-id]#<<datatype-id,ID>>#
 | Yes
 |
 An `ID` is a system assigned unique identifier for all system resources and should not be assigned or manipulated manually.
 An `ID` is a 64bit unsigned integer; range `0` through `18446744073709551615`.
+//Editor's note: Should not be assigned or manipulated manually or cannot be assigned or manipulated manually? is the possibility of manually applied changes there?
 
 | [#datatype-handle]#<<datatype-handle,Handle>>#
 | Yes
 |
-A `Handle` is a human-friendly resource identifier.
+A `Handle` is a user-friendly resource identifier.
 Most {PRODUCT_NAME} resources (such as namespaces and modules) allow you to define a unique identifier that can be used instead of its system assigned <<datatype-id,ID>>.
 
-The value must be an empty string or a string matching the following regular expression `/^[A-Za-z][0-9A-Za-z_\-.]*[A-Za-z0-9]$/`.
+The value must be an empty string or a string matching the following regular expression: `/^[A-Za-z][0-9A-Za-z_\-.]*[A-Za-z0-9]$/`.
 
 // ---
 
@@ -104,7 +105,8 @@ A `Template` contains a template that can be used by the rendering engine.
 | [#datatype-document]#<<datatype-document,Document>>#
 | No
 |
-A `Document` is a rendered <<datatype-template,Template>> using <<datatype-renderoptions,RenderOptions>> and <<datatype-rendervariables,RenderVariables>>.
+A `Document` is a rendered <<datatype-template,Template>>.
+It uses <<datatype-renderoptions,RenderOptions>> and <<datatype-rendervariables,RenderVariables>> in order to produce a document.
 
 | [#datatype-renderoptions]#<<datatype-renderoptions,RenderOptions>>#
 | No
@@ -119,9 +121,9 @@ A `Document` is a rendered <<datatype-template,Template>> using <<datatype-rende
 | [#datatype-emailmessage]#<<datatype-emailmessage,EmailMessage>>#
 | No
 |
-An `EmailMessage` represents an email that will be sent to the recipients.
+An `EmailMessage` represents an email that is to be sent to the recipients.
 The `EmailMessage` type should not be constructed or interacted with directly.
-Use the predefined functions to manipulate it's contents.
+It is suggested you use the predefined functions to manipulate it's contents.
 
 [CAUTION]
 ====

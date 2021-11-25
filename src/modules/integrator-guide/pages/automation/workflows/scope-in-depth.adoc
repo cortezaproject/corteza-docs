@@ -71,7 +71,7 @@ image:workflow/loop_scope_base.png[]
 * *Setting the local (iterator 1) scope* increments the `global_v1` variable by 1 and initializes the `local_v1` variable to be 1.
 * *Iterator 2* repeats 1 time.
 * *Setting the local (iterator 2) scope* increments the `global_v1` variable by 1 and initializes the `local_v2` variable to be 1.
-* *Logging the scope* logs the variables into the ongoing scope.
+* *Logging the scope* logs the variables from the ongoing scope.
 
 To break this down further, the below image shows the stack trace of the entire execution with annotated scopes at the important parts (darkened numbered blocks).
 

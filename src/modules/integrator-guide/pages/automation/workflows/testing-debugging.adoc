@@ -33,8 +33,7 @@ The initial scope depends on the resource and event type.
 image:workflow/manual-test-load-resources.png[]
 
 Insert the required parameters and click on the btn:[Load and Configure] button to set the initial scope.
-Any missing parameters are automatically added as an empty value of that type.
-//Editor's note: If an empty value is obligatory "an" should be changed back into "the"
+Any missing parameters are automatically added as the empty value of that type.
 
 image:workflow/manual-test-configure-resources.png[]
 

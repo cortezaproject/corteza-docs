@@ -2,7 +2,89 @@ include::ROOT:partial$variables.adoc[]
 
 = Platform Developer Guide
 
-****
-The landing page for the platform developer guide is under construction.
-Please refer to the side navigation menu:Platform Developer Guide[] to access the topic you are curious about.
-****
+The platform developer guide covers the process of developing on the core {PRODUCT_NAME} platform components.
+
+The guide is designed for the core {PRODUCT_NAME} maintainers as well as open source contributors.
+
+In case you wish to learn more about low-code app development, refer to the xref:integrator-guide:index.adoc[]
+
+== GitHub repositories
+
+{PRODUCT_NAME} defines the classic front-end back-end architecture where the core components are split into separate repositories.
+
+.Core back-end components:
+* {PRODUCT_NAME} server ({GIT_REPO_LINK_PREFIX}corteza-server[cortezaproject/corteza-server]),
+* {PRODUCT_NAME} {APP_AUTOMATION} automation script runner ({GIT_REPO_LINK_PREFIX}corteza-server-corredor[cortezaproject/corteza-server-corredor]),
+* {PRODUCT_NAME} {APP_NAME_DISCOVERY} indexer ({GIT_REPO_LINK_PREFIX}cortezaproject/corteza-discovery-indexer[cortezaproject/corteza-discovery-indexer]).
+
+.Core front-end components:
+* {PRODUCT_NAME} {APP_NAME_WORKFLOW} ({GIT_REPO_LINK_PREFIX}corteza-webapp-workflow[cortezaproject/corteza-webapp-workflow]),
+* {PRODUCT_NAME} {APP_NAME_REPORTER} ({GIT_REPO_LINK_PREFIX}corteza-webapp-reporter[cortezaproject/corteza-webapp-reporter]),
+* {PRODUCT_NAME} {APP_NAME_SHELL} ({GIT_REPO_LINK_PREFIX}corteza-webapp-one[cortezaproject/corteza-webapp-one]),
+* {PRODUCT_NAME} {APP_NAME_COMPOSE} ({GIT_REPO_LINK_PREFIX}corteza-webapp-compose[cortezaproject/corteza-webapp-compose]),
+* {PRODUCT_NAME} {APP_NAME_ADMIN} ({GIT_REPO_LINK_PREFIX}corteza-webapp-admin[cortezaproject/corteza-webapp-admin]),
+* {PRODUCT_NAME} {APP_NAME_DISCOVERY} ({GIT_REPO_LINK_PREFIX}corteza-webapp-discovery[cortezaproject/corteza-webapp-discovery]).
+
+.Core front-end packages:
+* JavaScript package ({GIT_REPO_LINK_PREFIX}corteza-js[cortezaproject/corteza-js]),
+* Vue.js package ({GIT_REPO_LINK_PREFIX}corteza-vue[cortezaproject/corteza-vue]),
+
+== Component diagram
+
+[NOTE]
+====
+*DevNote* @todo make nice diagram
+====
+
+== Contribution checklist
+
+All contributors should follow the contribution checklist to help maintain consistency and order as the project grows.
+
+.The below table outlines the contribution checklist items:
+[cols="1s,5a"]
+|===
+| [#contribution-checklist-implement]#<<contribution-checklist-implement,Implement>>#
+|
+Implement the bug fix, feature, or general improvement based on the GitHub issue tracker or own observations.
+
+.The implementation should be consistent with the rest of the component:
+* xref:corteza-server/index.adoc[{PRODUCT_NAME} server]
+* xref:web-applications/index.adoc[Web applications]
+* xref:corteza-js/index.adoc[corteza-js]
+* xref:corteza-vue/index.adoc[corteza-vue]
+* xref:documentation/index.adoc[documentation]
+
+[NOTE]
+====
+*DevNote* add reference to the indexer when it is available
+====
+
+*External contributors* must submit their addition as a pull request which must be reviewed by a core contributor.
+
+*Core contributors* may provide their addition directly to the version branches, but should still request peer reviews for larger modifications.
+
+| [#contribution-checklist-test]#<<contribution-checklist-test,Test>>#
+|
+Define all of the required tests; unit, integration, and manual testing.
+Any addition to the project should define at least the basic unit and integration tests to help assure system stability and ease future development.
+
+[NOTE]
+====
+*DevNote* add reference to testing guidelines
+====
+
+| [#contribution-checklist-document]#<<contribution-checklist-document,Document>>#
+|
+Document your work so other contributors, low-code platform developers, and end-users know about your addition.
+
+Refer to the xref:documentation/index.adoc[documentation documentation] for details regarding producing documentation.
+
+|===
+
+== Where to next
+
+To learn more on how to setup and develop for each component, refer to xref:corteza-server/index.adoc[{PRODUCT_NAME} server], xref:web-applications/index.adoc[Web applications], xref:corteza-js/index.adoc[corteza-js], or xref:corteza-vue/index.adoc[corteza-vue].
+
+To learn more about our release cycle and how we release the product (how the code is compiled and how images are built), refer to the xref:release-cycle/index.adoc[release cycle] documentation.
+
+To learn how to contribute to the documentation, refer to the xref:documentation/index.adoc[documentation documentation].

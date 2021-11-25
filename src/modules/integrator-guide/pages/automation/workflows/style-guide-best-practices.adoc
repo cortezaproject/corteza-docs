@@ -1,6 +1,6 @@
 include::ROOT:partial$variables.adoc[]
 
-= Style guide and best practices
+= Style Guide and Best Practices
 
 == Style guide
 
@@ -23,7 +23,7 @@ image:workflow/workflow-style-simple-expression.png[]
 [CAUTION]
 ====
 Most operations can be transformed into expressions but at the cost of clarity.
-If a simplification causes the clarity to decrease, you should not use simplification.
+If a simplification causes the clarity to decrease, you should choose to avoid it.
 ====
 
 [TIP]
@@ -53,9 +53,9 @@ image:workflow/workflow-style-connector-anchors.png[]
 === Step labels
 
 All workflow steps should have a short label that outlines the core of the step.
-To exemplify, an expression that calculates the sales commissions should be labelled as "Calculate sales commissions".
+To exemplify, an expression that calculates the sales commissions is best to be labelled as "Calculate sales commissions".
 
-A *Trigger* label should state the resource and the trigger type.
+A *trigger* label should state the resource and the trigger type.
 This allows the reader to understand when the trigger is executed without reading the configuration.
 
 image:workflow/workflow-style-label-trigger.png[]
@@ -65,14 +65,14 @@ The output path labels should state the answer to the question of the correspond
 
 image:workflow/workflow-style-label-gateway.png[]
 
-The function label should contain the verb and the subject of the function.
+The *function* label should contain the verb and the subject of the function.
 
 image:workflow/workflow-style-label-function.png[]
 
-=== Readable layouts
+=== Coherent layouts
 
 The initial integration usually consists of multiple workflows which can be extended and added in the future.
-A consistent layout increases consistency and readability.
+A consistent layout increases consistency and coherence.
 
 .Here are some tips:
 * the flow should go from top-left to bottom-right,
@@ -95,7 +95,8 @@ image:workflow/bp-constraints-no.png[]
 
 If the case was created in the CRM or in the Case Management, it causes the workflow to execute regardless.
 
-To fix this edge-case, we can define an extra constraint that checks the namespace:
+To fix this edge-case, you can define an extra constraint that checks the namespace.
+See the example below.
 
 image:workflow/bp-constraints-yes.png[]
 
@@ -106,12 +107,12 @@ When you click on the configuration icon image:workflow/cog.svg[width=20px] in t
 Use this to reduce the number of expression steps, but don't go overboard.
 If you wish to change the values of a contact and an account record, define only two expression steps where each focuses only on one record.
 
-.An overengineered workflow example:
+.An over-engineered workflow example:
 image:workflow/bp-compact-no.png[]
 
 The above could easily be rewritten into the below form.
 
-.A correct workflow example:
+.An appropriate workflow example:
 image:workflow/bp-compact-yes.png[]
 
 === Most iterators are able to load and process data
@@ -122,7 +123,7 @@ When you need to iterate over external resources (for example, social media post
 
 === Use handles whenever possible
 
-Most resources allow you to define a human-friendly identifier next to the system generated identifier (a handle or a slug in case of a namespace).
+Most resources allow you to define a user-friendly identifier next to the system generated identifier (a handle or a slug in case of a namespace).
 
-These identifiers make it easier to write workflows that will work across different instances where the identifier may not be the same.
-Readability is also increased; it's easier to read `lead` as an identifier to the lead module instead of `12897612987021`.
+These identifiers make it easier to write workflows that work across different instances where the identifier may not be the same.
+Coherency is also increased; it's easier to read `lead` as an identifier to the lead module instead of `12897612987021`.

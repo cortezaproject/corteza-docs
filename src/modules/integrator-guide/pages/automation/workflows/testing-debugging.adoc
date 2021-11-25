@@ -1,6 +1,6 @@
 include::ROOT:partial$variables.adoc[]
 
-= Testing and debugging workflows
+= Testing and Debugging Workflows
 
 [#testing]
 == Testing
@@ -14,7 +14,7 @@ Any changes performed by the workflow are reflected in the system.
 ====
 
 Let us look at an example.
-We want to implement a workflow that calculates the cost of a newly created lead.
+You want to implement a workflow that calculates the cost of a newly created lead.
 The cost of the lead is sent as an email to the administrator.
 
 image:workflow/manual-test-play.png[]
@@ -22,8 +22,8 @@ image:workflow/manual-test-play.png[]
 To test the workflow, click on the play icon image:workflow/play.svg[width=20px] in the top right corner of the trigger.
 Only saved and valid workflows can be run.
 
-A popup asking for the initial scope appears.
-The initial scope is data passed to the workflow to perform some operation.
+A pop-up asking for the initial scope appears.
+The initial scope is data passed to the workflow to perform an operation.
 
 [NOTE]
 ====
@@ -33,16 +33,17 @@ The initial scope depends on the resource and event type.
 image:workflow/manual-test-load-resources.png[]
 
 Insert the required parameters and click on the btn:[Load and Configure] button to set the initial scope.
-Any missing parameters are automatically added as the empty value of that type.
+Any missing parameters are automatically added as an empty value of that type.
+//Editor's note: If an empty value is obligatory "an" should be changed back into "the"
 
 image:workflow/manual-test-configure-resources.png[]
 
 The last step allows you to change the variables of the initial scope before test running the workflow.
 Click on the btn:[Run Workflow] to run the workflow, or on the btb:[Back] button to return to the previous screen.
 
-When you manually run the workflow, you see a green outline that indicates the execution path based on the provided input.
-If any of the steps fail to execute successfully, they will be marked with a red outline.
-If there is no error handling, the manual execution will also terminate.
+When a workflow is manually run, you see a green outline that indicates the execution path based on the provided input.
+If any of the steps fail to execute successfully, they are be marked with a red outline.
+If there is no error handling, the manual execution is also terminated.
 
 .An example of a successful test:
 image:workflow/manual-test-run-ok.png[]
@@ -52,7 +53,7 @@ image:workflow/manual-test-run-nok.png[]
 
 In some cases, your workflows may implement steps that should only run in production, such as client charging, mass email notifications, and similar.
 We can mock this path of execution by defining a `testing` flag at the beginning.
-Before you reach the "in production only" steps, you should use an exclusive gateway to do some special handling, such as logging a message or using a <<debug-step,debug step image:workflow/debug.svg[width=20px]>>.
+Before you reach the "in production only" steps, you should use an exclusive gateway to carry out distinctive handling, such as logging a message or using a <<debug-step,debug step image:workflow/debug.svg[width=20px]>>.
 
 image:workflow/manual-test-special.png[]
 
@@ -69,7 +70,7 @@ Knowing how to debug a specific tool or software can save you a lot of time if y
 
 The debugging step image:workflow/debug.svg[width=20px] allows you to inspect the contents of the scope it resides in.
 
-The debugging step uses the logger configured by the server and is not visible in the workflow editor itself.
+The debugging step uses the logger configured by the server and it is not visible in the workflow editor itself.
 
 .A simple example:
 image:workflow/debug-example-simple.png[]

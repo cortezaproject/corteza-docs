@@ -1,6 +1,6 @@
 include::ROOT:partial$variables.adoc[]
 
-= Sending emails
+= Email Operations
 :attachment-path: ../../_attachments/workflow/
 
 [IMPORTANT]
@@ -12,12 +12,13 @@ You need to configure {PRODUCT_NAME} with your SMTP provider to send email messa
 
 Use the *email* function step image:workflow/function.svg[width=20px] to immediately send an email message.
 
-If you call the email function without specifying the `from` argument, the `SMTP_FROM` `.env` variable is used.
+In case you appoint the email function without specifying the `from` argument, the `SMTP_FROM` `.env` variable is used.
 
-.An example of a workflow to send an email message.
+.An example of a workflow set to send an email message:
 image::workflow/email-direct-ex-1.png[role="data-zoomable"]
 
 The link:{attachment-path}email_direct_send.json[source code] for the workflow example.
+//Editor's note: Elaborate what you mean in line 20; the source code is as it follows, an example of the source code can be found [here-link]...
 
 ****
 .Workflow step details:
@@ -85,14 +86,16 @@ Content-Type: text/html; charset=UTF-8
 
 == Email builder
 
-The *email builder* function step image:workflow/function.svg[width=20px] allows you to initialize an email message without sending it.
+The *email builder* function step image:workflow/function.svg[width=20px] allows you to assemble an email message without sending it.
+//Editor's note: initialize seems odd and too specific to business/computing English - if assemble fits, then great, otherwise please find a different word or elaborate so I can.
 
 The email builder allows you to further enrich the email message with additional parameters such as other recipients.
 
-.An example of a workflow to construct an email message with the email builder.
+.An example of a workflow made to construct an email message with the email builder.
 image::workflow/email-builder-ex-1.png[role="data-zoomable"]
 
 The link:{attachment-path}email_builder_send.json[source code] for the workflow example.
+//Editor's note: Elaborate what you mean in line 96; the source code is as it follows, an example of the source code can be found [here-link]. 
 
 ****
 .Workflow step details:
@@ -191,9 +194,8 @@ Content-Type: text/html; charset=UTF-8
 [cols="2s,5a"]
 |===
 | [#email-builder-fnc-message]#<<email-builder-fnc-message,Email builder>>#
-|
-The email builder initialization function.
-It returns an initialized email message which you can later extend with the following functions.
+|The function returns an assembled email message, which you can later extend with the following functions.
+//Editor's note: initialize seems odd and too specific to business/computing English - if assemble fits, then great, otherwise please find a different word or elaborate so I can.
 
 | [#email-builder-fnc-sendMessage]#<<email-builder-fnc-sendMessage,Email sender>>#
 |
@@ -206,10 +208,13 @@ The function sets the email subject.
 | [#email-builder-fnc-setHeaders]#<<email-builder-fnc-setHeaders,Email headers>>#
 |
 The function overwrites the provided email headers with the provided ones.
+//Editor's note: The function overwrites the email headers provided by whom with ones provided by whom?
 
 | [#email-builder-fnc-setHeader]#<<email-builder-fnc-setHeader,Email header>>#
 |
 The function overwrites the provided email header with the provided one.
+//Editor's note: The function overwrites the email headers provided by whom with ones provided by whom?
+//Editor's note: is email header and email headers the same ooor...? In case it is the same, keep the singular one, otherwise explain the difference.
 
 | [#email-builder-fnc-setAddress]#<<email-builder-fnc-setAddress,Email set address>>#
 |
@@ -246,7 +251,7 @@ The function embeds an attachment to the email message.
 .The following formats are supported when passing email addresses:
 `test@mail.tld name`::
   A name optionally follows the email address.
-  Examples:
+  See the examples provided below:
   * `test@mail.tld Testko Test`
   * `test@mail.tld Testko`
   * `test@mail.tld`
@@ -256,6 +261,7 @@ The function embeds an attachment to the email message.
   Examples:
   * `{"test@mail.tld": "Testko Test"}`
   * `{"test@mail.tld": "Testko Test", "test2@mail.tld": "Test2"}`
+//Editor's note: Testko?
 
 == Send attachments
 

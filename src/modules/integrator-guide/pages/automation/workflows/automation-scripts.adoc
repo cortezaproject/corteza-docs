@@ -1,9 +1,9 @@
 include::ROOT:partial$variables.adoc[]
 
-= Executing automation scripts
+= Execution of Automation Scripts
 
-A workflow allows you to execute automation scripts registered with the {APP_AUTOMATION} server.
-The capability to execute automation scripts can come in handy when you need to implement complex business logic, but still wish to keep the nice visual description of a workflow.
+A workflow allows you to execute automation scripts registered within the {APP_AUTOMATION} server.
+The ability to execute automation scripts can come in handy when you need to implement complex business logic, but still wish to keep the visual description of a workflow.
 
 == The automation script
 
@@ -23,9 +23,7 @@ export default {
   description: 'This script will be called from workflow function',
   triggers ({ on }) {
     /**
-     * Due to how the Corredor scripting system is designed right now,
-     * triggers still need to be defined (even if the script is
-     * executed explicitly from the workflow)
+     * Due to how the Corredor scripting system is designed right now, triggers still need to be defined (even if the script is executed explicitly from the workflow).
      */
     return on('manual').for('system')
   },
@@ -46,12 +44,15 @@ Insert the *script reference* under the script argument.
 * Construct it manually using the pattern of `/server-scripts/path-to/the-script/script-name.js:default`.
 For the example above, the reference is `/server-scripts/invoked-from-the-workflow.js:default`.
 
-Refer to the xref:automation/automation-scripts/index.adoc[] documentation if you can't see your automation scripts.
+[NOTE]
+====
+Refer to the xref:automation/automation-scripts/index.adoc[] documentation in case you cannot see your automation scripts.
+====
 
 Place a trigger image:workflow/trigger.svg[width=20px] and connect it to the function step you've defined earlier.
 
-To test if everything is working correctly, click on the run icon in the top right corner of the trigger.
-If everything worked correctly, you should see a `"success"` string logged by the {APP_AUTOMATION} server.
+To test if everything works correctly, click on the run icon in the top right corner of the trigger.
+If everything works correctly, you will see a `"success"` string logged by the {APP_AUTOMATION} server after the test has been run.
 
 == Passing custom arguments
 
@@ -67,10 +68,11 @@ scriptArgs.workflow (String)  = "some string" <3>
 <1> Define a new set of variables that will be passed to the automation script.
 <2> Define a `from` variable with the value of `false`.
 <3> Define a `workflow` variable with the value of `"some string"`.
+//Editor's note: some string in line 67 does not work if it is not a name of a string - try "any string" or elaborate further if that does not work, so I can find sth that does work. Thank you.
 
 Update the function step and set the `args` argument to `scriptArgs` (the variables we've defined in the expression step).
 
-.The automation script can access the prepared arguments like so:
+.The automation script can access the prepared arguments as it follows:
 [source,js]
 ----
 export default {
@@ -78,9 +80,9 @@ export default {
   description: 'This script will be called from workflow function',
   triggers ({ on }) {
     /**
-     * Due to how the Corredor scripting system is designed right now,
+     * Due to how the Corredor scripting system is currently designed,
      * triggers still need to be defined (even if the script is
-     * executed explicitly from the workflow)
+     * executed explicitly from the workflow).
      */
     return on('manual').for('system')
   },
@@ -95,18 +97,18 @@ export default {
 }
 ----
 
-To test if everything is working correctly, click on the run icon in the top right corner of the trigger.
-If everything worked correctly, you should see a `'these are the special arguments we received' { from: false, workflow: 'some string' }` string logged by the {APP_AUTOMATION} server.
+To test whether everything works correctly, click on the run icon in the top right corner of the trigger.
+If everything works correctly, you will see a `'these are the special arguments we received' { from: false, workflow: 'some string' }` string logged by the {APP_AUTOMATION} server.
 
-== Reading execution result
+== Reading an execution result
 
-In the function step that executes the automation script, specify the target variable to collect the output of the automation script.
+Specify the target variable to collect the output of the automation script in the function step that executes it.
 The automation script should return an object.
 
 [CAUTION]
 ====
 Standard automation script rules for return values apply.
-If the automation script returns a `false`, we consider this an `Abort` signal and the workflow results with an error.
+If the automation script returns a `false` string, we consider this an `Abort` signal and the workflow results with an error.
 ====
 
 .An example of an automation script that returns a result:

@@ -41,3 +41,66 @@ If the password security is disabled, a warning message is displayed in the UI.
 
 image::authentication/password-security-disabled.png[role="data-zoomable"]
 ====
+
+== Define session duration
+
+{PRODUCT_NAME} allows you to define how long the access tokens should be considered valid.
+
+.The three `.env` variables to control the authentication session:
+[cols="2s,5a"]
+|===
+| [#auth-sesion-auth_oauth2_access_token_lifetime]#<<auth-sesion-auth_oauth2_access_token_lifetime,AUTH_OAUTH2_ACCESS_TOKEN_LIFETIME>>#
+|
+The `AUTH_OAUTH2_ACCESS_TOKEN_LIFETIME` `.env` variable allows you to define how long an access token should be valid.
+
+The access token represents the credentials that allow users to access protected resources such as records, users, and workflows.
+
+.An example of limiting the access token to two minutes:
+[source,.env]
+----
+AUTH_OAUTH2_ACCESS_TOKEN_LIFETIME=2m
+----
+
+| [#auth-sesion-auth_oauth2_refresh_token_lifetime]#<<auth-sesion-auth_oauth2_refresh_token_lifetime,AUTH_OAUTH2_REFRESH_TOKEN_LIFETIME>>#
+|
+The `AUTH_OAUTH2_REFRESH_TOKEN_LIFETIME` `.env` variable allows you to define how long a refresh token should be valid.
+
+The refresh token provides a mechanism to generate a new access token when the old one expires, removing the need to re-authenticate the user.
+
+.An example of limiting the refresh token to two minutes:
+[source,.env]
+----
+AUTH_OAUTH2_REFRESH_TOKEN_LIFETIME=2m
+----
+
+| [#auth-sesion-auth_session_lifetime]#<<auth-sesion-auth_session_lifetime,AUTH_SESSION_LIFETIME>>#
+|
+The `AUTH_SESSION_LIFETIME` `.env` variable allows you to define how long the authentication session should be valid.
+
+The authentication session is generated when the user provides their credentials to the {PRODUCT_NAME} login page.
+The authentication session is independent of access tokens.
+
+.An example of limiting the auth session to two minutes:
+[source,.env]
+----
+AUTH_SESSION_LIFETIME=2m
+----
+
+|===
+
+=== Log out inactive users after two minutes
+
+If you wish to log out inactive users, you need to set all three of the `.env` variables mentioned above.
+
+[source,.env]
+----
+AUTH_OAUTH2_ACCESS_TOKEN_LIFETIME=2m
+AUTH_SESSION_LIFETIME=2m
+AUTH_OAUTH2_REFRESH_TOKEN_LIFETIME=2m
+----
+
+[IMPORTANT]
+====
+When the user is considered inactive is determined by the user's browser.
+Usually this is when they close the tab/window or when their computer enters rest mode.
+====

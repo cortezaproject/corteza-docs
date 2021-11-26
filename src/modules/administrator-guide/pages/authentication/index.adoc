@@ -88,3 +88,106 @@ To enable the grant type, select the "will be used to authenticate machines (gra
 image::auth-client-edit.png[role="data-zoomable"]
 
 |===
+
+== Defining password constraints
+
+{PRODUCT_NAME} allows you to define custom password constraints which enables you to better conform to your security model.
+
+Password constraints are configured on the {PRODUCT_NAME} {APP_NAME_ADMIN} web application under menu:system[settings] in the "password constraints" section.
+
+image::authentication/password-constraints.png[role="data-zoomable"]
+
+[cols="2s,5a"]
+|===
+| [#auth-password-constraint-len]#<<auth-password-constraint-len,Minimum length>>#
+|
+The minimum length parameter allows you to restrict your users from using short, insecure passwords.
+You can not set the minimum length below 8.
+
+The maximum password length is not configurable and is set to 256.
+
+| [#auth-password-constraint-numbers]#<<auth-password-constraint-numbers,Minimum number of numbers>>#
+|
+The minimum number of numbers allows you to require your users to use numerical values in their passwords.
+The requirement is disabled if left at 0.
+
+| [#auth-password-constraint-symbols]#<<auth-password-constraint-symbols,Minimum number of special characters>>#
+|
+The minimum number of special characters allows you to require your users to use special characters in their passwords.
+The requirement is disabled if left at 0.
+
+|===
+
+[CAUTION]
+====
+The `AUTH_PASSWORD_SECURITY` `.env` variable allows you to disable password requirements checking by setting it to `false`.
+This is handy for local development where we may not wish to handle complex password constraints.
+
+The option should be *disabled* for any production deployment.
+If the password security is disabled, a warning message is displayed in the UI.
+
+image::authentication/password-security-disabled.png[role="data-zoomable"]
+====
+
+== Define session duration
+
+{PRODUCT_NAME} allows you to define how long the access tokens should be considered valid.
+
+.The three `.env` variables to control the authentication session:
+[cols="2s,5a"]
+|===
+| [#auth-sesion-auth_oauth2_access_token_lifetime]#<<auth-sesion-auth_oauth2_access_token_lifetime,AUTH_OAUTH2_ACCESS_TOKEN_LIFETIME>>#
+|
+The `AUTH_OAUTH2_ACCESS_TOKEN_LIFETIME` `.env` variable allows you to define how long an access token should be valid.
+
+The access token represents the credentials that allow users to access protected resources such as records, users, and workflows.
+
+.An example of limiting the access token to two minutes:
+[source,.env]
+----
+AUTH_OAUTH2_ACCESS_TOKEN_LIFETIME=2m
+----
+
+| [#auth-sesion-auth_oauth2_refresh_token_lifetime]#<<auth-sesion-auth_oauth2_refresh_token_lifetime,AUTH_OAUTH2_REFRESH_TOKEN_LIFETIME>>#
+|
+The `AUTH_OAUTH2_REFRESH_TOKEN_LIFETIME` `.env` variable allows you to define how long a refresh token should be valid.
+
+The refresh token provides a mechanism to generate a new access token when the old one expires, removing the need to re-authenticate the user.
+
+.An example of limiting the refresh token to two minutes:
+[source,.env]
+----
+AUTH_OAUTH2_REFRESH_TOKEN_LIFETIME=2m
+----
+
+| [#auth-sesion-auth_session_lifetime]#<<auth-sesion-auth_session_lifetime,AUTH_SESSION_LIFETIME>>#
+|
+The `AUTH_SESSION_LIFETIME` `.env` variable allows you to define how long the authentication session should be valid.
+
+The authentication session is generated when the user provides their credentials to the {PRODUCT_NAME} login page.
+The authentication session is independent of access tokens.
+
+.An example of limiting the auth session to two minutes:
+[source,.env]
+----
+AUTH_SESSION_LIFETIME=2m
+----
+
+|===
+
+=== Log out inactive users after two minutes
+
+If you wish to log out inactive users, you need to set all three of the `.env` variables mentioned above.
+
+[source,.env]
+----
+AUTH_OAUTH2_ACCESS_TOKEN_LIFETIME=2m
+AUTH_SESSION_LIFETIME=2m
+AUTH_OAUTH2_REFRESH_TOKEN_LIFETIME=2m
+----
+
+[IMPORTANT]
+====
+When the user is considered inactive is determined by the user's browser.
+Usually this is when they close the tab/window or when their computer enters rest mode.
+====

@@ -1,0 +1,45 @@
+include::ROOT:partial$variables.adoc[]
+
+= `2021.9.4`
+
+*Released on*: 2021-11-26
+
+*Contributors*:
+Katrin Yordanova (https://github.com/katrinDY[GH]),
+Vivek Patel (https://github.com/vicpatel[GH]),
+Jože Fortun (https://github.com/fajfa[GH]),
+Denis Arh (https://github.com/darh[GH]),
+Tomaž Jerman (https://github.com/tjerman[GH]).
+
+.[#2021_9_4-added]#<<2021_9_4-added,Added:>>#
+* Added `.env` options to control OAuth2 access and refresh token lifetime ({SERVER_COMMIT_BASE}14450dc4[`14450dc4`]).
+* Added support for base password constraints ({SERVER_COMMIT_BASE}420b5ee1[`420b5ee1`], {WEBAPP_ADMIN_COMMIT_BASE}984a5e99[`984a5e99`]).
+* Added translations for webapp-workflow ({WEBAPP_WORKFLOW_COMMIT_BASE}15d12b3[`15d12b3`], {LOCALE_COMMIT_BASE}77de17e[`77de17e`]).
+* Added custom processing button ({WEBAPP_VUE_COMMIT_BASE}6ec4157[`6ec4157`], {WEBAPP_COMPOSE_COMMIT_BASE}1b67f4b[`1b67f4b`]).
+* Added multi select to workflow options prompts ({WEBAPP_VUE_COMMIT_BASE}661781d[`661781d`]).
+* Added warning when workflow triggers paths change ({WEBAPP_WORKFLOW_COMMIT_BASE}07705d21[`07705d21`]).
+* Added expandable expressions editor to workflows ({WEBAPP_WORKFLOW_COMMIT_BASE}680149e[`680149e`]).
+
+//
+//
+
+.[#2021_9_4-fixed]#<<2021_9_4-fixed,Fixed:>>#
+* Fixed improper report filter type casting for ID-like values ({SERVER_COMMIT_BASE}597484914[`597484914`]).
+* Fixed default record module field value validation setup ({SERVER_COMMIT_BASE}aced989ae[`aced989ae`]).
+* Boolean value (record field) sanitization({SERVER_COMMIT_BASE}edbbf2f0[`edbbf2f0`]).
+* Uint64 JSON serialization in {APP_AUTOMATION} payloads ({SERVER_COMMIT_BASE}3241ff4e[`3241ff4e`]).
+* Fixed invalid data point labeling for radial charts ({WEBAPP_JS_COMMIT_BASE}4cbeb210[`4cbeb210`]).
+* Fixed report table pagination ({WEBAPP_JS_COMMIT_BASE}71dc2d2[`71dc2d2`]).
+* Fixed workflow help shortcut opening when inputting `?` ({WEBAPP_WORKFLOW_COMMIT_BASE}8fd0f15[`8fd0f15`]).
+
+//
+//
+
+.[#2021_9_4-changed]#<<2021_9_4-changed,Changed:>>#
+* Admin role membership management ({WEBAPP_ADMIN_COMMIT_BASE}2df2f48[`2df2f48`]).
+
+//
+//
+
+.[#2021_9_4-security]#<<2021_9_4-security,Security:>>#
+* Update Bluemonday & net packages ({SERVER_COMMIT_BASE}73c0b312[`73c0b312`]).

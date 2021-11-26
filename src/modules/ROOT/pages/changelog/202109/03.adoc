@@ -2,7 +2,7 @@ include::ROOT:partial$variables.adoc[]
 
 = `2021.9.3`
 
-*Released on*: TBD
+*Released on*: 2021-11-10
 
 *Contributors*:
 Denis Arh (https://github.com/darh[GH]),
@@ -19,7 +19,7 @@ Matija Rešek (https://github.com/resek[GH]
 * Fixed multi value required field errors ({WEBAPP_COMPOSE_COMMIT_BASE}a5e4fb21[`a5e4fb21`]).
 * Fixed display elements configurator sometimes not loading correct information when switching between elements ({WEBAPP_REPORTER_COMMIT_BASE}b8121e5[`b8121e5`]).
 
-.[#2021_9_1-added]#<<2021_9_3-added,Added:>>#
+.[#2021_9_3-added]#<<2021_9_3-added,Added:>>#
 * Added handle error text in Admin ({WEBAPP_ADMIN_COMMIT_BASE}d903a735[`d903a735`]).
 * Added handle error text in Reporter ({WEBAPP_REPORTER_COMMIT_BASE}963c2161[`963c2161`]).
 * Added handle error text in Workflow ({WEBAPP_WORKFLOW_COMMIT_BASE}cb1b42b3[`cb1b42b3`]).

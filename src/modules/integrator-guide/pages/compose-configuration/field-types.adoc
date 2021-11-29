@@ -34,6 +34,22 @@ This option allows you to specify the display label of faulty values.
 
 |===
 
+.Value validation:
+[cols="1s,5a"]
+|===
+
+| [#field-type-checkbox-validation-format]#<<field-type-checkbox-validation-format,Format>>#
+|
+.The value format for a truthy value must be one of the following:
+* `true`
+* `t`
+* `yes`
+* `y`
+* `1`
+
+Any non truthy value is considered to be a falsy value.
+|===
+
 [#field-type-datetime]
 == Date and time
 
@@ -81,6 +97,26 @@ The field supports all of the https://momentjs.com/docs/#/displaying/format/[mom
 
 |===
 
+.Value validation:
+[cols="1s,5a"]
+|===
+
+| [#field-type-datetime-validation-format]#<<field-type-datetime-validation-format,Format>>#
+|
+The `Date and time` field supports a wide range of formats.
+Refer to the source code for details on https://github.com/cortezaproject/corteza-server/blob/2021.9.x/compose/service/values/sanitizer.go#L228[regular date time inputs] and https://github.com/cortezaproject/corteza-server/blob/2021.9.x/compose/service/values/sanitizer.go#L208[time only inputs].
+
+The usual time format is https://en.wikipedia.org/wiki/ISO_8601[`ISO 8601`] with the pattern of `YYYY-MM-DDTHH:MM:SSZ`.
+
+| [#field-type-datetime-validation-future]#<<field-type-datetime-validation-future,Future>>#
+|
+When the field is configured to only allow future values, the validator rejects any value which is before the timestamp of when the validation occurred.
+
+| [#field-type-datetime-validation-past]#<<field-type-datetime-validation-past,Past>>#
+|
+When the field is configured to only allow past values, the validator rejects any value which is after the timestamp of when the validation occurred.
+|===
+
 [#field-type-email]
 == Email
 
@@ -104,6 +140,17 @@ Display formatting is performed in the front-end application.
 | [#field-type-email-plain]#<<field-type-email-plain,Don't turn email into a link>>#
 |
 Displays the email as a regular string and not as a clickable link.
+
+|===
+
+.Value validation:
+[cols="1s,5a"]
+|===
+
+| [#field-type-email-validation-format]#<<field-type-email-validation-format,Format>>#
+|
+The `Email` field accepts any email format defined by `RFC 5322`.
+An example of the most common format is `recipient@mail.tld`.
 
 |===
 
@@ -146,6 +193,16 @@ Defines how the multi-value variant of the field is represented.
 
 |===
 
+.Value validation:
+[cols="1s,5a"]
+|===
+
+| [#field-type-select-validation-value]#<<field-type-select-validation-value,Value>>#
+|
+The `Select` field only permits the use of values defined in the field configuration.
+
+|===
+
 [#field-type-number]
 == Number
 
@@ -185,6 +242,17 @@ The precision is limited to 6.
 |
 Defines the format string that is used when displaying the numbers.
 The field supports all of the https://numeraljs.com/#format[numeral.js] formatting options.
+
+|===
+
+.Value validation:
+[cols="1s,5a"]
+|===
+
+| [#field-type-number-validation-value]#<<field-type-number-validation-value,Value>>#
+|
+The `Number` field only permits values which can be represented as a 64bit float.
+Examples of the most common representations include `1024` and `1024.256`.
 
 |===
 
@@ -239,6 +307,16 @@ Defines how the multi-value variant of the field is represented.
 ====
 *DevNote* list and describe the options?
 ====
+
+|===
+
+.Value validation:
+[cols="1s,5a"]
+|===
+
+| [#field-type-record-validation-value]#<<field-type-record-validation-value,Value>>#
+|
+The `Record` field only permits record IDs (references to other records) which exist in the system.
 
 |===
 
@@ -307,6 +385,20 @@ The URL address is shown as a regular label instead of a clickable link.
 
 |===
 
+.Value validation:
+[cols="1s,5a"]
+|===
+
+| [#field-type-url-validation-format]#<<field-type-url-validation-format,Format>>#
+|
+The `URL` field only permits valid URL strings which define a scheme and a host.
+The pattern for a valid URL is `[scheme:][//[userinfo@]host][/]path[?query][#fragment]`.
+
+| [#field-type-url-validation-secure]#<<field-type-url-validation-secure,Secure>>#
+|
+When the field is configured to only allow secure URLs, the scheme must equal to `https`.
+|===
+
 [#field-type-user]
 == User
 
@@ -347,6 +439,16 @@ Defines how the multi-value variant of the field is represented.
 
 |===
 
+.Value validation:
+[cols="1s,5a"]
+|===
+
+| [#field-type-user-validation-value]#<<field-type-user-validation-value,Value>>#
+|
+The `User` field only permits user IDs (references to users) which exist in the system.
+
+|===
+
 [#field-type-file-upload]
 == File upload
 
@@ -376,5 +478,15 @@ Defines how the files are presented when they are being viewed.
 ====
 *DevNote* list & describe the available options.
 ====
+
+|===
+
+.Value validation:
+[cols="1s,5a"]
+|===
+
+| [#field-type-file-validation-value]#<<field-type-file-validation-value,Value>>#
+|
+The `File` field only permits file IDs (references to files) which exist in the system.
 
 |===

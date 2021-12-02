@@ -1,0 +1,155 @@
+include::ROOT:partial$variables.adoc[]
+
+= Import {PRODUCT_NAME_COMPOSE} Records
+
+.To import {PRODUCT_NAME_COMPOSE} records you need to:
+. Prepare the source files -- the CSV or JSONL files and the definition file(s)
+. run the command
+
+== Source files
+
+Prepare a directory where all of your source files reside in.
+
+.`/import`:
+[source]
+----
+/import
+  /aa.csv
+  /bb.csv
+  /cc.csv
+  /defs.yaml
+----
+
+The `.csv` files contain the records we wish to import, and the `defs.yaml` provides all of the import definitions.
+
+[TIP]
+====
+You can use multiple definition files, such as one per module.
+====
+
+[TIP]
+====
+You can provide import definition inside your provision YAML files.
+====
+
+.`defs.yaml`:
+[source,yaml]
+----
+namespace: my-namespace
+modules:
+  aa:
+    fields:
+      f1:
+        kind: String
+        label: f1
+    records: <1>
+      source: aa.csv <2>
+      key: id <3>
+      mapping: <4>
+        id: / <5>
+        f1: <6>
+          field: f1 <7>
+  bb:
+    fields:
+      ref_a:
+        kind: Record
+        label: ref_a
+        options:
+          module: aa
+      f1:
+        kind: String
+        label: f1
+    records:
+      source: bb.csv
+      key: id
+      mapping:
+        id: /
+        ref_a:
+          field: ref_a
+        f1:
+          field: f1
+  cc:
+    fields:
+      ref_a:
+        kind: Record
+        label: ref_a
+        options:
+          module: aa
+      ref_b:
+        kind: Record
+        label: ref_b
+        options:
+          module: bb
+      f1:
+        kind: String
+        label: f1
+    records:
+      source: cc.csv
+      key: id
+      mapping:
+        id: /
+        ref_a:
+          field: ref_a
+        ref_b:
+          field: ref_b
+        f1:
+          field: f1
+----
+<1> The `records` key contains the record import definitions.
+<2> The `source` key specifies what source file should be used (the name of the file).
+<3> The `key` key specifies what column should be used as the identifier for the record when matching references.
+<4> The `mapping` key specifies how the sources columns should be mapped to the module fields.
+<5> When you use the `/` instead of a module field, the column is omitted.
+<6> The key of the map defines the column of the source.
+<7> The field defines the module field the column value should be mapped to.
+
+.`aa.csv`:
+[source,csv]
+----
+id,f1
+aa_1,aa_v_1
+aa_2,aa_v_2
+aa_3,aa_v_3
+----
+
+.`bb.csv`:
+[source,csv]
+----
+id,ref_a,f1
+bb_1,aa_1,bb_v_1
+bb_2,aa_1,bb_v_2
+bb_3,aa_1,bb_v_3
+bb_4,aa_2,bb_v_4
+bb_5,aa_2,bb_v_5
+bb_6,aa_3,bb_v_6
+bb_7,aa_3,bb_v_7
+----
+
+[NOTE]
+====
+Notice how we're using records from `aa.csv` to reference in `bb.csv`.
+====
+
+.`cc.csv`:
+[source,csv]
+----
+id,ref_a,ref_b,f1
+cc_1,aa_1,bb_1,cc_v_1
+cc_2,aa_1,bb_1,cc_v_2
+cc_3,aa_3,bb_1,cc_v_3
+cc_4,aa_3,bb_1,cc_v_4
+cc_5,aa_3,bb_6,cc_v_5
+cc_6,aa_3,bb_7,cc_v_6
+----
+
+== Run the import
+
+Use the xref:maintenance/cli-reference.adoc#import[import CLI command] to import your records.
+
+The argument to the CLI command needs to be the location of the source files, in our above case this is `/import`.
+
+.An example of running the CLI command for our case:
+[source,bash]
+----
+corteza-server import --merge-left-existing /import
+----

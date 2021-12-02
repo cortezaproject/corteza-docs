@@ -82,6 +82,60 @@ The `state does not match` error usually occurs in the development environment o
 The authentication state which is carried through the user authentication flow is not persistent and will perish on server restart.
 If the error occurs and persists on the production environment, verify your `AUTH_SESSION_*` `.env` settings (in case you have modified them).
 
+== Stuck on login screen after providing valid credentials
+
+Please note that some deployments (like with Docker) might not have all configuration available for valid autoconfiguration.
+Check what how the cookies are sent in the response headers on login.
+
+_Please note that examples below have an abbreviated session value._
+
+=== Broken configuration, user is stuck on login screen
+
+[source]
+----
+set-Cookie:
+    session=MTYzODQ...tCLvO_DHhw==;
+    Path=/auth;
+    Domain=e3a47cb50c17; <1>
+    Expires=Sun, 27 Nov 2022 10:13:08 GMT;
+    Max-Age=31104000;
+    HttpOnly
+----
+<1> Set of random characters where the domain or hostname should be represent Docker container ID (and hostname).
+Setup like this require `DOMAIN` variable to be set (for example. `DOMAIN=localhost:8080`).
+Do not forget to recreate your server container after the change.
+
+=== Valid cookie example
+
+[source]
+----
+set-Cookie: <1>
+    session=MTYzODQ...tCLvO_DHhw==;
+    Path=/auth;
+    Expires=Sun, 27 Nov 2022 12:58:01 GMT;
+    Max-Age=31104000;
+    HttpOnly
+----
+<1> When you provide `DOMAIN` option like instructed in the example above, you'll notice that "Domain" flag on the cookie is missing.
+Corteza removes it when you use port in the domain.
+
+=== Valid example of a cookie on a secure host
+
+[source]
+----
+set-cookie:
+    session=MTYzODQ...tCLvO_DHhw==;
+    Path=/auth;
+    Domain=corteza.example.org;
+    Expires=Fri, 03 Dec 2021 12:58:46 GMT;
+    Max-Age=86400;
+    HttpOnly;
+    Secure <1>
+----
+<1> Note the "Secure" cookie flag.
+This cookie will be sent back to the server only if server is on secure domain (HTTPS).
+If you used `HTTP_SSL_TERMINATED` or `LETSENCRYPT_HOST` options Corteza will assume that it is served on a secured domain.
+
 == Further troubleshooting
 
 If you're continuing to have issues with {PRODUCT_NAME}, we encourage you to contact other users on our https://latest.cortezaproject.org[community server].

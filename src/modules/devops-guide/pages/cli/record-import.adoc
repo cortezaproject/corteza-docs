@@ -2,6 +2,11 @@ include::ROOT:partial$variables.adoc[]
 
 = Import {PRODUCT_NAME_COMPOSE} Records
 
+[CAUTION]
+====
+Before importing larger datasets (especially to production) it is advised to make a database backup and to test the configuration locally or on a staging server.
+====
+
 .To import {PRODUCT_NAME_COMPOSE} records you need to:
 . Prepare the source files -- the CSV or JSONL files and the definition file(s)
 . run the command

@@ -34,7 +34,8 @@ With contextual roles, you can cover cases where a user is only allowed to acces
 
 *Authentication and security*
 
-The authentication flow is now more flexible by introducing support for xref:administrator-guide:authentication-provider/saml.adoc[SAML] and split credential flow.
+
+The authentication flow is now more flexible by introducing support for xref:administrator-guide:authentication/authentication-providers/index.adoc#saml[SAML] and split credential flow.
 Further improvements to the authentication token generator and handler help increase the stability and security of the system.
 
 *Integration gateway*

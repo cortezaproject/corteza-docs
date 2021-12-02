@@ -1,5 +1,6 @@
 include::ROOT:partial$variables.adoc[]
 
+[#saml]
 = SAML
 
 To enable SAML authentication, you need to exchange credentials from your IdP.

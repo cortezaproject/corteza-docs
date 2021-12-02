@@ -85,6 +85,7 @@ type (
 		AutomationFunctions() []*types.Function
 	}
 )
+----
 |===
 
 //== Plugin example

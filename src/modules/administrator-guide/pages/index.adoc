@@ -111,7 +111,7 @@ The role management user interface resides in the xref:index.adoc#webapp-admin[{
   }, {
     "kind": "box",
     "x": 16,
-    "y": 335,
+    "y": 330,
     "w": 288,
     "h": 30
   }, {
@@ -178,7 +178,7 @@ Refer to the xref:authentication/authentication-providers/index.adoc[] for detai
   "annotations": [{
     "kind": "box",
     "x": 16,
-    "y": 335,
+    "y": 330,
     "w": 288,
     "h": 30
   }]
@@ -227,7 +227,7 @@ Changes are applied immediately and do not require server restart.
   "annotations": [{
     "kind": "box",
     "x": 16,
-    "y": 583,
+    "y": 577,
     "w": 288,
     "h": 37
   }]
@@ -251,7 +251,7 @@ User interface settings allow you to configure the main and icon logos that shou
   "annotations": [{
     "kind": "box",
     "x": 16,
-    "y": 868,
+    "y": 860,
     "w": 288,
     "h": 37
   }]

@@ -235,15 +235,18 @@ include::partial$documentation/annotation-danger.adoc[]
 |
 include::partial$documentation/annotation-danger.adoc[]
 
-| [#annotation-box-warning]#<<annotation-box-warning,Warning>>#
-|
-```
-include::partial$documentation/annotation-warning.adoc[]
-```
-|
-include::partial$documentation/annotation-warning.adoc[]
-
 |===
+
+=== Changing annotation padding
+
+Use the `padding` property to change the padding of your annotation.
+The available options are: `xs`, `sm`, `md`, and `lg`; where the `md` option is used by default.
+
+```
+include::partial$documentation/annotation-padding.adoc[]
+```
+|
+include::partial$documentation/annotation-padding.adoc[]
 
 
 === Cropping images
@@ -321,6 +324,53 @@ include::partial$documentation/annotation-cropped.adoc[]
 ```
 
 include::partial$documentation/annotation-cropped.adoc[]
+
+=== Focusing images
+
+To define the focus on the image, adjust the `focus` property.
+
+.The `focus` property has the following parameters:
+[cols="2s,5a"]
+|===
+| x
+| The horizontal offset from the top-left corner of the original image.
+
+| y
+| The vertical offset from the top-left corner of the original image.
+
+| w
+| The width of the focused area (the un blurred area).
+
+| h
+| The width of the focused area (the un blurred area).
+
+| padding
+| The un blurred buffer around the focused area.
+|===
+
+To examplify, lets focus on the Admin Area application on the app selector.
+
+image::documentation/example-focus.png[role="data-zoomable"]
+
+.The following configuration performs the desired focusing:
+```
+include::partial$documentation/focus.adoc[]
+```
+
+include::partial$documentation/focus.adoc[]
+
+=== Focusing and annotating images
+
+To examplify, lets focus on the Admin Area application on the app selector with an annotation.
+
+image::documentation/example-focus.png[role="data-zoomable"]
+
+.The following configuration performs the desired focusing:
+```
+include::partial$documentation/focus-annotation.adoc[]
+```
+
+include::partial$documentation/focus-annotation.adoc[]
 
 == Tips and tricks
 

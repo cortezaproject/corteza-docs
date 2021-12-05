@@ -248,7 +248,6 @@ include::partial$documentation/annotation-padding.adoc[]
 |
 include::partial$documentation/annotation-padding.adoc[]
 
-
 === Cropping images
 
 To crop an image adjust the the `view` property.

@@ -1,0 +1,20 @@
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "documentation/example-focus.png",
+    "alias": "focus-base",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {},
+  "focus": {
+    "w": 267,
+    "h": 253,
+    "x": 542,
+    "y": 515,
+    "padding": 10
+  },
+  "annotations": []
+}
+----

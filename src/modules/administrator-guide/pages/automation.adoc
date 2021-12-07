@@ -7,12 +7,12 @@ The {PRODUCT_NAME} {APP_NAME_ADMIN} provides an overview of the automation defin
 [NOTE]
 ====
 The administrator guide doesn't touch automation configuration.
-Refer to the xref:integrator-guide:automation/index.adoc[] for details on configuring automation for your low-code application.
+Refer to the xref:integrator-guide:automation/index.adoc[] for details on the configuration of automation for your low-code application.
 ====
 
 == User interfaces
 
-The automation management user interfaces resides in the xref:index.adoc#webapp-admin[{PRODUCT_NAME} {APP_NAME_ADMIN}] web application, under the "automation" navigation group.
+The automation management user interface resides in the xref:index.adoc#webapp-admin[{PRODUCT_NAME} {APP_NAME_ADMIN}] web application, under the "automation" navigation group.
 
 [annotation,role="data-zoomable"]
 ----
@@ -63,8 +63,8 @@ The automation management user interfaces resides in the xref:index.adoc#webapp-
 
 == Listing sessions
 
-An automation session describes an automation that has or is still executing.
-Sessions can be used to debug a failing automation and to identify any infinite cycling issues preventing your system from working properly.
+An automation session describes an automation that has executed or is still executing.
+Sessions can be used to debug a failing automation and to identify any infinite cycling issues preventing the system from working properly.
 
 .To list current sessions:
 . Navigate to menu:system[sessions],
@@ -107,10 +107,11 @@ Sessions can be used to debug a failing automation and to identify any infinite 
 * started: Started
 * suspended: Suspended
 ====
+//Editor's note: remove the above note or elaborate on every point
 
 == {APP_AUTOMATION} scripts
 
-The {APP_AUTOMATION} scripts (also referred to as automation scripts or scripts) user interface provides a list of registered {APP_AUTOMATION} scripts and their details such as triggers.
+The {APP_AUTOMATION} scripts (also referred to as automation scripts or scripts) user interface provide a list of registered {APP_AUTOMATION} scripts and their details such as triggers.
 
 The automation interface can be used to debug issues regarding invalid or missing automation scripts.
 
@@ -128,6 +129,7 @@ Refer to xref:integrator-guide:automation/automation-scripts/deploying.adoc[depl
 ====
 *DevNote* provide a nicer screenshot here
 ====
+//do that before it goes out to the users?
 
 [annotation,role="data-zoomable"]
 ----

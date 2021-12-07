@@ -1,10 +1,11 @@
 include::ROOT:partial$variables.adoc[]
 
-= Federated nodes
+= Federated Nodes
 
 A *federated node* is a *{PRODUCT_NAME} instance* (server) with the {APP_NAME_FEDERATION} feature enabled.
+//Editor's note: what is a federated node? And a node for that matter? It may not be a thing everyone is familiar with.
 
-A node can *expose data to its destination* nodes (acts as an origin), or *consume shared data from its origin* nodes (acts as a destination).
+A node can *expose data to its destination nodes* (acts as an origin), or *consume shared data from its origin nodes* (acts as a destination).
 
 [NOTE]
 ====
@@ -19,7 +20,7 @@ Before we can exchange any data between the nodes, they need to go through the <
 .Node pairing flow outline:
 . the origin node <<node-pairing-register,registers a destination node>>,
 . the origin node <<node-pairing-invite,sends an invite>> to the destination node,
-. the destination node accepts the invite, either <<node-pairing-accept-invite,via email>> or <<node-pairing-accept-invite-manual,via other channel>>,
+. the destination node accepts the invite, either <<node-pairing-accept-invite,via email>> or <<node-pairing-accept-invite-manual,via some other channel>>,
 . the origin node <<node-pairing-handshake-accept,accepts the handshake request>> sent by the destination node.
 
 [NOTE]
@@ -27,47 +28,50 @@ Before we can exchange any data between the nodes, they need to go through the <
 You can start the node pairing process from any node.
 ====
 
-.[#node-pairing-register]#<<node-pairing-register,Registering a new node:>>#
+.[#node-pairing-register]#<<node-pairing-register,To register a new node:>>#
 . navigate to the {PRODUCT_NAME} {APP_NAME_ADMIN},
 . click on the "Nodes" under "Federation" in the navigation drawer,
 . click on the "new" button,
 . provide the requested data regarding node we wish to connect with,
 . press the "Submit" button.
 
-.[#node-pairing-invite]#<<node-pairing-invite,Send the invitation:>>#
+.[#node-pairing-invite]#<<node-pairing-invite,To send the invitation:>>#
 . navigate to the {PRODUCT_NAME} {APP_NAME_ADMIN},
 . click on the "Nodes" under "Federation" in the navigation drawer,
-. click on the node you wish to send the invitation for,
-. click on the "Generate Federation Link" button,
-** either copy the invitation URL, or
-** insert the contact email where the invite should be sent to.
+. click on the node you wish to send an invitation for,
+//Editor's note: send the invitation to or for? Keep in mind the different meanings and choose appropriately.
+. click on the "Generate Federation Link" button and either
+** copy the invitation URL, or
+** insert the contact email of the digital location the invite should be sent to.
 
 [WARNING]
 ====
 The generated invite URL includes a secure OTT token, so make sure to send it over a secure channel.
 ====
 
-.[#node-pairing-accept-invite]#<<node-pairing-accept-invite,Accept the email invitation:>>#
+.[#node-pairing-accept-invite]#<<node-pairing-accept-invite,To accept the email invitation:>>#
 . click on the "Pair Federation Node" button,
 . enter the received URL and confirm.
 
 [NOTE]
 ====
-The node pairing will not proceed until you insert the pairing URL, and the other party accepts the handshake request.
+The node pairing does not proceed until the pairing URL is inserted, and the handshake request is accepted by the other party.
 ====
 
-.[#node-pairing-accept-invite-manual]#<<node-pairing-accept-invite-manual,Accept the invitation without email:>>#
+.[#node-pairing-accept-invite-manual]#<<node-pairing-accept-invite-manual,To accept the invitation without email:>>#
 . navigate to the {PRODUCT_NAME} {APP_NAME_ADMIN},
 . click on the "Nodes" under "Federation" in the navigation drawer,
 . click on the ... button, // @todo
+//Editor's note: ... button needs to have a name :). To do indeed.
 . enter the received URL and confirm.
 
 [NOTE]
 ====
-The node pairing will not proceed until you insert the pairing URL, and the other party accepts the handshake request.
+The node pairing does not proceed until the pairing URL is inserted, and the handshake request is accepted by the other party.
 ====
+//Editor's note: Do you need to say this both here and in 56? If there isn't any particular need, I suggest you keep this one and delete the 56-59.
 
-.[#node-pairing-handshake-accept]#<<node-pairing-handshake-accept,Accept the node pair handshake request:>>#
+.[#node-pairing-handshake-accept]#<<node-pairing-handshake-accept,To accept the node pair handshake request:>>#
 . navigate to the {PRODUCT_NAME} {APP_NAME_ADMIN},
 . click on the "Nodes" under "Federation" in the navigation drawer,
 . click on the node you wish to accept the request for,

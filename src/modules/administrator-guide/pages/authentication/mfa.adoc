@@ -1,17 +1,17 @@
 include::ROOT:partial$variables.adoc[]
 
-= Multi-factor authentication
+= Multi-factor Authentication
 
 Multi-factor authentication (MFA) provides an extra layer of security for your users.
-{PRODUCT_NAME} provides multi-factor authentication via email, or via mobile authenticator application.
+{PRODUCT_NAME} provides multi-factor authentication via email or via mobile authenticator application.
 
 == Configure MFA
 
 Multi-factor authentication can be enabled in the xref:index.adoc#webapp-admin[{PRODUCT_NAME} {APP_NAME_ADMIN} web application] under menu:system[authentication, multi-factor authentication].
 
-Configure *OTP via email* by enabling the allow of the force users to use one-time-password over email option and optionally change the default expiry time for the OTP.
+You can configure *OTP via email* by enabling the allow of the force users to use one-time-password over email option and optionally change the default end time for the OTP.
 
-Configure *OTP via authenticator app* by enabling the use time based one-time-password (using mobile application) option and change the default issuer displayed in the authenticator app.
+You can configure *OTP via authenticator app* by enabling the use time based one-time-password (using mobile application) option and change the default issuer displayed in the authenticator app.
 
 image::mfa/mfa-enable.png[role="data-zoomable"]
 
@@ -21,7 +21,7 @@ Navigate to the "multi-factor authentication" section and click on the btn:[enab
 .The screenshot outlines the user interface used to enable MFA authentication for a specific user.
 image::mfa/mfa-enable.png[role="data-zoomable"]
 
-From now on, when the user attempts to login, they will receive an email with the OTP which they need to provide before the login is finished.
+From that point on, when a user attempts to login, they will receive an email with the OTP, which they need to provide before the login is finished.
 
 == Use MFA over email
 

@@ -1,6 +1,6 @@
 include::ROOT:partial$variables.adoc[]
 
-= Contextual role expression examples
+= Contextual Role Expression Examples
 
 [NOTE]
 ====
@@ -46,3 +46,5 @@ subjectID == ownerID && !record.values.published
 ----
 
 |===
+
+//Editor's note: make it into a table?

@@ -1,3 +1,0 @@
-include::ROOT:partial$variables.adoc[]
-
-= Users and roles

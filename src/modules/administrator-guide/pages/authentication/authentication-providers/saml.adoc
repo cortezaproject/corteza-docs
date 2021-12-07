@@ -3,7 +3,7 @@ include::ROOT:partial$variables.adoc[]
 [#saml]
 = SAML
 
-To enable SAML authentication, you need to exchange credentials from your IdP.
+To enable SAML authentication, you need to exchange credentials from your identity provider (IdP in the following text).
 The configuration process involves the optional key generation and setting up IdP in the Admin panel.
 
 == Generating private and public key pair
@@ -16,10 +16,10 @@ The example credentials displayed in this document *should not* be used in your 
 [NOTE]
 ====
 This step is optional.
-You can use your existing key pair for setting up SAML.
+You can use your existing key pair to set up SAML.
 ====
 
-.Minimum required commands for generating private and public keys used for SAML authentication.
+.Minimum required commands for generating private and public keys used for SAML authentication:
 [source,shell script]
 ----
 openssl req -x509 -sha256 -nodes -days 365 -newkey rsa:2048 \
@@ -35,7 +35,7 @@ cat certificate.crt private-rsa.key <3>
 <2> The command converts the private key to RSA format.
 <3> The command prints out the relevant keys you can copy.
 
-[CAUTION]
+[IMPORTANT]
 ====
 The example credentials displayed in this document *should not* be used in your instances.
 ====
@@ -118,15 +118,15 @@ image::authentication-provider/admin-settings.png[Screenshot of the configuratio
 .Notes on the SAML configuration form:
 . If you disable your SAML IdP, all settings are kept in {PRODUCT_NAME}.
 Users will no longer be able to use SAML for login.
-All active login sessions created using SAML are kept; users will not be logged-out
-. Name is displayed on the login form (refer to the <<saml-login-ui,below screenshot>>)
+All active login sessions created using SAML are kept; users will not be logged out.
+. The name is displayed on the login form (refer to the <<saml-login-ui,below screenshot>>).
 . Identity provider URL must point to the URL of the server which provides the metadata.
 The metadata is an XML document providing machine-readable instructions for SAML configuration.
 . Name, handle and identifier fields need to be specified in order for the user to be created.
 When a user successfully logs in using SAML, {PRODUCT_NAME} performs a lookup using a value from the identifier field, which is expected to be an email.
 Values from name and handle are used when creating a new user.
 
-.{PRODUCT_NAME} will try to guess the identifier among one of:
+.{PRODUCT_NAME} will try to guess the identifier among one of the following:
 * default identifier as defined in settings
 * `emailAddress`
 * `urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress`
@@ -136,7 +136,7 @@ Values from name and handle are used when creating a new user.
 
 [NOTE]
 ====
-The above values follow the industry standard, but you should consult your IdP-specific documentation on what is provided as part of user data.
+The above values follow the industry standard, but you should consult your IdP-specific documentation on what is provided as a part of user data.
 ====
 
 == Login screen with SAML enabled

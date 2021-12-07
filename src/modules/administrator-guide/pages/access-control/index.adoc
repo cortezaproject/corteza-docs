@@ -1,6 +1,6 @@
 include::ROOT:partial$variables.adoc[]
 
-= Access control
+= Access Control
 
 [NOTE]
 ====
@@ -28,6 +28,7 @@ Locate the btn:[permissions] button in the user interface for managing the resou
 
 *DevNote* generate a reference for all permission options.
 ====
+//Editor's note: Remove the DevNote, provide the necessary additional information.
 
 :leveloffset: +1
 

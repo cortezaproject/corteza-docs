@@ -1,9 +1,9 @@
 include::ROOT:partial$variables.adoc[]
 
-= User management
+= User Management
 
 A user is an entity which is allowed to interact with your {PRODUCT_NAME}.
-A user can be an employee who needs to interact with their leads or a system user which may be used to identify external integrations or webhook requests.
+A user can be an employee who needs to interact with their, or a system user which may be used to identify external integrations or webhook requests.
 
 A user can be assigned to a series of xref:roles.adoc[roles] which define the scope of the access for the given user.
 
@@ -26,7 +26,7 @@ This can be configured by setting appropriate access control rules for either al
 
 == The user interface
 
-The user management user interface resides in the xref:index.adoc#webapp-admin[{PRODUCT_NAME} {APP_NAME_ADMIN}] web application, under menu:system[users].
+The user management user interface resides in the xref:index.adoc#webapp-admin[{PRODUCT_NAME} {APP_NAME_ADMIN}] web application, under the menu:system[users] section.
 
 [annotation,role="data-zoomable"]
 ----
@@ -51,8 +51,9 @@ The user management user interface resides in the xref:index.adoc#webapp-admin[{
 == Listing users
 
 .To list current system users:
-. Navigate to menu:system[users],
-. optionally insert the filtering parameters (the list refreshes automatically).
+. navigate to menu:system[users],
+. optionally insert the filtering parameters.
+. The list refreshes automatically.
 
 [annotation,role="data-zoomable"]
 ----
@@ -77,11 +78,11 @@ The user management user interface resides in the xref:index.adoc#webapp-admin[{
 
 [IMPORTANT]
 ====
-Permissions can only be defined on existing users.
+Permissions can only be defined for existing users.
 ====
 
 .To create a new user:
-. Navigate to menu:system[users],
+. navigate to menu:system[users],
 . click on the btn:[new] button in the top right corner,
 . provide the requested data,
 . press the btn:[submit] button.
@@ -108,7 +109,7 @@ Permissions can only be defined on existing users.
 == Editing users
 
 .To edit an existing user:
-. Navigate to menu:system[users],
+. navigate to menu:system[users],
 . click on the btn:[edit] icon next to the user you wish to edit,
 . update the parameters you wish to change,
 . press the btn:[submit] button.
@@ -172,9 +173,10 @@ Permissions can only be defined on existing users.
 ====
 Instead of deleting users, you can temporarily <<suspending-users,suspend them>>.
 ====
+//Editor's note: maybe include information about what time-frame we're talking about. 
 
 .To delete an existing user:
-. Navigate to menu:system[users],
+. navigate to menu:system[users],
 . click on the btn:[edit] icon next to the user you wish to suspend,
 . press and confirm the btn:[delete] button.
 
@@ -212,7 +214,7 @@ In order for the role membership to reflect on the user, they need to re-login.
 ====
 
 .To assign a role to an existing user:
-. Navigate to menu:system[users],
+. navigate to menu:system[users],
 . click on the btn:[edit] icon next to the user you wish to edit,
 . navigate to the "role membership" section and assign appropriate roles,
 . press the btn:[submit] button.

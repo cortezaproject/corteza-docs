@@ -4,7 +4,7 @@ include::ROOT:partial$variables.adoc[]
 
 == Auth client
 
-An authentication client (an auth client for short) is a facility that allows you to define how an external application can {PRODUCT_NAME} to authenticate and what access the authenticated users may have.
+An authentication client (an auth client for the remaining text) is a facility that allows you to define how an external application can use {PRODUCT_NAME} to authenticate and what access the authenticated users may have.
 
 The menu:system[auth clients] user interface allows you to inspect and manage your auth clients.
 
@@ -29,7 +29,7 @@ The menu:system[auth clients] user interface allows you to inspect and manage yo
 ----
 
 .From there you can:
-* List the auth clients created inside your {PRODUCT_NAME} instance.
+* list the auth clients created inside your {PRODUCT_NAME} instance.
 * create a new auth client by clicking on the btn:[new] button,
 * edit an existing auth client by clicking on the btn:[edit] icon next to the auth client,
 * manage global auth client permissions by clicking on the btn:[permissions button].
@@ -67,7 +67,7 @@ Permissions can only be defined on existing auth clients.
 ====
 
 .To create a new auth client:
-. Navigate to menu:system[auth clients],
+. navigate to menu:system[auth clients],
 . click on the btn:[new] button in the top right corner,
 . provide the requested data,
 . press the btn:[submit] button.
@@ -94,7 +94,7 @@ Permissions can only be defined on existing auth clients.
 === Editing auth clients
 
 .To edit an existing auth client:
-. Navigate to menu:system[auth clients],
+. navigate to menu:system[auth clients],
 . click on the btn:[edit] icon next to the auth client you wish to edit,
 . update the parameters you wish to change,
 . press the btn:[submit] button.
@@ -121,7 +121,7 @@ Permissions can only be defined on existing auth clients.
 === Deleting auth clients
 
 .To delete an existing auth client:
-. Navigate to menu:system[auth clients],
+. navigate to menu:system[auth clients],
 . click on the btn:[edit] icon next to the auth client you wish to suspend,
 . press and confirm the btn:[delete] button.
 
@@ -166,7 +166,7 @@ Default auth clients can not be deleted.
 |
 The *authorization code* grant type is used to authenticate users with the classic OAuth2 flow.
 
-To enable the grant type, select the "will be used to authenticate users (grant type = authorization_code)" option.
+To enable this grant type, select the "will be used to authenticate users (grant type = authorization_code)" option.
 
 [annotation,role="data-zoomable"]
 ----
@@ -195,7 +195,7 @@ To enable the grant type, select the "will be used to authenticate users (grant 
 
 | [#auth-client-grant-client-credentials]#<<auth-client-grant-client-credentials,Client credentials>>#
 |
-The *client credentials* grant type is the simplified authentication flow, normally used to authenticate machines, such as external services or applications.
+The *client credentials* grant type is the simplified authentication flow, normally used to authenticate systems, such as external services or applications.
 
 [IMPORTANT]
 ====
@@ -204,6 +204,7 @@ The impersonated user will be used to create the security context of the JWT tok
 ====
 
 To enable the grant type, select the "will be used to authenticate machines (grant type = client_credentials)" option.
+//Editor's note: I'm not sure machines is teh best word to use here and in in 78; consider systems or something that doesn't give off the notion of it being only a "physical" presence.
 
 [annotation,role="data-zoomable"]
 ----
@@ -234,7 +235,7 @@ To enable the grant type, select the "will be used to authenticate machines (gra
 
 == Defining password constraints
 
-{PRODUCT_NAME} allows you to define custom password constraints which enables you to better conform to your security model.
+{PRODUCT_NAME} allows you to define custom password constraints which enable you to better conform to your security model.
 
 Password constraints are configured on the {PRODUCT_NAME} {APP_NAME_ADMIN} web application under menu:system[settings] in the "password constraints" section.
 
@@ -275,12 +276,12 @@ The maximum password length is not configurable and is set to 256.
 | [#auth-password-constraint-numbers]#<<auth-password-constraint-numbers,Minimum number of numbers>>#
 |
 The minimum number of numbers allows you to require your users to use numerical values in their passwords.
-The requirement is disabled if left at 0.
+The requirement is disabled when the value is left at 0.
 
 | [#auth-password-constraint-symbols]#<<auth-password-constraint-symbols,Minimum number of special characters>>#
 |
 The minimum number of special characters allows you to require your users to use special characters in their passwords.
-The requirement is disabled if left at 0.
+The requirement is disabled when the value is left at 0.
 
 |===
 
@@ -326,14 +327,14 @@ If the password security is disabled, a warning message is displayed in the UI.
 
 == Define session duration
 
-{PRODUCT_NAME} allows you to define how long the access tokens should be considered valid.
+{PRODUCT_NAME} allows you to define how long the access tokens are to be considered valid.
 
 .The three `.env` variables to control the authentication session:
 [cols="2s,5a"]
 |===
 | [#auth-sesion-auth_oauth2_access_token_lifetime]#<<auth-sesion-auth_oauth2_access_token_lifetime,AUTH_OAUTH2_ACCESS_TOKEN_LIFETIME>>#
 |
-The `AUTH_OAUTH2_ACCESS_TOKEN_LIFETIME` `.env` variable allows you to define how long an access token should be valid.
+The `AUTH_OAUTH2_ACCESS_TOKEN_LIFETIME` `.env` variable allows you to define how long an access token will be valid for.
 
 The access token represents the credentials that allow users to access protected resources such as records, users, and workflows.
 
@@ -347,7 +348,7 @@ AUTH_OAUTH2_ACCESS_TOKEN_LIFETIME=2m
 |
 The `AUTH_OAUTH2_REFRESH_TOKEN_LIFETIME` `.env` variable allows you to define how long a refresh token should be valid.
 
-The refresh token provides a mechanism to generate a new access token when the old one expires, removing the need to re-authenticate the user.
+The refresh token provides a mechanism which generates a new access token when the old one expires, removing the need to re-authenticate the user.
 
 .An example of limiting the refresh token to two minutes:
 [source,.env]

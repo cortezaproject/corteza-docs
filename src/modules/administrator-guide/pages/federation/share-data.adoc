@@ -1,6 +1,6 @@
 include::ROOT:partial$variables.adoc[]
 
-= Data synchronization
+= Data Synchronization
 
 When two nodes have *successfully performed the <<node-pairing,node pairing>>* process, we can *share the data between the two nodes*.
 
@@ -10,7 +10,7 @@ Shared modules are created by the {APP_NAME_FEDERATION} system and can not be ma
 ====
 
 [#expose-module]
-== Share data
+== Sharing data
 
 An *origin node* can *share data* with it's *paired destination nodes*.
 
@@ -18,13 +18,13 @@ An origin node *defines what modules* a specific destination node is *allowed to
 
 [NOTE]
 ====
-You can only share data with nodes that we successfully paired.
+You can only share data with nodes that have been successfully paired.
 ====
 
-.Share a new module:
+.To share a new module:
 . navigate to {PRODUCT_NAME} {APP_NAME_COMPOSE},
 . enter the namespace administration area,
-. navigate to the "Modules" subpage,
+. navigate to the "Modules" sub-page,
 . click on the edit icon next to the module you wish to share,
 . click on "Federation Settings",
 . go to the "Expose" tab,

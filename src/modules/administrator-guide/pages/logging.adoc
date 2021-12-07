@@ -10,7 +10,7 @@ The *action log* user interface provides an overview of events such as users tha
 Errors reported by the {APP_AUTOMATION} server are also visible in the action log.
 ====
 
-You can use the action log for debugging and detecting suspicious behavior as it provides a rich insight into that has occurred.
+You can use the action log for debugging and detecting suspicious behavior as it provides a rich insight into what has occurred.
 
 == The action log interface
 
@@ -108,3 +108,4 @@ The action log user interface resides in the xref:index.adoc#webapp-admin[{PRODU
 * info: 'Info'
 * debug: 'Debug'
 ====
+//Editor's note: do so before the text goes out? Also, great job.

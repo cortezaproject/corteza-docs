@@ -5,13 +5,14 @@ include::ROOT:partial$variables.adoc[]
 
 [CAUTION]
 ====
-{PRODUCT_NAME} {APP_NAME_FEDERATION} is currently in experimental mode and disabled by default,
+{PRODUCT_NAME} {APP_NAME_FEDERATION} is currently in experimental mode and the federation function is disabled by default.
 Set the `FEDERATION_ENABLED` `.env` variable to `true` if you wish to enable it.
 ====
+//Editors's note: check line 8 for accuracy.
 
 {PRODUCT_NAME} {APP_NAME_FEDERATION} enables different *{PRODUCT_NAME} instances* to establish a *federated network* to *freely and securely* exchange information.
 
-This document will help you through the process of *setting up your federated network* and *configure data sharing*.
+This document helps you through the process of *setting up your federated network* and *configuring data sharing*.
 
 .Quick access:
 * <<node-pairing,adding new federated nodes>>,

@@ -2,9 +2,9 @@ include::ROOT:partial$variables.adoc[]
 
 = Administrator Guide
 
-The administrator guided covers the process of performing administration tasks such as defining roles and role membership, configuring your security model, and monitoring the system.
+The administrator guide covers the process of performing administration tasks such as defining roles and role membership, the configuration your security model, and monitoring the system.
 
-This page provides a general overview of the two web applications involved in {PRODUCT_NAME} administration -- <<webapp-admin,{PRODUCT_NAME} {APP_NAME_ADMIN}>> and <<webapp-compose,{PRODUCT_NAME} {APP_NAME_COMPOSE}>>.
+This page provides a general overview of the two web applications involved in {PRODUCT_NAME} administration - <<webapp-admin,{PRODUCT_NAME} {APP_NAME_ADMIN}>> and <<webapp-compose,{PRODUCT_NAME} {APP_NAME_COMPOSE}>>.
 Specific topics are available in the side navigation under the *administrator guide*.
 
 If you haven't yet setup your {PRODUCT_NAME} instance, refer to the xref:devops-guide:index.adoc[].
@@ -24,9 +24,10 @@ You need sufficient permissions to access the {PRODUCT_NAME} {APP_NAME_ADMIN} we
 .The main administration tasks performed from the {PRODUCT_NAME} {APP_NAME_ADMIN} web applications include:
 * xref:users.adoc[user] and xref:roles.adoc[role] management,
 * security model adjustments by managing xref:authentication/index.adoc[authentication] and xref:access-control/index.adoc[access control],
-* inspecting xref:logging.adoc[log] and xref:automation.adoc[automation] contents to identify and solve configuration issues.
+* the inspection of xref:logging.adoc[log] and xref:automation.adoc[automation] contents to identify and solve configuration issues.
 
 To access the {PRODUCT_NAME} {APP_NAME_ADMIN} web application, go to your {PRODUCT_NAME} instance and click on the admin area application.
+//Editor's note: could "icon" work?
 
 [annotation,role="data-zoomable"]
 ----
@@ -78,7 +79,7 @@ Use the navigation in the left sidebar to access the rest of the web application
 [#webapp-compose]
 == {PRODUCT_NAME} {APP_NAME_COMPOSE}
 
-The {PRODUCT_NAME} {APP_NAME_COMPOSE} web application -- from the administrator's perspective -- provides a user interface for managing access control permissions for general web application usage as well as specific low-code applications.
+The {PRODUCT_NAME} {APP_NAME_COMPOSE} web application - from the administrator's perspective - provides a user interface for managing access control permissions for general web application usage as well as specific low-code applications.
 
 [IMPORTANT]
 ====
@@ -110,13 +111,13 @@ To access the {PRODUCT_NAME} {APP_NAME_COMPOSE} web application, go to your {PRO
 }
 ----
 
-After clicking on the application, you are presented with the web application's home page -- the list of all namespaces.
+After clicking on the application, you are presented with the web application's home page - the list of all namespaces.
 
 image::webapp-compose-homepage.png[role="data-zoomable"]
 
 From the home page (the list of all namespaces) you can manage general access control, such as what role is allowed to create namespaces and what roles are allowed to access specific namespaces.
 
-Click on the btn:[permissions] button on the top of the list to see all of the available access control rules.
+Click on the btn:[permissions] button on the top of the list to see all of the available access control decrees.
 
 [annotation,role="data-zoomable"]
 ----
@@ -170,7 +171,7 @@ From the {APP_NAME_COMPOSE} admin panel you can manage access control permission
 
 [NOTE]
 ====
-The administrator guide doesn't touch low-code app configuration.
+The administrator guide doesn't touch up on low-code app configuration.
 Refer to the xref:integrator-guide:index.adoc[] for details on configuring your own low-code application.
 ====
 
@@ -178,7 +179,7 @@ image::webapp-compose-app-admin-panel.png[role="data-zoomable"]
 
 == System settings
 
-The majority of system configuration which affects how the system behaves is performed on the deployment-level.
+The majority of system configuration, which affects how the system behaves, is performed on the deployment-level.
 
 Refer to the xref:devops-guide:index.adoc[] for details.
 
@@ -297,18 +298,19 @@ Refer to the xref:authentication/authentication-providers/index.adoc[] for detai
 
 The email settings interface allows you to configure SMTP servers for sending emails from {PRODUCT_NAME}.
 Please consult your email services provider for SMTP server information (host, port, user, password).
+//Editor's note: explain SMTP
 
 [CAUTION]
 ====
 Diagnostics and additional information in case of misconfiguration are only available in the server logs.
 ====
 
-In case of any TLS/certificate issues you can adjust server name for the TLS check or disable checking and allow use of invalid certificates
+In case of any TLS/certificate issues you can adjust the server name for the TLS check or disable checking and allow use of invalid certificates.
 
 [IMPORTANT]
 ====
 Initial settings are copied from the xref:devops-guide:configuration/server.adoc#\_email_sending[`SMTP_*` environmental variables].
-{PRODUCT_NAME} will log a warning if you keep the environmental variables and make changes to either variables or settings.
+{PRODUCT_NAME} logs a warning in case you keep the environmental variables and make changes to either variables or settings.
 ====
 
 Open your administration panel and navigate to menu:System[Email settings].
@@ -316,7 +318,7 @@ Open your administration panel and navigate to menu:System[Email settings].
 .The screenshot shows the SMTP server settings in the administration panel under.
 image::email-settings/form.png[Screenshot of the configuration window.,role="data-zoomable"]
 
-Provide the required server name and port and optional username and password.
+- Provide the required server name and port and optional username and password.
 Changes are applied immediately and do not require server restart.
 
 
@@ -349,6 +351,7 @@ Changes are applied immediately and do not require server restart.
 
 *User interface settings* are located under menu:user interface[settings] in the left navigation menu.
 User interface settings allow you to configure the main and icon logos that should be used by the {PRODUCT_NAME} instance.
+//Editor's note: Should is very strong, try with some other modal verb; can, may... Should can stay only if it's an obligation or a strong recommendation (or ..."are recommended to be used by"...).
 
 [annotation,role="data-zoomable"]
 ----
@@ -377,4 +380,4 @@ Refer to the side navigation to discover additional features and tasks relevant 
 .The main administration features include:
 * xref:users.adoc[user] and xref:roles.adoc[role] management,
 * security model adjustments by managing xref:authentication/index.adoc[authentication] and xref:access-control/index.adoc[access control],
-* inspecting xref:logging.adoc[log] and xref:automation.adoc[automation] contents to identify and solve configuration issues.
+* the inspection of xref:logging.adoc[log] and xref:automation.adoc[automation] contents to identify and solve configuration issues.

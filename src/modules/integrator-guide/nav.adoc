@@ -49,6 +49,7 @@
 ***** xref:automation/workflows/examples/interval.adoc[]
 ***** xref:automation/workflows/examples/timestamp.adoc[]
 ***** xref:automation/workflows/examples/email-attachment.adoc[]
+***** xref:automation/workflows/examples/gw-parse-payload.adoc[]
 
 *** xref:automation/automation-scripts/index.adoc[]
 **** xref:automation/automation-scripts/script-context.adoc[]

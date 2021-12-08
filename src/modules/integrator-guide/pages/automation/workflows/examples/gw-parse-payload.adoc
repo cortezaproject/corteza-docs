@@ -1,0 +1,84 @@
+= Parse Integration Gateway Request
+:attachment-path: ../../../_attachments/workflow/
+
+Fort this example, let's parse a request sent to the xref:api-gw/index.adoc[]
+
+.The screenshot outlines the workflow that can be used to process the request.
+image::workflow/api-gw/workflow.png[role="data-zoomable"]
+
+The link:{attachment-path}request_process.json[source code] for the workflow example.
+
+****
+.Workflow step details:
+[%collapsible.result]
+====
+1. *(1) System; onManual*:
+** *resource*: `System`
+** *event*: `onManual`
+** *enabled*: checked
+2. *(2) Parse request payload*:
+** *type*: `Process arbitrary data in jsenv`
+** *arguments*:
+*** *scope*:
+**** *type*: `Any`
+**** *value type*: expression
+**** *value*: `payload`
+*** *source*: refer below
+** *results*:
+*** *resultAny*: `parsedPayload`
+3. *(3) Debug state*
+4. *(7) Done*
+====
+****
+
+== Integration gateway configuration
+
+.Below are the configuration parameters for the corresponding integration gateway:
+[cols="1s,5a"]
+|===
+| Endpoint
+| `/examples/payload`
+
+| Pre-filter
+| Header: `Token == "SOME_SECRET_TOKEN"`
+
+| Processing
+| Workflow processer: `On request payload notify user`
+
+| Post-filter
+| `efault JSON Response`
+|===
+
+== cURL request
+
+.Below is an example of the cURL request that invokes the integration gateway and workflow:
+[source,bash]
+----
+curl -X POST "$CORTEZA_BASE/api/gateway/examples/payload" \
+  -H "Content-Type: application/json" \
+  -H 'Token: SOME_SECRET_TOKEN' \
+  -d '{"name":"Peter","id":123}';
+----
+
+== JSEnv parsing function
+
+.Below is the extracted source code which should be used in the JSEnv function step:
+[source,js]
+----
+var inputData;
+
+try {
+    inputData = JSON.parse(input)
+} catch (e) {
+    throw new Error('could not parse input payload: ' + e);
+}
+
+if (!inputData.name) {
+    throw new Error('could not parse input payload, name missing');
+}
+
+return {
+    id: inputData.id,
+    name: inputData.name
+}
+----

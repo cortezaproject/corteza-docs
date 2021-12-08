@@ -1,0 +1,178 @@
+{
+  "workflows": [
+    {
+      "handle": "request_payload_notify_user",
+      "enabled": true,
+      "meta": {
+        "name": "On request payload notify user",
+        "description": "",
+        "visual": null
+      },
+      "keepSessions": 0,
+      "steps": [
+        {
+          "stepID": "7",
+          "kind": "function",
+          "ref": "jsenvExecute",
+          "arguments": [
+            {
+              "target": "scope",
+              "expr": "payload",
+              "type": "Any"
+            },
+            {
+              "target": "source",
+              "value": "var inputData;\n\ntry {\n    inputData = JSON.parse(input)\n} catch (e) {\n    throw new Error('could not parse input payload: ' + e);\n}\n\nif (!inputData.name) {\n    throw new Error('could not parse input payload, name missing');\n}\n\nreturn {\n    id: inputData.id,\n    name: inputData.name\n}\n",
+              "type": "String"
+            }
+          ],
+          "results": [
+            {
+              "target": "parsedPayload",
+              "expr": "resultAny"
+            }
+          ],
+          "meta": {
+            "name": "",
+            "description": "",
+            "visual": {
+              "id": "7",
+              "parent": "1",
+              "value": "Parse request payload",
+              "xywh": [
+                2360,
+                2120,
+                200,
+                80
+              ]
+            }
+          }
+        },
+        {
+          "stepID": "9",
+          "kind": "termination",
+          "ref": "",
+          "arguments": null,
+          "results": null,
+          "meta": {
+            "name": "",
+            "description": "",
+            "visual": {
+              "id": "9",
+              "parent": "1",
+              "value": "Fin",
+              "xywh": [
+                2920,
+                2120,
+                200,
+                80
+              ]
+            }
+          }
+        },
+        {
+          "stepID": "14",
+          "kind": "debug",
+          "ref": "",
+          "arguments": null,
+          "results": null,
+          "meta": {
+            "name": "",
+            "description": "",
+            "visual": {
+              "id": "14",
+              "parent": "1",
+              "value": "Debug state",
+              "xywh": [
+                2640,
+                2120,
+                200,
+                80
+              ]
+            }
+          }
+        }
+      ],
+      "paths": [
+        {
+          "parentID": "7",
+          "childID": "14",
+          "meta": {
+            "name": "",
+            "description": "",
+            "visual": {
+              "id": "15",
+              "parent": "1",
+              "points": [],
+              "style": "exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;",
+              "value": null
+            }
+          }
+        },
+        {
+          "parentID": "14",
+          "childID": "9",
+          "meta": {
+            "name": "",
+            "description": "",
+            "visual": {
+              "id": "16",
+              "parent": "1",
+              "points": [],
+              "style": "exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;",
+              "value": null
+            }
+          }
+        }
+      ],
+      "triggers": [
+        {
+          "resourceType": "system",
+          "eventType": "onManual",
+          "constraints": [
+            {
+              "name": "",
+              "op": "=",
+              "values": [
+                ""
+              ]
+            }
+          ],
+          "enabled": true,
+          "stepID": "7",
+          "meta": {
+            "description": "",
+            "visual": {
+              "edges": [
+                {
+                  "childID": "7",
+                  "meta": {
+                    "description": "",
+                    "label": "",
+                    "visual": {
+                      "id": "17",
+                      "parent": "1",
+                      "points": [],
+                      "style": "exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;",
+                      "value": null
+                    }
+                  },
+                  "parentID": "6"
+                }
+              ],
+              "id": "6",
+              "parent": "1",
+              "value": "On data from gateway",
+              "xywh": [
+                2080,
+                2120,
+                200,
+                80
+              ]
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -28,7 +28,26 @@ You need sufficient permissions to access the {PRODUCT_NAME} {APP_NAME_ADMIN} we
 
 To access the {PRODUCT_NAME} {APP_NAME_ADMIN} web application, go to your {PRODUCT_NAME} instance and click on the admin area application.
 
-image::corteza-one-app-selector.png[role="data-zoomable"]
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "corteza-one-app-selector.png",
+    "alias": "app-selector-admin-webapp",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {},
+  "focus": {
+    "w": 267,
+    "h": 253,
+    "x": 542,
+    "y": 515,
+    "padding": 10
+  },
+  "annotations": []
+}
+----
 
 After clicking on the application, you are presented with a dashboard showing you some basic parameters about your system.
 
@@ -36,7 +55,25 @@ image::webapp-admin-dashboard.png[role="data-zoomable"]
 
 Use the navigation in the left sidebar to access the rest of the web application.
 
-image::webapp-admin-dashboard.png[role="data-zoomable"]
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "webapp-admin-dashboard.png",
+    "alias": "admin-webapp-navigation-general",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {},
+  "focus": {
+    "w": 320,
+    "h": 1080,
+    "x": 0,
+    "y": 0
+  },
+  "annotations": []
+}
+----
 
 [#webapp-compose]
 == {PRODUCT_NAME} {APP_NAME_COMPOSE}
@@ -52,7 +89,26 @@ You need sufficient permissions to access {PRODUCT_NAME} {APP_NAME_COMPOSE} admi
 
 To access the {PRODUCT_NAME} {APP_NAME_COMPOSE} web application, go to your {PRODUCT_NAME} instance and click on the {APP_NAME_COMPOSE} application.
 
-image::corteza-one-app-selector.png[role="data-zoomable"]
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "corteza-one-app-selector.png",
+    "alias": "app-selector-compose-webapp",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {},
+  "focus": {
+    "y": 242,
+    "x": 399,
+    "w": 267,
+    "h": 253,
+    "padding": 10
+  },
+  "annotations": []
+}
+----
 
 After clicking on the application, you are presented with the web application's home page -- the list of all namespaces.
 
@@ -62,11 +118,53 @@ From the home page (the list of all namespaces) you can manage general access co
 
 Click on the btn:[permissions] button on the top of the list to see all of the available access control rules.
 
-image::webapp-compose-homepage.png[role="data-zoomable"]
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "webapp-compose-homepage.png",
+    "alias": "compose-webapp-permissions-global",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {},
+  "annotations": [{
+    "kind": "box-note",
+    "x": 833,
+    "y": 64,
+    "h": 42,
+    "w": 147
+  }]
+}
+----
 
 To perform administration tasks for a specific low-code application, click on the btn:[visit namespace] button on the namespace you wish to manage, expand the left navigation sidebar, and click on the btn:[admin panel] button.
 
-image::webapp-compose-app-homepage.png[role="data-zoomable"]
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "webapp-compose-app-homepage.png",
+    "alias": "compose-webapp-homepage-admin",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {},
+  "focus": {
+    "x": 0,
+    "y": 0,
+    "w": 322,
+    "h": 1080
+  },
+  "annotations": [{
+    "kind": "box-note",
+    "x": 15,
+    "y": 124,
+    "w": 289,
+    "h": 33
+  }]
+}
+----
 
 From the {APP_NAME_COMPOSE} admin panel you can manage access control permissions for resources defined by the namespace, such as who can edit modules, create records, and edit charts.
 
@@ -102,26 +200,36 @@ The role management user interface resides in the xref:index.adoc#webapp-admin[{
     "h": 1080
   },
   "view": {},
+  "focus": {
+    "w": 320,
+    "h": 1080,
+    "x": 0,
+    "y": 0
+  },
   "annotations": [{
     "kind": "box",
+    "padding": "xs",
     "x": 16,
     "y": 295,
     "w": 288,
     "h": 30
   }, {
     "kind": "box",
+    "padding": "xs",
     "x": 16,
     "y": 330,
     "w": 288,
     "h": 30
   }, {
     "kind": "box",
+    "padding": "xs",
     "x": 16,
     "y": 583,
     "w": 288,
     "h": 37
   }, {
     "kind": "box",
+    "padding": "xs",
     "x": 16,
     "y": 868,
     "w": 288,
@@ -154,8 +262,9 @@ Refer to the xref:authentication/authentication-providers/index.adoc[] for detai
   "view": {},
   "annotations": [{
     "kind": "box",
+    "padding": "xs",
     "x": 16,
-    "y": 295,
+    "y": 292,
     "w": 288,
     "h": 30
   }]
@@ -177,6 +286,7 @@ Refer to the xref:authentication/authentication-providers/index.adoc[] for detai
   "view": {},
   "annotations": [{
     "kind": "box",
+    "padding": "xs",
     "x": 16,
     "y": 330,
     "w": 288,
@@ -226,6 +336,7 @@ Changes are applied immediately and do not require server restart.
   "view": {},
   "annotations": [{
     "kind": "box",
+    "padding": "xs",
     "x": 16,
     "y": 577,
     "w": 288,
@@ -250,8 +361,9 @@ User interface settings allow you to configure the main and icon logos that shou
   "view": {},
   "annotations": [{
     "kind": "box",
+    "padding": "xs",
     "x": 16,
-    "y": 860,
+    "y": 855,
     "w": 288,
     "h": 37
   }]

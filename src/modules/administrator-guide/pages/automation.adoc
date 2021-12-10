@@ -26,6 +26,7 @@ The automation management user interfaces resides in the xref:index.adoc#webapp-
   "view": {},
   "annotations": [{
     "kind": "box",
+    "padding": "xs",
     "x": 16,
     "y": 660,
     "w": 288,
@@ -51,6 +52,7 @@ The automation management user interfaces resides in the xref:index.adoc#webapp-
   "view": {},
   "annotations": [{
     "kind": "box",
+    "padding": "xs",
     "x": 16,
     "y": 680,
     "w": 288,
@@ -79,6 +81,7 @@ Sessions can be used to debug a failing automation and to identify any infinite 
   "view": {},
   "annotations": [{
     "kind": "box",
+    "padding": "xs",
     "x": 16,
     "y": 717,
     "w": 288,
@@ -137,6 +140,7 @@ Refer to xref:integrator-guide:automation/automation-scripts/deploying.adoc[depl
   "view": {},
   "annotations": [{
     "kind": "box",
+    "padding": "xs",
     "x": 16,
     "y": 754,
     "w": 288,

@@ -27,6 +27,7 @@ The action log user interface resides in the xref:index.adoc#webapp-admin[{PRODU
   "view": {},
   "annotations": [{
     "kind": "box",
+    "padding": "xs",
     "x": 16,
     "y": 437,
     "w": 288,
@@ -41,7 +42,24 @@ The action log user interface resides in the xref:index.adoc#webapp-admin[{PRODU
 . Navigate to menu:system[action log],
 . optionally insert the filtering parameters and click on the btn:[search] button.
 
-image::action-log.png[role="data-zoomable"]
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "action-log.png",
+    "alias": "webapp-admin-actionlog-list",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {
+    "x": 321,
+    "y": 0,
+    "w": 1599,
+    "h": 1000
+  },
+  "annotations": []
+}
+----
 
 == Inspecting actions
 
@@ -58,14 +76,20 @@ image::action-log.png[role="data-zoomable"]
     "w": 1920,
     "h": 1080
   },
-  "view": {},
-  "annotations": [{
-    "kind": "box",
+  "view": {
+    "x": 321,
+    "y": 0,
+    "w": 1599,
+    "h": 1000
+  },
+  "focus": {
     "x": 563,
-    "y": 487,
+    "y": 444,
     "w": 1110,
-    "h": 381
-  }]
+    "h": 425,
+    "padding": 5
+  },
+  "annotations": []
 }
 ----
 

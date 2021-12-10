@@ -71,7 +71,7 @@ To enable an external authentication provider, you must register {PRODUCT_NAME} 
 Once you've obtained the user key and secret, you can configure {PRODUCT_NAME} using the admin panel.
 External providers become effective immediately without server restart.
 
-Refer to the xref:administrator-guide:settings.adoc[administrator guide] for details.
+Refer to the xref:administrator-guide:authentication/authentication-providers/index.adoc[administrator guide] for details.
 
 == Authenticate external application with {PRODUCT_NAME}
 

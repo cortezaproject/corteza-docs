@@ -229,6 +229,22 @@ Returns `true` if left value does not match the pattern on the right.
 
 |===
 
+== String operation
+
+|===
+| [#expr-string-concat]#<<expr-string-concat,concat>>#
+|
+.[#expr-str-concat-sig]#<<expr-str-concat-sig,Signatures:>>#
+* `concat(<String>[, <String>, ...]])` => `<String>`
+
+.[#expr-str-concat-ex-a]#<<expr-str-concat-ex-a,Expression exampges:>>#
+
+
+.[#expr-str-concat-ex-b]#<<expr-str-concat-ex-b,Function exampges:>>#
+* `concat('a', 'b')`
+* `concat(field, 'b')`
+|===
+
 == Arithmetic
 
 [cols="1s,5a"]
@@ -481,6 +497,26 @@ Casts the value to a float.
 * `float(some_field)`
 * `float('10.9')`
 * `avg(cost) > float(10.9)`
+
+|===
+
+[cols="1s,5a"]
+|===
+| [#expr-cast-string]#<<expr-cast-string,string>>#
+|
+Casts the value to a string.
+
+[CAUTION]
+====
+The string length for MySQL and PostgreSQL is limited to `8192` characters.
+====
+
+.[#expr-cast-string-sig]#<<expr-cast-string-sig,Signatures:>>#
+* `string(<Any>)` => `<String>`
+
+.[#expr-cast-string-ex-a]#<<expr-cast-string-ex-a,Expression exampges:>>#
+* `string(some_field)`
+* `string('10.9')`
 
 |===
 

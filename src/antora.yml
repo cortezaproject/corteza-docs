@@ -1,8 +1,7 @@
 name: corteza-docs
 title: Corteza Guides
-version: '2021.9-develop'
-prerelease: -develop
-display_version: '2021.9-develop'
+version: '2021.9'
+display_version: '2021.9'
 nav:
   - modules/integrator-guide/nav.adoc
   - modules/end-user-guide/nav.adoc

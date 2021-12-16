@@ -34,3 +34,6 @@
 *** xref:extension-requirements/email-relay.adoc[]
 *** xref:extension-requirements/sink-route.adoc[]
 *** xref:extension-requirements/pdf-renderer.adoc[]
+
+** CLI
+*** xref:cli/record-import.adoc[]

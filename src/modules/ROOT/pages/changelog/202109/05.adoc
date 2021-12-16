@@ -1,0 +1,60 @@
+include::ROOT:partial$variables.adoc[]
+
+= `2021.9.5`
+
+.[#2021_9_5-important]#<<2021_9_5-important,Important upgrade notes:>>#
+* The xref:devops-guide:cli/record-import.adoc[record import] via the import CLI command requires you to provide module field definitions along with the record import definitions.
+The constraint will be lifted in future patch releases.
+
+*Released on*: 2021-12-16
+
+*Contributors*:
+Katrin Yordanova (https://github.com/katrinDY[GH]),
+Vivek Patel (https://github.com/vicpatel[GH]),
+Jože Fortun (https://github.com/fajfa[GH]),
+Denis Arh (https://github.com/darh[GH]),
+Tomaž Jerman (https://github.com/tjerman[GH]),
+Peter Grlica (https://github.com/petergrlica[GH]).
+
+.[#2021_9_5-added]#<<2021_9_5-added,Added:>>#
+* Role security (forbidden, permitted, forced) on external authentication providers ({SERVER_COMMIT_BASE}91eb88d2[`91eb88d2`]).
+* Workflow functions for attachment management ({SERVER_COMMIT_BASE}8a8c7685[`8a8c7685`]).
+* OIDC support for corteza ({SERVER_COMMIT_BASE}a2091db[`a2091db`]).
+* Integration Gateway json response postfilter and http request to scope ({SERVER_COMMIT_BASE}b0590d2f[`b0590d2f`]).
+* JWT generate workflow function ({SERVER_COMMIT_BASE}eecf8670[`eecf8670`]).
+* Unix strftime support to gval functions ({SERVER_COMMIT_BASE}d5001341[`d5001341`]).
+* Integer caster to gval functions ({SERVER_COMMIT_BASE}3473a267[`3473a267`]).
+* Added support for role permission cloning ({SERVER_COMMIT_BASE}0564fe7[`0564fe7`],
+{WEBAPP_ADMIN_COMMIT_BASE}d06cd41[`d06cd41`], {WEBAPP_JS_COMMIT_BASE}9bd530a[`9bd530a`]).
+* Added custom processing button ({WEBAPP_VUE_COMMIT_BASE}6ec4157[`6ec4157`]).
+* Translations for reporter webapp ({WEBAPP_REPORTER_COMMIT_BASE}6e26d5a[`6e26d5a`], {LOCALE_COMMIT_BASE}931011c[`931011c`]).
+* Added additional string manipulation functions to reporter expressions ({SERVER_COMMIT_BASE}a45c914e[`a45c914e`]).
+* Added support for xref:devops-guide:cli/record-import.adoc[record import] via the import CLI command ({SERVER_COMMIT_BASE}96556f54[`96556f54`]).
+
+//
+//
+
+.[#2021_9_5-fixed]#<<2021_9_5-fixed,Fixed:>>#
+* Translatable content (modules, names, pages, namespaces) is now sent with current language ({WEBAPP_COMPOSE_COMMIT_BASE}5bd3bd37[`5bd3bd37`]).
+* Improve slow performance in some casses with wf-loops by increesing workflow session state flushing from 10 to 1000 ({SERVER_COMMIT_BASE}486a5752[`486a5752`]).
+* Prevent table display elements from crashing if an empty join frame is recieved ({WEBAPP_REPORTER_COMMIT_BASE}f244b7b2[`f244b7b2`]).
+* Fixed improper report route bindings ({WEBAPP_REPORTER_COMMIT_BASE}d250827b[`d250827b`]).
+* Added missing type definition to the report filter perser registry ({SERVER_COMMIT_BASE}08ef5ab10[`08ef5ab10`]).
+* Fixed panicking report filter marshaling when invalid ({SERVER_COMMIT_BASE}59ef8da1a[`59ef8da1a`]).
+* Fixed improper handling of automation page blocks which define buttons with no references ({SERVER_COMMIT_BASE}047b647af[`047b647af`]).
+* Prevent text from exiting container in EditorToolbox ({WEBAPP_ADMIN_COMMIT_BASE}147dcd7[`147dcd7`]).
+* Fixed improper date manipulation functions for reporter expressions ({WEBAPP_REPORTER_COMMIT_BASE}46372f55[`46372f55`]).
+* Fixed persistent run-as workflow issue after trigger removal ({SERVER_COMMIT_BASE}87f08d8b[`87f08d8b`]).
+* Fix access control checks on UI ({WEBAPP_ADMIN_COMMIT_BASE}e902382[`e902382`]).
+* Fix user role membership picker ({WEBAPP_ADMIN_COMMIT_BASE}cadb6e1[`cadb6e1`]).
+* Fix module field order changing when you navigated to all records ({WEBAPP_COMPOSE_COMMIT_BASE}3525ef8[`3525ef8`]).
+* Fix record and user selector editors not rendering properly ({WEBAPP_COMPOSE_COMMIT_BASE}09bca49[`09bca49`]).
+* Fix display element configurator options form not resetting properly ({WEBAPP_REPORTER_COMMIT_BASE}6b33655[`6b33655`]).
+* Broken translations on password reset ({SERVER_COMMIT_BASE}87f08d8[`87f08d8`])
+* Prevent error message from being transformed by toLowerCase() {WEBAPP_WORKFLOW_COMMIT_BASE}32e9325[`32e9325`])
+
+.[#2021_9_5-changed]#<<2021_9_5-changed,Changed:>>#
+* Changed chart display element configurator ({WEBAPP_REPORTER_COMMIT_BASE}b553f72[`b553f72`]).
+
+.[#2021_9_5-removed]#<<2021_9_5-removed,Removed:>>#
+* Removed the unused `COUNTD` metric aggregation function ({WEBAPP_JS_COMMIT_BASE}29e8ab2a[`29e8ab2a`], {LOCALE_COMMIT_BASE}58a0a3b7[`58a0a3b7`], {WEBAPP_COMPOSE_COMMIT_BASE}4633b238[`4633b238`])

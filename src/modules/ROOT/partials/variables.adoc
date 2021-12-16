@@ -40,3 +40,4 @@
 :WEBAPP_REPORTER_COMMIT_BASE: https://github.com/cortezaproject/corteza-webapp-reporter/commit/
 :WEBAPP_JS_COMMIT_BASE: https://github.com/cortezaproject/corteza-js/commit/
 :WEBAPP_VUE_COMMIT_BASE: https://github.com/cortezaproject/corteza-vue/commit/
+:LOCALE_COMMIT_BASE: https://github.com/cortezaproject/corteza-locale/commit/

@@ -1,0 +1,65 @@
+include::ROOT:partial$variables.adoc[]
+
+= SQL Snippets
+
+[CAUTION]
+====
+Before performing destructive operations it is recommended you create a database backup.
+====
+
+[TIP]
+====
+You can replace the `delete` statement with the `select` statement to view the data which is about to be deleted.
+====
+
+== Delete all records
+
+[source,sql]
+----
+-- Record values
+delete from compose_record_value;
+
+-- Records
+delete from compose_record;
+----
+
+== Delete all records of a namespace
+
+[source,sql]
+----
+-- Record values
+delete from compose_record_value where record_id in (select id from compose_record where rel_namespace = {NAMESPACE_ID} AND module_id = {MODULE_ID});
+
+-- Records
+delete from compose_record where rel_namespace = {NAMESPACE_ID};
+----
+
+== Delete all records of a module
+
+[source,sql]
+----
+-- Record values
+delete from compose_record_value where record_id in (select id from compose_record where rel_namespace = {NAMESPACE_ID} AND module_id = {MODULE_ID});
+
+-- Records
+delete from compose_record where rel_namespace = {NAMESPACE_ID} AND module_id = {MODULE_ID};
+----
+
+
+== Delete specific record values
+
+[source,sql]
+----
+delete from compose_record_value where name = {FIELD_NAME} AND record_id in (select id from compose_record where rel_namespace = {NAMESPACE_ID} AND module_id = {MODULE_ID});
+----
+
+== Delete all soft deleted records
+
+[source,sql]
+----
+-- Record values
+delete from compose_record_value where record_id in (select id from compose_record where rel_namespace = {NAMESPACE_ID} AND module_id = {MODULE_ID} and deleted_at IS NOT NULL);
+
+-- Records
+delete from compose_record where rel_namespace = {NAMESPACE_ID} AND module_id = {MODULE_ID} and deleted_at IS NOT NULL;
+----

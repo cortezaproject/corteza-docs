@@ -29,6 +29,7 @@
 *** xref:maintenance/health-check.adoc[]
 *** xref:maintenance/troubleshooting.adoc[]
 *** xref:maintenance/database-password.adoc[]
+*** xref:maintenance/sql-snippets.adoc[]
 
 ** Extension requirements
 *** xref:extension-requirements/email-relay.adoc[]

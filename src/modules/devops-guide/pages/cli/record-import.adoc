@@ -165,3 +165,52 @@ The argument to the CLI command needs to be the location of the source files, in
 ----
 corteza-server import --merge-left-existing /import
 ----
+
+== Updating records
+
+[NOTE]
+====
+If you wish to update your records using the import CLI command, you must use the record ID that {PRODUCT_NAME} assigned to the original.
+The identification process is subject to change in future versions.
+====
+
+Below is an example of updating records of three modules.
+
+[CAUTION]
+====
+The values provided under the `id` column will be different for your example.
+====
+
+.`aa.csv`:
+[source,csv]
+----
+id,f1
+262499403762254961,aa_v_1 (EDITED aa_v_1)
+262499403779032177,aa_v_2 (EDITED aa_v_2)
+262499403779097713,aa_v_3 (EDITED aa_v_3)
+----
+
+.`bb.csv`:
+[source,csv]
+----
+id,ref_a,f1
+262499403779163249,262499403762254961,bb_v_1 (EDITED bb_v_1)
+262499403779228785,262499403762254961,bb_v_2 (EDITED bb_v_2)
+262499403795809393,262499403762254961,bb_v_3 (EDITED bb_v_3)
+262499403795874929,262499403779032177,bb_v_4 (EDITED bb_v_4)
+262499403795940465,262499403779032177,bb_v_5 (EDITED bb_v_5)
+262499403796006001,262499403779097713,bb_v_6 (EDITED bb_v_6)
+262499403796071537,262499403779097713,bb_v_7 (EDITED bb_v_7)
+----
+
+.`cc.csv`:
+[source,csv]
+----
+id,ref_a,ref_b,f1
+262499403796137073,262499403762254961,262499403779163249,cc_v_1 (EDITED cc_v_1)
+262499403812586609,262499403762254961,262499403779163249,cc_v_2 (EDITED cc_v_2)
+262499403812652145,262499403779097713,262499403779163249,cc_v_3 (EDITED cc_v_3)
+262499403812717681,262499403779097713,262499403779163249,cc_v_4 (EDITED cc_v_4)
+262499403812783217,262499403779097713,262499403796006001,cc_v_5 (EDITED cc_v_5)
+262499403812848753,262499403779097713,262499403796071537,cc_v_6 (EDITED cc_v_6)
+----

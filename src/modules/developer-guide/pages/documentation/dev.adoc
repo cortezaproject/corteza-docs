@@ -1,0 +1,27 @@
+= Developer section
+:page-key-section: Index Testing
+
+== Lvl 1
+
+Lvl 1 contents go here
+
+=== Lvl 2
+
+Lvl 2 contents go here
+
+== Table
+
+Lvl 1 placeholder for table sections.
+
+.A table to structure contents:
+[cols="1s,5a"]
+|===
+| [#dev-r1]#<<dev-r1,Row 1>>#
+| Row 1 contents go here.
+
+| [#dev-r2]#<<dev-r2,Row 2>>#
+| Row 2 contents go here.
+
+| [#dev-r3]#<<dev-r3,Row 3>>#
+| Row 3 contents go here.
+|===

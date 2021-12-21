@@ -15,9 +15,14 @@ body img.medium-zoom-image--opened {
 b,
 strong,
 .paragraph > p > a,
+.DocSearch-Hit-source > a,
 .doc .admonitionblock .icon,
 .doc h1 {
   font-family: 'Poppins-Bold';
+}
+
+.DocSearch-Hit-source > a {
+  color: #0B344E;
 }
 
 .navbar-item:hover,

@@ -13,7 +13,8 @@ docsearch({
   appId: '{{env.ALGOLIA_APP_ID}}',
   container: '#search-container',
   searchParameters: {
-    facetFilters: ['version:{{page.version}}']
+    facetFilters: ['version:{{page.version}}'],
+    attributesToRetrieve: '"hierarchy.lvl0,hierarchy.lvl1,hierarchy.lvl2,hierarchy.lvl3,hierarchy.lvl4,hierarchy.lvl5,hierarchy.lvl6,content,type,url,parent,parentURL"',
   },
 });
 </script>

@@ -1,0 +1,53 @@
+[#container-db]
+= Setup containerized database
+
+== MySQL
+
+We usually use the https://hub.docker.com/_/percona[Percona] fork of the MySQL database.
+
+.Use the following commands to set up the environment variables; make sure to replace the values if needed:
+[source,bash]
+----
+export DOCKER_NAME=percona;
+export ROOT_PWD=root;
+export MYSQL_PORT=3306;
+----
+
+.To setup the database, perform the following steps:
+. `docker run --name $DOCKER_NAME -e MYSQL_ROOT_PASSWORD=$ROOT_PWD -d -p $MYSQL_PORT:3306 percona:8.0;`
+. `docker exec -it $DOCKER_NAME mysql -uroot -p$ROOT_PWD;`
+. `CREATE DATABASE corteza;`
+. `CREATE USER 'corteza'@'172.17.0.1' IDENTIFIED BY 'corteza';`
+. `GRANT ALL PRIVILEGES ON corteza.* TO 'corteza'@'172.17.0.1';`
+. `FLUSH PRIVILEGES;`
+
+.Use the following template to construct the xref:devops-guide:configuration/server.adoc#_db_dsn[`DB_DSN`] `.env` variable:
+[source,.env]
+----
+DB_DSN="corteza:corteza@tcp(localhost:$MYSQL_PORT)/corteza?collation=utf8mb4_general_ci"
+----
+
+== PostgreSQL
+
+We usually use the official https://hub.docker.com/_/postgres[PostgreSQL] image.
+
+.Use the following commands to set up the environment variables; make sure to replace the values if needed:
+[source,bash]
+----
+export DOCKER_NAME=pgsql2;
+export ROOT_PWD=root;
+export PGSQL_PORT=5432;
+----
+
+.To setup the database, perform the following steps:
+. `docker run --name $DOCKER_NAME -e POSTGRES_PASSWORD=$ROOT_PWD -d -p $PGSQL_PORT:5432 postgres:13;`
+. `docker exec -it $DOCKER_NAME psql -U postgres;`
+. `CREATE DATABASE corteza;`
+. `CREATE USER corteza WITH PASSWORD 'corteza';`
+. `GRANT ALL PRIVILEGES ON DATABASE corteza TO corteza;`
+
+.Use the following template to construct the xref:devops-guide:configuration/server.adoc#_db_dsn[`DB_DSN`] `.env` variable:
+[source,.env]
+----
+DB_DSN="postgres://corteza:corteza@localhost:$PGSQL_PORT/corteza?sslmode=disable"
+----

@@ -127,4 +127,10 @@ There, you can configure a different database or remove it to use the SQLite in-
 The same test suite runs over all supported databases.
 If you wish to test for a particular database, you must define the corresponding `DSN` in the root `.env` file.
 Refer to the `/store/tests/main_test.go` for details.
+
+See the <<container-db,setup containerized database>> section if you wish to run your test databases in a container.
 ====
+
+:leveloffset: +1
+include::ROOT:partial$setup/containerized-db.adoc[]
+:leveloffset: -1

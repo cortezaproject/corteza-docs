@@ -61,6 +61,10 @@ The `.env` file performs *implicit Docker Compose configuration*, *variable subs
 
 You can use variables defined in the `.env` file inside your `docker-compose.yaml` files using `$\{VARIABLE_HERE}`.
 
+:leveloffset: +1
+include::ROOT:partial$setup/containerized-db.adoc[]
+:leveloffset: -1
+
 [#deploy-offline]
 == Deploy offline
 

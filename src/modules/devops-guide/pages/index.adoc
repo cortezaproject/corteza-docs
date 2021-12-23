@@ -25,10 +25,10 @@ Refer to xref:system-requirements.adoc[] for more details.
 [NOTE]
 ====
 *DevNote* update diagram; rewrite to PlantUML.
-
-// .The diagram visually describes where various components reside and how they interact.
-// image::arch-overview.png[{PRODUCT_NAME} architectural overview]
 ====
+
+.The diagram visually describes where various components reside and how they interact.
+image::arch-overview.png[{PRODUCT_NAME} architectural overview]
 
 .{PRODUCT_NAME} defines a series of web applications defined by our `corteza-webapp-*` repositories:
 * {GIT_REPO_LINK_PREFIX}-webapp-compose[*{PRODUCT_NAME} {APP_NAME_COMPOSE}*]

@@ -242,6 +242,8 @@ aside.nav,
 }
 
 .panels {
+  max-height: calc(100vh - 8.5rem);
+  overflow-y: auto;
   margin: 20px;
 }
 
@@ -280,6 +282,10 @@ aside.nav,
   margin-right: 2em;
 }
 
+.nav-container .nav {
+  overflow: hidden;
+}
+
 .toc.sidebar {
   margin-left: 1.4em;
   padding-left: .1em;
@@ -288,6 +294,10 @@ aside.nav,
 
 .toc.sidebar .toc-menu {
   margin-top: 1.6em;
+}
+
+.toc.sidebar .toc-menu ul {
+  padding-bottom: 9em;
 }
 
 .toc .toc-menu {

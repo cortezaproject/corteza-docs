@@ -70,7 +70,7 @@ To start writing automation scripts, you must first define the appropriate file 
 . `/server-scripts` contains a set of automation scripts that are executed on the {APP_AUTOMATION} server.
 . `/client-scripts` contains a set of automation scripts that will be executed inside the web application.
 ** Each sub-directory inside `/client-scripts` defines a bundle.
-When a web application loads, it fetches the bundle that is assigned to it (this is done automtically).
+When a web application loads, it fetches the bundle that is assigned to it (this is done automatically).
 
 Both `/server-scripts` and `/client-scripts` assume that all underlying files are automation scripts with valid signatures.
 When defining a file with utility functions, move it under `/shared` or define a `/util` (or similar) at the root of the project.
@@ -143,7 +143,7 @@ See xref:automation/automation-scripts/samples/server-scripts/index.adoc[server 
 
 === Execution arguments
 
-Execution arguments (the `args` parameter of the <<automation-script-signature,`exec` function>>) contain the core data that your logic is able to work with.
+Execution arguments (the `args` parameter of the `exec` function) contain the core data that your logic is able to work with.
 The data differs based on the event that triggered the automation script.
 To examplify; user related events define what user is involved, while record related events define the involved record and the module.
 
@@ -162,8 +162,7 @@ Arguments to a server-script are provided as *a copy* of the original object, me
 [#execution-context]
 === Execution context
 
-Execution context (the `ctx` parameter of the <<automation-script-signature,`exec` function>>) contains contextual information and utilities that can be used within script execution.
-The context between all of the events is static.
+Execution context (the `ctx` parameter of the `exec` function) contains contextual information and utilities that can be used within script execution.
 
 .Execution of context parameters:
 [cols="1m,5a"]
@@ -174,7 +173,7 @@ The `console` parameter defines a logger.
 
 [NOTE]
 ====
-When executing client scripts, this is the built-in `window.console`; when executing server secripts, this is a `Pino` logger.
+When executing client scripts, this is the built-in `window.console`; when executing server scripts, this is a `Pino` logger.
 ====
 
 | [#context-log]#<<context-log,ctx.log>>#
@@ -334,7 +333,7 @@ Sink triggers can only be used in server scripts and require explicit security c
 ====
 These are triggered by the system *when it receives a request*; either *HTTP* or *email*.
 
-Use sink triggers when you want to *respond to requests*; such as *webhooks for external services* or *custom API endpoints*, f1or example *capturing data from external forms*, *tracking external document changes*, and *capturing payments*.
+Use sink triggers when you want to *respond to requests*; such as *webhooks for external services* or *custom API endpoints*, for example *capturing data from external forms*, *tracking external document changes*, and *capturing payments*.
 
 [NOTE]
 ====
@@ -491,7 +490,7 @@ triggers ({ after }) {
 *Deferred* and *sink* scripts require you to specify the security context as the invoker is not known.
 ====
 
-The invoking user is a person who performes an action that triggers the script execution.
+The invoking user is a person who performs an action that triggers the script execution.
 To examplify; you press a button, therefore you are the invoking user.
 
 By specifying the invoking user, the automation script may access some resources that the actual invoking user may not have access to, such as personal client information.

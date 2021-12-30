@@ -52,7 +52,6 @@
 ***** xref:automation/workflows/examples/gw-parse-payload.adoc[]
 
 *** xref:automation/automation-scripts/index.adoc[]
-**** xref:automation/automation-scripts/script-context.adoc[]
 **** xref:automation/automation-scripts/node-modules.adoc[]
 **** xref:automation/automation-scripts/edit-built-in-scripts.adoc[]
 **** xref:automation/automation-scripts/testing.adoc[]

@@ -1,0 +1,66 @@
+include::ROOT:partial$variables.adoc[]
+
+= Import Resource Translations
+
+[IMPORTANT]
+====
+After you have imported the translations you will need to restart the server for the changes to take affect.
+Translations are kept in-memory of the process running the server.
+We are looking in improving this in the future releases
+====
+
+[CAUTION]
+====
+Before importing larger datasets (especially to production) it is advised to make a database backup and to test the configuration locally or on a staging server.
+====
+
+.To import resource translations you need to:
+. Prepare the source files,
+. run the command
+
+== Source files
+
+Prepare a directory where all of your source files reside in.
+
+.`/import`:
+[source]
+----
+/import
+  /corteza::compose:module.yaml
+  /corteza::compose:namespace.yaml
+  /resource-translation.yaml
+----
+
+The `resource-translation.yaml` file contains the resource translations you wish to import, and the other two files (`corteza::compose:module.yaml` and `corteza::compose:namespace.yaml`) contain the definitions for the resources we are applying the translations for.
+
+[IMPORTANT]
+====
+The current resource-translations importer requires you to provide the definitions for the resources you are applying the translations for.
+We are looking in improving this in the future releases
+====
+
+== Run the import
+
+Use the xref:maintenance/cli-reference.adoc#import[import CLI command] to import your resource-translations.
+
+The argument to the CLI command needs to be the location of the source files, in our above case this is `/import`.
+
+[NOTE]
+====
+By default, the import CLI command skips already existing resources.
+
+.You can control the behavior using the following flags:
+[source]
+----
+--merge-left-existing             Update any existing values; existing data takes priority. Default skips.
+--merge-right-existing            Update any existing values; new data takes priority. Default skips.
+--replace-existing                Replace any existing values. Default skips.
+----
+
+====
+
+.An example of running the CLI command for our case:
+[source,bash]
+----
+corteza-server import /import
+----

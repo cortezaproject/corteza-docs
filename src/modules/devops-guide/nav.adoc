@@ -37,3 +37,4 @@
 
 ** CLI
 *** xref:cli/record-import.adoc[]
+*** xref:cli/resource-translation-import.adoc[]

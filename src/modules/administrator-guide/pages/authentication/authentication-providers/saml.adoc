@@ -94,21 +94,35 @@ XhV4F/ngKrnQgxp47BCdNe0vC5Z44OImPpvQBsZ5PueqW+Pr5JHO
 -----END RSA PRIVATE KEY-----
 ----
 
+== Using signed and encrypted requests
+
+The `AuthNRequest` to the IdP can be signed and encrypted with the provided certificate and sent via HTTP-Post binding to the IdP of choice.
+Refer to more examples for help on the https://www.samltool.com/generic_sso_req.php[samltool] webpage.
+
+The assertion coming back from IdP can be signed and encrypted, providing that the certificate on the service provider side (Corteza) is included in the SAML metadata.
+Corteza supports signed message and signed and encrypted assertions.
+Refer to more examples for help on the https://www.samltool.com/generic_sso_res.php[samltool] webpage.
+
+.Enabling signed requests and responses
+. The "Sign requests" checkbox under "Certificate" section should be enabled (refer to the <<saml-admin-ui,admin ui screenshot>>)
+. "Signature method" should be set and depends on the kind of algorithm was specified on the certificate creation (in this example, SHA256 was used)
+
 == Setting up the IdP in the administration panel
 
 Open your administration panel and navigate to menu:system[settings].
 
+[#saml-admin-ui]
 .The screenshot shows the SAML settings in the administration panel under menu:system[settings].
 image::authentication-provider/admin-settings.png[Screenshot of the configuration window.,role="data-zoomable"]
 
 .Notes on the SAML configuration form:
 . If you disable your SAML IdP, all settings are kept in {PRODUCT_NAME}.
 Users will no longer be able to use SAML for login.
-All active login sessions created using SAML are kept; users will not be logged-of
-. Name is displayed on the login form (refer to the <<saml-login-ui,bellow screenshot>>)
+All active login sessions created using SAML are kept; users will not be logged-out
+. Name is displayed on the login form (refer to the <<saml-login-ui,below screenshot>>)
 . Identity provider URL must point to the URL of the server which provides the metadata.
 The metadata is an XML document providing machine-readable instructions for SAML configuration.
-. Name, handle and identifier fields aid in the user creation process.
+. Name, handle and identifier fields need to be specified in order for the user to be created.
 When a user successfully logs in using SAML, {PRODUCT_NAME} performs a lookup using a value from the identifier field, which is expected to be an email.
 Values from name and handle are used when creating a new user.
 

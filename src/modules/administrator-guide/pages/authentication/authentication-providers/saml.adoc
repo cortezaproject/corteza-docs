@@ -99,11 +99,11 @@ XhV4F/ngKrnQgxp47BCdNe0vC5Z44OImPpvQBsZ5PueqW+Pr5JHO
 The `AuthNRequest` to the IdP can be signed and encrypted with the provided certificate and sent via HTTP-Post binding to the IdP of choice.
 Refer to more examples for help on the https://www.samltool.com/generic_sso_req.php[samltool] webpage.
 
-The assertion coming back from IdP can be signed and encrypted, providing that the certificate on the service provider side (Corteza) is included in the SAML metadata.
-Corteza supports signed message and signed and encrypted assertions.
+The assertion coming back from IdP can be signed and encrypted, providing that the certificate on the service provider side ({PRODUCT_NAME}) is included in the SAML metadata.
+{PRODUCT_NAME} supports signed message and signed and encrypted assertions.
 Refer to more examples for help on the https://www.samltool.com/generic_sso_res.php[samltool] webpage.
 
-.Enabling signed requests and responses
+.Enabling signed requests and responses:
 . The "Sign requests" checkbox under "Certificate" section should be enabled (refer to the <<saml-admin-ui,admin ui screenshot>>)
 . "Signature method" should be set and depends on the kind of algorithm was specified on the certificate creation (in this example, SHA256 was used)
 

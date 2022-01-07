@@ -32,9 +32,9 @@ image::apigw/route-create.png[role="data-zoomable"]
 The endpoint will be accessible under `$BASE_URL/api/gateway$YOUR_ENDPOINT`.
 To exemplify; the `/test-api` endpoint for the `https://latest.cortezaproject.org` instance is available under `https://latest.cortezaproject.org/api/gateway/test-api`
 
-[NOTE]
+[TIP]
 ====
-*DevNote* can I have multiple endpoints with same routes but different methods?
+You can specify different HTTP methods on the same route, but they need to be specified as different endpoints, ie. **GET** /customer and **PUT** /customer being two different integration gateway endpoints.
 ====
 
 When you submit the forum, an additional "filter list" section opens below the base parameters.

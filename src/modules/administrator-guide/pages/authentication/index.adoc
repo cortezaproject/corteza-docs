@@ -8,7 +8,25 @@ An authentication client (an auth client for short) is a facility that allows yo
 
 The menu:system[auth clients] user interface allows you to inspect and manage your auth clients.
 
-image::auth-client-list.png[role="data-zoomable"]
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "auth-client-list.png",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {},
+  "annotations": [{
+    "kind": "box",
+    "padding": "xs",
+    "x": 16,
+    "y": 405,
+    "w": 288,
+    "h": 37
+  }]
+}
+----
 
 .From there you can:
 * List the auth clients created inside your {PRODUCT_NAME} instance.
@@ -22,7 +40,24 @@ image::auth-client-list.png[role="data-zoomable"]
 . Navigate to menu:system[auth clients],
 . optionally insert the filtering parameters (the list refreshes automatically).
 
-image::auth-client-list.png[role="data-zoomable"]
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "auth-client-list.png",
+    "alias": "admin-webapp-auth-client-list",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {
+    "x": 321,
+    "y": 0,
+    "w": 1599,
+    "h": 430
+  },
+  "annotations": []
+}
+----
 
 === Creating auth clients
 
@@ -37,7 +72,24 @@ Permissions can only be defined on existing auth clients.
 . provide the requested data,
 . press the btn:[submit] button.
 
-image::auth-client-create.png[role="data-zoomable"]
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "auth-client-create.png",
+    "alias": "admin-webapp-auth-client-create",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {
+    "x": 321,
+    "y": 0,
+    "w": 1599,
+    "h": 1080
+  },
+  "annotations": []
+}
+----
 
 === Editing auth clients
 
@@ -47,7 +99,24 @@ image::auth-client-create.png[role="data-zoomable"]
 . update the parameters you wish to change,
 . press the btn:[submit] button.
 
-image::auth-client-edit.png[role="data-zoomable"]
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "auth-client-edit.png",
+    "alias": "admin-webapp-auth-client-edit",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {
+    "x": 321,
+    "y": 0,
+    "w": 1599,
+    "h": 1080
+  },
+  "annotations": []
+}
+----
 
 === Deleting auth clients
 
@@ -56,7 +125,35 @@ image::auth-client-edit.png[role="data-zoomable"]
 . click on the btn:[edit] icon next to the auth client you wish to suspend,
 . press and confirm the btn:[delete] button.
 
-image::auth-client-edit.png[role="data-zoomable"]
+[IMPORTANT]
+====
+Default auth clients can not be deleted.
+====
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "auth-client-delete.png",
+    "alias": "admin-webapp-auth-client-delete",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {
+    "x": 321,
+    "y": 0,
+    "w": 1599,
+    "h": 1080
+  },
+  "annotations": [{
+    "kind": "box",
+    "x": 586,
+    "y": 1033,
+    "h": 30,
+    "w": 76
+  }]
+}
+----
 
 == Grant types
 
@@ -71,7 +168,30 @@ The *authorization code* grant type is used to authenticate users with the class
 
 To enable the grant type, select the "will be used to authenticate users (grant type = authorization_code)" option.
 
-image::auth-client-edit.png[role="data-zoomable"]
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "auth-client-authorization-code.png",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {
+    "x": 321,
+    "y": 0,
+    "w": 1599,
+    "h": 1080
+  },
+  "annotations": [{
+    "kind": "box",
+    "padding": "sm",
+    "x": 855,
+    "y": 407,
+    "w": 526,
+    "h": 19
+  }]
+}
+----
 
 | [#auth-client-grant-client-credentials]#<<auth-client-grant-client-credentials,Client credentials>>#
 |
@@ -85,7 +205,30 @@ The impersonated user will be used to create the security context of the JWT tok
 
 To enable the grant type, select the "will be used to authenticate machines (grant type = client_credentials)" option.
 
-image::auth-client-edit.png[role="data-zoomable"]
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "auth-client-client-credentials.png",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {
+    "x": 321,
+    "y": 0,
+    "w": 1599,
+    "h": 1080
+  },
+  "annotations": [{
+    "kind": "box",
+    "padding": "sm",
+    "x": 855,
+    "y": 429,
+    "w": 547,
+    "h": 19
+  }]
+}
+----
 
 |===
 
@@ -95,7 +238,30 @@ image::auth-client-edit.png[role="data-zoomable"]
 
 Password constraints are configured on the {PRODUCT_NAME} {APP_NAME_ADMIN} web application under menu:system[settings] in the "password constraints" section.
 
-image::authentication/password-constraints.png[role="data-zoomable"]
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "authentication/password-constraints.png",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {
+    "x": 321,
+    "y": 0,
+    "w": 1599,
+    "h": 1080
+  },
+  "focus": {
+    "x": 565,
+    "y": 355,
+    "w": 1108,
+    "h": 272,
+    "padding": 10
+  },
+  "annotations": []
+}
+----
 
 [cols="2s,5a"]
 |===
@@ -126,7 +292,36 @@ This is handy for local development where we may not wish to handle complex pass
 The option should be *disabled* for any production deployment.
 If the password security is disabled, a warning message is displayed in the UI.
 
-image::authentication/password-security-disabled.png[role="data-zoomable"]
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "authentication/password-security-disabled.png",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {
+    "x": 321,
+    "y": 0,
+    "w": 1599,
+    "h": 1080
+  },
+  "focus": {
+    "x": 565,
+    "y": 355,
+    "w": 1108,
+    "h": 336,
+    "padding": 10
+  },
+  "annotations": [{
+    "kind": "box",
+    "x": 585,
+    "y": 401,
+    "w": 1071,
+    "h": 48
+  }]
+}
+----
 ====
 
 == Define session duration
@@ -164,13 +359,68 @@ AUTH_OAUTH2_REFRESH_TOKEN_LIFETIME=2m
 |
 The `AUTH_SESSION_LIFETIME` `.env` variable allows you to define how long the authentication session should be valid.
 
-The authentication session is generated when the user provides their credentials to the {PRODUCT_NAME} login page.
+The authentication session is generated when the user provides their credentials to the *{PRODUCT_NAME} login page*.
 The authentication session is independent of access tokens.
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "auth-login.png",
+    "alias": "auth-login-reg",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {},
+  "annotations": [{
+    "kind": "box",
+    "padding": "sm",
+    "x": 672,
+    "y": 546,
+    "h": 40,
+    "w": 577
+  }]
+}
+----
 
 .An example of limiting the auth session to two minutes:
 [source,.env]
 ----
 AUTH_SESSION_LIFETIME=2m
+----
+
+| [#auth-sesion-auth_session_perm_lifetime]#<<auth-sesion-auth_session_perm_lifetime,AUTH_SESSION_PERM_LIFETIME>>#
+|
+The `AUTH_SESSION_PERM_LIFETIME` `.env` variable allows you to define how long the authentication session should be valid when the btn:[login and remember me] is used.
+
+The authentication session is generated when the user provides their credentials to the *{PRODUCT_NAME} login page*.
+The authentication session is independent of access tokens.
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "auth-login.png",
+    "alias": "auth-login-perm",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {},
+  "annotations": [{
+    "kind": "box",
+    "padding": "sm",
+    "x": 672,
+    "y": 497,
+    "h": 42,
+    "w": 577
+  }]
+}
+----
+
+.An example of limiting the auth session to two minutes:
+[source,.env]
+----
+AUTH_SESSION_PERM_LIFETIME=2m
 ----
 
 |===

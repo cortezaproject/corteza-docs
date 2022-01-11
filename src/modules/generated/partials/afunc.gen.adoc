@@ -8,13 +8,16 @@
 //  - automation/automation/email_handler.yaml
 //  - automation/automation/http_request_handler.yaml
 //  - automation/automation/jsenv_handler.yaml
+//  - automation/automation/jwt_handler.yaml
 //  - automation/automation/log_handler.yaml
 //  - automation/automation/loop_handler.yaml
 //  - automation/automation/oauth2_handler.yaml
 //  - automation/automation/queue_handler.yaml
+//  - compose/automation/attachment_handler.yaml
 //  - compose/automation/modules_handler.yaml
 //  - compose/automation/namespaces_handler.yaml
 //  - compose/automation/records_handler.yaml
+//  - system/automation/actionlog_handler.yaml
 //  - system/automation/rbac_handler.yaml
 //  - system/automation/roles_handler.yaml
 //  - system/automation/templates_handler.yaml
@@ -312,6 +315,36 @@
 * resultAny (`Any`)
 
 |===
+= `jwt`
+
+[cols="2m,4a,3a"]
+|===
+| Name | Description | I/O
+
+| [#fnc-jwt-generate]#<<fnc-jwt-generate,Generate JWT>>#
+| 
+|
+.Parameters:
+* `scope`
+(
+   `String`,)
+* #*# `header`
+(
+   `Vars`,
+   `String`,)
+* #*# `payload`
+(
+   `Vars`,
+   `String`,)
+* #*# `secret`
+(
+   `String`,
+   `Reader`,)
+
+.Results:
+* token (`String`)
+
+|===
 = `log`
 
 [cols="2m,4a,3a"]
@@ -416,6 +449,75 @@
 * #*# `queue`
 (
    `String`,)
+
+|===
+= `attachment`
+
+[cols="2m,4a,3a"]
+|===
+| Name | Description | I/O
+
+| [#fnc-attachment-lookup]#<<fnc-attachment-lookup,Compose record lookup>>#
+| Find specific record by ID
+|
+.Parameters:
+* #*# `attachment`
+(
+   `ID`,)
+
+.Results:
+* attachment (`Attachment`)
+
+| [#fnc-attachment-create]#<<fnc-attachment-create,Create file and attach it to a resource>>#
+| 
+|
+.Parameters:
+* `name`
+(
+   `String`,)
+* #*# `resource`
+(
+   `ComposeRecord`,)
+* #*# `content`
+(
+   `String`,
+   `Reader`,
+   `Bytes`,)
+
+.Results:
+* attachment (`Attachment`)
+
+| [#fnc-attachment-delete]#<<fnc-attachment-delete,Delete attachment>>#
+| 
+|
+.Parameters:
+* #*# `attachment`
+(
+   `ID`,)
+
+| [#fnc-attachment-openoriginal]#<<fnc-attachment-openoriginal,Open original attachment>>#
+| 
+|
+.Parameters:
+* #*# `attachment`
+(
+   `ID`,
+   `Attachment`,)
+
+.Results:
+* content (`Reader`)
+
+| [#fnc-attachment-openpreview]#<<fnc-attachment-openpreview,Open attachment preview>>#
+| 
+|
+.Parameters:
+* #*# `attachment`
+(
+   `ID`,
+   `Attachment`,)
+
+.Results:
+* content (`Reader`)
 
 |===
 = `modules`
@@ -656,6 +758,68 @@
 
 .Results:
 * Complex structure holding complete records report (`Any`)
+
+|===
+= `actionlog`
+
+[cols="2m,4a,3a"]
+|===
+| Name | Description | I/O
+
+| [#fnc-actionlog-search]#<<fnc-actionlog-search,Action log search>>#
+| 
+|
+.Parameters:
+* `fromTimestamp`
+(
+   `DateTime`,)
+* `toTimestamp`
+(
+   `DateTime`,)
+* `beforeActionID`
+(
+   `ID`,)
+* `actorID`
+(
+   `ID`,)
+* `origin`
+(
+   `String`,)
+* `resource`
+(
+   `String`,)
+* `action`
+(
+   `String`,)
+* `limit`
+(
+   `UnsignedInteger`,)
+
+.Results:
+* actions (`Action`)
+
+| [#fnc-actionlog-record]#<<fnc-actionlog-record,Record action into action log>>#
+| 
+|
+.Parameters:
+* `action`
+(
+   `String`,)
+* `resource`
+(
+   `String`,)
+* `error`
+(
+   `String`,)
+* `severity`
+(
+   `String`,)
+* `description`
+(
+   `String`,)
+* `meta`
+(
+   `Vars`,)
 
 |===
 = `rbac`
@@ -1003,7 +1167,7 @@
    `Handle`,
    `Template`,)
 
-| [#fnc-templates-render]#<<fnc-templates-render,Render template>>#
+| [#fnc-templates-render]#<<fnc-templates-render,Template render>>#
 | 
 |
 .Parameters:

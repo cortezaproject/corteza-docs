@@ -13,6 +13,22 @@
 |===
 | Type | Structure
 
+| [#objref-attachment]#<<objref-attachment,Attachment>>#
+|
+[source]
+----
+{
+   ID (ID)
+   kind (String)
+   url (Handle)
+   previewUrl (Handle)
+   name (Handle)
+   createdAt (DateTime)
+   updatedAt (DateTime)
+   deletedAt (DateTime)
+}
+----
+
 | [#objref-composemodule]#<<objref-composemodule,ComposeModule>>#
 |
 [source]
@@ -65,6 +81,20 @@
 ----
 
 
+
+| [#objref-httprequest]#<<objref-httprequest,HttpRequest>>#
+|
+[source]
+----
+{
+   Method (String)
+   URL (Url)
+   Header (KVV)
+   Body (Reader)
+   Form (KVV)
+   PostForm (KVV)
+}
+----
 
 | [#objref-queuemessage]#<<objref-queuemessage,QueueMessage>>#
 |
@@ -131,6 +161,23 @@
 {
    short (String)
    description (String)
+}
+----
+
+| [#objref-url]#<<objref-url,Url>>#
+|
+[source]
+----
+{
+   Scheme (String)
+   Opaque (String)
+   Host (String)
+   Path (String)
+   RawPath (String)
+   ForceQuery (Boolean)
+   RawQuery (String)
+   Fragment (String)
+   RawFragment (String)
 }
 ----
 

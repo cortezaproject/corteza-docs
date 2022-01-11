@@ -23,6 +23,7 @@
 //  - pkg/options/messagebus.yaml
 //  - pkg/options/monitor.yaml
 //  - pkg/options/objectStore.yaml
+//  - pkg/options/plugins.yaml
 //  - pkg/options/provision.yaml
 //  - pkg/options/seeder.yaml
 //  - pkg/options/sentry.yaml
@@ -690,6 +691,20 @@ false
 ----
 
 
+== *ACTIONLOG_WORKFLOW_FUNCTIONS_ENABLED*
+
+=== Type
+
+`bool`
+
+=== Default
+
+[source]
+----
+false
+----
+
+
 = API Gateway
 
 == *APIGW_ENABLED*
@@ -823,6 +838,29 @@ Outbound request timeout
 
 Enable extra logging for authentication flows
 
+== *AUTH_PASSWORD_SECURITY*
+
+=== Type
+
+`bool`
+
+=== Default
+
+[source]
+----
+true
+----
+
+=== Description
+
+Password security allows you to disable constraints to which passwords must conform to.
+
+[CAUTION]
+====
+Disabling password security can be useful for development environments as it removes the need for complex passwords.
+Password security *should be enabled* on production environments to avoid security incidents
+====
+
 == *AUTH_JWT_SECRET*
 
 === Type
@@ -845,6 +883,40 @@ Secret used for signing JWT tokens.
 If secret is not set, system auto-generates one from DB_DSN and HOSTNAME environment variables.
 Generated secret will change if you change any of these variables.
 ====
+
+== *AUTH_OAUTH2_ACCESS_TOKEN_LIFETIME*
+
+=== Type
+
+`time.Duration`
+
+=== Default
+
+[source]
+----
+time.Hour * 2
+----
+
+=== Description
+
+Access token lifetime
+
+== *AUTH_OAUTH2_REFRESH_TOKEN_LIFETIME*
+
+=== Type
+
+`time.Duration`
+
+=== Default
+
+[source]
+----
+time.Hour * 24 * 3
+----
+
+=== Description
+
+Refresh token lifetime
 
 == *AUTH_JWT_EXPIRY*
 
@@ -1903,23 +1975,26 @@ true
 
 `string`
 
+=== Default
 
-== *MINIO_BUCKET_SEP*
+[source]
+----
+"{component}"
+----
+
+=== Description
+
+`component` placeholder is replaced with service name (e.g system).
+
+== *MINIO_PATH_PREFIX*
 
 === Type
 
 `string`
 
-=== Default
-
-[source]
-----
-"/"
-----
-
 === Description
 
-Used between MINIO_BUCKET and the service name (e.g system). Ignored if MINIO_BUCKET is not set. Required in latest versions of min.io since "/" is not accepted anymore in bucket names.
+`component` placeholder is replaced with service name (e.g system).
 
 == *MINIO_STRICT*
 
@@ -1934,6 +2009,35 @@ Used between MINIO_BUCKET and the service name (e.g system). Ignored if MINIO_BU
 false
 ----
 
+
+= Plugins
+
+== *PLUGINS_ENABLED*
+
+=== Type
+
+`bool`
+
+=== Default
+
+[source]
+----
+true
+----
+
+=== Description
+
+Enable plugins
+
+== *PLUGINS_PATHS*
+
+=== Type
+
+`string`
+
+=== Description
+
+List of colon seperated paths or patterns where plugins could be found
 
 = Provisioning
 

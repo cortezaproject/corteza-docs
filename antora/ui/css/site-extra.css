@@ -205,6 +205,10 @@ aside.nav,
   .nav {
     height: auto;
   }
+
+  .doc {
+    max-width: 62rem;
+  }
 }
 
 .nav-panel-menu {

@@ -47,7 +47,7 @@ If you wish to deploy {PRODUCT_NAME} elsewhere (for example, bare metal) you wil
 
 == System administration
 
-The xref:administrator-guide:index.adoc[] covers core system security and core system resources; such as xref:administrator-guide:users.adoc[], xref:administrator-guide:roles.adoc[], and xref:administrator-guide:applications.adoc[].
+The xref:administrator-guide:index.adoc[] covers core system security and core system resources; such as xref:administrator-guide:users.adoc[], xref:administrator-guide:roles.adoc[], and xref:administrator-guide:logging.adoc[].
 
 If you're interested in developing custom applications using {PRODUCT_NAME}, refer to xref:integrator-guide:index.adoc[].
 

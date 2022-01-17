@@ -114,11 +114,11 @@ For more info on AuthNRequest and assertion in metadata refer to the <<saml-deve
 {PRODUCT_NAME} supports *HTTP POST* and *HTTP Redirect* SAML 2.0 bindings.
 
 .Specifying SAML binding:
-. The "Binding" dropdown should be selected, specifying either _HTTP POST_ or _HTTP Redirect_ binding (refer to the <<saml-admin-ui,admin ui screenshot>>)
+The "Binding" dropdown should be selected, specifying either _HTTP POST_ or _HTTP Redirect_ binding (refer to the <<saml-admin-ui,admin ui screenshot>>)
 
 [NOTE]
 ====
-The fallback choice is *HTTP Redirect*
+The fallback choice is *HTTP Redirect*.
 ====
 
 For more info on bindings in metadata refer to the <<saml-developer-notes,developer notes>>.
@@ -171,7 +171,7 @@ When setting up the SAML authentication provider, there is some information that
 
 The metadata URL resides at `$BASE_URL/auth/external/saml/metadata`.
 
-Fetching metadata with curl example
+.Fetching metadata with curl example:
 [source,shell script]
 ----
 curl $BASE_URL/auth/external/saml/metadata

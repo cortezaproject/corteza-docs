@@ -5,16 +5,18 @@
 *DevNote* generate the rest.
 ====
 
-:leveloffset: +1
-
-include::partial$expr/type-reference.adoc[]
-
-:leveloffset: -1
-
-== Initialization patterns
+== Type reference
 
 :leveloffset: +2
 
-include::partial$expr/type-init.adoc[]
+include::partial$expr/type-reference.adoc[]
+
+:leveloffset: -2
+
+== Object reference
+
+:leveloffset: +2
+
+include::generated:partial$expr-types.gen.adoc[]
 
 :leveloffset: -2

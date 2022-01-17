@@ -1,82 +1,342 @@
 include::ROOT:partial$variables.adoc[]
 
-[cols="2s,1,5a"]
-|===
-| Type | Primitive | Description
+[#datatype-any]
+= `Any`
 
-| [#datatype-any]#<<datatype-any,Any>>#
-| N/A
-|
+*Is primitive*: `n/a`
+
 A variable of type `Any` does not perform any type checks and can store anything.
 The use of this is not recommended, but it can be used.
 
-| [#datatype-vars]#<<datatype-vars,Vars>>#
-| No
-|
+.Initialization patterns:
+[cols="2m,2m,4a"]
+|===
+| Expression | Value/result | Notes
+
+| v
+| null
+| Initializes the variable with the value of `null`.
+
+| v = "test"
+| "test"
+| Initializes the variable with the string value of `test`.
+
+| v = 42
+| 42
+| Initializes the variable with the integer value of `42`.
+
+|===
+
+[#datatype-vars]
+= `Vars`
+
+*Is primitive*: `no`
+
 Identical to <<datatype-kv,`KV`>> but used for complex structures.
 
-| [#datatype-boolean]#<<datatype-boolean,Boolean>>#
-| Yes
-|
+.Initialization patterns:
+[cols="2m,2m,4a"]
+|===
+| Expression | Value/result | Notes
+
+| v
+| {}
+| Initializes a vars variable without value, defaults to empty (`{}`).
+
+| v = { "key": "value" }
+| { "key": "value" }
+| Initializes a vars variable with the property `key` with value of `value`.
+
+| v = { "key": { "key": "value" } }
+| { "key": { "key": "value" } }
+| Initializes a vars variable with the property `key` with value of a nested vars variable with the property `key` with value of `value`.
+
+|===
+
+[#datatype-boolean]
+= `Boolean`
+
+*Is primitive*: `yes`
+
 A `Boolean` indicates wether a variable is truthy (`true`) or faulty (`false`).
 
-| [#datatype-datetime]#<<datatype-datetime,DateTime>>#
-| Yes
+.Initialization patterns:
+[cols="2m,2m,4a"]
+|===
+| Expression | Value/result | Notes
+
+| v
+| false
+| Initializes boolean variable without value, defaults to false.
+
+| v = true
+| true
+| Initializes boolean variable with an boolean value.
+
+| v = "true"
+| true
 |
+.Parsing string values:
+* `"1"``, `"t"``, `"T"``, `"true"``, `"TRUE"``, `"True"`` result as `true`
+* `"0"``, `"f"``, `"F"``, `"false"``, `"FALSE"``, `"False"`` result as `false`
+
+| v = 10 == 0
+| true
+| Initializes boolean variable as result of an expression.
+|===
+
+[#datatype-datetime]
+= `DateTime`
+
+*Is primitive*: `yes`
+
 A `DateTime` contains an absolute temporal value.
 A `DateTime` can easily be manipulated using xref:expr/fnc-reference.adoc#datetime[date-time functions].
 
-| [#datatype-duration]#<<datatype-duration,Duration>>#
-| Yes
-|
+.Initialization patterns:
+[cols="2m,2m,4a"]
+|===
+| Expression | Value/result | Notes
+
+| v
+| ERROR
+| `DateTime` initialization requires a non-null value.
+
+| v = "2022-01-17T07:32:30Z"
+| "2022-01-17T07:32:30Z"
+| Initializes a DateTime variable to the given ISO 8601 timestamp.
+
+| v = 1642414876
+| "2022-01-17T11:21:16"
+| Initializes a DateTime variable to the given unix timestamp.
+
+[CAUTION]
+====
+When initializing DateTime variables with unix timestamps inside workflows, you will need an intermediate variable for the unix timestamp value.
+====
+
+|===
+
+[#datatype-duration]
+= `Duration`
+
+*Is primitive*: `yes`
+
 A `Duration` variable contains a relative temporal value.
 It is usually used in combination with <<datatype-datetime,DateTime>> values to calculate offsets.
 
-| [#datatype-float]#<<datatype-float,Float>>#
-| Yes
-|
+.Initialization patterns:
+[cols="2m,2m,4a"]
+|===
+| Expression | Value/result | Notes
+
+| v
+| ERROR
+| `Duration` initialization requires a non-null value
+
+| v = "1m"
+| 1m0s
+| Initializes a Duration variable to be 1 minute.
+
+| v = "3h"
+| 3h0m0s
+| Initializes a Duration variable to be 3 hours.
+
+|===
+
+[#datatype-float]
+= `Float`
+
+*Is primitive*: `yes`
+
 A `Float` is a 64bit floating point number following the https://en.wikipedia.org/wiki/IEEE_754[IEEE 754] standard.
 
-| [#datatype-integer]#<<datatype-integer,Integer>>#
-| Yes
-|
+.Initialization patterns:
+[cols="2m,2m,4a"]
+|===
+| Expression | Value/result | Notes
+
+| v
+| 0
+| Initializes a float variable without value, defaults to 0.
+
+| v = 4.2
+| 4.2
+| Initializes a float variable with a float value.
+
+| v = "4.2"
+| "4.2"
+| Initializes a float variable with a string value.
+
+| v = "four.two"
+| ERROR
+| Initializes a float variable with an invalid string value.
+
+|===
+
+[#datatype-integer]
+= `Integer`
+
+*Is primitive*: `yes`
+
 An `Integer` is a 64bit signed integer; range `-9223372036854775808` through `9223372036854775807`.
 
-| [#datatype-unsignedinteger]#<<datatype-unsignedinteger,UnsignedInteger>>#
-| Yes
-|
+.Initialization patterns:
+[cols="2m,2m,4a"]
+|===
+| Expression | Value/result | Notes
+
+| v (Integer)
+| 0
+| Initializes an integer variable without value, defaults to 0.
+
+| v (Integer) = 42
+| 42
+| Initializes an integer variable with an integer value.
+
+| v (Integer) = 3.14
+| 3
+| Initializes an integer variable with a float will cut of the decimals.
+
+| v (Integer) = "42"
+| 42
+| Initializes an integer variable with a string that contains a valid integer.
+
+| v (Integer) = "forty two"
+| ERROR
+| Initializing integer variable with a string that contains a invalid integer results in an error.
+|===
+
+[#datatype-unsignedinteger]
+= `UnsignedInteger`
+
+*Is primitive*: `yes`
+
 An `UnsignedInteger` is a 64bit unsigned integer; range `0` through `18446744073709551615`.
 
-| [#datatype-string]#<<datatype-string,String>>#
-| Yes
-|
+.Initialization patterns:
+[cols="2m,2m,4a"]
+|===
+| Expression | Value/result | Notes
+
+| v (Integer)
+| 0
+| Initializes an unsigned integer variable without value, defaults to 0.
+
+| v (Integer) = 42
+| 42
+| Initializes an unsigned integer variable with an integer value.
+
+| v (Integer) = 3.14
+| 3
+| Initializes an unsigned integer variable with a float will cut of the decimals.
+
+| v (Integer) = "42"
+| 42
+| Initializes an unsigned integer variable with a string that contains a valid integer.
+
+| v (Integer) = "forty two"
+| ERROR
+| Initializing integer variable with a string that contains a invalid integer results in an error.
+|===
+
+[#datatype-string]
+= `String`
+
+*Is primitive*: `yes`
+
 A `String` variable contains a text (a string).
 
-| [#datatype-id]#<<datatype-id,ID>>#
-| Yes
-|
+[TIP]
+====
+If the initialization value is a non-null, non-string value; if defined; the value is casted to a string.
+
+*DevNote* provide a complete list for this.
+====
+
+.Initialization patterns:
+[cols="2m,2m,4a"]
+|===
+| Expression | Value/result | Notes
+
+| v
+| ""
+| Initializes a string variable without value, defaults to empty string (`""`).
+
+| v = "Hi"
+| "Hi"
+| Initializes a string variable with a string value.
+
+| v = 10
+| "10"
+| Initializes a string variable with an integer value.
+
+|===
+
+[#datatype-id]
+= `ID`
+
+*Is primitive*: `yes`
+
 An `ID` is a system assigned unique identifier for all system resources and should not be assigned or manipulated manually.
 An `ID` is a 64bit unsigned integer; range `0` through `18446744073709551615`.
-//Editor's note: Should not be assigned or manipulated manually or cannot be assigned or manipulated manually? is the possibility of manually applied changes there?
 
-| [#datatype-handle]#<<datatype-handle,Handle>>#
-| Yes
-|
+[#datatype-handle]
+= `Handle`
+
+*Is primitive*: `yes`
+
 A `Handle` is a user-friendly resource identifier.
 Most {PRODUCT_NAME} resources (such as namespaces and modules) allow you to define a unique identifier that can be used instead of its system assigned <<datatype-id,ID>>.
 
 The value must be an empty string or a string matching the following regular expression: `/^[A-Za-z][0-9A-Za-z_\-.]*[A-Za-z0-9]$/`.
 
-// ---
+.Initialization patterns:
+[cols="2m,2m,4a"]
+|===
+| Expression | Value/result | Notes
 
-| [#datatype-array]#<<datatype-array,Array>>#
-| No
-|
+| v
+| 0
+| Initializes a handle variable without value, defaults to empty (`""`).
+
+| v = "transaction"
+| "transaction"
+| Initializes a handle variable with a string value.
+
+| v = "invalid handle"
+| ERROR
+| Initializes a handle variable with an invalid string value.
+
+|===
+
+[#datatype-array]
+= `Array`
+
+*Is primitive*: `no`
+
 An `Array` contains a list of items, such as a list of users, records or modules.
 
-| [#datatype-reader]#<<datatype-reader,Reader>>#
-| No
-|
+.Initialization patterns:
+[cols="2m,2m,4a"]
+|===
+| Expression | Value/result | Notes
+
+| v
+| []
+| Initializes an array variable without value, defaults to empty (`[]`).
+
+| v = [1, 2, 3]
+| [1, 2, 3]
+| Initializes an array variable with a list of integers.
+
+|===
+
+[#datatype-reader]
+= `Reader`
+
+*Is primitive*: `no`
+
 A `Reader` represents a data stream (such as a file or a blob) that can be read or iterated over using the stream iterator.
 
 [IMPORTANT]
@@ -85,42 +345,131 @@ A `Reader` can only be read once.
 If you need to use it multiple times you will need to cache the initial output.
 ====
 
-| [#datatype-kv]#<<datatype-kv,KV>>#
-| No
-|
+.Initialization patterns:
+[cols="2m,2m,4a"]
+|===
+| Expression | Value/result | Notes
+
+| v
+| ERROR
+| `Reader` initialization requires a non-nil value.
+
+| v = "Test"
+| Reader("Test")
+| Initializes a reader variable from the string.
+
+|===
+
+[#datatype-kv]
+= `KV`
+
+*Is primitive*: `no`
+
 A `KV` is a hashmap that maps `String` values to `String` keys.
 
-| [#datatype-kvv]#<<datatype-kvv,KVV>>#
-| No
-|
+.Initialization patterns:
+[cols="2m,2m,4a"]
+|===
+| Expression | Value/result | Notes
+
+| v
+| {}
+| Initializes a kv variable without value, defaults to empty (`{}`).
+
+| v = { "key": "value" }
+| { "key": "value" }
+| Initializes a kv variable to the given set of keys and values.
+
+|===
+
+[#datatype-kvv]
+= `KVV`
+
+*Is primitive*: `no`
+
 A `KVV` is a hashmap that maps a set of `String` values to `String` keys.
+
+.Initialization patterns:
+[cols="2m,2m,4a"]
+|===
+| Expression | Value/result | Notes
+
+| v
+| {}
+| Initializes a kvv variable without value, defaults to empty (`{}`).
+
+| v = { "key": [ "value 1", "value 2" ] }
+| { "key": [ "value 1", "value 2" ] }
+| Initializes a kvv variable to the given set of keys and values.
+
+|===
 
 // ---
 
-| [#datatype-template]#<<datatype-template,Template>>#
-| No
-|
+[#datatype-template]
+= `Template`
+
+*Is primitive*: `no`
+
 A `Template` contains a template that can be used by the rendering engine.
 
-| [#datatype-document]#<<datatype-document,Document>>#
-| No
-|
+.Initialization patterns:
+[cols="2m,2m,4a"]
+|===
+| Expression | Value/result | Notes
+
+| v
+| { ... }
+| Initializes a template variable without value, defaults to empty.
+Refer to the <<objref-template,object reference>> for details.
+
+| v = { "handle": "test", "type": "text/html" }
+| { ... "handle": "test", "type": "text/html" ... }
+| Initializes a template variable with the given handle and template type.
+Refer to the <<objref-template,object reference>> for details.
+
+|===
+
+[#datatype-document]
+= `Document`
+
+*Is primitive*: `no`
+
 A `Document` is a rendered <<datatype-template,Template>>.
 It uses <<datatype-renderoptions,RenderOptions>> and <<datatype-rendervariables,RenderVariables>> in order to produce a document.
 
-| [#datatype-renderoptions]#<<datatype-renderoptions,RenderOptions>>#
-| No
-|
+[NOTE]
+====
+A `Document` is a result of the template render function and should not be constructed manually.
+====
+
+[#datatype-renderoptions]
+= `RenderOptions`
+
+*Is primitive*: `no`
+
 `RenderOptions` define how a <<datatype-template,Template>> should be rendered into a <<datatype-document,Document>>.
 
-| [#datatype-rendervariables]#<<datatype-rendervariables,RenderVariables>>#
-| No
-|
-`RenderVariables` define what data the <<datatype-template,Template>> can use to produce a <<datatype-document,Document>>.
+.Initialization patterns:
+[cols="2m,2m,4a"]
+|===
+| Expression | Value/result | Notes
 
-| [#datatype-emailmessage]#<<datatype-emailmessage,EmailMessage>>#
-| No
-|
+| v
+| {}
+| Initializes a render options variable without value, defaults to empty (`{}`).
+
+| v = { "marginY": "1" }
+| { "marginY": "1" }
+| Initializes a render options variable to the given object.
+
+|===
+
+[#datatype-emailmessage]
+= `EmailMessage`
+
+*Is primitive*: `no`
+
 An `EmailMessage` represents an email that is to be sent to the recipients.
 The `EmailMessage` type should not be constructed or interacted with directly.
 It is suggested you use the predefined functions to manipulate it's contents.
@@ -130,33 +479,109 @@ It is suggested you use the predefined functions to manipulate it's contents.
 A new `EmailMessage` must be initialized using the `Email builder` function.
 ====
 
-| [#datatype-role]#<<datatype-role,Role>>#
-| No
-|
+[#datatype-role]
+= `Role`
+
+*Is primitive*: `no`
+
 A `Role` contains a system role.
 
-| [#datatype-user]#<<datatype-user,User>>#
-| No
-|
+.Initialization patterns:
+[cols="2m,2m,4a"]
+|===
+| Expression | Value/result | Notes
+
+| v
+| {...}
+| Initializes a role variable without value, defaults to empty.
+Refer to the <<objref-role,object reference>> for details.
+
+| v = { "handle": "test_role" }
+| {... "handle": "test_role" ...}
+| Initializes a role variable with the given handle.
+Refer to the <<objref-role,object reference>> for details.
+
+|===
+
+[#datatype-user]
+= `User`
+
+*Is primitive*: `no`
+
 A `User` contains a system user.
 
-// ---
+.Initialization patterns:
+[cols="2m,2m,4a"]
+|===
+| Expression | Value/result | Notes
 
-| [#datatype-composemodule]#<<datatype-composemodule,ComposeModule>>#
-| No
-|
+| v
+| {...}
+| Initializes a user variable without value, defaults to empty.
+Refer to the <<objref-user,object reference>> for details.
+
+| v = { "handle": "test_user" }
+| {... "handle": "test_user" ...}
+| Initializes a user variable with the given handle.
+Refer to the <<objref-user,object reference>> for details.
+
+|===
+
+[#datatype-composemodule]
+= `ComposeModule`
+
+*Is primitive*: `no`
+
 A `ComposeModule` contains a {APP_NAME_COMPOSE} module.
 The `ComposeModule` type is mostly used when updating module fields or creating new records.
 
-| [#datatype-composenamespace]#<<datatype-composenamespace,ComposeNamespace>>#
-| No
-|
+.Initialization patterns:
+[cols="2m,2m,4a"]
+|===
+| Expression | Value/result | Notes
+
+| v
+| {...}
+| Initializes a module variable without value, defaults to empty.
+Refer to the <<objref-module,object reference>> for details.
+
+| v = { "handle": "test_module" }
+| {... "handle": "test_module" ...}
+| Initializes a module variable with the given handle.
+Refer to the <<objref-module,object reference>> for details.
+
+|===
+
+[#datatype-composenamespace]
+= `ComposeNamespace`
+
+*Is primitive*: `no`
+
 A `ComposeNamespace` contains a {APP_NAME_COMPOSE} namespace.
 The `ComposeNamespace` type is mostly used when interacting with namespace specific {APP_NAME_COMPOSE} resources.
 
-| [#datatype-composerecord]#<<datatype-composerecord,ComposeRecord>>#
-| No
-|
+.Initialization patterns:
+[cols="2m,2m,4a"]
+|===
+| Expression | Value/result | Notes
+
+| v
+| {...}
+| Initializes a namespace variable without value, defaults to empty.
+Refer to the <<objref-namespace,object reference>> for details.
+
+| v = { "slug": "test_namespace" }
+| {... "slug": "test_namespace" ...}
+| Initializes a namespace variable with the given handle.
+Refer to the <<objref-namespace,object reference>> for details.
+
+|===
+
+[#datatype-composerecord]
+= `ComposeRecord`
+
+*Is primitive*: `no`
+
 
 A `ComposeRecords` contains a {APP_NAME_COMPOSE} record.
 The `ComposeRecords` type is mostly used when interacting with {APP_NAME_COMPOSE} records, such as changing their values or converting them into email notifications.
@@ -166,15 +591,10 @@ The `ComposeRecords` type is mostly used when interacting with {APP_NAME_COMPOSE
 A new `ComposeRecord` must be initialized using the `Compose record maker` function.
 ====
 
-| [#datatype-composerecordvalues]#<<datatype-composerecordvalues,ComposeRecordValues>>#
-| No
-|
+[#datatype-composerecordvalues]
+= `ComposeRecordValues`
+
+*Is primitive*: `no`
+
 A `ComposeRecordValues` contains a set of {PRODUCT_NAME} record values.
 This type is usually not used on it's own but in the combination with <<datatype-composerecord,ComposeRecord>>.
-
-|===
-
-[#object-reference]
-= Object reference
-
-include::generated:partial$expr-types.gen.adoc[]

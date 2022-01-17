@@ -107,6 +107,22 @@ Refer to more examples for help on the https://www.samltool.com/generic_sso_res.
 . The "Sign requests" checkbox under "Certificate" section should be enabled (refer to the <<saml-admin-ui,admin ui screenshot>>)
 . "Signature method" should be set and depends on the kind of algorithm was specified on the certificate creation (in this example, SHA256 was used)
 
+For more info on AuthNRequest and assertion in metadata refer to the <<saml-developer-notes,developer notes>>.
+
+== SAML Bindings
+
+{PRODUCT_NAME} supports *HTTP POST* and *HTTP Redirect* SAML 2.0 bindings.
+
+.Specifying SAML binding:
+The "Binding" dropdown should be selected, specifying either _HTTP POST_ or _HTTP Redirect_ binding (refer to the <<saml-admin-ui,admin ui screenshot>>)
+
+[NOTE]
+====
+The fallback choice is *HTTP Redirect*.
+====
+
+For more info on bindings in metadata refer to the <<saml-developer-notes,developer notes>>.
+
 == Setting up the IdP in the administration panel
 
 Open your administration panel and navigate to menu:system[settings].
@@ -147,3 +163,35 @@ image::authentication-provider/login-screen.png[Screenshot of the login screen.,
 
 When clicking on the appropriate button (in our example, this is btn:["Login with Example IdP"]), the user enters the SAML authentication flow where the service ({PRODUCT_NAME}) and the identity providers (IdP) exchange information.
 The user is automatically redirected back to {PRODUCT_NAME} after successful login on the IdP.
+
+[#saml-developer-notes]
+== Developer notes
+
+When setting up the SAML authentication provider, there is some information that can be read from the SP metadata that is generated from the configuration.
+
+The metadata URL resides at `$BASE_URL/auth/external/saml/metadata`.
+
+.Fetching metadata with curl example:
+[source,shell script]
+----
+curl $BASE_URL/auth/external/saml/metadata
+----
+
+.Depending on the configuration, the following information can be read:
+[cols="1s,5a"]
+|===
+| [#logout]#<<logout,Logout info>>#
+|
+[source,xml]
+----
+<SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="$BASE_URL/auth/external/saml/slo" ResponseLocation="$BASE_URL/auth/external/saml/slo"></SingleLogoutService>
+----
+
+| [#authnrequest]#<<authnrequest,AuthNRequest signed enabled / disabled.>>#
+|
+[source,xml]
+----
+<SPSSODescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol" AuthnRequestsSigned="true" WantAssertionsSigned="true">
+----
+
+|===

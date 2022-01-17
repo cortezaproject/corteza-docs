@@ -177,16 +177,21 @@ Fetching metadata with curl example
 curl $BASE_URL/auth/external/saml/metadata
 ----
 
-Depending on the configuration the following information can be read:
-
-.Logout info.
+.Depending on the configuration, the following information can be read:
+[cols="1s,5a"]
+|===
+| [#logout]#<<logout,Logout info>>#
+|
 [source,xml]
 ----
 <SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="$BASE_URL/auth/external/saml/slo" ResponseLocation="$BASE_URL/auth/external/saml/slo"></SingleLogoutService>
 ----
 
-.AuthNRequest signed enabled / disabled.
+| [#authnrequest]#<<authnrequest,AuthNRequest signed enabled / disabled.>>#
+|
 [source,xml]
 ----
 <SPSSODescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol" AuthnRequestsSigned="true" WantAssertionsSigned="true">
 ----
+
+|===

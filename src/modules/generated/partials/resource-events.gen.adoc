@@ -7,18 +7,16 @@
 //  - compose/service/event/events.yaml
 //  - system/service/event/events.yaml
 
-= Resources and events
+= compose
 
-== compose
-
-=== Events
+== Events
 
 .On events:
 * `on('manual')`
 * `on('interval')`
 * `on('timestamp')`
 
-=== Exec arguments
+== Exec arguments
 
 .Argument properties:
 [%header, cols=3*]
@@ -29,9 +27,9 @@
 | yes
 |===
 
-== compose:module
+= compose:module
 
-=== Events
+== Events
 .Before/after events:
 * `before('create')`
 * `before('update')`
@@ -43,7 +41,7 @@
 .On events:
 * `on('manual')`
 
-=== Exec arguments
+== Exec arguments
 
 .Argument properties:
 [%header, cols=3*]
@@ -66,9 +64,9 @@
 | yes
 |===
 
-== compose:namespace
+= compose:namespace
 
-=== Events
+== Events
 .Before/after events:
 * `before('create')`
 * `before('update')`
@@ -80,7 +78,7 @@
 .On events:
 * `on('manual')`
 
-=== Exec arguments
+== Exec arguments
 
 .Argument properties:
 [%header, cols=3*]
@@ -99,9 +97,9 @@
 | yes
 |===
 
-== compose:page
+= compose:page
 
-=== Events
+== Events
 .Before/after events:
 * `before('create')`
 * `before('update')`
@@ -113,7 +111,7 @@
 .On events:
 * `on('manual')`
 
-=== Exec arguments
+== Exec arguments
 
 .Argument properties:
 [%header, cols=3*]
@@ -140,9 +138,9 @@
 | yes
 |===
 
-== compose:record
+= compose:record
 
-=== Events
+== Events
 .Before/after events:
 * `before('create')`
 * `before('update')`
@@ -155,7 +153,7 @@
 * `on('manual')`
 * `on('iteration')`
 
-=== Exec arguments
+== Exec arguments
 
 .Argument properties:
 [%header, cols=3*]
@@ -190,16 +188,16 @@
 | yes
 |===
 
-== system
+= system
 
-=== Events
+== Events
 
 .On events:
 * `on('manual')`
 * `on('interval')`
 * `on('timestamp')`
 
-=== Exec arguments
+== Exec arguments
 
 .Argument properties:
 [%header, cols=3*]
@@ -210,9 +208,9 @@
 | yes
 |===
 
-== system:application
+= system:application
 
-=== Events
+== Events
 .Before/after events:
 * `before('create')`
 * `before('update')`
@@ -224,7 +222,7 @@
 .On events:
 * `on('manual')`
 
-=== Exec arguments
+== Exec arguments
 
 .Argument properties:
 [%header, cols=3*]
@@ -243,9 +241,9 @@
 | yes
 |===
 
-== system:auth
+= system:auth
 
-=== Events
+== Events
 .Before/after events:
 * `before('login')`
 * `before('signup')`
@@ -254,7 +252,7 @@
 
 
 
-=== Exec arguments
+== Exec arguments
 
 .Argument properties:
 [%header, cols=3*]
@@ -273,9 +271,9 @@
 | yes
 |===
 
-== system:auth-client
+= system:auth-client
 
-=== Events
+== Events
 .Before/after events:
 * `before('create')`
 * `before('update')`
@@ -287,7 +285,7 @@
 .On events:
 * `on('manual')`
 
-=== Exec arguments
+== Exec arguments
 
 .Argument properties:
 [%header, cols=3*]
@@ -306,16 +304,16 @@
 | yes
 |===
 
-== system:mail
+= system:mail
 
-=== Events
+== Events
 
 .On events:
 * `on('manual')`
 * `on('receive')`
 * `on('send')`
 
-=== Exec arguments
+== Exec arguments
 
 .Argument properties:
 [%header, cols=3*]
@@ -330,14 +328,14 @@
 | yes
 |===
 
-== system:queue
+= system:queue
 
-=== Events
+== Events
 
 .On events:
 * `on('message')`
 
-=== Exec arguments
+== Exec arguments
 
 .Argument properties:
 [%header, cols=3*]
@@ -352,9 +350,9 @@
 | yes
 |===
 
-== system:role
+= system:role
 
-=== Events
+== Events
 .Before/after events:
 * `before('create')`
 * `before('update')`
@@ -366,7 +364,7 @@
 .On events:
 * `on('manual')`
 
-=== Exec arguments
+== Exec arguments
 
 .Argument properties:
 [%header, cols=3*]
@@ -385,9 +383,9 @@
 | yes
 |===
 
-== system:role:member
+= system:role:member
 
-=== Events
+== Events
 .Before/after events:
 * `before('add')`
 * `before('remove')`
@@ -396,7 +394,7 @@
 
 
 
-=== Exec arguments
+== Exec arguments
 
 .Argument properties:
 [%header, cols=3*]
@@ -415,14 +413,14 @@
 | yes
 |===
 
-== system:sink
+= system:sink
 
-=== Events
+== Events
 
 .On events:
 * `on('request')`
 
-=== Exec arguments
+== Exec arguments
 
 .Argument properties:
 [%header, cols=3*]
@@ -441,9 +439,9 @@
 | yes
 |===
 
-== system:user
+= system:user
 
-=== Events
+== Events
 .Before/after events:
 * `before('create')`
 * `before('update')`
@@ -457,7 +455,7 @@
 .On events:
 * `on('manual')`
 
-=== Exec arguments
+== Exec arguments
 
 .Argument properties:
 [%header, cols=3*]

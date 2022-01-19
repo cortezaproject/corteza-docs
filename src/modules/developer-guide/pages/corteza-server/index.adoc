@@ -134,3 +134,56 @@ See the <<container-db,setup containerized database>> section if you wish to run
 :leveloffset: +1
 include::ROOT:partial$setup/containerized-db.adoc[]
 :leveloffset: -1
+
+== Setup procedure
+
+The initial procedure is located in the root `app` package which defines orchestration structures to configure, initialize, and start different parts of the system.
+
+[NOTE]
+====
+CLI commands run boot procedures from the first (setup) to the level required by the command.
+====
+
+=== Setup procedure levels
+
+[cols="1s,5a"]
+|===
+| [#setup-level-setup]#<<setup-level-setup,Setup>>#
+|
+Configures and initializes low-level components, structures required through the entire lifecycle.
+
+.More notable components:
+* *Logging*: root logging facility which supports human (formatting, colors) or machine (JSON) readable formats,
+* *health check*: scheduler, email, and {APP_AUTOMATION} checks,
+* *sentry*: sentry can be used as an error reporting service (critical routines may use their own error/panic reporting functionalities),
+* *email*: an SMTP service for relaying sent email messages,
+* *monitoring*: a primitive resource usage logging,
+* *scheduler*: a facility that controls interval automation execution,
+* *{APP_AUTOMATION}*: a server client for the {APP_AUTOMATION} server.
+
+[NOTE]
+====
+.When SMTP is disabled (no SMTP host is configured):
+* User signup no longer requires email verification,
+* password reset is disabled,
+* email sending via automation is disabled.
+====
+
+| [#setup-level-db]#<<setup-level-db,Store initialization>>#
+|
+Establishes a connection to the configured database.
+The post connection procedures run database migrations to conform the schema to the current version.
+
+| [#setup-level-services]#<<setup-level-services,Service initialization>>#
+|
+Initializes all of the services as well as RBAC, resource translations, and (if enabled) federation.
+
+| [#setup-level-provision]#<<setup-level-provision,Provision>>#
+|
+The provision step assures that the initial resources (users, roles, namespaces, ...) are imported from the provision files.
+
+| [#setup-level-activate]#<<setup-level-activate,Activate>>#
+|
+All of the previously initialized and configured services are started/activated including their watchers.
+
+|===

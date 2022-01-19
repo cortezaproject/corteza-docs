@@ -136,6 +136,10 @@ Do not change the <<env-path,`AUTH_ASSETS_PATH`>> `.env` variable as the templat
 
 When using docker, make sure to either mount the assets' source as a volume or rebuild a custom image on top of the default image.
 
+== Change scenarios
+
+Scenarios can be changed in the `templates/scenarios.yaml` while {PRODUCT_NAME} is running in development mode.
+
 == Styling
 
 The default stylesheet is included from the Bootstrap CDN in the `inc_header.html.tpl` template.

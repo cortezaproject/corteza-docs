@@ -6,6 +6,11 @@ include::ROOT:partial$variables.adoc[]
 
 An authentication client (an auth client for the remaining text) is a facility that allows you to define how an external application can use {PRODUCT_NAME} to authenticate and what access the authenticated users may have.
 
+[TIP]
+====
+You can use {PRODUCT_NAME} to authenticate third-party applications which support OAuth2/OIDC.
+====
+
 The menu:system[auth clients] user interface allows you to inspect and manage your auth clients.
 
 [annotation,role="data-zoomable"]
@@ -324,6 +329,13 @@ If the password security is disabled, a warning message is displayed in the UI.
 }
 ----
 ====
+
+== Limit access
+
+By default, any user can use any auth client.
+To limit access to specific auth clients, navigate to the auth client and set the "authorize client" access control rule.
+
+If a specific role does not have the authorize client RBAC rule, the underlying users can not authenticate with the given auth client.
 
 == Define session duration
 

@@ -104,7 +104,38 @@ The field supports all of the https://momentjs.com/docs/#/displaying/format/[mom
 | [#field-type-datetime-validation-format]#<<field-type-datetime-validation-format,Format>>#
 |
 The `Date and time` field supports a wide range of formats.
-Refer to the source code for details on https://github.com/cortezaproject/corteza-server/blob/2021.9.x/compose/service/values/sanitizer.go#L228[regular date time inputs] and https://github.com/cortezaproject/corteza-server/blob/2021.9.x/compose/service/values/sanitizer.go#L208[time only inputs].
+Below is the list of supported date-time parsing formats.
+
+.Date only:
+** `2006-01-02`
+** `02 Jan 06`
+** `Monday, 02-Jan-06`
+** `Mon, 02 Jan 2006`
+** `2006/_1/_2`
+
+.Time only:
+** `15:04:05`
+** `15:04`
+** `15:04:05Z07:00`
+** `15:04:05 MST`
+** `15:04:05 -0700`
+** `15:04 MST`
+** `15:04Z07:00`
+** `15:04 -0700`
+** `3:04PM`
+
+.Date and time::
+** `2006-01-02T15:04:05Z07:00`
+** `Mon, 02 Jan 2006 15:04:05 -0700`
+** `Mon, 02 Jan 2006 15:04:05 MST`
+** `Monday, 02-Jan-06 15:04:05 MST`
+** `02 Jan 06 15:04 -0700`
+** `02 Jan 06 15:04 MST`
+** `Mon Jan 02 15:04:05 -0700 2006`
+** `Mon Jan 02 15:04:05 -0700 2006`
+** `Mon Jan _2 15:04:05 2006`
+** `2006/_1/_2 15:04:05`
+** `2006/_1/_2 15:04`
 
 The usual time format is https://en.wikipedia.org/wiki/ISO_8601[`ISO 8601`] with the pattern of `YYYY-MM-DDTHH:MM:SSZ`.
 

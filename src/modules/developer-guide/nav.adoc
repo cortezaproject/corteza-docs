@@ -18,6 +18,7 @@
 *** xref:corteza-server/codegen.adoc[]
 *** xref:corteza-server/store.adoc[]
 *** xref:corteza-server/workflows/index.adoc[]
+*** xref:corteza-server/sink.adoc[]
 *** xref:corteza-server/resource-labels.adoc[]
 *** xref:corteza-server/messagebus.adoc[]
 *** Expressions

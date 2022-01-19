@@ -1,3 +1,0 @@
-=== Changing scenarios
-
-Scenarios can only be changed in the `/auth/assets/templates/scenarios.yaml` when running in full corteza-server development mode.

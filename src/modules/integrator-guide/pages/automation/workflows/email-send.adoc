@@ -1,6 +1,6 @@
 include::ROOT:partial$variables.adoc[]
 
-= Working with emails
+= Working with Email
 :attachment-path: ../../_attachments/workflow/
 
 [IMPORTANT]

@@ -1,6 +1,6 @@
 include::ROOT:partial$variables.adoc[]
 
-= Delay and schedule Workflows
+= Delay and Schedule Workflows
 
 {PRODUCT_NAME} workflow allows you to schedule or delay its execution.
 This can be a powerful tool when working with external services that throttle their API usage or when a task should be performed in an interval, for example monthly subscription renewal.

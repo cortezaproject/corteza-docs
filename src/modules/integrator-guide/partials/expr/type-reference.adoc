@@ -278,7 +278,9 @@ If the initialization value is a non-null, non-string value; if defined; the val
 
 *Is primitive*: `yes`
 
-An `ID` is a system assigned unique identifier for all system resources and should not be assigned or manipulated manually.
+An `ID` is a unique system assigned identifier for all system resources. 
+While it can be assigned or manipulated manually, the system normally either ignores the modifications or errors them out.
+
 An `ID` is a 64bit unsigned integer; range `0` through `18446744073709551615`.
 
 [#datatype-handle]

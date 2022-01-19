@@ -28,11 +28,59 @@ If this is needed, consider implementing this using xref:automation/index.adoc[a
 
 To create a new namespace, navigate to your {PRODUCT_NAME} instance (for example http://latest.cortezaproject.org/) and click on the {APP_NAME_COMPOSE} application.
 
-image::compose/app-selector.png[role="data-zoomable"]
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "compose/app-selector.png",
+    "alias": "app-selector-compose-webapp",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {},
+  "focus": {
+    "x": 398,
+    "y": 242,
+    "w": 267,
+    "h": 253,
+    "padding": 10
+  },
+  "annotations": []
+}
+----
 
 A new screen with a list of all namespaces will appear.
 
-image::compose/ns-create.png[role="data-zoomable"]
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "compose/ns-create.png",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {},
+  "annotations": [{
+    "kind": "box-note",
+    "x": 405,
+    "y": 64,
+    "w": 228,
+    "h": 42
+  }, {
+    "kind": "box-note",
+    "x": 635,
+    "y": 193,
+    "w": 105,
+    "h": 29
+  }, {
+    "kind": "box-note",
+    "x": 831,
+    "y": 64,
+    "w": 148,
+    "h": 43
+  }]
+}
+----
 
 .From there you can:
 * create a new namespace by clicking on the btn:[Create new namespace] button,
@@ -41,7 +89,24 @@ image::compose/ns-create.png[role="data-zoomable"]
 
 Click on the btn:[Create new namespace] button, insert the required parameters, and click on the btn:[Save] or the btn:[Save and close] button in the bottom right corner.
 
-image::compose/ns-edit.png[role="data-zoomable"]
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "compose/ns-edit.png",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {},
+  "annotations": [{
+    "kind": "box-note",
+    "x": 1661,
+    "y": 1022,
+    "w": 239,
+    "h": 42
+  }]
+}
+----
 
 .Available namespace parameters:
 [cols="2s,5a"]

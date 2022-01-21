@@ -98,3 +98,16 @@ Refer to the https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/G
 .`second`:
 * `numeric`
 * `2-digit`
+
+== RTL Support
+
+{PRODUCT_NAME} provides right to left support for specific languages, it is affected by the browser language.
+
+It is enabled for the following languages:
+
+* Arabic
+* Hebrew
+* Pashto
+* Persian
+* Urdu
+* Sindhi

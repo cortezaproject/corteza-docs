@@ -1,0 +1,69 @@
+include::ROOT:partial$variables.adoc[]
+
+= `2021.9.6`
+
+*Released on*: 2022-01-26
+
+*Contributors*:
+Peter Grlica (https://github.com/petergrlica[GH]),
+Denis Arh (https://github.com/darh[GH]),
+Vivek Patel (https://github.com/vicpatel[GH]),
+Tomaž Jerman (https://github.com/tjerman[GH]),
+Katrin Yordanova (https://github.com/katrinDY[GH]),
+Jože Fortun (https://github.com/fajfa[GH]).
+
+.[#2021_9_6-added]#<<2021_9_6-added,Added:>>#
+* Added support for RTL direction.
+* Added support for additional arguments when invoking automation scripts via API ({SERVER_COMMIT_BASE}91eb88d2[`91eb88d2`]).
+* Added support for resource translation on select field options ({SERVER_COMMIT_BASE}c72902a8[`c72902a8`]).
+* Added support for SAML signed requests ({SERVER_COMMIT_BASE}5e4486c7[`5e4486c7`], {WEBAPP_ADMIN_COMMIT_BASE}7ec02f6e[`7ec02f6e`]).
+* Added support for SAML HTTP binding ({SERVER_COMMIT_BASE}717cae5c0b[`717cae5c0b`], {WEBAPP_ADMIN_COMMIT_BASE}5cf0597b40[`5cf0597b40`])
+* Added option to hide the import button on the record list ({WEBAPP_COMPOSE_COMMIT_BASE}cd982a8[`cd982a8`], {WEBAPP_JS_COMMIT_BASE}9c85d0b[`9c85d0b`], {LOCALE_COMMIT_BASE}874e0b2[`874e0b2`]).
+* Added support for version specific `DB_DSN` `.env` variable, simplifying development ({SERVER_COMMIT_BASE}c3516dd[`c3516dd`]).
+* Added `find` and `has` expression functions ({SERVER_COMMIT_BASE}86deaea9[`86deaea9`]).
+* Added `sort` expr function ({SERVER_COMMIT_BASE}be6b572[`be6b572`])
+* Added support for multi-value filtering on record lists ({WEBAPP_COMPOSE_COMMIT_BASE}d0213cb[`d0213cb`]).
+* Added processing indicator when deleting records in record list ({WEBAPP_COMPOSE_COMMIT_BASE}6d47c1b[`6d47c1b`])
+
+//
+//
+
+.[#2021_9_6-fixed]#<<2021_9_6-fixed,Fixed:>>#
+* Refactored workflow execution and fixed runner/invoker logic ({SERVER_COMMIT_BASE}92224360[`92224360`]).
+* Fixed improper attachment upload permission checks due to partial request parameters (https://github.com/cortezaproject/corteza-server/pull/309[#309], https://github.com/cortezaproject/corteza-webapp-compose/pull/346[#346]).
+* Fixed improper QL argument transformations based on the used database (https://github.com/cortezaproject/corteza-server/pull/308[#308]).
+* Fix broken docker container health check on {APP_AUTOMATION} server ({SERVER_CORREDOR_COMMIT_BASE}dce30ba[`dce30ba`]).
+* Changed federation locales ({WEBAPP_COMPOSE_COMMIT_BASE}91094e44[`91094e44`]).
+* Refactored minio store and fixed invalid bucket name issue ({SERVER_COMMIT_BASE}23a2446[`23a2446`]).
+* Fixed scrolling when only one pageBlock is added ({WEBAPP_COMPOSE_COMMIT_BASE}88f3e72[`88f3e72`]).
+* Fixed translations on password reset ({SERVER_COMMIT_BASE}87f08d8[`87f08d8`]).
+* Fixed RBAC rules and workflows not applying after being imported via namespace import ({SERVER_COMMIT_BASE}ff6cadc0[`ff6cadc0`]).
+* Fixed improper handling of empty resource translation strings (resource-translations) ({SERVER_COMMIT_BASE}4b264798[`4b264798`], {WEBAPP_COMPOSE_COMMIT_BASE}043588f1[`043588f1`]).
+* Fixed external OIDC for {PRODUCT_NAME} flow ({SERVER_COMMIT_BASE}398242b[`398242b`]).
+* Fixed percentage calculation for all types of charts ({WEBAPP_JS_COMMIT_BASE}2b7c949[`2b7c949`]).
+* Fixed field picker system field translations ({WEBAPP_VUE_COMMIT_BASE}fa80ade[`fa80ade`], {WEBAPP_COMPOSE_COMMIT_BASE}485187e[`485187e`]).
+* Fixed namespace importing -- additional request validation ({SERVER_COMMIT_BASE}ca178714b[`ca178714b`]), improve internal resource identification ({SERVER_COMMIT_BASE}00dd86fb9[`00dd86fb9`], {SERVER_COMMIT_BASE}d247ec678[`d247ec678`], and {SERVER_COMMIT_BASE}8be8be96d[`8be8be96d`]).
+* Fixed improper API request content parsing when `Content-Type` defines character set ({SERVER_COMMIT_BASE}d0154cc1b[`d0154cc1b`]).
+* Fixed improper error handling for the upload component ({WEBAPP_COMPOSE_COMMIT_BASE}a0a1ac0[`a0a1ac0`]).
+* Fixed role-security setting for external providers ({WEBAPP_COMPOSE_COMMIT_BASE}05a40ca[`05a40ca`]).
+* Fixed issue with OIDC provider removal ({WEBAPP_COMPOSE_COMMIT_BASE}c078808[`c078808`]).
+* Fixed queue name matching on workflow onMessage event ({SERVER_COMMIT_BASE}79d8a842[`79d8a842`])
+* Fixed calendar event display for events that span multiple months ({WEBAPP_JS_COMMIT_BASE}4d2f824[`4d2f824`])
+* Fixed record list filter for number and id fields ({WEBAPP_COMPOSE_COMMIT_BASE}3b421a1[`3b421a1`])
+* Fixed namespace selector overflowing sidebar ({WEBAPP_COMPOSE_COMMIT_BASE}b9aa41e[`b9aa41e`])
+* Fixed metric page block field selector options ({WEBAPP_COMPOSE_COMMIT_BASE}cb69c80[`cb69c80`])
+* Fixed chart rendering edge case where the canvas did not yet exist ({WEBAPP_COMPOSE_COMMIT_BASE}1b965f8[`1b965f8`]).
+* Fixed centering for the empty record list label ({WEBAPP_COMPOSE_COMMIT_BASE}f467e0f[`f467e0f`])
+* Fixed inline record editor not checking permissions for deletion ({WEBAPP_COMPOSE_COMMIT_BASE}f74d398[`f74d398`])
+* Fixed improper reminder handling, causing them to sometimes not show ({WEBAPP_COMPOSE_COMMIT_BASE}94247f0[`94247f0`])
+* Fixed invalid membership fetch for closed roles ({WEBAPP_ADMIN_COMMIT_BASE}88955eb[`88955eb`])
+* Fixed column order not persisting for ColumnPicker component ({WEBAPP_COMPOSE_COMMIT_BASE}9659d9f[`9659d9f`], {WEBAPP_JS_COMMIT_BASE}2b7c949[`2b7c949`], {LOCALE_COMMIT_BASE}b53bc6b[`b53bc6b`]).
+
+
+//
+//
+
+.[#2021_9_6-changed]#<<2021_9_6-changed,Changed:>>#
+* Make default value not required for multi fields ({WEBAPP_COMPOSE_COMMIT_BASE}aae3f6f[`aae3f6f`])
+* Prefill inline record editor related values ({WEBAPP_COMPOSE_COMMIT_BASE}c457679[`c457679`])
+* Disable page deletion if it has sub-pages ({WEBAPP_COMPOSE_COMMIT_BASE}67c3b2c[`67c3b2c`])

@@ -1,0 +1,179 @@
+{
+    "workflows": [
+      {
+        "handle": "request_parse_function",
+        "enabled": true,
+        "meta": {
+          "name": "Request parse in function",
+          "description": "",
+          "visual": null
+        },
+        "keepSessions": 0,
+        "steps": [
+          {
+            "stepID": "4",
+            "kind": "termination",
+            "ref": "",
+            "arguments": null,
+            "results": null,
+            "meta": {
+              "name": "",
+              "description": "",
+              "visual": {
+                "id": "4",
+                "parent": "1",
+                "value": "Finish",
+                "xywh": [
+                  3280,
+                  2280,
+                  200,
+                  80
+                ]
+              }
+            }
+          },
+          {
+            "stepID": "17",
+            "kind": "function",
+            "ref": "apigwBodyRead",
+            "arguments": [
+              {
+                "target": "body",
+                "expr": "request.Body",
+                "type": "HttpRequestBody"
+              }
+            ],
+            "results": [
+              {
+                "target": "bodyContents",
+                "expr": "body"
+              }
+            ],
+            "meta": {
+              "name": "",
+              "description": "",
+              "visual": {
+                "id": "17",
+                "parent": "1",
+                "value": "Read request body",
+                "xywh": [
+                  2440,
+                  2280,
+                  200,
+                  80
+                ]
+              }
+            }
+          },
+          {
+            "stepID": "24",
+            "kind": "function",
+            "ref": "logWarn",
+            "arguments": [
+              {
+                "target": "message",
+                "value": "Body contents in KV following",
+                "type": "String"
+              },
+              {
+                "target": "fields",
+                "expr": "assignedVar",
+                "type": "KV"
+              }
+            ],
+            "results": [],
+            "meta": {
+              "name": "",
+              "description": "",
+              "visual": {
+                "id": "24",
+                "parent": "1",
+                "value": "Output variable",
+                "xywh": [
+                  3000,
+                  2280,
+                  200,
+                  80
+                ]
+              }
+            }
+          },
+          {
+            "stepID": "27",
+            "kind": "expressions",
+            "ref": "",
+            "arguments": [
+              {
+                "target": "assignedVar",
+                "expr": "bodyContents",
+                "type": "KV"
+              }
+            ],
+            "results": null,
+            "meta": {
+              "name": "",
+              "description": "",
+              "visual": {
+                "id": "27",
+                "parent": "1",
+                "value": "Assign body to variable",
+                "xywh": [
+                  2720,
+                  2280,
+                  200,
+                  80
+                ]
+              }
+            }
+          }
+        ],
+        "paths": [
+          {
+            "parentID": "17",
+            "childID": "27",
+            "meta": {
+              "name": "",
+              "description": "",
+              "visual": {
+                "id": "32",
+                "parent": "1",
+                "points": [],
+                "style": "exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;",
+                "value": null
+              }
+            }
+          },
+          {
+            "parentID": "27",
+            "childID": "24",
+            "meta": {
+              "name": "",
+              "description": "",
+              "visual": {
+                "id": "33",
+                "parent": "1",
+                "points": [],
+                "style": "exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;",
+                "value": null
+              }
+            }
+          },
+          {
+            "parentID": "24",
+            "childID": "4",
+            "meta": {
+              "name": "",
+              "description": "",
+              "visual": {
+                "id": "34",
+                "parent": "1",
+                "points": [],
+                "style": "exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;",
+                "value": null
+              }
+            }
+          }
+        ]
+      }
+    ]
+  }

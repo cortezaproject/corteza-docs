@@ -1,0 +1,148 @@
+{
+    "workflows": [
+      {
+        "handle": "apigw_jsenv_request",
+        "enabled": true,
+        "meta": {
+          "name": "Request parse in JS",
+          "description": "",
+          "visual": null
+        },
+        "keepSessions": 0,
+        "steps": [
+          {
+            "stepID": "4",
+            "kind": "termination",
+            "ref": "",
+            "arguments": null,
+            "results": null,
+            "meta": {
+              "name": "",
+              "description": "",
+              "visual": {
+                "id": "4",
+                "parent": "1",
+                "value": "Finish",
+                "xywh": [
+                  2280,
+                  2320,
+                  200,
+                  80
+                ]
+              }
+            }
+          },
+          {
+            "stepID": "5",
+            "kind": "function",
+            "ref": "jsenvExecute",
+            "arguments": [
+              {
+                "target": "scope",
+                "expr": "request",
+                "type": "Any"
+              },
+              {
+                "target": "source",
+                "value": "return JSON.parse(readRequestBody(input));",
+                "type": "String"
+              }
+            ],
+            "results": [
+              {
+                "target": "str",
+                "expr": "resultString"
+              },
+              {
+                "target": "int",
+                "expr": "resultInt"
+              },
+              {
+                "target": "b",
+                "expr": "resultBool"
+              },
+              {
+                "target": "any",
+                "expr": "resultAny"
+              }
+            ],
+            "meta": {
+              "name": "",
+              "description": "",
+              "visual": {
+                "id": "5",
+                "parent": "1",
+                "value": "Process request body in js",
+                "xywh": [
+                  1720,
+                  2320,
+                  200,
+                  80
+                ]
+              }
+            }
+          },
+          {
+            "stepID": "10",
+            "kind": "function",
+            "ref": "logWarn",
+            "arguments": [
+              {
+                "target": "message",
+                "expr": "format(\"%s\", toJSON(any))",
+                "type": "String"
+              }
+            ],
+            "results": [],
+            "meta": {
+              "name": "",
+              "description": "",
+              "visual": {
+                "id": "10",
+                "parent": "1",
+                "value": "Debug request via log",
+                "xywh": [
+                  2000,
+                  2320,
+                  200,
+                  80
+                ]
+              }
+            }
+          }
+        ],
+        "paths": [
+          {
+            "parentID": "5",
+            "childID": "10",
+            "meta": {
+              "name": "",
+              "description": "",
+              "visual": {
+                "id": "22",
+                "parent": "1",
+                "points": [],
+                "style": "exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;",
+                "value": null
+              }
+            }
+          },
+          {
+            "parentID": "10",
+            "childID": "4",
+            "meta": {
+              "name": "",
+              "description": "",
+              "visual": {
+                "id": "23",
+                "parent": "1",
+                "points": [],
+                "style": "exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;",
+                "value": null
+              }
+            }
+          }
+        ]
+      }
+    ]
+  }

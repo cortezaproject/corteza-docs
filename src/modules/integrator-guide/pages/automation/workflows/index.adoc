@@ -645,7 +645,8 @@ This can be used as a more verbose <<step-prompt-choice,choice prompt>> or a mor
 * an introduction into our xref:automation/workflows/testing-debugging.adoc[testing and debugging facility],
 * how to xref:automation/workflows/organizing-workflows.adoc[manage and organize larger workflows],
 * how to xref:automation/workflows/delaying-scheduling.adoc[delay the execution],
-* how to xref:automation/workflows/automation-scripts.adoc[execute automation scripts] available in the {APP_AUTOMATION} server.
+* how to xref:automation/workflows/automation-scripts.adoc[execute automation scripts] available in the {APP_AUTOMATION} server,
+* how to xref:api-gw/workflow-processing.adoc[process requests] via Integration gateway.
 
 .For more advanced users who wish to know more about the internals:
 * xref:automation/workflows/scope-in-depth.adoc[]

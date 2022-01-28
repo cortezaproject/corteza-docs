@@ -600,3 +600,19 @@ A new `ComposeRecord` must be initialized using the `Compose record maker` funct
 
 A `ComposeRecordValues` contains a set of {PRODUCT_NAME} record values.
 This type is usually not used on it's own but in the combination with <<datatype-composerecord,ComposeRecord>>.
+
+[#datatype-httprequest]
+= `HttpRequest`
+*Is primitive*: `no`
+
+A `HttpRequest` contains an http Request (refer to the https://pkg.go.dev/net/http#Request[GO documentation] for details regarding the signature).
+
+[IMPORTANT]
+====
+The only difference between HttpRequest and go's http.Request is the ability to buffer the request body.
+
+Once there is a first read done on the body, it will be buffered and from there on used if the body is empty (since it is a ReadCloser).
+====
+
+[#object-reference]
+= Object reference

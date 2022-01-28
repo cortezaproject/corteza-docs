@@ -1,6 +1,7 @@
 include::ROOT:partial$variables.adoc[]
 
 = Workflow processing
+:attachment-path: ../../examples/api-gw/
 
 When your Integration gateway endpoint requires additional processing and the built-in processors do not suffice, you can bind a workflow to the endpoint to handle requests.
 
@@ -15,10 +16,73 @@ If you wish for a workflow to be executable by the Integration gateway, the work
 Refer to the xref:automation/workflows/index.adoc[workflow documentation] for details.
 . Assure that the workflow in question defines a trigger with the resource of `System` and an event of `onManual`.
 
-[NOTE]
-====
-*DevNote* add some examples.
-====
+=== Reading a request body via function
+
+The way the http.Request is wrapped, it allows us to use it in the JS environment processing function (see more at xref:api-gw/index.adoc[JavaScript processing]) or the function designed specifically for request body content fetching.
+
+.The screenshot shows the base workflow definition via read request body function.
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "apigw/wf-request-read-fn.png",
+    "alias": "wf-request-read-fn",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {
+    "x": 0,
+    "y": 0,
+    "w": 1920,
+    "h": 1080
+  }
+}
+----
+
+The link:{attachment-path}/wf-request-read-fn.json[workflow] for this example.
+
+=== Reading a request body via JS
+
+.The screenshot shows the base workflow definition via JS function.
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "apigw/wf-request-read-js.png",
+    "alias": "wf-request-read-js",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {
+    "x": 0,
+    "y": 0,
+    "w": 1920,
+    "h": 1080
+  }
+}
+----
+
+The link:{attachment-path}/wf-request-read-js.json[workflow] for this example.
+
+.The input Javascript source can be as simple as:
+[source,javascript]
+----
+try {
+    return JSON.parse(readRequestBody(input));
+} catch (e) {
+    return 'could not parse request body: ' + e.message
+}
+----
+
+.The body that is read could also be used as a `string` and later parsed in the subsequent workflow steps:
+[source,javascript]
+----
+try {
+    return readRequestBody(input);
+} catch (e) {
+    return 'could not read request body: ' + e.message
+}
+----
 
 == Integration gateway route configuration
 
@@ -29,11 +93,46 @@ Refer to the xref:api-gw/index.adoc[Integration gateway documentation] for detai
 . Select the workflow you wish to bind from the dropdown in the modal window.
 . Confirm the selection and press on the btn:[save] button to update the endpoint.
 
-[NOTE]
-====
-*DevNote* add some examples.
-====
+.The screenshot shows the route configuration with workflow processer added.
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "apigw/route-wf.png",
+    "alias": "route-wf",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {
+    "x": 0,
+    "y": 0,
+    "w": 1920,
+    "h": 1080
+  }
+}
+----
+
+.The screenshot shows the workflow processer configuration.
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "apigw/route-wf-modal.png",
+    "alias": "route-wf-modal",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {
+    "x": 0,
+    "y": 0,
+    "w": 1920,
+    "h": 1080
+  }
+}
+----
 
 == Testing
 
 To test if the Integration gateway route and the workflow are properly interacting, initiate an HTTP request using Postman or any other tool such as cURL.
+
+Refer to the xref:api-gw/index.adoc#apigw-proc-js-example[curl examples] for details.

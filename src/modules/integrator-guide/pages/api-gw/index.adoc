@@ -252,13 +252,13 @@ return {
 };
 ----
 
-The following cURL example invokes the above JavaScript function.
+The following [#apigw-proc-js-example]#<<apigw-proc-js-example,cURL example>># invokes the above JavaScript function.
 
 [source,bash]
 ----
 curl -X GET $BASE_URL/api/test-js \
-  -H "Content-Type: application/json" \
-  -d "[{\"name\":\"johnny\", \"surname\":\"mnemonic\"},{\"name\":\"johnny\", \"surname\":\"knoxville\"}]";
+  -H 'Content-Type: application/json' \
+  -d '[{"name":"johnny","surname":"mnemonic"},{"name":"johnny","surname":"knoxville"}]';
 ----
 
 === Function arguments
@@ -280,7 +280,7 @@ interface {
 | [#proc-js-input-request]#<<proc-js-input-request,request>>#
 |
 The entire HTTP request object.
-Refer to the https://pkg.go.dev/net/http?utm_source=gopls#Request[GO documentation] for detils regarding the signature.
+Refer to the https://pkg.go.dev/net/http?utm_source=gopls#Request[GO documentation] for details regarding the signature.
 
 | [#proc-js-input-opts]#<<proc-js-input-opts,opts>>#
 |
@@ -291,11 +291,6 @@ Refer to the https://github.com/cortezaproject/corteza-server/blob/2021.9.x/pkg/
 ====
 *DevNote* generate above opt. docs
 ====
-
-| [#proc-js-input-payload]#<<proc-js-input-payload,payload>>#
-|
-The string encoded request body content.
-The content is extracted from `request.Body`
 
 |===
 
@@ -315,17 +310,10 @@ When the result is a non-string value, such as `{ key: "value" }`, the result is
 
 | [#proc-js-fnc-ref-readRequestBody]#<<proc-js-fnc-ref-readRequestBody,readRequestBody>>#
 | readRequestBody
-| readRequestBody(input: reader): string
+| readRequestBody(input: HttpRequest): string
 | The function returns the contents of the provided request object.
-| `readRequestBody(input.Get('request').Body)` returns the request's body as a string
+| `readRequestBody(input.Get('request'))` returns the request's body as a string
 
-[CAUTION]
-====
-The `readRequestBody` function may only be invoked once.
-Additional invocations will return an empty response.
-
-Use an intermediate variable if you need to read it multiple times.
-====
 |===
 
 == Debugging

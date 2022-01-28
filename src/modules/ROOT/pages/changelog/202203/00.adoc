@@ -1,0 +1,38 @@
+include::ROOT:partial$variables.adoc[]
+
+= `2022.3.0`
+
+*Released on*: 2022-10-11
+
+.[#2022_3_0-added]#<<2022_3_0-added,Added:>>#
+// ...
+
+//
+//
+
+.[#2022_3_0-changed]#<<2022_3_0-changed,Changed:>>#
+// ...
+
+//
+//
+
+.[#2022_3_0-removed]#<<2022_3_0-removed,Removed:>>#
+// ...
+
+//
+//
+
+.[#2022_3_0-fixed]#<<2022_3_0-fixed,Fixed:>>#
+// ...
+
+//
+//
+
+.[#2022_3_0-security]#<<2022_3_0-security,Security:>>#
+// ...
+
+//
+//
+
+.[#2022_3_0-development]#<<2022_3_0-development,Development:>>#
+// ...

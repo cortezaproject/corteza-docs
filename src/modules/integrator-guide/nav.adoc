@@ -12,7 +12,8 @@
 *** xref:accessing-corteza/pagination.adoc[]
 *** xref:accessing-corteza/ql.adoc[]
 // @todo cleanup
-// *** Examples
+*** Examples
+**** xref:accessing-corteza/examples/compose-records.adoc[]
 // **** CortezaAPI/compose
 // ***** xref:accessing-corteza/examples/compose/sending-emails.adoc[]
 // ***** xref:accessing-corteza/examples/compose/record-list.adoc[]

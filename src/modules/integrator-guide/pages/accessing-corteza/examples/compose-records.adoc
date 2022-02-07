@@ -1,0 +1,105 @@
+include::ROOT:partial$variables.adoc[]
+
+= Working with {APP_NAME_COMPOSE} records
+
+== Filtering records with missing values
+
+A record value can have two states -- *existing* and *not existing*.
+When the value is *not existing*, it is `NULL`.
+
+To exemplify; a checkbox field can either be `true`, `false`, and `NULL` -- three values, not two!
+
+.The following examples use three records:
+* `{ "name": "a", "good": true }`
+* `{ "name": "b", "good": false }`
+* `{ "name": "c", "good": NULL }`
+
+=== Find records where value is `NULL`
+
+[source,bash]
+----
+curl "$BASE_URL/api/compose/namespace/$NAMESPACE_ID/module/$MODULE_ID/record/?query=good+IS+NULL" \
+  -H 'accept: application/json, text/plain, */*' \
+  -H "authorization: Bearer $JWT" \
+  --compressed;
+----
+
+[source,json]
+----
+{
+    "response": {
+        "filter": {
+            "moduleID": "$MODULE_ID",
+            "namespaceID": "$NAMESPACE_ID",
+            "query": "good IS NULL",
+            "deleted": 0,
+            "sort": "id"
+        },
+        "set": [
+            {
+                "recordID": "$RECORD_ID",
+                "moduleID": "$MODULE_ID",
+                "values": [
+                    {
+                        "name": "name",
+                        "value": "c"
+                    }
+                ],
+                "namespaceID": "$NAMESPACE_ID"
+            }
+        ]
+    }
+}
+----
+
+=== Find records where value is `NULL` or `false`
+
+[source,bash]
+----
+curl "$BASE_URL/api/compose/namespace/$NAMESPACE_ID/module/$MODULE_ID/record/?query=good+IS+NULL+OR+good=false" \
+  -H 'accept: application/json, text/plain, */*' \
+  -H "authorization: Bearer $JWT" \
+  --compressed | pp_json;
+----
+
+[source,json]
+----
+{
+    "response": {
+        "filter": {
+            "moduleID": "$MODULE_ID",
+            "namespaceID": "$NAMESPACE_ID",
+            "query": "good IS NULL OR good=false",
+            "deleted": 0,
+            "sort": "id"
+        },
+        "set": [
+            {
+                "recordID": "$RECORD_ID",
+                "moduleID": "$MODULE_ID",
+                "values": [
+                    {
+                        "name": "good"
+                    },
+                    {
+                        "name": "name",
+                        "value": "b"
+                    }
+                ],
+                "namespaceID": "$NAMESPACE_ID"
+            },
+            {
+                "recordID": "$RECORD_ID",
+                "moduleID": "$MODULE_ID",
+                "values": [
+                    {
+                        "name": "name",
+                        "value": "c"
+                    }
+                ],
+                "namespaceID": "$NAMESPACE_ID"
+            }
+        ]
+    }
+}
+----

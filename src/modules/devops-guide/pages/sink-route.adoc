@@ -70,6 +70,11 @@ curl '$BASE_API_URL/system/sink?__sign=$SINK_SIGNATURE' \
   }';
 ----
 
+[IMPORTANT]
+====
+Note that when using a custom API base URL (see: xref:configuration/server.adoc#_http_api_base_url[HTTP_API_BASE_URL]) or you have webapp incorporated into the server (see: xref:configuration/server.adoc#_http_webapp_enabled[HTTP_WEBAPP_ENABLED]), the sink url would be prefixed (ie by default per webapp enabled: `$BASE_API_URL/api/system/sink?__sign=$SINK_SIGNATURE`).
+====
+
 [#sign-in-path]
 == Unable to Use Query Parameters?
 

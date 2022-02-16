@@ -1,0 +1,12 @@
+include::ROOT:partial$variables.adoc[]
+
+= `2021.9.7`
+
+*Released on*: 2022-02-10
+
+.[#2021_9_7-fixed]#<<2021_9_7-fixed,Fixed:>>#
+* Fixed `set` expression function to properly handle types provided by workflow execution ({SERVER_COMMIT_BASE}f42d707[`f42d707`]).
+* Fixed OIDC provider scope string issue ({SERVER_COMMIT_BASE}b1572e1[`b1572e1`]).
+* Fixed workflow issues with invoker/runner ({SERVER_COMMIT_BASE}c4d80b88[`c4d80b88`]).
+* Fixed resource translations for content and automation page blocks ({SERVER_COMMIT_BASE}8a8cf42e[`8a8cf42e`]).
+* Fixed inconsistent NULL order for different DB engines causing paging cursor issues ({SERVER_COMMIT_BASE}2be460ee[`2be460ee`]).

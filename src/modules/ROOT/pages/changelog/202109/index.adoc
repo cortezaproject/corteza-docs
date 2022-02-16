@@ -40,7 +40,7 @@ Further improvements to the authentication token generator and handler help incr
 
 *Integration gateway*
 
-Responding to the needs of defining custom API endpoints, we've expanded the sink route facility and introduced the xref:integrator-guide:api-gw/index.html[Integration gateway].
+Responding to the needs of defining custom API endpoints, we've expanded the sink route facility and introduced the xref:integrator-guide:api-gw/index.adoc[Integration gateway].
 The improved facility simplifies the process of defining and managing custom API endpoints and defining processing for HTTP requests either via the built-in functions, workflows, or xref:integrator-guide:api-gw/index.adoc#js-processing[custom code].
 
 [NOTE]

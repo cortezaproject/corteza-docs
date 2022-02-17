@@ -1,0 +1,68 @@
+include::ROOT:partial$variables.adoc[]
+
+= {PRODUCT_NAME} Server Web Console
+
+The {PRODUCT_NAME} server web console provides a fast and easy way to inspect your system which can greatly simplify and speedup troubleshooting process.
+
+.The screenshot shows the {PRODUCT_NAME} server web console home page.
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "web-console-home.png",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {
+    "h": 300
+  },
+  "annotations": []
+}
+----
+
+When enabled, the web console is available at `https://\{BASE_URL}/console` (for example `https://corteza.domain.tld/console`)
+
+[CAUTION]
+====
+The {PRODUCT_NAME} server web console exposes details and configuration about your server and {PRODUCT_NAME} itself.
+Make sure to keep it safe behind strong credentials.
+====
+
+== Configuration
+
+When running in development mode (by setting the `ENVIRONMENT=dev` `.env` variable), the web console is enabled and open to everyone.
+
+The web console can explicitly be enabled by setting the `HTTP_SERVER_WEB_CONSOLE_ENABLED=true` `.env` variable.
+
+[CAUTION]
+====
+The web console doesn't implement the standard security model.
+Anyone with the required credentials may access the web console.
+====
+
+The web console access credentials can be controlled by setting the `HTTP_SERVER_WEB_CONSOLE_USERNAME` and `HTTP_SERVER_WEB_CONSOLE_PASSWORD` `.env` variables.
+
+== Accessing logs
+
+To access server logs, navigate to the web console by accessing `https://\{BASE_URL}/console` and navigating to the *logs* tab.
+The logs display the latest 10240 entries.
+
+.The screenshot shows the log viewer.
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "web-console-logs.png",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {},
+  "annotations": [{
+    "kind": "box-note",
+    "x": 78,
+    "y": 17,
+    "w": 44,
+    "h": 21
+  }]
+}
+----

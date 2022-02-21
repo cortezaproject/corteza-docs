@@ -2,10 +2,16 @@ include::ROOT:partial$variables.adoc[]
 
 = `2022.3.0`
 
-*Released on*: 2022-10-11
+*Released on*: TBD
+
+*Contributors*:
+Peter Grlica (https://github.com/petergrlica[GH]).
+Katrin Yordanova (https://github.com/katrinDY[GH]),
 
 .[#2022_3_0-added]#<<2022_3_0-added,Added:>>#
-// ...
+* Added BufferedReader support for Integration Gateway requests ({SERVER_COMMIT_BASE}87d3b68d[`87d3b68d`]).
+* Add option to choose if link opens in a new tab or not in CRichTextInput/Link ({WEBAPP_VUE_COMMIT_BASE}e4fddb3[`e4fddb3`], {WEBAPP_COMPOSE_COMMIT_BASE}49a525a[`49a525a`], {WEBAPP_REPORTER_COMMIT_BASE}f5360a8[`f5360a8`], {LOCALE_COMMIT_BASE}59076a7[`59076a7`]).
+
 
 //
 //
@@ -23,8 +29,17 @@ include::ROOT:partial$variables.adoc[]
 //
 
 .[#2022_3_0-fixed]#<<2022_3_0-fixed,Fixed:>>#
-// ...
-
+* Body read in workflow Integration Gateway prefilter ({SERVER_COMMIT_BASE}87d3b68d[`87d3b68d`]).
+* Change default background colour to white in MetricConfigurator ({WEBAPP_COMPOSE_COMMIT_BASE}49a525a[`49a525a`]).
+* Hide refresh data button when no data is present in MetricConfigurator ({WEBAPP_COMPOSE_COMMIT_BASE}8fc446c[`8fc446c`]).
+* Increase z-index for PageBuilder to avoid toolbar with icons appearing below the Block's title and description {WEBAPP_COMPOSE_COMMIT_BASE}667a9b0[`667a9b0`]).
+* Translate messages in errors component ({WEBAPP_COMPOSE_COMMIT_BASE}acd5473[`acd5473`], {WEBAPP_JS_COMMIT_BASE}1e933b2[`1e933b2`], {LOCALE_COMMIT_BASE}0af18b1[`0af18b1`]).
+* Fix number of records to be exported in ExporterModal ({WEBAPP_COMPOSE_COMMIT_BASE}8f5f2c3[`8f5f2c3`]).
+* Fix link cut off in left navigation for corteza-docs (https://github.com/cortezaproject/corteza-docs/commit/eb913a5[eb913a5]).
+* Fix delete buttons in AutomationTabButtonEditor when deleting a unconfigured button ({WEBAPP_COMPOSE_COMMIT_BASE}7a7307b[`7a7307b`]).
+* Prevent duplicate items on select in CItemPicker {WEBAPP_VUE_COMMIT_BASE}215a5fc[`215a5fc`].
+* Fix broken drag and drop functionality in Admin/Import ({WEBAPP_COMPOSE_COMMIT_BASE}f5a93ca[`f5a93ca`]).
+* Fix import button error in Admin when uploading json file ({WEBAPP_COMPOSE_COMMIT_BASE}7bb22d9[`7bb22d9`])
 //
 //
 

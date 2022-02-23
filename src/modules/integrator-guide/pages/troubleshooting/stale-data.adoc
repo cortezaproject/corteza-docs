@@ -1,0 +1,138 @@
+include::ROOT:partial$variables.adoc[]
+
+= Stale Data
+
+The `stale data` error occurs when {PRODUCT_NAME} detects that a request attempted to change a resource that was already changed by another request.
+
+.The diagram illustrates how the stale data error occurs.
+[plantuml,envoy-arch,svg,role=sequence]
+----
+@startuml
+concise "Alice" as alc
+concise "Bob" as bb
+
+@0
+alc is "Fetching resource R"
+bb is "Fetching resource R"
+
+@500
+alc is "Editing resource R"
+bb is "Editing resource R"
+
+@900
+alc is "Updating resource R"
+
+@1600
+alc is {hidden}
+
+@1800
+bb is "Updating resource R"
+
+@2200
+bb is {hidden}
+
+
+highlight 0 to 500 #Gold;line:DimGrey : \t\tBoth Alice and Bob fetch\nthe same version of resource
+highlight 900 to 1600 #Gold;line:DimGrey : Alice caused the resource on the server to change
+highlight 1800 to 2200 #Pink;line:DimGrey : Bob tried to update a resource\ndetermined as stale
+
+@enduml
+----
+
+== Example: Bulk record update
+
+The example utilizes batch record creation where we are trying to update the record `$RECORD_ID` twice.
+
+[source,bash]
+----
+curl -X POST "$BASE_URL/api/compose/namespace/$NAMESPACE_ID/module/$MODULE_ID/record/" \
+  -H 'accept: application/json, text/plain, */*' \
+  -H "authorization: Bearer $JWT" \
+  -H 'content-type: application/json' \
+  --data-raw "{
+    \"records\": [{
+      \"set\": [{
+        \"recordID\": \"$RECORD_ID\",
+        \"moduleID\": \"$MODULE_ID\",
+        \"values\": [{ \"name\": \"name\", \"value\": \"Some value\" }],
+        \"namespaceID\": \"$NAMESPACE_ID\",
+        \"createdAt\": \"2022-02-17T11:44:20Z\",
+        \"updatedAt\": \"2022-02-17T17:13:42Z\"
+      },
+      {
+        \"recordID\": \"$RECORD_ID\",
+        \"moduleID\": \"$MODULE_ID\",
+        \"values\": [{ \"name\": \"name\", \"value\": \"Some OTHER value\" }],
+        \"namespaceID\": \"$NAMESPACE_ID\",
+        \"createdAt\": \"2022-02-17T11:44:20Z\",
+        \"updatedAt\": \"2022-02-17T17:13:42Z\"
+      }]
+    }]
+  }" \
+  --compressed
+----
+
+The `stale data` error occurs because the first record causes the resource to change on the server.
+
+When the second resource is handled, the current resource on the server is no longer the one that the second record is referencing.
+
+To solve the issue, either split the request in two or determine the latest version locally before sending the request.
+
+== Example: Workflow execution
+
+The example utilizes the `fork` gateway where we first fetch the record and then attempt to update the same instance twice.
+Because one resolves before the other, the second one raises a `stale data` error
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "troubleshooting/stale-data-workflow.png",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {
+    "x": 105,
+    "y": 284,
+    "w": 1200,
+    "h": 481
+  },
+  "annotations": [{
+    "kind": "box-danger",
+    "padding": "lg",
+    "x": 1024,
+    "y": 364,
+    "w": 200,
+    "h": 321
+  }]
+}
+----
+
+Use the two fork branches to update the values without saving the record to solve the issue.
+
+Save the record at the very end when all of the values are set to what they should be.
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "troubleshooting/stale-data-workflow-fix.png",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {
+    "x": 235,
+    "y": 139,
+    "w": 1240,
+    "h": 640
+  },
+  "annotations": [{
+    "kind": "box-success",
+    "padding": "lg",
+    "x": 635,
+    "y": 419,
+    "w": 760,
+    "h": 280
+  }]
+}
+----

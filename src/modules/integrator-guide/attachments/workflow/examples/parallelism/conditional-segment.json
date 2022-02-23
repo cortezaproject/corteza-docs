@@ -1,0 +1,559 @@
+{
+  "workflows": [
+    {
+      "handle": "parallelism",
+      "enabled": true,
+      "meta": {
+        "name": "Parallelism",
+        "description": "",
+        "visual": null
+      },
+      "keepSessions": 0,
+      "steps": [
+        {
+          "stepID": "17",
+          "kind": "delay",
+          "ref": "",
+          "arguments": [
+            {
+              "target": "offset",
+              "value": "1s",
+              "type": "Duration"
+            }
+          ],
+          "results": [],
+          "meta": {
+            "name": "",
+            "description": "",
+            "visual": {
+              "defaultName": true,
+              "id": "17",
+              "parent": "1",
+              "value": "Delay workflow execution for 1s",
+              "xywh": [
+                2280,
+                2160,
+                200,
+                80
+              ]
+            }
+          }
+        },
+        {
+          "stepID": "18",
+          "kind": "function",
+          "ref": "logInfo",
+          "arguments": [
+            {
+              "target": "message",
+              "value": "A",
+              "type": "String"
+            }
+          ],
+          "results": [],
+          "meta": {
+            "name": "",
+            "description": "",
+            "visual": {
+              "defaultName": true,
+              "id": "18",
+              "parent": "1",
+              "value": "Log info message",
+              "xywh": [
+                2280,
+                2280,
+                200,
+                80
+              ]
+            }
+          }
+        },
+        {
+          "stepID": "20",
+          "kind": "delay",
+          "ref": "",
+          "arguments": [
+            {
+              "target": "offset",
+              "value": "3s",
+              "type": "Duration"
+            }
+          ],
+          "results": [],
+          "meta": {
+            "name": "",
+            "description": "",
+            "visual": {
+              "defaultName": true,
+              "id": "20",
+              "parent": "1",
+              "value": "Delay workflow execution for 3s",
+              "xywh": [
+                2760,
+                2160,
+                200,
+                80
+              ]
+            }
+          }
+        },
+        {
+          "stepID": "21",
+          "kind": "function",
+          "ref": "logInfo",
+          "arguments": [
+            {
+              "target": "message",
+              "value": "B",
+              "type": "String"
+            }
+          ],
+          "results": [],
+          "meta": {
+            "name": "",
+            "description": "",
+            "visual": {
+              "defaultName": true,
+              "id": "21",
+              "parent": "1",
+              "value": "Log info message",
+              "xywh": [
+                2760,
+                2280,
+                200,
+                80
+              ]
+            }
+          }
+        },
+        {
+          "stepID": "33",
+          "kind": "gateway",
+          "ref": "fork",
+          "arguments": null,
+          "results": [],
+          "meta": {
+            "name": "",
+            "description": "",
+            "visual": {
+              "defaultName": true,
+              "id": "33",
+              "parent": "1",
+              "value": "Parallel",
+              "xywh": [
+                2520,
+                1920,
+                200,
+                80
+              ]
+            }
+          }
+        },
+        {
+          "stepID": "37",
+          "kind": "gateway",
+          "ref": "join",
+          "arguments": null,
+          "results": [],
+          "meta": {
+            "name": "",
+            "description": "",
+            "visual": {
+              "defaultName": true,
+              "id": "37",
+              "parent": "1",
+              "value": "Parallel",
+              "xywh": [
+                2520,
+                2520,
+                200,
+                80
+              ]
+            }
+          }
+        },
+        {
+          "stepID": "40",
+          "kind": "function",
+          "ref": "logInfo",
+          "arguments": [
+            {
+              "target": "message",
+              "value": "C",
+              "type": "String"
+            }
+          ],
+          "results": [],
+          "meta": {
+            "name": "",
+            "description": "",
+            "visual": {
+              "defaultName": true,
+              "id": "40",
+              "parent": "1",
+              "value": "Log info message",
+              "xywh": [
+                2520,
+                2640,
+                200,
+                80
+              ]
+            }
+          }
+        },
+        {
+          "stepID": "42",
+          "kind": "gateway",
+          "ref": "excl",
+          "arguments": null,
+          "results": [],
+          "meta": {
+            "name": "",
+            "description": "",
+            "visual": {
+              "defaultName": true,
+              "id": "42",
+              "parent": "1",
+              "value": "Exclusive",
+              "xywh": [
+                2280,
+                2000,
+                200,
+                80
+              ]
+            }
+          }
+        },
+        {
+          "stepID": "43",
+          "kind": "gateway",
+          "ref": "excl",
+          "arguments": null,
+          "results": [],
+          "meta": {
+            "name": "",
+            "description": "",
+            "visual": {
+              "defaultName": true,
+              "id": "43",
+              "parent": "1",
+              "value": "Exclusive",
+              "xywh": [
+                2760,
+                2000,
+                200,
+                80
+              ]
+            }
+          }
+        },
+        {
+          "stepID": "49",
+          "kind": "expressions",
+          "ref": "",
+          "arguments": [
+            {
+              "target": "_",
+              "expr": "\"_\"",
+              "type": "Any"
+            }
+          ],
+          "results": [],
+          "meta": {
+            "name": "",
+            "description": "",
+            "visual": {
+              "defaultName": true,
+              "id": "49",
+              "parent": "1",
+              "value": "Define and mutate scope variables",
+              "xywh": [
+                2280,
+                2400,
+                200,
+                80
+              ]
+            }
+          }
+        },
+        {
+          "stepID": "51",
+          "kind": "expressions",
+          "ref": "",
+          "arguments": [
+            {
+              "target": "_",
+              "expr": "\"_\"",
+              "type": "Any"
+            }
+          ],
+          "results": [],
+          "meta": {
+            "name": "",
+            "description": "",
+            "visual": {
+              "defaultName": true,
+              "id": "51",
+              "parent": "1",
+              "value": "Define and mutate scope variables",
+              "xywh": [
+                2760,
+                2400,
+                200,
+                80
+              ]
+            }
+          }
+        }
+      ],
+      "paths": [
+        {
+          "parentID": "17",
+          "childID": "18",
+          "meta": {
+            "name": "",
+            "description": "",
+            "visual": {
+              "id": "19",
+              "parent": "1",
+              "points": [],
+              "style": "exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;",
+              "value": null
+            }
+          }
+        },
+        {
+          "parentID": "20",
+          "childID": "21",
+          "meta": {
+            "name": "",
+            "description": "",
+            "visual": {
+              "id": "23",
+              "parent": "1",
+              "points": [],
+              "style": "exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;",
+              "value": null
+            }
+          }
+        },
+        {
+          "parentID": "33",
+          "childID": "42",
+          "meta": {
+            "name": "",
+            "description": "",
+            "visual": {
+              "id": "35",
+              "parent": "1",
+              "points": [],
+              "style": "exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;",
+              "value": null
+            }
+          }
+        },
+        {
+          "parentID": "33",
+          "childID": "43",
+          "meta": {
+            "name": "",
+            "description": "",
+            "visual": {
+              "id": "36",
+              "parent": "1",
+              "points": [],
+              "style": "exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;",
+              "value": null
+            }
+          }
+        },
+        {
+          "parentID": "18",
+          "childID": "49",
+          "meta": {
+            "name": "",
+            "description": "",
+            "visual": {
+              "id": "38",
+              "parent": "1",
+              "points": [],
+              "style": "exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;",
+              "value": null
+            }
+          }
+        },
+        {
+          "parentID": "21",
+          "childID": "51",
+          "meta": {
+            "name": "",
+            "description": "",
+            "visual": {
+              "id": "39",
+              "parent": "1",
+              "points": [],
+              "style": "exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;",
+              "value": null
+            }
+          }
+        },
+        {
+          "parentID": "37",
+          "childID": "40",
+          "meta": {
+            "name": "",
+            "description": "",
+            "visual": {
+              "id": "41",
+              "parent": "1",
+              "points": [],
+              "style": "exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;",
+              "value": null
+            }
+          }
+        },
+        {
+          "expr": "true",
+          "parentID": "42",
+          "childID": "17",
+          "meta": {
+            "name": "",
+            "description": "",
+            "visual": {
+              "id": "45",
+              "parent": "1",
+              "points": [],
+              "style": "exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;",
+              "value": "Yes"
+            }
+          }
+        },
+        {
+          "parentID": "42",
+          "childID": "49",
+          "meta": {
+            "name": "",
+            "description": "",
+            "visual": {
+              "id": "46",
+              "parent": "1",
+              "points": [],
+              "style": "exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;",
+              "value": "No"
+            }
+          }
+        },
+        {
+          "expr": "false",
+          "parentID": "43",
+          "childID": "20",
+          "meta": {
+            "name": "",
+            "description": "",
+            "visual": {
+              "id": "47",
+              "parent": "1",
+              "points": [],
+              "style": "exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;",
+              "value": "Yes"
+            }
+          }
+        },
+        {
+          "parentID": "43",
+          "childID": "51",
+          "meta": {
+            "name": "",
+            "description": "",
+            "visual": {
+              "id": "48",
+              "parent": "1",
+              "points": [],
+              "style": "exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;",
+              "value": "No"
+            }
+          }
+        },
+        {
+          "parentID": "49",
+          "childID": "37",
+          "meta": {
+            "name": "",
+            "description": "",
+            "visual": {
+              "id": "50",
+              "parent": "1",
+              "points": [],
+              "style": "exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;",
+              "value": null
+            }
+          }
+        },
+        {
+          "parentID": "51",
+          "childID": "37",
+          "meta": {
+            "name": "",
+            "description": "",
+            "visual": {
+              "id": "52",
+              "parent": "1",
+              "points": [],
+              "style": "exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;",
+              "value": null
+            }
+          }
+        }
+      ],
+      "triggers": [
+        {
+          "resourceType": "system",
+          "eventType": "onManual",
+          "constraints": [
+            {
+              "name": "",
+              "op": "=",
+              "values": [
+                ""
+              ]
+            }
+          ],
+          "enabled": true,
+          "stepID": "33",
+          "meta": {
+            "description": "",
+            "visual": {
+              "defaultName": true,
+              "edges": [
+                {
+                  "childID": "33",
+                  "meta": {
+                    "description": "",
+                    "label": "",
+                    "visual": {
+                      "id": "34",
+                      "parent": "1",
+                      "points": [],
+                      "style": "exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;",
+                      "value": null
+                    }
+                  },
+                  "parentID": "15"
+                }
+              ],
+              "id": "15",
+              "parent": "1",
+              "value": "System - onManual",
+              "xywh": [
+                2520,
+                1800,
+                200,
+                80
+              ]
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

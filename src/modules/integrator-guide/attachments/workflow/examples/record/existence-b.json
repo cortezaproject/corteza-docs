@@ -1,0 +1,238 @@
+{
+  "workflows": [
+    {
+      "handle": "example",
+      "enabled": true,
+      "meta": {
+        "name": "example",
+        "description": "",
+        "visual": null
+      },
+      "keepSessions": 0,
+      "steps": [
+        {
+          "stepID": "4",
+          "kind": "function",
+          "ref": "composeRecordsSearch",
+          "arguments": [
+            {
+              "target": "module",
+              "expr": "module",
+              "type": "ComposeModule"
+            },
+            {
+              "target": "namespace",
+              "expr": "namespace",
+              "type": "ComposeNamespace"
+            },
+            {
+              "target": "incTotal",
+              "value": "true",
+              "type": "Boolean"
+            }
+          ],
+          "results": [
+            {
+              "target": "items",
+              "expr": "records"
+            }
+          ],
+          "meta": {
+            "name": "",
+            "description": "",
+            "visual": {
+              "defaultName": true,
+              "id": "4",
+              "parent": "1",
+              "value": "Compose records search",
+              "xywh": [
+                2320,
+                2360,
+                200,
+                80
+              ]
+            }
+          }
+        },
+        {
+          "stepID": "5",
+          "kind": "gateway",
+          "ref": "excl",
+          "arguments": null,
+          "results": [],
+          "meta": {
+            "name": "",
+            "description": "",
+            "visual": {
+              "defaultName": true,
+              "id": "5",
+              "parent": "1",
+              "value": "Exclusive",
+              "xywh": [
+                2320,
+                2520,
+                200,
+                80
+              ]
+            }
+          }
+        },
+        {
+          "stepID": "6",
+          "kind": "function",
+          "ref": "logInfo",
+          "arguments": [
+            {
+              "target": "message",
+              "value": "Has items",
+              "type": "String"
+            }
+          ],
+          "results": [],
+          "meta": {
+            "name": "",
+            "description": "",
+            "visual": {
+              "defaultName": true,
+              "id": "6",
+              "parent": "1",
+              "value": "Log info message",
+              "xywh": [
+                2120,
+                2640,
+                200,
+                80
+              ]
+            }
+          }
+        },
+        {
+          "stepID": "7",
+          "kind": "function",
+          "ref": "logInfo",
+          "arguments": [
+            {
+              "target": "message",
+              "value": "Doesn't have items",
+              "type": "String"
+            }
+          ],
+          "results": [],
+          "meta": {
+            "name": "",
+            "description": "",
+            "visual": {
+              "defaultName": true,
+              "id": "7",
+              "parent": "1",
+              "value": "Log info message",
+              "xywh": [
+                2560,
+                2640,
+                200,
+                80
+              ]
+            }
+          }
+        }
+      ],
+      "paths": [
+        {
+          "expr": "count(items)",
+          "parentID": "5",
+          "childID": "6",
+          "meta": {
+            "name": "",
+            "description": "",
+            "visual": {
+              "id": "8",
+              "parent": "1",
+              "points": [],
+              "style": "exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;",
+              "value": "Yes"
+            }
+          }
+        },
+        {
+          "parentID": "5",
+          "childID": "7",
+          "meta": {
+            "name": "",
+            "description": "",
+            "visual": {
+              "id": "9",
+              "parent": "1",
+              "points": [],
+              "style": "exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;",
+              "value": "No"
+            }
+          }
+        },
+        {
+          "parentID": "4",
+          "childID": "5",
+          "meta": {
+            "name": "",
+            "description": "",
+            "visual": {
+              "id": "11",
+              "parent": "1",
+              "points": [],
+              "style": "exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;",
+              "value": null
+            }
+          }
+        }
+      ],
+      "triggers": [
+        {
+          "resourceType": "compose:module",
+          "eventType": "onManual",
+          "constraints": [
+            {
+              "name": "",
+              "op": "=",
+              "values": [
+                ""
+              ]
+            }
+          ],
+          "enabled": true,
+          "stepID": "4",
+          "meta": {
+            "description": "",
+            "visual": {
+              "defaultName": true,
+              "edges": [
+                {
+                  "childID": "4",
+                  "meta": {
+                    "description": "",
+                    "label": "",
+                    "visual": {
+                      "id": "10",
+                      "parent": "1",
+                      "points": [],
+                      "style": "exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;",
+                      "value": null
+                    }
+                  },
+                  "parentID": "3"
+                }
+              ],
+              "id": "3",
+              "parent": "1",
+              "value": "Compose module - onManual",
+              "xywh": [
+                2320,
+                2200,
+                200,
+                80
+              ]
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

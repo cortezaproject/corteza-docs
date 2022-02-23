@@ -1,0 +1,57 @@
+= Dynamic Configuration
+:attachment-path: ../../../_attachments/workflow/examples/
+
+When defining automation which needs to interact with external systems or you need to make the workflow execution configurable, static workflows may prove challenging to use.
+
+You can define a `settings` module where you can define all of the configurable parameters your automation requires.
+This can be anything from URL addresses to login credentials and access tokens.
+
+[CAUTION]
+====
+When storing access tokens and other credentials, make sure to properly configure access control.
+====
+
+.The screenshot outlines a basic example of the `settings` module.
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "workflow/dynamic-config/settings-module.png",
+    "alias": "dynamic-config_settings-module",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {},
+  "annotations": []
+}
+----
+
+Inside your workflow, simply fetch the record from the `settings` module and configure your execution using it's values.
+
+.The screenshot outlines a basic example of a workflow that utilizes the `settings` module.
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "workflow/dynamic-config/example-workflow.png",
+    "alias": "dynamic-config_example-workflow",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {
+    "x": 144,
+    "y": 164,
+    "w": 640,
+    "h": 398
+  },
+  "annotations": [{
+    "kind": "box-note",
+    "x": 500,
+    "y": 242,
+    "w": 202,
+    "h": 80
+  }]
+}
+----
+
+You can find the source code for the workflow link:{attachment-path}dynamic-config/example-workflow.json[here].

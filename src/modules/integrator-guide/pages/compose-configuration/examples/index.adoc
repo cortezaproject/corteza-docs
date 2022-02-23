@@ -1,0 +1,7 @@
+= Examples
+
+:leveloffset: +1
+
+include::./record-filtering-nested.adoc[]
+
+:leveloffset: -1

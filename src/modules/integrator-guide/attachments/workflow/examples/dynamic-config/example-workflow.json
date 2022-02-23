@@ -1,0 +1,150 @@
+{
+  "workflows": [
+    {
+      "handle": "settings_example",
+      "enabled": true,
+      "meta": {
+        "name": "Settings Example",
+        "description": "",
+        "visual": null
+      },
+      "keepSessions": 0,
+      "steps": [
+        {
+          "stepID": "4",
+          "kind": "function",
+          "ref": "composeRecordsFirst",
+          "arguments": [
+            {
+              "target": "module",
+              "expr": "module",
+              "type": "ComposeModule"
+            },
+            {
+              "target": "namespace",
+              "expr": "namespace",
+              "type": "ComposeNamespace"
+            }
+          ],
+          "results": [
+            {
+              "target": "settings",
+              "expr": "record"
+            }
+          ],
+          "meta": {
+            "name": "",
+            "description": "",
+            "visual": {
+              "defaultName": false,
+              "id": "4",
+              "parent": "1",
+              "value": "Fetch settings",
+              "xywh": [
+                2400,
+                2000,
+                200,
+                80
+              ]
+            }
+          }
+        },
+        {
+          "stepID": "8",
+          "kind": "prompt",
+          "ref": "alert",
+          "arguments": [
+            {
+              "target": "message",
+              "expr": "format(\"Accessing %s with user %s and password %s\", settings.values.url, settings.values.username, settings.values.password)",
+              "type": "String"
+            }
+          ],
+          "results": [],
+          "meta": {
+            "name": "",
+            "description": "",
+            "visual": {
+              "defaultName": true,
+              "id": "8",
+              "parent": "1",
+              "value": "Prompt user with an alert",
+              "xywh": [
+                2200,
+                2160,
+                200,
+                80
+              ]
+            }
+          }
+        }
+      ],
+      "paths": [
+        {
+          "parentID": "4",
+          "childID": "8",
+          "meta": {
+            "name": "",
+            "description": "",
+            "visual": {
+              "id": "7",
+              "parent": "1",
+              "points": null,
+              "style": "exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;",
+              "value": null
+            }
+          }
+        }
+      ],
+      "triggers": [
+        {
+          "resourceType": "compose:module",
+          "eventType": "onManual",
+          "constraints": [
+            {
+              "name": "",
+              "op": "=",
+              "values": [
+                ""
+              ]
+            }
+          ],
+          "enabled": true,
+          "stepID": "4",
+          "meta": {
+            "description": "",
+            "visual": {
+              "defaultName": true,
+              "edges": [
+                {
+                  "childID": "4",
+                  "meta": {
+                    "description": "",
+                    "label": "",
+                    "visual": {
+                      "id": "5",
+                      "parent": "1",
+                      "points": null,
+                      "style": "exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;",
+                      "value": null
+                    }
+                  },
+                  "parentID": "3"
+                }
+              ],
+              "id": "3",
+              "parent": "1",
+              "value": "Compose module - onManual",
+              "xywh": [
+                2120,
+                2000,
+                200,
+                80
+              ]
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+= Examples
+
+:leveloffset: +1
+
+include::./draft-examples.adoc[]
+
+include::./email-attachment.adoc[]
+
+include::./gw-parse-payload.adoc[]
+
+include::./interval.adoc[]
+
+include::./record-values.adoc[]
+
+include::./template-rendering.adoc[]
+
+include::./timestamp.adoc[]
+
+include::./record.adoc[]
+
+include::./parallelism.adoc[]
+
+include::./dynamic-config.adoc[]
+
+:leveloffset: -1

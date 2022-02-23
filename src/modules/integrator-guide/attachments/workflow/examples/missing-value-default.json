@@ -1,0 +1,105 @@
+{
+  "workflows": [
+    {
+      "handle": "example",
+      "enabled": true,
+      "meta": {
+        "name": "Example",
+        "description": "",
+        "visual": null
+      },
+      "keepSessions": 0,
+      "steps": [
+        {
+          "stepID": "6",
+          "kind": "expressions",
+          "ref": "",
+          "arguments": [
+            {
+              "target": "defaultLabel",
+              "expr": "\"Something something\"",
+              "type": "String"
+            },
+            {
+              "target": "record.values.name",
+              "expr": "record.values.name ?? defaultLabel",
+              "type": "String"
+            }
+          ],
+          "results": null,
+          "meta": {
+            "name": "",
+            "description": "",
+            "visual": {
+              "id": "6",
+              "parent": "1",
+              "value": "Remove value",
+              "xywh": [
+                2480,
+                2200,
+                200,
+                80
+              ]
+            }
+          }
+        }
+      ],
+      "paths": [],
+      "triggers": [
+        {
+          "resourceType": "compose:record",
+          "eventType": "beforeCreate",
+          "constraints": [
+            {
+              "name": "namespace.handle",
+              "op": "=",
+              "values": [
+                "cupcake"
+              ]
+            },
+            {
+              "name": "module.handle",
+              "op": "=",
+              "values": [
+                "cupcake"
+              ]
+            }
+          ],
+          "enabled": true,
+          "stepID": "6",
+          "meta": {
+            "description": "",
+            "visual": {
+              "edges": [
+                {
+                  "childID": "6",
+                  "meta": {
+                    "description": "",
+                    "label": "",
+                    "visual": {
+                      "id": "12",
+                      "parent": "1",
+                      "points": [],
+                      "style": "exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;",
+                      "value": null
+                    }
+                  },
+                  "parentID": "3"
+                }
+              ],
+              "id": "3",
+              "parent": "1",
+              "value": "Before specific record create",
+              "xywh": [
+                2200,
+                2200,
+                200,
+                80
+              ]
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

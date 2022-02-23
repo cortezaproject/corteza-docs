@@ -1,0 +1,51 @@
+include::ROOT:partial$variables.adoc[]
+
+= Record Filtering With Nested Fields
+
+{PRODUCT_NAME} doesn't natively support filtering using values from referenced values, such as records and users.
+
+Let us use an example where we have two modules: `user` and `package` where each `user` can have a `package`.
+We wish to find only the users that have a specific package.
+
+You can use one of the following workarounds.
+
+== Clone the child fields into the parent
+
+Extend the `user` module to add a new field, for example, `filter__package_name`.
+You can add additional fields if you wish to use multiple fields.
+
+Define an xref:automation/index.adoc[automation] with a before create/update trigger for the `user` module.
+
+The automation fetches the related package of the user in question and populates the newly created `filter__package_name` field with the `name` field from the corresponding `package` record.
+
+When searching for users, refer to the `filter__package_name` field.
+
+== Perform multiple fetches
+
+[IMPORTANT]
+====
+This option only applies if you're searching for records outside of the existing web applications.
+====
+
+Instead of performing one fetch, you can perform multiple fetches.
+
+Firstly fetch the `package` records based on some query.
+
+.The response would look something like this:
+[source,json]
+----
+[{
+  "recordID": "1"
+},
+{
+  "recordID": "2"
+}]
+----
+
+Next, fetch the `user` records where the query limits the users only to the records obtained in the previous query.
+
+.To exemplify, the query would look like this:
+[source]
+----
+`package='1' OR package='2'`
+----

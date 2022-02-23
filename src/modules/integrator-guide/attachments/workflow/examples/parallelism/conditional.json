@@ -1,0 +1,266 @@
+{
+  "workflows": [
+    {
+      "handle": "parallelism",
+      "enabled": true,
+      "meta": {
+        "name": "Parallelism",
+        "description": "",
+        "visual": null
+      },
+      "keepSessions": 0,
+      "steps": [
+        {
+          "stepID": "17",
+          "kind": "delay",
+          "ref": "",
+          "arguments": [
+            {
+              "target": "offset",
+              "value": "1s",
+              "type": "Duration"
+            }
+          ],
+          "results": [],
+          "meta": {
+            "name": "",
+            "description": "",
+            "visual": {
+              "defaultName": true,
+              "id": "17",
+              "parent": "1",
+              "value": "Delay workflow execution for 1s",
+              "xywh": [
+                2320,
+                2080,
+                200,
+                80
+              ]
+            }
+          }
+        },
+        {
+          "stepID": "18",
+          "kind": "function",
+          "ref": "logInfo",
+          "arguments": [
+            {
+              "target": "message",
+              "value": "A",
+              "type": "String"
+            }
+          ],
+          "results": [],
+          "meta": {
+            "name": "",
+            "description": "",
+            "visual": {
+              "defaultName": true,
+              "id": "18",
+              "parent": "1",
+              "value": "Log info message",
+              "xywh": [
+                2320,
+                2240,
+                200,
+                80
+              ]
+            }
+          }
+        },
+        {
+          "stepID": "20",
+          "kind": "delay",
+          "ref": "",
+          "arguments": [
+            {
+              "target": "offset",
+              "value": "3s",
+              "type": "Duration"
+            }
+          ],
+          "results": [],
+          "meta": {
+            "name": "",
+            "description": "",
+            "visual": {
+              "defaultName": true,
+              "id": "20",
+              "parent": "1",
+              "value": "Delay workflow execution for 3s",
+              "xywh": [
+                2760,
+                2080,
+                200,
+                80
+              ]
+            }
+          }
+        },
+        {
+          "stepID": "21",
+          "kind": "function",
+          "ref": "logInfo",
+          "arguments": [
+            {
+              "target": "message",
+              "value": "B",
+              "type": "String"
+            }
+          ],
+          "results": [],
+          "meta": {
+            "name": "",
+            "description": "",
+            "visual": {
+              "defaultName": true,
+              "id": "21",
+              "parent": "1",
+              "value": "Log info message",
+              "xywh": [
+                2760,
+                2240,
+                200,
+                80
+              ]
+            }
+          }
+        },
+        {
+          "stepID": "33",
+          "kind": "gateway",
+          "ref": "fork",
+          "arguments": null,
+          "results": [],
+          "meta": {
+            "name": "",
+            "description": "",
+            "visual": {
+              "defaultName": true,
+              "id": "33",
+              "parent": "1",
+              "value": "Parallel",
+              "xywh": [
+                2520,
+                1960,
+                200,
+                80
+              ]
+            }
+          }
+        }
+      ],
+      "paths": [
+        {
+          "parentID": "17",
+          "childID": "18",
+          "meta": {
+            "name": "",
+            "description": "",
+            "visual": {
+              "id": "19",
+              "parent": "1",
+              "points": [],
+              "style": "exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;",
+              "value": null
+            }
+          }
+        },
+        {
+          "parentID": "20",
+          "childID": "21",
+          "meta": {
+            "name": "",
+            "description": "",
+            "visual": {
+              "id": "23",
+              "parent": "1",
+              "points": [],
+              "style": "exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;",
+              "value": null
+            }
+          }
+        },
+        {
+          "parentID": "33",
+          "childID": "17",
+          "meta": {
+            "name": "",
+            "description": "",
+            "visual": {
+              "id": "35",
+              "parent": "1",
+              "points": null,
+              "style": "exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;",
+              "value": null
+            }
+          }
+        },
+        {
+          "parentID": "33",
+          "childID": "20",
+          "meta": {
+            "name": "",
+            "description": "",
+            "visual": {
+              "id": "36",
+              "parent": "1",
+              "points": null,
+              "style": "exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;",
+              "value": null
+            }
+          }
+        }
+      ],
+      "triggers": [
+        {
+          "resourceType": "system",
+          "eventType": "onManual",
+          "constraints": [
+            {
+              "name": "",
+              "op": "=",
+              "values": [
+                ""
+              ]
+            }
+          ],
+          "enabled": true,
+          "stepID": "33",
+          "meta": {
+            "description": "",
+            "visual": {
+              "defaultName": true,
+              "edges": [
+                {
+                  "childID": "33",
+                  "meta": {
+                    "description": "",
+                    "label": "",
+                    "visual": {
+                      "id": "34",
+                      "parent": "1",
+                      "points": null,
+                      "style": "exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;",
+                      "value": null
+                    }
+                  },
+                  "parentID": "15"
+                }
+              ],
+              "id": "15",
+              "parent": "1",
+              "value": "System - onManual",
+              "xywh": [
+                2520,
+                1800,
+                200,
+                80
+              ]
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

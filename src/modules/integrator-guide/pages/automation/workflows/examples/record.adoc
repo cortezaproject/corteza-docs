@@ -1,0 +1,105 @@
+= Workfing with Records
+:attachment-path: ../../../_attachments/workflow/examples/
+
+The section outlines some tips and tricks you can use when working with records.
+
+== Checking for existence
+
+In case where you wish to perform some task depending on the existence of records, you can use either of the following approaches.
+
+Both approaches are valid and there is no benefit between using one or the other.
+Decide based on your preferences/context.
+
+=== Approach A
+
+When searching for records, tick the `incTotal` option and assign the `total` result value to a variable.
+
+Inside the gateway, check if the `total` value is greater then `0`.
+
+.The screenshot outlines a basic example of checking for existence.
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "workflow/example-record/existence-a.png",
+    "alias": "example-record_existence-a",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {
+    "x": 325,
+    "y": 97,
+    "w": 718,
+    "h": 600
+  },
+  "annotations": []
+}
+----
+
+You can find the source code for the workflow link:{attachment-path}record/existence-a.json[here].
+
+=== Approach B
+
+Inside the gateway, check if the `count(items)` value is greater then `0`.
+
+.The screenshot outlines a basic example of checking for existence.
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "workflow/example-record/existence-b.png",
+    "alias": "example-record_existence-b",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {
+    "x": 325,
+    "y": 97,
+    "w": 718,
+    "h": 600
+  },
+  "annotations": []
+}
+----
+
+You can find the source code for the workflow link:{attachment-path}record/existence-b.json[here].
+
+== Create or update
+
+When creating the record you need to call the `compose record create` function, and when updating the record, you need to call the `compose record update` function.
+
+[NOTE]
+====
+Only the highlighted portion performs the create/update check; the rest is boilerplate to get it to the desired state.
+====
+
+If you need to call one or the other on-the-fyly, you can use the following approach.
+You can use the `record.recordID != "0"` to determine if the record needs to be updated -- the default `recordID` value is `"0"`.
+
+.The screenshot outlines a basic example of checking for existence.
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "workflow/example-record/create-update.png",
+    "alias": "example-record_create-update",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {
+    "x": 413,
+    "y": 67,
+    "w": 837,
+    "h": 997
+  },
+  "annotations": [{
+    "kind": "box-note",
+    "x": 490,
+    "y": 824,
+    "w": 680,
+    "h": 201
+  }]
+}
+----
+
+You can find the source code for the workflow link:{attachment-path}record/create-update.json[here].

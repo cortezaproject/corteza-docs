@@ -30,12 +30,8 @@ The way the http.Request is wrapped, it allows us to use it in the JS environmen
     "w": 1920,
     "h": 1080
   },
-  "view": {
-    "x": 0,
-    "y": 0,
-    "w": 1920,
-    "h": 1080
-  }
+  "view": {},
+  "annotations": []
 }
 ----
 
@@ -53,12 +49,8 @@ The link:{attachment-path}/wf-request-read-fn.json[workflow] for this example.
     "w": 1920,
     "h": 1080
   },
-  "view": {
-    "x": 0,
-    "y": 0,
-    "w": 1920,
-    "h": 1080
-  }
+  "view": {},
+  "annotations": []
 }
 ----
 
@@ -103,12 +95,8 @@ Refer to the xref:api-gw/index.adoc[Integration gateway documentation] for detai
     "w": 1920,
     "h": 1080
   },
-  "view": {
-    "x": 0,
-    "y": 0,
-    "w": 1920,
-    "h": 1080
-  }
+  "view": {},
+  "annotations": []
 }
 ----
 
@@ -122,12 +110,8 @@ Refer to the xref:api-gw/index.adoc[Integration gateway documentation] for detai
     "w": 1920,
     "h": 1080
   },
-  "view": {
-    "x": 0,
-    "y": 0,
-    "w": 1920,
-    "h": 1080
-  }
+  "view": {},
+  "annotations": []
 }
 ----
 

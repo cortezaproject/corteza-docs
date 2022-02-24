@@ -1,0 +1,143 @@
+= Type functions
+
+== `coalesce(...Any)`
+
+The `coalesce` function returns the first non-`null` value.
+
+.Examples:
+[cols="1a,1a,1a"]
+|===
+|State |Expression |Result
+
+|
+[source,json]
+----
+{
+}
+----
+|
+[source]
+----
+out = coalesce(null, 0, 1, 2)
+----
+|
+[source,json]
+----
+{
+  "out": 0
+}
+----
+
+|===
+
+== `isEmpty(Any)`
+
+The `isEmpty` function returns `true` if the value is empty.
+
+What classifies as empty differs from type to type @todo.
+
+.Examples:
+[cols="1a,1a,1a"]
+|===
+|State |Expression |Result
+
+|
+[source,json]
+----
+{
+  "in": ""
+}
+----
+|
+[source]
+----
+out = isEmpty(in)
+----
+|
+[source,json]
+----
+{
+  "in": "",
+  "out": true
+}
+----
+
+// 
+
+|
+[source,json]
+----
+{
+  "in": 0
+}
+----
+|
+[source]
+----
+out = isEmpty(in)
+----
+|
+[source,json]
+----
+{
+  "in": 0,
+  "out": true
+}
+----
+
+|===
+
+== `isNil(Any)`
+
+The `isNil` function returns `true` if the given value is `null`.
+
+.Examples:
+[cols="1a,1a,1a"]
+|===
+|State |Expression |Result
+
+|
+[source,json]
+----
+{
+  "in": null
+}
+----
+|
+[source]
+----
+out = isNil(in)
+----
+|
+[source,json]
+----
+{
+  "in": null,
+  "out": true
+}
+----
+
+// 
+
+|
+[source,json]
+----
+{
+  "in": 10
+}
+----
+|
+[source]
+----
+out = isNil(in)
+----
+|
+[source,json]
+----
+{
+  "in": 10,
+  "out": false
+}
+----
+
+|===

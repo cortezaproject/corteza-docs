@@ -1,0 +1,149 @@
+= KV functions
+
+[CAUTION]
+====
+The resulting type of the KV function is based on the first argument.
+You may not provide multiple different KV types (KV, KVV, Vars) into the same function.
+
+To examplify; `merge(KV, KVV, Vars)` is not allowed.
+====
+
+== `set(kv, k, v)`
+
+The `set` function assigns a value to the given `KV`-like variable.
+
+*The original value remains unchanged.*
+
+.Examples:
+[cols="1a,1a,1a"]
+|===
+|State |Expression |Result
+
+|
+[source,json]
+----
+{
+  "in": {}
+}
+----
+|
+[source]
+----
+out = set(in, "foo", "bar")
+----
+|
+[source,json]
+----
+{
+  "in": {},
+  "out": {"foo": "bar"}
+}
+----
+
+|===
+
+== `merge(kv, ...kv)`
+
+|*merge*  |`merge(KV, arg1, ...argN)`|The function combines all of the given KV types into a single KV type.|`merge(&KVV{"foo": ["foo"]}, &KVV{"bar": ["bar"]})` results in `&KVV{"foo": ["foo"], "bar": ["bar"]}`, Same for KV and Vars.
+
+The `merge` function merges all of the `KV`-like variables into a single `KV`.
+
+*The original value remains unchanged.*
+
+.Examples:
+[cols="1a,1a,1a"]
+|===
+|State |Expression |Result
+
+|
+[source,json]
+----
+{
+  "a": {"foo": "foo"},
+  "b": {"bar": "baz"}
+}
+----
+|
+[source]
+----
+out = merge(a, b)
+----
+|
+[source,json]
+----
+{
+  "a": {"foo": "foo"},
+  "b": {"bar": "baz"}
+  "out": {"foo": "foo", "bar": "baz"}
+}
+----
+
+|===
+
+== `filter(kv, ...include)`
+
+The `filter` function returns a new `KV` including only the specified keys.
+
+*The original value remains unchanged.*
+
+.Examples:
+[cols="1a,1a,1a"]
+|===
+|State |Expression |Result
+
+|
+[source,json]
+----
+{
+  "in": {"foo": "foo", "bar": "bar"}
+}
+----
+|
+[source]
+----
+out = filter(in, "foo")
+----
+|
+[source,json]
+----
+{
+  "in": {"foo": "foo", "bar": "bar"},
+  "out": {"foo": "foo"}
+}
+----
+
+|===
+
+== `omit(kv, ...exclude)`
+
+The `omit` function returns a new `KV` without the specified keys.
+
+*The original value remains unchanged.*
+
+.Examples:
+[cols="1a,1a,1a"]
+|===
+|State |Expression |Result
+
+|
+[source,json]
+----
+{
+  "in": {"foo": "foo", "bar": "bar"}
+}
+----
+|
+[source]
+----
+out = filter(in, "foo")
+----
+|
+[source,json]
+----
+{
+  "in": {"foo": "foo", "bar": "bar"},
+  "out": {"bar": "bar"}
+}
+----
+
+|===

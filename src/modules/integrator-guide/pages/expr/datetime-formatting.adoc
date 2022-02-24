@@ -1,0 +1,268 @@
+[#datetime-formatting]
+= Date and time formatting
+
+== `%Y`
+
+Description::
+    Returns the year with century as a decimal number.
+example::
+    `strftime(dateField, "%Y")` results in "1993"
+
+== `%y`
+
+Description::
+    Returns the year without century as a decimal number (00-99).
+example::
+    `strftime(dateField, "%y")` results in "93"
+
+== `%C`
+
+Description::
+    Returns year / 100 as a decimal number; single digits are preceded by a zero.
+example::
+    `strftime(dateField, "%C")` results in "19"
+
+== `%m`
+
+Description::
+    Returns the month as a decimal number (01-12).
+example::
+    `strftime(dateField, "%m")` results in "02"
+
+== `%B`
+
+Description::
+    Returns the full national month name.
+example::
+    `strftime(dateField, "%B")` results in "February"
+
+== `%b`
+
+Description::
+    Returns the abbreviated national month name.
+example::
+    `strftime(dateField, "%b")` results in "Feb"
+
+== `%U`
+
+Description::
+    Returns the week number of the year (Sunday as the first day of the week) as a decimal number (00-53).
+example::
+    `strftime(dateField, "%U")` results in "05"
+
+== `%V`
+
+Description::
+    Returns the week number of the year (Monday as the first day of the week) as a decimal number (01-53).
+example::
+    `strftime(dateField, "%V")` results in "05"
+
+== `%W`
+
+Description::
+    Returns the week number of the year (Monday as the first day of the week) as a decimal number (00-53).
+example::
+    `strftime(dateField, "%W")` results in "05"
+
+== `%A`
+
+Description::
+    Returns the full national weekday name.
+example::
+    `strftime(dateField, "%A")` results in "Tuesday"
+
+== `%a`
+
+Description::
+    Returns the abbreviated national weekday name.
+example::
+    `strftime(dateField, "%a")` results in "Tue"
+
+== `%d`
+
+Description::
+    Returns the day of the month as a decimal number (01-31).
+example::
+    `strftime(dateField, "%d")` results in "02"
+
+== `%e`
+
+Description::
+    Returns the day of the month as a decimal number (1-31).
+example::
+    `strftime(dateField, "%e")` results in " 2"
+
+== `%j`
+
+Description::
+    Returns the day of the year as a decimal number (001-366).
+example::
+    `strftime(dateField, "%j")` results in "033"
+
+== `%u`
+
+Description::
+    Returns the weekday (Monday as the first day of the week) as a decimal number (1-7).
+example::
+    `strftime(dateField, "%u")` results in "5"
+
+== `%w`
+
+Description::
+    Returns the weekday (Sunday as the first day of the week) as a decimal number (0-6).
+example::
+    `strftime(dateField, "%w")` results in "2"
+
+== `%H`
+
+Description::
+    Returns the hour (24-hour clock) as a decimal number (00-23).
+example::
+    `strftime(dateField, "%H")` results in "06"
+
+== `%k`
+
+Description::
+    Returns the hour (24-hour clock) as a decimal number (0-23).
+example::
+    `strftime(dateField, "%k")` results in " 6"
+
+== `%I`
+
+Description::
+    Returns the hour (12-hour clock) as a decimal number (01-12).
+example::
+    `strftime(dateField, "%I")` results in "06"
+
+== `%l`
+
+Description::
+    Returns the hour (12-hour clock) as a decimal number (1-12).
+example::
+    `strftime(dateField, "%l")` results in " 6"
+
+== `%M`
+
+Description::
+    Returns the minute as a decimal number (00-59).
+example::
+    `strftime(dateField, "%M")` results in "00"
+
+== `%S`
+
+Description::
+    Returns the second as a decimal number (00-60).
+example::
+    `strftime(dateField, "%S")` results in "00"
+
+== `%S`
+
+Description::
+    Returns the millisecond as a decimal number (000-999).
+example::
+    `strftime(dateField, "%S")` results in "000"
+
+== `%p`
+
+Description::
+    Returns the national representation of either "ante meridiem" (a.m.)  or "post meridiem" (p.m.).
+example::
+    `strftime(dateField, "%p")` results in "AM"
+
+== `%c`
+
+Description::
+    Returns the national representation of time and date.
+example::
+    `strftime(dateField, "%c")` results in "Tue Feb  2 06:00:00 1993"
+
+== `%X`
+
+Description::
+    Returns the national representation of the time.
+example::
+    `strftime(dateField, "%X")` results in "06:00:00"
+
+== `%x`
+
+Description::
+    Returns the national representation of the date.
+example::
+    `strftime(dateField, "%x")` results in "02/02/93"
+
+== `%Z`
+
+Description::
+    Returns the time zone name.
+example::
+    `strftime(dateField, "%Z")` results in "-0500"
+
+== `%z`
+
+Description::
+    Returns the time zone offset from UTC.
+example::
+    `strftime(dateField, "%z")` results in "-0500"
+
+== `%n`
+
+Description::
+    Returns a newline (\n).
+example::
+    `strftime(dateField, "%n")` results in "\n"
+
+== `%t`
+
+Description::
+    Returns a tab.
+example::
+    `strftime(dateField, "%t")` results in "\t"
+
+== `%%`
+
+Description::
+    Returns a %.
+example::
+    `strftime(dateField, "%%")` results in "%"
+
+== `%F`
+
+Description::
+    Equivalent to %Y-%m-%d.
+example::
+    `strftime(dateField, "%F")` results in "1993-02-02"
+
+== `%D`
+
+Description::
+    Equivalent to %m/%d/%y.
+example::
+    `strftime(dateField, "%D")` results in "02/02/93"
+
+== `%R`
+
+Description::
+    Equivalent to %H:%M.
+example::
+    `strftime(dateField, "%R")` results in "06:00"
+
+== `%r`
+
+Description::
+    Equivalent to %I:%M:%S %p.
+example::
+    `strftime(dateField, "%r")` results in "06:00:00 AM"
+
+== `%T`
+
+Description::
+    Equivalent to %H:%M:%S.
+example::
+    `strftime(dateField, "%T")` results in "06:00:00"
+
+== `%v`
+
+Description::
+    Equivalent to %e-%b-%Y.
+example::
+    `strftime(dateField, "%v")` results in " 2-Feb-1993"

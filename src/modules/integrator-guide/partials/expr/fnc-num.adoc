@@ -1,0 +1,520 @@
+= Numeric functions
+
+== `min(...number)`
+
+The `min` function returns the number with the lowest value.
+
+.Examples:
+[cols="1a,1a,1a"]
+|===
+|State |Expression |Result
+
+|
+[source,json]
+----
+{
+}
+----
+|
+[source]
+----
+out = min(1, 2, 3, -1)
+----
+|
+[source,json]
+----
+{
+  "out": -1
+}
+----
+
+|===
+
+== `max(...number)`
+
+The `max` function returns the number with the highest value.
+
+.Examples:
+[cols="1a,1a,1a"]
+|===
+|State |Expression |Result
+
+|
+[source,json]
+----
+{
+}
+----
+|
+[source]
+----
+out = min(1, 2, 3, -1)
+----
+|
+[source,json]
+----
+{
+  "out": 3
+}
+----
+
+|===
+
+== `round(number, places)`
+
+The `round` function rounds the `number` to the specified number of `places`.
+The function returns a float.
+
+[TIP]
+====
+To get rid of the floating point, simply cast to an `Integer`.
+====
+
+.Examples:
+[cols="1a,1a,1a"]
+|===
+|State |Expression |Result
+
+|
+[source,json]
+----
+{
+  "in": 10.123
+}
+----
+|
+[source]
+----
+out = round(in, 2)
+----
+|
+[source,json]
+----
+{
+  "in": 10.123,
+  "out": 10.12
+}
+----
+
+// 
+
+|
+[source,json]
+----
+{
+  "in": 10.123
+}
+----
+|
+[source]
+----
+out = round(in, 0)
+----
+|
+[source,json]
+----
+{
+  "in": 10.123,
+  "out": 10
+}
+----
+|===
+
+== `floor(number)`
+
+The `floor` function rounds the number down to the nearest integer.
+
+.Examples:
+[cols="1a,1a,1a"]
+|===
+|State |Expression |Result
+
+|
+[source,json]
+----
+{
+  "in": 10.123
+}
+----
+|
+[source]
+----
+out = floor(in)
+----
+|
+[source,json]
+----
+{
+  "in": 10.123,
+  "out": 10
+}
+----
+
+|===
+
+
+== `ceil(number)`
+
+The `ceil` function rounds the number up to the nearest integer.
+
+.Examples:
+[cols="1a,1a,1a"]
+|===
+|State |Expression |Result
+
+|
+[source,json]
+----
+{
+  "in": 10.123
+}
+----
+|
+[source]
+----
+out = ceil(in)
+----
+|
+[source,json]
+----
+{
+  "in": 10.123,
+  "out": 11
+}
+----
+|===
+
+
+== `abs(number)`
+
+The `abs` function returns the absolute value of the provided `number`.
+
+.Examples:
+[cols="1a,1a,1a"]
+|===
+|State |Expression |Result
+
+|
+[source,json]
+----
+{
+  "in": -10
+}
+----
+|
+[source]
+----
+out = abs(in)
+----
+|
+[source,json]
+----
+{
+  "in": -10
+  "out": 10
+}
+----
+
+// 
+
+|
+[source,json]
+----
+{
+  "in": 10
+}
+----
+|
+[source]
+----
+out = abs(in)
+----
+|
+[source,json]
+----
+{
+  "in": 10
+  "out": 10
+}
+----
+|===
+
+== `log(number)`
+
+The `log` function returns the base 10 logarithm of the given `number`.
+
+.Examples:
+[cols="1a,1a,1a"]
+|===
+|State |Expression |Result
+
+|
+[source,json]
+----
+{
+  "in": 100
+}
+----
+|
+[source]
+----
+out = log(in)
+----
+|
+[source,json]
+----
+{
+  "in": 100
+  "out": 2
+}
+----
+|===
+
+== `pow(number, exp)`
+
+The `pow` function returns the `number` to the power of `exp`.
+
+|*pow*   |`pow(number, number)`|The function returns x**y, the base-x exponential of y, see link:https://golang.org/pkg/math/#Pow[math.Pow]|`pow(2, 3)` results in 8
+
+.Examples:
+[cols="1a,1a,1a"]
+|===
+|State |Expression |Result
+
+|
+[source,json]
+----
+{
+  "in": 2,
+  "exp": 3
+}
+----
+|
+[source]
+----
+out = pow(in, exp)
+----
+|
+[source,json]
+----
+{
+  "in": 2,
+  "exp": 3,
+  "out": 8
+}
+----
+
+|===
+
+
+== `sqrt(number)`
+
+The `sqrt` function returns the square root of the given `number`.
+
+.Examples:
+[cols="1a,1a,1a"]
+|===
+|State |Expression |Result
+
+|
+[source,json]
+----
+{
+  "in": 4
+}
+----
+|
+[source]
+----
+out = sqrt(in)
+----
+|
+[source,json]
+----
+{
+  "in": 4,
+  "out": 2
+}
+----
+
+|===
+
+
+== `sum(...number)`
+
+The `sum` function returns the sum of all the provided arguments.
+
+.Examples:
+[cols="1a,1a,1a"]
+|===
+|State |Expression |Result
+
+|
+[source,json]
+----
+{
+}
+----
+|
+[source]
+----
+out = sum(1, 2, 3, -1)
+----
+|
+[source,json]
+----
+{
+  "out": 5
+}
+----
+|===
+
+
+== `average(...number)`
+
+The `average` function returns the average from the provided arguments.
+
+.Examples:
+[cols="1a,1a,1a"]
+|===
+|State |Expression |Result
+
+|
+[source,json]
+----
+{
+}
+----
+|
+[source]
+----
+out = average(1, 2)
+----
+|
+[source,json]
+----
+{
+  "out": 1.5
+}
+----
+|===
+
+
+== `random(a, b?)`
+
+The `random` function returns a random number.
+When called with one argument (`random(to)`) the random number is between `0` and `to`.
+When called with two arguments (`random(from, to)`) the random number is between `from` and `to`.
+
+.Examples:
+[cols="1a,1a,1a"]
+|===
+|State |Expression |Result
+
+|
+[source,json]
+----
+{
+  "to": 10
+}
+----
+|
+[source]
+----
+out = random(to)
+----
+|
+[source,json]
+----
+{
+  "to": 10,
+  "out": 3.412
+}
+----
+
+// 
+
+|
+[source,json]
+----
+{
+  "from": 5,
+  "to": 10
+}
+----
+|
+[source]
+----
+out = random(to)
+----
+|
+[source,json]
+----
+{
+  "from": 5,
+  "to": 10,
+  "out": 5.9
+}
+----
+|===
+
+== `int(Any)`
+
+The `int` function casts the argument to `Integer`.
+If the value can not be casted, the function returns `0`
+
+[TIP]
+====
+When you assign a value to a variable it is automatically casted to the specified type.
+You only need explicit casting when providing arguments.
+====
+
+.Examples:
+[cols="1a,1a,1a"]
+|===
+|State |Expression |Result
+
+|
+[source,json]
+----
+{
+  "in": "10"
+}
+----
+|
+[source]
+----
+out = int(in)
+----
+|
+[source,json]
+----
+{
+  "in": "10",
+  "out": 10
+}
+----
+
+// 
+
+|
+[source,json]
+----
+{
+  "in": "NO"
+}
+----
+|
+[source]
+----
+out = int(in)
+----
+|
+[source,json]
+----
+{
+  "in": "NO",
+  "out": 0
+}
+----
+|===

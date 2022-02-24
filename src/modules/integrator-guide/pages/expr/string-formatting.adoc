@@ -1,0 +1,85 @@
+= String Formatting
+
+== `%v`
+
+Description::
+    Returns the raw value.
+Example::
+    `format("%v", "test")` results in "test"
+
+== `%t`
+
+Description::
+    Returns the boolean value as true/false.
+Example::
+    `format("%t", true)` results in "true"
+
+== `%b`
+
+Description::
+    Returns the number in base 2 (in the binary format).
+Example::
+    `format("%b", 10)` results in "1010"
+
+== `%d`
+
+Description::
+    Returns the number in base 10.
+Example::
+    `format("%d", 10)` results in "10"
+
+== `%o`
+
+Description::
+    Returns the number in base 8.
+Example::
+    `format("%o", 10)` results in "12"
+
+== `%O`
+
+Description::
+    Returns the number in base 8 with 0o prefix.
+Example::
+    `format("%O", 10)` results in "0o12"
+
+== `%x`
+
+Description::
+    Returns the number in base 16; lower-case a-f.
+Example::
+    `format("%x", 10)` results in "a"
+
+== `%X`
+
+Description::
+    Returns the number in base 16; upper-case A-F.
+Example::
+    `format("%X", 10)` results in "A"
+
+== `%b`
+
+Description::
+    Returns the floating point number in scientific notation with binary exponent.
+Example::
+    `format("%b", 10.11)` results in "5691424029089464p-49"
+
+== `%e`
+
+Description::
+    Returns the floating point number in scientific notation; lower-case e.
+Example::
+    `format("%e", 10.11)` results in "1.011000e+01"
+
+== `%E`
+
+Description::
+    Returns the floating point number in scientific notation; upper-case E.
+Example::
+    `format("%E", 10.11)` results in "1.011000E+01"
+
+== `%f`
+
+Description::
+    Returns the floating point number with a decimal point.
+Example::
+    `format("%f", 10.11)` results in "10.110000"

@@ -1,0 +1,518 @@
+= Date and time functions
+
+== `earliest(DateTime, ...DateTime)`
+
+|*earliest*     |`earliest(arg1, arg2, ...argN)`|The function returns earliest DateTime.|`earliest(datefield1, datefield2)` results in "1970-01-01T00:00:00"
+
+
+The `earliest` function returns the earliest `DateTime`.
+
+.Examples:
+[cols="1a,1a,1a"]
+|===
+|State |Expression |Result
+
+|
+[source,json]
+----
+{
+}
+----
+|
+[source]
+----
+out = earliest(parseISOTime("2019-01-01T00:00:00Z"), parseISOTime("2020-01-01T00:00:00Z"))
+----
+|
+[source,json]
+----
+{
+  "out": "2019-01-01T00:00:00Z"
+}
+----
+
+|===
+
+== `latest`
+
+The `latest` function returns the latest `DateTime`.
+
+.Examples:
+[cols="1a,1a,1a"]
+|===
+|State |Expression |Result
+
+|
+[source,json]
+----
+{
+}
+----
+|
+[source]
+----
+out = latest(parseISOTime("2019-01-01T00:00:00Z"), parseISOTime("2020-01-01T00:00:00Z"))
+----
+|
+[source,json]
+----
+{
+  "out": "2020-01-01T00:00:00Z"
+}
+----
+
+|===
+
+== `parseISOTime`
+
+The `parseISOTime` function parses the ISO formatted timestamp.
+
+.Examples:
+[cols="1a,1a,1a"]
+|===
+|State |Expression |Result
+
+|
+[source,json]
+----
+{
+  "in": "2020-01-01T00:00:00Z"
+}
+----
+|
+[source]
+----
+out = parseISOTime("2020-01-01T00:00:00Z")
+----
+|
+[source,json]
+----
+{
+  "in": "2020-01-01T00:00:00Z",
+  "out": "2020-01-01T00:00:00Z"
+}
+----
+
+|===
+
+== `modTime`
+
+The `modTime` function returns a new `DateTime` with added `duration`.
+The `modTime` function interacts with the time part of the `DateTime`.
+
+Use `modDate`, `modWeek`, `modMonth`, or `modYear` if you wish to adjust larger components.
+
+.Examples:
+[cols="1a,1a,1a"]
+|===
+|State |Expression |Result
+
+|
+[source,json]
+----
+{
+  "in": "2020-01-01T00:00:00Z",
+  "d": "1h"
+}
+----
+|
+[source]
+----
+out = modTime(in, d)
+----
+|
+[source,json]
+----
+{
+  "in": "2020-01-01T00:00:00Z",
+  "d": "1h",
+  "out": "2020-01-01T01:00:00Z",
+}
+----
+
+|===
+
+== `modDate(datetime, days)`
+
+The `modDate` function returns a new `DateTime` with added `days`.
+The `modDate` function interacts with the date (days) part of the `DateTime`.
+
+.Examples:
+[cols="1a,1a,1a"]
+|===
+|State |Expression |Result
+
+|
+[source,json]
+----
+{
+  "in": "2020-01-01T00:00:00Z",
+  "d": "1"
+}
+----
+|
+[source]
+----
+out = modDate(in, d)
+----
+|
+[source,json]
+----
+{
+  "in": "2020-01-01T00:00:00Z",
+  "d": "1",
+  "out": "2020-01-02T00:00:00Z",
+}
+----
+
+|===
+
+== `modWeek(datetime, weeks)`
+
+The `modWeek` function returns a new `DateTime` with added `weeks`.
+The `modWeek` function interacts with the date (days) part of the `DateTime`.
+
+
+.Examples:
+[cols="1a,1a,1a"]
+|===
+|State |Expression |Result
+
+|
+[source,json]
+----
+{
+  "in": "2020-01-01T00:00:00Z",
+  "d": "1"
+}
+----
+|
+[source]
+----
+out = modWeek(in, d)
+----
+|
+[source,json]
+----
+{
+  "in": "2020-01-01T00:00:00Z",
+  "d": "1",
+  "out": "2020-01-08T00:00:00Z",
+}
+----
+
+|===
+
+== `modMonth(datetime, months)`
+
+The `modMonth` function returns a new `DateTime` with added `months`.
+The `modMonth` function interacts with the month part of the `DateTime`.
+
+.Examples:
+[cols="1a,1a,1a"]
+|===
+|State |Expression |Result
+
+|
+[source,json]
+----
+{
+  "in": "2020-01-01T00:00:00Z",
+  "d": "1"
+}
+----
+|
+[source]
+----
+out = modMonth(in, d)
+----
+|
+[source,json]
+----
+{
+  "in": "2020-01-01T00:00:00Z",
+  "d": "1",
+  "out": "2020-02-01T00:00:00Z",
+}
+----
+
+|===
+
+== `modYear(datetime, years)`
+
+The `modYear` function returns a new `DateTime` with added `years`.
+The `modYear` function interacts with the year part of the `DateTime`.
+
+.Examples:
+[cols="1a,1a,1a"]
+|===
+|State |Expression |Result
+
+|
+[source,json]
+----
+{
+  "in": "2020-01-01T00:00:00Z",
+  "d": "1"
+}
+----
+|
+[source]
+----
+out = modYear(in, d)
+----
+|
+[source,json]
+----
+{
+  "in": "2020-01-01T00:00:00Z",
+  "d": "1",
+  "out": "2021-00-01T00:00:00Z",
+}
+----
+
+|===
+
+== `parseDuration`
+
+The `parseDuration` function returns the parsed duration from the given string.
+
+.Examples:
+[cols="1a,1a,1a"]
+|===
+|State |Expression |Result
+
+|
+[source,json]
+----
+{
+  "in": "2h"
+}
+----
+|
+[source]
+----
+out = parseDuration(in)
+----
+|
+[source,json]
+----
+{
+  "in": "2h",
+  "out": "2h0m0s"
+}
+----
+
+|===
+
+== `strftime(datetime, pattern)`
+
+The `strftime` function returns the formatted `DateTime` based on the given `pattern`.
+Refer to xref:expr/datetime-formatting.adoc[] for more details.
+
+.Examples:
+[cols="1a,1a,1a"]
+|===
+|State |Expression |Result
+
+|
+[source,json]
+----
+{
+  "in": "2020-01-01T00:00:00Z"
+}
+----
+|
+[source]
+----
+out = strftime(in, "%Y-%m-%d")
+----
+|
+[source,json]
+----
+{
+  "in": "2020-01-01T00:00:00Z",
+  "out": "2020-01-01"
+}
+----
+
+|===
+
+== `isLeapYear(datetime)`
+
+The `isLeapYear` function returns `true` if the given `DateTime` is a leap year.
+
+.Examples:
+[cols="1a,1a,1a"]
+|===
+|State |Expression |Result
+
+|
+[source,json]
+----
+{
+  "in": "2020-01-01T00:00:00Z"
+}
+----
+|
+[source]
+----
+out = isLeapYear(in)
+----
+|
+[source,json]
+----
+{
+  "in": "2020-01-01T00:00:00Z",
+  "out": true
+}
+----
+
+// 
+
+|
+[source,json]
+----
+{
+  "in": "2019-01-01T00:00:00Z"
+}
+----
+|
+[source]
+----
+out = isLeapYear(in)
+----
+|
+[source,json]
+----
+{
+  "in": "2019-01-01T00:00:00Z",
+  "out": false
+}
+----
+
+|===
+
+== `now`
+
+The `now` function returns the current `DateTime`
+
+.Examples:
+[cols="1a,1a,1a"]
+|===
+|State |Expression |Result
+
+|
+[source,json]
+----
+{
+}
+----
+|
+[source]
+----
+out = now()
+----
+|
+[source,json]
+----
+{
+  "out": "2022-02-24T18:00:00Z"
+}
+----
+
+|===
+
+== `isWeekDay`
+
+|*isWeekDay*    |`isWeekDay(datetime)`|The function returns true if the specified day is week day.|`isWeekDay(datefield)` results in `true`
+
+
+The `isWeekDay` function returns `true` if the given `DateTime` is a week day.
+
+.Examples:
+[cols="1a,1a,1a"]
+|===
+|State |Expression |Result
+
+|
+[source,json]
+----
+{
+  "in": "2022-02-24T00:00:00Z"
+}
+----
+|
+[source]
+----
+out = isWeekDay(in)
+----
+|
+[source,json]
+----
+{
+  "in": "2022-02-24T00:00:00Z",
+  "out": true
+}
+----
+
+// 
+
+|
+[source,json]
+----
+{
+  "in": "2022-02-26T00:00:00Z"
+}
+----
+|
+[source]
+----
+out = isWeekDay(in)
+----
+|
+[source,json]
+----
+{
+  "in": "2022-02-26T00:00:00Z",
+  "out": false
+}
+----
+
+|===
+
+== `sub(from, to)`
+
+The `sub` function returns the difference between two `DateTime` in milliseconds.
+
+The `from` must be larger then `to`; if not, the function will error out.
+
+.Examples:
+[cols="1a,1a,1a"]
+|===
+|State |Expression |Result
+
+|
+[source,json]
+----
+{
+  "from": "2022-02-02T00:00:00Z",
+  "to": "2022-02-01T00:00:00Z"
+}
+----
+|
+[source]
+----
+out = sub(from, to)
+----
+|
+[source,json]
+----
+{
+  "from": "2022-02-02T00:00:00Z",
+  "to": "2022-02-01T00:00:00Z"
+  "out": 86400000
+}
+----
+
+|===

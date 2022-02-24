@@ -1,0 +1,684 @@
+= Array functions
+
+== `push(array, ...elements)`
+
+The `push` function adds a the specified elements to the end of the array and returns a new array.
+
+*The original array remains unchanged.*
+
+.Examples:
+[cols="1a,1a,1a"]
+|===
+|State |Expression |Result
+
+|
+[source,json]
+----
+{
+  "arr": []
+}
+----
+|
+[source]
+----
+new = push(arr, 1)
+----
+|
+[source,json]
+----
+{
+  "arr": [],
+  "new": [1]
+}
+----
+
+// 
+
+|
+[source,json]
+----
+{
+  "arr": []
+}
+----
+|
+[source]
+----
+new = push(arr, 1, 2, 3)
+----
+|
+[source,json]
+----
+{
+  "arr": [],
+  "new": [1, 2, 3]
+}
+----
+
+// 
+
+|
+[source,json]
+----
+{
+  "stuff": [1, 2, 3]
+}
+----
+|
+[source]
+----
+new = push([], 1, 2, 3)
+----
+|
+[source,json]
+----
+{
+  "new": [1, 2, 3]
+}
+----
+
+|===
+
+
+== `pop(array)`
+
+The `pop` function returns the last element of the array.
+
+*The original array remains unchanged*
+
+.Examples:
+[cols="1a,1a,1a"]
+|===
+|State |Expression |Result
+
+|
+[source,json]
+----
+{
+  "arr": [1, 2, 3]
+}
+----
+|
+[source]
+----
+last = pop(arr)
+----
+|
+[source,json]
+----
+{
+  "arr": [1, 2, 3],
+  "last": 3
+}
+----
+
+// 
+
+|
+[source,json]
+----
+{
+  "arr": []
+}
+----
+|
+[source]
+----
+last = pop(arr)
+----
+|
+[source,json]
+----
+{
+  "arr": [],
+  "last": null
+}
+----
+
+[NOTE]
+====
+When `Any` type is used the value will be `null`.
+When other type is used, the value will be the zero value of that type.
+====
+
+// 
+
+|
+[source,json]
+----
+{
+  
+}
+----
+|
+[source]
+----
+last = pop([])
+----
+|
+[source,json]
+----
+{
+  "last": null
+}
+----
+
+[NOTE]
+====
+When `Any` type is used the value will be `null`.
+When other type is used, the value will be the zero value of that type.
+====
+
+|===
+
+== `shift(array)`
+
+The `shift` function returns the first element of the array.
+
+*The original array remains unchanged*
+
+.Examples:
+[cols="1a,1a,1a"]
+|===
+|State |Expression |Result
+
+|
+[source,json]
+----
+{
+  "arr": [1, 2, 3]
+}
+----
+|
+[source]
+----
+first = shift(arr)
+----
+|
+[source,json]
+----
+{
+  "arr": [1, 2, 3],
+  "first": 1
+}
+----
+
+// 
+
+|
+[source,json]
+----
+{
+  "arr": []
+}
+----
+|
+[source]
+----
+first = shift(arr)
+----
+|
+[source,json]
+----
+{
+  "arr": [],
+  "first": null
+}
+----
+
+[NOTE]
+====
+When `Any` type is used the value will be `null`.
+When other type is used, the value will be the zero value of that type.
+====
+
+// 
+
+|
+[source,json]
+----
+{
+  
+}
+----
+|
+[source]
+----
+first = shift([])
+----
+|
+[source,json]
+----
+{
+  "first": null
+}
+----
+
+[NOTE]
+====
+When `Any` type is used the value will be `null`.
+When other type is used, the value will be the zero value of that type.
+====
+
+|===
+
+== `count(array, ...elements)`
+
+The `count` function returns the number of occurrences for the given elements.
+
+The `count` function returns the length of the array if no element is provided.
+
+.Examples:
+[cols="1a,1a,1a"]
+|===
+|State |Expression |Result
+
+|
+[source,json]
+----
+{
+  "arr": ["a", "b", "c"]
+}
+----
+|
+[source]
+----
+nm = count(arr, "a")
+----
+|
+[source,json]
+----
+{
+  "arr": ["a", "b", "c"],
+  "nm": 1
+}
+----
+
+// 
+
+|
+[source,json]
+----
+{
+  "arr": ["a", "b", "c"]
+}
+----
+|
+[source]
+----
+nm = count(arr, "a", "b")
+----
+|
+[source,json]
+----
+{
+  "arr": ["a", "b", "c"],
+  "nm": 2
+}
+----
+
+// 
+
+|
+[source,json]
+----
+{
+  "arr": ["a", "b", "c"]
+}
+----
+|
+[source]
+----
+nm = count(arr)
+----
+|
+[source,json]
+----
+{
+  "arr": ["a", "b", "c"],
+  "nm": 3
+}
+----
+|===
+
+== `length(array)`
+
+The `length` function returns the length of the input string
+
+== `has(arr, ...elements)`
+
+The `has` function checks if the provided array contains any of the elements.
+
+The function returns `true` if elements are found, else it returns `false`.
+
+.Examples:
+[cols="1a,1a,1a"]
+|===
+|State |Expression |Result
+
+|
+[source,json]
+----
+{
+  "arr": ["a", "b", "c"]
+}
+----
+|
+[source]
+----
+out = has(arr, "a")
+----
+|
+[source,json]
+----
+{
+  "arr": ["a", "b", "c"],
+  "out": true
+}
+----
+
+// 
+
+|
+[source,json]
+----
+{
+  "arr": ["a", "b", "c"]
+}
+----
+|
+[source]
+----
+out = has(arr, "/", "b")
+----
+|
+[source,json]
+----
+{
+  "arr": ["a", "b", "c"],
+  "out": true
+}
+----
+
+// 
+
+|
+[source,json]
+----
+{
+  "arr": ["a", "b", "c"]
+}
+----
+|
+[source]
+----
+out = has(arr, "a", "b", "c")
+----
+|
+[source,json]
+----
+{
+  "arr": ["a", "b", "c"],
+  "out": true
+}
+----
+
+// 
+
+|
+[source,json]
+----
+{
+  "arr": ["a", "b", "c"]
+}
+----
+|
+[source]
+----
+out = has(arr, "/")
+----
+|
+[source,json]
+----
+{
+  "arr": ["a", "b", "c"],
+  "out": false
+}
+----
+|===
+
+== `hasAll(arr, ...elements)`
+
+The `hasAll` function checks if the provided array contains *all* of the elements.
+
+The function returns `true` if elements are found, else it returns `false`.
+
+.Examples:
+[cols="1a,1a,1a"]
+|===
+|State |Expression |Result
+
+|
+[source,json]
+----
+{
+  "arr": ["a", "b", "c"]
+}
+----
+|
+[source]
+----
+out = hasAll(arr, "a")
+----
+|
+[source,json]
+----
+{
+  "arr": ["a", "b", "c"],
+  "out": true
+}
+----
+
+// 
+
+|
+[source,json]
+----
+{
+  "arr": ["a", "b", "c"]
+}
+----
+|
+[source]
+----
+out = hasAll(arr, "/", "b")
+----
+|
+[source,json]
+----
+{
+  "arr": ["a", "b", "c"],
+  "out": false
+}
+----
+
+// 
+
+|
+[source,json]
+----
+{
+  "arr": ["a", "b", "c"]
+}
+----
+|
+[source]
+----
+out = hasAll(arr, "a", "b", "c")
+----
+|
+[source,json]
+----
+{
+  "arr": ["a", "b", "c"],
+  "out": true
+}
+----
+
+// 
+
+|
+[source,json]
+----
+{
+  "arr": ["a", "b", "c"]
+}
+----
+|
+[source]
+----
+out = hasAll(arr, "/")
+----
+|
+[source,json]
+----
+{
+  "arr": ["a", "b", "c"],
+  "out": false
+}
+----
+|===
+
+== `find(arr, elements)`
+
+The `find` function returns the position of the given element (zero-based numbering).
+If the element does not exist, the function returns `-1`.
+
+.Examples:
+[cols="1a,1a,1a"]
+|===
+|State |Expression |Result
+
+|
+[source,json]
+----
+{
+  "arr": ["a", "b", "c"]
+}
+----
+|
+[source]
+----
+index = find(arr, "a")
+----
+|
+[source,json]
+----
+{
+  "arr": ["a", "b", "c"],
+  "index": 0
+}
+----
+
+// 
+
+|
+[source,json]
+----
+{
+  "arr": ["a", "b", "c"]
+}
+----
+|
+[source]
+----
+index = find(arr, "b")
+----
+|
+[source,json]
+----
+{
+  "arr": ["a", "b", "c"],
+  "index": 1
+}
+----
+
+// 
+
+|
+[source,json]
+----
+{
+  "arr": ["a", "b", "c"]
+}
+----
+|
+[source]
+----
+index = find(arr, "/")
+----
+|
+[source,json]
+----
+{
+  "arr": ["a", "b", "c"],
+  "index": -1
+}
+----
+|===
+
+== `sort(array, descending)`
+
+The `sort` function returns the sorted array, either ascending if the second parameter is `false` or descending if the second parameter is `true`.
+
+*The original array remains unchanged.*
+
+.Examples:
+[cols="1a,1a,1a"]
+|===
+|State |Expression |Result
+
+|
+[source,json]
+----
+{
+  "arr": ["c", "a", "b"]
+}
+----
+|
+[source]
+----
+sorted = sort(arr, false)
+----
+|
+[source,json]
+----
+{
+  "arr": ["c", "a", "b"],
+  "sorted": ["a", "b", "c"]
+}
+----
+
+// 
+
+|
+[source,json]
+----
+{
+  "arr": ["c", "a", "b"]
+}
+----
+|
+[source]
+----
+sorted = sort(arr, true)
+----
+|
+[source,json]
+----
+{
+  "arr": ["c", "a", "b"],
+  "sorted": ["c", "b", "a"]
+}
+----
+|===

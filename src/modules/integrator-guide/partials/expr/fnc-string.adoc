@@ -1,0 +1,1359 @@
+= String functions
+
+== `trim(string)`
+
+The `trim` function removes all leading and trailing whitespace defined by the Unicode standard.
+
+.List of Unicode whitespaces:
+* `U+0020`: Space,
+* `U+00A0`: no-break space,
+* `U+1680`: ogham space mark,
+* `U+180E`: mongolian vowel separator,
+* `U+2000`: en quad,
+* `U+2001`: em quad,
+* `U+2002`: en space,
+* `U+2003`: em space,
+* `U+2004`: three-per-em space,
+* `U+2005`: four-per-em space,
+* `U+2006`: six-per-em space,
+* `U+2007`: figure space,
+* `U+2008`: punctuation space,
+* `U+2009`: thin space,
+* `U+200A`: hair space,
+* `U+200B`: zero width space,
+* `U+202F`: narrow no-break space,
+* `U+205F`: medium mathematical space,
+* `U+3000`: ideographic space,
+* `U+FEFF`: zero width no-break space.
+
+.Examples:
+[cols="1a,1a,1a"]
+|===
+|State |Expression |Result
+
+|
+[source,json]
+----
+{
+  "in": "\t abcd \t"
+}
+----
+|
+[source]
+----
+out = trim(in)
+----
+|
+[source,json]
+----
+{
+  "in": "\t abcd \t",
+  "out": "abcd"
+}
+----
+
+// 
+
+|
+[source,json]
+----
+{
+  "in": "\t ab cd \t"
+}
+----
+|
+[source]
+----
+out = trim(in)
+----
+|
+[source,json]
+----
+{
+  "in": "\t abcd \t",
+  "out": "ab cd"
+}
+----
+|===
+
+== `trimLeft(string, remove)`
+
+The `trimLeft` function removes the specified characters from the start of the string.
+
+.Examples:
+[cols="1a,1a,1a"]
+|===
+|State |Expression |Result
+
+|
+[source,json]
+----
+{
+  "in": "abcd"
+}
+----
+|
+[source]
+----
+out = trimLeft(in, "ab")
+----
+|
+[source,json]
+----
+{
+  "in": "abcd",
+  "out": "cd"
+}
+----
+
+// 
+
+|
+[source,json]
+----
+{
+  "in": "abcd"
+}
+----
+|
+[source]
+----
+out = trimLeft(in, "abcd")
+----
+|
+[source,json]
+----
+{
+  "in": "abcd",
+  "out": ""
+}
+----
+|===
+
+== `trimRight(string, remove)`
+
+The `trimRight` function removes the specified characters from the end of the string.
+
+.Examples:
+[cols="1a,1a,1a"]
+|===
+|State |Expression |Result
+
+|
+[source,json]
+----
+{
+  "in": "abcd"
+}
+----
+|
+[source]
+----
+out = trimFight(in, "cd")
+----
+|
+[source,json]
+----
+{
+  "in": "abcd",
+  "out": "ab"
+}
+----
+
+// 
+
+|
+[source,json]
+----
+{
+  "in": "abcd"
+}
+----
+|
+[source]
+----
+out = trimFight(in, "abcd")
+----
+|
+[source,json]
+----
+{
+  "in": "abcd",
+  "out": ""
+}
+----
+|===
+
+== `toLower(string)`
+
+The `toLower` function returns a new string with upper case letters mapped to their lower case counterpart.
+
+.Examples:
+[cols="1a,1a,1a"]
+|===
+|State |Expression |Result
+
+|
+[source,json]
+----
+{
+  "in": "Abcd"
+}
+----
+|
+[source]
+----
+out = toLower(in)
+----
+|
+[source,json]
+----
+{
+  "in": "Abcd",
+  "out": "abcd"
+}
+----
+
+// 
+
+|
+[source,json]
+----
+{
+  "in": "ABCD"
+}
+----
+|
+[source]
+----
+out = toLower(in)
+----
+|
+[source,json]
+----
+{
+  "in": "ABCD",
+  "out": "abcd"
+}
+----
+|===
+
+== `toUpper(string)`
+
+The `toUpper` function returns a new string with lower case letters mapped to their upper case counterpart.
+
+.Examples:
+[cols="1a,1a,1a"]
+|===
+|State |Expression |Result
+
+|
+[source,json]
+----
+{
+  "in": "Abcd"
+}
+----
+|
+[source]
+----
+out = toUpper(in)
+----
+|
+[source,json]
+----
+{
+  "in": "Abcd",
+  "out": "abcd"
+}
+----
+
+// 
+
+|
+[source,json]
+----
+{
+  "in": "ABCD"
+}
+----
+|
+[source]
+----
+out = toUpper(in)
+----
+|
+[source,json]
+----
+{
+  "in": "ABCD",
+  "out": "abcd"
+}
+----
+|===
+
+== `shortest(string1, ...strings)`
+
+The `shortest` function returns the shortest string from the given arguments.
+
+.Examples:
+[cols="1a,1a,1a"]
+|===
+|State |Expression |Result
+
+|
+[source,json]
+----
+{
+
+}
+----
+|
+[source]
+----
+out = shortest("a", "aa", "aaa")
+----
+|
+[source,json]
+----
+{
+  "out": "a"
+}
+----
+
+// 
+
+|
+[source,json]
+----
+{
+
+}
+----
+|
+[source]
+----
+out = shortest("a")
+----
+|
+[source,json]
+----
+{
+  "out": "a"
+}
+----
+|===
+
+== `longest(arg1, arg2, ...a`
+
+The `longest` function returns the longest string from the given arguments.
+
+.Examples:
+[cols="1a,1a,1a"]
+|===
+|State |Expression |Result
+
+|
+[source,json]
+----
+{
+
+}
+----
+|
+[source]
+----
+out = longest("a", "aa", "aaa")
+----
+|
+[source,json]
+----
+{
+  "out": "aaa"
+}
+----
+
+// 
+
+|
+[source,json]
+----
+{
+
+}
+----
+|
+[source]
+----
+out = longest("a")
+----
+|
+[source,json]
+----
+{
+  "out": "a"
+}
+----
+|===
+
+== `format(format, ...arguments)`
+
+The `format` function returns a new constructed from the given template and arguments.
+Refer to xref:expr/string-formatting.adoc[] for more details.
+
+.Examples:
+[cols="1a,1a,1a"]
+|===
+|State |Expression |Result
+
+|
+[source,json]
+----
+{
+  
+}
+----
+|
+[source]
+----
+out = format("string %s, and float %.2f", "hi", 12.345)
+----
+|
+[source,json]
+----
+{
+  "out": "string hi, and float 12.35"
+}
+----
+|===
+
+== `title(string)`
+
+The `title` function turns the first character of to uppercase.
+
+.Examples:
+[cols="1a,1a,1a"]
+|===
+|State |Expression |Result
+
+|
+[source,json]
+----
+{
+  "in": "abcd"
+}
+----
+|
+[source]
+----
+out = title(in)
+----
+|
+[source,json]
+----
+{
+  "in": "abcd",
+  "out": "Abcd"
+}
+----
+
+// 
+
+|
+[source,json]
+----
+{
+  "in": "abcd efg"
+}
+----
+|
+[source]
+----
+out = title(in)
+----
+|
+[source,json]
+----
+{
+  "in": "abcd efg",
+  "out": "Abcd efg"
+}
+----
+|===
+
+== `untitle(string)`
+
+The `untitle` function turns does the opposite from what `title(string)` does.
+
+.Examples:
+[cols="1a,1a,1a"]
+|===
+|State |Expression |Result
+
+|
+[source,json]
+----
+{
+  "in": "Abcd"
+}
+----
+|
+[source]
+----
+out = untitle(in)
+----
+|
+[source,json]
+----
+{
+  "in": "Abcd",
+  "out": "abcd"
+}
+----
+
+// 
+
+|
+[source,json]
+----
+{
+  "in": "Abcd efg"
+}
+----
+|
+[source]
+----
+out = untitle(in)
+----
+|
+[source,json]
+----
+{
+  "in": "Abcd efg",
+  "out": "abcd efg"
+}
+----
+|===
+
+== `repeat(string, count)`
+
+The `repeat` function returns a new string where the original one is repeated `count` times.
+
+.Examples:
+[cols="1a,1a,1a"]
+|===
+|State |Expression |Result
+
+|
+[source,json]
+----
+{
+  "in": "abcd"
+}
+----
+|
+[source]
+----
+out = count(in, 1)
+----
+|
+[source,json]
+----
+{
+  "in": "abcd",
+  "out": "abcd"
+}
+----
+
+// 
+
+|
+[source,json]
+----
+{
+  "in": "abcd"
+}
+----
+|
+[source]
+----
+out = count(in, 2)
+----
+|
+[source,json]
+----
+{
+  "in": "abcd",
+  "out": "abcdabcd"
+}
+----
+|===
+
+== `replace(string, old, new,`
+
+The `replace` function returns a copy of the string s with the first n non-overlapping instances of old replaced by new.
+If old is empty, it matches at the beginning of the string and after each UTF-8 sequence, yielding up to k+1 replacements for a k-rune string.
+If n < 0, there is no limit on the number of replacements.
+
+.Examples:
+[cols="1a,1a,1a"]
+|===
+|State |Expression |Result
+
+|
+[source,json]
+----
+{
+  "in": "foo foo foo"
+}
+----
+|
+[source]
+----
+out = replace(in, "foo", "bar", 1)
+----
+|
+[source,json]
+----
+{
+  "in": "foo foo foo",
+  "out": "bar foo foo"
+}
+----
+
+// 
+
+|
+[source,json]
+----
+{
+  "in": "foo foo foo"
+}
+----
+|
+[source]
+----
+out = replace(in, "foo", "bar", 0)
+----
+|
+[source,json]
+----
+{
+  "in": "foo foo foo",
+  "out": "foo foo foo"
+}
+----
+
+// 
+
+|
+[source,json]
+----
+{
+  "in": "foo foo foo"
+}
+----
+|
+[source]
+----
+out = replace(in, "foo", "bar", -1)
+----
+|
+[source,json]
+----
+{
+  "in": "foo foo foo",
+  "out": "bar bar bar"
+}
+----
+|===
+
+== `isUrl(string)`
+
+The `isUrl` function checks if the given string is a valid URL address.
+If the string is a valid URL the function returns `true` else it returns `false`.
+
+.Examples:
+[cols="1a,1a,1a"]
+|===
+|State |Expression |Result
+
+|
+[source,json]
+----
+{
+  "in": "https://www.example.tld"
+}
+----
+|
+[source]
+----
+out = isUrl(in)
+----
+|
+[source,json]
+----
+{
+  "in": "https://www.example.tld",
+  "out": true
+}
+----
+
+// 
+
+|
+[source,json]
+----
+{
+  "in": "uhoh"
+}
+----
+|
+[source]
+----
+out = isUrl(in)
+----
+|
+[source,json]
+----
+{
+  "in": "uhoh",
+  "out": false
+}
+----
+|===
+
+== `isEmail(string)`
+
+The `isEmail` function checks if the given string is a valid email address.
+If the string is a valid email the function returns `true` else it returns `false`.
+
+.Examples:
+[cols="1a,1a,1a"]
+|===
+|State |Expression |Result
+
+|
+[source,json]
+----
+{
+  "in": "hi@email.tld"
+}
+----
+|
+[source]
+----
+out = isEmail(in)
+----
+|
+[source,json]
+----
+{
+  "in": "hi@email.tld",
+  "out": true
+}
+----
+
+// 
+
+|
+[source,json]
+----
+{
+  "in": "uhoh"
+}
+----
+|
+[source]
+----
+out = isEmail(in)
+----
+|
+[source,json]
+----
+{
+  "in": "uhoh",
+  "out": false
+}
+----
+|===
+
+== `split(string, separator)`
+
+The `split` function returns an array of strings where the original string is split by the separator.
+
+.Examples:
+[cols="1a,1a,1a"]
+|===
+|State |Expression |Result
+
+|
+[source,json]
+----
+{
+  "in": "aa.bb.cc"
+}
+----
+|
+[source]
+----
+out = split(in, ".")
+----
+|
+[source,json]
+----
+{
+  "in": "aa.bb.cc",
+  "out": ["aa", "bb", "cc"]
+}
+----
+
+// 
+
+|
+[source,json]
+----
+{
+  "in": "aa.bb.cc"
+}
+----
+|
+[source]
+----
+out = split(in, "/")
+----
+|
+[source,json]
+----
+{
+  "in": "aa.bb.cc",
+  "out": ["aa.bb.cc"]
+}
+----
+|===
+
+== `join(strings, separator)`
+
+The `join` function joins the strings from the array into a single string separated by the separator.
+
+.Examples:
+[cols="1a,1a,1a"]
+|===
+|State |Expression |Result
+
+|
+[source,json]
+----
+{
+  "in": ["aa", "bb", "cc"]
+}
+----
+|
+[source]
+----
+out = join(in, ".")
+----
+|
+[source,json]
+----
+{
+  "in": ["aa", "bb", "cc"],
+  "out": "aa.bb.cc"
+}
+----
+|===
+
+== `hasSubstring(string, substring, case)`
+
+The `hasSubstring` function checks if the given string contains the substring.
+
+When the third argument is `true` the function is case sensitive else it is not.
+
+.Examples:
+[cols="1a,1a,1a"]
+|===
+|State |Expression |Result
+
+|
+[source,json]
+----
+{
+  "in": "abcd"
+}
+----
+|
+[source]
+----
+out = hasSubstring(in, "bc", false)
+----
+|
+[source,json]
+----
+{
+  "in": "abcd",
+  "out": true
+}
+----
+
+// 
+
+|
+[source,json]
+----
+{
+  "in": "aBCd"
+}
+----
+|
+[source]
+----
+out = hasSubstring(in, "bc", false)
+----
+|
+[source,json]
+----
+{
+  "in": "aBCd",
+  "out": true
+}
+----
+
+// 
+
+|
+[source,json]
+----
+{
+  "in": "aBCd"
+}
+----
+|
+[source]
+----
+out = hasSubstring(in, "bc", true)
+----
+|
+[source,json]
+----
+{
+  "in": "aBCd",
+  "out": false
+}
+----
+
+// 
+
+|
+[source,json]
+----
+{
+  "in": "abcd"
+}
+----
+|
+[source]
+----
+out = hasSubstring(in, "xy", false)
+----
+|
+[source,json]
+----
+{
+  "in": "abcd",
+  "out": false
+}
+----
+|===
+
+== `substring(string, start, end)`
+
+The `substring` function returns the substring of the given string.
+
+Both `start` and `end` are inclusive (`[start, end]`)
+
+.Examples:
+[cols="1a,1a,1a"]
+|===
+|State |Expression |Result
+
+|
+[source,json]
+----
+{
+  "in": "abcd"
+}
+----
+|
+[source]
+----
+out = substring(in, 1, 2)
+----
+|
+[source,json]
+----
+{
+  "in": "abcd",
+  "out": "bc"
+}
+----
+
+// 
+
+|
+[source,json]
+----
+{
+  "in": "abcd"
+}
+----
+|
+[source]
+----
+out = substring(in, 1, -1)
+----
+|
+[source,json]
+----
+{
+  "in": "abcd",
+  "out": "bcd"
+}
+----
+
+// 
+
+|
+[source,json]
+----
+{
+  "in": "abcd"
+}
+----
+|
+[source]
+----
+out = substring(in, 4, -1)
+----
+|
+[source,json]
+----
+{
+  "in": "abcd",
+  "out": ""
+}
+----
+|===
+
+== `hasPrefix(string, prefix)`
+
+The `hasPrefix` function checks if the given string includes the prefix.
+If the prefix exists the function returns `true` else it returns `false`.
+
+.Examples:
+[cols="1a,1a,1a"]
+|===
+|State |Expression |Result
+
+|
+[source,json]
+----
+{
+  "in": "abcd"
+}
+----
+|
+[source]
+----
+out = hasPrefix(in, "ab")
+----
+|
+[source,json]
+----
+{
+  "in": "abcd",
+  "out": true
+}
+----
+
+// 
+
+|
+[source,json]
+----
+{
+  "in": "abcd"
+}
+----
+|
+[source]
+----
+out = hasPrefix(in, "cd")
+----
+|
+[source,json]
+----
+{
+  "in": "abcd",
+  "out": false
+}
+----
+
+// 
+
+|
+[source,json]
+----
+{
+  "in": "abcd"
+}
+----
+|
+[source]
+----
+out = hasPrefix(in, "xy")
+----
+|
+[source,json]
+----
+{
+  "in": "abcd",
+  "out": false
+}
+----
+|===
+
+== `hasSuffix(string, prefix)`
+
+The `hasSuffix` function checks if the given string includes the suffix.
+If the suffix exists the function returns `true` else it returns `false`.
+
+.Examples:
+[cols="1a,1a,1a"]
+|===
+|State |Expression |Result
+
+|
+[source,json]
+----
+{
+  "in": "abcd"
+}
+----
+|
+[source]
+----
+out = hasSuffix(in, "cd")
+----
+|
+[source,json]
+----
+{
+  "in": "abcd",
+  "out": true
+}
+----
+
+// 
+
+|
+[source,json]
+----
+{
+  "in": "abcd"
+}
+----
+|
+[source]
+----
+out = hasSuffix(in, "ab")
+----
+|
+[source,json]
+----
+{
+  "in": "abcd",
+  "out": false
+}
+----
+
+// 
+
+|
+[source,json]
+----
+{
+  "in": "abcd"
+}
+----
+|
+[source]
+----
+out = hasSuffix(in, "xy")
+----
+|
+[source,json]
+----
+{
+  "in": "abcd",
+  "out": false
+}
+----
+|===
+
+== `shorten(string, type, count)`
+
+The `shorten` function cuts off the given string at `count` characters or words when `type` is set to `char`.
+
+The string is suffixed with ellipsis after the cutoff point.
+
+.Examples:
+[cols="1a,1a,1a"]
+|===
+|State |Expression |Result
+
+|
+[source,json]
+----
+{
+  "in": "This is a whole sentence"
+}
+----
+|
+[source]
+----
+out = shorten(in, "word", 4)
+----
+|
+[source,json]
+----
+{
+  "in": "This is a whole sentence",
+  "out": "This is a whole …"
+}
+----
+|===
+
+== `camelize(string)`
+
+The `camelize` function returns a new string in the camelCase form.
+
+.Examples:
+[cols="1a,1a,1a"]
+|===
+|State |Expression |Result
+
+|
+[source,json]
+----
+{
+  "in": "Foo bar"
+}
+----
+|
+[source]
+----
+out = camelize(in)
+----
+|
+[source,json]
+----
+{
+  "in": "Foo bar",
+  "out": "fooBar"
+}
+----
+|===
+
+== `snakify(string)`
+
+The `snakify` function returns a new string in the snake_case form.
+
+.Examples:
+[cols="1a,1a,1a"]
+|===
+|State |Expression |Result
+
+|
+[source,json]
+----
+{
+  "in": "Foo bar baz"
+}
+----
+|
+[source]
+----
+out = snakify(in)
+----
+|
+[source,json]
+----
+{
+  "in": "Foo bar baz",
+  "out": "foo_bar_baz"
+}
+----
+|===
+
+== `match(string, regex)`
+
+The `match` function checks if the string matches the given regular expression.
+
+.Examples:
+[cols="1a,1a,1a"]
+|===
+|State |Expression |Result
+|===
+
+== `base64encode(string)``
+
+The `base64encode` function returns the base64 encoded input string.
+
+.Examples:
+[cols="1a,1a,1a"]
+|===
+|State |Expression |Result
+|===
+
+== `length(string)`
+
+The `length` function returns the length of the input string
+
+.Examples:
+[cols="1a,1a,1a"]
+|===
+|State |Expression |Result
+|===
+
+== `count(string, ...characters)`
+
+The `count` function returns the number of occurrences for the given characters.
+
+The `count` function returns the length of the string if no character is provided.
+
+.Examples:
+[cols="1a,1a,1a"]
+|===
+|State |Expression |Result
+
+|
+[source,json]
+----
+{
+  "in": "foo"
+}
+----
+|
+[source]
+----
+out = count(in, "o")
+----
+|
+[source,json]
+----
+{
+  "in": "foo",
+  "out": 2
+}
+----
+|===

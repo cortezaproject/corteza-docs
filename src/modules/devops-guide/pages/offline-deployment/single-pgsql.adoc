@@ -3,11 +3,11 @@
 .`docker-compose.yaml`
 [source,yaml]
 ----
-include::example$deploy/prod-pgsql/docker-compose.yaml[]
+include::example$deploy/local-pgsql/docker-compose.yaml[]
 ----
 
 .`.env`
 [source,yaml]
 ----
-include::example$deploy/prod-pgsql/env-example.txt[]
+include::example$deploy/local-pgsql/env-example.txt[]
 ----

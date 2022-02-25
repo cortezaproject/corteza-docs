@@ -105,7 +105,7 @@ Omit if you won't use persistent storage.
 .Your configuration should look like this:
 [source,yaml]
 ----
-include::example$deploy/local-mysql/docker-compose.yaml[]
+include::example$deploy/local-pgsql/docker-compose.yaml[]
 ----
 
 === Configure .env
@@ -113,7 +113,7 @@ include::example$deploy/local-mysql/docker-compose.yaml[]
 .Your configuration should look like this:
 [source,.env]
 ----
-include::example$deploy/local-mysql/env-example.txt[]
+include::example$deploy/local-pgsql/env-example.txt[]
 ----
 
 === Run the services
@@ -131,7 +131,7 @@ The output should look like this:
 
 [source]
 ----
-include::example$deploy/local-mysql/output-ps.txt[]
+include::example$deploy/local-pgsql/output-ps.txt[]
 ----
 
 See xref:maintenance/troubleshooting.adoc[] if something went wrong/failed to start.
@@ -242,7 +242,7 @@ Containers *must* be on the same network as `nginx-proxy` (in the examples, we'r
 .Your configuration should look like this:
 [source,yaml]
 ----
-include::example$deploy/prod-mysql/docker-compose.yaml[]
+include::example$deploy/prod-pgsql/docker-compose.yaml[]
 ----
 
 === Configure .env
@@ -252,7 +252,7 @@ include::example$deploy/prod-mysql/docker-compose.yaml[]
 .Your configuration should look like this:
 [source,.env]
 ----
-include::example$deploy/prod-mysql/env-example.txt[]
+include::example$deploy/prod-pgsql/env-example.txt[]
 ----
 
 === Run the services
@@ -270,7 +270,7 @@ The output should look like this:
 
 [source]
 ----
-include::example$deploy/prod-mysql/output-ps.txt[]
+include::example$deploy/prod-pgsql/output-ps.txt[]
 ----
 
 See xref:maintenance/troubleshooting.adoc[] if something went wrong/failed to start.

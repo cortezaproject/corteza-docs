@@ -9,7 +9,7 @@ VERSION=2021.9.7
 
 ########################################################################################################################
 # Database connection
-DB_DSN=dbuser:dbpass@tcp(db:3306)/dbname?collation=utf8mb4_general_ci
+DB_DSN=postgres://corteza:corteza@db:5432/corteza?sslmode=disable
 
 ########################################################################################################################
 # Server settings

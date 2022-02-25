@@ -7,7 +7,8 @@ services:
     restart: always
     env_file: [ .env ]
     depends_on: [ db ]
-    volumes: [ "./data/server:/data" ]
+    volumes: 
+      - "serverdata:/data"
     environment:
       # VIRTUAL_HOST helps NginX proxy route traffic for specific virtual host to
       # this container
@@ -24,6 +25,8 @@ services:
     image: postgres:13
     networks: [ internal ]
     restart: always
+    volumes:
+      - dbdata:/var/lib/postgresql/data
     healthcheck: { test: ["CMD-SHELL", "pg_isready -U corteza"], interval: 10s, timeout: 5s, retries: 5 }
     environment:
       # Warning: these are values that are only used on 1st start
@@ -35,3 +38,7 @@ services:
 networks:
   internal: {}
   proxy: { external: true }
+
+volumes:
+  dbdata:
+  serverdata:

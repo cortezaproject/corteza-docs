@@ -1,0 +1,13 @@
+= Single-Image with SQLite Database
+
+[CAUTION]
+====
+This configuration keeps all of the data in memory.
+This setup should only be used for quick local demos.
+====
+
+.`docker-compose.yaml`
+[source,yaml]
+----
+include::example$deploy/local-in-mem/docker-compose.yaml[]
+----

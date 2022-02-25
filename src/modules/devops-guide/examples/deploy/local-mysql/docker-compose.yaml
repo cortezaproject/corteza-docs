@@ -6,6 +6,8 @@ services:
     restart: always
     env_file: [ .env ]
     depends_on: [ db ]
+    volumes: 
+      - "serverdata:/data"
     ports: [ "127.0.0.1:18080:80" ]
 
   db:
@@ -13,6 +15,8 @@ services:
     # See https://hub.docker.com/r/percona/percona-server for details
     image: percona:8.0
     restart: always
+    volumes: 
+      - "dbdata:/var/lib/mysql"
     environment:
       MYSQL_DATABASE: dbname
       MYSQL_USER:     dbuser
@@ -20,3 +24,7 @@ services:
       # get the random generated password by running: docker-compose logs db | grep "GENERATED ROOT PASSWORD"
       MYSQL_RANDOM_ROOT_PASSWORD: random
     healthcheck: { test: ["CMD", "mysqladmin" ,"ping", "-h", "localhost"], timeout: 20s, retries: 10 }
+
+volumes:
+  dbdata:
+  serverdata:

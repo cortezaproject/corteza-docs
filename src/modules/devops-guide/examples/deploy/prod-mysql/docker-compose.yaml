@@ -8,7 +8,8 @@ services:
     depends_on: [ db ]
     networks: [ proxy, internal ]
     # Uncomment to use local fs for data persistence
-    volumes: [ "./data/server:/data" ]
+    volumes: 
+      - "serverdata:/data"
     environment:
       # This two are needed only if you are using NginX Lets-Encrypt companion
       # (see docs.cortezaproject.org for details)
@@ -22,7 +23,8 @@ services:
     # See https://hub.docker.com/r/percona/percona-server for details
     image: percona:8.0
     restart: always
-    volumes: [ "./data/db:/var/lib/mysql" ]
+    volumes: 
+      - "dbdata:/var/lib/mysql"
     environment:
       MYSQL_DATABASE: dbname
       MYSQL_USER:     dbuser
@@ -35,3 +37,7 @@ services:
 networks:
   internal: {}
   proxy: { external: true }
+
+volumes:
+  dbdata:
+  serverdata:

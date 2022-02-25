@@ -1,9 +1,4 @@
-= Multi-image MySQL
-
-[NOTE]
-====
-*DevNote*: Describe this configuration; how many/what services it runs and things like that.
-====
+= Single-Image with MySQL Database
 
 .`docker-compose.yaml`
 [source,yaml]

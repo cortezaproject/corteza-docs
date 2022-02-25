@@ -1,8 +1,13 @@
-= Single-image MySQL
+= Single-Image with MySQL Database
 
-[source,txt]
+.`docker-compose.yaml`
+[source,yaml]
 ----
-- target file structure
-- raw config files
-- exclude any meta text such as run commands and such...
+include::example$deploy/prod-mysql/docker-compose.yaml[]
+----
+
+.`.env`
+[source,yaml]
+----
+include::example$deploy/prod-mysql/env-example.txt[]
 ----

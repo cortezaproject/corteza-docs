@@ -12,14 +12,13 @@
 *** xref:server-plugins/index.adoc[]
 
 ** Offline deployment
-*** xref:offline-deployment/multi-mysql.adoc[]
-*** xref:offline-deployment/single-sqlite-inmem.adoc[]
+*** xref:offline-deployment/single-pgsql.adoc[]
+*** xref:offline-deployment/single-mysql.adoc[]
+*** xref:offline-deployment/single-sqlite.adoc[]
 
 ** Online deployment
-*** xref:online-deployment/multi-mysql.adoc[]
-*** xref:online-deployment/multi-pgsql.adoc[]
-// *** xref:online-deployment/single-mysql.adoc[]
-// *** xref:online-deployment/single-pgsql.adoc[]
+*** xref:online-deployment/single-pgsql.adoc[]
+*** xref:online-deployment/single-mysql.adoc[]
 
 ** Maintenance
 *** xref:maintenance/access-control.adoc[]

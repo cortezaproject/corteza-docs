@@ -17,7 +17,8 @@ strong,
 .paragraph > p > a,
 .DocSearch-Hit-source > a,
 .doc .admonitionblock .icon,
-.doc h1 {
+.doc h1,
+code {
   font-family: 'Poppins-Bold';
 }
 
@@ -360,6 +361,14 @@ aside.nav,
 
 .doc h2:not(.discrete) {
   border-bottom: none;
+}
+
+.content p a code {
+  color: #0B344E;
+}
+
+.content p a code:hover {
+  color: #1565c0;
 }
 
 div.imageblock.preview {

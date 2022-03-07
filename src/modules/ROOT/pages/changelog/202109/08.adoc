@@ -1,0 +1,34 @@
+include::ROOT:partial$variables.adoc[]
+
+:PATCH_V: 2021_9_8
+
+= `2021.9.8`
+
+*Released on*: `2022-03-07`
+
+.[#{PATCH_V}-changed]#<<{PATCH_V}-changed,Changed:>>#
+. Changed default background colour to white in `MetricConfigurator` ({WEBAPP_COMPOSE_COMMIT_BASE}49a525a[`49a525a`]).
+
+.[#{PATCH_V}-fixed]#<<{PATCH_V}-fixed,Fixed:>>#
+. Fixed `count` expression function to properly handle the no argument case when typed values are being used (usually when invoked via workflow expressions) ({SERVER_COMMIT_BASE}5d7d3aa3[`5d7d3aa3`]).
+. Fixed improper page blockID assignment on page create ({SERVER_COMMIT_BASE}95065f8e7[`95065f8e7`]).
+. Fixed improper page blockID assignment on page create ({SERVER_COMMIT_BASE}95065f8e7[`95065f8e7`]).
+. Fixed role management on external auth providers ({WEBAPP_COMPOSE_COMMIT_BASE}d679a59[`d679a59`]).
+. Append custom args when executing {APP_AUTOMATION} scripts via Compose REST handlers ({SERVER_COMMIT_BASE}2741e3577[`2741e3577`]).
+. Fixed improper handling of unresolved (type any) values ({SERVER_COMMIT_BASE}5ff68c414[`5ff68c414`]).
+. Hide refresh data button when no data is present in `MetricConfigurator` ({WEBAPP_COMPOSE_COMMIT_BASE}8fc446c[`8fc446c`]).
+. Increase z-index for PageBuilder to avoid toolbar with icons appearing below the Block's title and description ({WEBAPP_COMPOSE_COMMIT_BASE}667a9b0[`667a9b0`]).
+. Translate messages in errors component ({WEBAPP_COMPOSE_COMMIT_BASE}acd5473[`acd5473`], {WEBAPP_JS_COMMIT_BASE}1e933b2[`1e933b2`], {LOCALE_COMMIT_BASE}0af18b1[`0af18b1`]).
+. Reminders of other people showing up ({WEBAPP_COMPOSE_COMMIT_BASE}63b3efe[`63b3efe`]).
+. Translations of field configurators and calendars ({WEBAPP_COMPOSE_COMMIT_BASE}d4a379e[`d4a379e`], {WEBAPP_COMPOSE_COMMIT_BASE}5f00980[`5f00980`]).
+. Relative values with charts ({WEBAPP_JS_COMMIT_BASE}eb5c4c7[`eb5c4c7`], {WEBAPP_JS_COMMIT_BASE}025cfd5[`025cfd5`]).
+. Fix number of record to be exported in ExporterModal ({WEBAPP_COMPOSE_COMMIT_BASE}eb5c4c7[`eb5c4c7`], {WEBAPP_COMPOSE_COMMIT_BASE}5f36917[`5f36917`]).
+. Add missing input string to integration gateway namespace for admin ({LOCALE_COMMIT_BASE}eb5c4c7[`eb5c4c7`], {LOCALE_COMMIT_BASE}64d27e1[`64d27e1`]).
+. Fixed cumulative funnel chart value calculations ({WEBAPP_JS_COMMIT_BASE}0fbce36[`0fbce36`]).
+. Fixed improper reporter funnel chart display due to invalid data type conversion ({WEBAPP_JS_COMMIT_BASE}c7ca7d1[`c7ca7d1`]).
+
+.[#{PATCH_V}-security]#<<{PATCH_V}-security,Security:>>#
+. Strengthen reset-password flow with rate limiting and invalidation of existing tokens({WEBAPP_WORKFLOW_COMMIT_BASE}d2d0245d5[`d2d0245d5`]).
+. Improve attachment validation on size and type for compose uploads ({SERVER_COMMIT_BASE}6f19f00b2[`6f19f00b2`]).
+. Sanitize back-link on logout page (XSS) ({SERVER_COMMIT_BASE}8c0a62284[`8c0a62284`]).
+. Refactor delete all session of user from auth page ({SERVER_COMMIT_BASE}23a8b757ee[`23a8b757ee`]).

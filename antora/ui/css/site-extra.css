@@ -226,6 +226,7 @@ aside.nav,
   display: block;
   margin-bottom: 10px;
   padding-left: 5px;
+  padding-left: 8px;
 }
 
 .nav-item-toggle {

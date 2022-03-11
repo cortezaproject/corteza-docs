@@ -13,3 +13,7 @@
     <meta name="docsearch:module" content="{{page.module}}" />
 
     <meta name="docsearch:index:key-section" content="{{page.attributes.key-section}}" />
+
+    {{#if page.attributes.noindex}}
+    <meta name="robots" content="noindex">
+    {{/if}}

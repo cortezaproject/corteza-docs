@@ -45,15 +45,11 @@ If you wish to deploy {PRODUCT_NAME} elsewhere (for example, bare metal) you wil
 // * xref:end-user-guide:case-management/index.adoc[]
 // * xref:end-user-guide:shell/index.adoc[]
 
-== System administration
-
-The xref:administrator-guide:index.adoc[] covers core system security and core system resources; such as xref:administrator-guide:users.adoc[], xref:administrator-guide:roles.adoc[], and xref:administrator-guide:logging.adoc[].
-
-If you're interested in developing custom applications using {PRODUCT_NAME}, refer to xref:integrator-guide:index.adoc[].
-
 == Create with {PRODUCT_NAME}
 
-The xref:integrator-guide:index.adoc[] walks you *through the integration process*; from xref:integrator-guide:access-control.adoc[] system to xref:integrator-guide:compose-configuration/index.adoc[], xref:integrator-guide:automation/index.adoc[], xref:integrator-guide:reporting/index.adoc[], and xref:integrator-guide:api-gw/index.adoc[].
+The xref:integrator-guide:index.adoc[] walks you *through the integration process*; from xref:integrator-guide:security-model/index.adoc[] system to xref:integrator-guide:compose-configuration/index.adoc[], xref:integrator-guide:automation/index.adoc[], xref:integrator-guide:reporting/index.adoc[], and xref:integrator-guide:api-gw/index.adoc[].
+
+The Low-Code platform developer guide also covers xref:integrator-guide:authentication/index.adoc[] and xref:integrator-guide:security-model/index.adoc[]
 
 There are also a bunch of copy-pastable examples, and miscellaneous bits such as xref:integrator-guide:automation/automation-scripts/deploying.adoc[], xref:integrator-guide:automation/automation-scripts/debugging.adoc[automation script debugging] and tips for xref:integrator-guide:accessing-corteza/index.adoc[].
 

@@ -25,7 +25,7 @@ Most notably, we've reworked page navigation, improved consistency between diffe
 *Access control*
 
 The xref:integrator-guide:access-control.adoc[access control facility] received an upgrade, providing more fine-grained control over the access to your data, such as specific records or modules of particular namespaces.
-xref:integrator-guide:access-control.adoc#role-type-ctx[Contextual roles] allow you to determine role membership and thus access to resources based on the xref:integrator-guide:access-control.adoc#ctx-role-evaluation[state the system is in] (such as what record we are editing).
+xref:integrator-guide:access-control.adoc#role-type-ctx[Contextual roles] allow you to determine role membership and thus access to resources based on the xref:integrator-guide:access-control.adoc#role-type-ctx[state the system is in] (such as what record we are editing).
 
 [TIP]
 ====
@@ -35,7 +35,7 @@ With contextual roles, you can cover cases where a user is only allowed to acces
 *Authentication and security*
 
 
-The authentication flow is now more flexible by introducing support for xref:administrator-guide:authentication/authentication-providers/index.adoc#saml[SAML] and split credential flow.
+The authentication flow is now more flexible by introducing support for xref:integrator-guide:authentication/external/index.adoc#saml[SAML] and split credential flow.
 Further improvements to the authentication token generator and handler help increase the stability and security of the system.
 
 *Integration gateway*

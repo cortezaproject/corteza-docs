@@ -1,0 +1,253 @@
+include::ROOT:partial$variables.adoc[]
+
+= User Management
+:page-aliases: administrator-guide:users.adoc
+:keywords: security model, users, user management
+:description: Learn how to create and manage your platform users
+
+A user is an entity which is allowed to interact with your {PRODUCT_NAME}.
+A user can be an employee who needs to interact with their, or a system user which may be used to identify external integrations or webhook requests.
+
+A user can be assigned to a series of xref:security-model/roles.adoc[roles] which define the scope of the access for the given user.
+
+[IMPORTANT]
+====
+For privacy reasons, personal information is masked by default.
+This can be configured by setting appropriate access control rules for either all users or a specific user.
+
+.To change information masking for all users:
+. Click on the btn:[permissions] button in the top right corner,
+. select the role you wish to change this for,
+. select the appropriate access option for the "show email details for any user" or "show name details for any user".
+
+.To change information masking for specific users:
+. Click on the edit icon next to the user you wish to change this for,
+. Click on the btn:[permissions] button in the top right corner,
+. select the role you wish to change this for,
+. select the appropriate access option for the "show email details for (name here)" or "show name details for (name here)".
+====
+
+== The user interface
+
+The user management user interface resides in the xref:index.adoc#webapp-admin[{PRODUCT_NAME} {APP_NAME_ADMIN}] web application, under the menu:system[users] section.
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "security-model/user-list.png",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {},
+  "annotations": [{
+    "kind": "box",
+    "padding": "xs",
+    "x": 16,
+    "y": 144,
+    "w": 288,
+    "h": 37
+  }]
+}
+----
+
+== Listing users
+
+.To list current system users:
+. navigate to menu:system[users],
+. optionally insert the filtering parameters.
+. The list refreshes automatically.
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "security-model/user-list.png",
+    "alias": "admin-webapp-users-list",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {
+    "x": 321,
+    "y": 0,
+    "w": 1599,
+    "h": 460
+  },
+  "annotations": []
+}
+----
+
+== Creating users
+
+[IMPORTANT]
+====
+Permissions can only be defined for existing users.
+====
+
+.To create a new user:
+. navigate to menu:system[users],
+. click on the btn:[new] button in the top right corner,
+. provide the requested data,
+. press the btn:[submit] button.
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "security-model/user-create.png",
+    "alias": "admin-webapp-users-create",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {
+    "x": 321,
+    "y": 0,
+    "w": 1599,
+    "h": 480
+  },
+  "annotations": []
+}
+----
+
+== Editing users
+
+.To edit an existing user:
+. navigate to menu:system[users],
+. click on the btn:[edit] icon next to the user you wish to edit,
+. update the parameters you wish to change,
+. press the btn:[submit] button.
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "security-model/user-edit.png",
+    "alias": "admin-webapp-users-edit",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {
+    "x": 321,
+    "y": 0,
+    "w": 1599,
+    "h": 1080
+  },
+  "annotations": []
+}
+----
+
+[#suspending-users]
+== Suspending users
+
+.To suspend an existing user:
+. Navigate to menu:system[users],
+. click on the btn:[edit] icon next to the user you wish to suspend,
+. press and confirm the btn:[suspend] button.
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "security-model/user-edit.png",
+    "alias": "admin-webapp-users-suspend",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {
+    "x": 321,
+    "y": 0,
+    "w": 1599,
+    "h": 1080
+  },
+  "annotations": [{
+    "kind": "box",
+    "padding": "sm",
+    "x": 669,
+    "y": 478,
+    "w": 94,
+    "h": 32
+  }]
+}
+----
+
+== Deleting users
+
+[TIP]
+====
+Instead of deleting users, you can temporarily <<suspending-users,suspend them>>.
+====
+//Editor's note: maybe include information about what time-frame we're talking about. 
+
+.To delete an existing user:
+. navigate to menu:system[users],
+. click on the btn:[edit] icon next to the user you wish to suspend,
+. press and confirm the btn:[delete] button.
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "security-model/user-edit.png",
+    "alias": "admin-webapp-users-delete",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {
+    "x": 321,
+    "y": 0,
+    "w": 1599,
+    "h": 1080
+  },
+  "annotations": [{
+    "kind": "box",
+    "padding": "sm",
+    "x": 586,
+    "y": 478,
+    "w": 77,
+    "h": 32
+  }]
+}
+----
+
+== Assign role
+
+[CAUTION]
+====
+In order for the role membership to reflect on the user, they need to re-login.
+====
+
+.To assign a role to an existing user:
+. navigate to menu:system[users],
+. click on the btn:[edit] icon next to the user you wish to edit,
+. navigate to the "role membership" section and assign appropriate roles,
+. press the btn:[submit] button.
+
+[NOTE]
+====
+Refer to xref:security-model/index.adoc[the security model] for more information regarding roles and access control.
+====
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "security-model/user-edit.png",
+    "alias": "admin-webapp-users-assign",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {
+    "x": 321,
+    "y": 0,
+    "w": 1599,
+    "h": 1080
+  },
+  "focus": {
+    "x": 586,
+    "y": 557,
+    "w": 1069,
+    "h": 195
+  },
+  "annotations": []
+}
+----

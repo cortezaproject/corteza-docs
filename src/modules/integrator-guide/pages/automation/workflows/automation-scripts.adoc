@@ -1,6 +1,9 @@
 include::ROOT:partial$variables.adoc[]
+include::ROOT:partial$icons.adoc[]
 
 = Execution of Automation Scripts
+:keywords: automation, workflow execute script
+:description: Learn how to combine automation scripts with workflows to execute complex operations
 
 A workflow allows you to execute automation scripts registered within the {APP_AUTOMATION} server.
 The ability to execute automation scripts can come in handy when you need to implement complex business logic, but still wish to keep the visual description of a workflow.
@@ -38,7 +41,7 @@ export default {
 
 == The workflow
 
-To execute an automation-script, add a function step image:workflow/function.svg[width=20px] that calls the `Corredor automation script executor` function.
+To execute an automation-script, add a function step {ICON_WORKFLOW_FUNCTION} that calls the `Corredor automation script executor` function.
 Insert the *script reference* under the script argument.
 
 .The script reference can be obtained by:
@@ -51,14 +54,14 @@ For the example above, the reference is `/server-scripts/invoked-from-the-workfl
 Refer to the xref:automation/automation-scripts/index.adoc[] documentation in case you cannot see your automation scripts.
 ====
 
-Place a trigger image:workflow/trigger.svg[width=20px] and connect it to the function step you've defined earlier.
+Place a trigger {ICON_WORKFLOW_TRIGGER} and connect it to the function step you've defined earlier.
 
 To test if everything works correctly, click on the run icon in the top right corner of the trigger.
 If everything works correctly, you will see a `"success"` string logged by the {APP_AUTOMATION} server after the test has been run.
 
 == Passing custom arguments
 
-Add an expression step image:workflow/expressions.svg[width=20px] between the trigger and the function step.
+Add an expression step {ICON_WORKFLOW_EXPRESSIONS} between the trigger and the function step.
 
 .Define the following expressions:
 [source]

@@ -1,5 +1,6 @@
 = Dynamic Configuration
-:attachment-path: ../../../_attachments/workflow/examples/
+:page-noindex: true
+:attachment-path: ../../../_attachments/automation/workflows/examples/
 
 When defining automation which needs to interact with external systems or you need to make the workflow execution configurable, static workflows may prove challenging to use.
 
@@ -16,8 +17,8 @@ When storing access tokens and other credentials, make sure to properly configur
 ----
 {
   "image": {
-    "rel": "workflow/dynamic-config/settings-module.png",
-    "alias": "dynamic-config_settings-module",
+    "rel": "automation/workflows/examples/dynamic-config/settings-module.png",
+    "alias": "automation-workflows-examples-dynamic-config-settings-module",
     "w": 1920,
     "h": 1080
   },
@@ -33,8 +34,8 @@ Inside your workflow, simply fetch the record from the `settings` module and con
 ----
 {
   "image": {
-    "rel": "workflow/dynamic-config/example-workflow.png",
-    "alias": "dynamic-config_example-workflow",
+    "rel": "automation/workflows/examples/dynamic-config/example-workflow.png",
+    "alias": "automation-workflows-examples-dynamic-config-example-workflow",
     "w": 1920,
     "h": 1080
   },

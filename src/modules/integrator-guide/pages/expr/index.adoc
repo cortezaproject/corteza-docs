@@ -2,7 +2,7 @@ include::ROOT:partial$variables.adoc[]
 
 = Expressions
 
-{PRODUCT_NAME} defines an expression language which is used when defining xref:compose-configuration/index.adoc#field-expressions[field expressions], xref:automation/workflows/index.adoc[workflow steps], as well as xref:administrator-guide:access-control/index.adoc#role-type-ctx[contextual roles].
+{PRODUCT_NAME} defines an expression language which is used when defining xref:compose-configuration/index.adoc#field-expressions[field expressions], xref:automation/workflows/index.adoc[workflow steps], as well as xref:security-model/index.adoc#role-type-ctx[contextual roles].
 
 [NOTE]
 ====

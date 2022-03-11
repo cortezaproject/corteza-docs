@@ -1,6 +1,8 @@
 include::ROOT:partial$variables.adoc[]
 
-= Field type reference
+= Field Type Reference
+:keywords: low code, no code, field reference, field type reference
+:description: Get familiar with the available field types {PRODUCT_NAME} {APP_NAME_COMPOSE} offers
 
 [IMPORTANT]
 ====

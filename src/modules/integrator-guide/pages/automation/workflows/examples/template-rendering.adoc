@@ -1,5 +1,6 @@
 = Template rendering
-:attachment-path: ../../../_attachments/workflow/
+:attachment-path: ../../../_attachments/automation/workflows/
+:page-noindex: true
 
 In this example, we'll take a look at how to render different templates that were made in our xref:templates/index.adoc[template system].
 
@@ -12,7 +13,7 @@ Create a workflow similar to the one below.
 Make sure to look at the step details of steps (2) and (3).
 
 .The screenshot outlines the workflow that renders an HTML template and sends it as an email.
-image::workflow/example-template-rendering/html-workflow.png[role="data-zoomable"]
+image::automation/workflows/examples/template-rendering/html-workflow.png[role="data-zoomable"]
 
 The source code for the workflow can be found link:{attachment-path}template_rendering_html.json[here].
 
@@ -79,7 +80,7 @@ In order to render templates as PDF documents, you need to setup xref:devops-gui
 ====
 
 .The screenshot outlines the workflow that renders a PDF template and sends it as an email attachment.
-image::workflow/example-template-rendering/pdf-workflow.png[role="data-zoomable"]
+image::automation/workflows/examples/template-rendering/pdf-workflow.png[role="data-zoomable"]
 
 The source code for the workflow can be found link:{attachment-path}template_rendering_pdf.json[here].
 

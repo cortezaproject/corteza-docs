@@ -1,22 +1,22 @@
 include::ROOT:partial$variables.adoc[]
 
 = Low-Code Platform Developer Guide
+:page-aliases: administrator-guide:index.adoc
+:keywords: low-code app, low-code application, custom application, low-code config, low-code configuration, extending {PRODUCT_NAME}, {APP_NAME_COMPOSE} development
+:description: Learn how to build your own custom {PRODUCT_NAME} {APP_NAME_COMPOSE} application
 
 The low-code platform developer guide covers the process of extending {PRODUCT_NAME} to cover your business' needs.
 An integration can be as simple as the modification of the login screen to include your brand graphics or as complex as the implementation of a completely custom {APP_NAME_COMPOSE} application.
-
-This guide briefly goes over some administration aspects.
-For a complete insight into system administration (roles and RBAC permissions) refer to the xref:administrator-guide:index.adoc[].
 
 In case you haven't yet setup your {PRODUCT_NAME} instance, refer to the xref:devops-guide:index.adoc[DevOps guide].
 
 == The security model
 
 For *authentication*, {PRODUCT_NAME} implements the OAuth2 protocol, where {PRODUCT_NAME} can act both as an OAuth2 client or as a server.
-Refer to the xref:auth.adoc[authentication] section for details.
+Refer to the xref:authentication/index.adoc[authentication] section for details.
 
 For *access control*, {PRODUCT_NAME} implements a https://en.wikipedia.org/wiki/Role-based_access_control[RBAC facility] which allows you to fine tune access permissions to your needs.
-Refer to the xref:access-control.adoc[] section for details.
+Refer to the xref:security-model/index.adoc[] section for details.
 
 == Personalization of the design
 

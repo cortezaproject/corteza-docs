@@ -1,6 +1,8 @@
 include::ROOT:partial$variables.adoc[]
 
 = Automation
+:keywords: automation, automate business logic, bpmn, scripting
+:description: Learn how to implement custom business logic using the powerful automation facilities {PRODUCT_NAME} offers
 
 {PRODUCT_NAME} provides a powerful automation system that implements custom business logic.
 This allows you to extend {PRODUCT_NAME} and support your business needs.

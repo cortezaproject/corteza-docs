@@ -1,5 +1,6 @@
 = Workfing with Records
-:attachment-path: ../../../_attachments/workflow/examples/
+:attachment-path: ../../../_attachments/automation/workflows/examples/record/
+:page-noindex: true
 
 The section outlines some tips and tricks you can use when working with records.
 
@@ -21,8 +22,8 @@ Inside the gateway, check if the `total` value is greater then `0`.
 ----
 {
   "image": {
-    "rel": "workflow/example-record/existence-a.png",
-    "alias": "example-record_existence-a",
+    "rel": "automation/workflows/examples/record/existence-a.png",
+    "alias": "automation-workflows-examples-record-existence-a",
     "w": 1920,
     "h": 1080
   },
@@ -36,7 +37,7 @@ Inside the gateway, check if the `total` value is greater then `0`.
 }
 ----
 
-You can find the source code for the workflow link:{attachment-path}record/existence-a.json[here].
+You can find the source code for the workflow link:{attachment-path}existence-a.json[here].
 
 === Approach B
 
@@ -47,8 +48,8 @@ Inside the gateway, check if the `count(items)` value is greater then `0`.
 ----
 {
   "image": {
-    "rel": "workflow/example-record/existence-b.png",
-    "alias": "example-record_existence-b",
+    "rel": "automation/workflows/examples/record/existence-b.png",
+    "alias": "automation-workflows-examples-record-existence-b",
     "w": 1920,
     "h": 1080
   },
@@ -62,7 +63,7 @@ Inside the gateway, check if the `count(items)` value is greater then `0`.
 }
 ----
 
-You can find the source code for the workflow link:{attachment-path}record/existence-b.json[here].
+You can find the source code for the workflow link:{attachment-path}existence-b.json[here].
 
 == Create or update
 
@@ -81,8 +82,8 @@ You can use the `record.recordID != "0"` to determine if the record needs to be 
 ----
 {
   "image": {
-    "rel": "workflow/example-record/create-update.png",
-    "alias": "example-record_create-update",
+    "rel": "automation/workflows/examples/record/create-update.png",
+    "alias": "automation-workflows-examples-record-create-update",
     "w": 1920,
     "h": 1080
   },
@@ -102,4 +103,78 @@ You can use the `record.recordID != "0"` to determine if the record needs to be 
 }
 ----
 
-You can find the source code for the workflow link:{attachment-path}record/create-update.json[here].
+You can find the source code for the workflow link:{attachment-path}create-update.json[here].
+
+== Removing the value
+
+To remove some record value, use an expression step to set the value in question to an empty `Any`.
+
+.The screenshot outlines a basic example of removing record values.
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "automation/workflows/examples/record/remove-value.png",
+    "alias": "automation-workflows-examples-record-remove-value",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {
+    "x": 740,
+    "y": 0,
+    "w": 1180,
+    "h": 482
+  },
+  "annotations": [{
+    "kind": "box-note",
+    "padding": "xs",
+    "x": 1420,
+    "y": 340,
+    "w": 490,
+    "h": 42
+  }]
+}
+----
+
+You can find the source code for the workflow link:{attachment-path}remove-value.json[here].
+
+== Handling missing values
+
+To use the default value in case the record value does not exist, you need to use the `??` operator.
+
+To exemplify, using `a ?? b` will return `a` if it exists or `b` if it does not.
+
+[NOTE]
+====
+The below example uses a variable as the default value.
+You can use a constant such as `"something string"` or `42`.
+====
+
+.The screenshot outlines a basic example of using default values.
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "automation/workflows/examples/record/missing-value-default.png",
+    "alias": "automation-workflows-examples-record-missing-value-default",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {
+    "x": 740,
+    "y": 0,
+    "w": 1180,
+    "h": 1003
+  },
+  "annotations": [{
+    "kind": "box-note",
+    "padding": "xs",
+    "x": 1420,
+    "y": 340,
+    "w": 490,
+    "h": 576
+  }]
+}
+----
+
+You can find the source code for the workflow link:{attachment-path}missing-value-default.json[here].

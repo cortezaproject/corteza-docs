@@ -1,8 +1,8 @@
 include::ROOT:partial$variables.adoc[]
 
 = {APP_NAME_COMPOSE} configuration
-:description: By configuring your {APP_NAME_COMPOSE}, you define the logical data structure and its representation. This page focuses on the most important aspects of the configuration process.
-:keywords: low code, no code, automation, workflow, workflows, {PRODUCT_NAME}
+:keywords: low code, no code, app
+:description: Learn how to configure your {APP_NAME_COMPOSE} application using {PRODUCT_NAME}
 
 {PRODUCT_NAME} provides a powerful Low-Code development platform allowing you to setup your application with ease.
 {PRODUCT_NAME} {APP_NAME_COMPOSE} allows you to extend {PRODUCT_NAME} and support your business needs.
@@ -28,11 +28,29 @@ If this is needed, consider implementing this using xref:automation/index.adoc[a
 
 To create a new namespace, navigate to your {PRODUCT_NAME} instance (for example http://latest.cortezaproject.org/) and click on the {APP_NAME_COMPOSE} application.
 
-image::compose/app-selector.png[role="data-zoomable"]
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "app-selector.png",
+    "alias": "compose-configuration-app-selector",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {},
+  "focus": {
+    "x": 400,
+    "y": 225,
+    "w": 266,
+    "h": 217
+  },
+  "annotations": []
+}
+----
 
 A new screen with a list of all namespaces will appear.
 
-image::compose/ns-create.png[role="data-zoomable"]
+image::compose-configuration/ns-create.png[role="data-zoomable"]
 
 .From there you can:
 * create a new namespace by clicking on the btn:[Create new namespace] button,
@@ -41,7 +59,7 @@ image::compose/ns-create.png[role="data-zoomable"]
 
 Click on the btn:[Create new namespace] button, insert the required parameters, and click on the btn:[Save] or the btn:[Save and close] button in the bottom right corner.
 
-image::compose/ns-edit.png[role="data-zoomable"]
+image::compose-configuration/ns-edit.png[role="data-zoomable"]
 
 .Available namespace parameters:
 [cols="2s,5a"]
@@ -90,8 +108,8 @@ The description allows you to provide a more verbose description of the namespac
 After you've created the namespace, you can access it by clicking on the btn:[Visit namespace button].
 At this point, your namespace is empty and doesn't have any modules, charts, or pages.
 
-image:compose/ns-access.png[width=49%]
-image:compose/ns-empty.png[width=49%]
+image:compose-configuration/ns-access.png[width=49%]
+image:compose-configuration/ns-empty.png[width=49%]
 
 [#config-modules]
 === Creating a new module
@@ -103,7 +121,7 @@ When configuring a new namespace, you are presented with an onboarding screen fr
 
 If you wish to add additional modules, or are configuring an already existing namespace, navigate to menu:Admin panel[Modules], and click on the btn:[New Module] button.
 
-image::compose/module-create.png[role="data-zoomable"]
+image::compose-configuration/module-create.png[role="data-zoomable"]
 
 .From the module editor screen you can:
 * Edit the module metadata,
@@ -148,8 +166,8 @@ You are still able to view its records, create the records using inline record l
 
 The record page can be created directly from the module edit screen by clicking on the btn:[Create record page] button or from the module list screen by clicking on the btn:[Create record page] next to a module.
 
-image:compose/create-record-page-1.png[width=49%]
-image:compose/create-record-page-2.png[width=49%]
+image:compose-configuration/create-record-page-1.png[width=49%]
+image:compose-configuration/create-record-page-2.png[width=49%]
 
 [#config-charts]
 === Creating charts
@@ -166,7 +184,7 @@ If you're configuring a new namespace, you are presented with an onboarding scre
 
 If you wish to add additional charts or are configuring an already configured namespace, navigate to menu:Admin panel[Charts], then click on the btn:[New Chart] button.
 
-image::compose/chart-create.png[role="data-zoomable"]
+image::compose-configuration/chart-create.png[role="data-zoomable"]
 
 .{PRODUCT_NAME} defines three chart categories:
 * <<chart-generic,Generic charts>> which include the usual line, bar, pie, and doughnut charts,
@@ -222,15 +240,15 @@ Navigate to the menu:Admin panel[Pages] to see your current pages and how they a
 
 To *change the order of pages*, drag and drop the page to the desired position.
 
-image:compose/page-tree-base.png[width=49%]
-image:compose/page-tree-reorder.png[width=49%]
-image:compose/page-tree-reorder-view.png[]
+image:compose-configuration/page-tree-base.png[width=49%]
+image:compose-configuration/page-tree-reorder.png[width=49%]
+image:compose-configuration/page-tree-reorder-view.png[]
 
 To *create a dropdown menu* (a sub-page or a nested page), drag and drop the page into another page.
 
-image:compose/page-tree-base.png[width=49%]
-image:compose/page-tree-nest.png[width=49%]
-image:compose/page-tree-nest-view.png[]
+image:compose-configuration/page-tree-base.png[width=49%]
+image:compose-configuration/page-tree-nest.png[width=49%]
+image:compose-configuration/page-tree-nest-view.png[]
 
 [#module-field]
 == Module fields
@@ -307,7 +325,7 @@ Check the "field value expression" checkbox and insert the formula into the new 
 
 Refer to the <<field-expressions,field expressions>> for more details.
 
-image::compose/field-value-expr.png[role="data-zoomable"]
+image::compose-configuration/field-value-expr.png[role="data-zoomable"]
 
 | [#module-field-validation]#<<module-field-validation,Field validation>>#
 |
@@ -324,7 +342,7 @@ Click on the btn:[settings icon] next to the field type and navigate to the "Val
 
 Refer to the <<field-expressions,field expressions>> for more details.
 
-image::compose/field-validation.png[role="data-zoomable"]
+image::compose-configuration/field-validation.png[role="data-zoomable"]
 
 |===
 
@@ -501,43 +519,43 @@ n / 1000
 If all page blocks are on the same y-axis (one single row), the page will stretch the blocks to fill the entire page.
 This is useful when creating record or list pages with a single page block that should span the entire page.
 
-image:compose/page-resize-config.png[width="49%"]
-image:compose/page-resize-view.png[width="49%"]
+image:compose-configuration/page-resize-config.png[width="49%"]
+image:compose-configuration/page-resize-view.png[width="49%"]
 
 ====
 
 The page builder is used to define the pages' structure using *page blocks* and a drag-and-drop interface.
 Each page has a grid of 12 columns and is not limited vertically.
 
-image::compose/page-builder-empty.png[role="data-zoomable"]
+image::compose-configuration/page-builder-empty.png[role="data-zoomable"]
 
 Click on the btn:[+ Add block] button to open the page block picker where you can configure and add a new page block.
 The entire page block reference is available xref:compose-configuration/page-blocks.adoc[here].
 
-image::compose/page-builder-block-picker.png[role="data-zoomable"]
+image::compose-configuration/page-builder-block-picker.png[role="data-zoomable"]
 
 When you configure and save a page block it is added to the page.
 
-image::compose/page-builder-block-base.png[role="data-zoomable"]
+image::compose-configuration/page-builder-block-base.png[role="data-zoomable"]
 
 To reposition the page block, simply drag-and-drop it to the desired position.
 
 The page block may be placed anywhere on the x-axis, but its y-axis must connect with another page block or with the top of the page.
 If the position is not valid, or it overlays with another page block, they page builder may automatically adjust the surrounding page blocks to conform to the constraints.
 
-image::compose/page-builder-block-base.png[role="data-zoomable"]
-image::compose/page-builder-block-repos.png[role="data-zoomable"]
+image::compose-configuration/page-builder-block-base.png[role="data-zoomable"]
+image::compose-configuration/page-builder-block-repos.png[role="data-zoomable"]
 
 To resize the page block, simply grab the arrow in the bottom-right corner and resize to your needs.
 The page block may not exceed the maximum width of 12 columns.
 The height is not limited.
 
-image::compose/page-builder-block-base.png[role="data-zoomable"]
-image::compose/page-builder-block-resize.png[role="data-zoomable"]
+image::compose-configuration/page-builder-block-base.png[role="data-zoomable"]
+image::compose-configuration/page-builder-block-resize.png[role="data-zoomable"]
 
 By placing a few extra blocks and changing their layout, you can create interesting home pages and dashboards like the CRM's.
 
-image::compose/page-builder-example.png[role="data-zoomable"]
+image::compose-configuration/page-builder-example.png[role="data-zoomable"]
 
 [#field-expressions]
 == Field expressions

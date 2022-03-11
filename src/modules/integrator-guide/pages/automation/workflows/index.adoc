@@ -1,8 +1,10 @@
 include::ROOT:partial$variables.adoc[]
+include::ROOT:partial$icons.adoc[]
 
 = Workflows
-:description: {PRODUCT_NAME} workflow allows you to implement custom business logic without the need for any programming knowledge.
-:keywords: low code, no code, automation, workflow, workflows, {PRODUCT_NAME}
+:page-aliases: automation/workflows/delaying-scheduling.adoc
+:keywords: automation, automate business logic, workflows, bpmn, diagram
+:description: Lean how to use workflows for visual business logic configuration based on a simplified BPMN model
 
 {PRODUCT_NAME} workflow allows you to implement custom business logic without the need for any programming knowledge.
 This section focuses on the most important aspects of the system.
@@ -31,18 +33,20 @@ To create a workflow, navigate to your {PRODUCT_NAME} instance (for example http
 ----
 {
   "image": {
-    "rel": "workflow/accessing-workflows-1.png",
+    "rel": "app-selector.png",
+    "alias": "automation-workflows-app-selector-workflow",
     "w": 1920,
     "h": 1080
   },
   "view": {},
-  "annotations": [{
-    "kind": "box-note",
-    "x": 827,
-    "y": 515,
-    "w": 267,
-    "h": 252
-  }]
+  "focus": {
+    "x": 828,
+    "y": 463,
+    "w": 266,
+    "h": 217,
+    "padding": "md"
+  },
+  "annotations": []
 }
 ----
 
@@ -60,7 +64,8 @@ A new screen showing you all of the available workflows will appear.
 ----
 {
   "image": {
-    "rel": "workflow/accessing-workflows-2.png",
+    "rel": "automation/workflows/list.png",
+    "alias": "automation-workflows-workflow-list",
     "w": 1920,
     "h": 1080
   },
@@ -88,40 +93,40 @@ A label doesn't define any special constraints.
 include::partial$handle-constraints.adoc[]
 
 .The screenshot shows the newly created workflow where the modal window for the initial parameters is open.
-image::workflow/accessing-workflows-3.png[role="data-zoomable"]
+image::automation/workflows/edit.png[role="data-zoomable"]
 
 == About the workflow editor
 
 The workflow editor consists of four main parts; workflow configuration screen, toolbar, canvas, and step configurator.
 
-. *Workflow configuration* (accessible by clicking on the configuration icon image:workflow/cog.svg[width=20px] in the header) is where you provide basic workflow configurations.
+. *Workflow configuration* (accessible by clicking on the configuration icon {ICON_WORKFLOW_COG} in the header) is where you provide basic workflow configurations.
 . *Toolbar* is where you can find all of the available steps.
 . *Canvas* is where you can build and configure the workflow.
 . *Step configurator* is where you can configure the workflow steps.
 
 .The workflow editor user interface.
-image::workflow/ui.svg[role="data-zoomable"]
+image::automation/workflows/editor.svg[role="data-zoomable"]
 
-=== Structuring the workflow
+=== Structure the workflow
 
 To start building your workflow, simply drag-and-drop different elements (further referred to as steps) from the toolbar to the canvas.
 If you are using similar steps with similar configurations, using copy-paste to duplicate existing steps might be faster (kbd:[cmd+c] and kbd:[cmd+v]).
 
 .Example of adding a new step from the toolbar to the canvas.
-image::workflow/step-add.svg[role="data-zoomable"]
+image::automation/workflows/step-add.svg[role="data-zoomable"]
 
 To define the flow of your workflow, simply connect the steps by drawing a connector between them.
 
 .Example of connecting two steps.
-image::workflow/step-connect.svg[role="data-zoomable"]
+image::automation/workflows/step-connect.svg[role="data-zoomable"]
 
 To change the start point or the end point of the connector, click on the connector to view its points; then hover over the connecting point and drag it to another connector point.
 
 .Example of changing the origin connector point.
-image::workflow/step-connect-move-from.svg[role="data-zoomable"]
+image::automation/workflows/step-connect-move-from.svg[role="data-zoomable"]
 
 .Example of changing the destination connector point.
-image::workflow/step-connect-move-to.svg[role="data-zoomable"]
+image::automation/workflows/step-connect-move-to.svg[role="data-zoomable"]
 
 Add some extra steps to get the feel for the interface.
 The resulting workflow doesn't need to be valid or make any sense.
@@ -139,41 +144,39 @@ The remaining gestures and keyboard shortcuts can be found in the help menu.
 
 [IMPORTANT]
 ====
-Remember, every workflow must start with a trigger image:workflow/trigger.svg[width=20px].
-The termination step image:workflow/termination.svg[width=20px] is optional, but may increase clarity.
+Remember, every workflow must start with a trigger {ICON_WORKFLOW_TRIGGER}.
+The termination step {ICON_WORKFLOW_TERMINATION} is optional, but may increase clarity.
 A single workflow can have multiple triggers and multiple termination steps.
 ====
 
 When you're satisfied with your workflow or wish to save your progress, click on the save button on the bottom of the screen, or use the kbd:[ctrl+s] shortcut.
 
 .The screenshot shows how to save the workflow.
-image::workflow/save.svg[role="data-zoomable"]
+image::automation/workflows/save.svg[role="data-zoomable"]
 
 === Configuring the workflow
 
 Without any configuration, most workflow steps don't do anything unless we configure them to perform some task such as evaluating an expression or executing a complex function.
 
-In order to configure specific steps, click on the configuration icon image:workflow/cog.svg[width=20px] in the header of the step.
+In order to configure specific steps, click on the configuration icon {ICON_WORKFLOW_COG} in the header of the step.
 To configure a specific connector, click on its label or double click on it.
 
 The configuration is automatically saved to the step.
 The workflow needs to be saved in order for the configuration to take affect.
 
 .The screenshot shows the step connector for the expression step.
-image::workflow/step-config.svg[role="data-zoomable"]
+image::automation/workflows/step-config.svg[role="data-zoomable"]
 
 == Execution control
 
 Execution control allows you to indicate where the workflow starts, its steps, and where the workflow ends.
 
-[cols="1s,5a"]
-|===
+[#step-exec-triggers]
+=== Triggers
 
-| [#step-exec-triggers]#<<step-exec-triggers,Triggers>>#
-|
-A *trigger* image:workflow/trigger.svg[width=20px] defines when the workflow is executed and what steps the workflow execution should perform.
+A *trigger* {ICON_WORKFLOW_TRIGGER} defines when the workflow is executed and what steps the workflow execution should perform.
 
-[NOTE]
+[TIP]
 ====
 A single workflow can have multiple triggers.
 Multiple triggers allow you to define fewer workflows for different events.
@@ -182,7 +185,7 @@ Multiple triggers allow you to define fewer workflows for different events.
 Every time an action occurs (e.g. a record is created or a user signed-up) the system finds all of the workflows with a trigger that conform to that operation.
 To exemplify; when a client signs-up for your newsletter, the system finds all of the workflows where the trigger listens to a "user signed up" event.
 
-.A trigger consists of four main components (click on the configuration icon image:workflow/cog.svg[width=20px] in the header):
+.A trigger consists of four main components (click on the configuration icon in the header):
 . a *resource* which specifies what system resource the trigger reacts to,
 . an *event* which specifies what system events the trigger reacts to,
 . a series of *constraints* which specify how an event should look like in order for the trigger to react.
@@ -196,28 +199,115 @@ Constraint your triggers as much as possible to prevent your workflows from exec
 ====
 
 .An example of a workflow with multiple triggers.
-image::workflow/multi-start.svg[role="data-zoomable"]
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "automation/workflows/multi-trigger.png",
+    "alias": "automation-workflows-multi-trigger",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {
+    "x": 263,
+    "y": 83,
+    "w": 678,
+    "h": 558
+  },
+  "annotations": [{
+    "kind": "box-note",
+    "x": 341,
+    "y": 163,
+    "w": 521,
+    "h": 78
+  }]
+}
+----
 
-| [#step-exec-terminator]#<<step-exec-terminator,Terminators>>#
-|
-A *termination step* image:workflow/termination.svg[width=20px] terminates the execution of a workflow.
+[#step-exec-terminator]
+=== Terminators
+
+A *termination step* {ICON_WORKFLOW_TERMINATION} terminates the execution of a workflow.
+
+[CAUTION]
+====
+The termination step {ICON_WORKFLOW_TERMINATION} terminates the entire workflow, regardless of any other execution branches.
+
+.An example of a workflow with multiple terminators with a potential early termination issue.
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "automation/workflows/terminator-long-tasks.png",
+    "alias": "automation-workflows-terminator-long-tasks",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {
+    "x": 144,
+    "y": 84,
+    "w": 837,
+    "h": 677
+  },
+  "annotations": [{
+    "kind": "box-danger",
+    "x": 222,
+    "y": 441,
+    "w": 680,
+    "h": 242
+  }]
+}
+----
+
+In the example above, when any of the long running tasks finishes, the entire workflow will be terminated and the other long running task gets canceled.
+
+Refer to xref:automation/workflows/examples/parallelism.adoc[] for details.
+====
+
 The termination step is not required, and is implied wherever the workflow is unable to continue due to the lack of steps.
 
-[NOTE]
+[TIP]
 ====
 A single workflow can have multiple termination steps.
 Multiple termination steps allow you to explicitly terminate the execution of a workflow.
 ====
 
 .An example of a workflow with multiple termination steps.
-image::workflow/multi-end.svg[role="data-zoomable"]
-
-|===
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "automation/workflows/multi-terminator.png",
+    "alias": "automation-workflows-multi-terminator",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {
+    "x": 384,
+    "y": 84,
+    "w": 636,
+    "h": 717
+  },
+  "annotations": [{
+    "kind": "box-note",
+    "x": 461,
+    "y": 644,
+    "w": 200,
+    "h": 77
+  }, {
+    "kind": "box-note",
+    "x": 741,
+    "y": 444,
+    "w": 200,
+    "h": 77
+  }]
+}
+----
 
 [#expressions]
 == Expressions
 
-An *expression step* image:workflow/expressions.svg[width=20px] defines a set of expressions which allow you to directly interact with values defined in your workflow.
+An *expression step* {ICON_WORKFLOW_EXPRESSIONS} defines a set of expressions which allow you to directly interact with values defined in your workflow.
 Think of this as defining an equation in spreadsheets.
 
 A single expression step can define multiple expressions, allowing you to aggregate similar operations under a single step; this reduces the size and increases readability.
@@ -228,55 +318,73 @@ Refer to xref:expr/index.adoc[] for more details regarding expression definition
 * calculate the grand total for a quote,
 * copy values from one record to another.
 
-To configure the expression step, click on the configuration icon image:workflow/cog.svg[width=20px] in the header of the expression step.
+To configure the expression step, click on the configuration icon {ICON_WORKFLOW_COG} in the header of the expression step.
 
 .The expression configuration interface.
-image::workflow/expr-example-base.png[role="data-zoomable"]
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "automation/workflows/expressions-example.png",
+    "alias": "automation-workflows-expressions-example-cfg",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {
+    "x": 1100,
+    "y": 0,
+    "w": 820,
+    "h": 1080
+  },
+  "annotations": [{
+    "kind": "box-note",
+    "x": 1313,
+    "y": 253,
+    "w": 20,
+    "h": 20
+  }]
+}
+----
 
 To add a new expression to the expression step, click on the btn:[+ Add Expression] button.
 Click on the expression to collapse or collapse the expression editing interface.
 
 .The expression configuration interface with inserted expressions.
-image::workflow/expr-example-end.png[role="data-zoomable"]
-
-.The expression step in the above example performs two tasks:
-. it initializes the `Integer` variable `testVariable` with the number `10`,
-. it multiplies the value of the variable `testVariable` by `9`,
-
-****
-.Workflow step details:
-[%collapsible.example]
-====
-
-1. *(1) Test trigger*:
-** *resource*: `System`
-** *event*: `onManual`
-** *enabled*: checked
-2. *(2) Expression*:
-** *expressions*:
-*** `testVariable`:
-**** *type*: `Integer`
-**** *value*: `10`
-*** `testVariable`:
-**** *type*: `Integer`
-**** *value*: `testVariable*9`
-3. *(3) Log calculation*:
-** *type*: `Log debug message`
-** *arguments*:
-*** *message*:
-**** *value type*: constant
-**** *value*: `Test variable is:`
-*** *fields (KV)*:
-**** *value type*: expression
-**** *value*: `{"value": testVariable}`
-
-====
-****
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "automation/workflows/expressions-example.png",
+    "alias": "automation-workflows-expressions-example-expr",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {
+    "x": 1100,
+    "y": 0,
+    "w": 820,
+    "h": 1080
+  },
+  "focus": {
+    "x": 1420,
+    "y": 0,
+    "w": 499,
+    "h": 1080
+  },
+  "annotations": [{
+    "kind": "box-note",
+    "x": 1755,
+    "y": 1038,
+    "w": 153,
+    "h": 28
+  }]
+}
+----
 
 [#functions]
 == Functions
 
-A *function step* image:workflow/function.svg[width=20px] defines what operation should be performed when the function step is executed.
+A *function step* {ICON_WORKFLOW_FUNCTION} defines what operation should be performed when the function step is executed.
 Think of this as defining a macro in spreadsheets.
 
 [IMPORTANT]
@@ -296,51 +404,93 @@ Functions that are not natively supported by workflows can be implemented with x
 An automation script can be xref:automation/workflows/automation-scripts.adoc[executed from a workflow].
 ====
 
-To configure the function step, click on the configuration icon image:workflow/cog.svg[width=20px] in the header of the function step.
+To configure the function step, click on the configuration icon {ICON_WORKFLOW_COG} in the header of the function step.
 
 .The function configuration interface.
-image::workflow/fnc-example-base.png[role="data-zoomable"]
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "automation/workflows/functions-example-cfg.png",
+    "alias": "automation-workflows-functions-example-cfg",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {
+    "x": 1100,
+    "y": 0,
+    "w": 820,
+    "h": 1080
+  },
+  "annotations": [{
+    "kind": "box-note",
+    "x": 1313,
+    "y": 254,
+    "w": 20,
+    "h": 20
+  }]
+}
+----
 
 Select what function you wish to perform in the dropdown select box under the "type" section.
-When you select a function, the list of function arguments appears.
 
+.The function configuration interface.
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "automation/workflows/functions-example-type.png",
+    "alias": "automation-workflows-functions-example-type",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {
+    "x": 1100,
+    "y": 0,
+    "w": 820,
+    "h": 1080
+  },
+  "annotations": [{
+    "kind": "box-note",
+    "x": 1440,
+    "y": 286,
+    "w": 461,
+    "h": 65
+  }]
+}
+----
+
+When you select a function, the list of function arguments appears.
 An argument defines what piece of data the function should use to perform some operation.
 To exemplify; the `message` parameter in the "log debug message" function defines the message displayed in the debug log.
 
 .The function configuration interface with defined parameters.
-image::workflow/fnc-example-end.png[role="data-zoomable"]
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "automation/workflows/functions-example-args.png",
+    "alias": "automation-workflows-functions-example-args",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {
+    "x": 1100,
+    "y": 0,
+    "w": 820,
+    "h": 1080
+  },
+  "annotations": [{
+    "kind": "box-note",
+    "x": 1432,
+    "y": 372,
+    "w": 477,
+    "h": 557
+  }]
+}
+----
 
 The function step in the above example creates a log entry based on the provided `message` and `fields` arguments.
-
-****
-.Workflow step details:
-[%collapsible.example]
-====
-
-1. *(1) Test trigger*:
-** *resource*: `System`
-** *event*: `onManual`
-** *enabled*: checked
-2. *(2) Expression*:
-** *expressions*:
-*** `testVariable`:
-**** *type*: `Integer`
-**** *value*: `10`
-*** `testVariable`:
-**** *type*: `Integer`
-**** *value*: `testVariable*9`
-3. *(3) Log calculation*:
-** *type*: `Log debug message`
-** *arguments*:
-*** *message*:
-**** *value type*: constant
-**** *value*: `Test variable is:`
-*** *fields (KV)*:
-**** *value type*: expression
-**** *value*: `{"value": testVariable}`
-
-====
-****
 
 .Function arguments can be passed in two different ways:
 . *Constant values* which are passed into function in their present condition.
@@ -354,14 +504,14 @@ This is useful when you wish to change the input without the need for an additio
 [#processing-multiple-items]
 == Processing multiple items
 
-When you wish to process multiple items, such as a list of leads that were created in the past month, you should use an iterator image:workflow/iterator.svg[width=20px].
+When you wish to process multiple items, such as a list of leads that were created in the past month, you should use an *iterator* {ICON_WORKFLOW_ITERATOR}.
 An iterator allows you to sequentially process a series of items one after another.
 
 An iterator consists of two main parts; the *configuration* and the *iterator body*.
 
 === Iterator configuration
 
-To access the iterator configuration, click on the configuration icon image:workflow/cog.svg[width=20px] in the header.
+To access the iterator configuration, click on the configuration icon {ICON_WORKFLOW_COG} in the header.
 The configuration consists of three parts; *type*, *arguments*, and *result* parts.
 
 [cols="1s,5a"]
@@ -427,7 +577,7 @@ Note the "body" and the "end" labels on the outgoing connectors.
 
 Use the iterator body to define what should happen to the items in processing, for example; if our intent is to send out email notifications, this is where you do that.
 
-The iterator body is implicitly terminated by the continue image:workflow/continue.svg[width=20px] step if neither of the iterator execution control steps are used prior.
+The iterator body is implicitly terminated by the continue {ICON_WORKFLOW_CONTINUE} step if neither of the iterator execution control steps are used prior.
 
 [IMPORTANT]
 ====
@@ -436,17 +586,17 @@ The advised approach is less prone to errors such as infinite loops.
 Do not create a loop using connectors.
 
 .An example of a valid iterator body.
-image::workflow/iterator-body-do.png[role="data-zoomable"]
+image::automation/workflows/iterator-body-do.png[role="data-zoomable"]
 
 .An example of an invalid iterator body.
-image::workflow/iterator-body-dont.png[role="data-zoomable"]
+image::automation/workflows/iterator-body-dont.png[role="data-zoomable"]
 
 ====
 
 === Controlling iterator execution
 
 There may be cases where you would like to prematurely terminate the ongoing iteration or the entire iterator all together.
-This can be done using the break image:workflow/break.svg[width=20px] or the continue image:workflow/continue.svg[width=20px] steps.
+This can be done using the break {ICON_WORKFLOW_BREAK} or the continue {ICON_WORKFLOW_CONTINUE} steps.
 
 [CAUTION]
 ====
@@ -458,20 +608,73 @@ The break and the continue steps are only valid within *iterator bodies*.
 
 | [#step-iterator-control-continue]#<<step-iterator-control-continue,Continue>>#
 |
-The continue step image:workflow/continue.svg[width=20px] terminates the ongoing iteration and continues with the potential following iteration.
+The continue step {ICON_WORKFLOW_CONTINUE} terminates the ongoing iteration and continues with the potential following iteration.
 The continue step should be used to either prematurely terminate the iterator body or when the iterator body is considered as completed.
 
 .An example of a premature and a complete iterator body.
-image::workflow/multi-continue.svg[role="data-zoomable"]
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "automation/workflows/iterator-continue.png",
+    "alias": "automation-workflows-iterator-continue",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {
+    "x": 504,
+    "y": 164,
+    "w": 677,
+    "h": 878
+  },
+  "annotations": [{
+    "kind": "box-note",
+    "x": 862,
+    "y": 724,
+    "w": 200,
+    "h": 77
+  }, {
+    "kind": "box-note",
+    "x": 581,
+    "y": 884,
+    "w": 200,
+    "h": 77
+  }]
+}
+----
+
 
 | [#step-iterator-control-break]#<<step-iterator-control-break,Break>>#
 |
-The break step image:workflow/break.svg[width=20px] terminates the ongoing iteration and any additional iterations performed by the iterator.
+The break step {ICON_WORKFLOW_BREAK} terminates the ongoing iteration and any additional iterations performed by the iterator.
 The break step should be used to prematurely terminate the entire iterator.
 To exemplify; when a system error occurs or when you find the item you are looking for.
 
 .An example of a prematurely terminating the iterator.
-image::workflow/break-example.svg[role="data-zoomable"]
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "automation/workflows/iterator-break.png",
+    "alias": "automation-workflows-iterator-break",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {
+    "x": 504,
+    "y": 164,
+    "w": 677,
+    "h": 878
+  },
+  "annotations": [{
+    "kind": "box-note",
+    "x": 862,
+    "y": 724,
+    "w": 200,
+    "h": 77
+  }]
+}
+----
 
 |===
 
@@ -479,14 +682,12 @@ image::workflow/break-example.svg[role="data-zoomable"]
 == Error handling
 
 Whenever you work with dynamic data (especially end-user input) and external services, you are always reminded that errors can and will occur.
-We define two steps for working with errors; error handler step image:workflow/error-handler.svg[width=20px] and error step image:workflow/error.svg[width=20px].
+We define two steps for working with errors; *error handler step* {ICON_WORKFLOW_ERROR_HANDLER} and *error step* {ICON_WORKFLOW_ERROR}.
 
-[cols="1s,5a"]
-|===
+[#step-errors-catch]
+=== Error handler
 
-| [#step-errors-catch]#<<step-errors-catch,Error handler>>#
-|
-An *error handler step* image:workflow/error-handler.svg[width=20px] allows you to catch and react to any errors that may occur in continuation of the workflow.
+An *error handler step* {ICON_WORKFLOW_ERROR_HANDLER} allows you to catch and react to any errors that may occur in continuation of the workflow.
 
 [NOTE]
 ====
@@ -494,13 +695,45 @@ Think of this as a try-catch.
 ====
 
 .An example of an error handler in action.
-image::workflow/try-catch.svg[role="data-zoomable"]
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "automation/workflows/error-handler.png",
+    "alias": "automation-workflows-error-handler",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {
+    "x": 344,
+    "y": 244,
+    "w": 1198,
+    "h": 560
+  },
+  "annotations": [{
+    "kind": "box-danger",
+    "padding": "lg",
+    "x": 702,
+    "y": 324,
+    "w": 478,
+    "h": 77
+  }, {
+    "kind": "box-note",
+    "x": 422,
+    "y": 324,
+    "w": 200,
+    "h": 77
+  }]
+}
+----
+
 The steps in the red zone can be considered as dangerous (can fail).
 If any step in the "dangerous" zone fails, the execution continues along the "Catch" connected steps.
 
-| [#step-errors-throw]#<<step-errors-throw,Error>>#
-|
-An *error step* image:workflow/error.svg[width=20px] allows you to manually trigger an error during the execution of a workflow.
+[#step-errors-throw]
+=== Error
+
+An *error step* {ICON_WORKFLOW_ERROR} allows you to manually trigger an error during the execution of a workflow.
 Forcefully terminating the workflow using an error step prevents additional operations from executing (such as the record is not saved or a user is not suspended).
 
 [NOTE]
@@ -509,14 +742,36 @@ Think of the error step as raising an error or an exception.
 ====
 
 .An example of an error in action.
-image::workflow/throw.svg[role="data-zoomable"]
-
-|===
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "automation/workflows/error.png",
+    "alias": "automation-workflows-error",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {
+    "x": 142,
+    "y": 244,
+    "w": 960,
+    "h": 400
+  },
+  "annotations": [{
+    "kind": "box-note",
+    "x": 501,
+    "y": 483,
+    "w": 200,
+    "h": 77
+  }]
+}
+----
 
 == Gateways
+
 Gateways allow you to implement conditional execution based on the ongoing state of your workflow, for example, if a current user is already a subscriber, we should send a renewal request instead of a subscription request.
 
-There are three kinds of gateway steps; exclusive image:workflow/gatewayExclusive.svg[width=20px], inclusive image:workflow/gatewayInclusive.svg[width=20px], and fork image:workflow/gatewayParallel.svg[width=20px].
+There are three kinds of gateway steps; *exclusive* {ICON_WORKFLOW_GATEWAYEXCLUSIVE}, *inclusive* {ICON_WORKFLOW_GATEWAYINCLUSIVE}, and *fork* {ICON_WORKFLOW_GATEWAYPARALLEL}.
 
 [CAUTION]
 ====
@@ -529,24 +784,24 @@ If the gateway is nested within an iterator, the iterator will be affected inste
 
 | [#step-gateway-exclusive]#<<step-gateway-exclusive,Exclusive>>#
 |
-An *exclusive gateway* image:workflow/gatewayExclusive.svg[width=20px] defines two or more connectors.
+An *exclusive gateway* {ICON_WORKFLOW_GATEWAYEXCLUSIVE} defines two or more connectors.
 Only the first connector that meets the condition is evaluated.
 Connectors are evaluated in the order they were initially defined in.
 
 .An example of an exclusive gateway in action.
-image::workflow/gateway-exclusive.png[role="data-zoomable"]
+image::automation/workflows/gateway-exclusive.png[role="data-zoomable"]
 
 | [#step-gateway-inclusive]#<<step-gateway-inclusive,Inclusive>>#
 |
-An *inclusive gateway* inclusive image:workflow/gatewayInclusive.svg[width=20px] defines two or more connectors.
+An *inclusive gateway* inclusive {ICON_WORKFLOW_GATEWAYINCLUSIVE} defines two or more connectors.
 Any connector that meets the condition is evaluated.
 
 .An example of an inclusive gateway in action.
-image::workflow/gateway-inclusive.png[role="data-zoomable"]
+image::automation/workflows/gateway-inclusive.png[role="data-zoomable"]
 
 | [#step-gateway-fork]#<<step-gateway-fork,Fork>>#
 |
-A *fork gateway* image:workflow/gatewayParallel.svg[width=20px] defines two or more connectors.
+A *fork gateway* {ICON_WORKFLOW_GATEWAYPARALLEL} defines two or more connectors.
 Each connector is evaluated and executed in parallel.
 
 [IMPORTANT]
@@ -575,7 +830,7 @@ Workflow execution, by design, does not timeout unless forcefully terminated.
 You can resolve this by reworking your workflow logic to avoid such cases.
 
 .An example of a workflow that will never resolve.
-image::workflow/gateway-inclusive-inf.png[role="data-zoomable"]
+image::automation/workflows/gateway-inclusive-inf.png[role="data-zoomable"]
 
 |===
 
@@ -583,11 +838,11 @@ image::workflow/gateway-inclusive-inf.png[role="data-zoomable"]
 
 [CAUTION]
 ====
-Any workflow that uses a prompt step image:workflow/prompt.svg[width=20px] is treated as asynchronous.
+Any workflow that uses a prompt step {ICON_WORKFLOW_PROMPT} is treated as asynchronous.
 Refer to the xref:automation/execution-flow-details.adoc#exec-flow-implicit[] for potential implications.
 ====
 
-The *prompt step* image:workflow/prompt.svg[width=20px] allows you to interact with the user in order to provide additional confirmation or data, such as a recipient email address or filling in any missing parameters.
+The *prompt step* {ICON_WORKFLOW_PROMPT} allows you to interact with the user in order to provide additional confirmation or data, such as a recipient email address or filling in any missing parameters.
 
 .The different prompt types:
 [cols="1s,5a"]
@@ -638,13 +893,99 @@ This can be used as a more verbose <<step-prompt-choice,choice prompt>> or a mor
 
 |===
 
+== Delay and schedule workflows
+
+{PRODUCT_NAME} workflow allows you to schedule or delay its execution.
+This can be a powerful tool when working with external services that throttle their API usage or when a task should be performed in an interval, for example monthly subscription renewal.
+
+To achieve this, you are provided with a delay step {ICON_WORKFLOW_DELAY} and a deferred trigger {ICON_WORKFLOW_TRIGGER}.
+
+****
+When you use a delay or a prompt step, the workflow becomes asynchronous and can no longer invalidate actions like create, update, or delete a record.
+
+Operations such as "confirm record creation" are currently not possible with workflows.
+If you need to perform value validation or sanitization, use xref:compose-configuration/index.adoc#module-field-expr[field expressions] instead.
+****
+
+=== The delay of execution
+
+The delay step {ICON_WORKFLOW_DELAY} allows you to explicitly pause the workflow's execution for a set period of time.
+
+This type of delaying is common when working with APIs that throttle their access.
+To exemplify; let's say that the API allows 10 calls per minute and we wish to fetch 100 items.
+A possible execution is as it follows:
+
+image::automation/workflows/delay-example.svg[role="data-zoomable"]
+
+[NOTE]
+====
+In case you wish to wait for an action performed by a user (such as a confirmation), use a xref:automation/workflows/index.adoc#user-interaction[prompt step] instead.
+====
+
+=== Execution scheduling
+
+Execution scheduling is performed by configuring the trigger {ICON_WORKFLOW_TRIGGER} to run in an <<deferred-interval,interval>> or at a specific <<deferred-timestamp,timestamp>>.
+
+[cols="1s,5a"]
+|===
+
+| [#deferred-interval]#<<deferred-interval,Interval>>#
+|
+An interval trigger allows you to run the workflow in a specified interval.
+This can be used to perform routine daily tasks or process larger data in batches.
+
+A good example is a subscription service where it is necessary to renew the subscriptions of the clients on a monthly basis.
+We define an interval that executes the workflow each day, determine what clients need to be renewed that day and renew them.
+
+image::automation/workflows/interval-example.svg[role="data-zoomable"]
+
+[WARNING]
+====
+The form of the above example should not be used in production.
+The actual workflow should implement error handling, transaction logging, and email notifications.
+====
+
+To define an interval trigger, click on the click on the configuration icon {ICON_WORKFLOW_COG} and specify the system as the resource resource with the on interval event.
+
+The interval is defined as a https://en.wikipedia.org/wiki/Cron[chron expression] and can be extremely flexible.
+You can also use https://crontab.guru/[this amazing tool] to verify that your expressions are valid.
+
+.Common cron examples:
+* every hour at minute 0: `0 * * * *`
+* every 30 minutes (0 and 30): `0/30 * * * *`
+* every day at the start of the day: `0 0 * * *`
+* every month at the start of month: `0 0 1 * *`
+
+[TIP]
+====
+You can define multiple intervals under the same trigger.
+====
+
+| [#deferred-timestamp]#<<deferred-timestamp,Timestamp>>#
+|
+A timestamped trigger allows you to run the workflow at a specified time.
+
+To illustrate; you have just received a new client that requested a series of deadlines where they would like to see the current progress.
+We could define a scheduled workflow that is executed at each one of the timestamps.
+The workflow would aggregate all of the completed tickets into an email and send it off to the client.
+
+image::automation/workflows/schedule-example.svg[role="data-zoomable"]
+
+Timestamps are defined in the https://en.wikipedia.org/wiki/ISO_8601[ISO 8601, `YYYY-MM-DDThh:mm:ssZ` format].
+
+[TIP]
+====
+You can define multiple timestamps under the same trigger.
+====
+
+|===
+
 == Ready for more?
 
 .The sub-sections under menu:Low-Code Platform Developer Guide[Automation,Workflows] go into more details regarding specific topics, such as:
-* the xref:automation/workflows/style-guide-best-practices.adoc[style guide and best practices],
+* the xref:automation/workflows/style-guide.adoc[style guide] and xref:automation/workflows/best-practices.adoc[best practices],
 * an introduction into our xref:automation/workflows/testing-debugging.adoc[testing and debugging facility],
 * how to xref:automation/workflows/organizing-workflows.adoc[manage and organize larger workflows],
-* how to xref:automation/workflows/delaying-scheduling.adoc[delay the execution],
 * how to xref:automation/workflows/automation-scripts.adoc[execute automation scripts] available in the {APP_AUTOMATION} server,
 * how to xref:api-gw/workflow-processing.adoc[process requests] via Integration gateway.
 

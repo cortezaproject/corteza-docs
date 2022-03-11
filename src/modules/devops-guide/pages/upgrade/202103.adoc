@@ -1,0 +1,38 @@
+include::ROOT:partial$variables.adoc[]
+
+= Upgrading to 2021.3
+:page-aliases: upgrade-guide:202103.adoc
+
+== After upgrade
+
+=== {PRODUCT_NAME} {APP_NAME_WORKFLOW}
+
+{PRODUCT_NAME} introduces workflows as an alternative to automation scripts.
+Workflows allow you perform the vast majority of automation script tasks while keeping them visual.
+
+We highly recommend you migrate your automation scripts to workflows.
+Refer to the xref:2021.3@integrator-guide:workflows/index.adoc[low-code platform developer guide] for details.
+
+.Make sure you run partial provision for importing workflows and associated permissions:
+[source,shell]
+----
+docker-compose exec server corteza-server import /corteza/provision/300_automation
+----
+
+=== Templates
+
+{PRODUCT_NAME} introduces templates as a standardized facility to handle and render documents based on generic templates.
+Prior to 2021.3 templates were handled either in {APP_NAME_COMPOSE} modules or as `.html` files and rendered using our `corteza-js/renderer` package.
+As of 2021.3 you are able to define and render templates directly with the core system.
+
+We highly recommend you move your templates to the new standardized facility.
+Refer to the xref:integrator-guide:templates/index.adoc[low-code platform developer guide] for details.
+
+=== Authentication
+
+{PRODUCT_NAME} reworks how the authentication system works.
+As of 2021.3 all of the authentication endpoints are removed and will no longer work.
+
+If you were using the authentication endpoints to obtain a JWT token for API access you can use the xref:devops-guide:maintenance/cli-reference.adoc#auth-jwt[JWT CLI command].
+
+If you were using the authentication endpoints to authenticate users on your custom portals, you will need to register an auth client in the {PRODUCT_NAME} {APP_NAME_AUTH} panel and rework your authentication logic to use the OAuth 2 flow.

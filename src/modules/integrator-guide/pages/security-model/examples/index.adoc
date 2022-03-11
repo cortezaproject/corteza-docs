@@ -1,0 +1,9 @@
+= Examples
+:keywords: security model, examples, security model configuration
+:description: Learn from example on how to configure your security model
+
+:leveloffset: +1
+
+include::examples-contextual.adoc[]
+
+:leveloffset: -1

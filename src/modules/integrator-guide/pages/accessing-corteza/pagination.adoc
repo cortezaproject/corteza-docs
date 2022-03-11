@@ -1,6 +1,8 @@
 include::ROOT:partial$variables.adoc[]
 
 = Pagination
+:keywords: API, {PRODUCT_NAME} API, paging, pagination
+:description: Learn how to use the page cursor based pagination
 
 When you perform an operation that supports pagination (such as fetching records), you will see a `filter` object.
 

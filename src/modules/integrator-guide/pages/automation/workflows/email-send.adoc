@@ -1,7 +1,10 @@
 include::ROOT:partial$variables.adoc[]
+include::ROOT:partial$icons.adoc[]
 
 = Working with Email
-:attachment-path: ../../_attachments/workflow/
+:attachment-path: ../../_attachments/automation/workflows/
+:keywords: automation, email sending, workflow email send
+:description: Learn how to use workflows for automatic email sending
 
 [IMPORTANT]
 ====
@@ -10,12 +13,12 @@ You need to configure {PRODUCT_NAME} with your SMTP provider to send email messa
 
 == Sending emails directly
 
-Use the *email* function step image:workflow/function.svg[width=20px] to immediately send an email message.
+Use the *email* function step {ICON_WORKFLOW_FUNCTION} to immediately send an email message.
 
 If you call the email function without specifying the `from` argument, the `SMTP_FROM` `.env` variable is used.
 
 .An example of a workflow set to send an email message:
-image::workflow/email-direct-ex-1.png[role="data-zoomable"]
+image::automation/workflows/email-send/email-direct-ex-1.png[role="data-zoomable"]
 
 The source code for the workflow can be found link:{attachment-path}email_direct_send.json[here].
 
@@ -85,12 +88,12 @@ Content-Type: text/html; charset=UTF-8
 
 == Email builder
 
-The *email builder* function step image:workflow/function.svg[width=20px] allows you to assemble an email message without sending it.
+The *email builder* function step {ICON_WORKFLOW_FUNCTION} allows you to assemble an email message without sending it.
 
 The email builder allows you to further enrich the email message with additional parameters such as other recipients.
 
 .An example of a workflow made to construct an email message with the email builder.
-image::workflow/email-builder-ex-1.png[role="data-zoomable"]
+image::automation/workflows/email-send/email-builder-ex-1.png[role="data-zoomable"]
 
 The source code for the workflow can be found link:{attachment-path}email_builder_send.json[here].
 

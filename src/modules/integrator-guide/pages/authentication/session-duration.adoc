@@ -1,0 +1,121 @@
+include::ROOT:partial$variables.adoc[]
+
+= Define session duration
+:keywords: authentication, security
+:description: Learn how to increase security by configuring the authentication session duration
+
+{PRODUCT_NAME} allows you to define how long the access tokens are to be considered valid.
+
+.The three `.env` variables to control the authentication session:
+[cols="2s,5a"]
+|===
+| [#auth-sesion-auth_oauth2_access_token_lifetime]#<<auth-sesion-auth_oauth2_access_token_lifetime,AUTH_OAUTH2_ACCESS_TOKEN_LIFETIME>>#
+|
+The `AUTH_OAUTH2_ACCESS_TOKEN_LIFETIME` `.env` variable allows you to define how long an access token will be valid for.
+
+The access token represents the credentials that allow users to access protected resources such as records, users, and workflows.
+
+.An example of limiting the access token to two minutes:
+[source,.env]
+----
+AUTH_OAUTH2_ACCESS_TOKEN_LIFETIME=2m
+----
+
+| [#auth-sesion-auth_oauth2_refresh_token_lifetime]#<<auth-sesion-auth_oauth2_refresh_token_lifetime,AUTH_OAUTH2_REFRESH_TOKEN_LIFETIME>>#
+|
+The `AUTH_OAUTH2_REFRESH_TOKEN_LIFETIME` `.env` variable allows you to define how long a refresh token should be valid.
+
+The refresh token provides a mechanism which generates a new access token when the old one expires, removing the need to re-authenticate the user.
+
+.An example of limiting the refresh token to two minutes:
+[source,.env]
+----
+AUTH_OAUTH2_REFRESH_TOKEN_LIFETIME=2m
+----
+
+| [#auth-sesion-auth_session_lifetime]#<<auth-sesion-auth_session_lifetime,AUTH_SESSION_LIFETIME>>#
+|
+The `AUTH_SESSION_LIFETIME` `.env` variable allows you to define how long the authentication session should be valid.
+
+The authentication session is generated when the user provides their credentials to the *{PRODUCT_NAME} login page*.
+The authentication session is independent of access tokens.
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "authentication/auth-login.png",
+    "alias": "auth-login-reg",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {},
+  "annotations": [{
+    "kind": "box",
+    "padding": "sm",
+    "x": 672,
+    "y": 546,
+    "h": 40,
+    "w": 577
+  }]
+}
+----
+
+.An example of limiting the auth session to two minutes:
+[source,.env]
+----
+AUTH_SESSION_LIFETIME=2m
+----
+
+| [#auth-sesion-auth_session_perm_lifetime]#<<auth-sesion-auth_session_perm_lifetime,AUTH_SESSION_PERM_LIFETIME>>#
+|
+The `AUTH_SESSION_PERM_LIFETIME` `.env` variable allows you to define how long the authentication session should be valid when the btn:[login and remember me] is used.
+
+The authentication session is generated when the user provides their credentials to the *{PRODUCT_NAME} login page*.
+The authentication session is independent of access tokens.
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "authentication/auth-login.png",
+    "alias": "auth-login-perm",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {},
+  "annotations": [{
+    "kind": "box",
+    "padding": "sm",
+    "x": 672,
+    "y": 497,
+    "h": 42,
+    "w": 577
+  }]
+}
+----
+
+.An example of limiting the auth session to two minutes:
+[source,.env]
+----
+AUTH_SESSION_PERM_LIFETIME=2m
+----
+
+|===
+
+== Log out inactive users after two minutes
+
+If you wish to log out inactive users, you need to set all three of the `.env` variables mentioned above.
+
+[source,.env]
+----
+AUTH_OAUTH2_ACCESS_TOKEN_LIFETIME=2m
+AUTH_SESSION_LIFETIME=2m
+AUTH_OAUTH2_REFRESH_TOKEN_LIFETIME=2m
+----
+
+[IMPORTANT]
+====
+When the user is considered inactive is determined by the user's browser.
+Usually this is when they close the tab/window or when their computer enters rest mode.
+====

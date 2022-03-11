@@ -1,6 +1,9 @@
 include::ROOT:partial$variables.adoc[]
+include::ROOT:partial$icons.adoc[]
 
 = Testing and Debugging Workflows
+:keywords: automation, workflows, testing, debugging
+:description: Learn how to test and debug your workflows
 
 [#testing]
 == Testing
@@ -17,9 +20,9 @@ Let us look at an example.
 You want to implement a workflow that calculates the cost of a newly created lead.
 The cost of the lead is sent as an email to the administrator.
 
-image:workflow/manual-test-play.png[]
+image::automation/workflows/testing-debugging/manual-test-play.png[]
 
-To test the workflow, click on the play icon image:workflow/play.svg[width=20px] in the top right corner of the trigger.
+To test the workflow, click on the play icon {ICON_WORKFLOW_PLAY} in the top right corner of the trigger.
 Only saved and valid workflows can be run.
 
 A pop-up asking for the initial scope appears.
@@ -30,12 +33,12 @@ The initial scope is data passed to the workflow to perform an operation.
 The initial scope depends on the resource and event type.
 ====
 
-image:workflow/manual-test-load-resources.png[]
+image::automation/workflows/testing-debugging/manual-test-load-resources.png[]
 
 Insert the required parameters and click on the btn:[Load and Configure] button to set the initial scope.
 Any missing parameters are automatically added as the empty value of that type.
 
-image:workflow/manual-test-configure-resources.png[]
+image::automation/workflows/testing-debugging/manual-test-configure-resources.png[]
 
 The last step allows you to change the variables of the initial scope before test running the workflow.
 Click on the btn:[Run Workflow] to run the workflow, or on the btb:[Back] button to return to the previous screen.
@@ -45,20 +48,20 @@ If any of the steps fail to execute successfully, they are be marked with a red 
 If there is no error handling, the manual execution is also terminated.
 
 .An example of a successful test:
-image:workflow/manual-test-run-ok.png[]
+image::automation/workflows/testing-debugging/manual-test-run-ok.png[]
 
 .An example of a failed test:
-image:workflow/manual-test-run-nok.png[]
+image::automation/workflows/testing-debugging/manual-test-run-nok.png[]
 
 In some cases, your workflows may implement steps that should only run in production, such as client charging, mass email notifications, and similar.
 We can mock this path of execution by defining a `testing` flag at the beginning.
-Before you reach the "in production only" steps, you should use an exclusive gateway to carry out distinctive handling, such as logging a message or using a <<debug-step,debug step image:workflow/debug.svg[width=20px]>>.
+Before you reach the "in production only" steps, you should use an exclusive gateway to carry out distinctive handling, such as logging a message or using a <<debug-step,debug step {ICON_WORKFLOW_DEBUG}>>.
 
-image:workflow/manual-test-special.png[]
+image::automation/workflows/testing-debugging/manual-test-special.png[]
 
 When you run the workflow after that step, you should see something like the below example:
 
-image:workflow/manual-test-special-ok.png[]
+image::automation/workflows/testing-debugging/manual-test-special-ok.png[]
 
 == Debugging
 
@@ -67,26 +70,26 @@ Knowing how to debug a specific tool or software can save you a lot of time if y
 [#debug-step]
 === The debugging step
 
-The debugging step image:workflow/debug.svg[width=20px] allows you to inspect the contents of the scope it resides in.
+The debugging step {ICON_WORKFLOW_DEBUG} allows you to inspect the contents of the scope it resides in.
 
 The debugging step uses the logger configured by the server and it is not visible in the workflow editor itself.
 
 .A simple example:
-image:workflow/debug-example-simple.png[]
+image::automation/workflows/testing-debugging/debug-example-simple.png[]
 
 === Test result context
 
 When you <<testing,run a manual test>> for the workflow you might notice an icon in the bottom right corner of the step.
 
-image:workflow/debug-stepctx.png[]
+image::automation/workflows/testing-debugging/debug-stepctx.png[]
 
 When you hover over the icon you see the important information regarding the steps' execution.
 
 If you hover over a successful step (step with a green outline), you see the duration of the execution.
 Knowing the duration of the execution can help you pinpoint any system bottlenecks.
 
-image:workflow/debug-stepctx-ok.png[]
+image::automation/workflows/testing-debugging/debug-stepctx-ok.png[]
 
 If you hover over a failed step (step with a red outline), you see the duration of the execution and the encountered error.
 
-image:workflow/debug-stepctx-nok.png[]
+image::automation/workflows/testing-debugging/debug-stepctx-nok.png[]

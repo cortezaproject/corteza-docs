@@ -1,6 +1,8 @@
 include::ROOT:partial$variables.adoc[]
 
 = Importing and exporting namespaces
+:keywords: low code, no code, import, export
+:description: Learn how to import and export {APP_NAME_COMPOSE} applications
 
 {PRODUCT_NAME} makes it easy to export entire namespaces which can then be imported into an entirely different {PRODUCT_NAME} instance.
 

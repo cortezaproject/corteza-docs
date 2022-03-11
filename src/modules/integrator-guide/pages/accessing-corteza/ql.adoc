@@ -1,6 +1,8 @@
 include::ROOT:partial$variables.adoc[]
 
 = Query language
+:keywords: API, {PRODUCT_NAME} API, QL, query language, searching
+:description: Learn how to use {PRODUCT_NAME}'s query language to filter data
 
 {PRODUCT_NAME} implements an SQL-like syntax for querying and sorting records.
 

@@ -1,8 +1,8 @@
 include::ROOT:partial$variables.adoc[]
 
 = Automation scripts
-:description: An automation script is a piece of code that lets you implement custom business logic. Automation scripts are written in plain JavaScript with support for node packages.
-:keywords: business logic, automation, automation scripts, {PRODUCT_NAME}
+:keywords: automation, automate business logic, automation script, scripting, code
+:description: Learn how to use the flexible JavaScript environment for custom business logic processing
 
 An automation script (further referred to as script) is a piece of code that allows you to implement custom business logic.
 Automation scripts are written in plain JavaScript with the support for node packages.

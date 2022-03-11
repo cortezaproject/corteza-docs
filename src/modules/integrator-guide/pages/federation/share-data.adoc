@@ -1,0 +1,68 @@
+include::ROOT:partial$variables.adoc[]
+
+= Data Synchronization
+:page-aliases: administrator-guide:federation/share-data.adoc
+
+When two nodes have *successfully performed the <<node-pairing,node pairing>>* process, we can *share the data between the two nodes*.
+
+[NOTE]
+====
+Shared modules are created by the {APP_NAME_FEDERATION} system and can not be manually removed or updated.
+====
+
+[#expose-module]
+== Sharing data
+
+An *origin node* can *share data* with it's *paired destination nodes*.
+
+An origin node *defines what modules* a specific destination node is *allowed to access*.
+
+[NOTE]
+====
+You can only share data with nodes that have been successfully paired.
+====
+
+.To share a new module:
+. navigate to {PRODUCT_NAME} {APP_NAME_COMPOSE},
+. enter the namespace administration area,
+. navigate to the "Modules" sub-page,
+. click on the edit icon next to the module you wish to share,
+. click on "Federation Settings",
+. go to the "Expose" tab,
+. select a node you wish to share the module to,
+. select the fields you wish to share with the module,
+. save the changes.
+
+[TIP]
+====
+You can copy "Exposed" settings from other nodes by selecting the desired node from the "Copy settings from" dropdown.
+====
+
+.A screenshot showing the module sharing interface.
+image::federation/expose-module.png[Screenshot of the configuration window.]
+
+[#module-mapping]
+== Consume shared data
+
+A *destination node* can *consume shared data* from it's *paired origin node*.
+
+A destination node *defines what modules* it wishes to access and how *values map in the destination module*.
+
+[NOTE]
+====
+You can only consume data from nodes that we successfully paired.
+====
+
+.Consuming data:
+. navigate to {PRODUCT_NAME} {APP_NAME_COMPOSE},
+. enter the namespace administration area,
+. navigate to the "Modules" subpage,
+. click on the edit icon next to the module you wish to consume data into,
+. click on "Federation Settings",
+. go to the "Map" tab,
+. select a node you wish to consume the data from,
+. select what shared fields map into what module fields,
+. save the changes.
+
+.A screenshot showing the module mapping interface.
+image::federation/map-module.png[Screenshot of the configuration window.]

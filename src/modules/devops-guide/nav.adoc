@@ -31,6 +31,12 @@
 *** xref:maintenance/database-password.adoc[]
 *** xref:maintenance/sql-snippets.adoc[]
 
+** xref:upgrade/index.adoc[]
+*** xref:upgrade/202012.adoc[]
+*** xref:upgrade/202009.adoc[]
+*** xref:upgrade/202003.adoc[]
+
+
 ** Extension requirements
 *** xref:extension-requirements/email-relay.adoc[]
 *** xref:extension-requirements/sink-route.adoc[]

@@ -1,17 +1,18 @@
 include::ROOT:partial$variables.adoc[]
 
 = Draft examples
-:attachment-path: ../../../_attachments/workflow/
+:attachment-path: ../../../_attachments/automation/workflows/examples/
+:page-noindex: true
 
 The module used for the examples:
 
-image::workflow/examples/module.png[role="data-zoomable"]
+image::automation/workflows/examples/drafts/module.png[role="data-zoomable"]
 
-The link:{attachment-path}examples/module.json[source code] for the module example.
+The link:{attachment-path}module.json[source code] for the module example.
 
 The records used for the examples:
 
-image::workflow/examples/records.png[role="data-zoomable"]
+image::automation/workflows/examples/drafts/records.png[role="data-zoomable"]
 
 
 == Fetching records
@@ -24,25 +25,25 @@ Further arguments are mainly to filter the data, and to control the size of it.
 
 By not specifying the `query`, all of the records are returned.
 
-image::workflow/examples/wf.png[role="data-zoomable"]
+image::automation/workflows/examples/drafts/wf.png[role="data-zoomable"]
 
-The link:{attachment-path}examples/records-no-filter.json[source code] for the workflow example.
+The link:{attachment-path}records-no-filter.json[source code] for the workflow example.
 
 === Simple filtering
 
 If we want to filter over some field, such as a status flag, we define so in the query.
 
-image::workflow/examples/wf.png[role="data-zoomable"]
+image::automation/workflows/examples/drafts/wf.png[role="data-zoomable"]
 
-The link:{attachment-path}examples/records-simple-filter.json[source code] for the workflow example.
+The link:{attachment-path}records-simple-filter.json[source code] for the workflow example.
 
 === Date range filtering
 
 If we want to filter between two dates, such as "users between year 2000 and 2020" and "is the current date between the `start` and `end` date fields".
 
-image::workflow/examples/wf.png[role="data-zoomable"]
+image::automation/workflows/examples/drafts/wf.png[role="data-zoomable"]
 
-The link:{attachment-path}examples/records-range-filter.json[source code] for the workflow example.
+The link:{attachment-path}records-range-filter.json[source code] for the workflow example.
 
 Note the `year(joined) >= 2000 AND year(joined) <= 2010` query.
 
@@ -50,9 +51,9 @@ Note the `year(joined) >= 2000 AND year(joined) <= 2010` query.
 
 This is how we can filter for data where a specific timestamp is "x amount of time old", such as "users wo have registered 30days ago" or "the contract will expire in 1 month".
 
-image::workflow/examples/wf.png[role="data-zoomable"]
+image::automation/workflows/examples/drafts/wf.png[role="data-zoomable"]
 
-The link:{attachment-path}examples/records-age-filter.json[source code] for the workflow example.
+The link:{attachment-path}records-age-filter.json[source code] for the workflow example.
 
 Note the `DATE(DATE_ADD(now(), INTERVAL 2 DAY)) = DATE(joined)` query.
 
@@ -77,9 +78,9 @@ When you are nesting iterators, the control block only affects the deepest itera
 The following example is a simple iterator that goes over all of the records.
 If you wish to apply filtering over what records you wish to pull, properly set the `query` argument (same as discussed with above fetching).
 
-image::workflow/examples/iterator-wf.png[role="data-zoomable"]
+image::automation/workflows/examples/drafts/iterator-wf.png[role="data-zoomable"]
 
-The link:{attachment-path}examples/records-iterator-regular.json[source code] for the workflow example.
+The link:{attachment-path}records-iterator-regular.json[source code] for the workflow example.
 
 Notice how the iterator is configured; primarily the results section where we specify under what variable the current record/index resides.
 
@@ -89,9 +90,9 @@ The following example is a simple iterator that goes over all of the records for
 
 If you wish to apply filtering over what records you wish to pull, properly set the `query` argument (same as discussed with above fetching).
 
-image::workflow/examples/iterator-nested-wf.png[role="data-zoomable"]
+image::automation/workflows/examples/drafts/iterator-nested-wf.png[role="data-zoomable"]
 
-The link:{attachment-path}examples/records-iterator-nested.json[source code] for the workflow example.
+The link:{attachment-path}records-iterator-nested.json[source code] for the workflow example.
 
 Notice how the iterator is configured; primarily the results section where we specify under what variable the current record/index resides.
 
@@ -103,9 +104,9 @@ Notice how the iterator is configured; primarily the results section where we sp
 
 === Defining the workflow
 
-image::workflow/examples/manual-wf.png[role="data-zoomable"]
+image::automation/workflows/examples/drafts/manual-wf.png[role="data-zoomable"]
 
-The link:{attachment-path}examples/page-button.json[source code] for the workflow example.
+The link:{attachment-path}page-button.json[source code] for the workflow example.
 
 Make sure to use the appropriate resource on the trigger based on where you wish to show it.
 If you wish to show it somewhere in the namespace, uwe the `Compose Namespace` resource, on a page `Compose Page`, on a record page `Compose Record` and so on.
@@ -118,10 +119,10 @@ If it doesn't matter, just use `Compose` as the resource.
 
 Open the page block builder and add a new automation page block (you can reuse existing automation page blocks and append the new workflow).
 
-image::workflow/examples/pageblock-automation-add.png[role="data-zoomable"]
+image::automation/workflows/examples/drafts/pageblock-automation-add.png[role="data-zoomable"]
 
 === Using it
 
 Open up the page the button resides on and click it.
 
-image::workflow/examples/pageblock-automation-pressed.png[role="data-zoomable"]
+image::automation/workflows/examples/drafts/pageblock-automation-pressed.png[role="data-zoomable"]

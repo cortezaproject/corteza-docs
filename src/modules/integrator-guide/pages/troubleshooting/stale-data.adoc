@@ -88,6 +88,7 @@ Because one resolves before the other, the second one raises a `stale data` erro
 {
   "image": {
     "rel": "troubleshooting/stale-data-workflow.png",
+    "alias": "troubleshooting-stale-data-workflow",
     "w": 1920,
     "h": 1080
   },
@@ -117,6 +118,7 @@ Save the record at the very end when all of the values are set to what they shou
 {
   "image": {
     "rel": "troubleshooting/stale-data-workflow-fix.png",
+    "alias": "troubleshooting-stale-data-workflow-fix",
     "w": 1920,
     "h": 1080
   },

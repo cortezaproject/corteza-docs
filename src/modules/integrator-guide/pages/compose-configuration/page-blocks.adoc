@@ -1,6 +1,8 @@
 include::ROOT:partial$variables.adoc[]
 
-= Page block reference
+= Page Block Reference
+:keywords: low code, no code, page block reference, page block type reference
+:description: Get familiar with the available page block types {PRODUCT_NAME} {APP_NAME_COMPOSE} offers
 
 [NOTE]
 ====
@@ -12,7 +14,7 @@ Refer to xref:accessing-corteza/ql.adoc#query-mv[menu:accessing {PRODUCT_NAME}[q
 
 The automation page block allows you to show xref:automation/index.adoc#automation-application-general[automation with manual triggers].
 
-image::compose/pageblock-config-automation.png[...,50%,role="preview data-zoomable"]
+image::compose-configuration/page-block-reference/config-automation.png[...,50%,role="preview data-zoomable"]
 
 The automation page block allows you to use both xref:automation/automation-scripts/index.adoc[automation scripts] and xref:automation/workflows/index.adoc[workflows].
 
@@ -31,8 +33,8 @@ The automation page block allows you to use both xref:automation/automation-scri
 
 A *calendar page block* allows you to show events from different event sources in a calendar.
 
-image:compose/pageblock-config-calendar-base.png[...,49%,role="preview data-zoomable"]
-image:compose/pageblock-config-calendar-es.png[...,49%,role="preview data-zoomable"]
+image:compose-configuration/page-block-reference/config-calendar-base.png[...,49%,role="preview data-zoomable"]
+image:compose-configuration/page-block-reference/config-calendar-es.png[...,49%,role="preview data-zoomable"]
 
 .Supported calendar views:
 * month view
@@ -64,7 +66,7 @@ The calendar page block pre-filter supports value interpolation.
 The *chart page block* allows you to display a pre-configured chart on your page.
 Refer to xref:compose-configuration/index.adoc#charts[{APP_NAME_COMPOSE} configuration] for more details.
 
-image::compose/pageblock-config-chart.png[...,50%,role="preview data-zoomable"]
+image::compose-configuration/page-block-reference/config-chart.png[...,50%,role="preview data-zoomable"]
 
 [#page-block-content]
 == Content
@@ -72,14 +74,14 @@ image::compose/pageblock-config-chart.png[...,50%,role="preview data-zoomable"]
 The *content page block* allows you to show static content on the page.
 This can be an important announcement, a how-to guide, or any other piece of information.
 
-image::compose/pageblock-config-content.png[...,50%,role="preview data-zoomable"]
+image::compose-configuration/page-block-reference/config-content.png[...,50%,role="preview data-zoomable"]
 
 [#page-block-file]
 == File
 
 The *file page block* allows you to upload static files such as a TOS, a work schedule, or a brochure to the page.
 
-image::compose/pageblock-config-file.png[...,50%,role="preview data-zoomable"]
+image::compose-configuration/page-block-reference/config-file.png[...,50%,role="preview data-zoomable"]
 
 The attachment is static and does not change based on the current context.
 
@@ -107,7 +109,7 @@ The *iframe page block* allows you to embed an external website into your applic
 Make sure to keep any *iframe embedding limitation* in mind.
 ====
 
-image::compose/pageblock-config-iframe.png[...,50%,role="preview data-zoomable"]
+image::compose-configuration/page-block-reference/config-iframe.png[...,50%,role="preview data-zoomable"]
 
 [#page-block-metric]
 == Metric
@@ -116,7 +118,7 @@ The *metric page block* allows you to display a calculated numerical value based
 This is usually an indicator important to your process. 
 It may be information such as the total finances in your sales pipeline or the current number of open accounts.
 
-image::compose/pageblock-config-metric.png[...,50%,role="preview data-zoomable"]
+image::compose-configuration/page-block-reference/config-metric.png[...,50%,role="preview data-zoomable"]
 
 .Additional configurations:
 [cols="2s,5a"]
@@ -195,14 +197,14 @@ Record lists also provide the features for adding, importing, and exporting reco
 When using the search box on the record list, the system only includes the selected fields.
 ====
 
-image::compose/pageblock-config-record-list.png[...,50%,role="preview data-zoomable"]
+image::compose-configuration/page-block-reference/config-record-list.png[...,50%,role="preview data-zoomable"]
 
 [TIP]
 ====
 You can trigger *explicit automation scripts* within the record list's header.
 Click the "Automation" tab to *select the automation scripts*.
 
-image::compose/pageblock-config-record-list-automation.png[...,50%,role="preview data-zoomable"]
+image::compose-configuration/page-block-reference/config-record-list-automation.png[...,50%,role="preview data-zoomable"]
 ====
 
 .Additional configurations:
@@ -336,7 +338,7 @@ The records are moved around using the drag-and-drop interface.
 A single record organizer page block defines one column.
 Add additional record organizer page blocks to define additional columns.
 
-image::compose/pageblock-config-ro.png[...,50%,role="preview data-zoomable"]
+image::compose-configuration/page-block-reference/config-ro.png[...,50%,role="preview data-zoomable"]
 
 .Additional configurations:
 [cols="2s,5a"]
@@ -385,7 +387,7 @@ When creating or editing the record, record page blocks provide a way of input o
 Record page blocks are available only on record pages.
 ====
 
-image::compose/pageblock-config-record.png[...,50%,role="preview data-zoomable"]
+image::compose-configuration/page-block-reference/config-record.png[...,50%,role="preview data-zoomable"]
 
 [TIP]
 ====
@@ -407,7 +409,7 @@ When added on a *list page*, the specified feed is provided as a fixed URL addre
 When added on a *record page*, the specified feed is provided either as a fixed URL address or as a URL field.
 Using a module field instead of a fixed value allows a social media feed to change depending on the context.
 
-image::compose/pageblock-config-sf.png[...,50%,role="preview data-zoomable"]
+image::compose-configuration/page-block-reference/config-sf.png[...,50%,role="preview data-zoomable"]
 
 [#page-block-comment]
 == Comment
@@ -416,7 +418,7 @@ The *comment page block* allows you to show the records in a comment-like format
 
 @todo image
 
-image::compose/pageblock-config-ro.png[...,50%,role="preview data-zoomable"]
+image::compose-configuration/page-block-reference/config-ro.png[...,50%,role="preview data-zoomable"]
 
 .Additional configurations:
 [cols="2s,5a"]

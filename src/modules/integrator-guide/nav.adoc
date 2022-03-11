@@ -1,11 +1,26 @@
 * xref:index.adoc[]
 
-** xref:auth.adoc[]
-** xref:access-control.adoc[]
+** xref:authentication/index.adoc[]
+*** xref:authentication/mfa.adoc[]
+*** xref:authentication/authenticate-external.adoc[]
+*** xref:authentication/personalization.adoc[]
+*** xref:authentication/session-duration.adoc[]
+*** xref:authentication/external/index.adoc[]
+**** xref:authentication/external/google.adoc[]
+**** xref:authentication/external/facebook.adoc[]
+**** xref:authentication/external/github.adoc[]
+**** xref:authentication/external/linkedin.adoc[]
+**** xref:authentication/external/saml.adoc[]
 
-** Personalization
-*** xref:personalization/auth.adoc[]
-*** xref:personalization/i18n.adoc[]
+** xref:security-model/index.adoc[]
+*** xref:security-model/users.adoc[]
+*** xref:security-model/roles.adoc[]
+*** References
+**** xref:security-model/references/contextual-role-parameters.adoc[]
+*** xref:security-model/examples/index.adoc[]
+**** xref:security-model/examples/examples-contextual.adoc[]
+
+** xref:i18n/index.adoc[]
 
 ** xref:accessing-corteza/index.adoc[]
 *** xref:accessing-corteza/api-clients.adoc[]
@@ -37,13 +52,13 @@
 ** xref:automation/index.adoc[]
 *** xref:automation/execution-flow-details.adoc[]
 *** xref:automation/workflows/index.adoc[]
-**** xref:automation/workflows/organizing-workflows.adoc[]
+**** xref:automation/workflows/execution-lifecycle.adoc[]
+**** xref:automation/workflows/style-guide.adoc[]
+**** xref:automation/workflows/best-practices.adoc[]
+**** xref:automation/workflows/scope-in-depth.adoc[]
 **** xref:workflows/record-selection.adoc[]
-**** xref:automation/workflows/delaying-scheduling.adoc[]
 **** xref:automation/workflows/automation-scripts.adoc[]
 **** xref:automation/workflows/email-send.adoc[]
-**** xref:automation/workflows/style-guide-best-practices.adoc[]
-**** xref:automation/workflows/scope-in-depth.adoc[]
 **** xref:automation/workflows/testing-debugging.adoc[]
 **** References
 ***** xref:automation/workflows/func-reference.adoc[]
@@ -53,10 +68,11 @@
 ***** xref:automation/workflows/examples/timestamp.adoc[]
 ***** xref:automation/workflows/examples/email-attachment.adoc[]
 ***** xref:automation/workflows/examples/gw-parse-payload.adoc[]
-***** xref:automation/workflows/examples/record-values.adoc[]
 ***** xref:automation/workflows/examples/record.adoc[]
+***** xref:automation/workflows/examples/template-rendering.adoc[]
 ***** xref:automation/workflows/examples/parallelism.adoc[]
 ***** xref:automation/workflows/examples/dynamic-config.adoc[]
+***** xref:automation/workflows/examples/execution-timeout.adoc[]
 
 *** xref:automation/automation-scripts/index.adoc[]
 **** xref:automation/automation-scripts/node-modules.adoc[]
@@ -93,8 +109,15 @@
 // *** Examples
 // **** ...
 
+** xref:scalability/index.adoc[]
+
+** xref:federation/index.adoc[]
+*** xref:federation/nodes.adoc[]
+*** xref:federation/share-data.adoc[]
+
 ** Troubleshooting
 *** xref:troubleshooting/stale-data.adoc[]
+*** xref:troubleshooting/logging.adoc[]
 
 // ** xref:provisioning/index.adoc[]
 // *** ...

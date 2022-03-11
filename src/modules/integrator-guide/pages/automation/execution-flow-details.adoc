@@ -1,6 +1,8 @@
 include::ROOT:partial$variables.adoc[]
 
 = Execution flow details
+:keywords: automation, execution flow
+:description: Learn how {PRODUCT_NAME}'s automation works under-the-hood and the different execution flows
 
 The section goes into the details of what causes the automation to execute, the important steps of the execution flow, and what happens with the result of the automation.
 A simplified explanation is described xref:automation/index.adoc#automation-flow-overview[here].

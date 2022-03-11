@@ -1,10 +1,11 @@
 = Timestamp
+:page-noindex: true
 
 For this example, let's assume we want to wish all users a Happy new year.
 All the emails need to be sent out at exactly midnight.
 For this, we use a trigger of type `onTimestamp` with the timestamp of `2021-01-01T00:00:00Z`
 
-image:workflow/workflow-example-timestamp.png[]
+image:automation/workflows/examples/workflow-example-timestamp.png[]
 
 ****
 .Workflow step details:

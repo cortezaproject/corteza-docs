@@ -1,7 +1,0 @@
-= Access control
-
-:leveloffset: +1
-
-include::administrator-guide:partial$access-control.adoc[]
-
-:leveloffset: -1

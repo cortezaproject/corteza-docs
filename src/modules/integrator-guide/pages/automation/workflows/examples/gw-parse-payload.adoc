@@ -1,10 +1,11 @@
 = Parse Integration Gateway Request
-:attachment-path: ../../../_attachments/workflow/
+:attachment-path: ../../../_attachments/automation/workflows/
+:page-noindex: true
 
 Fort this example, let's parse a request sent to the xref:api-gw/index.adoc[]
 
 .The screenshot outlines the workflow that can be used to process the request.
-image::workflow/api-gw/workflow.png[role="data-zoomable"]
+image::automation/workflows/examples/parse-gateway-payload.png[role="data-zoomable"]
 
 The link:{attachment-path}request_process.json[source code] for the workflow example.
 

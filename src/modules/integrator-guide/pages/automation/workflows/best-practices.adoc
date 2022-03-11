@@ -1,0 +1,52 @@
+include::ROOT:partial$variables.adoc[]
+include::ROOT:partial$icons.adoc[]
+
+= Best Practices
+:keywords: automation, best practices, design patterns
+:description: Learn the best approaches to solving common workflow problems
+
+== Define as many trigger constraints as sanity allows
+
+When you click on the configuration icon {ICON_WORKFLOW_COG} in the header of the trigger, you see that it is possible to define multiple trigger constraints.
+
+When defining a "loose trigger" you can run into a situation where some events may trigger the workflow even though they shouldn't.
+
+An example of this is the case module in our CRM and in our Case Management.
+
+.Defining a trigger with these constraints:
+image::automation/workflows/best-practices/constraints-no.png[]
+
+If the case was created in the CRM or in the Case Management, it causes the workflow to execute regardless.
+
+To fix this edge-case, you can define an extra constraint that checks the namespace.
+See the example below.
+
+image::automation/workflows/best-practices/constraints-yes.png[]
+
+== One expression step may have multiple expressions
+
+When you click on the configuration icon {ICON_WORKFLOW_COG} in the header of the expression step, you see that you can add multiple expressions.
+
+Use this to reduce the number of expression steps, but don't go overboard.
+If you wish to change the values of a contact and an account record, define only two expression steps where each focuses only on one record.
+
+.An over-engineered workflow example:
+image::automation/workflows/best-practices/compact-no.png[]
+
+The above could easily be rewritten into the below form.
+
+.An appropriate workflow example:
+image::automation/workflows/best-practices/compact-yes.png[]
+
+== Most iterators are able to load and process data
+
+xref:automation/workflows/index.adoc#iterator-kind-item[Item iterators] that work with system resources (e.g. {PRODUCT_NAME} {APP_NAME_COMPOSE} records, system users and roles) can both fetch and process the data.
+
+When you need to iterate over external resources (for example, social media posts), you need to fetch those beforehand.
+
+== Use handles whenever possible
+
+Most resources allow you to define a user-friendly identifier next to the system generated identifier (a handle or a slug in case of a namespace).
+
+These identifiers make it easier to write workflows that work across different instances where the identifier may not be the same.
+Coherency is also increased; it's easier to read `lead` as an identifier to the lead module instead of `12897612987021`.

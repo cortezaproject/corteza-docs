@@ -1,5 +1,6 @@
 = Add an attachment to an email
-:attachment-path: ../../_attachments/workflow/
+:attachment-path: ../../../_attachments/automation/workflows/
+:page-noindex: true
 
 For this example, let's assume we want to send out customer a quote for the new product they've ordered.
 The quote will be provided by our xref:templates/index.adoc[template system].
@@ -10,7 +11,7 @@ In order to render templates as PDF documents, xref:devops-guide:extension-requi
 ====
 
 .The screenshot outlines the workflow that can be used to send an attachment via email.
-image::workflow/example-email-attachment/workflow.png[role="data-zoomable"]
+image::automation/workflows/examples/email-attachment/workflow.png[role="data-zoomable"]
 
 The link:{attachment-path}email_attachment_send.json[source code] for the workflow example.
 
@@ -104,14 +105,14 @@ If the extension is omitted or incorrect, some email clients may display the att
 The resulting email message includes the quote PDF as an attachment.
 
 .The screenshot outlines the raw received email message.
-image::workflow/example-email-attachment/email-mime-contents.png[role="data-zoomable"]
+image::automation/workflows/examples/email-attachment/email-mime-contents.png[role="data-zoomable"]
 
 == Example templates
 
 The above example uses two templates: `quote` and `content`
 
 .The screenshot outlines the basic email content template used in the example.
-image::workflow/example-email-attachment/template-base-content.png[role="data-zoomable"]
+image::automation/workflows/examples/email-attachment/template-base-content.png[role="data-zoomable"]
 
 .The source code for the email content template:
 [source,html]
@@ -137,7 +138,7 @@ image::workflow/example-email-attachment/template-base-content.png[role="data-zo
 ----
 
 .The screenshot outlines the basic quote template used in the example.
-image::workflow/example-email-attachment/template-base-quote.png[role="data-zoomable"]
+image::automation/workflows/examples/email-attachment/template-base-quote.png[role="data-zoomable"]
 
 .The source code for the quote template:
 [source,html]

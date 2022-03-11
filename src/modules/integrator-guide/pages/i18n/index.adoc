@@ -1,0 +1,172 @@
+include::ROOT:partial$variables.adoc[]
+
+= Internationalisation
+:page-aliases: personalization/i18n.adoc
+:keywords: i18n, internationalization, translate
+:description: Learn how to use and add new internationalization stuff
+
+{PRODUCT_NAME} allows you to fully translate most aspect of the system.
+From the <<ui-translations,user interface>> to custom <<resource-translations,{APP_NAME_COMPOSE} configurations>> such as modules, fields, and pages.
+
+[IMPORTANT]
+====
+Although you are able to define and translate into any language, some use cases, such as right-to-left, are not yet fully supported.
+====
+
+[#ui-translations]
+== Customizing the user interface
+
+=== Fork the corteza-locale repository
+
+The https://github.com/cortezaproject/corteza-locale[corteza-locale] repository provides a centralized storage for all translations used by {PRODUCT_NAME}.
+
+You can use the repository in question as a base when defining additional languages or modifying existing translations.
+
+=== Modify the translations
+
+All of the translations are located in the `src` directory of the corteza-locale repository.
+Translations are grouped by the *language*, and the *repository* that they are used in.
+
+[CAUTION]
+====
+The language must be defined in the {PRODUCT_NAME} server configuration in order for it to be available.
+Refer to the xref:devops-guide:maintenance/i18n.adoc[DevOps guide] of details.
+====
+
+Refer to the <<translation-files,modifying translation files>> for details on how the resource files should be structured.
+
+Refer to the <<languages,supporting new languages>> for details on how to define additional languages.
+
+=== Deploying modified translations
+
+Upload the modified translation files to your {PRODUCT_NAME} server.
+Refer to the xref:devops-guide:maintenance/i18n.adoc[DevOps guide] for details.
+
+[#resource-translations]
+== Customize resource translations
+
+In addition to user interface translations, {PRODUCT_NAME} also allows you to translate all of the custom {APP_NAME_COMPOSE} resources such as namespaces, modules, and module fields.
+
+The interface can be accessed by clicking on the *language* image:personalization/language-solid.svg[width=20px] button when editing the resource that supports this feature.
+
+[NOTE]
+====
+*DevNote* update {APP_NAME_COMPOSE} screenshots when the feature is fully merged.
+====
+
+[#translation-files]
+== Modifying translation files
+
+[NOTE]
+====
+Refer to the xref:devops-guide:maintenance/i18n.adoc[DevOps guide] on how to deploy the changes.
+====
+
+.This is how the file structure of the corteza-locale repository looks like:
+[source]
+----
+📁 src
+  📁 <language tag> <1>
+    📁 <corteza repository> <2>
+      📄 <locale namespace file>.yaml <3>
+----
+<1> The directory must be named with the language tag of the contents.
+The language tag must follow the https://en.wikipedia.org/wiki/IETF_language_tag[BCP-47] standard.
+<2> The directory must be named the same as the repository in which it will be used in.
+To examplify; translations used by {PRODUCT_NAME} {APP_NAME_COMPOSE} is named as `corteza-webapp-compose`.
+<3> The file contains a series of translations that are grouped in a locale namespace.
+
+[CAUTION]
+====
+Locale namespaces are *not* the same thing as {PRODUCT_NAME} {APP_NAME_COMPOSE} namespaces.
+There is no correlation.
+====
+
+A locale namespace encapsulates content that falls into the common area, such as the sidebar, notifications, module fields.
+
+[NOTE]
+====
+For the complete list of locale namespaces used by a specific web application take English translations as a reference.
+
+.You can also inspect web application i18n plugin initialization code:
+* https://github.com/cortezaproject/corteza-webapp-compose/blob/2021.9.x/src/app.js[compose web application]
+* https://github.com/cortezaproject/corteza-webapp-admin/blob/2021.9.x/src/app.js[admin web application]
+* https://github.com/cortezaproject/corteza-webapp-one/blob/2021.9.x/src/app.js[one web application]
+* https://github.com/cortezaproject/corteza-webapp-workflow/blob/2021.9.x/src/app.js[workflow web application]
+* https://github.com/cortezaproject/corteza-webapp-reporter/blob/2021.9.x/src/app.js[reporter web application]
+====
+
+.The contents of the `en/corteza-webapp-compose/chart.yaml` file:
+[source,yaml]
+----
+colorLabel: '{{count}} colors'
+colorScheme: Color scheme
+configure:
+  reportsLabel: Reports
+general:
+  label:
+    title: Label
+    add: Add
+  value: Value
+  placeholder:
+    handle: handle (a - z, 0 - 9, underscore, dash)
+
+// ...
+----
+
+[#languages]
+== Supporting new languages
+
+[NOTE]
+====
+Refer to the xref:devops-guide:maintenance/i18n.adoc[DevOps guide] on how to deploy the changes.
+====
+
+.This is how the file structure of the corteza-locale repository looks like:
+[source]
+----
+📁 src
+  📁 <language tag> <1>
+----
+<1> The directory must be named with the language tag of the contents.
+The language tag must follow the https://en.wikipedia.org/wiki/IETF_language_tag[BCP-47] standard.
+
+To support an entirely new language, create a new directory in the `src` directory.
+For example, to add Italian translations, you would need to create a directory named `it` in the `src` directory.
+
+Languages can be defined using a simple language tag, such as `en` and `sl`.
+If you need to be more specific you can use region suffix, such as `en-US` and `en-UK`.
+{PRODUCT_NAME} will try to detect the language from the request headers and serve appropriate translation.
+
+.An example file structure after adding the `it` folder:
+[source]
+----
+📁 src
+  📁 en <1>
+  📁 it <2>
+----
+<1> This is the default directory with all of the English translations.
+<2> This is the newly created directory for the Italian translations.
+
+Inside the newly created directory create a `config.yaml` file.
+The `config.yaml` file defines some base properties of the language, such as the display label (the `name` property).
+
+Refer to the https://github.com/cortezaproject/corteza-locale/blob/2021.9.x/src/schema/config.json[`schema/config.json`] file for details.
+
+.An example of the `config.yaml` file contents:
+[source,yaml]
+----
+name: English
+----
+
+.An example file structure after adding `config.yaml` file:
+[source]
+----
+📁 src
+  📁 en
+  📁 it
+    📄 config.yaml <1>
+----
+<1> This is the configuration file that describes the given language.
+
+After defining the boilerplate bits, refer to the predefined English translations (located in the `/src/en` directory) for all of the available translations.

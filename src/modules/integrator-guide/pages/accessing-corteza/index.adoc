@@ -1,8 +1,8 @@
 include::ROOT:partial$variables.adoc[]
 
 = Accessing {PRODUCT_NAME}
-:description: {PRODUCT_NAME} separates the back-end business logic and the front-end user interface by defining an API that the clients (web applications and other custom applications) can access.
 :keywords: API, {PRODUCT_NAME} API, {PRODUCT_NAME}
+:description: Learn how to access {PRODUCT_NAME} using it's API-centric design
 
 {PRODUCT_NAME} separates the back-end business logic and the front-end user interface by defining an API that the clients (web applications and other custom applications) can access.
 

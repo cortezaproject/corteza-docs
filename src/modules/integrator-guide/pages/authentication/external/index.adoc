@@ -1,0 +1,142 @@
+include::ROOT:partial$variables.adoc[]
+
+= External Authentication Providers
+:page-aliases: administrator-guide:authentication/authentication-providers/index.adoc
+:keywords: authentication, external providers, external authentication providers
+:description: Lean how to use external services to authenticate your users
+
+The use of external authentication providers allows your users to use external services (such as Google and GitHub) for authentication purposes.
+External providers can be defined in the {PRODUCT_NAME} {APP_NAME_ADMIN} panel, under the menu:System[Settings,External authentication providers].
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "authentication/external/settings.png",
+    "alias": "authentication-external-settings",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {
+    "x": 321,
+    "y": 0,
+    "w": 1599,
+    "h": 1080
+  },
+  "focus": {
+    "x": 576,
+    "y": 518,
+    "w": 1088,
+    "h": 552
+  },
+  "annotations": []
+}
+----
+
+To enable an external authentication provider, you must register {PRODUCT_NAME} as a client using their user interface.
+Once you've obtained the user key and secret, you can configure {PRODUCT_NAME} using the admin panel.
+External providers become effective immediately without server restart.
+
+== Authentication providers
+
+:leveloffset: +2
+
+include::google.adoc[]
+
+include::facebook.adoc[]
+
+include::github.adoc[]
+
+include::linkedin.adoc[]
+
+include::saml.adoc[]
+
+:leveloffset: -1
+
+[#idp-roles]
+== Adjust user role membership
+
+Each of the external authentication provider supports restricting and adjusting user's role membership when a specific external authentication provider is used.
+
+[IMPORTANT]
+====
+When using in combination with security settings on authentication client, settings from the authentication client are applied first, then settings from external authentication provider.
+====
+
+To configure role membership, click on the edit icon next to the external authentication provider.
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "authentication/external/settings.png",
+    "alias": "authentication-external-settings-roles",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {
+    "x": 321,
+    "y": 0,
+    "w": 1599,
+    "h": 1080
+  },
+  "focus": {
+    "x": 576,
+    "y": 518,
+    "w": 1088,
+    "h": 552
+  },
+  "annotations": [{
+    "kind": "box",
+    "x": 1610,
+    "y": 728,
+    "w": 20,
+    "h": 20
+  }]
+}
+----
+
+On the bottom of the modal you will see three inputs for permitted, prohibited, and forced roles.
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "authentication/external/roles.png",
+    "alias": "authentication-external-roles",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {
+    "x": 321,
+    "y": 0,
+    "w": 1599,
+    "h": 1080
+  },
+  "focus": {
+    "x": 560,
+    "y": 29,
+    "w": 800,
+    "h": 566
+  },
+  "annotations": [{
+    "kind": "box",
+    "x": 575,
+    "y": 266,
+    "w": 770,
+    "h": 225
+  }]
+}
+----
+
+[cols="1s,5a"]
+|===
+| [#idp-roles-permitted]#<<idp-roles-permitted,Permitted roles>>#
+| list of roles that users are allowed to keep.
+
+| [#idp-roles-prohibited]#<<idp-roles-prohibited,Prohibited roles>>#
+| list of roles that are removed from user.
+
+| [#idp-roles-forced]#<<idp-roles-forced,Forced roles>>#
+| list of roles that are added to user when authenticating with this external provider.
+|===

@@ -1,0 +1,12 @@
+include::ROOT:partial$variables.adoc[]
+
+= Google
+:page-aliases: administrator-guide:authentication/authentication-providers/google.adoc
+:page-noindex: true
+
+.To enable Google authentication, you need to retrieve your application credentials:
+. Go to https://developers.google.com/identity/sign-in/web/sign-in#before_you_begin[Google Sign-in Guide] and click on "Configure a project" button.
+. Select an *existing or create a new* project.
+. Set a product name.
+. On "Configure your OAuth client" screen select "Web browser" and paste the URL where your {PRODUCT_NAME} system is running (including `https://`).
+. Copy and paste both *Client ID* and *Client Secret* fields to {PRODUCT_NAME} {APP_NAME_ADMIN}.

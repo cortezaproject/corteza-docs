@@ -1,0 +1,130 @@
+include::ROOT:partial$variables.adoc[]
+
+= Authenticate External Applications
+:keywords: authentication, integrate, authenticate external application
+:description: Learn how to authenticate external applications using {PRODUCT_NAME}
+
+{PRODUCT_NAME} implements the OAuth2 authentication protocol, where it can act both as a OAuth2 server and as an OAuth2 client, allowing both internal and external authentications.
+
+You can allow external applications to use {PRODUCT_NAME} as an authentication provider as long as they support authentication using OAuth2/OIDC protocols.
+
+After a successful authorization with local credentials or an external provider, an *access token* along with a *refresh token* is issued.
+This should be done automatically by the client.
+
+[CAUTION]
+====
+The access token is short lived and should be automatically refreshed.
+You can use our https://github.com/cortezaproject/corteza-vue/blob/2022.9.x/src/plugins/auth.ts[corteza-vue plugins/auth] to manage this for you.
+====
+
+== Configure {PRODUCT_NAME}
+
+Access {PRODUCT_NAME} {APP_NAME_ADMIN} panel and navigate to menu:system[auth clients].
+Create a new auth client which your external application is going to use to authenticate.
+
+[WARNING]
+====
+We advise you create a separate auth client for each application that you wish to integrate with.
+Reusing the same client may grant some integrations access permissions that they should not have.
+====
+
+.The Auth client consists of:
+. a combination of a client ID and a client secret (the client ID is located in the URL address bar),
+. a list of scopes to limit access based on the used Auth client,
+. a list of redirection URIs that can be used with authorization code grant,
+. a trusted flag to force users to confirm authentication,
+. an Auth client validity based on the date.
+
+[IMPORTANT]
+====
+Make sure to select the appropriate grant type based on your use-case.
+Refer to xref:authentication/index.adoc#grant-types[here] for more details.
+====
+
+== Configure external application
+
+@todo -- copy the parameters obtained from the auth client into tour external application.
+
+== Authentication lifecycle
+
+The session on the {PRODUCT_NAME} auth is different from the one on the client application.
+This separation allows the {PRODUCT_NAME} auth session to be used when authorizing additional clients.
+
+[CAUTION]
+====
+Since the authentication sessions between different clients are different, each session must be revoked in order for the user to be, in fact, signed-out.
+====
+
+
+== Notes on security
+
+* Use HTTPS with valid SSL certificates.
+* Authentication forms and endpoints are protected against brute-force and cross-site request attacks.
+You can also set your own secrets for JWT, CSRF and cookie value encryption.
+* Different expiration durations may be set on sessions temporary and permanent sessions to support your organization's security policies.
+* Please see the xref:devops-guide:configuration/server.adoc#_authentication[full list of options].
+These changes take affect after server restart.
+
+[NOTE]
+====
+If any of the secrets are changed, users will receive various warnings and will get logged-out.
+====
+
+== Tips for debugging
+
+.If your external application is unable to authenticate:
+* client's ID and secret must match,
+* at least one of client's redirect URIs must match (by prefix),
+* client's grant flow must match,
+* client's scope must match (requested group of scopes must intersect with scopes on the client),
+* user authorizing the client must be a carrier of a role that is able to authorize the client,
+* the user must be valid (confirmed email, unsuspended, undeleted).
+
+== Glossary
+
+[cols="2s,5a"]
+|===
+| [#auth-term-user]#<<auth-term-user,The user>>#
+|
+_In OAuth2 terminology, this is a **resource owner**_.
+
+The user authenticates themselves and authorizes the <<auth-term-client,client>> on the authorization server.
+
+| [#auth-term-auth]#<<auth-term-auth,{PRODUCT_NAME} auth server>>#
+|
+_In OAuth2 terminology this is a **authorization server**_.
+
+The {PRODUCT_NAME} auth authenticates users, authorizes clients and issues access tokens.
+
+[NOTE]
+====
+{PRODUCT_NAME} auth runs side-by-side with {PRODUCT_NAME} API server.
+====
+
+| [#auth-term-api]#<<auth-term-api,{PRODUCT_NAME} API>>#
+|
+_In OAuth2 terminology, this is a **resource server**_
+
+A client must obtain an access token in order to access the resources on the the {PRODUCT_NAME} API.
+
+[NOTE]
+====
+{PRODUCT_NAME} auth runs side-by-side with {PRODUCT_NAME} API server.
+====
+
+| [#auth-term-client]#<<auth-term-client,Client, Auth Client, Third-Party Application>>#
+|
+A client is any application that is used to interact with the {PRODUCT_NAME} API.
+
+| [#auth-term-local-credentials]#<<auth-term-local-credentials,Local credentials>>#
+|
+Local credentials are the email and the password that authenticate the user.
+
+| [#auth-term-external-providers]#<<auth-term-external-providers,External identity providers>>#
+|
+An external identity provider is any provider that supports the OpenID Connect (OIDC) protocol such as Google, LinkedIn, and GitHub.
+
+| [#auth-term-security-ctx]#<<auth-term-security-ctx,Security context>>#
+|
+Security context is a set of roles that are assigned to the user when accessing the {PRODUCT_NAME} API.
+|===

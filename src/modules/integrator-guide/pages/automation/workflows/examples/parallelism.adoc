@@ -1,5 +1,8 @@
+include::ROOT:partial$icons.adoc[]
+
 = Parallelism
-:attachment-path: ../../../_attachments/workflow/examples/
+:attachment-path: ../../../_attachments/automation/workflows/examples/
+:page-noindex: true
 
 This section provides some examples on how you should perform tasks in parallel.
 
@@ -7,11 +10,11 @@ This section provides some examples on how you should perform tasks in parallel.
 
 Unconditional parallelism should be used when two or more branches of execution should be done in parallel regardless of the state.
 
-To achieve this, use the *fork gateway* image:workflow/gatewayParallel.svg[width=20px] where each outbound branch defines one branch of parallel execution.
+To achieve this, use the *fork gateway* {ICON_WORKFLOW_GATEWAYPARALLEL} where each outbound branch defines one branch of parallel execution.
 
 [CAUTION]
 ====
-If any of the branches defines the *termination step* image:workflow/termination.svg[width=20px], the entire workflow will be terminated.
+If any of the branches defines the *termination step* {ICON_WORKFLOW_TERMINATION}, the entire workflow will be terminated.
 ====
 
 .The screenshot outlines a basic example of unconditional parallel execution.
@@ -19,8 +22,8 @@ If any of the branches defines the *termination step* image:workflow/termination
 ----
 {
   "image": {
-    "rel": "workflow/example-parallelism/unconditional.png",
-    "alias": "example-parallelism_unconditional",
+    "rel": "automation/workflows/examples/parallelism/unconditional.png",
+    "alias": "automation-workflows-examples-parallelism-unconditional",
     "w": 1920,
     "h": 1080
   },
@@ -42,12 +45,12 @@ A parallel segment is where the workflow transitions from sequential execution i
 
 Unconditional parallelism should be used when two or more branches of execution should be done in parallel regardless of the state.
 
-To achieve this, use the *fork gateway* image:workflow/gatewayParallel.svg[width=20px] where each outbound branch defines one branch of parallel execution.
-Terminate the parallel segment by using the *join gateway* image:workflow/gatewayParallel.svg[width=20px].
+To achieve this, use the *fork gateway* {ICON_WORKFLOW_GATEWAYPARALLEL} where each outbound branch defines one branch of parallel execution.
+Terminate the parallel segment by using the *join gateway* {ICON_WORKFLOW_GATEWAYPARALLEL}.
 
 [CAUTION]
 ====
-If any of the branches defines the *termination step* image:workflow/termination.svg[width=20px], the entire workflow will be terminated.
+If any of the branches defines the *termination step* {ICON_WORKFLOW_TERMINATION}, the entire workflow will be terminated.
 ====
 
 .The screenshot outlines a basic example of unconditional parallel execution.
@@ -55,8 +58,8 @@ If any of the branches defines the *termination step* image:workflow/termination
 ----
 {
   "image": {
-    "rel": "workflow/example-parallelism/unconditional-segment.png",
-    "alias": "example-parallelism_unconditional-segment",
+    "rel": "automation/workflows/examples/parallelism/unconditional-segment.png",
+    "alias": "automation-workflows-examples-parallelism-unconditional-segment",
     "w": 1920,
     "h": 1080
   },
@@ -76,11 +79,11 @@ You can find the source code for the workflow link:{attachment-path}parallelism/
 
 conditional parallelism should be used when two or more branches of execution should be done in parallel regardless of the state.
 
-To achieve this, use the *fork gateway* image:workflow/gatewayParallel.svg[width=20px] where each outbound branch defines one branch of parallel execution.
+To achieve this, use the *fork gateway* {ICON_WORKFLOW_GATEWAYPARALLEL} where each outbound branch defines one branch of parallel execution.
 
 [CAUTION]
 ====
-If any of the branches defines the *termination step* image:workflow/termination.svg[width=20px], the entire workflow will be terminated.
+If any of the branches defines the *termination step* {ICON_WORKFLOW_TERMINATION}, the entire workflow will be terminated.
 ====
 
 .The screenshot outlines a basic example of conditional parallel execution.
@@ -88,8 +91,8 @@ If any of the branches defines the *termination step* image:workflow/termination
 ----
 {
   "image": {
-    "rel": "workflow/example-parallelism/conditional.png",
-    "alias": "example-parallelism_conditional",
+    "rel": "automation/workflows/examples/parallelism/conditional.png",
+    "alias": "automation-workflows-examples-parallelism-conditional",
     "w": 1920,
     "h": 1080
   },
@@ -111,12 +114,12 @@ A parallel segment is where the workflow transitions from sequential execution i
 
 conditional parallelism should be used when two or more branches of execution should be done in parallel regardless of the state.
 
-To achieve this, use the *fork gateway* image:workflow/gatewayParallel.svg[width=20px] where each outbound branch defines one branch of parallel execution.
-Terminate the parallel segment by using the *join gateway* image:workflow/gatewayParallel.svg[width=20px].
+To achieve this, use the *fork gateway* {ICON_WORKFLOW_GATEWAYPARALLEL} where each outbound branch defines one branch of parallel execution.
+Terminate the parallel segment by using the *join gateway* {ICON_WORKFLOW_GATEWAYPARALLEL}.
 
 [CAUTION]
 ====
-If any of the branches defines the *termination step* image:workflow/termination.svg[width=20px], the entire workflow will be terminated.
+If any of the branches defines the *termination step* {ICON_WORKFLOW_TERMINATION}, the entire workflow will be terminated.
 ====
 
 .The screenshot outlines a basic example of conditional parallel execution.
@@ -124,8 +127,8 @@ If any of the branches defines the *termination step* image:workflow/termination
 ----
 {
   "image": {
-    "rel": "workflow/example-parallelism/conditional-segment.png",
-    "alias": "example-parallelism_conditional-segment",
+    "rel": "automation/workflows/examples/parallelism/conditional-segment.png",
+    "alias": "automation-workflows-examples-parallelism-conditional-segment",
     "w": 1920,
     "h": 1080
   },

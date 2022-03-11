@@ -1,6 +1,8 @@
 include::ROOT:partial$variables.adoc[]
 
-= API clients
+= API Clients
+:keywords: API, {PRODUCT_NAME} API, SDK, API client
+:description: Learn how to use the pre-defined API clients to interact with {PRODUCT_NAME}
 
 {PRODUCT_NAME} defines a series of JavaScript API clients (SDK's) to work with our API.
 

@@ -1,0 +1,212 @@
+include::ROOT:partial$variables.adoc[]
+
+= Contextual Role Evaluation
+:keywords: security model, contextual role, contextual role configuration
+:description: Learn how to define contextual roles for specific resources
+
+Refer to xref:integrator-guide:/expr/index.adoc[] for details on writing context role expressions.
+
+If the expression returns `true`, the contextual role is applied.
+
+.Common variables:
+[cols="1s,5a"]
+|===
+| [#ctx-eval-var-general-userID]#<<ctx-eval-var-general-userID,userID>>#
+|
+The ID of the current user.
+
+|===
+
+== Records
+
+.Records variables:
+[cols="1s,5a"]
+|===
+| [#ctx-eval-var-record-ID]#<<ctx-eval-var-record-ID,resource.ID>>#
+|
+The ID of the resource.
+
+| [#ctx-eval-var-record-recordID]#<<ctx-eval-var-record-recordID,resource.recordID>>#
+|
+The ID of the resource; same as <<ctx-eval-var-record-ID,resource.ID>>.
+
+| [#ctx-eval-var-record-moduleID]#<<ctx-eval-var-record-moduleID,resource.moduleID>>#
+|
+The ID of the related module.
+
+| [#ctx-eval-var-record-labels]#<<ctx-eval-var-record-labels,resource.labels>>#
+|
+The key-value pair of labels associated with this resource.
+
+| [#ctx-eval-var-record-namespaceID]#<<ctx-eval-var-record-namespaceID,resource.namespaceID>>#
+|
+The ID of the related namespace.
+
+| [#ctx-eval-var-record-ownedBy]#<<ctx-eval-var-record-ownedBy,resource.ownedBy>>#
+|
+The userID of the resource owner.
+
+| [#ctx-eval-var-record-createdAt]#<<ctx-eval-var-record-createdAt,resource.createdAt>>#
+|
+The timestamp of when the resource was created.
+
+| [#ctx-eval-var-record-createdBy]#<<ctx-eval-var-record-createdBy,resource.createdBy>>#
+|
+The userID of the user that created the resource.
+
+| [#ctx-eval-var-record-updatedAt]#<<ctx-eval-var-record-updatedAt,resource.updatedAt>>#
+|
+The timestamp of when the resource was last updated.
+The parameter is not defined if the resource has not yet been updated.
+
+| [#ctx-eval-var-record-updatedBy]#<<ctx-eval-var-record-updatedBy,resource.updatedBy>>#
+|
+The userID of the user that last updated the resource.
+The parameter will be `0` if the resource has not yet been updated.
+
+| [#ctx-eval-var-record-deletedAt]#<<ctx-eval-var-record-deletedAt,resource.deletedAt>>#
+|
+The timestamp of when the resource was deleted.
+The parameter is not defined if the resource has not been deleted.
+
+| [#ctx-eval-var-record-deletedBy]#<<ctx-eval-var-record-deletedBy,resource.deletedBy>>#
+|
+The userID of the user that deleted the resource.
+The parameter will be `0` if the resource has not been updated.
+
+| [#ctx-eval-var-record-values]#<<ctx-eval-var-record-values,resource.values>>#
+|
+A set of key-value pairs for the record values defined by the module fields.
+
+[NOTE]
+====
+If a module field is a multi-value, the corresponding key-value entry will be an array.
+====
+
+|===
+
+== Workflows
+
+.Workflows variables:
+[cols="1s,5a"]
+|===
+| [#ctx-eval-var-workflow-ID]#<<ctx-eval-var-workflow-ID,resource.ID>>#
+|
+The ID of the resource.
+
+| [#ctx-eval-var-workflow-workflowID]#<<ctx-eval-var-workflow-workflowID,resource.workflowID>>#
+|
+The ID of the resource; same as <<ctx-eval-var-workflow-ID,resource.ID>>.
+
+| [#ctx-eval-var-workflow-labels]#<<ctx-eval-var-workflow-labels,resource.labels>>#
+|
+The key-value pair of labels associated with this resource.
+
+| [#ctx-eval-var-workflow-ownedBy]#<<ctx-eval-var-workflow-ownedBy,resource.ownedBy>>#
+|
+The userID of the resource owner.
+
+| [#ctx-eval-var-workflow-createdAt]#<<ctx-eval-var-workflow-createdAt,resource.createdAt>>#
+|
+The timestamp of when the resource was created.
+
+| [#ctx-eval-var-workflow-createdBy]#<<ctx-eval-var-workflow-createdBy,resource.createdBy>>#
+|
+The userID of the user that created the resource.
+
+| [#ctx-eval-var-workflow-updatedAt]#<<ctx-eval-var-workflow-updatedAt,resource.updatedAt>>#
+|
+The timestamp of when the resource was last updated.
+The parameter is not defined if the resource has not yet been updated.
+
+| [#ctx-eval-var-workflow-updatedBy]#<<ctx-eval-var-workflow-updatedBy,resource.updatedBy>>#
+|
+The userID of the user that last updated the resource.
+The parameter will be `0` if the resource has not yet been updated.
+
+| [#ctx-eval-var-workflow-deletedAt]#<<ctx-eval-var-workflow-deletedAt,resource.deletedAt>>#
+|
+The timestamp of when the resource was deleted.
+The parameter is not defined if the resource has not been deleted.
+
+| [#ctx-eval-var-workflow-deletedBy]#<<ctx-eval-var-workflow-deletedBy,resource.deletedBy>>#
+|
+The userID of the user that deleted the resource.
+The parameter will be `0` if the resource has not been updated.
+
+|===
+
+== Auth clients
+
+.Auth clients variables:
+[cols="1s,5a"]
+|===
+| [#ctx-eval-var-auth-client-ID]#<<ctx-eval-var-auth-client-ID,resource.ID>>#
+|
+The ID of the resource.
+
+| [#ctx-eval-var-auth-client-labels]#<<ctx-eval-var-auth-client-labels,resource.labels>>#
+|
+The key-value pair of labels associated with this resource.
+
+| [#ctx-eval-var-auth-client-scope]#<<ctx-eval-var-auth-client-scope,resource.scope>>#
+|
+The scope defined by the auth client.
+
+| [#ctx-eval-var-auth-client-validGrant]#<<ctx-eval-var-auth-client-validGrant,resource.validGrant>>#
+|
+The grant that is supported by the auth client.
+
+| [#ctx-eval-var-auth-client-redirectURI]#<<ctx-eval-var-auth-client-redirectURI,resource.redirectURI>>#
+|
+The redirect URI for the auth client.
+
+| [#ctx-eval-var-auth-client-trusted]#<<ctx-eval-var-auth-client-trusted,resource.trusted>>#
+|
+The trust setting of the auth client.
+
+| [#ctx-eval-var-auth-client-enabled]#<<ctx-eval-var-auth-client-enabled,resource.enabled>>#
+|
+The enabled setting for the auth client.
+
+| [#ctx-eval-var-auth-client-validFrom]#<<ctx-eval-var-auth-client-validFrom,resource.validFrom>>#
+|
+The timestamp denoting from when the auth client is valid from.
+
+| [#ctx-eval-var-auth-client-expiresAt]#<<ctx-eval-var-auth-client-expiresAt,resource.expiresAt>>#
+|
+The timestamp denoting when the auth client is no longer valid.
+
+| [#ctx-eval-var-auth-client-ownedBy]#<<ctx-eval-var-auth-client-ownedBy,resource.ownedBy>>#
+|
+The userID of the resource owner.
+
+| [#ctx-eval-var-auth-client-createdAt]#<<ctx-eval-var-auth-client-createdAt,resource.createdAt>>#
+|
+The timestamp of when the resource was created.
+
+| [#ctx-eval-var-auth-client-createdBy]#<<ctx-eval-var-auth-client-createdBy,resource.createdBy>>#
+|
+The userID of the user that created the resource.
+
+| [#ctx-eval-var-auth-client-updatedAt]#<<ctx-eval-var-auth-client-updatedAt,resource.updatedAt>>#
+|
+The timestamp of when the resource was last updated.
+The parameter is not defined if the resource has not yet been updated.
+
+| [#ctx-eval-var-auth-client-updatedBy]#<<ctx-eval-var-auth-client-updatedBy,resource.updatedBy>>#
+|
+The userID of the user that last updated the resource.
+The parameter will be `0` if the resource has not yet been updated.
+
+| [#ctx-eval-var-auth-client-deletedAt]#<<ctx-eval-var-auth-client-deletedAt,resource.deletedAt>>#
+|
+The timestamp of when the resource was deleted.
+The parameter is not defined if the resource has not been deleted.
+
+| [#ctx-eval-var-auth-client-deletedBy]#<<ctx-eval-var-auth-client-deletedBy,resource.deletedBy>>#
+|
+The userID of the user that deleted the resource.
+The parameter will be `0` if the resource has not been updated.
+
+|===

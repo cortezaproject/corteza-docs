@@ -1,0 +1,52 @@
+include::ROOT:partial$variables.adoc[]
+
+= Execution Lifecycle
+
+*@todo*
+
+An automation session describes an automation that has executed or is still executing.
+Sessions can be used to debug a failing automation and to identify any infinite cycling issues preventing the system from working properly.
+
+.To list current sessions:
+. Navigate to menu:system[sessions],
+. optionally insert the filtering parameters (the list refreshes automatically).
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "automation/workflows/execution-lifecycle/sessions-list.png",
+    "alias": "automation-workflows-execution-lifecycle-sessions-list",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {},
+  "annotations": [{
+    "kind": "box",
+    "padding": "xs",
+    "x": 16,
+    "y": 717,
+    "w": 288,
+    "h": 37
+  }]
+}
+----
+
+== Session states
+
+[NOTE]
+====
+*DevNote* take note of the states
+
+* completed: Completed
+* excluded: Without
+* exclusive: Only
+* failed: Failed
+* inProgress: completed sessions
+* inclusive: Including
+* prompted: Prompted
+* sessions: sessions
+* started: Started
+* suspended: Suspended
+====
+//Editor's note: remove the above note or elaborate on every point

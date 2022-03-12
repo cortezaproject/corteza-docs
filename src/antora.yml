@@ -6,8 +6,6 @@ display_version: '2022.3-develop'
 nav:
   - modules/integrator-guide/nav.adoc
   - modules/end-user-guide/nav.adoc
-  - modules/administrator-guide/nav.adoc
-  - modules/upgrade-guide/nav.adoc
   - modules/developer-guide/nav.adoc
   - modules/devops-guide/nav.adoc
   - modules/ROOT/nav.adoc

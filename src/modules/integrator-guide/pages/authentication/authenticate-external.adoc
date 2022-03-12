@@ -11,9 +11,12 @@ You can allow external applications to use {PRODUCT_NAME} as an authentication p
 After a successful authorization with local credentials or an external provider, an *access token* along with a *refresh token* is issued.
 This should be done automatically by the client.
 
-[CAUTION]
+The access token is short lived and should be automatically refreshed -- the access token is valid for *2 hours* and the refresh token is valid for *3 days*.
+You can control the token expiry using `AUTH_OAUTH2_ACCESS_TOKEN_LIFETIME` and `AUTH_OAUTH2_REFRESH_TOKEN_LIFETIME` `.env` variables.
+Refer to xref:authentication/session-duration.adoc[define session duration] for more details.
+
+[TIP]
 ====
-The access token is short lived and should be automatically refreshed.
 You can use our https://github.com/cortezaproject/corteza-vue/blob/2022.9.x/src/plugins/auth.ts[corteza-vue plugins/auth] to manage this for you.
 ====
 
@@ -22,7 +25,7 @@ You can use our https://github.com/cortezaproject/corteza-vue/blob/2022.9.x/src/
 Access {PRODUCT_NAME} {APP_NAME_ADMIN} panel and navigate to menu:system[auth clients].
 Create a new auth client which your external application is going to use to authenticate.
 
-[WARNING]
+[IMPORTANT]
 ====
 We advise you create a separate auth client for each application that you wish to integrate with.
 Reusing the same client may grant some integrations access permissions that they should not have.
@@ -43,9 +46,20 @@ Refer to xref:authentication/index.adoc#grant-types[here] for more details.
 
 == Configure external application
 
-@todo -- copy the parameters obtained from the auth client into tour external application.
+[NOTE]
+====
+*DevNote* todo; expand on this section.
+====
+
+Copy the parameters obtained from the auth client into tour external application.
+The client ID is the long number at the end of the URL address.
 
 == Authentication lifecycle
+
+[NOTE]
+====
+*DevNote* todo; expand on this section.
+====
 
 The session on the {PRODUCT_NAME} auth is different from the one on the client application.
 This separation allows the {PRODUCT_NAME} auth session to be used when authorizing additional clients.
@@ -54,7 +68,6 @@ This separation allows the {PRODUCT_NAME} auth session to be used when authorizi
 ====
 Since the authentication sessions between different clients are different, each session must be revoked in order for the user to be, in fact, signed-out.
 ====
-
 
 == Notes on security
 

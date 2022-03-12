@@ -9,7 +9,7 @@ All authentication interfaces used by {PRODUCT_NAME} can be fully modified and s
 Personalization is performed by defining a series of templates and assets (e.g. images and JavaScript code).
 This allows you to make the authentication screen match the company style guide.
 
-== The personalization flow
+== Setup
 
 === Enable personalization
 
@@ -37,6 +37,11 @@ The path for the `AUTH_ASSETS_PATH` variable can be absolute, or relative to the
 === Export current assets
 
 To export the current authentication assets, run the `auth assets export` command.
+
+[NOTE]
+====
+Alternatively, you can download the assets from https://github.com/cortezaproject/corteza-server/tree/{{VERSION}}/auth/assets[here]
+====
 
 [source]
 ----
@@ -103,7 +108,7 @@ Rerunning the command will not overwrite the existing files.
 If you want a fresh start, delete the exported assets and re-export them.
 ====
 
-=== Modify the authentication assets
+== Modify the authentication assets
 
 .The exported assets define the following file structure:
 [source]
@@ -127,23 +132,11 @@ Template files exported by the CLI command mentioned above, should *not* be rena
 
 If you wish to define reusable components, you can define additional template files (such as the `inc_header.html.tpl` and the `inc_footer.html.tpl`).
 
-=== Deploy the changed assets
-
-If you've enabled the <<env-devmode,`AUTH_DEVELOPMENT_MODE`>> `.env` variable, the changed assets are already deployed.
-Disable the variable after you're done with the personalizations.
-
-[IMPORTANT]
-====
-Do not change the <<env-path,`AUTH_ASSETS_PATH`>> `.env` variable as the templates are read directly from the filesystem.
-====
-
-When using docker, make sure to either mount the assets' source as a volume or rebuild a custom image on top of the default image.
-
-== Change scenarios
+=== Change scenarios
 
 Scenarios can be changed in the `templates/scenarios.yaml` while {PRODUCT_NAME} is running in development mode.
 
-== Styling
+=== Styling
 
 The default stylesheet is included from the Bootstrap CDN in the `inc_header.html.tpl` template.
 You are free to change the stylesheet source.
@@ -154,10 +147,22 @@ The system doesn't implement automatic style pre-processing or JavaScript transp
 You can pre-process the assets with your own tools before using them in the authentication.
 ====
 
-== Development tool
+=== Development tool
 
 When you enable the <<env-devmode,`AUTH_DEVELOPMENT_MODE`>> `.env` variable, you gain access the development tool accessible under the `$BASE_API_URL/auth/dev` URL.
 The development tool displays all of the templates with all of the scenarios.
 
 .A screenshot of the authentication customization development tool.
 image::personalization/devtool.png[role="data-zoomable"]
+
+== Deploy the changed assets
+
+If you've enabled the <<env-devmode,`AUTH_DEVELOPMENT_MODE`>> `.env` variable, the changed assets are already deployed.
+Disable the variable after you're done with the personalizations.
+
+[IMPORTANT]
+====
+Do not change the <<env-path,`AUTH_ASSETS_PATH`>> `.env` variable as the templates are read directly from the filesystem.
+====
+
+When using docker, make sure to either mount the assets' source as a volume or rebuild a custom image on top of the default image.

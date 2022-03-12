@@ -61,13 +61,13 @@ You can bypass this limitation by using <<role-type-ctx,context role membership>
 
 == Access evaluation flow
 
-[CAUTION]
-====
-If a user is a member of a bypass role, *all* operations are permitted without any restrictions.
-====
-
 When access is evaluated, the system collects all users' roles and RBAC rules (security context).
 The order of rule evaluation is based on <<ac-role-importance,*role importance*>> and <<ac-resource-specificity,*resource specificity*>>.
+
+[CAUTION]
+====
+If a user is a member of a bypass role, *all operations are permitted* without any restrictions.
+====
 
 .Access evaluation flow:
 . If any rule defines an explicit *deny*, the evaluation results with *deny*.
@@ -86,24 +86,27 @@ Role importance defines the order in which roles and their corresponding rules a
 . common roles
 . authenticated roles
 
-.Role importance for authenticated users:
+.Role importance for unauthenticated users:
 . anonymous roles
 
 [#ac-resource-specificity]
 === Resource specificity
 
 Resource specificity defines the order in which rules for the corresponding resources are evaluated.
-Resource specificity is defined based on "how specific is this rule to this resource".
+Resource specificity is defined based on _how specific is this rule to this resource_.
 
 As an example, a rule that allows users to create records on the account module in the CRM namespace is more specific than the rule just on the CRM namespace.
 
 [TIP]
 ====
 Such specificity allows you to deny access to all but one resource of the given type.
+To exemplify; you could deny access to all namespaces and allow access to just one namespace.
 ====
 
 == Role types
 
+[NOTE]
+====
 A list of bypass, authenticated, and anonymous roles is provided in the system configuration and can not be changed at runtime.
 Refer to xref:devops-guide:maintenance/access-control.adoc[DevOps guide] for details on how this can be done
 
@@ -112,6 +115,7 @@ These roles can not be modified or renamed.
 .If you wish to alter the roles, you can either:
 * temporarily change the role list, edit the roles, revert the role list changes,
 * change the provision scripts to supply the required names at the initial {PRODUCT_NAME} run.
+====
 
 [#role-type-bypass]
 === Bypass
@@ -130,7 +134,7 @@ Common roles are any additional roles defined in the administration panel, such 
 [#role-type-ctx]
 === Contextual
 
-[CAUTION]
+[NOTE]
 ====
 You can not use contextual roles within auth clients, nor can they define an explicit member list.
 Contextual roles are assigned to users based on the operation and the context.
@@ -141,7 +145,7 @@ Contextual roles define a series of xref:integrator-guide:/expr/index.adoc[*expr
 Each role can define an expression for each resource type.
 Each role can only use a resource type once.
 
-[CAUTION]
+[IMPORTANT]
 ====
 Contextual roles are hidden from resource permission screens if the role does not define an expression for that resource.
 For example, a record specific role is not shown on the module permission screen.
@@ -151,13 +155,10 @@ An example use case would allow us to assign roles to resource owners, which wou
 
 Refer to the xref:security-model/references/contextual-role-parameters.adoc[] for details.
 
-[IMPORTANT]
-====
 .Contextual roles are currently supported for:
 * records
 * workflows
 * auth clients
-====
 
 [#role-type-authenticated]
 === Authenticated

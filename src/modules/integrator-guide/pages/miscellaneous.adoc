@@ -1,0 +1,198 @@
+include::ROOT:partial$variables.adoc[]
+
+= Miscellaneous
+
+== System settings
+
+The majority of system configuration, which affects how the system behaves, is performed on the deployment-level.
+
+Refer to the xref:devops-guide:index.adoc[] for details.
+
+=== User interfaces
+
+The role management user interface resides in the xref:index.adoc#webapp-admin[{PRODUCT_NAME} {APP_NAME_ADMIN}] web application, under:
+
+* menu:system[settings]
+* menu:system[email settings]
+* menu:compose[settings]
+* menu:user interface[settings]
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "miscellaneous/webapp-admin-dashboard.png",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {},
+  "focus": {
+    "w": 320,
+    "h": 1080,
+    "x": 0,
+    "y": 0
+  },
+  "annotations": [{
+    "kind": "box",
+    "padding": "xs",
+    "x": 16,
+    "y": 295,
+    "w": 288,
+    "h": 30
+  }, {
+    "kind": "box",
+    "padding": "xs",
+    "x": 16,
+    "y": 330,
+    "w": 288,
+    "h": 30
+  }, {
+    "kind": "box",
+    "padding": "xs",
+    "x": 16,
+    "y": 583,
+    "w": 288,
+    "h": 37
+  }, {
+    "kind": "box",
+    "padding": "xs",
+    "x": 16,
+    "y": 868,
+    "w": 288,
+    "h": 37
+  }]
+}
+----
+
+=== System settings
+
+*System settings* are located under menu:system[settings] in the left navigation menu.
+
+System settings allow you to configure internal and external authentication, as well as xref:authentication/mfa.adoc[multi factor authentication] and different authentication flows.
+
+[TIP]
+====
+You can disable internal sign-up and manually add users that are allowed to access your system.
+====
+
+Refer to the xref:authentication/external/index.adoc[] for details on how to configure external providers.
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "miscellaneous/system-settings.png",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {},
+  "annotations": [{
+    "kind": "box",
+    "padding": "xs",
+    "x": 16,
+    "y": 292,
+    "w": 288,
+    "h": 30
+  }]
+}
+----
+
+=== Email settings
+
+*Email settings* are located under menu:system[email settings] in the left navigation menu.
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "miscellaneous/email-settings.png",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {},
+  "annotations": [{
+    "kind": "box",
+    "padding": "xs",
+    "x": 16,
+    "y": 330,
+    "w": 288,
+    "h": 30
+  }]
+}
+----
+
+The email settings interface allows you to configure SMTP servers for sending emails from {PRODUCT_NAME}.
+Please consult your email services provider for SMTP server information (host, port, user, password).
+
+[CAUTION]
+====
+Diagnostics and additional information in case of misconfiguration are only available in the server logs.
+====
+
+In case of any TLS/certificate issues you can adjust the server name for the TLS check or disable checking and allow use of invalid certificates.
+
+[IMPORTANT]
+====
+Initial settings are copied from the xref:devops-guide:configuration/server.adoc#\_email_sending[`SMTP_*` environmental variables].
+{PRODUCT_NAME} logs a warning in case you keep the environmental variables and make changes to either variables or settings.
+====
+
+Open your administration panel and navigate to menu:System[Email settings].
+
+.The screenshot shows the SMTP server settings in the administration panel under.
+image::email-settings/form.png[Screenshot of the configuration window.,role="data-zoomable"]
+
+- Provide the required server name and port and optional username and password.
+Changes are applied immediately and do not require server restart.
+
+
+=== {APP_NAME_COMPOSE} settings
+
+*{APP_NAME_COMPOSE} settings* are located under menu:compose[settings] in the left navigation menu.
+{APP_NAME_COMPOSE} settings allow you to configure general attachment settings, such as the maximum size and allow lists.
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "miscellaneous/compose-settings.png",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {},
+  "annotations": [{
+    "kind": "box",
+    "padding": "xs",
+    "x": 16,
+    "y": 577,
+    "w": 288,
+    "h": 37
+  }]
+}
+----
+
+=== User interface settings
+
+*User interface settings* are located under menu:user interface[settings] in the left navigation menu.
+User interface settings allow you to configure the main and icon logos that {PRODUCT_NAME} applications would use.
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "miscellaneous/ui-settings.png",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {},
+  "annotations": [{
+    "kind": "box",
+    "padding": "xs",
+    "x": 16,
+    "y": 855,
+    "w": 288,
+    "h": 37
+  }]
+}
+----
+

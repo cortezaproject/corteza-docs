@@ -1,0 +1,174 @@
+include::ROOT:partial$variables.adoc[]
+
+= Process Requests with JavaScript
+:keywords: integration gateway javascript, integration gateway JS, integration gateway process code
+:description: Lean how to process integration gateway requests using standard JavaScript
+
+The API GW processing filter includes support to process the request using arbitrary JavaScript code.
+
+To process your requests using JavaScript, open the {APP_NAME_ADMIN} web application, navigate to menu:system[integration gateway] and edit the endpoint you wish to define the code for.
+
+Click on the btn:[processing] tab in tje filter list and select the btn:[payload processor] option.
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "api-gw/javascript-processing/define.png",
+    "alias": "api-gw-javascript-processing-define",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {
+    "x": 320,
+    "y": 0,
+    "w": 1600,
+    "h": 1080
+  },
+  "focus": {
+    "x": 586,
+    "y": 598,
+    "w": 1070,
+    "h": 295
+  },
+  "annotations": [{
+    "kind": "box-note",
+    "padding": "sm",
+    "x": 699,
+    "y": 666,
+    "w": 110,
+    "h": 20
+  }, {
+    "kind": "box-note",
+    "padding": "sm",
+    "y": 781,
+    "x": 613,
+    "w": 137,
+    "h": 16
+  }]
+}
+----
+
+When you add the payload processor a popup opens presenting the editor .
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "api-gw/javascript-processing/editor.png",
+    "alias": "api-gw-javascript-processing-editor",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {},
+  "focus": {
+    "x": 578,
+    "y": 51,
+    "w": 766,
+    "h": 253
+  },
+  "annotations": []
+}
+----
+
+Type in the JavaScript code snippet you wish to execute.
+The provided JavaScript code is automatically wrapped by a function with the signature of:
+
+[source,ts]
+----
+function (input: Scope): unknown {
+  // {{snippet}}
+}
+----
+
+To examplify; the code snippet of `return "Hello, World!"` would become:
+
+[source,js]
+----
+function (input) {
+  return "Hello, World!"
+}
+----
+
+The following example code snippet takes in the provided `name` and `surname` of our users and returns an array of `fullname` parameters.
+
+[source,js]
+----
+// We firstly need to get the body of the request
+var b = JSON.parse(readRequestBody(input.Get('request').Body));
+
+return {
+  // Assure correct casing
+  "results":
+    b.map(function({ name, surname }) {
+        return {
+          "fullname": name[0].toUpperCase() + name.substring(1) + " " + surname[0].toUpperCase() + surname.substring(1)
+        }
+    }),
+  "count": b.length
+};
+----
+
+The following [#apigw-proc-js-example]#<<apigw-proc-js-example,cURL example>># invokes the above JavaScript function.
+
+[source,bash]
+----
+curl -X GET $BASE_URL/api/test-js \
+  -H 'Content-Type: application/json' \
+  -d '[{"name":"johnny","surname":"mnemonic"},{"name":"johnny","surname":"knoxville"}]';
+----
+
+== Function arguments
+
+The code snippet receives a single argument, `input`, that contains the entire request.
+
+.The argument has the signature of:
+[source,ts]
+----
+interface {
+  Set: (k: string, v: unknown) => void;
+  Get: (k: string) => unknown;
+}
+----
+
+.The `input` object parameters:
+[cols="1m,5a"]
+|===
+| [#proc-js-input-request]#<<proc-js-input-request,request>>#
+|
+The entire HTTP request object.
+Refer to the https://pkg.go.dev/net/http?utm_source=gopls#Request[GO documentation] for details regarding the signature.
+
+| [#proc-js-input-opts]#<<proc-js-input-opts,opts>>#
+|
+Integration gateway configuration.
+Refer to the https://github.com/cortezaproject/corteza-server/blob/2021.9.x/pkg/options/apigw.gen.go#L16[source] for details.
+
+[NOTE]
+====
+*DevNote* generate above opt. docs
+====
+
+|===
+
+== Function result
+
+The result of the JavaScript snippet is provided to the post filters that prepare and return an HTTP response.
+
+When the result is a `string`, such as `Hello, World!`, the result is used as is.
+
+When the result is a non-string value, such as `{ key: "value" }`, the result is JSON encoded.
+
+== Built-in function reference
+
+[cols="1m,5m,5a,5a"]
+|===
+|Function |Signature |Description |Example
+
+| [#proc-js-fnc-ref-readRequestBody]#<<proc-js-fnc-ref-readRequestBody,readRequestBody>>#
+| readRequestBody
+| readRequestBody(input: HttpRequest): string
+| The function returns the contents of the provided request object.
+| `readRequestBody(input.Get('request'))` returns the request's body as a string
+
+|===

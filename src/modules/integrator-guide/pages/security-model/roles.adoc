@@ -6,11 +6,9 @@ include::ROOT:partial$variables.adoc[]
 :description: Learn how to create and manage the roles your users can be part of
 
 
-A role is a security group which may or may not have access to specific user interfaces or system resources based on your security model.
+A role is a security group which may or may not have access to specific user interfaces or system resources based on your xref:security-model/index.adoc[security model].
 
-A role can have a series of xref:users.adoc[users] who are provided with the security model defined by the given role.
-
-Refer to the xref:access-control/index.adoc[access control] section for details on how to define your security model.
+A role can have a series of xref:security-model/users.adoc[users] who are provided with the security model defined by the given role.
 
 == The user interface
 

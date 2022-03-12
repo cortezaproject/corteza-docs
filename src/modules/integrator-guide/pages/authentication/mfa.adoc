@@ -14,14 +14,12 @@ Multi-factor authentication can be enabled in the {PRODUCT_NAME} {APP_NAME_ADMIN
 
 You can configure *OTP via email* by enabling the allow of the force users to use one-time-password over email option and optionally change the default end time for the OTP.
 
-You can configure *OTP via authenticator app* by enabling the use time based one-time-password (using mobile application) option and change the default issuer displayed in the authenticator app.
-
 [annotation,role="data-zoomable"]
 ----
 {
   "image": {
     "rel": "authentication/mfa/mfa-settings-admin-configure.png",
-    "alias": "authentication-mfa-mfa-settings-admin-configure",
+    "alias": "authentication-mfa-mfa-settings-admin-configure-email",
     "w": 1920,
     "h": 1080
   },
@@ -32,7 +30,41 @@ You can configure *OTP via authenticator app* by enabling the use time based one
     "w": 1070,
     "h": 487
   },
-  "annotations": []
+  "annotations": [{
+    "kind": "box",
+    "x": 605,
+    "y": 406,
+    "w": 387,
+    "h": 54
+  }]
+}
+----
+
+You can configure *OTP via authenticator app* by enabling the use time based one-time-password (using mobile application) option and change the default issuer displayed in the authenticator app.
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "authentication/mfa/mfa-settings-admin-configure.png",
+    "alias": "authentication-mfa-mfa-settings-admin-configure-mobile",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {},
+  "focus": {
+    "x": 424,
+    "y": 376,
+    "w": 1070,
+    "h": 487
+  },
+  "annotations": [{
+    "kind": "box",
+    "x": 605,
+    "y": 556,
+    "w": 590,
+    "h": 54
+  }]
 }
 ----
 

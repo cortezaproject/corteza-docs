@@ -5,7 +5,7 @@ include::ROOT:partial$variables.adoc[]
 :keywords: security model, users, user management
 :description: Learn how to create and manage your platform users
 
-A user is an entity which is allowed to interact with your {PRODUCT_NAME}.
+A user is an entity which is allowed to interact with your {PRODUCT_NAME} instance.
 A user can be an employee who needs to interact with their, or a system user which may be used to identify external integrations or webhook requests.
 
 A user can be assigned to a series of xref:security-model/roles.adoc[roles] which define the scope of the access for the given user.
@@ -159,6 +159,12 @@ Permissions can only be defined for existing users.
     "w": 1599,
     "h": 1080
   },
+  "focus": {
+    "x": 573,
+    "y": 130,
+    "w": 1093,
+    "h": 385
+  },
   "annotations": [{
     "kind": "box",
     "padding": "sm",
@@ -176,7 +182,6 @@ Permissions can only be defined for existing users.
 ====
 Instead of deleting users, you can temporarily <<suspending-users,suspend them>>.
 ====
-//Editor's note: maybe include information about what time-frame we're talking about. 
 
 .To delete an existing user:
 . navigate to menu:system[users],
@@ -197,6 +202,12 @@ Instead of deleting users, you can temporarily <<suspending-users,suspend them>>
     "y": 0,
     "w": 1599,
     "h": 1080
+  },
+  "focus": {
+    "x": 573,
+    "y": 130,
+    "w": 1093,
+    "h": 385
   },
   "annotations": [{
     "kind": "box",

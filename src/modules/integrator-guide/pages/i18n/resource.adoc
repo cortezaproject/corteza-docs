@@ -1,0 +1,143 @@
+include::ROOT:partial$variables.adoc[]
+include::ROOT:partial$icons.adoc[]
+
+= Resource Translations
+:keywords: i18n {APP_NAME_COMPOSE}, internationalization {APP_NAME_COMPOSE}, translate {APP_NAME_COMPOSE}, resource translate, resource translation
+:description: Learn how to internationalize custom {PRODUCT_NAME} {APP_NAME_COMPOSE} applications
+
+A *resource translation* is any piece of {PRODUCT_NAME} {APP_NAME_COMPOSE} content which is defined by an administrator when configuring the {PRODUCT_NAME} instance.
+
+[NOTE]
+====
+Resource translations differ from instance to instance so the _standard_ static translation flow does not apply here.
+====
+
+Resource translations are module names, {APP_NAME_COMPOSE} page titles, and namespace names.
+
+Refer to xref:i18n/static.adoc[static translations] to learn how to translate static content.
+
+[#resource-translations]
+== Customize resource translations
+
+[IMPORTANT]
+====
+Some resources *do not support* resource translations.
+Generally, only the resources accessible by end-users support resource translations.
+====
+
+The resource translations user interface can be accessed by clicking on the *language* {ICON_I18N} button when editing the resource that supports this feature.
+
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "i18n/resource/namespace-edit.png",
+    "alias": "i18n-resource-namespace-edit",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {},
+  "focus": {
+    "x": 1457,
+    "y": 67,
+    "w": 55,
+    "h": 42
+  },
+  "annotations": [{
+    "kind": "box",
+    "x": 1457,
+    "y": 67,
+    "w": 55,
+    "h": 42
+  }]
+}
+----
+
+When you click on the language {ICON_I18N} button, a popup presents the resource translation editor user interface.
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "i18n/resource/editor.png",
+    "alias": "i18n-resource-editor",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {},
+  "focus": {
+    "x": 408,
+    "y": 50,
+    "w": 1106,
+    "h": 358
+  },
+  "annotations": []
+}
+----
+
+[#languages]
+== Supporting new languages
+
+To add a new language, open up the resource translation editor user interface and click on the btn:[add language] button.
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "i18n/resource/language-dd.png",
+    "alias": "i18n-resource-language-dd",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {},
+  "focus": {
+    "x": 408,
+    "y": 50,
+    "w": 1106,
+    "h": 358
+  },
+  "annotations": [{
+    "kind": "box",
+    "x": 1365,
+    "y": 104,
+    "w": 149,
+    "h": 137
+  }]
+}
+----
+
+Click on the language you wish to add and it will appear in the resource translation editor.
+
+[IMPORTANT]
+====
+The language must be defined in the `.env` before it can be used here.
+Refer to the xref:devops-guide:maintenance/i18n.adoc[DevOps guide] on how to register new languages.
+====
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "i18n/resource/language-added.png",
+    "alias": "i18n-resource-language-added",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {},
+  "focus": {
+    "x": 408,
+    "y": 50,
+    "w": 1106,
+    "h": 358
+  },
+  "annotations": [{
+    "kind": "box",
+    "padding": "lg",
+    "x": 1070,
+    "y": 160,
+    "w": 138,
+    "h": 160
+  }]
+}
+----

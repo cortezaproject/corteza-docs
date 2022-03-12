@@ -25,7 +25,7 @@ The way the http.Request is wrapped, it allows us to use it in the JS environmen
 ----
 {
   "image": {
-    "rel": "apigw/wf-request-read-fn.png",
+    "rel": "api-gw/wf-request-read-fn.png",
     "alias": "wf-request-read-fn",
     "w": 1920,
     "h": 1080
@@ -44,7 +44,7 @@ The link:{attachment-path}/wf-request-read-fn.json[workflow] for this example.
 ----
 {
   "image": {
-    "rel": "apigw/wf-request-read-js.png",
+    "rel": "api-gw/wf-request-read-js.png",
     "alias": "wf-request-read-js",
     "w": 1920,
     "h": 1080
@@ -90,7 +90,7 @@ Refer to the xref:api-gw/index.adoc[Integration gateway documentation] for detai
 ----
 {
   "image": {
-    "rel": "apigw/route-wf.png",
+    "rel": "api-gw/route-wf.png",
     "alias": "route-wf",
     "w": 1920,
     "h": 1080
@@ -105,7 +105,7 @@ Refer to the xref:api-gw/index.adoc[Integration gateway documentation] for detai
 ----
 {
   "image": {
-    "rel": "apigw/route-wf-modal.png",
+    "rel": "api-gw/route-wf-modal.png",
     "alias": "route-wf-modal",
     "w": 1920,
     "h": 1080

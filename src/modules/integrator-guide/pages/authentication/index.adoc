@@ -2,7 +2,7 @@ include::ROOT:partial$variables.adoc[]
 
 = Authentication
 :page-aliases: administrator-guide:authentication/index.adoc
-:keywords: authentication, security
+:keywords: authentication, security, login, configure login
 :description: Learn how to configure the {PRODUCT_NAME} authentication flow
 
 {PRODUCT_NAME} implements the OAuth2 authentication protocol, where it can act both as a OAuth2 server and as an OAuth2 client, allowing both internal and external authentications.
@@ -127,12 +127,15 @@ If the password security is disabled, a warning message is displayed in the UI.
 == Auth client
 
 An *auth client* offers a high-level access control over the use of {PRODUCT_NAME} API and it's resources.
-Auth clients can be defined in the {PRODUCT_NAME} {APP_NAME_ADMIN} panel, under the menu:system[auth clients].
+An auth client is what applications use when their users attempt to authenticate.
 
 [TIP]
 ====
 You can use {PRODUCT_NAME} to authenticate third-party applications which support OAuth2/OIDC.
 ====
+
+Auth clients can be defined in the {PRODUCT_NAME} {APP_NAME_ADMIN} panel, under the menu:system[auth clients].
+
 
 [annotation,role="data-zoomable"]
 ----
@@ -146,7 +149,7 @@ You can use {PRODUCT_NAME} to authenticate third-party applications which suppor
     "x": 320,
     "y": 0,
     "w": 1600,
-    "h": 1080
+    "h": 480
   },
   "annotations": []
 }
@@ -226,6 +229,12 @@ To enable this grant type, select the "will be used to authenticate users (grant
     "w": 1599,
     "h": 1080
   },
+  "focus": {
+    "x": 855,
+    "y": 406,
+    "h": 40,
+    "w": 548
+  },
   "annotations": [{
     "kind": "box",
     "padding": "sm",
@@ -263,6 +272,12 @@ To enable the grant type, select the "will be used to authenticate machines (gra
     "w": 1599,
     "h": 1080
   },
+  "focus": {
+    "x": 855,
+    "y": 406,
+    "h": 40,
+    "w": 548
+  },
   "annotations": [{
     "kind": "box",
     "padding": "sm",
@@ -296,13 +311,13 @@ The scope is defined as a series of role memberships that are either *permitted*
     "h": 1080,
     "w": 1600
   },
-  "annotations": [{
-    "kind": "box",
+  "focus": {
     "x": 585,
     "y": 690,
     "w": 1070,
     "h": 204
-  }]
+  },
+  "annotations": []
 }
 ----
 
@@ -326,3 +341,8 @@ By default, any user can use any auth client.
 To limit access to specific auth clients, navigate to the auth client and set the "authorize client" access control rule.
 
 If a specific role does not have the authorize client RBAC rule, the underlying users can not authenticate with the given auth client.
+
+[NOTE]
+====
+*DevNote* how can I expand on this...
+====

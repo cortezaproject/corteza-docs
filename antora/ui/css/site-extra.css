@@ -18,7 +18,7 @@ strong,
 .DocSearch-Hit-source > a,
 .doc .admonitionblock .icon,
 .doc h1,
-code {
+.content p a code {
   font-family: 'Poppins-Bold';
 }
 

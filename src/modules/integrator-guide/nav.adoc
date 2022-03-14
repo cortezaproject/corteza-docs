@@ -31,14 +31,8 @@
 // @todo cleanup
 *** Examples
 **** xref:accessing-corteza/examples/compose-records.adoc[]
-// **** CortezaAPI/compose
-// ***** xref:accessing-corteza/examples/compose/sending-emails.adoc[]
-// ***** xref:accessing-corteza/examples/compose/record-list.adoc[]
-// ***** xref:accessing-corteza/examples/compose/record-read.adoc[]
-// ***** xref:accessing-corteza/examples/compose/record-create.adoc[]
-// ***** xref:accessing-corteza/examples/compose/record-update.adoc[]
-// ***** xref:accessing-corteza/examples/compose/record-delete.adoc[]
-// ***** xref:accessing-corteza/examples/compose/download-attachment.adoc[]
+**** xref:accessing-corteza/examples/compose-records-bulk.adoc[]
+**** xref:accessing-corteza/examples/compose-attachments.adoc[]
 
 ** xref:compose-configuration/index.adoc[]
 *** xref:compose-configuration/import-export.adoc[]

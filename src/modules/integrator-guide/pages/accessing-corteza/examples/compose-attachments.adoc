@@ -1,14 +1,14 @@
 include::ROOT:partial$variables.adoc[]
 
-= Download an attachment
+= Working with {APP_NAME_COMPOSE} Attachments
 
 include::partial$api-example-note.adoc[]
 
 == Obtain a signed download URL
 
 .Obtain signed URL using attachment read or attachment list endpoints:
-* attachment read: `GET $ComposeAPI/namespace/$NAMESPACE_ID/attachment/record/$ATTACHMENT_ID`
-* attachment list: `GET $ComposeAPI/namespace/$NAMESPACE_ID/attachment/record`
+* attachment read: `GET $BASE_URL/compose/namespace/$NAMESPACE_ID/attachment/record/$ATTACHMENT_ID`
+* attachment list: `GET $BASE_URL/compose/namespace/$NAMESPACE_ID/attachment/record`
 
 .Response object structure:
 [source,json]
@@ -30,7 +30,7 @@ include::partial$api-example-note.adoc[]
 
 [source,bash]
 ----
-curl "$ComposeAPI/namespace/$NAMESPACE_ID/attachment/record/$ATTACHMENT_ID" \
+curl "$BASE_URL/compose/namespace/$NAMESPACE_ID/attachment/record/$ATTACHMENT_ID" \
  -H "Authorization: Bearer $JWT";
 ----
 

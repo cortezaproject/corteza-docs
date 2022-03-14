@@ -2,6 +2,70 @@ include::ROOT:partial$variables.adoc[]
 
 = Working with {APP_NAME_COMPOSE} records
 
+== Listing records
+
+To search over records for a specific module, use the `GET $BASE_URL/compose/namespace/$NAMESPACE_ID/module/$MODULE_ID/record/` endpoint.
+
+Refer to the xref:accessing-corteza/index.adoc#api-endpoints[documentation] on how to get the complete reference.
+
+[source,bash]
+----
+curl -X GET "$BASE_URL/compose/namespace/$NAMESPACE_ID/module/$MODULE_ID/record/" \
+  -H 'accept: application/json, text/plain, */*' \
+  -H "authorization: Bearer $JWT" \
+  --compressed;
+----
+
+[source,json]
+----
+{
+  "response": {
+    "filter": {
+      "moduleID": "$MODULE_ID",
+      "namespaceID": "$NAMESPACE_ID",
+      "query": "",
+      "deleted": 0,
+      "sort": "id"
+    },
+    "set": [
+      {}
+    ]
+  }
+}
+----
+
+== Filtering records
+
+To search over records for a specific module, use the `GET $BASE_URL/compose/namespace/$NAMESPACE_ID/module/$MODULE_ID/record/` endpoint with the `query` query parameter.
+
+Refer to the xref:accessing-corteza/index.adoc#api-endpoints[documentation] on how to get the complete reference.
+
+[source,bash]
+----
+curl -X GET "$BASE_URL/compose/namespace/$NAMESPACE_ID/module/$MODULE_ID/record/?query=f2='value+2'" \
+  -H 'accept: application/json, text/plain, */*' \
+  -H "authorization: Bearer $JWT" \
+  --compressed;
+----
+
+[source,json]
+----
+{
+  "response": {
+    "filter": {
+      "moduleID": "$MODULE_ID",
+      "namespaceID": "$NAMESPACE_ID",
+      "query": "f2='value 2'",
+      "deleted": 0,
+      "sort": "id"
+    },
+    "set": [
+      {}
+    ]
+  }
+}
+----
+
 == Filtering records with missing values
 
 A record value can have two states -- *existing* and *not existing*.
@@ -18,7 +82,7 @@ To exemplify; a checkbox field can either be `true`, `false`, and `NULL` -- thre
 
 [source,bash]
 ----
-curl "$BASE_URL/api/compose/namespace/$NAMESPACE_ID/module/$MODULE_ID/record/?query=good+IS+NULL" \
+curl "$BASE_URL/compose/namespace/$NAMESPACE_ID/module/$MODULE_ID/record/?query=good+IS+NULL" \
   -H 'accept: application/json, text/plain, */*' \
   -H "authorization: Bearer $JWT" \
   --compressed;
@@ -56,7 +120,7 @@ curl "$BASE_URL/api/compose/namespace/$NAMESPACE_ID/module/$MODULE_ID/record/?qu
 
 [source,bash]
 ----
-curl "$BASE_URL/api/compose/namespace/$NAMESPACE_ID/module/$MODULE_ID/record/?query=good+IS+NULL+OR+good=false" \
+curl "$BASE_URL/compose/namespace/$NAMESPACE_ID/module/$MODULE_ID/record/?query=good+IS+NULL+OR+good=false" \
   -H 'accept: application/json, text/plain, */*' \
   -H "authorization: Bearer $JWT" \
   --compressed | pp_json;
@@ -102,4 +166,160 @@ curl "$BASE_URL/api/compose/namespace/$NAMESPACE_ID/module/$MODULE_ID/record/?qu
         ]
     }
 }
+----
+
+== Updating records
+
+To update a specific record for a specific module, use the `POST $BASE_URL/compose/namespace/$NAMESPACE_ID/module/$MODULE_ID/record/$RECORD_ID` endpoint.
+
+The record update API endpoint sets record values to exactly what was provided in the request.
+If you wish to update only specific fields, firstly fetch the original record, change the desired values, and then update the record.
+
+The fields you omit in the request will be removed from the record (value sanitation, automation, and other system processes may still define the value).
+
+=== Example of omitting existing values
+
+.The following request sets the second field and resets the first (already populated) one:
+[source,bash]
+----
+curl -X POST "$BASE_URL/compose/namespace/$NAMESPACE_ID/module/$MODULE_ID/record/$RECORD_ID" \
+  -H 'Accept: application/json, text/plain, */*' \
+  -H "Authorization: Bearer $JWT" \
+  -H 'Content-Type: application/json' \
+  --data-raw '{ "values": [
+    { "name": "f2", "value": "value 2" }
+  ]}
+' \
+  --compressed
+----
+
+.The following response is produced by the above request
+[source,json]
+----
+{
+  "response": {
+    "recordID": "$RECORD_ID",
+    "moduleID": "$MODULE_ID",
+    "values": [
+      { "name": "f2", "value": "value 2" }
+    ],
+    "namespaceID": "$NAMESPACE_ID"
+  }
+}
+----
+
+=== Example of preserving existing values
+
+.The following request sets the second field and preserves the first (already populated) one:
+[source,bash]
+----
+curl -X POST "$BASE_URL/compose/namespace/$NAMESPACE_ID/module/$MODULE_ID/record/$RECORD_ID" \
+  -H 'Accept: application/json, text/plain, */*' \
+  -H "Authorization: Bearer $JWT" \
+  -H 'Content-Type: application/json' \
+  --data-raw '{ "values": [
+    { "name": "f1", "value": "value 1" },
+    { "name": "f2", "value": "value 2" }
+  ]}
+' \
+  --compressed
+----
+
+.The following response is produced by the above request
+[source,json]
+----
+{
+  "response": {
+    "recordID": "$RECORD_ID",
+    "moduleID": "$MODULE_ID",
+    "values": [
+      { "name": "f1", "value": "value 1" },
+      { "name": "f2", "value": "value 2" }
+    ],
+    "namespaceID": "$NAMESPACE_ID"
+  }
+}
+----
+
+== Creating records
+
+To search over records for a specific module, use the `POST $BASE_URL/compose/namespace/$NAMESPACE_ID/module/$MODULE_ID/record/` endpoint.
+
+Refer to the xref:accessing-corteza/index.adoc#api-endpoints[documentation] on how to get the complete reference.
+
+[source,bash]
+----
+curl -X POST "$BASE_URL/compose/namespace/$NAMESPACE_ID/module/$MODULE_ID/record/" \
+  -H 'accept: application/json, text/plain, */*' \
+  -H "authorization: Bearer $JWT" \
+  -H 'Content-Type: application/json' \
+  --data-raw '{ "values": [
+    { "name": "f1", "value": "value 1" },
+    { "name": "f2", "value": "value 2" }
+  ]}' \
+  --compressed;
+----
+
+[source,json]
+----
+{
+  "response": {
+    "recordID": "RECORD_ID",
+    "moduleID": "MODULE_ID",
+    "values": [
+      { "name": "f1", "value": "value 1" },
+      { "name": "f2", "value": "value 2" }
+    ],
+    "namespaceID": "NAMESPACE_ID"
+  }
+}
+----
+
+== Read records
+
+To search over records for a specific module, use the `GET $BASE_URL/compose/namespace/$NAMESPACE_ID/module/$MODULE_ID/record/$RECORD_ID` endpoint.
+
+Refer to the xref:accessing-corteza/index.adoc#api-endpoints[documentation] on how to get the complete reference.
+
+[source,bash]
+----
+curl -X GET "$BASE_URL/compose/namespace/$NAMESPACE_ID/module/$MODULE_ID/record/$RECORD_ID" \
+  -H 'accept: application/json, text/plain, */*' \
+  -H "authorization: Bearer $JWT" \
+  --compressed;
+----
+
+[source,json]
+----
+{
+  "response": {
+    "recordID": "RECORD_ID",
+    "moduleID": "MODULE_ID",
+    "values": [
+      { "name": "f1", "value": "value 1" },
+      { "name": "f2", "value": "value 2" }
+    ],
+    "namespaceID": "NAMESPACE_ID"
+  }
+}
+
+----
+
+== Deleting records
+
+To search over records for a specific module, use the `DELETE $BASE_URL/compose/namespace/$NAMESPACE_ID/module/$MODULE_ID/record/$RECORD_ID` endpoint.
+
+Refer to the xref:accessing-corteza/index.adoc#api-endpoints[documentation] on how to get the complete reference.
+
+[source,bash]
+----
+curl -X DELETE "$BASE_URL/compose/namespace/$NAMESPACE_ID/module/$MODULE_ID/record/$RECORD_ID" \
+  -H 'accept: application/json, text/plain, */*' \
+  -H "authorization: Bearer $JWT" \
+  --compressed;
+----
+
+[source,json]
+----
+{ "success": { "message": "OK" } }
 ----

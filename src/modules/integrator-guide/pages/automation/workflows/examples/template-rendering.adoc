@@ -76,7 +76,7 @@ With PDFs you can also adjust the xref:integrator-guide:templates/index.adoc#tpl
 
 [IMPORTANT]
 ====
-In order to render templates as PDF documents, you need to setup xref:devops-guide:extension-requirements/pdf-renderer.adoc[PDF rendering].
+In order to render templates as PDF documents, you need to setup xref:devops-guide:pdf-renderer.adoc[PDF rendering].
 ====
 
 .The screenshot outlines the workflow that renders a PDF template and sends it as an email attachment.

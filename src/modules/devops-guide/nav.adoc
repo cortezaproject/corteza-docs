@@ -2,46 +2,46 @@
 
 ** xref:system-requirements.adoc[]
 
-** xref:prerequisites.adoc[]
-
-** xref:logging.adoc[]
-
-** System configuration
-*** xref:configuration/server.adoc[]
-*** xref:configuration/corredor.adoc[]
-*** xref:server-plugins/index.adoc[]
-
-** Offline deployment
-*** xref:offline-deployment/multi-mysql.adoc[]
-*** xref:offline-deployment/single-sqlite-inmem.adoc[]
-
-** Online deployment
-*** xref:online-deployment/multi-mysql.adoc[]
-*** xref:online-deployment/multi-pgsql.adoc[]
-// *** xref:online-deployment/single-mysql.adoc[]
-// *** xref:online-deployment/single-pgsql.adoc[]
-
 ** Maintenance
-*** xref:maintenance/access-control.adoc[]
-*** xref:maintenance/i18n.adoc[]
-*** xref:maintenance/cli-reference.adoc[]
 *** xref:maintenance/backups.adoc[]
-*** xref:maintenance/health-check.adoc[]
-*** xref:maintenance/troubleshooting.adoc[]
 *** xref:maintenance/database-password.adoc[]
 *** xref:maintenance/sql-snippets.adoc[]
+
+** xref:troubleshooting/index.adoc[]
+*** xref:troubleshooting/health-check.adoc[]
+*** xref:troubleshooting/logging.adoc[]
+
+** xref:access-control/index.adoc[]
+** xref:i18n/index.adoc[]
+** xref:email-relay.adoc[]
+** xref:sink-route.adoc[]
+** xref:pdf-renderer.adoc[]
+** xref:server-plugins/index.adoc[]
+
+** References
+*** System Configuration
+**** xref:references/configuration/server.adoc[]
+**** xref:references/configuration/corredor.adoc[]
+*** Command Line Interface
+**** xref:references/cli-reference.adoc[]
+
+** Examples
+*** Command Line Interface
+**** xref:examples/cli/record-import.adoc[]
+**** xref:examples/cli/resource-translation-import.adoc[]
+*** xref:examples/deploy-offline/index.adoc[]
+**** xref:examples/deploy-offline/multi-mysql.adoc[]
+**** xref:examples/deploy-offline/single-sqlite-inmem.adoc[]
+*** xref:examples/deploy-online/index.adoc[]
+**** xref:examples/deploy-online/multi-mysql.adoc[]
+**** xref:examples/deploy-online/multi-pgsql.adoc[]
+// **** xref:examples/deploy-online/single-mysql.adoc[]
+// **** xref:examples/deploy-online/single-pgsql.adoc[]
+
+** Miscellaneous
+*** xref:miscellaneous/containerized-storage.adoc[]
 
 ** xref:upgrade/index.adoc[]
 *** xref:upgrade/202012.adoc[]
 *** xref:upgrade/202009.adoc[]
 *** xref:upgrade/202003.adoc[]
-
-
-** Extension requirements
-*** xref:extension-requirements/email-relay.adoc[]
-*** xref:extension-requirements/sink-route.adoc[]
-*** xref:extension-requirements/pdf-renderer.adoc[]
-
-** CLI
-*** xref:cli/record-import.adoc[]
-*** xref:cli/resource-translation-import.adoc[]

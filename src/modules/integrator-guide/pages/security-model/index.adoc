@@ -108,7 +108,7 @@ To exemplify; you could deny access to all namespaces and allow access to just o
 [NOTE]
 ====
 A list of bypass, authenticated, and anonymous roles is provided in the system configuration and can not be changed at runtime.
-Refer to xref:devops-guide:maintenance/access-control.adoc[DevOps guide] for details on how this can be done
+Refer to xref:devops-guide:access-control/index.adoc[DevOps guide] for details on how this can be done
 
 These roles can not be modified or renamed.
 
@@ -123,7 +123,7 @@ These roles can not be modified or renamed.
 Bypass roles allow their members unlimited access to {PRODUCT_NAME} with no permission checking.
 
 Out of the box, {PRODUCT_NAME} defines the default bypass role named "Super administrator".
-Your system administrator can xref:devops-guide:maintenance/access-control.adoc[change the set of bypass roles] in the `.env` file.
+Your system administrator can xref:devops-guide:access-control/index.adoc[change the set of bypass roles] in the `.env` file.
 The roles that are defined as authenticated have restricted editing options.
 
 [#role-type-common]
@@ -166,7 +166,7 @@ Refer to the xref:security-model/references/contextual-role-parameters.adoc[] fo
 Authenticated roles are *implicit*, meaning that users can not explicitly be set as role members.
 
 Out of the box, {PRODUCT_NAME} defines the default authenticated role named "Authenticated".
-Your system administrator can xref:devops-guide:maintenance/access-control.adoc[change the set of authenticated roles] in the `.env` file.
+Your system administrator can xref:devops-guide:access-control/index.adoc[change the set of authenticated roles] in the `.env` file.
 The roles that are defined as authenticated have restricted editing options.
 
 If the user is authenticated with {PRODUCT_NAME} when they are accessing a resource, the system additionally assigns them authenticated roles.
@@ -177,7 +177,7 @@ If the user is authenticated with {PRODUCT_NAME} when they are accessing a resou
 Anonymous roles are *implicit*, meaning that users can not explicitly be set as role members.
 
 Out of the box, {PRODUCT_NAME} defines the default anonymous role named "Anonymous".
-Your system administrator can xref:devops-guide:maintenance/access-control.adoc[change the set of anonymous roles] in the `.env` file.
+Your system administrator can xref:devops-guide:access-control/index.adoc[change the set of anonymous roles] in the `.env` file.
 The roles that are defined as anonymous have restricted editing options.
 
 If the user is *not* authenticated with {PRODUCT_NAME} when they are accessing a resource, the system additionally assigns them anonymous roles.

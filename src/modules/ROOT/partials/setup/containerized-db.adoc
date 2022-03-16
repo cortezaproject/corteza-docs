@@ -21,7 +21,7 @@ export MYSQL_PORT=3306;
 . `GRANT ALL PRIVILEGES ON corteza.* TO 'corteza'@'172.17.0.1';`
 . `FLUSH PRIVILEGES;`
 
-.Use the following template to construct the xref:devops-guide:configuration/server.adoc#_db_dsn[`DB_DSN`] `.env` variable:
+.Use the following template to construct the xref:devops-guide:references/configuration/server.adoc#_db_dsn[`DB_DSN`] `.env` variable:
 [source,.env]
 ----
 DB_DSN="corteza:corteza@tcp(localhost:$MYSQL_PORT)/corteza?collation=utf8mb4_general_ci"
@@ -46,7 +46,7 @@ export PGSQL_PORT=5432;
 . `CREATE USER corteza WITH PASSWORD 'corteza';`
 . `GRANT ALL PRIVILEGES ON DATABASE corteza TO corteza;`
 
-.Use the following template to construct the xref:devops-guide:configuration/server.adoc#_db_dsn[`DB_DSN`] `.env` variable:
+.Use the following template to construct the xref:devops-guide:references/configuration/server.adoc#_db_dsn[`DB_DSN`] `.env` variable:
 [source,.env]
 ----
 DB_DSN="postgres://corteza:corteza@localhost:$PGSQL_PORT/corteza?sslmode=disable"

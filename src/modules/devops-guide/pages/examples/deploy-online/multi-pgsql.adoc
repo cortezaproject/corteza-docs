@@ -1,4 +1,5 @@
 = Multi-image PostgreSQL
+:page-noindex: true
 
 [NOTE]
 ====

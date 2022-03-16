@@ -26,7 +26,7 @@ Translations are grouped by the *language*, and the *repository* that they are u
 [CAUTION]
 ====
 The language must be defined in the {PRODUCT_NAME} server configuration in order for it to be available.
-Refer to the xref:devops-guide:maintenance/i18n.adoc[DevOps guide] of details.
+Refer to the xref:devops-guide:i18n/index.adoc[DevOps guide] of details.
 ====
 
 Refer to the <<translation-files,modifying translation files>> for details on how the resource files should be structured.
@@ -36,7 +36,7 @@ Refer to the <<languages,supporting new languages>> for details on how to define
 === Deploying modified translations
 
 Upload the modified translation files to your {PRODUCT_NAME} server.
-Refer to the xref:devops-guide:maintenance/i18n.adoc[DevOps guide] for details.
+Refer to the xref:devops-guide:i18n/index.adoc[DevOps guide] for details.
 
 [#translation-files]
 == Modifying translation files

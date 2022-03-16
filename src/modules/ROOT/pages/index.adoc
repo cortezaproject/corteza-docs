@@ -25,7 +25,7 @@ include::devops-guide:partial$warnings/sqlite.adoc[]
 
 The xref:devops-guide:index.adoc[] takes you through the installation process for xref:devops-guide:index.adoc#deploy-offline[demo/development environments] and xref:devops-guide:index.adoc#deploy-online[production-like environments].
 
-The DevOps guide also provides some miscellaneous bits, such as xref:devops-guide:configuration/server.adoc[system] and xref:devops-guide:configuration/corredor.adoc[{APP_AUTOMATION}] configuration references, additional deployment configurations (menu:DevOps guide[Offline deployment] and menu:DevOps guide[Online deployment]), xref:devops-guide:maintenance/backups.adoc[data backups], and xref:devops-guide:maintenance/troubleshooting.adoc[troubleshooting].
+The DevOps guide also provides some miscellaneous bits, such as xref:devops-guide:references/configuration/server.adoc[system] and xref:devops-guide:references/configuration/corredor.adoc[{APP_AUTOMATION}] configuration references, additional deployment configurations (menu:DevOps guide[Offline deployment] and menu:DevOps guide[Online deployment]), xref:devops-guide:maintenance/backups.adoc[data backups], and xref:devops-guide:troubleshooting/index.adoc[troubleshooting].
 
 [NOTE]
 ====

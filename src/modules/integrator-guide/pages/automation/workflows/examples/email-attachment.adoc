@@ -7,7 +7,7 @@ The quote will be provided by our xref:templates/index.adoc[template system].
 
 [IMPORTANT]
 ====
-In order to render templates as PDF documents, xref:devops-guide:extension-requirements/pdf-renderer.adoc[PDF rendering must be setup].
+In order to render templates as PDF documents, xref:devops-guide:pdf-renderer.adoc[PDF rendering must be setup].
 ====
 
 .The screenshot outlines the workflow that can be used to send an attachment via email.

@@ -365,7 +365,7 @@ The JSON response postfilter enriches the response headers with the `application
 === System logs
 
 Enable debug logging in your `.env` file.
-Refer to the xref:devops-guide:configuration/server.adoc[DevOps guide] for details.
+Refer to the xref:devops-guide:references/configuration/server.adoc[DevOps guide] for details.
 
 === Inspecting docker logs
 
@@ -395,7 +395,7 @@ server_1  | 12:53:14.862        DEBUG   rbac    rbac/service.go:102     allow de
 ----
 
 You can also use `grep` or log filtering to show only specific logs.
-Refer to the xref:devops-guide:logging.adoc[DevOps guide] for details regarding logging.
+Refer to the xref:devops-guide:troubleshooting/logging.adoc[DevOps guide] for details regarding logging.
 
 .An example of using `grep` to show only debug logs:
 [source,bash]

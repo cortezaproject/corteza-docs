@@ -156,7 +156,7 @@ cc_6,aa_3,bb_7,cc_v_6
 
 == Run the import
 
-Use the xref:maintenance/cli-reference.adoc#import[import CLI command] to import your records.
+Use the xref:references/cli-reference.adoc#import[import CLI command] to import your records.
 
 The argument to the CLI command needs to be the location of the source files, in our above case this is `/import`.
 

@@ -12,7 +12,7 @@ You can use the sink route to *implement webhooks*; for example, the OAuth flow.
 Each sink URL *must be signed* for security purposes.
 The signature is generated based on the parameters (*path* and *constraints*) and salted.
 
-Refer to the xref:devops-guide:maintenance/cli-reference.adoc#sink-signature[CLI command] for details.
+Refer to the xref:devops-guide:references/cli-reference.adoc#sink-signature[CLI command] for details.
 
 === Automation script security context
 

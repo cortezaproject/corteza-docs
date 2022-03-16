@@ -72,7 +72,7 @@ When the automation requires multiple complex operations that are not originally
 ====
 To enable PDF document rendering, you will need to run the https://thecodingmachine.github.io/gotenberg/[gotenberg] Docker container.
 
-Refer to the xref:devops-guide:extension-requirements/pdf-renderer.adoc[DevOps guide] for details on how to set it up.
+Refer to the xref:devops-guide:pdf-renderer.adoc[DevOps guide] for details on how to set it up.
 ====
 
 {PRODUCT_NAME} defines a flexible template facility, which allows you to design custom documents (such as marketing emails and PDF quotes) that you send to your contacts.

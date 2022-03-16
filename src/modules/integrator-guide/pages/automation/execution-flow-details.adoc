@@ -273,7 +273,7 @@ An automation is considered *deferred*, if the trigger uses an `onInterval` on a
 Deferred automation is invoked by the system based on the provided temporal information.
 The execution is not tied to an operation (such as a manual invocation or an event).
 
-Under-the-hood, {PRODUCT_NAME} defines a ticker, that dispatches `onInterval` and `onTimestamp` events once every minute (can be configured via xref:devops-guide:configuration/server.adoc#_eventbus_scheduler_interval[`EVENTBUS_SCHEDULER_INTERVAL`] `.env` variable).
+Under-the-hood, {PRODUCT_NAME} defines a ticker, that dispatches `onInterval` and `onTimestamp` events once every minute (can be configured via xref:devops-guide:references/configuration/server.adoc#_eventbus_scheduler_interval[`EVENTBUS_SCHEDULER_INTERVAL`] `.env` variable).
 The dispatched events are then used to match and invoke any automation with conforming triggers.
 
 [NOTE]
@@ -446,14 +446,14 @@ deactivate ss
 | The system component receives an HTTP request to the `/sink` API endpoint.
 | For example; `GET $API/system/sink/leads/?__sign=$SIGN`, where `$API` is the base URL to your {PRODUCT_NAME} API, and the `$SIGN` is the sink route signature.
 
-Refer to the xref:devops-guide:extension-requirements/sink-route.adoc[DevOps guide/sink routes] for setup details.
+Refer to the xref:devops-guide:sink-route.adoc[DevOps guide/sink routes] for setup details.
 
 | The signature is validated
 | Firstly the sink signature is validated to make sure it was not altered.
 
 [NOTE]
 ====
-Sink signatures are generated on-the-fly based on the xref:devops-guide:configuration/server.adoc#_auth_jwt_secret[JWT secret] and are *not* stored in the database.
+Sink signatures are generated on-the-fly based on the xref:devops-guide:references/configuration/server.adoc#_auth_jwt_secret[JWT secret] and are *not* stored in the database.
 ====
 
 | The signature is used to validate the request.

@@ -23,11 +23,3 @@ We replace the important data with variables, such as `$JWT` so that we can copy
 
 * *URL path*: `/system`,
 * *alias*: `$SystemAPI`,
-
-
-:leveloffset: +1
-
-include::user-authenticate.adoc[]
-
-:leveloffset: -1
-

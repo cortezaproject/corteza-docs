@@ -35,7 +35,7 @@ Refer to the xref:integrator-guide:index.adoc[low-code platform developer guide]
 == {PRODUCT_NAME} setup
 
 Under the hood, email relays use sink routes, so we need to generate a sink route signature.
-See xref:extension-requirements/sink-route.adoc[] on how to set that up.
+See xref:sink-route.adoc[] on how to set that up.
 
 [IMPORTANT]
 ====

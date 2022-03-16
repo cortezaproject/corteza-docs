@@ -90,7 +90,7 @@ Automation scripts are low-level and require programming knowledge, as well as s
 
 [IMPORTANT]
 ====
-As of xref:ROOT:changelog/202103.adoc[2021.3], when the workflow feature was introduced, automation scripts are disabled by default and can be enabled by setting the xref:devops-guide:configuration/server.adoc#_corredor_enabled[`CORREDOR_ENABLED=true`] `.env` variable.
+As of xref:ROOT:changelog/202103.adoc[2021.3], when the workflow feature was introduced, automation scripts are disabled by default and can be enabled by setting the xref:devops-guide:references/configuration/server.adoc#_corredor_enabled[`CORREDOR_ENABLED=true`] `.env` variable.
 ====
 
 A xref:automation/workflows/index.adoc[workflow] is presented as a simplified BPMN diagram, which allows you to configure instead of code.
@@ -118,7 +118,7 @@ When the system starts or when there is a change, the triggers are registered on
 ====
 When working with automation scripts and the {APP_AUTOMATION} server is running in production, the {APP_AUTOMATION} server needs to be restarted in order to process new changes.
 
-You can enable the xref:devops-guide:configuration/corredor.adoc#CORREDOR_EXT_SERVER_SCRIPTS_WATCH[`CORREDOR_EXT_SERVER_SCRIPTS_WATCH`] and xref:devops-guide:configuration/corredor.adoc#CORREDOR_EXT_CLIENT_SCRIPTS_WATCH[`CORREDOR_EXT_CLIENT_SCRIPTS_WATCH`] `.env` variables to be on the lookout for changes.
+You can enable the xref:devops-guide:references/configuration/corredor.adoc#CORREDOR_EXT_SERVER_SCRIPTS_WATCH[`CORREDOR_EXT_SERVER_SCRIPTS_WATCH`] and xref:devops-guide:references/configuration/corredor.adoc#CORREDOR_EXT_CLIENT_SCRIPTS_WATCH[`CORREDOR_EXT_CLIENT_SCRIPTS_WATCH`] `.env` variables to be on the lookout for changes.
 ====
 
 [#internals-overview]
@@ -259,7 +259,7 @@ https://crontab.guru/[Crontab guru] is a tool that helps you write and debug you
 ====
 
 The default granularity for timestamps and intervals is *one minute*.
-You can change this by changing the xref:devops-guide:configuration/server.adoc#_eventbus_scheduler_interval[`EVENTBUS_SCHEDULER_INTERVAL`] `.env` variable.
+You can change this by changing the xref:devops-guide:references/configuration/server.adoc#_eventbus_scheduler_interval[`EVENTBUS_SCHEDULER_INTERVAL`] `.env` variable.
 
 [CAUTION]
 ====
@@ -279,7 +279,7 @@ For example; you define a sink route with the path of `POST /system/sink/api/req
 [CAUTION]
 ====
 To use a sink route, you must first register it in the system.
-Refer to the xref:devops-guide:extension-requirements/sink-route.adoc[DevOps guide] for details.
+Refer to the xref:devops-guide:sink-route.adoc[DevOps guide] for details.
 ====
 
 Refer to xref:automation/execution-flow-details.adoc#exec-flow-sink[execution flow details] for more information.
@@ -292,7 +292,7 @@ Reacting to email requests can be done by defining an event on the `System Mail`
 
 [CAUTION]
 ====
-You must firstly follow the xref:devops-guide:extension-requirements/email-relay.adoc[DevOps guide] to configure the system.
+You must firstly follow the xref:devops-guide:email-relay.adoc[DevOps guide] to configure the system.
 ====
 
 Refer to xref:automation/execution-flow-details.adoc#exec-flow-mail[execution flow details] for more information.

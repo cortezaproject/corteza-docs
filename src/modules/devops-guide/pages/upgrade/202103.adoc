@@ -33,6 +33,6 @@ Refer to the xref:integrator-guide:templates/index.adoc[low-code platform develo
 {PRODUCT_NAME} reworks how the authentication system works.
 As of 2021.3 all of the authentication endpoints are removed and will no longer work.
 
-If you were using the authentication endpoints to obtain a JWT token for API access you can use the xref:devops-guide:maintenance/cli-reference.adoc#auth-jwt[JWT CLI command].
+If you were using the authentication endpoints to obtain a JWT token for API access you can use the xref:devops-guide:references/cli-reference.adoc#auth-jwt[JWT CLI command].
 
 If you were using the authentication endpoints to authenticate users on your custom portals, you will need to register an auth client in the {PRODUCT_NAME} {APP_NAME_AUTH} panel and rework your authentication logic to use the OAuth 2 flow.

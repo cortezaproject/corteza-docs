@@ -41,7 +41,7 @@ We are looking in improving this in the future releases
 
 == Run the import
 
-Use the xref:maintenance/cli-reference.adoc#import[import CLI command] to import your resource-translations.
+Use the xref:references/cli-reference.adoc#import[import CLI command] to import your resource-translations.
 
 The argument to the CLI command needs to be the location of the source files, in our above case this is `/import`.
 

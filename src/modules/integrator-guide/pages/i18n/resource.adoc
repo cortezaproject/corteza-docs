@@ -112,7 +112,7 @@ Click on the language you wish to add and it will appear in the resource transla
 [IMPORTANT]
 ====
 The language must be defined in the `.env` before it can be used here.
-Refer to the xref:devops-guide:maintenance/i18n.adoc[DevOps guide] on how to register new languages.
+Refer to the xref:devops-guide:i18n/index.adoc[DevOps guide] on how to register new languages.
 ====
 
 [annotation,role="data-zoomable"]

@@ -1,8 +1,6 @@
 include::ROOT:partial$variables.adoc[]
 
 = System requirements
-:description: A baseline to determine the system requirements needed to run {PRODUCT_NAME}.
-:keywords: dev-ops, devops, {PRODUCT_NAME}, system requirements, requirements
 
 == Supported clients
 

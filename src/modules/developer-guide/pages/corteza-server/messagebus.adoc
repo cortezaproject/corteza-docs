@@ -112,7 +112,7 @@ To continue from our previous example, once our website would grow and we would 
 Similar to the previous scenario, on user registration, the messagebus consumer would need to know how to push the payloads to the queueing mechanism on the service provider (ie Amazon SQS / SNS).
 The infrastructure that we set up would then process all the payloads and use our specific messagebus producer (ie a lambda handler written in python) to send the payload to another {PRODUCT_NAME} instance via API sink mechanism.
 
-{PRODUCT_NAME} workflows include a trigger for the xref:devops-guide:extension-requirements/sink-route[API sink] also, so the payload would then be processed in another workflow, according to the business logic of the whole flow.
+{PRODUCT_NAME} workflows include a trigger for the xref:devops-guide:sink-route[API sink] also, so the payload would then be processed in another workflow, according to the business logic of the whole flow.
 
 A diagram showing capabilities with creating pipelines between different queueing mechanisms
 

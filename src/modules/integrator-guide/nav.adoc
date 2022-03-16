@@ -110,8 +110,6 @@
 // *** Examples
 // **** ...
 
-** xref:scalability/index.adoc[]
-
 ** xref:federation/index.adoc[]
 *** xref:federation/nodes.adoc[]
 *** xref:federation/share-data.adoc[]

@@ -390,7 +390,7 @@ Think of this as defining a macro in spreadsheets.
 [IMPORTANT]
 ====
 If you're using logging functions, make sure to correctly set your environment variables.
-Refer to the xref:devops-guide:logging.adoc[DevOps guide] for details.
+Refer to the xref:devops-guide:troubleshooting/logging.adoc[DevOps guide] for details.
 ====
 
 .Examples of usage:

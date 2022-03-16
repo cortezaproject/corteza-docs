@@ -1,17 +1,13 @@
 include::ROOT:partial$variables.adoc[]
 
 = DevOps guide
-:description: {PRODUCT_NAME} DevOpsGuide covers all aspects of deploying and maintaining your own {PRODUCT_NAME} instance.
-:keywords: dev-ops, devops, {PRODUCT_NAME}
+:description: Learn how to setup and maintain the {PRODUCT_NAME} ecosystem
+:keywords: dev-ops, releasing, maintenance, devops
 
-The *DevOps guide* is designed to help you *deploy and maintain* your {PRODUCT_NAME} instance.
-The guide provides enough out of the box working examples to get you up and running.
+The DevOps guide covers the process of setting up, configuring, and maintaining your {PRODUCT_NAME} instance.
 
-[NOTE]
-====
-This page provides all of the information to run your {PRODUCT_NAME} using our prebuilt docker images.
-If you need additional information regarding specific topics, refer to the menu:DevOps guide[] sub-sections.
-====
+This page attempts to provide simple instructions to setup an instance that should be used for most cases.
+More complex use cases and advanced readers should refer to additional DevOps guide sub pages.
 
 [IMPORTANT]
 ====
@@ -20,23 +16,35 @@ If you need to support older browsers, such as InternetExplorer, you will need t
 Refer to xref:system-requirements.adoc[] for more details.
 ====
 
-== Architecture and repository overview
+== Prerequisites
+
+[#docker]
+=== Docker
+
+To use our pre-built Docker images, you will need to have Docker setup and running on every system you wish to set up {PRODUCT_NAME}.
+You can follow https://docs.docker.com/get-docker/[the official documentation] to get it setup.
+
+[#docker-compose]
+=== Docker Compose
+
+Docker Compose makes your life easier when running multiple Docker images where each can be arbitrarily configured.
+You can follow https://docs.docker.com/compose/install/[the official documentation] to get it setup.
 
 [NOTE]
 ====
-*DevNote* update diagram; rewrite to PlantUML.
+When using `.env` files, you need to explicitly specify this inside the `docker-compose.yaml` file (`env_file: [.env]`).
 ====
 
-.The diagram visually describes where various components reside and how they interact.
-image::arch-overview.png[{PRODUCT_NAME} architectural overview]
+== Architecture and repository overview
 
-.{PRODUCT_NAME} defines a series of web applications defined by our `corteza-webapp-*` repositories:
-* {GIT_REPO_LINK_PREFIX}-webapp-compose[*{PRODUCT_NAME} {APP_NAME_COMPOSE}*]
-* {GIT_REPO_LINK_PREFIX}-webapp-workflow[*{PRODUCT_NAME} Workflow*]
-* {GIT_REPO_LINK_PREFIX}-webapp-admin[*{PRODUCT_NAME} {APP_NAME_ADMIN}*]
-* {GIT_REPO_LINK_PREFIX}-webapp-one[*{PRODUCT_NAME} {APP_NAME_SHELL}*]
+=== {PRODUCT_NAME} architecture
 
-The web applications communicate with our back-end system ({GIT_REPO_LINK_PREFIX}-server[*{PRODUCT_NAME} server*]) which further interacts with the automation script runner ({GIT_REPO_LINK_PREFIX}-server-corredor[*{PRODUCT_NAME} {APP_AUTOMATION} server*]) and various auxiliary services primarily provided by external services/projects.
+.The diagram outlines different {PRODUCT_NAME} parts, their relation, and how they interact.
+image::arch-overview.png[{PRODUCT_NAME} architectural overview,role="data-zoomable"]
+
+The web applications communicate with the server over the REST API and authenticate via the authentication server.
+
+The server interacts with all internal auxiliary services such as the database, object storage, error and log tracking, automation runners, ...
 
 .Some of the auxiliary services include:
 * data federation,
@@ -44,12 +52,25 @@ The web applications communicate with our back-end system ({GIT_REPO_LINK_PREFIX
 * logger,
 * email sender.
 
+=== {PRODUCT_NAME} repositories and their relation
+
+.The diagram outlines {PRODUCT_NAME} repositories and their relation in regards to the build pipeline.
+image::developer-guide:build-pipelines.png[role="data-zoomable"]
+
+.{PRODUCT_NAME} defines a series of web applications defined by our `corteza-webapp-*` repositories:
+* {GIT_REPO_LINK_PREFIX}-webapp-compose[*{PRODUCT_NAME} {APP_NAME_COMPOSE}*]
+* {GIT_REPO_LINK_PREFIX}-webapp-workflow[*{PRODUCT_NAME} Workflow*]
+* {GIT_REPO_LINK_PREFIX}-webapp-admin[*{PRODUCT_NAME} {APP_NAME_ADMIN}*]
+* {GIT_REPO_LINK_PREFIX}-webapp-reporter[*{PRODUCT_NAME} {APP_NAME_REPORTER}*]
+* {GIT_REPO_LINK_PREFIX}-webapp-discovery[*{PRODUCT_NAME} {APP_NAME_DISCOVERY}*]
+* {GIT_REPO_LINK_PREFIX}-webapp-one[*{PRODUCT_NAME} {APP_NAME_SHELL}*]
+
 == System configuration
 
 {PRODUCT_NAME} is configured via the environment (`.env`) file.
 It allows you to quickly deploy and configure how {PRODUCT_NAME} should behave on another system.
 
-Our examples are configured to work as is, but feel free to tweak the xref:configuration/server.adoc[server] and the xref:configuration/corredor.adoc[{APP_AUTOMATION} server] as you see fit.
+Our examples are configured to work as is, but feel free to tweak the xref:references/configuration/server.adoc[server] and the xref:references/configuration/corredor.adoc[{APP_AUTOMATION} server] as you see fit.
 
 [NOTE]
 ====
@@ -61,22 +82,13 @@ The `.env` file performs *implicit Docker Compose configuration*, *variable subs
 
 You can use variables defined in the `.env` file inside your `docker-compose.yaml` files using `$\{VARIABLE_HERE}`.
 
-:leveloffset: +1
-include::ROOT:partial$setup/containerized-db.adoc[]
-:leveloffset: -1
-
 [#deploy-offline]
 == Deploy offline
 
-[NOTE]
-====
-*DevNote* provide a quick rundown of what each deploy config enables you to do; automation scripts, workflows, persistent storage, ...
-====
+Offline deploy setups run all services on the same network where the ports are bound to the host's network.
+This section provides a minimum setup with PostgreSQL as the persistent database storage with {APP_AUTOMATION} server enabled.
 
-Offline setups run all services on the same network where the ports are bound to the host's network.
-This section provides a minimum setup with MySQL as the persistent database storage with {APP_AUTOMATION} server enabled.
-
-See menu:DevOps guide[Offline deployment] for additional offline deployment configurations.
+See xref:examples/deploy-offline/index.adoc[] for example offline deployment configurations.
 
 [IMPORTANT]
 ====
@@ -134,7 +146,7 @@ The output should look like this:
 include::example$deploy/local-mysql/output-ps.txt[]
 ----
 
-See xref:maintenance/troubleshooting.adoc[] if something went wrong/failed to start.
+See xref:troubleshooting/index.adoc[] if something went wrong/failed to start.
 
 === Test the deploy
 
@@ -155,7 +167,7 @@ If you did not configure your SMTP settings, all sign-ups are marked as confirme
 
 [NOTE]
 ====
-If you're using Nginx and the WebSocket connection is failing, refer to xref:maintenance/troubleshooting.adoc#ws-nginx-connection-fail[menu:Maintenance[Troubleshooting]].
+If you're using Nginx and the WebSocket connection is failing, refer to xref:troubleshooting/index.adoc#ws-nginx-connection-fail[menu:Maintenance[Troubleshooting]].
 ====
 
 Online setups separate your services into two networks; internal and proxy.
@@ -273,7 +285,7 @@ The output should look like this:
 include::example$deploy/prod-mysql/output-ps.txt[]
 ----
 
-See xref:maintenance/troubleshooting.adoc[] if something went wrong/failed to start.
+See xref:troubleshooting/index.adoc[] if something went wrong/failed to start.
 
 === Test the deploy
 
@@ -283,3 +295,47 @@ You will be redirected to the authentication page (`/auth`).
 . Check the server version http://your-demo.example.tld/version
 . Check the server's health http://your-demo.example.tld/healthcheck
 . Check the API documentation http://your-demo.example.tld/api/docs/
+
+
+== Useful Commands
+
+.A list of useful Docker commands:
+[cols="2s,2m"]
+|===
+| [#docker-exec]#<<docker-exec,Run commands inside a container (started)>>#
+| docker exec -it <container name> help
+
+| [#docker-exec-stopped]#<<docker-exec-stopped,Run commands inside a container (not started)>>#
+| docker run -it --rm <container name> help
+|===
+
+.A list of useful Docker Compose commands:
+[cols="2s,2m"]
+|===
+| [#docker-compose-stop-rm]#<<docker-compose-stop-rm,Stop and remove containers along with their volumes without confirmation>>#
+| docker-compose rm --force --stop -v
+
+| [#docker-compose-logs-full]#<<docker-compose-logs-full,View logs for all running containers>>#
+| docker-compose logs --follow --tail 20
+
+| [#docker-compose-logs-specific]#<<docker-compose-logs-specific,View logs for a specific container>>#
+| docker-compose logs --follow --tail 20 <service name>
+
+| [#docker-compose-exec]#<<docker-compose-exec,Execute with Docker Compose>>#
+| docker-compose exec <service name> help
+|===
+
+== Where to next
+
+.The sub-sections under menu:DevOps guide go into more details regarding specific topics, such as:
+* xref:maintenance/backups.adoc[Performing backups],
+* xref:troubleshooting/index.adoc[troubleshooting issues],
+* opening additional automation capabilities with xref:email-relay.adoc[], xref:sink-route.adoc[], xref:pdf-renderer.adoc[], and
+* xref:i18n/index.adoc[]
+
+.To develop your own {APP_NAME_COMPOSE} applications, refer to the xref:integrator-guide:index.adoc[]:
+* xref:integrator-guide:authentication/index.adoc[] and xref:integrator-guide:security-model/index.adoc[],
+* xref:integrator-guide:i18n/index.adoc[Internationalization],
+* xref:integrator-guide:accessing-corteza/index.adoc[Interacting via the REST API],
+* xref:integrator-guide:compose-configuration/index.adoc[{APP_NAME_COMPOSE} configuration], and
+* xref:integrator-guide:automation/index.adoc[]

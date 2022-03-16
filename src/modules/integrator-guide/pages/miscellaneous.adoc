@@ -133,7 +133,7 @@ In case of any TLS/certificate issues you can adjust the server name for the TLS
 
 [IMPORTANT]
 ====
-Initial settings are copied from the xref:devops-guide:configuration/server.adoc#\_email_sending[`SMTP_*` environmental variables].
+Initial settings are copied from the xref:devops-guide:references/configuration/server.adoc#\_email_sending[`SMTP_*` environmental variables].
 {PRODUCT_NAME} logs a warning in case you keep the environmental variables and make changes to either variables or settings.
 ====
 

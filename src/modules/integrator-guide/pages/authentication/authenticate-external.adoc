@@ -75,7 +75,7 @@ Since the authentication sessions between different clients are different, each 
 * Authentication forms and endpoints are protected against brute-force and cross-site request attacks.
 You can also set your own secrets for JWT, CSRF and cookie value encryption.
 * Different expiration durations may be set on sessions temporary and permanent sessions to support your organization's security policies.
-* Please see the xref:devops-guide:configuration/server.adoc#_authentication[full list of options].
+* Please see the xref:devops-guide:references/configuration/server.adoc#_authentication[full list of options].
 These changes take affect after server restart.
 
 [NOTE]

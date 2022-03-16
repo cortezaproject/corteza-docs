@@ -10,16 +10,10 @@ An integration can be as simple as the modification of the login screen to inclu
 
 In case you haven't yet setup your {PRODUCT_NAME} instance, refer to the xref:devops-guide:index.adoc[DevOps guide].
 
-== The security model
+== Authentication and Security Model
 
 For *authentication*, {PRODUCT_NAME} implements the OAuth2 protocol, where {PRODUCT_NAME} can act both as an OAuth2 client or as a server.
 Refer to the xref:authentication/index.adoc[authentication] section for details.
-
-For *access control*, {PRODUCT_NAME} implements a https://en.wikipedia.org/wiki/Role-based_access_control[RBAC facility] which allows you to fine tune access permissions to your needs.
-Refer to the xref:security-model/index.adoc[] section for details.
-
-== Personalization of the design
-
 The login screen can be completely personalized to match your brand and to give your users a piece of mind when entering their credentials.
 Refer to the xref:personalization/auth.adoc[menu:personalization[authentication]] section for details.
 
@@ -28,12 +22,16 @@ Refer to the xref:personalization/auth.adoc[menu:personalization[authentication]
 It may be a good idea to include your brand graphics where your {PRODUCT_NAME} instance will be accessed by external users.
 ====
 
-To personalize other {PRODUCT_NAME} web applications, you need to do so in the source code and rebuild your custom web application manually.
+For *access control*, {PRODUCT_NAME} implements a https://en.wikipedia.org/wiki/Role-based_access_control[RBAC facility] which allows you to fine tune access permissions to your needs.
+Refer to the xref:security-model/index.adoc[] section for details.
 
-[NOTE]
-====
-*DevNote* add some documentations about this.
-====
+== Internationalization
+
+{PRODUCT_NAME} allows you to fully translate most aspect of the system.
+
+Refer to the xref:i18n/static.adoc[] page to learn how to translate the user interface.
+
+Refer to the xref:i18n/resource.adoc[] page to learn how to translate your {PRODUCT_NAME} {APP_NAME_COMPOSE} apps.
 
 == Access {PRODUCT_NAME} via the API
 
@@ -42,13 +40,14 @@ Refer to the xref:accessing-corteza/index.adoc[accessing {PRODUCT_NAME}] section
 
 If you wish to connect an external application with {PRODUCT_NAME} in order to exchange data, you are able to do so by using our xref:accessing-corteza/api-clients.adoc[Node.js API clients].
 
-== Creating a custom {APP_NAME_COMPOSE} app
+== Creating a Custom {APP_NAME_COMPOSE} App
 
-Refer to the xref:compose-configuration/index.adoc[{APP_NAME_COMPOSE} configuration] to get the basic understanding of the different components, what they do, and how they are configured.
+Refer to the xref:compose-configuration/index.adoc[{APP_NAME_COMPOSE} configuration] page to learn how you can configure your own {APP_NAME_COMPOSE} app.
+For additional details, refer to xref:compose-configuration/field-types.adoc[menu:{APP_NAME_COMPOSE} configuration[field type reference]] for a reference of available field types and xref:compose-configuration/page-blocks.adoc[menu:{APP_NAME_COMPOSE} configuration[page block reference]] for a reference of available page blocks.
 
-Refer to the xref:compose-configuration/field-types.adoc[menu:{APP_NAME_COMPOSE} configuration[module field types]] sub section for an overview of the supported field types and their configuration options.
+Refer to the xref:api-gw/index.adoc[] page to learn how you can define custom webhook endpoints external services can use.
 
-Refer to the xref:compose-configuration/field-expr.adoc[menu:{APP_NAME_COMPOSE} configuration[field expressions]] sub section to learn how you can define xref:compose-configuration/field-expr.adoc#value-expressions[value expressions (formula fields)], custom xref:compose-configuration/field-expr.adoc#value-sanitizers[value sanitizers] and xref:compose-configuration/field-expr.adoc#value-validators[validators].
+Refer to the xref:reporting/index.adoc[] page to learn how you can create custom reports to visualize the data of your {APP_NAME_COMPOSE}.
 
 == Automating your process
 
@@ -65,6 +64,13 @@ An *automation script* is a piece of JavaScript code that performs a desired ope
 ====
 When the automation requires multiple complex operations that are not originally supported by the workflow engine, an automation script is a better choice.
 ====
+
+== {PRODUCT_NAME} {APP_NAME_DISCOVERY}
+
+{PRODUCT_NAME} {APP_NAME_DISCOVERY} provides a powerful search engine to interact with your data.
+{PRODUCT_NAME} {APP_NAME_DISCOVERY} defines an intuitive interface to search and, for some cases, visualize the data such as geographical metadata.
+
+Refer to xref:discovery/index.adoc[] page to learn how to configure and use {PRODUCT_NAME} {APP_NAME_DISCOVERY}
 
 == Creating custom documents
 
@@ -87,7 +93,13 @@ You can request document rendering from external applications via the REST API.
 *DevNote* add a reference to the endpoint.
 ====
 
-== Do you need help or have suggestions?
+== {PRODUCT_NAME} Federation
+
+{PRODUCT_NAME} {APP_NAME_FEDERATION} enables different {PRODUCT_NAME} instances to establish a federated network to freely and securely exchange information.
+
+Refer to the xref:federation/index.adoc[] page to learn how to configure and use {PRODUCT_NAME} Federation.
+
+== Troubleshooting
 
 Get in touch with us on our https://forum.{DOMAIN}[forum].
 Any feedback, questions or suggestions are always welcome!

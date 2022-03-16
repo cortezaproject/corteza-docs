@@ -1,0 +1,537 @@
+include::ROOT:partial$variables.adoc[]
+include::ROOT:partial$icons.adoc[]
+
+= {PRODUCT_NAME} {APP_NAME_DISCOVERY}
+:keywords: discovery, search, record searcher, record searching, resource searcher, resource searching, data discovery
+:description: Learn how to configure and use {PRODUCT_NAME} {APP_NAME_DISCOVERY}, a powerful search engine for your data
+
+{PRODUCT_NAME} {APP_NAME_DISCOVERY} provides a powerful search engine to interact with your data.
+{PRODUCT_NAME} {APP_NAME_DISCOVERY} defines an intuitive interface to search and, for some cases, visualize the data such as geographical metadata.
+
+To access {PRODUCT_NAME} {APP_NAME_DISCOVERY}, navigate to your {PRODUCT_NAME} instance and click on the {APP_NAME_DISCOVERY} application.
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "app-selector-discovery.png",
+    "alias": "discovery-app-selector",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {},
+  "focus": {
+    "x": 1257,
+    "y": 462,
+    "w": 262,
+    "h": 220
+  },
+  "annotations": []
+}
+----
+
+In the {PRODUCT_NAME} {APP_NAME_DISCOVERY} application you are presented with an intuitive user interface where the *general filters* are available on the left side of the screen, a *search box* on the top, and the *search results* just below the search box.
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "discovery/search-results.png",
+    "alias": "discovery-search-results",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {},
+  "annotations": [{
+    "x": 16,
+    "y": 85,
+    "w": 289,
+    "h": 364
+  }, {
+    "x": 344,
+    "y": 65,
+    "w": 1559,
+    "h": 46
+  }, {
+    "x": 344,
+    "y": 165,
+    "w": 1563,
+    "h": 293
+  }]
+}
+----
+
+== Advanced querying
+
+To find exactly what you're looking for, apply a general filter in the left side of the screen.
+Click on the checkbox next to a filter to apply it to the search results.
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "discovery/search-results.png",
+    "alias": "discovery-search-filtering",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {},
+  "focus": {
+    "x": 0,
+    "y": 0,
+    "w": 320,
+    "h": 1080
+  }
+}
+----
+
+You can insert a search query in the input box on the top of the screen, to filter over the remaining search results.
+The querying tries to find the best results based on the available data and the search term you've provided.
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "discovery/search-results.png",
+    "alias": "discovery-search-querying",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {},
+  "focus": {
+    "x": 320,
+    "y": 0,
+    "w": 1600,
+    "h": 1080
+  },
+  "annotations": [{
+    "kind": "box-note",
+    "x": 344,
+    "y": 65,
+    "h": 45,
+    "w": 1560
+  }]
+}
+----
+
+=== Visualize geo location
+
+If a search result defines geo location, it can be visualized on a map.
+To visualize search results on a map, click on the *map button* {ICON_DISCOVERY_MAP} in the bottom-right corner.
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "discovery/search-results.png",
+    "alias": "discovery-search-map",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {},
+  "focus": {
+    "x": 1600,
+    "y": 780,
+    "h": 300,
+    "w": 320
+  },
+  "annotations": [{
+    "kind": "box-note",
+    "x": 1841,
+    "y": 1000,
+    "w": 65,
+    "h": 65
+  }]
+}
+----
+
+When you click on the map button {ICON_DISCOVERY_MAP} a map will appear right from the resulting data.
+Mappable search results will be represented as pins on the map; search results that can not be mapped are omitted from the map but still preserved in search results.
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "discovery/search-results-mapped.png",
+    "alias": "discovery-search-results-mapped",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {},
+  "annotations": [{
+    "kind": "box-danger",
+    "x": 1820,
+    "y": 215,
+    "w": 26,
+    "h": 40
+  }, {
+    "kind": "box-danger",
+    "x": 1576,
+    "y": 531,
+    "w": 26,
+    "h": 40
+  }, {
+    "kind": "box-danger",
+    "x": 1543,
+    "y": 819,
+    "w": 26,
+    "h": 40
+  }]
+}
+----
+
+[#integration-configuration]
+== Integration configuration
+
+{PRODUCT_NAME} {APP_NAME_DISCOVERY} is a stand alone application, independent from the rest of the {PRODUCT_NAME} ecosystem.
+In order to make {APP_NAME_DISCOVERY} functional, we need to *grant access* by creating an *auth client* along with *a user* and *a role*.
+
+[IMPORTANT]
+====
+Access control defines what data the {APP_NAME_DISCOVERY} indexer has access to; more in the <<index-configuration,index configuration>> sections.
+====
+
+=== Indexer role
+
+Firstly define a new role that the {APP_NAME_DISCOVERY} indexer will use.
+Open the {PRODUCT_NAME} {APP_NAME_ADMIN} web application and navigate to menu:system[roles].
+Click on the btn:[new] button, fill in the parameters, and click on the btn:[submit] button.
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "discovery/role.png",
+    "alias": "discovery-role",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {
+    "x": 320,
+    "y": 0,
+    "w": 1600,
+    "h": 1080
+  },
+  "focus": {
+    "x": 586,
+    "y": 71,
+    "w": 1070,
+    "h": 392
+  },
+  "annotations": []
+}
+----
+
+[#indexer-user]
+=== Indexer user
+
+Next, define a new user that the {APP_NAME_DISCOVERY} indexer will identify as.
+In the {PRODUCT_NAME} {APP_NAME_ADMIN} web application navigate to menu:system[users].
+Click on the btn:[new] button and fill in the parameters and click on the btn:[submit] button.
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "discovery/user.png",
+    "alias": "discovery-user",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {
+    "x": 320,
+    "y": 0,
+    "w": 1600,
+    "h": 1080
+  },
+  "focus": {
+    "x": 586,
+    "y": 70,
+    "h": 324,
+    "w": 1070
+  },
+  "annotations": []
+}
+----
+
+After you save the user, assign them the role you've created earlier.
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "discovery/user.png",
+    "alias": "discovery-user-membership",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {
+    "x": 320,
+    "y": 0,
+    "w": 1600,
+    "h": 1080
+  },
+  "focus": {
+    "x": 586,
+    "y": 436,
+    "h": 203,
+    "w": 1070
+  },
+  "annotations": []
+}
+----
+
+=== Indexer auth client
+
+Lastly, define an auth client that the {APP_NAME_DISCOVERY} indexer will use to authenticate with {PRODUCT_NAME}.
+
+[NOTE]
+====
+Since we're performing authentication between two systems, we're going to use the `client_credentials` grant type.
+====
+
+In the {PRODUCT_NAME} {APP_NAME_ADMIN} web application navigate to menu:system[auth clients].
+Click on the btn:[new] button and fill in the basic parameters; make sure you select the `client_credentials` grant type and check the `allow client access to Corteza Discovery API on behalf of user`.
+Select the previously created user in the `impersonate uer` input and click on the btn:[submit] button.
+
+[NOTE]
+====
+We recommend you define a new auth client for a new external application instead of reusing existing ones.
+====
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "discovery/auth-client.png",
+    "alias": "discovery-auth-client",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {
+    "x": 320,
+    "y": 0,
+    "w": 1600,
+    "h": 1080
+  },
+  "annotations": [{
+    "kind": "box-note",
+    "padding": "sm",
+    "x": 855,
+    "y": 366,
+    "h": 16,
+    "w": 547
+  }, {
+    "kind": "box-note",
+    "padding": "sm",
+    "x": 855,
+    "y": 618,
+    "h": 16,
+    "w": 547
+  }, {
+    "kind": "box-note",
+    "x": 855,
+    "y": 748,
+    "h": 40,
+    "w": 800
+  }]
+}
+----
+
+Copy the *client ID* and *client secret* from the auth client and keep them safe for later use.
+The clientID is located in the URL address bar, and the client secret is in the field labeled as such
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "discovery/auth-client-credentials.png",
+    "alias": "discovery-auth-client-credentials",
+    "w": 2123,
+    "h": 1210
+  },
+  "view": {
+    "x": 1,
+    "y": 38,
+    "w": 2087,
+    "h": 1170
+  },
+  "annotations": [{
+    "kind": "box-note",
+    "padding": "sm",
+    "x": 456,
+    "y": 47,
+    "w": 147,
+    "h": 15
+  }, {
+    "kind": "box-note",
+    "x": 678,
+    "y": 363,
+    "w": 1056,
+    "h": 38
+  }]
+}
+----
+
+[#index-configuration]
+== Indexing configuration
+
+[#data-visibility]
+=== Data visibility
+
+*Data visibility* defines *what is indexed* and is controlled by the standard *access control facility*.
+The {APP_NAME_DISCOVERY} indexes everything it currently has access to.
+
+To control data visibility, configure *access control rules* for the role we've defined in the <<integration-configuration,integration configuration section>> above.
+
+Refer to the example where we limit the indexer to only show records from a specified namespace.
+
+=== Indexing policy
+
+Indexing policy defines how the data is indexed and by whom it can be accessed.
+Indexing policy allows us to make specific fields accessible publicly or only for authenticated users.
+
+[IMPORTANT]
+====
+Currently, the indexing policy applies to specific fields.
+To control entire rows, use <<data-visibility,data visibility>>.
+====
+
+There are three policies: *private*, *protected*, and *public* where the private policy is used by default.
+
+[NOTE]
+====
+Currently, only compose modules allow custom indexing policy.
+====
+
+If a resource supports indexing policy, there will be a *discovery settings* {ICON_DISCOVERY_ICON} button on the configuration page.
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "discovery/module-discovery.png",
+    "alias": "discovery-module-discovery",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {
+    "x": 320,
+    "y": 0,
+    "w": 1600,
+    "h": 1080
+  },
+  "focus": {
+    "x": 580,
+    "y": 100,
+    "h": 42,
+    "w": 208
+  },
+  "annotations": [{
+    "kind": "box-note",
+    "x": 580,
+    "y": 100,
+    "h": 42,
+    "w": 208
+  }]
+}
+----
+
+When you click on the discovery settings {ICON_DISCOVERY_ICON} button, a popup opens which presents the index policy configurator.
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "discovery/indexing-policy.png",
+    "alias": "discovery-indexing-policy",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {
+    "x": 200,
+    "y": 0,
+    "w": 1520,
+    "h": 680
+  },
+  "focus": {
+    "padding": "sm",
+    "x": 571,
+    "y": 47,
+    "w": 773,
+    "h": 482
+  },
+  "annotations": []
+}
+----
+
+To configure the policy, click on the corresponding tab and add the fields you wish to apply the policy to.
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "discovery/indexing-policy-added.png",
+    "alias": "discovery-indexing-policy-added",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {
+    "x": 200,
+    "y": 0,
+    "w": 1520,
+    "h": 680
+  },
+  "focus": {
+    "padding": "sm",
+    "x": 571,
+    "y": 47,
+    "w": 773,
+    "h": 482
+  },
+  "annotations": [{
+    "kind": "box-note",
+    "x": 581,
+    "y": 250,
+    "w": 758,
+    "h": 133
+  }]
+}
+----
+
+[IMPORTANT]
+====
+If a search result appears in multiple index policies, only one is used determined based on the current security context.
+====
+
+.Available indexing policies:
+[cols="1s,5a"]
+|===
+| [#indexing-policy-private]#<<indexing-policy-private,Private>>#
+| Private indexing policy is used by known, authenticated users to do cross-system searches.
+
+Private index policy should be used whenever we are indexing sensitive data or data we don't wish to expose publicly.
+
+| [#indexing-policy-protected]#<<indexing-policy-protected,Protected>>#
+| Protected indexing policy is meant for foreign systems that are under some kind of access control.
+
+[IMPORTANT]
+====
+Currently unused; support will be added in a future release.
+====
+
+Protected indexing policy should be used when we have an external system accessing the data and that external system performs the required access control.
+
+If external systems are not involved use either private or public indexing policies.
+
+| [#indexing-policy-public]#<<indexing-policy-public,Public>>#
+| Public indexing policy is meant for users that are not logged-in.
+
+[IMPORTANT]
+====
+Currently unused; support will be added in a future release.
+====
+
+Public indexing policy should be used when we want to make data available publicly without the need to know who is accessing it.
+
+|===

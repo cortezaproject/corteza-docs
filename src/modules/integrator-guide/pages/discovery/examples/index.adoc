@@ -1,0 +1,7 @@
+= Examples
+
+:leveloffset: +1
+
+include::./limit-namespace.adoc[]
+
+:leveloffset: -1

@@ -19,3 +19,6 @@
 :ICON_WORKFLOW_ITERATOR: image:ROOT:workflows/iterator.svg[width=20px]
 
 :ICON_I18N: image:ROOT:i18n/language-solid.svg[width=20px]
+
+:ICON_DISCOVERY_MAP: image:ROOT:discovery/map-marked-alt-solid.svg[width=20px]
+:ICON_DISCOVERY_ICON: image:ROOT:discovery/search-location-solid.svg[width=20px]

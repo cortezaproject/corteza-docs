@@ -89,6 +89,10 @@
 *** xref:api-gw/javascript-processing.adoc[]
 *** xref:api-gw/workflow-processing.adoc[]
 
+** xref:discovery/index.adoc[]
+*** xref:discovery/examples/index.adoc[]
+**** xref:discovery/examples/limit-namespace.adoc[]
+
 ** xref:reporting/index.adoc[]
 *** xref:reporting/expr-reference.adoc[]
 *** xref:reporting/prefilter.adoc[]

@@ -11,6 +11,7 @@
 :APP_AUTOMATION: Corredor
 :PRODUCT_NAME: Corteza
 :DOMAIN: cortezaproject.org
+:APP_NAME_DISCOVERY: Discovery
 
 :CLI_CMD_VIA_DOCKER: docker-compose exec server
 :CLI_CMD_PREFIX:     {CLI_CMD_VIA_DOCKER} corteza-server

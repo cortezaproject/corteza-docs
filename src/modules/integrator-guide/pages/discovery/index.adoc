@@ -8,6 +8,8 @@ include::ROOT:partial$icons.adoc[]
 {PRODUCT_NAME} {APP_NAME_DISCOVERY} provides a powerful search engine to interact with your data.
 {PRODUCT_NAME} {APP_NAME_DISCOVERY} defines an intuitive interface to search and, for some cases, visualize the data such as geographical metadata.
 
+Refer to the xref:devops-guide:discovery/index.adoc[menu:DevOps Guide[{PRODUCT_NAME} {APP_NAME_DISCOVERY}]] to learn how to configure the systems.
+
 To access {PRODUCT_NAME} {APP_NAME_DISCOVERY}, navigate to your {PRODUCT_NAME} instance and click on the {APP_NAME_DISCOVERY} application.
 
 [annotation,role="data-zoomable"]

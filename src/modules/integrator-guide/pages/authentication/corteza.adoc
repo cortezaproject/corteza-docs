@@ -1,0 +1,180 @@
+include::ROOT:partial$variables.adoc[]
+
+= Authenticate Using {PRODUCT_NAME}
+:keywords: authentication via Corteza, Corteza external provider
+:description: Learn how to authenticate {PRODUCT_NAME} instances using different {PRODUCT_NAME} instances
+
+[#provider]
+== Setup {PRODUCT_NAME} you will use to authenticate with
+
+Create a new xref:authentication/index.adoc#_auth_client[auth client] and make sure you select the `authorization_code` grant type, as well as check the `allow client to use OIDC and verify user's identity` capability.
+
+Optionally check the trusted checkbox to skip the final verification step.
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "authentication/corteza/auth-client.png",
+    "alias": "authentication-corteza-auth-client",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {},
+  "annotations": [{
+    "padding": "sm",
+    "x": 854,
+    "y": 409,
+    "h": 16,
+    "w": 527
+  }, {
+    "padding": "sm",
+    "x": 854,
+    "y": 660,
+    "h": 16,
+    "w": 404
+  }]
+}
+----
+
+== Setup {PRODUCT_NAME} you will authenticate
+
+Open to the {PRODUCT_NAME} {APP_NAME_ADMIN}, navigate to menu:system[settings], and scroll to the bottom of the page.
+
+Make sure the enable external authentication is checked, and clock on the btn:[add OIDC provider].
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "authentication/corteza/provider-list.png",
+    "alias": "authentication-corteza-provider-list",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {},
+  "focus": {
+    "x": 563,
+    "y": 505,
+    "w": 1110,
+    "h": 575
+  },
+  "annotations": [{
+    "x": 584,
+    "y": 582,
+    "w": 249,
+    "h": 17
+  }, {
+    "x": 1467,
+    "y": 616,
+    "w": 189,
+    "h": 32
+  }]
+}
+----
+
+Fill in the details obtained from the auth client defined <<provider,above>>.
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "authentication/corteza/provider-configure.png",
+    "alias": "authentication-corteza-provider-configure",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {},
+  "focus": {
+    "x": 560,
+    "y": 30,
+    "w": 800,
+    "h": 768
+  }
+}
+----
+
+Click on the btn:[submit] button to save the changes.
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "authentication/corteza/provider-added.png",
+    "alias": "authentication-corteza-provider-added",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {},
+    "focus": {
+    "x": 563,
+    "y": 505,
+    "w": 1110,
+    "h": 575
+  },
+  "annotations": [{
+    "x": 1571,
+    "y": 1032,
+    "w": 85,
+    "h": 37
+  }]
+}
+----
+
+== Authenticate
+
+The next time your users try to authenticate, they will be presented with an extra external authentication option.
+
+[NOTE]
+====
+If the OIDC provider is not available check your server logs in case there are some errors.
+====
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "authentication/corteza/login-oidc.png",
+    "alias": "authentication-corteza-login-oidc",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {},
+  "annotations": [{
+    "x": 672,
+    "y": 645,
+    "w": 577,
+    "h": 44
+  }]
+}
+----
+
+When you click on the new OIDC authentication option you are redirected and asked to authenticate using your credentials from the provider {PRODUCT_NAME} instance.
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "authentication/corteza/login.png",
+    "alias": "authentication-corteza-login",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {}
+}
+----
+
+Once you log into the provider {PRODUCT_NAME} instance, the authentication is successful.
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "authentication/corteza/logged-in.png",
+    "alias": "authentication-corteza-logged-in",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {}
+}
+----

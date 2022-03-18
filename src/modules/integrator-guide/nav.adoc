@@ -5,6 +5,7 @@
 *** xref:authentication/authenticate-external.adoc[]
 *** xref:authentication/personalization.adoc[]
 *** xref:authentication/session-duration.adoc[]
+*** xref:authentication/corteza.adoc[]
 *** xref:authentication/external/index.adoc[]
 **** xref:authentication/external/google.adoc[]
 **** xref:authentication/external/facebook.adoc[]

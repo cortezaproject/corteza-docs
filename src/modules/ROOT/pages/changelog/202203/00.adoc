@@ -4,50 +4,106 @@ include::ROOT:partial$variables.adoc[]
 
 *Released on*: TBD
 
-*Contributors*:
-Peter Grlica (https://github.com/petergrlica[GH]).
-Katrin Yordanova (https://github.com/katrinDY[GH]),
-
 .[#2022_3_0-added]#<<2022_3_0-added,Added:>>#
-* Added BufferedReader support for Integration Gateway requests ({SERVER_COMMIT_BASE}87d3b68d[`87d3b68d`]).
-* Add option to choose if link opens in a new tab or not in CRichTextInput/Link ({WEBAPP_VUE_COMMIT_BASE}e4fddb3[`e4fddb3`], {WEBAPP_COMPOSE_COMMIT_BASE}49a525a[`49a525a`], {WEBAPP_REPORTER_COMMIT_BASE}f5360a8[`f5360a8`], {LOCALE_COMMIT_BASE}59076a7[`59076a7`]).
-
+* Added additional development tools for nicer user experience; step configuration preview on hover (WORKFLOW#b017702 WORKFLOW#6e2a4be WORKFLOW#51d1f9e), additional help labels (WORKFLOW#214c973), and a predefined HTTP method select (SERVER#5e59bbab2).
+* Added additional workflow prompts to redirect to a record create page (VUE#a021552 VUE#c1fe4ff) and to allow record selection (VUE#aba32e6).
+* Added additional support in workflows for paging over {APP_NAME_COMPOSE} records (SERVER!336).
+* Added default workflow step labels when no custom label is provided (WORKFLOW#3854ddd).
+* Added web console -- a user interface for inspecting and troubleshooting server-side issues (SERVER!327, SERVER#7fa5e43d0, SERVER#f66ab4550, SERVER#9eca65595, SERVER#f291cde93).
+* Added API endpoints with a landing page and 404 pages (SERVER#a81f35d5a).
+* Added additional configuration for page configuration (SERVER#b478b3777) and general UI, sidebar, and top bar settings (SERVER#f69751190, COMPOSE#a2dd9fe5, SERVER#eb583a339, SERVER#c558ece3b, SERVER#2b6026182, ADMIN#bed4f1b, WORKFLOW#6134d9b, REPORTER#314d1d1, VUE#2659085, VUE#97dea83, VUE#e4f2977).
+* Added support for record page editing the same way as list pages can be edited (COMPOSE#8bb77988).
+* Added an "open in new tab" option for links defined in the rich text editors (VUE#e4fddb3).
+* Added additional import export capabilities by adding a user import and export to the {PRODUCT_NAME} {APP_NAME_ADMIN} (SERVER#9142c7b5a, ADMIN#84f86bb, ADMIN#89f4aab, JS#2b04d79); as well as including access control and resource translations to the existing namespace export (SERVER#8e679bf97).
+* Added {PRODUCT_NAME} {APP_NAME_DISCOVERY} -- a search engine for your data (SERVER#7bde98697, SERVER#84f918a1d, SERVER#d384db951, SERVER#4e3d5dd00, SERVER#b6ff0f921, COMPOSE#ed1122d6)
+* Added delete strategy for {APP_NAME_COMPOSE} pages when the page has nested child pages (SERVER#691481424, COMPOSE#efb45ff8).
+* Added improvements to resource searching and filtering by adding support for date/time only fields (SERVER#640a90c20) as well as introducing fuzzy searching to some resources (VUE#03a6f7c, COMPOSE#4f28578e, WORKFOOW#29b71da, VUE#8500f61).
+* Added support for `Record` fields to query based on a nested `Record` field, limited to *1 level* (COMPOSE#155e6b12, JS#eb4c911),
+* Added support for multiple presort definitions on record lists (COMPOSE#80f3ad47).
+* Added support to define custom clientID and scope when generating JWT tokens from the CLI (SERVER#957e70056).
+* Added integration between {APP_NAME_REPORTER} and {APP_NAME_COMPOSE} by introducing the reporter page block to show report data on {APP_NAME_COMPOSE} pages (COMPOSE#89664b8a, REPORTER#7201f70, JS#b4667c5, VUE#a0b8913).
+* Improved internationalization COMPOSE#93a3a828
+* Added a new `Geometry` field to store geo location, primarily for use with {APP_NAME_DISCOVERY} (COMPOSE#cb3ac6c2, JS#3f56b79, JS#2a12fc0).
+* Added support to hide selected roles from the permission list ADMIN#5bdc3e9
+* Added additional media styling for nicer PDF output (COMPOSE#908ba673).
 
 //
 //
 
 .[#2022_3_0-changed]#<<2022_3_0-changed,Changed:>>#
-// ...
+* Changed auth templates to use general assets (SERVER#43ddaf1e5).
+* Changed packages to use the more recent versions, more notably `jwx goth`, and `jwt` (SERVER#6eda39f3a) as well as switching to `go 1.17` (SERVER#2d90fe4e9).
+* Changed `onTimestamp` workflow triggers to use the new date time component (WORKFLOW#e18230b).
+* Changed the expression workflow step to show the add button on the bottom of the list rather then on top (WORKFLOW#b16cb39).
+* Changed the workflow step configurator sidebar to use faster transitions for nicer user experience (WORKFLOW#642d3e2).
+* Changed the workflow error and delay steps to use expressions instead of constant values (WORKFLOW#5754544, WORKFLOW#9ad29f7).
+* Changed the reports to display users with a user-friendly identifier (name, email, ...) instead of the system user ID (SERVER#506a92d2c, SERVER#ac6e7332a).
+* Changed the stack trace log level to "dpanic" (SERVER#3f7755cd0).
+* Changed the {APP_NAME_COMPOSE} record list by defining a default limit and a maximum limit to prevent the server from getting overwhelmed (SERVER#9e5fd42d4).
+* Changed the {APP_NAME_COMPOSE} admin panel side navigation to show the resources in a tree representation for easier overview and access (COMPOSE#14968080, COMPOSE#81e1c340, VUE#8262db5).
+* Changed user display to fall back to user handle before the user ID JS#d1238b1
+* Changed {APP_NAME_COMPOSE} expression reference to redirect to the documentation (COMPOSE#67834a52).
+* Changed inline record list editing to work on list pages instead of only record pages (COMPOSE#6d070b62).
+* Changed the Integration Gateway request processing using automation workflows by defining more flexible interfaces to access the data (SERVER!324, SERVER#460646d45).
+* General UI changes (COMPOSE#1b33bad3, COMPOSE#c6bf400b, COMPOSE#31d33048, COMPOSE#1c0ec5ae, COMPOSE#ab987f3d, ADMIN#feed8f0, ADMIN#4f0e67b), tweaked responsive design (COMPOSE#e7cfa97c), hiding/disabling buttons when they shouldn't be available (COMPOSE#36195451, COMPOSE#59c797b8), changed visual assets (COMPOSE#f5b09bf5, WORKFLOW#5c72c30).
+* Changed the action log layout to match other log lists (ADMIN#f96062e).
+* Changed funnel charts to be more configurable (COMPOSE#dd28baec, JS#4d0eafb).
 
 //
 //
 
 .[#2022_3_0-removed]#<<2022_3_0-removed,Removed:>>#
-// ...
 
 //
 //
 
 .[#2022_3_0-fixed]#<<2022_3_0-fixed,Fixed:>>#
-* Body read in workflow Integration Gateway prefilter ({SERVER_COMMIT_BASE}87d3b68d[`87d3b68d`]).
-* Change default background colour to white in MetricConfigurator ({WEBAPP_COMPOSE_COMMIT_BASE}49a525a[`49a525a`]).
-* Hide refresh data button when no data is present in MetricConfigurator ({WEBAPP_COMPOSE_COMMIT_BASE}8fc446c[`8fc446c`]).
-* Increase z-index for PageBuilder to avoid toolbar with icons appearing below the Block's title and description {WEBAPP_COMPOSE_COMMIT_BASE}667a9b0[`667a9b0`]).
-* Translate messages in errors component ({WEBAPP_COMPOSE_COMMIT_BASE}acd5473[`acd5473`], {WEBAPP_JS_COMMIT_BASE}1e933b2[`1e933b2`], {LOCALE_COMMIT_BASE}0af18b1[`0af18b1`]).
-* Fix number of records to be exported in ExporterModal ({WEBAPP_COMPOSE_COMMIT_BASE}8f5f2c3[`8f5f2c3`]).
-* Fix link cut off in left navigation for corteza-docs (https://github.com/cortezaproject/corteza-docs/commit/eb913a5[eb913a5]).
-* Fix delete buttons in AutomationTabButtonEditor when deleting a unconfigured button ({WEBAPP_COMPOSE_COMMIT_BASE}7a7307b[`7a7307b`]).
-* Prevent duplicate items on select in CItemPicker {WEBAPP_VUE_COMMIT_BASE}215a5fc[`215a5fc`].
-* Fix broken drag and drop functionality in Admin/Import ({WEBAPP_COMPOSE_COMMIT_BASE}f5a93ca[`f5a93ca`]).
-* Fix import button error in Admin when uploading json file ({WEBAPP_COMPOSE_COMMIT_BASE}7bb22d9[`7bb22d9`])
-//
-//
+* Fixed SQLite data loss caused by mid-use session disconnect (SERVER#23c7f357f)
+* Fixed invalid session lifetime when a user signs up; was set to zero (SERVER#f53463a32).
+* Fixed external authentication provider removal issues (SERVER#74b3ddf94).
+* Fixed improper user-id claim parsing (SERVER#6c7d89a92).
+* Fixed exported auth asset serving for non-development modes (SERVER#dfe19c4c3).
+* Fixed overflowing workflow step labels (WORKFLOW#e424627).
+* Fixed premature workflow execution termination caused by parallel delay steps (SERVER#4fd0ddfaa).
+* Fixed improper workflow event management by manually removing event listeners (WORKFLOW#deb301f), properly destroying instances (WORKFLOW#a192b4a), and making the `ctrl+s` key binding work more reliably (WORKFLOW#faa25d1).
+* Fixed workflow configurator side panel not allowing to open paths (WORKFLOW#8e0148f).
+* Fixed workflow configuration where edges didn't open in the side thing 
+* Fixed improper actionlog metadata type encoding/decoding (SERVER#e833796aa).
+* Fixed invalid system configuration procedure where default settings potentially got omitted (SERVER#7fd719364).
+* Fixed system panic caused by websockets (SERVER#f76b94e74).
+* Fixed report name conflicts with system values (SERVER#ab8668955) and missing values on the PostgreSQL database (SERVER#cd15f3eaf).
+* Fixed reporter including deleted namespaces in report output (SERVER#908008eba).
+* Fixed display elements not rendering when switching between different reports (REPORTER#24d163a).
+* Fixed missing locale HTTP headers when making requests from the reporter web application (REPORTER#8215602).
+* Fixed reporter table display element raising errors if no data is available (VUE#d2b0ad0).
+* Fixed missing module field resource translations (SERVER#e9dfe8254).
+* Fixed improper empty resource translation handling by soft-deleting the value instead of omitting the change (SERVER#631811929).
+* Fixed Right-To-Left detection to work based on current user language (COMPOSE#30cc4eb7, ADMIN#c882464).
+* Fixed filtering for time and date only `DateTime` fields (COMPOSE#a755b984, COMPOSE#6ab98c52, COMPOSE#a755b984).
+* Fixed automation button removal in the record list page block configurator (COMPOSE#7a7307b6).
+* Fixed record organizer, changed prefilter evaluation (COMPOSE#74b047de, COMPOSE#2ea20d86) and added additional record source evaluation (COMPOSE#5cbefcb8).
+* Fixed record list filtering by properly handling `Boolean` values (COMPOSE#43a1d3cf), added missing system fields (COMPOSE#67e7f4fa, COMPOSE#7cae2b0b), tweaked internal logic (COMPOSE#f11def50, COMPOSE#751c589b), fixing improper field kind handling (COMPOSE#1082cf73), and adding a fallback to the equality operator (COMPOSE#b5ee8752).
+* Fixed settings not applying when they are updated and saved (ADMIN#7f5eebe).
 
 .[#2022_3_0-security]#<<2022_3_0-security,Security:>>#
-// ...
+* Replaced `dgrijalva/jwt-go` with `lestrrat-go/jwx`, refactored the JWT handling implementation (SERVER#59ec77e20, SERVER#46675080f), token issuer (SERVER#6c3bef075), and moved token validation to earlier stages (SERVER#53dd7cc29) for a safer, more robust and configurable implementation.
+* Added token validation and identity decoding for websockets (SERVER#f9c8066e2).
+* Added missing roles to impersonated user JWT tokens (SERVER#ab805f007).
+* Tweaked CORS settings (SERVER#9fe21dd8c).
+* Added sanitization for workflow labels to avoid potential XSS (WORKFLOW#82d8f23).
 
 //
 //
 
 .[#2022_3_0-development]#<<2022_3_0-development,Development:>>#
-// ...
+* Refactored and improved the code generator by introducing cuelang (SERVER#725f7e9e2), refactored old codegeneration to the new facility (SERVER#a035e6106, SERVER#3bddce4d3, SERVER#d103d60a3, SERVER#d09b037e8).
+* Added `.env.example` generator (SERVER#80d9b466a).
+* Fixed `pinio` version mismatch between `corteza-js` and `corteza-vue` (JS#a8c46b9, VUE#a8f5e24).
+* Tweaked Envoy to properly handle user email lookups (SERVER#d841aad13), expanded resource definition for easier state access (SERVER#da1828642), and removed potential import cycles (SERVER#bc1550938), and general improvements (COMPOSE#f5a93caa, COMPOSE#7bb22d96).
+* Improved HTTP server startup (SERVER#d74239c73).
+* Cleaned up te store interface (SERVER#1949782cc).
+* Added additional identifiers for report resources (SERVER#330a332fd).
+* Defined a general component to be used with item selection such as module fields and chart columns (COMPOSE#c3c2d5d6, COMPOSE#e4a93e78, COMPOSE#0b39fcc8, REPORTER#02b7cb9, VUE#bd02931).
+* Define a generic reusable chart container (VUE#afc6d15).
+* Update date fields with the `CDateInput` component (COMPOSE#d65b2c41, COMPOSE#594b6ea5, COMPOSE#f5690fa6).
+* Updated workflow prompt definition structure for more flexibility (VUE#fe8645c, VUE#180271f).

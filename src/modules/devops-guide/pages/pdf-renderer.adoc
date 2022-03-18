@@ -47,6 +47,8 @@ services:
   db:
     image: percona:8.0
     networks: [ internal ]
+    cap_add:
+      - SYS_NICE  # mbind warning fix
     environment:
       MYSQL_DATABASE:      ...
       MYSQL_USER:          ...

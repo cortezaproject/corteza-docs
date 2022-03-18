@@ -23,6 +23,8 @@ services:
     image: percona:8.0
     container_name: db_origin
     restart: always
+    cap_add:
+      - SYS_NICE  # mbind warning fix
     environment:
       MYSQL_DATABASE:      corteza
       MYSQL_USER:          corteza
@@ -37,6 +39,8 @@ services:
     image: percona:8.0
     container_name: db_destination
     restart: always
+    cap_add:
+      - SYS_NICE  # mbind warning fix
     environment:
       MYSQL_DATABASE:      corteza
       MYSQL_USER:          corteza

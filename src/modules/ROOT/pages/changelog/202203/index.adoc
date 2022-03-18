@@ -3,8 +3,8 @@ include::ROOT:partial$variables.adoc[]
 [#2022-3-x]
 = `2022.3`
 
-With {PRODUCT_NAME} `2022.3`, we continue to improve accessibility by introducing ...
-
+With {PRODUCT_NAME} `2022.3`, we introduce {PRODUCT_NAME} {APP_NAME_DISCOVERY} -- an intuitive search engine to interact with your data.
+Alongside we focus primarily on increasing stability, security, performance, as well as groundwork preparations for all the new exciting bits the next major release expects to introduce!
 
 :leveloffset: +1
 

@@ -1,0 +1,18 @@
+= node
+
+[cols="1s,5a,5a"]
+|===
+| Operation| Description | Default
+
+
+| [#rbac-node-manage]#<<rbac-node-manage,manage>>#
+| Manage federation node
+| Deny
+
+
+| [#rbac-node-module.create]#<<rbac-node-module.create,module.create>>#
+| Create shared module
+| Deny
+
+
+|===

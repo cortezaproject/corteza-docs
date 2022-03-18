@@ -1,0 +1,28 @@
+= template
+
+[cols="1s,5a,5a"]
+|===
+| Operation| Description | Default
+
+
+| [#rbac-template-read]#<<rbac-template-read,read>>#
+| Read template
+| Deny
+
+
+| [#rbac-template-update]#<<rbac-template-update,update>>#
+| Update template
+| Deny
+
+
+| [#rbac-template-delete]#<<rbac-template-delete,delete>>#
+| Delete template
+| Deny
+
+
+| [#rbac-template-render]#<<rbac-template-render,render>>#
+| Render template
+| Deny
+
+
+|===

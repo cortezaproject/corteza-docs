@@ -1,0 +1,58 @@
+= namespace
+
+[cols="1s,5a,5a"]
+|===
+| Operation| Description | Default
+
+
+| [#rbac-namespace-read]#<<rbac-namespace-read,read>>#
+| read
+| Deny
+
+
+| [#rbac-namespace-update]#<<rbac-namespace-update,update>>#
+| update
+| Deny
+
+
+| [#rbac-namespace-delete]#<<rbac-namespace-delete,delete>>#
+| delete
+| Deny
+
+
+| [#rbac-namespace-manage]#<<rbac-namespace-manage,manage>>#
+| Access to namespace admin panel
+| Deny
+
+
+| [#rbac-namespace-module.create]#<<rbac-namespace-module.create,module.create>>#
+| Create module on namespace
+| Deny
+
+
+| [#rbac-namespace-modules.search]#<<rbac-namespace-modules.search,modules.search>>#
+| List, search or filter module on namespace
+| Deny
+
+
+| [#rbac-namespace-chart.create]#<<rbac-namespace-chart.create,chart.create>>#
+| Create chart on namespace
+| Deny
+
+
+| [#rbac-namespace-charts.search]#<<rbac-namespace-charts.search,charts.search>>#
+| List, search or filter chart on namespace
+| Deny
+
+
+| [#rbac-namespace-page.create]#<<rbac-namespace-page.create,page.create>>#
+| Create page on namespace
+| Deny
+
+
+| [#rbac-namespace-pages.search]#<<rbac-namespace-pages.search,pages.search>>#
+| List, search or filter pages on namespace
+| Deny
+
+
+|===

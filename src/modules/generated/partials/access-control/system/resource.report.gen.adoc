@@ -1,0 +1,28 @@
+= report
+
+[cols="1s,5a,5a"]
+|===
+| Operation| Description | Default
+
+
+| [#rbac-report-read]#<<rbac-report-read,read>>#
+| Read report
+| Deny
+
+
+| [#rbac-report-update]#<<rbac-report-update,update>>#
+| Update report
+| Deny
+
+
+| [#rbac-report-delete]#<<rbac-report-delete,delete>>#
+| Delete report
+| Deny
+
+
+| [#rbac-report-run]#<<rbac-report-run,run>>#
+| Run report
+| Deny
+
+
+|===

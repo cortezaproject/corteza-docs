@@ -1,0 +1,13 @@
+= shared-module
+
+[cols="1s,5a,5a"]
+|===
+| Operation| Description | Default
+
+
+| [#rbac-shared-module-map]#<<rbac-shared-module-map,map>>#
+| Map shared module
+| Deny
+
+
+|===

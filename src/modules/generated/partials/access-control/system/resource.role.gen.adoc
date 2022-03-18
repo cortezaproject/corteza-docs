@@ -1,0 +1,28 @@
+= role
+
+[cols="1s,5a,5a"]
+|===
+| Operation| Description | Default
+
+
+| [#rbac-role-read]#<<rbac-role-read,read>>#
+| Read role
+| Deny
+
+
+| [#rbac-role-update]#<<rbac-role-update,update>>#
+| Update role
+| Deny
+
+
+| [#rbac-role-delete]#<<rbac-role-delete,delete>>#
+| Delete role
+| Deny
+
+
+| [#rbac-role-members.manage]#<<rbac-role-members.manage,members.manage>>#
+| Manage members
+| Deny
+
+
+|===

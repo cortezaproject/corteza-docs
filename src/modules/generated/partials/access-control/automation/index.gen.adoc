@@ -1,0 +1,11 @@
+= Automation
+
+:leveloffset: +1
+
+include::./component.gen.adoc[]
+
+include::./resource.workflow.gen.adoc[]
+
+
+:leveloffset: -1
+

@@ -1,0 +1,21 @@
+= Compose
+
+:leveloffset: +1
+
+include::./component.gen.adoc[]
+
+include::./resource.chart.gen.adoc[]
+
+include::./resource.module.gen.adoc[]
+
+include::./resource.module-field.gen.adoc[]
+
+include::./resource.namespace.gen.adoc[]
+
+include::./resource.page.gen.adoc[]
+
+include::./resource.record.gen.adoc[]
+
+
+:leveloffset: -1
+

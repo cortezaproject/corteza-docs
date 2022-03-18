@@ -1,0 +1,23 @@
+= page
+
+[cols="1s,5a,5a"]
+|===
+| Operation| Description | Default
+
+
+| [#rbac-page-read]#<<rbac-page-read,read>>#
+| read
+| Deny
+
+
+| [#rbac-page-update]#<<rbac-page-update,update>>#
+| update
+| Deny
+
+
+| [#rbac-page-delete]#<<rbac-page-delete,delete>>#
+| delete
+| Deny
+
+
+|===

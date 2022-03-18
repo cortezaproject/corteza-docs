@@ -1,0 +1,23 @@
+= record
+
+[cols="1s,5a,5a"]
+|===
+| Operation| Description | Default
+
+
+| [#rbac-record-read]#<<rbac-record-read,read>>#
+| read
+| Deny
+
+
+| [#rbac-record-update]#<<rbac-record-update,update>>#
+| update
+| Deny
+
+
+| [#rbac-record-delete]#<<rbac-record-delete,delete>>#
+| delete
+| Deny
+
+
+|===

@@ -1,40 +1,8 @@
+//
 // This file is auto-generated.
 //
-// Changes to this file may cause incorrect behavior and will be lost if
-// the code is regenerated.
-//
-// Definitions file that controls how this file is generated:
-//  - pkg/options/DB.yaml
-//  - pkg/options/HTTPClient.yaml
-//  - pkg/options/HTTPServer.yaml
-//  - pkg/options/RBAC.yaml
-//  - pkg/options/SCIM.yaml
-//  - pkg/options/SMTP.yaml
-//  - pkg/options/actionLog.yaml
-//  - pkg/options/apigw.yaml
-//  - pkg/options/auth.yaml
-//  - pkg/options/corredor.yaml
-//  - pkg/options/environment.yaml
-//  - pkg/options/eventbus.yaml
-//  - pkg/options/federation.yaml
-//  - pkg/options/limit.yaml
-//  - pkg/options/locale.yaml
-//  - pkg/options/log.yaml
-//  - pkg/options/messagebus.yaml
-//  - pkg/options/monitor.yaml
-//  - pkg/options/objectStore.yaml
-//  - pkg/options/plugins.yaml
-//  - pkg/options/provision.yaml
-//  - pkg/options/seeder.yaml
-//  - pkg/options/sentry.yaml
-//  - pkg/options/template.yaml
-//  - pkg/options/upgrade.yaml
-//  - pkg/options/waitFor.yaml
-//  - pkg/options/websocket.yaml
-//  - pkg/options/workflow.yaml
+
 include::ROOT:partial$variables.adoc[]
-
-
 = Connection to data store backend
 
 == *DB_DSN*
@@ -43,18 +11,34 @@ include::ROOT:partial$variables.adoc[]
 
 `string`
 
+
 === Default
 
 [source]
 ----
-"sqlite3://file::memory:?cache=shared&mode=memory"
+sqlite3://file::memory:?cache=shared&mode=memory
 ----
-
 === Description
 
 Database connection string.
-
 = HTTP Client
+
+== *HTTP_CLIENT_TIMEOUT*
+
+=== Type
+
+`time.Duration`
+
+
+=== Default
+
+[source]
+----
+30s
+----
+=== Description
+
+Default timeout for clients.
 
 == *HTTP_CLIENT_TLS_INSECURE*
 
@@ -62,12 +46,6 @@ Database connection string.
 
 `bool`
 
-=== Default
-
-[source]
-----
-false
-----
 
 === Description
 
@@ -77,24 +55,6 @@ Allow insecure (invalid, expired TLS/SSL certificates) connections.
 ====
 We strongly recommend keeping this value set to false except for local development or demos.
 ====
-
-== *HTTP_CLIENT_TIMEOUT*
-
-=== Type
-
-`time.Duration`
-
-=== Default
-
-[source]
-----
-30 * time.Second
-----
-
-=== Description
-
-Default timeout for clients.
-
 = HTTP Server
 
 == *HTTP_ADDR*
@@ -103,16 +63,123 @@ Default timeout for clients.
 
 `string`
 
+
 === Default
 
 [source]
 ----
-":80"
+:80
 ----
-
 === Description
 
 IP and port for the HTTP server.
+
+== *HTTP_API_BASE_URL*
+
+=== Type
+
+`string`
+
+
+=== Default
+
+[source]
+----
+/
+----
+=== Description
+
+When webapps are enabled (HTTP_WEBAPP_ENABLED) this is moved to '/api' if not explicitly set otherwise.
+API base URL is internaly prefixed with baseUrl
+
+== *HTTP_API_ENABLED*
+
+=== Type
+
+`bool`
+
+
+
+== *HTTP_SERVER_ASSETS_PATH*
+
+=== Type
+
+`string`
+
+
+=== Description
+
+Corteza will directly serve these assets (static files).
+When empty path is set (default value), embedded files are used.
+
+== *HTTP_BASE_URL*
+
+=== Type
+
+`string`
+
+
+=== Default
+
+[source]
+----
+/
+----
+=== Description
+
+Base URL (prefix) for all routes (<baseUrl>/auth, <baseUrl>/api, ...)
+
+== *HTTP_ENABLE_DEBUG_ROUTE*
+
+=== Type
+
+`bool`
+
+
+=== Description
+
+Enable `/debug` route.
+
+== *HTTP_ENABLE_HEALTHCHECK_ROUTE*
+
+=== Type
+
+`bool`
+
+
+
+== *HTTP_METRICS*
+
+=== Type
+
+`bool`
+
+
+=== Description
+
+Enable (prometheus) metrics.
+
+== *HTTP_REPORT_PANIC*
+
+=== Type
+
+`bool`
+
+
+=== Description
+
+Report HTTP panic to Sentry.
+
+== *HTTP_ENABLE_VERSION_ROUTE*
+
+=== Type
+
+`bool`
+
+
+=== Description
+
+Enable `/version` route.
 
 == *HTTP_LOG_REQUEST*
 
@@ -120,12 +187,6 @@ IP and port for the HTTP server.
 
 `bool`
 
-=== Default
-
-[source]
-----
-false
-----
 
 === Description
 
@@ -137,95 +198,21 @@ Log HTTP requests.
 
 `bool`
 
-=== Default
-
-[source]
-----
-false
-----
 
 === Description
 
 Log HTTP responses.
 
-== *HTTP_ERROR_TRACING*
+== *HTTP_METRICS_PASSWORD*
 
 === Type
 
-`bool`
+`string`
 
-=== Default
-
-[source]
-----
-false
-----
-
-
-== *HTTP_ENABLE_HEALTHCHECK_ROUTE*
-
-=== Type
-
-`bool`
-
-=== Default
-
-[source]
-----
-true
-----
-
-
-== *HTTP_ENABLE_VERSION_ROUTE*
-
-=== Type
-
-`bool`
-
-=== Default
-
-[source]
-----
-true
-----
 
 === Description
 
-Enable `/version` route.
-
-== *HTTP_ENABLE_DEBUG_ROUTE*
-
-=== Type
-
-`bool`
-
-=== Default
-
-[source]
-----
-false
-----
-
-=== Description
-
-Enable `/debug` route.
-
-== *HTTP_METRICS*
-
-=== Type
-
-`bool`
-
-=== Default
-
-[source]
-----
-false
-----
-
-=== Description
-
-Enable (prometheus) metrics.
+Password for the metrics endpoint.
 
 == *HTTP_METRICS_NAME*
 
@@ -233,13 +220,13 @@ Enable (prometheus) metrics.
 
 `string`
 
+
 === Default
 
 [source]
 ----
-"corteza"
+corteza
 ----
-
 === Description
 
 Name for metrics endpoint.
@@ -250,130 +237,78 @@ Name for metrics endpoint.
 
 `string`
 
+
 === Default
 
 [source]
 ----
-"metrics"
+metrics
 ----
-
 === Description
 
 Username for the metrics endpoint.
 
-== *HTTP_METRICS_PASSWORD*
-
-=== Type
-
-`string`
-
-=== Default
-
-[source]
-----
-string(rand.Bytes(5))
-----
-
-=== Description
-
-Password for the metrics endpoint.
-
-== *HTTP_REPORT_PANIC*
+== *HTTP_SSL_TERMINATED*
 
 === Type
 
 `bool`
 
-=== Default
-
-[source]
-----
-true
-----
 
 === Description
 
-Report HTTP panic to Sentry.
+Is SSL termination enabled in ingres, proxy or load balancer that is in front of Corteza?
+By default, Corteza checks for presence of LETSENCRYPT_HOST environmental variable.
+This DOES NOT enable SSL termination in Cortreza!
 
-== *HTTP_BASE_URL*
-
-=== Type
-
-`string`
-
-=== Default
-
-[source]
-----
-"/"
-----
-
-=== Description
-
-Base URL (prefix) for all routes (<baseUrl>/auth, <baseUrl>/api, ...)
-
-== *HTTP_API_ENABLED*
+== *HTTP_ERROR_TRACING*
 
 === Type
 
 `bool`
 
-=== Default
-
-[source]
-----
-true
-----
 
 
-== *HTTP_API_BASE_URL*
-
-=== Type
-
-`string`
-
-=== Default
-
-[source]
-----
-"/"
-----
-
-=== Description
-
-When webapps are enabled (HTTP_WEBAPP_ENABLED) this is moved to '/api' if not explicitly set otherwise.
-API base URL is internaly prefixed with baseUrl
-
-== *HTTP_WEBAPP_ENABLED*
+== *HTTP_SERVER_WEB_CONSOLE_ENABLED*
 
 === Type
 
 `bool`
 
-=== Default
 
-[source]
-----
-false
-----
+=== Description
 
+Enable web console. When running in dev environment, web console is enabled by default.
 
-== *HTTP_WEBAPP_BASE_URL*
+== *HTTP_SERVER_WEB_CONSOLE_PASSWORD*
 
 === Type
 
 `string`
 
+
+=== Description
+
+Password for the web console endpoint. When running in dev environment, password is not required.
+
+Corteza intentionally sets default password to random chars to prevent security incidents.
+
+== *HTTP_SERVER_WEB_CONSOLE_USERNAME*
+
+=== Type
+
+`string`
+
+
 === Default
 
 [source]
 ----
-"/"
+admin
 ----
-
 === Description
 
-Webapp base URL is internaly prefixed with baseUrl
+Username for the web console endpoint.
 
 == *HTTP_WEBAPP_BASE_DIR*
 
@@ -381,12 +316,37 @@ Webapp base URL is internaly prefixed with baseUrl
 
 `string`
 
+
 === Default
 
 [source]
 ----
-"./webapp/public"
+./webapp/public
 ----
+
+== *HTTP_WEBAPP_BASE_URL*
+
+=== Type
+
+`string`
+
+
+=== Default
+
+[source]
+----
+/
+----
+=== Description
+
+Webapp base URL is internaly prefixed with baseUrl
+
+== *HTTP_WEBAPP_ENABLED*
+
+=== Type
+
+`bool`
+
 
 
 == *HTTP_WEBAPP_LIST*
@@ -395,40 +355,79 @@ Webapp base URL is internaly prefixed with baseUrl
 
 `string`
 
+
 === Default
 
 [source]
 ----
-"admin,compose,workflow,reporter"
+admin,compose,workflow,reporter
 ----
+= RBAC options
 
-
-== *HTTP_SSL_TERMINATED*
+== *RBAC_ANONYMOUS_ROLES*
 
 === Type
 
-`bool`
+`string`
+
 
 === Default
 
 [source]
 ----
-isSecure()
+anonymous
 ----
-
 === Description
 
-Is SSL termination enabled in ingres, proxy or load balancer that is in front of Corteza?
-By default, Corteza checks for presence of LETSENCRYPT_HOST environmental variable.
-This DOES NOT enable SSL termination in Cortreza!
+Space delimited list of role handles.
+These roles are automatically assigned to anonymous user.
+Memberships can not be managed for these roles.
 
-= RBAC options
+== *RBAC_AUTHENTICATED_ROLES*
+
+=== Type
+
+`string`
+
+
+=== Default
+
+[source]
+----
+authenticated
+----
+=== Description
+
+Space delimited list of role handles.
+These roles are automatically assigned to authenticated user.
+Memberships can not be managed for these roles.
+System will refuse to start if roles listed here are also listed under anonymous roles
+
+== *RBAC_BYPASS_ROLES*
+
+=== Type
+
+`string`
+
+
+=== Default
+
+[source]
+----
+super-admin
+----
+=== Description
+
+Space delimited list of role handles.
+These roles causes short-circuiting access control check and allowing all operations.
+System will refuse to start if check-bypassing roles are also listed as authenticated or anonymous auto-assigned roles.
 
 == *RBAC_LOG*
 
 === Type
 
 `bool`
+
 
 === Description
 
@@ -441,75 +440,7 @@ Log RBAC related events and actions
 `string`
 
 
-== *RBAC_BYPASS_ROLES*
-
-=== Type
-
-`string`
-
-=== Default
-
-[source]
-----
-"super-admin"
-----
-
-=== Description
-
-Space delimited list of role handles.
-These roles causes short-circuiting access control check and allowing all operations.
-System will refuse to start if check-bypassing roles are also listed as authenticated or anonymous auto-assigned roles.
-
-== *RBAC_AUTHENTICATED_ROLES*
-
-=== Type
-
-`string`
-
-=== Default
-
-[source]
-----
-"authenticated"
-----
-
-=== Description
-
-Space delimited list of role handles.
-These roles are automatically assigned to authenticated user.
-Memberships can not be managed for these roles.
-System will refuse to start if roles listed here are also listed under anonymous roles
-
-== *RBAC_ANONYMOUS_ROLES*
-
-=== Type
-
-`string`
-
-=== Default
-
-[source]
-----
-"anonymous"
-----
-
-=== Description
-
-Space delimited list of role handles.
-These roles are automatically assigned to anonymous user.
-Memberships can not be managed for these roles.
-
 = SCIM Server
-
-== *SCIM_ENABLED*
-
-=== Type
-
-`bool`
-
-=== Description
-
-Enable SCIM subsystem
 
 == *SCIM_BASE_URL*
 
@@ -517,32 +448,34 @@ Enable SCIM subsystem
 
 `string`
 
+
 === Default
 
 [source]
 ----
-"/scim"
+/scim
 ----
-
 === Description
 
 Prefix for SCIM API endpoints
 
-== *SCIM_SECRET*
+== *SCIM_ENABLED*
 
 === Type
 
-`string`
+`bool`
+
 
 === Description
 
-Secret to use to validate requests on SCIM API endpoints
+Enable SCIM subsystem
 
 == *SCIM_EXTERNAL_ID_AS_PRIMARY*
 
 === Type
 
 `bool`
+
 
 === Description
 
@@ -554,128 +487,109 @@ Use external IDs in SCIM API endpoints
 
 `string`
 
+
 === Default
 
 [source]
 ----
-"^[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}$"
+^[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}$
 ----
-
 === Description
 
 Validates format of external IDs. Defaults to UUID
 
+== *SCIM_SECRET*
+
+=== Type
+
+`string`
+
+
+=== Description
+
+Secret to use to validate requests on SCIM API endpoints
 = Email sending
 
-Configure your local SMTP server or use one of the available providers.
-
-These values are copied to settings when the server starts and can be managed from the administration console.
-We recommend you remove these values after they are copied to settings.
-If server detects difference between these options and settings, it shows a warning in the log on server start.
-
-== *SMTP_HOST*
+== *SMPT_FROM*
 
 === Type
 
 `string`
 
-=== Default
-
-[source]
-----
-"localhost"
-----
-
-=== Description
-
-The SMTP server hostname.
-
-== *SMTP_PORT*
-
-=== Type
-
-`int`
-
-=== Default
-
-[source]
-----
-25
-----
-
-=== Description
-
-The SMTP post.
-
-== *SMTP_USER*
-
-=== Type
-
-`string`
-
-=== Description
-
-The SMTP username.
-
-== *SMTP_PASS*
-
-=== Type
-
-`string`
-
-=== Description
-
-The SMTP password.
-
-== *SMTP_FROM*
-
-=== Type
-
-`string`
 
 === Description
 
 The SMTP `from` email parameter
 
-== *SMTP_TLS_INSECURE*
-
-=== Type
-
-`bool`
-
-=== Default
-
-[source]
-----
-false
-----
-
-=== Description
-
-Allow insecure (invalid, expired TLS certificates) connections.
-
-== *SMTP_TLS_SERVER_NAME*
+== *SMPT_HOST*
 
 === Type
 
 `string`
 
 
-= Actionlog
+=== Default
 
-== *ACTIONLOG_ENABLED*
+[source]
+----
+localhost
+----
+=== Description
+
+The SMTP server hostname.
+
+== *SMPT_PASS*
+
+=== Type
+
+`string`
+
+
+=== Description
+
+The SMTP password.
+
+== *SMPT_PORT*
+
+=== Type
+
+`int`
+
+
+=== Description
+
+The SMTP post.
+
+== *SMPT_TLS_INSECURE*
 
 === Type
 
 `bool`
 
-=== Default
 
-[source]
-----
-true
-----
+=== Description
 
+Allow insecure (invalid, expired TLS certificates) connections.
+
+== *SMPT_TLS_SERVER_NAME*
+
+=== Type
+
+`string`
+
+
+
+== *SMPT_USER*
+
+=== Type
+
+`string`
+
+
+=== Description
+
+The SMTP username.
+= Actionlog
 
 == *ACTIONLOG_DEBUG*
 
@@ -683,12 +597,14 @@ true
 
 `bool`
 
-=== Default
 
-[source]
-----
-false
-----
+
+== *ACTIONLOG_ENABLED*
+
+=== Type
+
+`bool`
+
 
 
 == *ACTIONLOG_WORKFLOW_FUNCTIONS_ENABLED*
@@ -697,32 +613,8 @@ false
 
 `bool`
 
-=== Default
-
-[source]
-----
-false
-----
-
 
 = API Gateway
-
-== *APIGW_ENABLED*
-
-=== Type
-
-`bool`
-
-=== Default
-
-[source]
-----
-true
-----
-
-=== Description
-
-Enable API Gateway
 
 == *APIGW_DEBUG*
 
@@ -730,16 +622,21 @@ Enable API Gateway
 
 `bool`
 
-=== Default
-
-[source]
-----
-false
-----
 
 === Description
 
 Enable API Gateway debugging info
+
+== *APIGW_ENABLED*
+
+=== Type
+
+`bool`
+
+
+=== Description
+
+Enable API Gateway
 
 == *APIGW_LOG_ENABLED*
 
@@ -747,12 +644,6 @@ Enable API Gateway debugging info
 
 `bool`
 
-=== Default
-
-[source]
-----
-false
-----
 
 === Description
 
@@ -764,12 +655,6 @@ Enable extra logging
 
 `bool`
 
-=== Default
-
-[source]
-----
-false
-----
 
 === Description
 
@@ -781,12 +666,6 @@ Enable incoming request body output in logs
 
 `bool`
 
-=== Default
-
-[source]
-----
-false
-----
 
 === Description
 
@@ -798,12 +677,6 @@ Enable full debug log on requests / responses - warning, includes sensitive data
 
 `bool`
 
-=== Default
-
-[source]
-----
-true
-----
 
 === Description
 
@@ -815,74 +688,17 @@ Follow redirects on proxy requests
 
 `time.Duration`
 
+
 === Default
 
 [source]
 ----
-time.Second * 30
+30s
 ----
-
 === Description
 
 Outbound request timeout
-
 = Authentication
-
-== *AUTH_LOG_ENABLED*
-
-=== Type
-
-`bool`
-
-=== Description
-
-Enable extra logging for authentication flows
-
-== *AUTH_PASSWORD_SECURITY*
-
-=== Type
-
-`bool`
-
-=== Default
-
-[source]
-----
-true
-----
-
-=== Description
-
-Password security allows you to disable constraints to which passwords must conform to.
-
-[CAUTION]
-====
-Disabling password security can be useful for development environments as it removes the need for complex passwords.
-Password security *should be enabled* on production environments to avoid security incidents
-====
-
-== *AUTH_JWT_SECRET*
-
-=== Type
-
-`string`
-
-=== Default
-
-[source]
-----
-getSecretFromEnv("jwt secret")
-----
-
-=== Description
-
-Secret used for signing JWT tokens.
-
-[IMPORTANT]
-====
-If secret is not set, system auto-generates one from DB_DSN and HOSTNAME environment variables.
-Generated secret will change if you change any of these variables.
-====
 
 == *AUTH_OAUTH2_ACCESS_TOKEN_LIFETIME*
 
@@ -890,92 +706,31 @@ Generated secret will change if you change any of these variables.
 
 `time.Duration`
 
+
 === Default
 
 [source]
 ----
-time.Hour * 2
+2h
 ----
-
 === Description
 
 Access token lifetime
 
-== *AUTH_OAUTH2_REFRESH_TOKEN_LIFETIME*
-
-=== Type
-
-`time.Duration`
-
-=== Default
-
-[source]
-----
-time.Hour * 24 * 3
-----
-
-=== Description
-
-Refresh token lifetime
-
-== *AUTH_JWT_EXPIRY*
-
-=== Type
-
-`time.Duration`
-
-=== Default
-
-[source]
-----
-time.Hour * 24 * 30
-----
-
-=== Description
-
-Experation time for the auth JWT tokens.
-
-== *AUTH_EXTERNAL_REDIRECT_URL*
+== *AUTH_ASSETS_PATH*
 
 === Type
 
 `string`
 
-=== Default
-
-[source]
-----
-fullURL("/auth/external/{provider}/callback")
-----
 
 === Description
 
-Redirect URL to be sent with OAuth2 authentication request to provider
+Path to js, css, images and template source files
 
-`provider` placeholder is replaced with the actual value when used.
+When corteza starts, if path exists it tries to load template files from it.
 
-== *AUTH_EXTERNAL_COOKIE_SECRET*
-
-=== Type
-
-`string`
-
-=== Default
-
-[source]
-----
-getSecretFromEnv("external cookie secret")
-----
-
-=== Description
-
-Secret used for securing cookies
-
-[IMPORTANT]
-====
-If secret is not set, system auto-generates one from DB_DSN and HOSTNAME environment variables.
-Generated secret will change if you change any of these variables.
-====
+When empty path is set (default value), embedded files are used.
 
 == *AUTH_BASE_URL*
 
@@ -983,194 +738,28 @@ Generated secret will change if you change any of these variables.
 
 `string`
 
-=== Default
-
-[source]
-----
-fullURL("/auth")
-----
 
 === Description
 
 Frontend base URL. Must be an absolute URL, with the domain.
 This is used for some redirects and links in auth emails.
 
-== *AUTH_SESSION_COOKIE_NAME*
+== *AUTH_CSRF_COOKIE_NAME*
 
 === Type
 
 `string`
 
-=== Default
-
-[source]
-----
-"session"
-----
-
-=== Description
-
-Session cookie name
-
-== *AUTH_SESSION_COOKIE_PATH*
-
-=== Type
-
-`string`
 
 === Default
 
 [source]
 ----
-pathPrefix("/auth")
+same-site-authenticity-token
 ----
-
 === Description
 
-Session cookie path
-
-== *AUTH_SESSION_COOKIE_DOMAIN*
-
-=== Type
-
-`string`
-
-=== Default
-
-[source]
-----
-guessHostname()
-----
-
-=== Description
-
-Session cookie domain
-
-== *AUTH_SESSION_COOKIE_SECURE*
-
-=== Type
-
-`bool`
-
-=== Default
-
-[source]
-----
-isSecure()
-----
-
-=== Description
-
-Defaults to true when HTTPS is used. Corteza will try to guess the this setting by
-
-== *AUTH_SESSION_LIFETIME*
-
-=== Type
-
-`time.Duration`
-
-=== Default
-
-[source]
-----
-24 * time.Hour
-----
-
-=== Description
-
-How long do we keep the temporary session
-
-== *AUTH_SESSION_PERM_LIFETIME*
-
-=== Type
-
-`time.Duration`
-
-=== Default
-
-[source]
-----
-360 * 24 * time.Hour
-----
-
-=== Description
-
-How long do we keep the permanent session
-
-== *AUTH_GARBAGE_COLLECTOR_INTERVAL*
-
-=== Type
-
-`time.Duration`
-
-=== Default
-
-[source]
-----
-15 * time.Minute
-----
-
-=== Description
-
-How often are expired sessions and tokens purged from the database
-
-== *AUTH_REQUEST_RATE_LIMIT*
-
-=== Type
-
-`int`
-
-=== Default
-
-[source]
-----
-60
-----
-
-=== Description
-
-How many requests from a cerain IP address are allowed in a time window.
-Set to zero to disable
-
-== *AUTH_REQUEST_RATE_WINDOW_LENGTH*
-
-=== Type
-
-`time.Duration`
-
-=== Default
-
-[source]
-----
-time.Minute
-----
-
-=== Description
-
-How many requests from a cerain IP address are allowed in a time window
-
-== *AUTH_CSRF_SECRET*
-
-=== Type
-
-`string`
-
-=== Default
-
-[source]
-----
-getSecretFromEnv("csrf secret")
-----
-
-=== Description
-
-Secret used for securing CSRF protection
-
-[IMPORTANT]
-====
-If secret is not set, system auto-generates one from DB_DSN and HOSTNAME environment variables.
-Generated secret will change if you change any of these variables.
-====
+Cookie name used for CSRF protection
 
 == *AUTH_CSRF_ENABLED*
 
@@ -1178,12 +767,6 @@ Generated secret will change if you change any of these variables.
 
 `bool`
 
-=== Default
-
-[source]
-----
-true
-----
 
 === Description
 
@@ -1195,33 +778,33 @@ Enable CSRF protection
 
 `string`
 
+
 === Default
 
 [source]
 ----
-"same-site-authenticity-token"
+same-site-authenticity-token
 ----
-
 === Description
 
 Form field name used for CSRF protection
 
-== *AUTH_CSRF_COOKIE_NAME*
+== *AUTH_CSRF_SECRET*
 
 === Type
 
 `string`
 
-=== Default
-
-[source]
-----
-"same-site-authenticity-token"
-----
 
 === Description
 
-Cookie name used for CSRF protection
+Secret used for securing CSRF protection
+
+[IMPORTANT]
+====
+If secret is not set, system auto-generates one from DB_DSN and HOSTNAME environment variables.
+Generated secret will change if you change any of these variables.
+====
 
 == *AUTH_DEFAULT_CLIENT*
 
@@ -1229,13 +812,13 @@ Cookie name used for CSRF protection
 
 `string`
 
+
 === Default
 
 [source]
 ----
-"corteza-webapp"
+corteza-webapp
 ----
-
 === Description
 
 Handle for OAuth2 client used for automatic redirect from /auth/oauth2/go endpoint.
@@ -1244,33 +827,12 @@ This simplifies configuration for OAuth2 flow for Corteza Web applications as it
 the need to suply redirection URL and client ID (oauth2/go endpoint does that internally)
 
 
-== *AUTH_ASSETS_PATH*
-
-=== Type
-
-`string`
-
-=== Default
-
-[source]
-----
-""
-----
-
-=== Description
-
-Path to js, css, images and template source files
-
-When corteza starts, if path exists it tries to load template files from it.
-If not it uses statically embedded files.
-
-When empty path is set (default value), embedded files are used.
-
 == *AUTH_DEVELOPMENT_MODE*
 
 === Type
 
 `bool`
+
 
 === Description
 
@@ -1279,24 +841,251 @@ Enable this for debugging or when developing auth templates.
 
 Should be disabled in production where templates do not change between server restarts.
 
-= Connection to Corredor
-
-== *CORREDOR_ENABLED*
+== *AUTH_JWT_EXPIRY*
 
 === Type
 
-`bool`
+`time.Duration`
+
 
 === Default
 
 [source]
 ----
-false
+720h
 ----
+=== Description
+
+Expiration time for the auth JWT tokens.
+
+== *AUTH_EXTERNAL_COOKIE_SECRET*
+
+=== Type
+
+`string`
+
 
 === Description
 
-Enable/disable Corredor integration
+Secret used for securing cookies
+
+[IMPORTANT]
+====
+If secret is not set, system auto-generates one from DB_DSN and HOSTNAME environment variables.
+Generated secret will change if you change any of these variables.
+====
+
+== *AUTH_EXTERNAL_REDIRECT_URL*
+
+=== Type
+
+`string`
+
+
+=== Description
+
+Redirect URL to be sent with OAuth2 authentication request to provider
+
+`provider` placeholder is replaced with the actual value when used.
+
+== *AUTH_GARBAGE_COLLECTOR_INTERVAL*
+
+=== Type
+
+`time.Duration`
+
+
+=== Default
+
+[source]
+----
+15min
+----
+=== Description
+
+How often are expired sessions and tokens purged from the database
+
+== *AUTH_LOG_ENABLED*
+
+=== Type
+
+`bool`
+
+
+=== Description
+
+Enable extra logging for authentication flows
+
+== *AUTH_PASSWORD_SECURITY*
+
+=== Type
+
+`bool`
+
+
+=== Description
+
+Password security allows you to disable constraints to which passwords must conform to.
+
+[CAUTION]
+====
+Disabling password security can be useful for development environments as it removes the need for complex passwords.
+Password security *should be enabled* on production environments to avoid security incidents
+====
+
+== *AUTH_OAUTH2_REFRESH_TOKEN_LIFETIME*
+
+=== Type
+
+`time.Duration`
+
+
+=== Default
+
+[source]
+----
+72h
+----
+=== Description
+
+Refresh token lifetime
+
+== *AUTH_REQUEST_RATE_LIMIT*
+
+=== Type
+
+`int`
+
+
+=== Default
+
+[source]
+----
+60
+----
+=== Description
+
+How many requests from a cerain IP address are allowed in a time window.
+Set to zero to disable
+
+== *AUTH_REQUEST_RATE_WINDOW_LENGTH*
+
+=== Type
+
+`time.Duration`
+
+
+=== Default
+
+[source]
+----
+1m
+----
+=== Description
+
+How many requests from a cerain IP address are allowed in a time window
+
+== *AUTH_JWT_SECRET*
+
+=== Type
+
+`string`
+
+
+=== Description
+
+Secret used for signing JWT tokens.
+
+[IMPORTANT]
+====
+If secret is not set, system auto-generates one from DB_DSN and HOSTNAME environment variables.
+Generated secret will change if you change any of these variables.
+====
+
+== *AUTH_SESSION_COOKIE_DOMAIN*
+
+=== Type
+
+`string`
+
+
+=== Description
+
+Session cookie domain
+
+== *AUTH_SESSION_COOKIE_NAME*
+
+=== Type
+
+`string`
+
+
+=== Default
+
+[source]
+----
+session
+----
+=== Description
+
+Session cookie name
+
+== *AUTH_SESSION_COOKIE_PATH*
+
+=== Type
+
+`string`
+
+
+=== Description
+
+Session cookie path
+
+== *AUTH_SESSION_COOKIE_SECURE*
+
+=== Type
+
+`bool`
+
+
+=== Description
+
+Defaults to true when HTTPS is used. Corteza will try to guess the this setting by
+
+== *AUTH_SESSION_LIFETIME*
+
+=== Type
+
+`time.Duration`
+
+
+=== Default
+
+[source]
+----
+24h
+----
+=== Description
+
+How long do we keep the temporary session
+
+== *AUTH_SESSION_PERM_LIFETIME*
+
+=== Type
+
+`time.Duration`
+
+
+=== Default
+
+[source]
+----
+8640h
+----
+=== Description
+
+How long do we keep the permanent session
+= Connection to Corredor
 
 == *CORREDOR_ADDR*
 
@@ -1304,16 +1093,57 @@ Enable/disable Corredor integration
 
 `string`
 
+
 === Default
 
 [source]
 ----
-"localhost:50051"
+localhost:50051
 ----
-
 === Description
 
 Hostname and port of the Corredor gRPC server.
+
+== *CORREDOR_DEFAULT_EXEC_TIMEOUT*
+
+=== Type
+
+`time.Duration`
+
+
+
+== *CORREDOR_ENABLED*
+
+=== Type
+
+`bool`
+
+
+=== Description
+
+Enable/disable Corredor integration
+
+== *CORREDOR_LIST_REFRESH*
+
+=== Type
+
+`time.Duration`
+
+
+
+== *CORREDOR_LIST_TIMEOUT*
+
+=== Type
+
+`time.Duration`
+
+
+=== Default
+
+[source]
+----
+2s
+----
 
 == *CORREDOR_MAX_BACKOFF_DELAY*
 
@@ -1321,13 +1151,13 @@ Hostname and port of the Corredor gRPC server.
 
 `time.Duration`
 
+
 === Default
 
 [source]
 ----
-time.Minute
+1m
 ----
-
 === Description
 
 Max delay for backoff on connection.
@@ -1338,58 +1168,10 @@ Max delay for backoff on connection.
 
 `int`
 
-=== Default
-
-[source]
-----
-2 << 23
-----
 
 === Description
 
 Max message size that can be recived.
-
-== *CORREDOR_DEFAULT_EXEC_TIMEOUT*
-
-=== Type
-
-`time.Duration`
-
-=== Default
-
-[source]
-----
-time.Minute
-----
-
-
-== *CORREDOR_LIST_TIMEOUT*
-
-=== Type
-
-`time.Duration`
-
-=== Default
-
-[source]
-----
-time.Second * 2
-----
-
-
-== *CORREDOR_LIST_REFRESH*
-
-=== Type
-
-`time.Duration`
-
-=== Default
-
-[source]
-----
-time.Second * 5
-----
-
 
 == *CORREDOR_RUN_AS_ENABLED*
 
@@ -1397,40 +1179,6 @@ time.Second * 5
 
 `bool`
 
-=== Default
-
-[source]
-----
-true
-----
-
-
-== *CORREDOR_CLIENT_CERTIFICATES_ENABLED*
-
-=== Type
-
-`bool`
-
-=== Default
-
-[source]
-----
-false
-----
-
-
-== *CORREDOR_CLIENT_CERTIFICATES_PATH*
-
-=== Type
-
-`string`
-
-=== Default
-
-[source]
-----
-"/certs/corredor/client"
-----
 
 
 == *CORREDOR_CLIENT_CERTIFICATES_CA*
@@ -1439,13 +1187,35 @@ false
 
 `string`
 
+
 === Default
 
 [source]
 ----
-"ca.crt"
+ca.crt
 ----
 
+== *CORREDOR_CLIENT_CERTIFICATES_ENABLED*
+
+=== Type
+
+`bool`
+
+
+
+== *CORREDOR_CLIENT_CERTIFICATES_PATH*
+
+=== Type
+
+`string`
+
+
+=== Default
+
+[source]
+----
+/certs/corredor/client
+----
 
 == *CORREDOR_CLIENT_CERTIFICATES_PRIVATE*
 
@@ -1453,13 +1223,13 @@ false
 
 `string`
 
+
 === Default
 
 [source]
 ----
-"private.key"
+private.key
 ----
-
 
 == *CORREDOR_CLIENT_CERTIFICATES_PUBLIC*
 
@@ -1467,13 +1237,13 @@ false
 
 `string`
 
+
 === Default
 
 [source]
 ----
-"public.crt"
+public.crt
 ----
-
 
 == *CORREDOR_CLIENT_CERTIFICATES_SERVER_NAME*
 
@@ -1490,14 +1260,13 @@ false
 
 `string`
 
+
 === Default
 
 [source]
 ----
-"production"
+production
 ----
-
-
 = Events and scheduler
 
 == *EVENTBUS_SCHEDULER_ENABLED*
@@ -1506,16 +1275,10 @@ false
 
 `bool`
 
-=== Default
-
-[source]
-----
-true
-----
 
 === Description
 
-Enable eventbus sheduler.
+Enable eventbus scheduler.
 
 == *EVENTBUS_SCHEDULER_INTERVAL*
 
@@ -1523,103 +1286,17 @@ Enable eventbus sheduler.
 
 `time.Duration`
 
+
 === Default
 
 [source]
 ----
-time.Minute
+60s
 ----
-
 === Description
 
 Set time interval for `eventbus` scheduler.
-
 = federation
-
-== *FEDERATION_ENABLED*
-
-=== Type
-
-`bool`
-
-=== Default
-
-[source]
-----
-false
-----
-
-=== Description
-
-Federation enabled on system, it toggles rest API endpoints, possibility to map modules in Compose and sync itself
-
-== *FEDERATION_LABEL*
-
-=== Type
-
-`string`
-
-=== Default
-
-[source]
-----
-"Federation label"
-----
-
-=== Description
-
-Federation label
-
-== *FEDERATION_HOST*
-
-=== Type
-
-`string`
-
-=== Default
-
-[source]
-----
-"local.cortezaproject.org"
-----
-
-=== Description
-
-Host that is used during node pairing, also included in invitation
-
-== *FEDERATION_SYNC_STRUCTURE_MONITOR_INTERVAL*
-
-=== Type
-
-`time.Duration`
-
-=== Default
-
-[source]
-----
-time.Minute * 2
-----
-
-=== Description
-
-Delay in seconds for structure sync
-
-== *FEDERATION_SYNC_STRUCTURE_PAGE_SIZE*
-
-=== Type
-
-`int`
-
-=== Default
-
-[source]
-----
-1
-----
-
-=== Description
-
-Bulk size in fetching for structure sync
 
 == *FEDERATION_SYNC_DATA_MONITOR_INTERVAL*
 
@@ -1627,13 +1304,13 @@ Bulk size in fetching for structure sync
 
 `time.Duration`
 
+
 === Default
 
 [source]
 ----
-time.Second * 60
+1m
 ----
-
 === Description
 
 Delay in seconds for data sync
@@ -1644,17 +1321,95 @@ Delay in seconds for data sync
 
 `int`
 
+
 === Default
 
 [source]
 ----
 100
 ----
-
 === Description
 
 Bulk size in fetching for data sync
 
+== *FEDERATION_ENABLED*
+
+=== Type
+
+`bool`
+
+
+=== Description
+
+Federation enabled on system, it toggles rest API endpoints, possibility to map modules in Compose and sync itself
+
+== *FEDERATION_HOST*
+
+=== Type
+
+`string`
+
+
+=== Default
+
+[source]
+----
+local.cortezaproject.org
+----
+=== Description
+
+Host that is used during node pairing, also included in invitation
+
+== *FEDERATION_LABEL*
+
+=== Type
+
+`string`
+
+
+=== Default
+
+[source]
+----
+federated
+----
+=== Description
+
+Federation label
+
+== *FEDERATION_SYNC_STRUCTURE_MONITOR_INTERVAL*
+
+=== Type
+
+`time.Duration`
+
+
+=== Default
+
+[source]
+----
+2m
+----
+=== Description
+
+Delay in seconds for structure sync
+
+== *FEDERATION_SYNC_STRUCTURE_PAGE_SIZE*
+
+=== Type
+
+`int`
+
+
+=== Default
+
+[source]
+----
+1
+----
+=== Description
+
+Bulk size in fetching for structure sync
 = Limits
 
 == *LIMIT_SYSTEM_USERS*
@@ -1663,11 +1418,23 @@ Bulk size in fetching for data sync
 
 `int`
 
+
 === Description
 
 Maximum number of valid (not deleted, not suspended) users
-
 = locale
+
+== *LOCALE_DEVELOPMENT_MODE*
+
+=== Type
+
+`bool`
+
+
+=== Description
+
+When enabled, Corteza reloads language files on every request
+Enable this for debugging or developing.
 
 == *LOCALE_LANGUAGES*
 
@@ -1675,13 +1442,13 @@ Maximum number of valid (not deleted, not suspended) users
 
 `string`
 
+
 === Default
 
 [source]
 ----
-"en"
+en
 ----
-
 === Description
 
 List of compa delimited languages (language tags) to enable.
@@ -1690,11 +1457,23 @@ In case when an enabled language can not be loaded, error is logged.
 When loading language configurations (config.xml) from the configured path(s).
 
 
+== *LOCALE_LOG*
+
+=== Type
+
+`bool`
+
+
+=== Description
+
+Log locale related events and actions
+
 == *LOCALE_PATH*
 
 === Type
 
 `string`
+
 
 === Description
 
@@ -1706,13 +1485,13 @@ One or more paths to locale config and translation files, separated by colon
 
 `string`
 
+
 === Default
 
 [source]
 ----
-"lng"
+lng
 ----
-
 === Description
 
 Name of the query string parameter used to pass the language tag (it overrides Accept-Language header).
@@ -1726,31 +1505,10 @@ This parameter is ignored if only one language is enabled
 
 `bool`
 
+
 === Description
 
 When enabled, Corteza all
-
-== *LOCALE_LOG*
-
-=== Type
-
-`bool`
-
-=== Description
-
-Log locale related events and actions
-
-== *LOCALE_DEVELOPMENT_MODE*
-
-=== Type
-
-`bool`
-
-=== Description
-
-When enabled, Corteza reloads language files on every request
-Enable this for debugging or developing.
-
 = log
 
 == *LOG_DEBUG*
@@ -1759,6 +1517,7 @@ Enable this for debugging or developing.
 
 `bool`
 
+
 === Description
 
 Disables JSON format for logging and enables more human-readable output with colors.
@@ -1766,34 +1525,12 @@ Disables JSON format for logging and enables more human-readable output with col
 Disable for production.
 
 
-== *LOG_LEVEL*
-
-=== Type
-
-`string`
-
-=== Default
-
-[source]
-----
-"warn"
-----
-
-=== Description
-
-Minimum logging level. If set to "warn",
-Levels warn, error, dpanic panic and fatal will be logged.
-
-Recommended value for production: warn
-
-Possible values: debug, info, warn, error, dpanic, panic, fatal
-
-
 == *LOG_FILTER*
 
 === Type
 
 `string`
+
 
 === Description
 
@@ -1816,12 +1553,6 @@ See more examples and documentation here: https://github.com/moul/zapfilter
 
 `bool`
 
-=== Default
-
-[source]
-----
-false
-----
 
 === Description
 
@@ -1830,26 +1561,48 @@ Set to true to see where the logging was called from.
 Disable for production.
 
 
+== *LOG_LEVEL*
+
+=== Type
+
+`string`
+
+
+=== Default
+
+[source]
+----
+warn
+----
+=== Description
+
+Minimum logging level. If set to "warn",
+Levels warn, error, dpanic panic and fatal will be logged.
+
+Recommended value for production: warn
+
+Possible values: debug, info, warn, error, dpanic, panic, fatal
+
+
 == *LOG_STACKTRACE_LEVEL*
 
 === Type
 
 `string`
 
+
 === Default
 
 [source]
 ----
-"dpanic"
+dpanic
 ----
-
 === Description
 
 Include stack-trace when logging at a specified level or below.
 Disable for production.
 
 Possible values: debug, info, warn, error, dpanic, panic, fatal
-
 
 = Messaging queue
 
@@ -1859,12 +1612,6 @@ Possible values: debug, info, warn, error, dpanic, panic, fatal
 
 `bool`
 
-=== Default
-
-[source]
-----
-true
-----
 
 === Description
 
@@ -1876,17 +1623,10 @@ Enable messagebus
 
 `bool`
 
-=== Default
-
-[source]
-----
-false
-----
 
 === Description
 
 Enable extra logging for messagebus watchers
-
 = Monitoring
 
 == *MONITOR_INTERVAL*
@@ -1895,37 +1635,42 @@ Enable extra logging for messagebus watchers
 
 `time.Duration`
 
+
 === Default
 
 [source]
 ----
-300 * time.Second
+5m
 ----
-
 === Description
 
 Output (log) interval for monitoring.
-
 = Object (file) storage
 
-The MinIO integration allows you to replace local storage with cloud storage. When configured, `STORAGE_PATH` is not needed.
-
-== *STORAGE_PATH*
+== *MINIO_ACCESS_KEY*
 
 === Type
 
 `string`
 
+
+
+== *MINIO_BUCKET*
+
+=== Type
+
+`string`
+
+
 === Default
 
 [source]
 ----
-"var/store"
+{component}
 ----
-
 === Description
 
-Location where uploaded files are stored.
+`component` placeholder is replaced with service name (e.g system).
 
 == *MINIO_ENDPOINT*
 
@@ -1934,25 +1679,24 @@ Location where uploaded files are stored.
 `string`
 
 
-== *MINIO_SECURE*
 
-=== Type
-
-`bool`
-
-=== Default
-
-[source]
-----
-true
-----
-
-
-== *MINIO_ACCESS_KEY*
+== *MINIO_PATH_PREFIX*
 
 === Type
 
 `string`
+
+
+=== Description
+
+`component` placeholder is replaced with service name (e.g system).
+
+== *MINIO_SSEC_KEY*
+
+=== Type
+
+`string`
+
 
 
 == *MINIO_SECRET_KEY*
@@ -1962,39 +1706,14 @@ true
 `string`
 
 
-== *MINIO_SSEC_KEY*
+
+== *MINIO_SECURE*
 
 === Type
 
-`string`
+`bool`
 
 
-== *MINIO_BUCKET*
-
-=== Type
-
-`string`
-
-=== Default
-
-[source]
-----
-"{component}"
-----
-
-=== Description
-
-`component` placeholder is replaced with service name (e.g system).
-
-== *MINIO_PATH_PREFIX*
-
-=== Type
-
-`string`
-
-=== Description
-
-`component` placeholder is replaced with service name (e.g system).
 
 == *MINIO_STRICT*
 
@@ -2002,14 +1721,24 @@ true
 
 `bool`
 
+
+
+== *STORAGE_PATH*
+
+=== Type
+
+`string`
+
+
 === Default
 
 [source]
 ----
-false
+var/store
 ----
+=== Description
 
-
+Location where uploaded files are stored.
 = Plugins
 
 == *PLUGINS_ENABLED*
@@ -2018,12 +1747,6 @@ false
 
 `bool`
 
-=== Default
-
-[source]
-----
-true
-----
 
 === Description
 
@@ -2035,21 +1758,11 @@ Enable plugins
 
 `string`
 
+
 === Description
 
 List of colon seperated paths or patterns where plugins could be found
-
 = Provisioning
-
-Provisioning allows you to configure a {PRODUCT_NAME} instance when deployed.
-It occurs automatically after the {PRODUCT_NAME} server starts.
-
-[IMPORTANT]
-====
-We recommend you to keep provisioning enabled as it simplifies version updates by updating the database and updating settings.
-
-If you're doing local development or some debugging, you can disable this.
-====
 
 == *PROVISION_ALWAYS*
 
@@ -2057,12 +1770,6 @@ If you're doing local development or some debugging, you can disable this.
 
 `bool`
 
-=== Default
-
-[source]
-----
-true
-----
 
 === Description
 
@@ -2074,17 +1781,16 @@ Controls if provision should run when the server starts.
 
 `string`
 
+
 === Default
 
 [source]
 ----
-"provision/*"
+provision/*
 ----
-
 === Description
 
 Colon seperated paths to config files for provisioning.
-
 = Seeder
 
 == *SEEDER_LOG_ENABLED*
@@ -2093,19 +1799,11 @@ Colon seperated paths to config files for provisioning.
 
 `bool`
 
+
 === Description
 
 Enable extra logging // fixme add some more description
-
 = Sentry monitoring
-
-[NOTE]
-====
-These parameters help in the development and testing process.
-When you are deploying to production, these should be disabled to improve performance and reduce storage usage.
-
-You should configure external services such as Sentry or ELK to keep track of logs and error reports.
-====
 
 == *SENTRY_DSN*
 
@@ -2113,19 +1811,10 @@ You should configure external services such as Sentry or ELK to keep track of lo
 
 `string`
 
+
 === Description
 
 Set to enable Sentry client.
-
-== *SENTRY_DEBUG*
-
-=== Type
-
-`bool`
-
-=== Description
-
-Print out debugging information.
 
 == *SENTRY_ATTACH_STACKTRACE*
 
@@ -2133,76 +1822,28 @@ Print out debugging information.
 
 `bool`
 
-=== Default
-
-[source]
-----
-true
-----
 
 === Description
 
 Attach stacktraces
 
-== *SENTRY_SAMPLE_RATE*
+== *SENTRY_DEBUG*
 
 === Type
 
-`float32`
+`bool`
+
 
 === Description
 
-Sample rate for event submission (0.0 - 1.0. defaults to 1.0)
-
-== *SENTRY_MAX_BREADCRUMBS*
-
-=== Type
-
-`int`
-
-=== Default
-
-[source]
-----
-0
-----
-
-=== Description
-
-Maximum number of bredcrumbs.
-
-== *SENTRY_SERVERNAME*
-
-=== Type
-
-`string`
-
-=== Description
-
-Set reported Server name.
-
-== *SENTRY_RELEASE*
-
-=== Type
-
-`string`
-
-=== Default
-
-[source]
-----
-version.Version
-----
-
-=== Description
-
-Set reported Release.
+Print out debugging information.
 
 == *SENTRY_DIST*
 
 === Type
 
 `string`
+
 
 === Description
 
@@ -2214,10 +1855,54 @@ Set reported distribution.
 
 `string`
 
+
 === Description
 
 Set reported environment.
 
+== *SENTRY_MAX_BREADCRUMBS*
+
+=== Type
+
+`int`
+
+
+=== Description
+
+Maximum number of bredcrumbs.
+
+== *SENTRY_RELEASE*
+
+=== Type
+
+`string`
+
+
+=== Description
+
+Set reported Release.
+
+== *SENTRY_SAMPLE_RATE*
+
+=== Type
+
+`float64`
+
+
+=== Description
+
+Sample rate for event submission (0.0 - 1.0. defaults to 1.0)
+
+== *SENTRY_SERVERNAME*
+
+=== Type
+
+`string`
+
+
+=== Description
+
+Set reported Server name.
 = Rendering engine
 
 == *TEMPLATE_RENDERER_GOTENBERG_ADDRESS*
@@ -2226,12 +1911,6 @@ Set reported environment.
 
 `string`
 
-=== Default
-
-[source]
-----
-""
-----
 
 === Description
 
@@ -2243,36 +1922,11 @@ Gotenberg rendering container address.
 
 `bool`
 
-=== Default
-
-[source]
-----
-false
-----
 
 === Description
 
 Is Gotenberg rendering container enabled.
-
 = Data store (database) upgrade
-
-== *UPGRADE_DEBUG*
-
-=== Type
-
-`bool`
-
-=== Default
-
-[source]
-----
-false
-----
-
-=== Description
-
-Enable/disable debug logging.
-    To enable debug logging set `UPGRADE_DEBUG=true`.
 
 == *UPGRADE_ALWAYS*
 
@@ -2280,25 +1934,23 @@ Enable/disable debug logging.
 
 `bool`
 
-=== Default
-
-[source]
-----
-true
-----
 
 === Description
 
 Controls if the upgradable systems should be upgraded when the server starts.
 
+== *UPGRADE_DEBUG*
+
+=== Type
+
+`bool`
+
+
+=== Description
+
+Enable/disable debug logging.
+    To enable debug logging set `UPGRADE_DEBUG=true`.
 = Delay system startup
-
-You can configure these options to defer API execution until another external (HTTP) service is up and running.
-
-[ TIP ]
-====
-Delaying API execution can come in handy in complex setups where execution order is important.
-====
 
 == *WAIT_FOR*
 
@@ -2306,40 +1958,18 @@ Delaying API execution can come in handy in complex setups where execution order
 
 `time.Duration`
 
-=== Default
-
-[source]
-----
-0
-----
 
 === Description
 
 Delays API startup for the amount of time specified (10s, 2m...).
     This delay happens before service (`WAIT_FOR_SERVICES`) probing.
 
-== *WAIT_FOR_STATUS_PAGE*
-
-=== Type
-
-`bool`
-
-=== Default
-
-[source]
-----
-true
-----
-
-=== Description
-
-Show temporary status web page.
-
 == *WAIT_FOR_SERVICES*
 
 === Type
 
 `string`
+
 
 === Description
 
@@ -2351,22 +1981,22 @@ Space delimited list of hosts and/or URLs to probe.
 Services are probed in parallel.
 ====
 
-== *WAIT_FOR_SERVICES_TIMEOUT*
+== *WAIT_FOR_SERVICES_PROBE_INTERVAL*
 
 === Type
 
 `time.Duration`
 
+
 === Default
 
 [source]
 ----
-time.Minute
+5s
 ----
-
 === Description
 
-Max time for each service probe.
+Interval between service probes.
 
 == *WAIT_FOR_SERVICES_PROBE_TIMEOUT*
 
@@ -2374,34 +2004,44 @@ Max time for each service probe.
 
 `time.Duration`
 
+
 === Default
 
 [source]
 ----
-time.Second * 30
+30s
 ----
-
 === Description
 
 Timeout for each service probe.
 
-== *WAIT_FOR_SERVICES_PROBE_INTERVAL*
+== *WAIT_FOR_SERVICES_TIMEOUT*
 
 === Type
 
 `time.Duration`
 
+
 === Default
 
 [source]
 ----
-time.Second * 5
+1m
 ----
+=== Description
+
+Max time for each service probe.
+
+== *WAIT_FOR_STATUS_PAGE*
+
+=== Type
+
+`bool`
+
 
 === Description
 
-Interval between service probes.
-
+Show temporary status web page.
 = Websocket server
 
 == *WEBSOCKET_LOG_ENABLED*
@@ -2410,40 +2050,10 @@ Interval between service probes.
 
 `bool`
 
+
 === Description
 
 Enable extra logging for authentication flows
-
-== *WEBSOCKET_TIMEOUT*
-
-=== Type
-
-`time.Duration`
-
-=== Default
-
-[source]
-----
-15 * time.Second
-----
-
-=== Description
-
-Time before `WsServer` gets timed out.
-
-== *WEBSOCKET_PING_TIMEOUT*
-
-=== Type
-
-`time.Duration`
-
-=== Default
-
-[source]
-----
-120 * time.Second
-----
-
 
 == *WEBSOCKET_PING_PERIOD*
 
@@ -2451,49 +2061,45 @@ Time before `WsServer` gets timed out.
 
 `time.Duration`
 
+
 === Default
 
 [source]
 ----
-((120 * time.Second) * 9) / 10
+119s
 ----
 
+== *WEBSOCKET_PING_TIMEOUT*
 
+=== Type
+
+`time.Duration`
+
+
+=== Default
+
+[source]
+----
+120s
+----
+
+== *WEBSOCKET_TIMEOUT*
+
+=== Type
+
+`time.Duration`
+
+
+=== Default
+
+[source]
+----
+15s
+----
+=== Description
+
+Time before `WsServer` gets timed out.
 = Workflow
-
-== *WORKFLOW_REGISTER*
-
-=== Type
-
-`bool`
-
-=== Default
-
-[source]
-----
-true
-----
-
-=== Description
-
-Registers enabled and valid workflows and executes them when triggered
-
-== *WORKFLOW_EXEC_DEBUG*
-
-=== Type
-
-`bool`
-
-=== Default
-
-[source]
-----
-false
-----
-
-=== Description
-
-Enables verbose logging for workflow execution
 
 == *WORKFLOW_CALL_STACK_SIZE*
 
@@ -2501,13 +2107,74 @@ Enables verbose logging for workflow execution
 
 `int`
 
-=== Default
-
-[source]
-----
-16
-----
 
 === Description
 
 Defines the maximum call stack size between workflows
+
+== *WORKFLOW_EXEC_DEBUG*
+
+=== Type
+
+`bool`
+
+
+=== Description
+
+Enables verbose logging for workflow execution
+
+== *WORKFLOW_REGISTER*
+
+=== Type
+
+`bool`
+
+
+=== Description
+
+Registers enabled and valid workflows and executes them when triggered
+= Discovery
+
+== *DISCOVERY_BASE_URL*
+
+=== Type
+
+`string`
+
+
+=== Description
+
+Indicates host of corteza discovery server
+
+== *DISCOVERY_CORTEZA_DOMAIN*
+
+=== Type
+
+`string`
+
+
+=== Description
+
+Indicates host of corteza compose webapp
+
+== *DISCOVERY_DEBUG*
+
+=== Type
+
+`bool`
+
+
+=== Description
+
+Enable discovery related activity info
+
+== *DISCOVERY_ENABLED*
+
+=== Type
+
+`bool`
+
+
+=== Description
+
+Enable discovery endpoints

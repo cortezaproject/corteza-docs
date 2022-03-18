@@ -1,0 +1,23 @@
+= chart
+
+[cols="1s,5a,5a"]
+|===
+| Operation| Description | Default
+
+
+| [#rbac-chart-read]#<<rbac-chart-read,read>>#
+| read
+| Deny
+
+
+| [#rbac-chart-update]#<<rbac-chart-update,update>>#
+| update
+| Deny
+
+
+| [#rbac-chart-delete]#<<rbac-chart-delete,delete>>#
+| delete
+| Deny
+
+
+|===

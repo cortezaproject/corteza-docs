@@ -1,0 +1,15 @@
+= Federation
+
+:leveloffset: +1
+
+include::./component.gen.adoc[]
+
+include::./resource.node.gen.adoc[]
+
+include::./resource.exposed-module.gen.adoc[]
+
+include::./resource.shared-module.gen.adoc[]
+
+
+:leveloffset: -1
+

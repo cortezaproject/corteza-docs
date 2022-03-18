@@ -1,0 +1,43 @@
+= workflow
+
+[cols="1s,5a,5a"]
+|===
+| Operation| Description | Default
+
+
+| [#rbac-workflow-read]#<<rbac-workflow-read,read>>#
+| Read workflow
+| Deny
+
+
+| [#rbac-workflow-update]#<<rbac-workflow-update,update>>#
+| Update workflow
+| Deny
+
+
+| [#rbac-workflow-delete]#<<rbac-workflow-delete,delete>>#
+| Delete workflow
+| Deny
+
+
+| [#rbac-workflow-undelete]#<<rbac-workflow-undelete,undelete>>#
+| Undelete workflow
+| Deny
+
+
+| [#rbac-workflow-execute]#<<rbac-workflow-execute,execute>>#
+| Execute workflow
+| Deny
+
+
+| [#rbac-workflow-triggers.manage]#<<rbac-workflow-triggers.manage,triggers.manage>>#
+| Manage workflow triggers
+| Deny
+
+
+| [#rbac-workflow-sessions.manage]#<<rbac-workflow-sessions.manage,sessions.manage>>#
+| Manage workflow sessions
+| Deny
+
+
+|===

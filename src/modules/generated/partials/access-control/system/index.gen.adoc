@@ -1,0 +1,25 @@
+= System
+
+:leveloffset: +1
+
+include::./component.gen.adoc[]
+
+include::./resource.apigw-route.gen.adoc[]
+
+include::./resource.application.gen.adoc[]
+
+include::./resource.auth-client.gen.adoc[]
+
+include::./resource.queue.gen.adoc[]
+
+include::./resource.report.gen.adoc[]
+
+include::./resource.role.gen.adoc[]
+
+include::./resource.template.gen.adoc[]
+
+include::./resource.user.gen.adoc[]
+
+
+:leveloffset: -1
+

@@ -1,0 +1,18 @@
+= module-field
+
+[cols="1s,5a,5a"]
+|===
+| Operation| Description | Default
+
+
+| [#rbac-module-field-record.value.read]#<<rbac-module-field-record.value.read,record.value.read>>#
+| Read field value on records
+| Deny
+
+
+| [#rbac-module-field-record.value.update]#<<rbac-module-field-record.value.update,record.value.update>>#
+| Update field value on records
+| Deny
+
+
+|===

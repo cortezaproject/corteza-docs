@@ -1,0 +1,23 @@
+= application
+
+[cols="1s,5a,5a"]
+|===
+| Operation| Description | Default
+
+
+| [#rbac-application-read]#<<rbac-application-read,read>>#
+| Read application
+| Deny
+
+
+| [#rbac-application-update]#<<rbac-application-update,update>>#
+| Update application
+| Deny
+
+
+| [#rbac-application-delete]#<<rbac-application-delete,delete>>#
+| Delete application
+| Deny
+
+
+|===

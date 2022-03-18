@@ -1,0 +1,23 @@
+= apigw-route
+
+[cols="1s,5a,5a"]
+|===
+| Operation| Description | Default
+
+
+| [#rbac-apigw-route-read]#<<rbac-apigw-route-read,read>>#
+| Read API Gateway route
+| Deny
+
+
+| [#rbac-apigw-route-update]#<<rbac-apigw-route-update,update>>#
+| Update API Gateway route
+| Deny
+
+
+| [#rbac-apigw-route-delete]#<<rbac-apigw-route-delete,delete>>#
+| Delete API Gateway route
+| Deny
+
+
+|===

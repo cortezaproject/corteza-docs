@@ -1,0 +1,100 @@
+include::ROOT:partial$variables.adoc[]
+
+= {PRODUCT_NAME} {APP_NAME_DISCOVERY}
+:keywords: discovery, search, record searcher, record searching, resource searcher, resource searching, data discovery
+:description: Learn how to configure the system to support {PRODUCT_NAME} {APP_NAME_DISCOVERY}
+
+{PRODUCT_NAME} {APP_NAME_DISCOVERY} provides a powerful search engine to interact with your data.
+{PRODUCT_NAME} {APP_NAME_DISCOVERY} defines an intuitive interface to search and, for some cases, visualize the data such as geographical metadata.
+
+Refer to the xref:integrator-guide:discovery/index.adoc[menu:Low-Code Platform Developer Guide[{PRODUCT_NAME} {APP_NAME_DISCOVERY}]] to learn how to configure and use {PRODUCT_NAME} {APP_NAME_DISCOVERY}.
+
+== Configure {PRODUCT_NAME} server
+
+To enable {PRODUCT_NAME} {APP_NAME_DISCOVERY}, access the Docker container and run the following commands:
+
+[NOTE]
+====
+To access the Docker container, run the following command:
+
+[source,bash]
+----
+docker-compose exec server sh
+----
+====
+
+.Enable {PRODUCT_NAME} {APP_NAME_DISCOVERY} for {APP_NAME_COMPOSE} namespaces:
+[source,bash]
+----
+corteza-server settings set discovery.compose-namespaces.enabled true
+----
+
+.Enable {PRODUCT_NAME} {APP_NAME_DISCOVERY} for {APP_NAME_COMPOSE} modules:
+[source,bash]
+----
+corteza-server settings set discovery.compose-modules.enabled true
+----
+
+.Enable {PRODUCT_NAME} {APP_NAME_DISCOVERY} for {APP_NAME_COMPOSE} records:
+[source,bash]
+----
+corteza-server settings set discovery.compose-records.enabled true
+----
+
+.Enable {PRODUCT_NAME} {APP_NAME_DISCOVERY} for users:
+[source,bash]
+----
+corteza-server settings set discovery.system-users.enabled true
+----
+
+.Next, set the following `.env` variables for your {PRODUCT_NAME} server:
+[source,env]
+----
+DISCOVERY_ENABLED=true
+DISCOVERY_BASE_URL=your-discovery-server-base-url
+# Optional variable for debugging
+# DISCOVERY_DEBUG=true
+----
+
+== Configure {PRODUCT_NAME} {APP_NAME_DISCOVERY} server
+
+.Example `.env` file for for your {PRODUCT_NAME} {APP_NAME_DISCOVERY} server:
+[source,env]
+----
+AUTH_CLIENT_KEY=your-client-key-here
+AUTH_CLIENT_SECRET=your-client-secret-here
+
+########################################################################################################################
+########################################################################################################################
+# Corteza Discovery configuration
+CORTEZA_SERVER_BASE_URL=your-corteza-server-base-url
+
+# Adjust log level to your needs
+LOG_LEVEL=debug
+
+ES_ADDRESS=your-elastic/open-search-base-url
+# Reindex interval in seconds
+ES_INDEX_INTERVAL=10
+
+DOMAIN=your-domain-here
+HTTP_ADDR=your-domain-here
+
+########################################################################################################################
+########################################################################################################################
+# Corteza Discovery indexer configuration
+
+DISCOVERY_INDEXER_ENABLED=true
+
+DISCOVERY_INDEXER_PRIVATE_INDEX_CLIENT_KEY=${AUTH_CLIENT_KEY}
+DISCOVERY_INDEXER_PRIVATE_INDEX_CLIENT_SECRET=${AUTH_CLIENT_SECRET}
+
+
+########################################################################################################################
+########################################################################################################################
+# Corteza Discovery searcher configuration
+
+DISCOVERY_SEARCHER_ENABLED=true
+DISCOVERY_SEARCHER_CLIENT_KEY=${AUTH_CLIENT_KEY}
+DISCOVERY_SEARCHER_CLIENT_SECRET=${AUTH_CLIENT_SECRET}
+DISCOVERY_SEARCHER_JWT_SECRET=some-random-value-here
+----

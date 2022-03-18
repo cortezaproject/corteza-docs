@@ -12,6 +12,7 @@
 *** xref:troubleshooting/logging.adoc[]
 
 ** xref:access-control/index.adoc[]
+** xref:discovery/index.adoc[]
 ** xref:i18n/index.adoc[]
 ** xref:email-relay.adoc[]
 ** xref:sink-route.adoc[]

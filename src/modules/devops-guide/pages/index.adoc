@@ -1,8 +1,8 @@
 include::ROOT:partial$variables.adoc[]
 
 = DevOps guide
-:description: Learn how to setup and maintain the {PRODUCT_NAME} ecosystem
-:keywords: dev-ops, releasing, maintenance, devops
+:description: Learn how to setup and maintain {PRODUCT_NAME}
+:keywords: Dev-Pps, DevOps, setup, configure, deploy, maintenance
 
 The DevOps guide covers the process of setting up, configuring, and maintaining your {PRODUCT_NAME} instance.
 
@@ -24,6 +24,8 @@ Refer to xref:system-requirements.adoc[] for more details.
 To use our pre-built Docker images, you will need to have Docker setup and running on every system you wish to set up {PRODUCT_NAME}.
 You can follow https://docs.docker.com/get-docker/[the official documentation] to get it setup.
 
+Alternatively, you can download prebuilt sources from our https://releases.cortezaproject.org/files/[releases page] or you can build your own.
+
 [#docker-compose]
 === Docker Compose
 
@@ -32,7 +34,22 @@ You can follow https://docs.docker.com/compose/install/[the official documentati
 
 [NOTE]
 ====
-When using `.env` files, you need to explicitly specify this inside the `docker-compose.yaml` file (`env_file: [.env]`).
+When using `.env` files, you need to explicitly specify this inside the `docker-compose.yaml` file, for example:
+
+[source,yaml]
+----
+version: '3.5'
+
+services:
+  server:
+    image: cortezaproject/corteza:${VERSION}
+    restart: always
+    env_file: [ .env ] # <- see here
+    depends_on: [ db ]
+    ports: [ "127.0.0.1:18084:80" ]
+
+  # ...
+----
 ====
 
 == Architecture and repository overview
@@ -40,9 +57,123 @@ When using `.env` files, you need to explicitly specify this inside the `docker-
 === {PRODUCT_NAME} architecture
 
 .The diagram outlines different {PRODUCT_NAME} parts, their relation, and how they interact.
-image::arch-overview.png[{PRODUCT_NAME} architectural overview,role="data-zoomable"]
+[plantuml,data-sync-origin,svg,role=component data-zoomable]
+----
+@startuml
+component "Public Network" #E5412215 {
+  package "Web Applications" {
+    [Corteza Compose] as webappCompose
+    [Corteza Workflow] as webappWorkflow
+    [Corteza Admin] as webappAdmin
+    [Corteza Reporter] as webappReporter
+    [Corteza Discovery] as webappDiscovery
+
+    interface "REST API" as restW
+
+    webappCompose -down- restW
+    webappWorkflow -down- restW
+    webappAdmin -down- restW
+    webappReporter -down- restW
+    webappDiscovery -down- restW
+
+    interface "HTTP" as httpW
+
+    webappCompose -down- httpW
+    webappWorkflow -down- httpW
+    webappAdmin -down- httpW
+    webappReporter -down- httpW
+    webappDiscovery -down- httpW
+  }
+}
+
+component "Private Network" {
+  package "Corteza Server" {
+    interface "REST API" as rest
+    restW -down- rest
+
+    interface "HTTP" as authHTTP
+    httpW -down- authHTTP
+
+    [Corteza Services] as svc
+    rest -down- svc
+
+    [Corteza Auth] as auth
+    auth -right- svc
+    authHTTP -down- auth
+  }
+
+  package "Corteza Discovery Server" {
+    interface "REST API" as restD
+    svc -down- restD
+
+    interface "REST API" as restS
+    webappDiscovery -down- restS
+
+    [Indexer] as Indexer
+    restD -down- Indexer
+
+    [Searcher] as Searcher
+    restS -down- Searcher
+  }
+
+  package "Corteza Corredor Server" {
+    interface "GRPC" as grpc
+    [Automation Runner] as corredorRunner
+
+    svc -left- grpc
+    grpc -left- corredorRunner
+  }
+
+
+  package "Auxiliary Services" as aux {
+    component db [
+      Database
+      ....
+      MySQL, PostgreSQL,
+      ElasticSearch,
+      OpenSearch, ...
+    ]
+    component mta [
+      MTA
+      ....
+      Local, remote
+      SMTP server
+    ]
+    component objs [
+      Object Storage
+      ....
+      Local disc,
+      Min.io
+    ]
+    component logs [
+      Log Storage
+      ....
+      STDOUT,
+      ElasticSearch
+    ]
+    component errt [
+      Error Tracking
+      ....
+      STDOUT,
+      Sentry
+    ]
+  }
+
+  svc -down- db
+  svc -down- mta
+  svc -down- objs
+  svc -down- logs
+  svc -down- errt
+
+  Indexer -down- db
+  Searcher -down- db
+}
+@enduml
+----
 
 The web applications communicate with the server over the REST API and authenticate via the authentication server.
+
+{PRODUCT_NAME} {APP_NAME_DISCOVERY} additionally communicates with `corteza-server-discovery`.
 
 The server interacts with all internal auxiliary services such as the database, object storage, error and log tracking, automation runners, ...
 
@@ -65,7 +196,7 @@ image::developer-guide:build-pipelines.png[role="data-zoomable"]
 * {GIT_REPO_LINK_PREFIX}-webapp-discovery[*{PRODUCT_NAME} {APP_NAME_DISCOVERY}*]
 * {GIT_REPO_LINK_PREFIX}-webapp-one[*{PRODUCT_NAME} {APP_NAME_SHELL}*]
 
-== System configuration
+== System configuration files
 
 {PRODUCT_NAME} is configured via the environment (`.env`) file.
 It allows you to quickly deploy and configure how {PRODUCT_NAME} should behave on another system.
@@ -85,15 +216,15 @@ You can use variables defined in the `.env` file inside your `docker-compose.yam
 [#deploy-offline]
 == Deploy offline
 
-Offline deploy setups run all services on the same network where the ports are bound to the host's network.
-This section provides a minimum setup with PostgreSQL as the persistent database storage with {APP_AUTOMATION} server enabled.
-
-See xref:examples/deploy-offline/index.adoc[] for example offline deployment configurations.
+Offline deployments run all services on the same network where the ports are bound to the host's network.
 
 [IMPORTANT]
 ====
 Offline deployments are suitable only for local development and demos (environments that are not accessible from the outside).
 ====
+
+This section provides a minimum setup with PostgreSQL as the persistent database storage.
+See xref:examples/deploy-offline/index.adoc[] for example offline deployment configurations.
 
 === Setup your file structure
 
@@ -174,12 +305,12 @@ Online setups separate your services into two networks; internal and proxy.
 The internal network hides most of the system from the internet.
 This section provides a minimum setup with MySQL as the persistent database storage with {APP_AUTOMATION} server enabled.
 
-See menu:DevOps guide[Online deployment] for additional online deployment configurations.
-
 [TIP]
 ====
 You can use the same steps to configure multiple online deployments, such as a staging and a production environment.
 ====
+
+See xref:examples/deploy-online/index.adoc[] for example online deployment configurations.
 
 === Setup your file structure
 
@@ -209,7 +340,7 @@ Omit if you won't use persistent storage.
 
 This part automates the creation and renewal of Let's Encrypt TLS certificates, forward traffic to Docker containers, and simplifies complicated firewall configurations.
 
-[IMPORTANT]
+[CAUTION]
 ====
 The following instructions assume that you don't have anything similar setup in your current environment.
 

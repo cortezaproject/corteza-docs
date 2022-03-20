@@ -44,9 +44,8 @@ Locate the btn:[permissions] button in the user interface for managing the resou
 }
 ----
 
-*DevNote* generate a reference for all permission options.
+Refer to xref:security-model/references/operations.adoc[] for a complete reference of available RBAC rules.
 ====
-//Editor's note: Remove the DevNote, provide the necessary additional information.
 
 {PRODUCT_NAME}'s RBAC facility uses a "flat design", which removes role hierarchy (two roles can not explicitly define a parent/child relationship).
 

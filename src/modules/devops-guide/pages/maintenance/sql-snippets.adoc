@@ -1,6 +1,8 @@
 include::ROOT:partial$variables.adoc[]
 
 = SQL Snippets
+:description: Learn the most common SQL snippets when working with {PRODUCT_NAME}
+:keywords: database commands, SQL commands, delete records, delete records database, common SQL
 
 [CAUTION]
 ====
@@ -9,7 +11,7 @@ Before performing destructive operations it is recommended you create a database
 
 [TIP]
 ====
-You can replace the `delete` statement with the `select` statement to view the data which is about to be deleted.
+When deleting data, you can replace `DELETE` with `SELECT` to view what is about to get deleted.
 ====
 
 == Delete all records

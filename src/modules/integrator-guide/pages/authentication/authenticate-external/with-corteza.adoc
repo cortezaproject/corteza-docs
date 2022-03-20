@@ -15,8 +15,8 @@ Optionally check the trusted checkbox to skip the final verification step.
 ----
 {
   "image": {
-    "rel": "authentication/corteza/auth-client.png",
-    "alias": "authentication-corteza-auth-client",
+    "rel": "authentication/external/with-corteza/auth-client.png",
+    "alias": "authentication-external-with-corteza-auth-client",
     "w": 1920,
     "h": 1080
   },
@@ -47,8 +47,8 @@ Make sure the enable external authentication is checked, and clock on the btn:[a
 ----
 {
   "image": {
-    "rel": "authentication/corteza/provider-list.png",
-    "alias": "authentication-corteza-provider-list",
+    "rel": "authentication/external/with-corteza/provider-list.png",
+    "alias": "authentication-external-with-corteza-provider-list",
     "w": 1920,
     "h": 1080
   },
@@ -79,8 +79,8 @@ Fill in the details obtained from the auth client defined <<provider,above>>.
 ----
 {
   "image": {
-    "rel": "authentication/corteza/provider-configure.png",
-    "alias": "authentication-corteza-provider-configure",
+    "rel": "authentication/external/with-corteza/provider-configure.png",
+    "alias": "authentication-external-with-corteza-provider-configure",
     "w": 1920,
     "h": 1080
   },
@@ -100,8 +100,8 @@ Click on the btn:[submit] button to save the changes.
 ----
 {
   "image": {
-    "rel": "authentication/corteza/provider-added.png",
-    "alias": "authentication-corteza-provider-added",
+    "rel": "authentication/external/with-corteza/provider-added.png",
+    "alias": "authentication-external-with-corteza-provider-added",
     "w": 1920,
     "h": 1080
   },
@@ -134,8 +134,8 @@ If the OIDC provider is not available check your server logs in case there are s
 ----
 {
   "image": {
-    "rel": "authentication/corteza/login-oidc.png",
-    "alias": "authentication-corteza-login-oidc",
+    "rel": "authentication/external/with-corteza/login-oidc.png",
+    "alias": "authentication-external-with-corteza-login-oidc",
     "w": 1920,
     "h": 1080
   },
@@ -155,8 +155,8 @@ When you click on the new OIDC authentication option you are redirected and aske
 ----
 {
   "image": {
-    "rel": "authentication/corteza/login.png",
-    "alias": "authentication-corteza-login",
+    "rel": "authentication/external/with-corteza/login.png",
+    "alias": "authentication-external-with-corteza-login",
     "w": 1920,
     "h": 1080
   },
@@ -170,8 +170,8 @@ Once you log into the provider {PRODUCT_NAME} instance, the authentication is su
 ----
 {
   "image": {
-    "rel": "authentication/corteza/logged-in.png",
-    "alias": "authentication-corteza-logged-in",
+    "rel": "authentication/external/with-corteza/logged-in.png",
+    "alias": "authentication-external-with-corteza-logged-in",
     "w": 1920,
     "h": 1080
   },

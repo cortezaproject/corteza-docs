@@ -1,13 +1,8 @@
 include::ROOT:partial$variables.adoc[]
 
 = Troubleshooting
-:description: These troubleshooting steps help you solve the most common issues we have encountered in the past.
-:keywords: dev-ops, DevOps, troubleshooting
-
-[NOTE]
-====
-*DevNote* update this with new discoveries regarding configurations
-====
+:description: Learn how to troubleshoot common issues encountered with {PRODUCT_NAME} deployments
+:keywords: troubleshooting, solve issue, resolve issue, fix issue
 
 == Ports are not available
 
@@ -21,8 +16,6 @@ Cannot start service server: Ports are not available: listen tcp 127.0.0.1:18080
 
 If you see this error, you can change the port number to something between `1024` and `65535`.
 You can also replace the value for `services.server.ports` in `docker-compose.yaml` to `["80"]`, and Docker will pick an available port for you.
-
-⚠️ Make sure also to change the port everywhere else.
 
 [#ws-nginx-connection-fail]
 == WebSocket connection failing with Nginx
@@ -141,3 +134,22 @@ If you used `HTTP_SSL_TERMINATED` or `LETSENCRYPT_HOST` options Corteza will ass
 If you're continuing to have issues with {PRODUCT_NAME}, we encourage you to contact other users on our https://latest.cortezaproject.org[community server].
 You'll more than likely find someone who can help you out.
 You can also open an issue on our https://github.com/cortezaproject/corteza-server[cortezaproject/corteza-server] GitHub repository.
+
+== SMTP not working
+
+You can use the `corteza-server auth test-notifications` command to verify that your SMTP configuration is working correctly.
+The command sends a test email to the provided email address.
+
+[source,bash]
+----
+corteza-server auth test-notifications your-email@example.tld
+----
+
+Depending on your provider, the email can take a bit to be delivered.
+If you can't see the email, make sure to check your spam folder and server logs.
+
+.Connection/authentication errors look like this:
+[source]
+----
+could not send email: dial tcp [::1]:25: connect: connection refused
+----

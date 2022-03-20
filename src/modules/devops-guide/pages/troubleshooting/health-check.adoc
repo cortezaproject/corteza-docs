@@ -1,29 +1,39 @@
-= Health check
+include::ROOT:partial$variables.adoc[]
+
+= Health Check
 :description: A health check is a series of steps you should take to verify that everything is set up and working correctly.
 :keywords: dev-ops, DevOps, CLI, health check, maintenance
 
-A health check is a series of steps you should take to verify that everything is set up and working correctly.
+A health check is a series of steps the system performs to determine if the {PRODUCT_NAME} instance is working as intended.
 
-[NOTE]
-====
-*DevNote* expand this with extra steps for all of the different bits.
-====
+To access the automated health check you can navigate to the `/healthcheck` endpoint of your {PRODUCT_NAME} instance.
 
-== SMTP configuration
-
-You can use this command to verify that your SMTP configuration is working correctly.
-The command sends a test email to the provided email address.
-
-[source,bash]
+[annotation,role="data-zoomable"]
 ----
-corteza-server auth test-notifications your-email@example.tld
+{
+  "image": {
+    "rel": "troubleshooting/health-check/http.png",
+    "alias": "troubleshooting-health-check-http",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {
+    "x": 0,
+    "y": 0,
+    "w": 204,
+    "h": 109
+  }
+}
 ----
 
-Depending on your provider, the email can take a bit to be delivered.
-If you can't see the email, make sure to check your spam folder and server logs.
+Alternatively, you can run the `docker-compose ps` command to check the health from the CLI.
 
-.Connection/authentication errors look like this:
 [source]
 ----
-could not send email: dial tcp [::1]:25: connect: connection refused
+       Name                      Command                  State                Ports         
+---------------------------------------------------------------------------------------------
+my-corteza_db_1       /docker-entrypoint.sh mysqld     Up (healthy)   3306/tcp, 33060/tcp    
+my-corteza_server_1   ./bin/corteza-server serve-api   Up (healthy)   127.0.0.1:18083->80/tcp
 ----
+
+Refer to the xref:troubleshooting/index.adoc[] docs for additional help of fixing unhealthy parts of the system.

@@ -77,6 +77,7 @@ include::ROOT:partial$variables.adoc[]
 * Fixed reporter table display element raising errors if no data is available ({WEBAPP_VUE_COMMIT_BASE}d2b0ad0[`d2b0ad0`]).
 * Fixed missing module field resource translations ({SERVER_COMMIT_BASE}e9dfe8254[`e9dfe8254`]).
 * Fixed improper empty resource translation handling by soft-deleting the value instead of omitting the change ({SERVER_COMMIT_BASE}631811929[`631811929`]).
+* Fixed improper resource translation updating and handling for {APP_NAME_COMPOSE} pages and modules ({WEBAPP_COMPOSE_COMMIT_BASE}c24d7160[`c24d7160`]).
 * Fix the number of records to be exported in ExporterModal ({WEBAPP_COMPOSE_COMMIT_BASE}8f5f2c3[`8f5f2c3`]).
 * Fixed Right-To-Left detection to work based on current user language ({WEBAPP_COMPOSE_COMMIT_BASE}30cc4eb7[`30cc4eb7`], {WEBAPP_ADMIN_COMMIT_BASE}c882464[`c882464`]).
 * Fixed filtering for time and date only `DateTime` fields ({WEBAPP_COMPOSE_COMMIT_BASE}a755b984[`a755b984`], {WEBAPP_COMPOSE_COMMIT_BASE}6ab98c52[`6ab98c52`], {WEBAPP_COMPOSE_COMMIT_BASE}a755b984[`a755b984`]).

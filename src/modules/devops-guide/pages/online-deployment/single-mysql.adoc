@@ -1,4 +1,5 @@
 = Single-Image with MySQL Database
+:page-aliases: online-deployment/multi-mysql.adoc
 
 .`docker-compose.yaml`
 [source,yaml]

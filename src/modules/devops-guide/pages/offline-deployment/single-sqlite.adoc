@@ -1,4 +1,5 @@
 = Single-Image with SQLite Database
+:page-aliases: offline-deployment/single-sqlite-inmem.adoc
 
 [CAUTION]
 ====

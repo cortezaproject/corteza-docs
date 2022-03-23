@@ -1,4 +1,5 @@
 = Multi-image PostgreSQL
+:page-aliases: online-deployment/multi-pgsql.adoc, online-deployment/single-pgsql.adoc
 :page-noindex: true
 
 [NOTE]

@@ -4,9 +4,9 @@ include::ROOT:partial$variables.adoc[]
 
 {PRODUCT_NAME} allows you to create create, update or update multiple records with one request.
 
-== Bulk record create
+== Creating Bulk Records
 
-A bulk payload where records only define their values will create a new record for each entry.
+A bulk payload where records only define their values create a new record for each entry.
 
 [source,bash]
 ----
@@ -25,20 +25,19 @@ curl -X POST "$BASE_URL/api/compose/namespace/$NAMESPACE_ID/module/$MODULE_ID/re
   --compressed
 ----
 
-.Where:
 * `$BASE_URL` is the URL to your {PRODUCT_NAME} instance (e.g. `https://corteza.mydomain.tld`),
 * `$NAMESPACE_ID` is the namespace identifier for which you wish to create records (e.g. `257934065070534659`),
 * `$MODULE_ID` is the module identifier for which you wish to create records (e.g. `257934099950366723`),
 * `$JWT` is the access token to authorize the request.
 
-== Bulk record update
+== Updating Bulk Records
 
 A bulk payload where records define their `recordID` and their values will update existing records and their values.
 
 [CAUTION]
 ====
-{PRODUCT_NAME} will remove any value omitted from the request for the updated record from the existing record.
-If you wish to preserve it, you must provide it in the request.
+{PRODUCT_NAME} removes any value omitted from the request for the updated record from the existing record.
+If you wish to preserve it, you must provide the information in the request.
 ====
 
 [source,bash]
@@ -58,16 +57,15 @@ curl -X POST "$BASE_URL/api/compose/namespace/$NAMESPACE_ID/module/$MODULE_ID/re
   --compressed
 ----
 
-.Where:
 * `$BASE_URL` is the URL to your {PRODUCT_NAME} instance (e.g. `https://corteza.mydomain.tld`),
 * `$NAMESPACE_ID` is the namespace identifier for which you wish to update records (e.g. `257934065070534659`),
 * `$MODULE_ID` is the module identifier for which you wish to update records (e.g. `257934099950366723`),
 * `$RECORD_ID_*` is the `recordID` for which you wish to update (e.g. `257936153397719043`),
 * `$JWT` is the access token to authorize the request.
 
-== Bulk record delete
+== Deleting Bulk Records
 
-A bulk payload where records define their `recordID` and a `deletedAt` timestamp will delete the specified records and their values.
+A bulk payload where records define their `recordID` and a `deletedAt` timestamp deletes the specified records and their values.
 
 [source,bash]
 ----
@@ -87,7 +85,6 @@ curl -X POST "$BASE_URL/api/compose/namespace/$NAMESPACE_ID/module/$MODULE_ID/re
   --compressed
 ----
 
-.Where:
 * `$BASE_URL` is the URL to your {PRODUCT_NAME} instance (e.g. `https://corteza.mydomain.tld`),
 * `$NAMESPACE_ID` is the namespace identifier for which you wish to delete records (e.g. `257934065070534659`),
 * `$MODULE_ID` is the module identifier for which you wish to delete records (e.g. `257934099950366723`),

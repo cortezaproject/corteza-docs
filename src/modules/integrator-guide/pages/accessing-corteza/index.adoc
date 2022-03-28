@@ -18,7 +18,7 @@ include::ROOT:partial$variables.adoc[]
 JWT tokens grant access to your system, so treat them as login credentials.
 ====
 
-=== Obtaining access tokens
+=== Obtaining Access Tokens
 
 Before you can obtain the access token, you need to define an *auth client*, and a *system user*.
 You can use an existing user (such as yourself), or create a dedicated user.
@@ -29,11 +29,11 @@ Make sure that the system user has sufficient roles to be able to access resourc
 ====
 
 Create a new auth client with the `client_credentials` grant type.
-Insert the ID of the selected user under the "Impersonate user" (the user that we mentioned above).
+Insert the ID of the selected user under the "Impersonate user" (the user that is mentioned above).
 
 [IMPORTANT]
 ====
-Make sure that you are using {PRODUCT_NAME} xref:ROOT:changelog/202103.adoc#p2021_3_4[2021.3.4] or later.
+Make sure that you are using {PRODUCT_NAME} xref:ROOT:changelog/202103.adoc#p2021_3_4[2021.3.4] or any subsequent versions.
 ====
 
 If the user's ID is not set or is not valid, an `Error: "auth client security configuration invalid"` error is returned.
@@ -71,10 +71,10 @@ curl -X POST $CORTEZA_URL/auth/oauth2/token \
 
 [CAUTION]
 ====
-The above token expires after two hours; make sure to fetch a new one.
+The above token expires after two hours; make sure to fetch a new one when necessary.
 ====
 
-=== Using access tokens
+=== Using Access Tokens
 
 Each HTTP request to a *protected resource* must provide the bearer JWT token in the `authorization` header.
 
@@ -191,15 +191,20 @@ If you are using a *different sub-domain* for your API (two separate Docker cont
 
 If you are using *the same domain* for your API (a single Docker container for web app and API), the URL should look something like `https://$BASE_URL/api/docs`.
 ====
+//Editor's note: you could add a hyperlink to the word "this" - like you do oin some other instances.
 
-Here we cover endpoints used for debugging and maintenance.
+Here endpoints used for debugging and maintenance are covered.
 Refer to the built-in API reference for the complete list of available endpoints.
-https://latest.cortezaproject.org/api/docs/[Here] is the API reference for our community instance.
+
+[TIP]
+====
+You can use https://latest.cortezaproject.org/api/docs/[community instance] API reference.
+====
 
 In addition to the API reference mentioned above, these are the system-level endpoints that need to be explicitly enabled.
-They can be enabled for development/debugging but should be disabled when running in production.
+They can be enabled for development or debugging but should be disabled when running in production.
 
-.System-level endpoints:
+.System-level Endpoints:
 [cols="1m,5a"]
 |===
 | Option | Endpoints
@@ -213,7 +218,7 @@ They can be enabled for development/debugging but should be disabled when runnin
 
 | HTTP_ENABLE_VERSION_ROUTE
 |
-* `/version` shows the build time and the Corteza version.
+* `/version` shows the build time and the {PRODUCT_NAME} version.
 
 | HTTP_ENABLE_HEALTHCHECK_ROUTE
 |
@@ -222,9 +227,9 @@ They can be enabled for development/debugging but should be disabled when runnin
 |===
 
 [#response-format]
-== Response data format
+== Response Data Format
 
-{PRODUCT_NAME} implements three different response formats, based on what we are trying to do and based on the status.
+{PRODUCT_NAME} implements three different response formats based on what you are trying to do, and based on the status.
 
 [IMPORTANT]
 ====

@@ -7,14 +7,14 @@ Templates allow you to define the generic document structure (such as a welcome 
 
 If you wish to learn more about a specific topic, refer to the subsections under menu:Low-Code Platform Developer Guide[Templates].
 
-== Creating a template
+== Creating a Template
 
 Templates are created and managed in the {PRODUCT_NAME} {APP_NAME_ADMIN}.
 
 Navigate to the menu:System[Templates] and click on the btn:[New] button in the top-right corner.
 
 Enter the basic information; short name, handle, description, and template type.
-The template type determines the template format and implicitly implies what document types the template can render to.
+The template type determines the template format and implicitly entails what document types the template can render to.
 
 A partial template is used as part of another template (for example, a generic header or a footer) and can not be rendered independently.
 You can convert the template from and to a partial template.
@@ -33,24 +33,24 @@ The toolbox provides snippets for the most common operations, HTML template samp
 | [#templates-content]#<<templates-content,Template content>>#
 |
 The template content editor provides a simple code editor to edit your template.
-The HTML template editor implements syntax highlighting and some other useful tools.
+The HTML template editor implements syntax highlighting and some other useful tools such as auto completion.
 
 | [#templates-preview]#<<templates-preview,Preview>>#
 |
 The preview section allows you to test how your templates will look when rendered into an actual document.
 
-// [IMPORTANT]
-// ====
-// Refer to the xref:templates/pdf.adoc[] section to setup PDF rendering.
-// ====
+[IMPORTANT]
+====
+Refer to the xref:devops-guide:pdf-renderer.adoc[] to configure PDF document rendering.
+====
 
 |===
 
-== The content
+== The Content
 
 [NOTE]
 ====
-Advanced users are welcome to checkout the https://golang.org/pkg/text/template/[plain text template full reference], the https://golang.org/pkg/html/template/[html template full reference], and the https://masterminds.github.io/sprig/[extended function docs].
+Advanced users are welcome to check out the https://golang.org/pkg/text/template/[plain text template full reference], the https://golang.org/pkg/html/template/[html template full reference], and the https://masterminds.github.io/sprig/[extended function docs].
 ====
 
 Let's start by copying the default HTML sample from the toolbox.
@@ -71,26 +71,26 @@ Let's start by copying the default HTML sample from the toolbox.
 </html>
 ----
 
-If you don't need any dynamic content (different name for different contacts), you can stop.
+If you don't need any dynamic content (different name for different contacts), you can stop after this step.
 The above template is valid and can already be used.
 
-If you need dynamic content, we need to cover a few more topics.
+In case you need dynamic content, more topics need to be covered.
 
-=== Value interpolation
+=== Value Interpolation
 
 Value interpolation allows you to define some placeholder that is then replaced with an actual value when the template is rendered.
 
-In our case, this placeholder looks like this:
+In this case, this placeholder looks like this:
 
 [source]
 ----
 {{.name}}
 ----
 
-The value will replace the above placeholder under the `name` property from the provided `value` object.
+The value replaces the above placeholder under the `name` property from the provided `value` object.
 
 Let's look at some examples.
-Each example firstly defines the `value` object and then the placeholder.
+Each example first defines the `value` object and then the placeholder.
 
 .Example with a basic property:
 [source]
@@ -148,7 +148,7 @@ A complete example would look like this:
 </html>
 ----
 
-=== Conditional rendering
+=== Conditional Rendering
 
 Conditional rendering allows you to show or hide sections of the rendered document based on the input parameters.
 
@@ -198,54 +198,54 @@ An example of an expression:
 
 | [#tpl-syntax-and]#<<tpl-syntax-and,AND>>#
 |
-* *syntax*: `a && b`
-* *notes*: Results as truthy if both `a` and `b` evaluate to `true`.
+* *Syntax*: `a && b`
+* *Notes*: Results as true if both `a` and `b` evaluate to `true`.
 
 | [#tpl-syntax-or]#<<tpl-syntax-or,OR>>#
 |
-* *syntax*: `a \|\| b`
-* *notes*: Results as truthy if either `a` or `b` evaluates to `true`.
+* *Syntax*: `a \|\| b`
+* *Notes*: Results as true if either `a` or `b` evaluates to `true`.
 
 | [#tpl-syntax-not]#<<tpl-syntax-not,NOT>>#
 |
-* *syntax*: `!a`
-* *notes*: Results as truthy if `a` is `false` and vice-versa.
+* *Syntax*: `!a`
+* *Notes*: Results as true if `a` is `false` and vice-versa.
 
 | [#tpl-syntax-eq]#<<tpl-syntax-eq,Equal>>#
 |
-* *syntax*: `a == b`
-* *notes*: Results as truthy if `a` is equal to `b`.
+* *Syntax*: `a == b`
+* *Notes*: Results as true if `a` is equal to `b`.
 
 | [#tpl-syntax-neq]#<<tpl-syntax-neq,Not equal>>#
 |
-* *syntax*: `a != b`
-* *notes*: Results as truthy if `a` is not equal to `b`.
+* *Syntax*: `a != b`
+* *Notes*: Results as true if `a` is not equal to `b`.
 
-| [#tpl-syntax-lt]#<<tpl-syntax-lt,Less then>>#
+| [#tpl-syntax-lt]#<<tpl-syntax-lt,Less than>>#
 |
-* *syntax*: `a < b`
-* *notes*: Results as truthy if `a` is less then `b`.
+* *Syntax*: `a < b`
+* *Notes*: Results as true if `a` is less than `b`.
 
-| [#tpl-syntax-gt]#<<tpl-syntax-gt,Greater then>>#
+| [#tpl-syntax-gt]#<<tpl-syntax-gt,Greater than>>#
 |
-* *syntax*: `a > b`
-* *notes*: Results as truthy if `a` is greater then `b`.
+* *Syntax*: `a > b`
+* *Notes*: Results as true if `a` is greater than `b`.
 
-| [#tpl-syntax-let]#<<tpl-syntax-let,Less equal then>>#
+| [#tpl-syntax-let]#<<tpl-syntax-let,Less equal than>>#
 |
-* *syntax*: `a \<= b`
-* *notes*: Results as truthy if `a` is less or equal to `b`.
+* *Syntax*: `a \<= b`
+* *Notes*: Results as true if `a` is less or equal to `b`.
 
-| [#tpl-syntax-get]#<<tpl-syntax-get,Greater equal then>>#
+| [#tpl-syntax-get]#<<tpl-syntax-get,Greater equal than>>#
 |
-* *syntax*: `a >= b`
-* *notes*: Results as truthy if `a` is greater or equal to `b`.
+* *Syntax*: `a >= b`
+* *Notes*: Results as true if `a` is greater or equal to `b`.
 
 |===
 
-=== Handling lists
+=== Handling Lists
 
-Our templates make it quite easy to work with lists of items.
+Our templates make it quite easy to work with lists.
 For example, you would like to generate a quote with lots of line items.
 
 The syntax for iterating over a list looks like this:
@@ -266,14 +266,14 @@ If you prefer to specify what variable the current item is stored into, use this
 {{end}}
 ----
 
-=== Using functions
+=== Using Functions
 
-Sometimes you will need to process the data further before it is rendered to the document.
+Sometimes you need to process the data further before it is rendered to the document.
 
 Some lighter processing can be handled directly by the template engine.
 More complex processing should be handled by the code that is requesting to render the template.
 
-.A function is called like this:
+.A function is called upon as shown below:
 [source]
 ----
 {{functionName arg1 arg2 ... argN}}
@@ -295,54 +295,54 @@ When two functions are chained, the left function's output is passed into the ar
 
 | [#tpl-syntax-fref-len]#<<tpl-syntax-fref-len,Length of>>#
 |
-* *syntax*: `{{len listOfThings}}`
-* *notes*: returns the number of items in the given `listOfThings`.
+* *Syntax*: `{{len listOfThings}}`
+* *Notes*: Returns the number of items in the given `listOfThings`.
 
 | [#tpl-syntax-fref-printf]#<<tpl-syntax-fref-printf,Format string>>#
 |
-* *syntax*: `{{printf "pattern goes here" arg1 arg2 ... argn}}`
-* *notes*: returns the formatted string, following the provided pattern using the values provided as arguments.
+* *Syntax*: `{{printf "pattern goes here" arg1 arg2 ... argn}}`
+* *Notes*: Returns the formatted string, following the provided pattern using the values provided as arguments.
 
 | [#tpl-syntax-fref-inlineRemote]#<<tpl-syntax-fref-inlineRemote,Inline remote file>>#
 |
-* *syntax*: `{{inlineRemote "url goes here"}}`
-* *notes*: returns the base64 encoded file denoted by the URL.
+* *Syntax*: `{{inlineRemote "url goes here"}}`
+* *Notes*: Returns the base64 encoded file denoted by the URL.
 The string is formatted in the form of `data:\{mime-type};base64,\{encoded remote file}`.
 Useful when attaching images to PDF documents.
 
 | [#tpl-syntax-fref-trim]#<<tpl-syntax-fref-trim,Trim string>>#
 |
-* *syntax*: `{{trim "string goes here"}}`
-* *notes*: removes any spaces from the start/end of the provided string.
+* *Syntax*: `{{trim "string goes here"}}`
+* *Notes*: Removes any spaces from the start/end of the provided string.
 
 | [#tpl-syntax-fref-trimSuffix]#<<tpl-syntax-fref-trimSuffix,Trim suffix from a string>>#
 |
-* *syntax*: `{{trimSuffix "suffix to remove here" "string goes here"}}`
-* *notes*: removes the suffix from the given string.
+* *Syntax*: `{{trimSuffix "suffix to remove here" "string goes here"}}`
+* *Notes*: Removes the suffix from the given string.
 
 | [#tpl-syntax-fref-trimPrefix]#<<tpl-syntax-fref-trimPrefix,Trim prefix from a string>>#
 |
-* *syntax*: `{{trimPrefix "prefix to remove here" "string goes here"}}`
-* *notes*: removes the prefix from the given string.
+* *Syntax*: `{{trimPrefix "prefix to remove here" "string goes here"}}`
+* *Notes*: Removes the prefix from the given string.
 
 | [#tpl-syntax-fref-upper]#<<tpl-syntax-fref-upper,To uppercase>>#
 |
-* *syntax*: `{{upper "string goes here"}}`
-* *notes*: converts string to upper case.
+* *Syntax*: `{{upper "string goes here"}}`
+* *Notes*: Converts string to upper case.
 
 | [#tpl-syntax-fref-lower]#<<tpl-syntax-fref-lower,To lowercase>>#
 |
-* *syntax*: `{{lower "string goes here"}}`
-* *notes*: converts string to lower case.
+* *Syntax*: `{{lower "string goes here"}}`
+* *Notes*: Converts string to lower case.
 
 |===
 
-=== Using partials
+=== Using Partials
 
 Partials allow you to keep your documents consistent by using common headers and footers.
-Partials can also be useful when displaying {PRODUCT_NAME}s' resources, such as displaying a record in a table.
+Partials can also be useful when displaying {PRODUCT_NAME}'s resources, such as displaying a record in a table.
 
-.Partials are included like so:
+.Partials are included like shown below:
 [source]
 ----
 {{template "partial_handle"}}
@@ -363,7 +363,7 @@ If your partial needs to access some data that you provided to the current templ
 {{template "email_general_header" .property.to.pass}}
 ----
 
-For example, if our data looks like this:
+See the example below:
 
 [source,json]
 ----
@@ -377,21 +377,21 @@ For example, if our data looks like this:
 }
 ----
 
-If you want to pass the `contact` to the partial, you would include your partial like so:
+If you want to pass the `contact` to the partial, you should include your partial like shown below:
 
 [source]
 ----
 {{template "partial_handle" .contact}}
 ----
 
-If you wanted to pass all of the data to your partial, you would include your partial like so:
+If you want to pass all of the data to your partial, you should include your partial like shown below:
 
 [source]
 ----
 {{template "partial_handle" .}}
 ----
 
-You would access the `contact` in your partial like so:
+You would access the `contact` in your partial like shown below:
 
 [source]
 ----
@@ -430,7 +430,7 @@ Hello {{.contact.values.LastName}} of the {{.account.values.Name}}
 // ----
 
 // The above example iterates over the `values` of the provided record and displays the key-value pair in the table.
-// You would use the `record_table_generic` partial like so:
+// You would use the `record_table_generic` partial like shown below:
 
 // [source,html]
 // ----
@@ -441,10 +441,10 @@ Hello {{.contact.values.LastName}} of the {{.account.values.Name}}
 // {{template "record_table_generic" .account }}
 // ----
 
-// Note the `.account` at the end.
-// This tells the template engine to use the value of the `account` parameter as the base object in the partial.
+// Note the `.account` at the end; it tells the template engine to use the value of the `account` parameter as the base object in the partial.
 
-== The preview
+//Editor's note: what should happen with the // text above? If it should be included  do so.
+== The Preview
 
 The preview section at the bottom of the page allows you to check how your documents will look like once the template is rendered.
 
@@ -457,7 +457,7 @@ The input box should contain a valid JSON object (render payload) with two root 
   "options": {}<2>
 }
 ----
-<1> The `variables` parameter defines what data will be available when rendering the document.
+<1> The `variables` parameter defines what data will be available one the document is rendered.
 The structure is not defined.
 <2> The `options` parameter defines the rendering options and is currently only available for PDFs.
 
@@ -480,92 +480,99 @@ The structure is not defined.
 }
 ----
 
+A
+
+[IMPORTANT]
+====
+The options marked with #PDF only# can only be used with PDF documents and are ignored elsewhere.
+====
+
 .Complete render payload reference:
 [cols="1s,5a"]
 |===
 
 | [#tpl-render-variables]#<<tpl-render-variables,`variables`>>#
 |
-* *type*: `Object<any>`
-* *description*: the variables you wish to apply to the template.
+* *Type*: `Object<any>`
+* *Description*: The variables you wish to apply to the template.
 For example, if you wish `\{\{testing}}` to work, you must pass `{"variables": {"testing": "some value"}}`.
 
 | [#tpl-render-options_marginBottom]#<<tpl-render-options_marginBottom,`options.marginBottom`>>#
 |
-PDF only.
+#PDF only.#
 
-* *type*: `string< float; 0 >= n; inches >`
-* *description*: controls the margin on the bottom of the page.
+* *Type*: `string< float; 0 >= n; inches >`
+* *Description*: Controls the margin on the bottom of the page.
 
 | [#tpl-render-options_marginLeft]#<<tpl-render-options_marginLeft,`options.marginLeft`>>#
 |
-PDF only.
+#PDF only.#
 
-* *type*: `string< float; 0 >= n; inches >`
-* *description*: controls the margin on the left of the page.
+* *Type*: `string< float; 0 >= n; inches >`
+* *Description*: Controls the margin on the left side of the page.
 
 | [#tpl-render-options_marginRight]#<<tpl-render-options_marginRight,`options.marginRight`>>#
 |
-PDF only.
+#PDF only.#
 
-* *type*: `string< float; 0 >= n; inches >`
-* *description*: controls the margin on the right of the page.
+* *Type*: `string< float; 0 >= n; inches >`
+* *Description*: Controls the margin on the right side of the page.
 
 | [#tpl-render-options_marginTop]#<<tpl-render-options_marginTop,`options.marginTop`>>#
 |
-PDF only.
+#PDF only.#
 
-* *type*: `string< float; 0 >= n; inches >`
-* *description*: controls the margin on the top of the page.
+* *Type*: `string< float; 0 >= n; inches >`
+* *Description*: Controls the margin on the top of the page.
 
 | [#tpl-render-options_marginY]#<<tpl-render-options_marginY,`options.marginY`>>#
 |
-PDF only.
+#PDF only.#
 
-* *type*: `string< float; 0 >= n; inches >`
-* *description*: controls the margin on the top and bottom of the page.
+* *Type*: `string< float; 0 >= n; inches >`
+* *Description*: Controls the margin on the top and bottom of the page.
 
 | [#tpl-render-options_marginX]#<<tpl-render-options_marginX,`options.marginX`>>#
 |
-PDF only.
+#PDF only.#
 
-* *type*: `string< float; 0 >= n; inches >`
-* *description*: controls the margin on the left and right of the page.
+* *Type*: `string< float; 0 >= n; inches >`
+* *Description*: Controls the margin on the left and right of the page.
 
 | [#tpl-render-options_margin]#<<tpl-render-options_margin,`options.margin`>>#
 |
-PDF only.
+#PDF only.#
 
-* *type*: `string< float; 0 >= n; inches >`
-* *description*: controls the margin on the left, right, top, and bottom of the page.
+* *Type*: `string< float; 0 >= n; inches >`
+* *Description*: Controls the margin on the left, right, top, and bottom of the page.
 
 | [#tpl-render-options_documentSize]#<<tpl-render-options_documentSize,`options.documentSize`>>#
 |
-PDF only.
+#PDF only.#
 
-* *type*: `string<A0...A10, B0...B10, C0...C10, ANSI A, ANSI B, ANSI C, ANSI D, ANSI E, junior legal, letter, legal, tabloid>`
-* *description*: The size of the document following the ISO216 standard for the A, B, and C series; ANSI standard for ANSI A, B, C, and D; and NA standards for the last few.
+* *Type*: `string<A0...A10, B0...B10, C0...C10, ANSI A, ANSI B, ANSI C, ANSI D, ANSI E, junior legal, letter, legal, tabloid>`
+* *Description*: The size of the document following the ISO216 standard for the A, B, and C series; ANSI standard for ANSI A, B, C, and D; and NA standards for the last few.
 
 | [#tpl-render-options_documentWidth]#<<tpl-render-options_documentWidth,`options.documentWidth`>>#
 |
-PDF only.
+#PDF only.#
 
-* *type*: `string< float; 0 >= n; inches >`
-* *description*: specifies the document width if none of the presets fit your needs.
+* *Type*: `string< float; 0 >= n; inches >`
+* *Description*: Specifies the document width if none of the presets fit your needs.
 
 | [#tpl-render-options_documentHeight]#<<tpl-render-options_documentHeight,`options.documentHeight`>>#
 |
-PDF only.
+#PDF only.#
 
-* *type*: `string< float; 0 >= n; inches >`
-* *description*: specifies the document height if none of the presets fit your needs.
+* *Type*: `string< float; 0 >= n; inches >`
+* *Description*: Specifies the document height if none of the presets fit your needs.
 
 | [#tpl-render-options_contentScale]#<<tpl-render-options_contentScale,`options.contentScale`>>#
 |
-PDF only.
+#PDF only.#
 
-* *type*: `string< float; 0 >= n >`
-* *description*: at what scale the document should be rendered; bigger number => bigger content.
+* *Type*: `string< float; 0 >= n >`
+* *Description*: At what scale the document should be rendered; bigger number => bigger content.
 
 [NOTE]
 ====
@@ -574,9 +581,9 @@ PDF documents are limited to `0 >= n \<= 8`
 
 | [#tpl-render-options_orientation]#<<tpl-render-options_orientation,`options.orientation`>>#
 |
-PDF only.
+#PDF only.#
 
-* *type*: `string<landscape,portrait>`
-* *description*: what orientation to render the document in.
+* *Type*: `string<landscape,portrait>`
+* *Description*: What orientation to render the document in.
 
 |===

@@ -33,11 +33,11 @@ External providers can be defined in the {PRODUCT_NAME} {APP_NAME_ADMIN} panel, 
 }
 ----
 
-To enable an external authentication provider, you must register {PRODUCT_NAME} as a client using their user interface.
+To enable an external authentication provider, you must register {PRODUCT_NAME} as a client using the provider's user interface.
 Once you've obtained the user key and secret, you can configure {PRODUCT_NAME} using the admin panel.
 External providers become effective immediately without server restart.
 
-== Authentication providers
+== Authentication Providers
 
 :leveloffset: +2
 
@@ -56,7 +56,7 @@ include::saml.adoc[]
 [#idp-roles]
 == Adjust user role membership
 
-Each of the external authentication provider supports restricting and adjusting user's role membership when a specific external authentication provider is used.
+Each of the external authentication providers supports restricting and adjusting the user's role membership when a specific external authentication provider is used.
 
 [IMPORTANT]
 ====
@@ -96,7 +96,7 @@ To configure role membership, click on the edit icon next to the external authen
 }
 ----
 
-On the bottom of the modal you will see three inputs for permitted, prohibited, and forced roles.
+On the bottom of the modal you should see three inputs for permitted, prohibited, and forced roles.
 
 [annotation,role="data-zoomable"]
 ----
@@ -132,11 +132,11 @@ On the bottom of the modal you will see three inputs for permitted, prohibited, 
 [cols="1s,5a"]
 |===
 | [#idp-roles-permitted]#<<idp-roles-permitted,Permitted roles>>#
-| list of roles that users are allowed to keep.
+| List of roles that users are allowed to keep.
 
 | [#idp-roles-prohibited]#<<idp-roles-prohibited,Prohibited roles>>#
-| list of roles that are removed from user.
+| List of roles that are removed from user.
 
 | [#idp-roles-forced]#<<idp-roles-forced,Forced roles>>#
-| list of roles that are added to user when authenticating with this external provider.
+| List of roles that are added to user when authenticating with this external provider.
 |===

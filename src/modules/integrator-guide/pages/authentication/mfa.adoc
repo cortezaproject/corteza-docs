@@ -11,8 +11,7 @@ Multi-factor authentication (MFA) provides an extra layer of security for your u
 == Configure MFA
 
 Multi-factor authentication can be enabled in the {PRODUCT_NAME} {APP_NAME_ADMIN} web application under menu:system[authentication, multi-factor authentication].
-
-You can configure *OTP via email* by enabling the allow of the force users to use one-time-password over email option and optionally change the default end time for the OTP.
+You can either *allow* or *force* users to receive their OTP (one-time-password) either via their *email* or their *authenticator application*.
 
 [annotation,role="data-zoomable"]
 ----
@@ -40,8 +39,6 @@ You can configure *OTP via email* by enabling the allow of the force users to us
 }
 ----
 
-You can configure *OTP via authenticator app* by enabling the use time based one-time-password (using mobile application) option and change the default issuer displayed in the authenticator app.
-
 [annotation,role="data-zoomable"]
 ----
 {
@@ -68,7 +65,7 @@ You can configure *OTP via authenticator app* by enabling the use time based one
 }
 ----
 
-Next, to enable OTP for a specific user, navigate to menu:system[users] and click on the edit icon next to the user you wish to enable it for.
+Next, to enable OTP for a specific user, navigate to menu:system[users] and click on the "edit" icon next to the user you wish to enable it for.
 Navigate to the "multi-factor authentication" section and click on the btn:[enable] button.
 
 .The screenshot outlines the user interface used to enable MFA authentication for a specific user.
@@ -100,7 +97,7 @@ Navigate to the "multi-factor authentication" section and click on the btn:[enab
 
 From that point on, when a user attempts to login, they will receive an email with the OTP, which they need to provide before the login is finished.
 
-== Use MFA over email
+== Use MFA Over Email
 
 To use MFA over email, navigate to your profile and click on the "security" tab.
 
@@ -150,7 +147,7 @@ The next time you login, you will need to confirm the login by entering the OTP 
 }
 ----
 
-== Use MFA over the authenticator app
+== Use MFA Over the Authenticator App
 
 To use MFA over email, navigate to your profile and click on the "security" tab.
 
@@ -184,7 +181,7 @@ Click on the btn:[configure] button in the "additional security with mobile app 
 }
 ----
 
-Open up your authenticator app and configure {PRODUCT_NAME} by either scanning the QR code or by manually providing the parameters.
+Open up your authenticator app and configure {PRODUCT_NAME} by either scanning the QR code provided or by manually providing the parameters provided on the authentication screen.
 
 [annotation,role="data-zoomable"]
 ----

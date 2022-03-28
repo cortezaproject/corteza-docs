@@ -1,6 +1,6 @@
 include::ROOT:partial$variables.adoc[]
 
-= Query language
+= Query Language
 :keywords: API, {PRODUCT_NAME} API, QL, query language, searching
 :description: Learn how to use {PRODUCT_NAME}'s query language to filter data
 
@@ -45,13 +45,13 @@ Equal::
 Not equal::
   * `!=`
   * `<>`
-Less then::
+Less than::
   * `<`
-Less or equal then::
+Less than or equal to::
  * `\<=`
-Greater then::
+Greater than::
   * `>`
-Greater or equal then::
+Greater than or equal to::
   * `>=`
 Matches pattern::
   * `LIKE`
@@ -60,7 +60,7 @@ Does not match the pattern::
 
 When matching patterns, use `_` to represent a single character; use `%` to represent zero, one, or multiple characters.
 
-=== Arithmetic operators
+=== Arithmetic Operators
 
 Addition::
   * `+`
@@ -71,13 +71,13 @@ Multiplication::
 Division::
   * `/`
 
-=== Boolean operators
+=== Boolean Operators
 
-* `AND`: truthy when left and right are truthy
-* `OR`: truthy when left or right is truthy
+* `AND`: true when left and right are true
+* `OR`: true when left or right is true
 
 [#query-mv]
-=== Multi-value fields
+=== Multi-value Fields
 
 Filters for multi-value fields look precisely the same as they would for regular fields.
 
@@ -115,10 +115,10 @@ FIELD[ DIRECTION][, FIELD[ DIRECTION] [...]]
 * `...` means that the current encapsulated content is repeated.
 ****
 
-.Supported directions:
-* `ASC`: sort in ascending order, lower values first (`NULL` values are first).
+.Supported Directions:
+* `ASC`: Sort in ascending order, lower values first (`NULL` values come first).
 This is the default sort if no `DIRECTION` is specified.
-* `DESC`: sort in ascending order, lower values last (`NULL` values are last).
+* `DESC`: Sort in ascending order, lower values last (`NULL` values come last).
 
 For the following examples, let us assume that we have a module named `test` with the following fields:
 
@@ -133,7 +133,7 @@ For the following examples, let us assume that we have a module named `test` wit
 price DESC, quantity
 ----
 
-=== Multi-value fields
+=== Multi-value Fields
 
 [IMPORTANT]
 ====

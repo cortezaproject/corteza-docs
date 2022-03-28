@@ -5,7 +5,7 @@ include::ROOT:partial$variables.adoc[]
 {PRODUCT_NAME} {APP_NAME_REPORTER} allows you to create beautiful reports using the data stored in your {APP_NAME_COMPOSE} applications.
 This section focuses on the most important aspects of the system. If you wish to learn more about a specific topic, refer to the subsections under menu:Low-Code Platform Developer Guide[Reporting].
 
-== Create a new report
+== Creating a New Report
 
 To create a report, navigate to your {PRODUCT_NAME} instance (for example http://latest.cortezaproject.org/) and click ok tne "{APP_NAME_REPORTER}" application.
 
@@ -16,16 +16,16 @@ A new screen showing you all of the available reports will appear.
 .From there you can:
 * create new reports by clicking on the btn:[New Report] button,
 * edit existing reports by clicking on the btn:[edit] button,
-* open the report builder by clicking on the btn:[report builder] button,
-* manage global permissions by clicking on the btn:[Permissions] button, or
+* open the report builder by clicking on the btn:[Report builder] button,
+* manage global permissions by clicking on the btn:[Permissions] button,
 * manage report-specific permissions by clicking on the "Lock" icon next to the report.
 
 image::reporter/report-list.png[role="data-zoomable"]
 
-When you click on the btn:[New report] button, a new screen will appear asking you to provide the base report parameters.
+When you click on the btn:[New report] button, a new screen appears asking you to provide the base report parameters.
 
-* *Name* provides a human-friendly identifier for the report; for example "Test Report".
-A name doesn't define any special constraints.
+* *Name* provides a user-friendly identifier for the report; for example "Test Report".
+A name doesn't define any particular constraints.
 * *Handle* defines a <<report-handle-constraints,unique value>> that may be used instead of the system identifier for easier referencing.
 * *Description* defines a verbose description of the report to better explain what the report shows.
 * *Tags* define a series of short text snippets to describe your report.
@@ -37,14 +37,14 @@ include::partial$handle-constraints.adoc[]
 image::reporter/report-create.png[role="data-zoomable"]
 
 [#report-builder]
-== Report builder
+== Report Builder
 
 The report builder is used to define the reports' structure using *report blocks* and a drag-and-drop interface.
-Each report has a grid of 12 columns and is not limited on the vertical.
+Each report has a grid of 12 columns and is not limited on the vertical axis.
 
 image::reporter/report-builder-base.png[role="data-zoomable"]
 
-Click on the btn:[+ Add block] button to add a new report block which can hold additional datasources and display elements.
+Click on the btn:[+ Add block] button to add a new report block which can hold additional data sources and display elements.
 
 image::reporter/report-builder-block-base.png[role="data-zoomable"]
 
@@ -63,55 +63,55 @@ image::reporter/report-builder-elements.png[role="data-zoomable"]
 To reposition the report block, simply drag-and-drop it to the desired position.
 
 The report block may be placed anywhere on the X axis, but its Y axis must connect with another report block or with the top of the page.
-If the position is not valid, or it overlays with another report block, they report builder may automatically adjust the surrounding report blocks to conform to the constraints.
+If the position is not valid or it overlays with another report block, the report builder may automatically adjust the surrounding report blocks to conform to the constraints.
 
 image:reporter/report-builder-repos-base.png[width=49%]
 image:reporter/report-builder-repos.png[width=49%]
 
-To resize the report block, simply grab the arrow in the bottom-right corner and resize to your needs.
+To resize the report block, simply grab the arrow in the bottom-right corner and resize to fit your needs.
 The report block may not exceed the maximum width of 12 columns.
 The height is not limited.
 
 image:reporter/report-builder-resize-base.png[width=49%]
 image:reporter/report-builder-resize.png[width=49%]
 
-To delete a report block, click on the "trash can" icon in the bottom-left corner of the report block, and confirm the action by clicking on the confirmation button.
+To delete a report block, click on the "trash can" icon in the bottom-left corner of the report block and confirm the action by clicking on the confirmation button.
 
 image::reporter/report-builder-delete.png[role="data-zoomable"]
 
-== Datasources
+== Data Sources
 
 [NOTE]
 ====
 *DevNote* reference to more examples.
 ====
 
-A datasoirce defines what resource we will be accessing, how the data will be pre-processed and presented to the reporter.
-Most datasources may be used as the input to another datasource.
+A data source defines what resource is being accessed, how the data is pre-processed and presented to the reporter.
+Most data sources may be used as the input to another data source.
 
 [IMPORTANT]
 ====
-A datasource must define a name that is unique amongst other datasources defined by the current report and any of it's blocks.
+A data source must define a name that is unique amongst other data sources defined by the current report and any of it's blocks.
 ====
 
-We can define datasources on two levels: on the entire report and on a specific report block.
+We can define data sources on two levels: on the entire report and on a specific report block.
 
-When defining datasources on the entire report, any of the blocks and its items will be able to access the data provided by the datasource.
-Such a datasource should be used when we wish to define some pre-computed data which we will be using through the entire report.
-Report-level datasources can be accessed by clicking on the btn:[Datasources] button in the top right corner of the <<report-builder,report builder>>.
+When defining data sources on the entire report, any of the blocks and its items should be able to access the data provided by the data source.
+Such a data source should be used when we wish to define some pre-computed data which we will be using through the entire report.
+Report-level data sources can be accessed by clicking on the btn:[Data sources] button in the top right corner of the <<report-builder,report builder>>.
 
-When defining datasoures on specific report blocks, only the items inside the given report block will be able to access the data provided by the datasource.
-Such a datasource should be used when we wish to additionally transform some pre-computed dat provided by report-level datasources.
-Block-level datasources can be accessed by clicking on the "edit" icon of a certain block and navigating to the "datasources" section.
+When defining data sources on specific report blocks, only the items inside the given report block are able to access the data provided by the data source.
+Such a data source should be used when you wish to additionally transform some pre-computed dat provided by report-level data sources.
+Block-level data sources can be accessed by clicking on the "edit" icon of a certain block and navigating to the "data sources" section.
 
 === Load
 
-The load datasource allows you to access resources directly from {PRODUCT_NAME} such as your CRM leads.
-// Resources can be prefiltered and presorted, allowing you to show data based on a specific heuristic such as a time span.
+The load data source allows you to access resources directly from {PRODUCT_NAME} such as your CRM leads.
+Resources can be pre-filtered and presorted, which allows you to show data based on a specific characteristic such as a time span.
 
-The source defines what {PRODUCT_NAME} resource will be providing us with data; for example "compose records".
+The source defines which {PRODUCT_NAME} resource provides data; for example "compose records".
 
-.The example shows a load datasource configuration.
+.The example shows a load data source configuration.
 image::reporter/load.png[role="data-zoomable"]
 
 .Compose record source configuration options:
@@ -119,47 +119,47 @@ image::reporter/load.png[role="data-zoomable"]
 |===
 | [#ds-load-records-namespace]#<<ds-load-records-namespace,Namespace>>#
 |
-The namespace defines what {APP_NAME_COMPOSE} namespace we will be accessing; for example "CRM" or "Case Management".
+The namespace defines what {APP_NAME_COMPOSE} namespace is accessed; for example "CRM" or "Case Management".
 
 | [#ds-load-records-module]#<<ds-load-records-module,Module>>#
 |
-The module defines what module we will be accessing; for example "lead" or "contact".
+The module defines what module is accessed; for example "lead" or "contact".
 
-| [#ds-load-records-prefilter]#<<ds-load-records-prefilter,Prefilter>>#
+| [#ds-load-records-prefilter]#<<ds-load-records-prefilter,Pre-filter>>#
 |
-The prefilter defines what filtering should be applied to the accessed data before the datasource returns the data.
-Prefiltering allows you to show data based on the specified heuristic, such as the current quarter or leads with a specific status.
+The pre-filter defines what filtering should be applied to the accessed data before the data source returns the data.
+Pre-filtering allows you to show data based on the specified characteristic, such as the current quarter or leads with a specific status.
 
 Refer to xref:reporting/prefilter.adoc[prefiltering] for more details.
 
-| [#ds-load-records-presort]#<<ds-load-records-presort,Presort order>>#
+| [#ds-load-records-presort]#<<ds-load-records-presort,Pre-sort order>>#
 |
-The presort defines how the resulting data should be sorted before the datasource returns it.
+The pre-sort defines how the resulting data should be sorted before the data source returns it.
 This allows you to define some initial order, such as newer leads first, or the oldest clients first.
 
-Refer to xref:reporting/presort.adoc[presorting] for more details
+Refer to xref:reporting/presort.adoc[presorting] for more details.
 
 |===
 
 [#datasource-group]
 === Group
 
-The group datasource allows you to aggregate and transform data provided by another datasource, such as computing the total cost of lead acquisitions or counting the number of jobs that a client requested.
+The group data source allows you to aggregate and transform data provided by another data source, such as computing the total cost of lead acquisitions or counting the number of jobs that a client requested.
 
-The source defines what datasource we will be aggregating and it must be one of the predefined datasources such as a load or another group.
+The source defines what data source is to be aggregated and it must be one of the predefined data sources such as a load or another group.
 
-.The example shows a group datasource configuration.
+.The example shows a group data source configuration.
 image:reporter/group.png[]
 
-.Group datasource configuration options:
+.Group data source configuration options:
 [cols="1s,5a"]
 |===
 | [#ds-group-group-by]#<<ds-group-group-by,Group by>>#
 |
 The group by section defines the columns that denote groups.
-To examplify; defining an expression of `AccountSource` for the accounts CRM module will group the records based on the account source.
+To exemplify; defining an expression of `AccountSource` for the accounts CRM module groups the records based on the account source.
 
-The group column must define a name and an optional label; and can be referenced by further datasources.
+The group column must define a name and an optional label and can be referenced by further data sources.
 
 Refer to the xref:reporting/expr-reference.adoc[expression reference] for more details.
 
@@ -171,9 +171,9 @@ A group must define at least 1 group column.
 | [#ds-group-aggregate]#<<ds-group-aggregate,Aggregate>>#
 |
 The aggregate section allows you to define how the computed columns are be evaluated.
-To examplify; defining an expression of `count()` will return the number of rows for each group.
+To exemplify; defining an expression of `count()` returns the number of rows for each group.
 
-The aggregated column must define a name and an optional label; and can be referenced by further datasources.
+The aggregated column must define a name and an optional label and can be referenced by further data sources.
 
 Refer to the xref:reporting/expr-reference.adoc[expression reference] for more details.
 
@@ -187,54 +187,55 @@ Refer to the xref:reporting/expr-reference.adoc[expression reference] for more d
 [#datasource-join]
 === Join
 
-The join datasource allows you to join two datasources based on a common value, such as a reference using `Record` module fields or a common status column.
+The join data source allows you to join two data sources based on a common value, such as a reference using `Record` module fields or a common status column.
 
 [CAUTION]
 ====
-The current versions do not allow you to use the join datasource as an input to other datasources.
+The current versions do not allow you to use the join data source as an input to other data sources.
 ====
 
 [CAUTION]
 ====
-Any row from the primary source which does not have a related secondary source will be omitted from the result.
+Any row from the primary source which does not have a related secondary source is omitted from the result.
 Anti-joins are not supported.
 ====
 
-.The example shows a join datasource configuration.
+.The example shows a join data source configuration.
 image:reporter/join.png[]
 
-.Join datasource configuration options:
+.Join data source configuration options:
 [cols="1s,5a"]
 |===
 | [#ds-join-primary-source]#<<ds-join-primary-source,Primary source>>#
 |
-The primary source defines the base datasource involved with the joining, such as the account of the account-contact relationship.
+The primary source defines the base data source involved with the joining, such as the account of the account-contact relationship.
 
 | [#ds-join-primary-column]#<<ds-join-primary-column,Primary column>>#
 |
-The primary column defines what column from the <<ds-join-primary-source,primary source>> should be used when determining if the two rows are connected.
+The primary column defines what column from the <<ds-join-primary-source,primary source>> should be used when determining whether the two rows are connected.
 
 | [#ds-join-secondary-source]#<<ds-join-secondary-source,Secondary source>>#
 |
-The secondary source defines the datasource which we are trying to join to the primary source, such as the contact of the account-contact relationship.
+The secondary source defines the data source which we are want to join to the primary source, such as the contact of the account-contact relationship.
 
 | [#ds-join-secondary-column]#<<ds-join-secondary-column,secondary column>>#
 |
-The secondary column defines what column from the <<ds-join-secondary-source,secondary source>> should be used when determining if the two rows are connected.
+The secondary column defines what column from the <<ds-join-secondary-source,secondary source>> should be used when determining whether the two rows are connected.
 
 |===
 
-== Display elements
+== Display Elements
 
-Display elements allow you to access and display the data provided by a xref:reporting/index.adoc#datasources[datasource].
-Display elements can only exist inside a block, where a single block may define multiple display elements.
+Display elements allow you to access and display the data provided by a xref:reporting/index.adoc#datasources[data source].
+Display elements can only exist inside a block.
+A single block may define multiple display elements.
 
 [TIP]
 ====
 You can use a <<el-table,table>> and a <<el-chart,chart>> side-by-side to show what data was used to generate the visualization.
 ====
 
-Most display elements may define additional xref:reporting/prefilter.adoc[prefiltering] and xref:reporting/presort.adoc[presorting].
+Most display elements may define additional xref:reporting/prefilter.adoc[pre-filtering] and xref:reporting/presort.adoc[pre-sorting].
 
 [#el-text]
 === Text
@@ -251,7 +252,7 @@ image:reporter/text-usage-1.png[]
 
 === Metric
 
-The metric display element allows you to display a calculated numerical value from the provided datasource.
+The metric display element allows you to display a calculated numerical value from the provided data source.
 
 The calculated value is usually an indicator important to your process, such as the total finances in your sales pipeline, or the current number of open accounts.
 
@@ -263,7 +264,7 @@ image:reporter/metric-configuration.png[]
 |===
 | [#el-metric-label]#<<el-metric-label,Label>>#
 |
-The label column defines what column from the datasource will be used when displaying the metric.
+The label column defines what column from the data source is used when displaying the metric.
 The column must be a numerical value.
 
 | [#el-metric-format]#<<el-metric-format,Format>>#
@@ -295,11 +296,11 @@ Defines the background color of the displayed label.
 
 === Table
 
-The table display element allows you to display the datasource inside a table.
+The table display element allows you to display the data source inside a table.
 
 [NOTE]
 ====
-If you are working with a xref:reporting/index.adoc#datasource-join[joined datasource], you will have to have to pick the columns for each joined datasource
+If you are working with a xref:reporting/index.adoc#datasource-join[joined data source], you have to pick the columns for each joined data source.
 ====
 
 .The example shows a configured table display element.
@@ -310,30 +311,30 @@ image:reporter/table-configuration.png[]
 |===
 | [#el-table-columns]#<<el-table-columns,Columns>>#
 |
-Defines what columns from the datasource should be used and how their order.
+Defines what columns from the data source should be used and also defines their order.
 
 | [#el-table-variant]#<<el-table-variant,Table variant>>#
 |
 Defines the variant of the table to use.
 
 .The available variants:
-* none
-* secondary
-* info
-* danger
-* warning
-* success
-* light
-* dark
+* None
+* Secondary
+* Info
+* Danger
+* Warning
+* Success
+* Light
+* Dark
 
 | [#el-table-head-variant]#<<el-table-head-variant,Head variant>>#
 |
 Defines the head variant to use.
 
 .The available variants:
-* none
-* light
-* dark
+* None
+* Light
+* Dark
 
 | [#el-table-table-options]#<<el-table-table-options,Table options>>#
 |
@@ -343,11 +344,11 @@ The section allows you to fine-tune how the table should look like; such as usin
 
 === Chart
 
-The chart display element allows you to visualize the datasource using a chart.
+The chart display element allows you to visualize the data source using a chart.
 
 [NOTE]
 ====
-If you are working with a xref:reporting/index.adoc#datasource-join[joined datasource], you will have to have to pick the columns for each joined datasource
+If you are working with a xref:reporting/index.adoc#datasource-join[joined data source], you have to pick the columns for each joined data source.
 ====
 
 .Currently supported chart types:
@@ -359,7 +360,7 @@ If you are working with a xref:reporting/index.adoc#datasource-join[joined datas
 
 [IMPORTANT]
 ====
-Funnel charts are only supported when showing the xref:reporting/index.adoc#datasource-group[group datasource].
+Funnel charts are only supported when showing the xref:reporting/index.adoc#datasource-group[group data source].
 ====
 
 .The example shows a configured chart display element.
@@ -378,17 +379,17 @@ The color scheme defines what colors your chart should use when visualizing the 
 
 Keep in mind that each color scheme defines a limited number of colors so your choice needs to be based on the data you're trying to show.
 
-Bar and line charts use a different colour for each column, while the other charts will use a different color for each value.
+Bar and line charts use a different colour for each column, while the other charts use a different color for each value.
 
 | [#el-chart-label]#<<el-chart-label,Label column>>#
 |
-The label column defines what values from the datasource will be used as the label for each data point of the chart (the legend).
+The label column defines what values from the data source are used as the label for each data point of the chart (the legend)..
 
 Only text columns may be selected as a label column.
 
 | [#el-chart-data]#<<el-chart-data,Data column>>#
 |
-The data columns define what values from the datasource will be used as the data points of the chart.
+The data columns define what values from the data source is used as the data points of the chart.
 
 Only numeric columns may be selected as a data column.
 

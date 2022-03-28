@@ -171,7 +171,7 @@ The enabled setting for the auth client.
 
 | [#ctx-eval-var-auth-client-validFrom]#<<ctx-eval-var-auth-client-validFrom,resource.validFrom>>#
 |
-The timestamp denoting from when the auth client is valid from.
+The timestamp denoting when the auth client is valid from.
 
 | [#ctx-eval-var-auth-client-expiresAt]#<<ctx-eval-var-auth-client-expiresAt,resource.expiresAt>>#
 |

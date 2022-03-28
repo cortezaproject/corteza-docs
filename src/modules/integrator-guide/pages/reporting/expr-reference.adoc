@@ -1,6 +1,6 @@
 include::ROOT:partial$variables.adoc[]
 
-= Expression reference
+= Expression Reference
 
 == Conjunction
 
@@ -8,7 +8,7 @@ include::ROOT:partial$variables.adoc[]
 |===
 | [#expr-conjunction-and]#<<expr-conjunction-and,and>>#
 |
-Returns `true` if all elements are `true`, `else` otherwise.
+Returns `true` if all elements are `true`, `else` if otherwise.
 
 .[#expr-conjunction-and-sig]#<<expr-conjunction-and-sig,Signatures:>>#
 * `<Boolean>[ && <Boolean>[...]]` => `<Boolean>`
@@ -27,7 +27,7 @@ Returns `true` if all elements are `true`, `else` otherwise.
 
 | [#expr-conjunction-or]#<<expr-conjunction-or,or>>#
 |
-Returns `true` if any element is `true`, `else` otherwise.
+Returns `true` if any element is `true`, `else` if otherwise.
 
 .[#expr-conjunction-or-sig]#<<expr-conjunction-or-sig,Signatures:>>#
 * `<Boolean>[ \|\| <Boolean>[...]]` => `<Boolean>`
@@ -76,7 +76,7 @@ Returns `true` if types are comparable and the values match.
 |===
 | [#expr-comparison-ne]#<<expr-comparison-ne,not equals>>#
 |
-Returns `true` if types are not comparable, or the values don't match.
+Returns `true` if types are not comparable or the values don't match.
 
 .[#expr-comparison-ne-sig]#<<expr-comparison-ne-sig,Signatures:>>#
 * `<Any> != <Any>` => `<Boolean>`
@@ -97,9 +97,9 @@ Returns `true` if types are not comparable, or the values don't match.
 
 [cols="1s,5a"]
 |===
-| [#expr-comparison-lt]#<<expr-comparison-lt,less then>>#
+| [#expr-comparison-lt]#<<expr-comparison-lt,less than>>#
 |
-Returns `true` if left value is less then the right value.
+Returns `true` if the left value is less than the right value.
 
 .[#expr-comparison-lt-sig]#<<expr-comparison-lt-sig,Signatures:>>#
 * `<Any> < <Any>` => `<Boolean>`
@@ -119,9 +119,9 @@ Returns `true` if left value is less then the right value.
 
 [cols="1s,5a"]
 |===
-| [#expr-comparison-le]#<<expr-comparison-le,less or equal then>>#
+| [#expr-comparison-le]#<<expr-comparison-le,less than or equal to>>#
 |
-Returns `true` if left value is less or equal then the right value.
+Returns `true` if left value is less than or equal to the right value.
 
 .[#expr-comparison-le-sig]#<<expr-comparison-le-sig,Signatures:>>#
 * `<Any> <= <Any>` => `<Boolean>`
@@ -141,20 +141,20 @@ Returns `true` if left value is less or equal then the right value.
 
 [cols="1s,5a"]
 |===
-| [#expr-comparison-gt]#<<expr-comparison-gt,greater then>>#
+| [#expr-comparison-gt]#<<expr-comparison-gt,greater than>>#
 |
-Returns `true` if left value is greater then the right value.
+Returns `true` if left value is greater than the right value.
 
 .[#expr-comparison-gt-sig]#<<expr-comparison-gt-sig,Signatures:>>#
 * `<Any> > <Any>` => `<Boolean>`
 * `gt(<Any>, <Any>)` => `<Boolean>`
 
-.[#expr-comparison-gt-ex-a]#<<expr-comparison-gt-ex-a,Expression exampgts:>>#
+.[#expr-comparison-gt-ex-a]#<<expr-comparison-gt-ex-a,Expression examples:>>#
 * `field > 'value'`
 * `number > 10`
 * `year(dateField) > year(now())`
 
-.[#expr-comparison-gt-ex-b]#<<expr-comparison-gt-ex-b,Function exampgts:>>#
+.[#expr-comparison-gt-ex-b]#<<expr-comparison-gt-ex-b,Function examples:>>#
 * `gt(field, 'value')`
 * `gt(number, 10)`
 * `gt(year(dateField), year(now()))`
@@ -163,27 +163,27 @@ Returns `true` if left value is greater then the right value.
 
 [cols="1s,5a"]
 |===
-| [#expr-comparison-ge]#<<expr-comparison-ge,greater or equal then>>#
+| [#expr-comparison-ge]#<<expr-comparison-ge,greater or equal than>>#
 |
-Returns `true` if left value is greater or equal then the right value.
+Returns `true` if left value is greater than or equal to the right value.
 
 .[#expr-comparison-ge-sig]#<<expr-comparison-ge-sig,Signatures:>>#
 * `<Any> >= <Any>` => `<Boolean>`
 * `ge(<Any>, <Any>)` => `<Boolean>`
 
-.[#expr-comparison-ge-ex-a]#<<expr-comparison-ge-ex-a,Expression exampges:>>#
+.[#expr-comparison-ge-ex-a]#<<expr-comparison-ge-ex-a,Expression examples:>>#
 * `field >= 'value'`
 * `number >= 10`
 * `year(dateField) >= year(now())`
 
-.[#expr-comparison-ge-ex-b]#<<expr-comparison-ge-ex-b,Function exampges:>>#
+.[#expr-comparison-ge-ex-b]#<<expr-comparison-ge-ex-b,Function examples:>>#
 * `ge(field, 'value')`
 * `ge(number, 10)`
 * `ge(year(dateField), year(now()))`
 
 |===
 
-== String comparison
+== String Comparison
 
 [cols="1s,5a"]
 |===
@@ -211,7 +211,7 @@ Returns `true` if the left value matches the pattern on the right.
 |===
 | [#expr-str-comparison-nlike]#<<expr-str-comparison-nlike,not like>>#
 |
-Returns `true` if left value does not match the pattern on the right.
+Returns `true` if the left value does not match the pattern on the right.
 
 .[#expr-str-comparison-nlike-sig]#<<expr-str-comparison-nlike-sig,Signatures:>>#
 * `<String> not like <String>` => `<Boolean>`
@@ -229,7 +229,7 @@ Returns `true` if left value does not match the pattern on the right.
 
 |===
 
-== String operation
+== String Operation
 
 |===
 | [#expr-string-concat]#<<expr-string-concat,concat>>#
@@ -237,10 +237,10 @@ Returns `true` if left value does not match the pattern on the right.
 .[#expr-str-concat-sig]#<<expr-str-concat-sig,Signatures:>>#
 * `concat(<String>[, <String>, ...]])` => `<String>`
 
-.[#expr-str-concat-ex-a]#<<expr-str-concat-ex-a,Expression exampges:>>#
+.[#expr-str-concat-ex-a]#<<expr-str-concat-ex-a,Expression examples:>>#
 
 
-.[#expr-str-concat-ex-b]#<<expr-str-concat-ex-b,Function exampges:>>#
+.[#expr-str-concat-ex-b]#<<expr-str-concat-ex-b,Function examples:>>#
 * `concat('a', 'b')`
 * `concat(field, 'b')`
 |===
@@ -251,18 +251,18 @@ Returns `true` if left value does not match the pattern on the right.
 |===
 | [#expr-arithmetic-add]#<<expr-arithmetic-add,add>>#
 |
-Adds the two numbers together.
+Adds the two numbers.
 
 .[#expr-arithmetic-add-sig]#<<expr-arithmetic-add-sig,Signatures:>>#
 * `<Number> + <Number>` => `<Number>`
 * `add(<Number>, <Number>)` => `<Number>`
 
-.[#expr-arithmetic-add-ex-a]#<<expr-arithmetic-add-ex-a,Expression exampges:>>#
+.[#expr-arithmetic-add-ex-a]#<<expr-arithmetic-add-ex-a,Expression examples:>>#
 * `100 + 20`
 * `number + 10`
 * `year(dateField) + year(now())`
 
-.[#expr-arithmetic-add-ex-b]#<<expr-arithmetic-add-ex-b,Function exampges:>>#
+.[#expr-arithmetic-add-ex-b]#<<expr-arithmetic-add-ex-b,Function examples:>>#
 * `add(100, 20)`
 * `add(number, 10)`
 * `add(year(dateField), year(now()))`
@@ -273,18 +273,18 @@ Adds the two numbers together.
 |===
 | [#expr-arithmetic-sub]#<<expr-arithmetic-sub,sub>>#
 |
-Subtracts the two numbers together.
+Subtracts the two numbers.
 
 .[#expr-arithmetic-sub-sig]#<<expr-arithmetic-sub-sig,Signatures:>>#
 * `<Number> - <Number>` => `<Number>`
 * `sub(<Number>, <Number>)` => `<Number>`
 
-.[#expr-arithmetic-sub-ex-a]#<<expr-arithmetic-sub-ex-a,Expression exampges:>>#
+.[#expr-arithmetic-sub-ex-a]#<<expr-arithmetic-sub-ex-a,Expression examples:>>#
 * `100 - 20`
 * `number - 10`
 * `year(dateField) - year(now())`
 
-.[#expr-arithmetic-sub-ex-b]#<<expr-arithmetic-sub-ex-b,Function exampges:>>#
+.[#expr-arithmetic-sub-ex-b]#<<expr-arithmetic-sub-ex-b,Function examples:>>#
 * `sub(100, 20)`
 * `sub(number, 10)`
 * `sub(year(dateField), year(now()))`
@@ -295,18 +295,18 @@ Subtracts the two numbers together.
 |===
 | [#expr-arithmetic-mult]#<<expr-arithmetic-mult,mult>>#
 |
-Multiplies the two numbers together.
+Multiplies the two numbers.
 
 .[#expr-arithmetic-mult-sig]#<<expr-arithmetic-mult-sig,Signatures:>>#
 * `<Number> * <Number>` => `<Number>`
 * `mult(<Number>, <Number>)` => `<Number>`
 
-.[#expr-arithmetic-mult-ex-a]#<<expr-arithmetic-mult-ex-a,Expression exampges:>>#
+.[#expr-arithmetic-mult-ex-a]#<<expr-arithmetic-mult-ex-a,Expression examples:>>#
 * `100 * 20`
 * `number * 10`
 * `year(dateField) * year(now())`
 
-.[#expr-arithmetic-mult-ex-b]#<<expr-arithmetic-mult-ex-b,Function exampges:>>#
+.[#expr-arithmetic-mult-ex-b]#<<expr-arithmetic-mult-ex-b,Function examples:>>#
 * `mult(100, 20)`
 * `mult(number, 10)`
 * `mult(year(dateField), year(now()))`
@@ -317,18 +317,18 @@ Multiplies the two numbers together.
 |===
 | [#expr-arithmetic-div]#<<expr-arithmetic-div,div>>#
 |
-Divides the two numbers together.
+Divides the two numbers amongst each other.
 
 .[#expr-arithmetic-div-sig]#<<expr-arithmetic-div-sig,Signatures:>>#
 * `<Number> / <Number>` => `<Number>`
 * `div(<Number>, <Number>)` => `<Number>`
 
-.[#expr-arithmetic-div-ex-a]#<<expr-arithmetic-div-ex-a,Expression exampges:>>#
+.[#expr-arithmetic-div-ex-a]#<<expr-arithmetic-div-ex-a,Expression examples:>>#
 * `100 / 20`
 * `number / 10`
 * `year(dateField) / year(now())`
 
-.[#expr-arithmetic-div-ex-b]#<<expr-arithmetic-div-ex-b,Function exampges:>>#
+.[#expr-arithmetic-div-ex-b]#<<expr-arithmetic-div-ex-b,Function examples:>>#
 * `div(100, 20)`
 * `div(number, 10)`
 * `div(year(dateField), year(now()))`
@@ -341,7 +341,7 @@ Divides the two numbers together.
 |===
 | [#expr-aggregation-count]#<<expr-aggregation-count,count>>#
 |
-Returns number of items.
+Returns the number of items.
 
 .[#expr-aggregation-count-sig]#<<expr-aggregation-count-sig,Signatures:>>#
 * `count()` => `<Number>`
@@ -358,7 +358,7 @@ Returns number of items.
 |===
 | [#expr-aggregation-sum]#<<expr-aggregation-sum,sum>>#
 |
-Returns the sum.
+Returns the sum of the items.
 
 .[#expr-aggregation-sum-sig]#<<expr-aggregation-sum-sig,Signatures:>>#
 * `sum(<Number>)` => `<Number>`
@@ -374,7 +374,7 @@ Returns the sum.
 |===
 | [#expr-aggregation-max]#<<expr-aggregation-max,max>>#
 |
-Returns the max of two values.
+Returns the maximum of two values.
 
 .[#expr-aggregation-max-sig]#<<expr-aggregation-max-sig,Signatures:>>#
 * `max(<Number>)` => `<Number>`
@@ -390,7 +390,7 @@ Returns the max of two values.
 |===
 | [#expr-aggregation-min]#<<expr-aggregation-min,min>>#
 |
-Returns the min of two values.
+Returns the minimum of two values.
 
 .[#expr-aggregation-min-sig]#<<expr-aggregation-min-sig,Signatures:>>#
 * `min(<Number>)` => `<Number>`
@@ -418,7 +418,7 @@ Returns the average of two values.
 * `avg(field)`
 |===
 
-== Date manipulation
+== Date Manipulation
 
 [cols="1s,5a"]
 |===
@@ -429,7 +429,7 @@ Returns the current timestamp.
 .[#expr-date-now-sig]#<<expr-date-now-sig,Signatures:>>#
 * `now()` => `<DateTime>`
 
-.[#expr-date-now-ex-a]#<<expr-date-now-ex-a,Expression exampges:>>#
+.[#expr-date-now-ex-a]#<<expr-date-now-ex-a,Expression examples:>>#
 * `now()`
 
 |===
@@ -443,7 +443,7 @@ Returns the quarter of the timestamp.
 .[#expr-date-quarter-sig]#<<expr-date-quarter-sig,Signatures:>>#
 * `quarter(<DateTime>)` => `<Number>`
 
-.[#expr-date-quarter-ex-a]#<<expr-date-quarter-ex-a,Expression exampges:>>#
+.[#expr-date-quarter-ex-a]#<<expr-date-quarter-ex-a,Expression examples:>>#
 * `quarter(date_field)`
 * `quarter(now())`
 * `quarter(date('2021-01-01T01:00:00Z'))`
@@ -459,7 +459,7 @@ Returns the year of the timestamp.
 .[#expr-date-year-sig]#<<expr-date-year-sig,Signatures:>>#
 * `year(<DateTime>)` => `<Number>`
 
-.[#expr-date-year-ex-a]#<<expr-date-year-ex-a,Expression exampges:>>#
+.[#expr-date-year-ex-a]#<<expr-date-year-ex-a,Expression examples:>>#
 * `year(date_field)`
 * `year(now())`
 * `year(date('2021-01-01T01:00:00Z'))`
@@ -475,7 +475,7 @@ Returns the month of the timestamp.
 .[#expr-date-month-sig]#<<expr-date-month-sig,Signatures:>>#
 * `month(<DateTime>)` => `<Number>`
 
-.[#expr-date-month-ex-a]#<<expr-date-month-ex-a,Expression exampges:>>#
+.[#expr-date-month-ex-a]#<<expr-date-month-ex-a,Expression examples:>>#
 * `month(date_field)`
 * `month(now())`
 * `month(date('2021-01-01T01:00:00Z'))`
@@ -493,7 +493,7 @@ Casts the value to a float.
 .[#expr-cast-float-sig]#<<expr-cast-float-sig,Signatures:>>#
 * `float(<Any>)` => `<Float>`
 
-.[#expr-cast-float-ex-a]#<<expr-cast-float-ex-a,Expression exampges:>>#
+.[#expr-cast-float-ex-a]#<<expr-cast-float-ex-a,Expression examples:>>#
 * `float(some_field)`
 * `float('10.9')`
 * `avg(cost) > float(10.9)`
@@ -514,7 +514,7 @@ The string length for MySQL and PostgreSQL is limited to `8192` characters.
 .[#expr-cast-string-sig]#<<expr-cast-string-sig,Signatures:>>#
 * `string(<Any>)` => `<String>`
 
-.[#expr-cast-string-ex-a]#<<expr-cast-string-ex-a,Expression exampges:>>#
+.[#expr-cast-string-ex-a]#<<expr-cast-string-ex-a,Expression examples:>>#
 * `string(some_field)`
 * `string('10.9')`
 
@@ -529,7 +529,7 @@ Casts the value to an integer.
 .[#expr-cast-int-sig]#<<expr-cast-int-sig,Signatures:>>#
 * `int(<Any>)` => `<Int>`
 
-.[#expr-cast-int-ex-a]#<<expr-cast-int-ex-a,Expression exampges:>>#
+.[#expr-cast-int-ex-a]#<<expr-cast-int-ex-a,Expression examples:>>#
 * `int(some_field)`
 * `int('10.9')`
 * `avg(cost) > int(10.9)`
@@ -545,7 +545,7 @@ Casts the value to a timestamp.
 .[#expr-date-date-sig]#<<expr-date-date-sig,Signatures:>>#
 * `date(<Ant>)` => `<DateTime>`
 
-.[#expr-date-date-ex-a]#<<expr-date-date-ex-a,Expression exampges:>>#
+.[#expr-date-date-ex-a]#<<expr-date-date-ex-a,Expression examples:>>#
 * `date(some_field)`
 * `date('2021-01-01T01:00:00Z')`
 

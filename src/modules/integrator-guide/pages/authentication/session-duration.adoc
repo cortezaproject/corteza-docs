@@ -1,6 +1,6 @@
 include::ROOT:partial$variables.adoc[]
 
-= Define session duration
+= Defining Session Duration
 :keywords: authentication, security
 :description: Learn how to increase security by configuring the authentication session duration
 
@@ -11,7 +11,7 @@ include::ROOT:partial$variables.adoc[]
 |===
 | [#auth-sesion-auth_oauth2_access_token_lifetime]#<<auth-sesion-auth_oauth2_access_token_lifetime,AUTH_OAUTH2_ACCESS_TOKEN_LIFETIME>>#
 |
-The `AUTH_OAUTH2_ACCESS_TOKEN_LIFETIME` `.env` variable allows you to define how long an access token will be valid for.
+The `AUTH_OAUTH2_ACCESS_TOKEN_LIFETIME` `.env` variable allows you to define how long an access token is valid for.
 
 The access token represents the credentials that allow users to access protected resources such as records, users, and workflows.
 
@@ -103,7 +103,7 @@ AUTH_SESSION_PERM_LIFETIME=2m
 
 |===
 
-== Log out inactive users after two minutes
+== Log Out Inactive Users After Two Minutes
 
 If you wish to log out inactive users, you need to set all three of the `.env` variables mentioned above.
 

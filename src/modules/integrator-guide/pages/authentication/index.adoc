@@ -5,7 +5,7 @@ include::ROOT:partial$variables.adoc[]
 :keywords: authentication, security, login, configure login
 :description: Learn how to configure the {PRODUCT_NAME} authentication flow
 
-{PRODUCT_NAME} implements the OAuth2 authentication protocol, where it can act both as a OAuth2 server and as an OAuth2 client, allowing both internal and external authentications.
+{PRODUCT_NAME} implements the OAuth2 authentication protocol, where it can act both as a OAuth2 server and as an OAuth2 client, which allows both internal and external authentications.
 
 Basic authentication parameters are configured on the {PRODUCT_NAME} {APP_NAME_ADMIN} web application under menu:system[settings] in the "authentication" section.
 
@@ -34,11 +34,12 @@ Basic authentication parameters are configured on the {PRODUCT_NAME} {APP_NAME_A
 }
 ----
 
-== Defining password constraints
+== Defining Password Constraints
 
-{PRODUCT_NAME} allows you to define custom password constraints which enable you to better conform to your security model.
+{PRODUCT_NAME} allows you to define custom password constraints.
+That enables you to better conform to your security model.
 
-Password constraints are configured on the {PRODUCT_NAME} {APP_NAME_ADMIN} web application under menu:system[settings] in the "password constraints" section.
+Password constraints are configured on the {PRODUCT_NAME} {APP_NAME_ADMIN} web application under menu:system[settings] in the "Password Constraints" section.
 
 [annotation,role="data-zoomable"]
 ----
@@ -69,13 +70,13 @@ Password constraints are configured on the {PRODUCT_NAME} {APP_NAME_ADMIN} web a
 | [#auth-password-constraint-len]#<<auth-password-constraint-len,Minimum length>>#
 |
 The minimum length parameter allows you to restrict your users from using short, insecure passwords.
-You can not set the minimum length below 8.
+You can not set the minimum length below 8 characters.
 
-The maximum password length is not configurable and is set to 256.
+The maximum password length is not configurable and is set to 256 characters.
 
 | [#auth-password-constraint-numbers]#<<auth-password-constraint-numbers,Minimum number of numbers>>#
 |
-The minimum number of numbers allows you to require your users to use numerical values in their passwords.
+The minimum number of numbers allows you to require your users to use numerical characters in their passwords.
 The requirement is disabled when the value is left at 0.
 
 | [#auth-password-constraint-symbols]#<<auth-password-constraint-symbols,Minimum number of special characters>>#
@@ -88,7 +89,7 @@ The requirement is disabled when the value is left at 0.
 [CAUTION]
 ====
 The `AUTH_PASSWORD_SECURITY` `.env` variable allows you to disable password requirements checking by setting it to `false`.
-This is handy for local development where we may not wish to handle complex password constraints.
+This is handy for local development where you may not wish to handle complex password constraints.
 
 The option should be *disabled* for any production deployment.
 If the password security is disabled, a warning message is displayed in the UI.
@@ -124,18 +125,17 @@ If the password security is disabled, a warning message is displayed in the UI.
 ----
 ====
 
-== Auth client
+== Auth Client
 
-An *auth client* offers a high-level access control over the use of {PRODUCT_NAME} API and it's resources.
+An *auth client* offers a high-level access control over the use of {PRODUCT_NAME} API and its resources.
 An auth client is what applications use when their users attempt to authenticate.
 
 [TIP]
 ====
-You can use {PRODUCT_NAME} to authenticate third-party applications which support OAuth2/OIDC.
+You can use {PRODUCT_NAME} to authenticate third-party applications that support OAuth2/OIDC.
 ====
 
-Auth clients can be defined in the {PRODUCT_NAME} {APP_NAME_ADMIN} panel, under the menu:system[auth clients].
-
+Auth clients can be defined in the {PRODUCT_NAME} {APP_NAME_ADMIN} panel, under the menu:system[auth clients] section.
 
 [annotation,role="data-zoomable"]
 ----
@@ -156,14 +156,14 @@ Auth clients can be defined in the {PRODUCT_NAME} {APP_NAME_ADMIN} panel, under 
 ----
 
 .From there you can:
-* list the auth clients created inside your {PRODUCT_NAME} instance.
+* list the auth clients created inside your {PRODUCT_NAME} instance,
 * create a new auth client by clicking on the btn:[new] button,
 * edit an existing auth client by clicking on the btn:[edit] icon next to the auth client,
-* manage global auth client permissions by clicking on the btn:[permissions button].
+* manage global auth client permissions by clicking on the btn:[permissions] button.
 
-=== Base auth client configuration
+=== Base Auth Client Configuration
 
-Base configuration parameters allow you to identify the auth client as well as specify the validity and the scope the auth client provides.
+Base configuration parameters allow you to both identify the auth client, and specify the validity and the scope that the auth client provides.
 
 [TIP]
 ====
@@ -202,7 +202,7 @@ The trusted checkbox removes the final confirmation step when the user authentic
 ----
 
 [#grant-types]
-=== Grant types
+=== Grant Types
 
 {PRODUCT_NAME} supports two OAuth2 grant types: *authorization code* and *client credentials*.
 
@@ -248,7 +248,8 @@ To enable this grant type, select the "will be used to authenticate users (grant
 
 | [#auth-client-grant-client-credentials]#<<auth-client-grant-client-credentials,Client credentials>>#
 |
-The *client credentials* grant type is the simplified authentication flow, normally used to authenticate systems, such as external services or applications.
+The *client credentials* grant type is the simplified authentication flow.
+It is normally used to authenticate systems such as external services or applications.
 
 [IMPORTANT]
 ====
@@ -256,7 +257,7 @@ Client credentials grant type requires you to populate the "impersonate user" op
 The impersonated user will be used to create the security context of the JWT token.
 ====
 
-To enable the grant type, select the "will be used to authenticate machines (grant type = client_credentials)" option.
+To enable this grant type, select the "will be used to authenticate machines (grant type = client_credentials)" option.
 
 [annotation,role="data-zoomable"]
 ----
@@ -292,7 +293,7 @@ To enable the grant type, select the "will be used to authenticate machines (gra
 |===
 
 [#auth-scope]
-=== Authorization scope
+=== Authorization Scope
 
 The scope is defined as a series of role memberships that are either *permitted*, *prohibited*, or *forced* on the user when using a specific {PRODUCT_NAME} auth server.
 
@@ -332,10 +333,10 @@ The scope is defined as a series of role memberships that are either *permitted*
 
 | [#auth-scope-forced]#<<auth-scope-forced,Forced roles>>#
 | *Forced roles* define what roles the user *will have* have when authenticating with this client.
-If the user does not have a forced role, a role will be automatically added.
+If the user does not have a forced role, a role will be automatically assigned.
 |===
 
-== Limit access
+== Limit Access
 
 By default, any user can use any auth client.
 To limit access to specific auth clients, navigate to the auth client and set the "authorize client" access control rule.

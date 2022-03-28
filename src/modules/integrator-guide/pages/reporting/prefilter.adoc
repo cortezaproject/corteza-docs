@@ -1,20 +1,20 @@
 include::ROOT:partial$variables.adoc[]
 
-= Prefilters
+= Pre-filters
 
-A prefilter allows you to define the initial filtering that should be applied to the datasource before returning any data.
+A pre-filter allows you to define the initial filtering that should be applied to the data-source before returning any data.
 
-The prefilter can either be provided as a configuration using the <<default,default mode>> or as an expression using the <<expression, expression mode>>.
+The pre-filter can either be provided as a configuration using the <<default,default mode>> or as an expression using the <<expression, expression mode>>.
 
 The mode can be controlled with the "filter" icon next to the expression.
 
 
 [#default]
-== Default mode
+== Default Mode
 
-The default mode allows you to pass in the prefilter as a configuration.
+The default mode allows you to pass in the pre-filter as a configuration.
 
-.The screenshot illustrates the prefilter user interface with the default mode enabled.
+.The screenshot illustrates the pre-filter user interface with the default mode enabled.
 image::reporter/prefilter-default.png[]
 
 The first input defines what column should be involved with filtering.
@@ -29,14 +29,14 @@ Different column types may define different comparator operators.
 The third input defines the value that should be checked against the column using the specified comparator operator.
 
 [#expression]
-== Expression mode
+== Expression Mode
 
-The expression mode allows you to pass in the prefilter as an expression, allowing you to cover more complex cases.
+The expression mode allows you to pass in the pre-filter as an expression, allowing you to cover more complex cases.
 
-.The screenshot illustrates the prefilter user interface with the expression mode enabled.
+.The screenshot illustrates the pre-filter user interface with the expression mode enabled.
 image:reporter/prefilter-expression.png[]
 
-Refer to the xref:reporting/expr-reference.adoc[expression reference] for details on writing expressions.
+Refer to the xref:reporting/expr-reference.adoc[expression reference] for more detail on writing expressions.
 
 An example expression to return rows where the column `Foo` is greater or equal to `10`: `Foo >= 10`
 

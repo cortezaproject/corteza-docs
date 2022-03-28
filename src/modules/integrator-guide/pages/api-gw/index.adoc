@@ -4,18 +4,18 @@ include::ROOT:partial$variables.adoc[]
 :keywords: integration gateway, API gateway, custom API, custom endpoints, custom API endpoints, sink alternative
 :description: Lean how to define custom API endpoints using the integration gateway
 
-The Integration gateway facility allows you to define custom endpoints that can support custom authentication methods, request validation, and rate limiting.
+The Integration gateway facility allows you to define custom endpoints that can support custom authentication methods, request validation and rate limiting.
 
 [TIP]
 ====
 Integration gateway serves as an alternative to sink endpoints.
 ====
 
-These endpoints can be used to define custom endpoint for incoming webhooks, to process data provided by some external integration, or to proxy requests to another service.
+These endpoints can be used to define a custom endpoint for incoming webhooks, to process data provided by some external integration, or to proxy requests to another service.
 
 Most of the basic operations can be achieved with the built-in functionality; more advanced operations can be implemented with simple JavaScript code snippets or xref:automation/workflows/index.adoc[workflows].
 
-== Defining a new endpoint
+== Defining a New Endpoint
 
 To define a new endpoint, navigate to your {PRODUCT_NAME} instance (for example http://latest.cortezaproject.org/) and click on the "admin area" application.
 
@@ -41,7 +41,7 @@ To define a new endpoint, navigate to your {PRODUCT_NAME} instance (for example 
 ----
 
 In the admin area, navigate to the menu:System[Integration Gateway] sub-page.
-From the admin area you can create and update your endpoints, as well as manage their access control.
+From the admin area, you can create and update your endpoints, as well as manage their access control.
 
 .The screenshot shows the route list screen.
 [annotation,role="data-zoomable"]
@@ -85,21 +85,21 @@ When you click on the btn:[new] button, a new screen will appear where you need 
 }
 ----
 
-* *endpoint* defines the path for the endpoint,
-* *method* defines what HTTP method the endpoint will listen for.
+* *Endpoint* defines the path for the endpoint,
+* *method* defines the HTTP method for the endpoint.
 
 The endpoint will be accessible under `$BASE_URL/api/gateway$YOUR_ENDPOINT`.
-To exemplify; the `/test-endpoint` endpoint for the `https://latest.cortezaproject.org` instance is available under `https://latest.cortezaproject.org/api/gateway/test-endpoint`
+To exemplify; the `/test-endpoint` endpoint for the `https://latest.cortezaproject.org` instance is available as `https://latest.cortezaproject.org/api/gateway/test-endpoint`.
 
 [TIP]
 ====
-You can specify different HTTP methods on the same route, but they need to be specified as different endpoints, ie. **GET** /customer and **PUT** /customer being two different integration gateway endpoints.
+You can specify different HTTP methods on the same route, but they need to be specified as different endpoints, ie. `*GET* /customer` and `*PUT* /customer` being two different integration gateway endpoints.
 ====
 
 When you submit the forum, an additional "filter list" section opens below the base parameters.
-These filters allow you to validate and process requests; as well as defining the response.
+These filters allow you to validate and process requests, as well as defining the response.
 
-Later sections go more in depth regarding specific filters, what they do, and how they should be used.
+Subsequent sections explore specific filters in more depth; what they do, and how they should be used.
 
 .The screenshot shows the user interface for attaching filters to the endpoint.
 [annotation,role="data-zoomable"]
@@ -127,17 +127,17 @@ Later sections go more in depth regarding specific filters, what they do, and ho
 }
 ----
 
-== Request validation
+== Request Validation
 
-Request validation is done using *prefilters*
-A prefilters allow you to validate the request and determine if the given endpoint should process it.
+Request validation is done by using *pre-filters*.
+Pre-filters allow you to validate the request and determine if the given endpoint should process it.
 
 [annotation,role="data-zoomable"]
 ----
 {
   "image": {
     "rel": "api-gw/route-filters.png",
-    "alias": "api-gw-route-filters-prefilter",
+    "alias": "api-gw-route-filters-pre-filter",
     "w": 1920,
     "h": 1080
   },
@@ -167,27 +167,27 @@ A prefilters allow you to validate the request and determine if the given endpoi
 [NOTE]
 ====
 It is currently not possible to use the built-in authentication facility to authenticate requests.
-This will be added in the future.
+This feature will be added in the future.
 ====
 
-.The list of available prefilters:
+.The list of available pre-filters:
 [cols="1s,5a"]
 |===
-| [#filters-prefilter-queryparam]#<<filters-prefilter-queryparam,Query parameters>>#
+| [#filters-pre-filter-queryparam]#<<filters-pre-filter-queryparam,Query parameters>>#
 |
-The query parameters prefilter allows you to define a condition which asserts if the request can be processed by this endpoint based on the query parameters.
+The query parameters pre-filter allows you to define a condition which asserts if the request can be processed by this endpoint based on the query parameters.
 
 The query parameters are passed into the expression evaluation engine as they were provided.
-To examplify; the following query parameters `?param1=value1&param2=value2` would be referenced as `param1` and `param2` in the expression.
+To exemplify; the query parameters `?param1=value1&param2=value2` would be referenced as `param1` and `param2` in the expression.
 
-Refer to the xref:expr/index.adoc[expression] reference for details regarding writing these expressions.
+Refer to the xref:expr/index.adoc[expression] reference for details regarding to writing these expressions.
 
-The following example checks if the given HTTP request defines the `token` query param of `"super-secret-value"`.
+The following example checks whether the given HTTP request defines the `token` query param of `"super-secret-value"`.
 
 .Endpoint definition:
 * endpoint: `/test-query`
 * method: `GET`
-* query parameters prefilter expression: `token == "super-secret-value"`
+* query parameters pre-filter expression: `token == "super-secret-value"`
 
 .An example of an HTTP request that conforms to the filter:
 [source,bash]
@@ -203,21 +203,16 @@ curl -X GET $BASE_URL/api/test-query?token=some-other-value-i-guessed
 
 [CAUTION]
 ====
-Multi-word query parameters can currently not be used.
+Multi-word and multi-value query parameters can not be used currently.
 ====
 
-[CAUTION]
-====
-Multi-value query parameters can currently not be used.
-====
-
-| [#filters-prefilter-header]#<<filters-prefilter-header,Header>>#
+| [#filters-pre-filter-header]#<<filters-pre-filter-header,Header>>#
 |
-The header prefilter allows you to define a condition which asserts if the request can be processed by this endpoint based on the request's headers.
+The header pre-filter allows you to define a condition which asserts whether the request can be processed by this endpoint based on the request's headers.
 
 All system defined headers are passed into the expression evaluation engine as provided.
 User-define headers will automatically be converted into the `snake-case` + `PascalCase` format.
-To examplify; `test-header` will become `Test-Header` and `test` becomes `Test`.
+To exemplify; `test-header` becomes `Test-Header` and `test` becomes `Test`.
 
 The following header `test: value` would be referenced as `Test` in the expression.
 
@@ -228,7 +223,7 @@ The following example checks if the given HTTP request defines the `Token` heade
 .Endpoint definition:
 * endpoint: `/test-query`
 * method: `GET`
-* header prefilter expression: `Token == "super-secret-value"`
+* header pre-filter expression: `Token == "super-secret-value"`
 
 .An example of an HTTP request that conforms to the filter:
 [source,bash]
@@ -246,19 +241,14 @@ curl -X GET $BASE_URL/api/test-query \
 
 [CAUTION]
 ====
-Multi-word headers can currently not be used.
-====
-
-[CAUTION]
-====
-Multi-value headers can currently not be used.
+Multi-word and multi-value headers can not be used currently.
 ====
 
 |===
 
-== Request processing
+== Request Processing
 
-Request processing is done using *processors*
+Request processing is done using *processors*.
 A processor defines the core business logic that the endpoint performs.
 {PRODUCT_NAME} allows you to process arbitrary payloads, such as a structured JSON or a binary attachment.
 
@@ -300,7 +290,7 @@ A processor defines the core business logic that the endpoint performs.
 | [#filters-proc-wfexec]#<<filters-proc-wfexec,Workflow processer>>#
 |
 The workflow processor allows you to bind a xref:automation/workflows/index.adoc[workflow] to the endpoint.
-Refer to the xref:api-gw/workflow-processing.adoc[workflow processing] for details regarding the interaction.
+Refer to the xref:api-gw/workflow-processing.adoc[workflow processing] page for details regarding the interaction.
 
 | [#filters-proc-payloadproc]#<<filters-proc-payloadproc,Payload processer>>#
 |
@@ -310,17 +300,17 @@ Refer to the xref:api-gw/javascript-processing.adoc[] section for more details.
 
 |===
 
-== Response preparation
+== Response Preparation
 
-Response preparation is done using *postfilters*.
-Postfilters allow you to finalize the request lifecycle depending on the result of the processing.
+Response preparation is done using *post-filters*.
+Post-filters allow you to finalize the request lifecycle depending on the result of the processing.
 
 [annotation,role="data-zoomable"]
 ----
 {
   "image": {
     "rel": "api-gw/route-filters.png",
-    "alias": "api-gw-route-filters-postfilter",
+    "alias": "api-gw-route-filters-post-filter",
     "w": 1920,
     "h": 1080
   },
@@ -347,27 +337,27 @@ Postfilters allow you to finalize the request lifecycle depending on the result 
 }
 ----
 
-.A list of available postfilters:
+.A list of available post-filters:
 [cols="1s,5a"]
 |===
 | [#filters-postfilter-redirect]#<<filters-postfilter-redirect,Redirection>>#
 |
-The redirect postfilter enriches the response payload with the required redirect HTTP headers.
+The redirect post-filter enriches the response payload with the required redirect HTTP headers.
 
 | [#filters-postfilter-json]#<<filters-postfilter-json,Default JSON response>>#
 |
-The JSON response postfilter enriches the response headers with the `application/json` content type and JSON encodes the processing results.
+The JSON response post-filter enriches the response headers with the `application/json` content type and JSON encodes the processing results.
 
 |===
 
 == Debugging
 
-=== System logs
+=== System Logs
 
 Enable debug logging in your `.env` file.
 Refer to the xref:devops-guide:references/configuration/server.adoc[DevOps guide] for details.
 
-=== Inspecting docker logs
+=== Inspecting Docker Logs
 
 By default, {PRODUCT_NAME} logs are accessible via Docker logs.
 To access these logs, you need to firstly navigate to the directory where your {PRODUCT_NAME} instance resides in.
@@ -378,7 +368,7 @@ To access these logs, you need to firstly navigate to the directory where your {
 cd /opt/deploy/{CORTEZA_INSTANCE}/
 ----
 
-You can use the `docker-compose logs server` command to access the logs outputted by the `server`.
+You can use the `docker-compose logs server` command to access the logs output by the `server`.
 
 [TIP]
 ====

@@ -10,7 +10,7 @@ A role is a security group which may or may not have access to specific user int
 
 A role can have a series of xref:security-model/users.adoc[users] who are provided with the security model defined by the given role.
 
-== The user interface
+== The User Interface
 
 The role management user interface resides in the xref:index.adoc#webapp-admin[{PRODUCT_NAME} {APP_NAME_ADMIN}] web application, under menu:system[roles].
 
@@ -35,16 +35,16 @@ The role management user interface resides in the xref:index.adoc#webapp-admin[{
 }
 ----
 
-== Tips and tricks
+== Tips and Tricks
 
-=== Modular design
+=== Modular Design
 
 [NOTE]
 ====
 *DevNote* @todo
 ====
 
-== Listing roles
+== Listing Roles
 
 .To list current system roles:
 . Navigate to menu:system[roles],
@@ -70,7 +70,7 @@ The role management user interface resides in the xref:index.adoc#webapp-admin[{
 }
 ----
 
-== Creating roles
+== Creating Roles
 
 [IMPORTANT]
 ====
@@ -102,7 +102,7 @@ You can only define permissions for existing roles.
 }
 ----
 
-== Editing roles
+== Editing Roles
 
 .To edit an existing role:
 . Navigate to menu:system[roles],
@@ -130,7 +130,7 @@ You can only define permissions for existing roles.
 ----
 
 [#archiving-roles]
-== Archiving roles
+== Archiving Roles
 
 .To archive an existing role:
 . Navigate to menu:system[roles],
@@ -163,7 +163,7 @@ You can only define permissions for existing roles.
 }
 ----
 
-== Deleting roles
+== Deleting Roles
 
 [TIP]
 ====
@@ -201,7 +201,7 @@ Instead of deleting roles, you can <<archiving-roles,archive the role>>.
 }
 ----
 
-== Cloning role permissions
+== Cloning Role Permissions
 
 .To clone the role's permissions to another role:
 . Navigate to menu:system[roles],

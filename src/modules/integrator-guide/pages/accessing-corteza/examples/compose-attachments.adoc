@@ -4,7 +4,7 @@ include::ROOT:partial$variables.adoc[]
 
 include::partial$api-example-note.adoc[]
 
-== Obtain a signed download URL
+== Obtain a Signed Download URL
 
 .Obtain signed URL using attachment read or attachment list endpoints:
 * attachment read: `GET $BASE_URL/compose/namespace/$NAMESPACE_ID/attachment/record/$ATTACHMENT_ID`
@@ -26,7 +26,7 @@ include::partial$api-example-note.adoc[]
 <1> `url` contains a signed URL to the attachment.
 <2> `previewUrl` contains a signed URL to the preview version of the attachment (when available).
 
-=== Example request
+=== Example Request
 
 [source,bash]
 ----
@@ -34,7 +34,7 @@ curl "$BASE_URL/compose/namespace/$NAMESPACE_ID/attachment/record/$ATTACHMENT_ID
  -H "Authorization: Bearer $JWT";
 ----
 
-=== Example response
+=== Example Response
 
 [source,json]
 ----
@@ -51,7 +51,7 @@ curl "$BASE_URL/compose/namespace/$NAMESPACE_ID/attachment/record/$ATTACHMENT_ID
 }
 ----
 
-== Access the attachment
+== Access the Attachment
 
-Use the `$ATTACHMENT_ORIGINAL_URL` to access the downloadable attachment.
-You can either download the attachment manually, use some HTTP client (such as Axios), or display the attachment using `<img src="..."` of similar.
+Use the `$ATTACHMENT_ORIGINAL_URL` to access any downloadable attachment.
+You can either download the attachment manually, use a HTTP client (such as Axios), or display the attachment using `<img src="..."` or something similar.

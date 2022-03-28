@@ -8,7 +8,7 @@ The API GW processing filter includes support to process the request using arbit
 
 To process your requests using JavaScript, open the {APP_NAME_ADMIN} web application, navigate to menu:system[integration gateway] and edit the endpoint you wish to define the code for.
 
-Click on the btn:[processing] tab in tje filter list and select the btn:[payload processor] option.
+Click on the btn:[processing] tab in the filter list and select the btn:[payload processor] option.
 
 [annotation,role="data-zoomable"]
 ----
@@ -49,7 +49,7 @@ Click on the btn:[processing] tab in tje filter list and select the btn:[payload
 }
 ----
 
-When you add the payload processor a popup opens presenting the editor .
+When you add the payload processor a pop-up opens presenting the editor.
 
 [annotation,role="data-zoomable"]
 ----
@@ -81,12 +81,12 @@ function (input: Scope): unknown {
 }
 ----
 
-To examplify; the code snippet of `return "Hello, World!"` would become:
+To exemplify; the code snippet of `return "Hello, world!"` would become:
 
 [source,js]
 ----
 function (input) {
-  return "Hello, World!"
+  return "Hello, world!"
 }
 ----
 
@@ -118,7 +118,7 @@ curl -X GET $BASE_URL/api/test-js \
   -d '[{"name":"johnny","surname":"mnemonic"},{"name":"johnny","surname":"knoxville"}]';
 ----
 
-== Function arguments
+== Function Arguments
 
 The code snippet receives a single argument, `input`, that contains the entire request.
 
@@ -136,12 +136,12 @@ interface {
 |===
 | [#proc-js-input-request]#<<proc-js-input-request,request>>#
 |
-The entire HTTP request object.
+This is the entire HTTP request object.
 Refer to the https://pkg.go.dev/net/http?utm_source=gopls#Request[GO documentation] for details regarding the signature.
 
 | [#proc-js-input-opts]#<<proc-js-input-opts,opts>>#
 |
-Integration gateway configuration.
+This is the integration gateway configuration.
 Refer to the https://github.com/cortezaproject/corteza-server/blob/2021.9.x/pkg/options/apigw.gen.go#L16[source] for details.
 
 [NOTE]
@@ -151,22 +151,21 @@ Refer to the https://github.com/cortezaproject/corteza-server/blob/2021.9.x/pkg/
 
 |===
 
-== Function result
+== Function Result
 
 The result of the JavaScript snippet is provided to the post filters that prepare and return an HTTP response.
 
-When the result is a `string`, such as `Hello, World!`, the result is used as is.
+When the result is a `string`, such as `Hello, world!`, the result is used as is.
 
 When the result is a non-string value, such as `{ key: "value" }`, the result is JSON encoded.
 
-== Built-in function reference
+== Built-in Function Reference
 
 [cols="1m,5m,5a,5a"]
 |===
 |Function |Signature |Description |Example
 
 | [#proc-js-fnc-ref-readRequestBody]#<<proc-js-fnc-ref-readRequestBody,readRequestBody>>#
-| readRequestBody
 | readRequestBody(input: HttpRequest): string
 | The function returns the contents of the provided request object.
 | `readRequestBody(input.Get('request'))` returns the request's body as a string

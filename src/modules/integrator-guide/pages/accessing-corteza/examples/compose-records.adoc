@@ -1,8 +1,8 @@
 include::ROOT:partial$variables.adoc[]
 
-= Working with {APP_NAME_COMPOSE} records
+= Working With {APP_NAME_COMPOSE} Records
 
-== Listing records
+== Listing Records
 
 To search over records for a specific module, use the `GET $BASE_URL/compose/namespace/$NAMESPACE_ID/module/$MODULE_ID/record/` endpoint.
 
@@ -34,7 +34,7 @@ curl -X GET "$BASE_URL/compose/namespace/$NAMESPACE_ID/module/$MODULE_ID/record/
 }
 ----
 
-== Filtering records
+== Filtering Records
 
 To search over records for a specific module, use the `GET $BASE_URL/compose/namespace/$NAMESPACE_ID/module/$MODULE_ID/record/` endpoint with the `query` query parameter.
 
@@ -66,19 +66,19 @@ curl -X GET "$BASE_URL/compose/namespace/$NAMESPACE_ID/module/$MODULE_ID/record/
 }
 ----
 
-== Filtering records with missing values
+== Filtering Records With Missing Values
 
-A record value can have two states -- *existing* and *not existing*.
-When the value is *not existing*, it is `NULL`.
+A record value can have two states -- *existing* and *nonexisting*.
+When the value is *nonexisting*, it is `NULL`.
 
-To exemplify; a checkbox field can either be `true`, `false`, and `NULL` -- three values, not two!
+To exemplify; a checkbox field can either be `true`, `false`, and `NULL`, therefore we three values are recognized instead of two.
 
 .The following examples use three records:
 * `{ "name": "a", "good": true }`
 * `{ "name": "b", "good": false }`
 * `{ "name": "c", "good": NULL }`
 
-=== Find records where value is `NULL`
+=== Finding Records Where the Value Is `NULL`
 
 [source,bash]
 ----
@@ -116,7 +116,7 @@ curl "$BASE_URL/compose/namespace/$NAMESPACE_ID/module/$MODULE_ID/record/?query=
 }
 ----
 
-=== Find records where value is `NULL` or `false`
+=== Finding Records Where the Value Is `NULL` or `false`
 
 [source,bash]
 ----
@@ -168,16 +168,16 @@ curl "$BASE_URL/compose/namespace/$NAMESPACE_ID/module/$MODULE_ID/record/?query=
 }
 ----
 
-== Updating records
+== Updating Records
 
 To update a specific record for a specific module, use the `POST $BASE_URL/compose/namespace/$NAMESPACE_ID/module/$MODULE_ID/record/$RECORD_ID` endpoint.
 
 The record update API endpoint sets record values to exactly what was provided in the request.
-If you wish to update only specific fields, firstly fetch the original record, change the desired values, and then update the record.
+If you wish to update only specific fields, first fetch the original record, change the desired values, then update the record.
 
-The fields you omit in the request will be removed from the record (value sanitation, automation, and other system processes may still define the value).
+The fields you omit in the request are removed from the record (value sanitation, automation, and other system processes may still define the value).
 
-=== Example of omitting existing values
+=== Example of Omitting Existing Values
 
 .The following request sets the second field and resets the first (already populated) one:
 [source,bash]
@@ -193,7 +193,7 @@ curl -X POST "$BASE_URL/compose/namespace/$NAMESPACE_ID/module/$MODULE_ID/record
   --compressed
 ----
 
-.The following response is produced by the above request
+.The following response is produced by the above request:
 [source,json]
 ----
 {
@@ -208,7 +208,7 @@ curl -X POST "$BASE_URL/compose/namespace/$NAMESPACE_ID/module/$MODULE_ID/record
 }
 ----
 
-=== Example of preserving existing values
+=== Example of Preserving Existing Values
 
 .The following request sets the second field and preserves the first (already populated) one:
 [source,bash]
@@ -225,7 +225,7 @@ curl -X POST "$BASE_URL/compose/namespace/$NAMESPACE_ID/module/$MODULE_ID/record
   --compressed
 ----
 
-.The following response is produced by the above request
+.The following response is produced by the above request:
 [source,json]
 ----
 {
@@ -241,7 +241,7 @@ curl -X POST "$BASE_URL/compose/namespace/$NAMESPACE_ID/module/$MODULE_ID/record
 }
 ----
 
-== Creating records
+== Creating Records
 
 To search over records for a specific module, use the `POST $BASE_URL/compose/namespace/$NAMESPACE_ID/module/$MODULE_ID/record/` endpoint.
 
@@ -305,7 +305,7 @@ curl -X GET "$BASE_URL/compose/namespace/$NAMESPACE_ID/module/$MODULE_ID/record/
 
 ----
 
-== Deleting records
+== Deleting Records
 
 To search over records for a specific module, use the `DELETE $BASE_URL/compose/namespace/$NAMESPACE_ID/module/$MODULE_ID/record/$RECORD_ID` endpoint.
 

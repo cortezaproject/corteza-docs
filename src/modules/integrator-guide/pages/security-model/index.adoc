@@ -6,12 +6,12 @@ include::ROOT:partial$variables.adoc[]
 :description: Learn how to configure your security model to conform to your business requirements
 
 {PRODUCT_NAME} defines a https://en.wikipedia.org/wiki/Role-based_access_control[RBAC] access control facility.
-RBAC uses the <<glossary-role,*roles*>> of the given <<glossary-user,*user*>> to determine if they have access to the given <<glossary-resource,*resource*>>.
+RBAC uses the <<glossary-role,*roles*>> of the given <<glossary-user,*user*>> to determine whether they have access to a given <<glossary-resource,*resource*>>.
 
 [NOTE]
 ====
-Most of the {PRODUCT_NAME} resources allow you to define what xref:security-model/roles.adoc[roles] are allowed to access the resource.
-Locate the btn:[permissions] button in the user interface for managing the resource.
+Most of the {PRODUCT_NAME} resources allow you to define which xref:security-model/roles.adoc[roles] are allowed to access the resource.
+Locate the btn:[permissions] button in the user interface in order to manage the resource.
 
 [annotation,role="data-zoomable"]
 ----
@@ -44,10 +44,10 @@ Locate the btn:[permissions] button in the user interface for managing the resou
 }
 ----
 
-Refer to xref:security-model/references/operations.adoc[] for a complete reference of available RBAC rules.
+Refer to xref:security-model/references/operations.adoc[] for the complete reference of available RBAC rules.
 ====
 
-{PRODUCT_NAME}'s RBAC facility uses a "flat design", which removes role hierarchy (two roles can not explicitly define a parent/child relationship).
+{PRODUCT_NAME}'s RBAC facility uses a "flat design" which removes role hierarchy (two roles can not explicitly define a parent/child relationship).
 
 <<role-type-ctx,*Context role membership*>> allows you to dynamically assign users to roles based on the defined set of rules.
 
@@ -58,9 +58,9 @@ While access control for specific records is supported, access control for parti
 You can bypass this limitation by using <<role-type-ctx,context role membership>> and module filed rules.
 ====
 
-== Access evaluation flow
+== Access Evaluation Flow
 
-When access is evaluated, the system collects all users' roles and RBAC rules (security context).
+When access is evaluated, the system collects all users' roles and RBAC rules as a part of the security context.
 The order of rule evaluation is based on <<ac-role-importance,*role importance*>> and <<ac-resource-specificity,*resource specificity*>>.
 
 [CAUTION]
@@ -71,28 +71,28 @@ If a user is a member of a bypass role, *all operations are permitted* without a
 .Access evaluation flow:
 . If any rule defines an explicit *deny*, the evaluation results with *deny*.
 . If at least one rule defines an explicit *allow*, the evaluation results with *allow*.
-. If the current level has no explicit allow or deny, the evaluation continues to the next set of rules based on role importance.
-. If the evaluation cannot find an explicit allow or deny, the evaluation results with *deny*.
+. If there are no explicit allow or deny rules on the current level, the evaluation continues to the next set of rules based on role importance.
+. If the evaluation cannot find an explicit allow or deny rules, the evaluation results with *deny*.
 
 [#ac-role-importance]
-=== Role importance
+=== Role Importance
 
 Role importance defines the order in which roles and their corresponding rules are evaluated.
 
 .Role importance for authenticated users:
-. bypass roles
-. context roles
-. common roles
-. authenticated roles
+. bypass roles,
+. context roles,
+. common roles,
+. authenticated roles.
 
 .Role importance for unauthenticated users:
-. anonymous roles
+. anonymous roles.
 
 [#ac-resource-specificity]
-=== Resource specificity
+=== Resource Specificity
 
 Resource specificity defines the order in which rules for the corresponding resources are evaluated.
-Resource specificity is defined based on _how specific is this rule to this resource_.
+Resource specificity is defined based on _how specific  this rule is to this resource_.
 
 As an example, a rule that allows users to create records on the account module in the CRM namespace is more specific than the rule just on the CRM namespace.
 
@@ -102,12 +102,12 @@ Such specificity allows you to deny access to all but one resource of the given 
 To exemplify; you could deny access to all namespaces and allow access to just one namespace.
 ====
 
-== Role types
+== Role Types
 
 [NOTE]
 ====
 A list of bypass, authenticated, and anonymous roles is provided in the system configuration and can not be changed at runtime.
-Refer to xref:devops-guide:access-control/index.adoc[DevOps guide] for details on how this can be done
+Refer to xref:devops-guide:access-control/index.adoc[DevOps guide] for details on how this can be done.
 
 These roles can not be modified or renamed.
 
@@ -126,12 +126,12 @@ Your system administrator can xref:devops-guide:access-control/index.adoc[change
 The roles that are defined as authenticated have restricted editing options.
 
 [#role-type-common]
-=== Common
+=== Common Roles
 
 Common roles are any additional roles defined in the administration panel, such as a CRM admin and application builder.
 
 [#role-type-ctx]
-=== Contextual
+=== Contextual Roles
 
 [NOTE]
 ====
@@ -150,14 +150,14 @@ Contextual roles are hidden from resource permission screens if the role does no
 For example, a record specific role is not shown on the module permission screen.
 ====
 
-An example use case would allow us to assign roles to resource owners, which would give them permissions that they shouldn't have over other resources.
+For example, a certain case of use would allow us to use contextual roles to permit resources owners to perform operations they normally wouldn't have, such as editing and deleting said resources.
 
 Refer to the xref:security-model/references/contextual-role-parameters.adoc[] for details.
 
 .Contextual roles are currently supported for:
-* records
-* workflows
-* auth clients
+* records,
+* workflows,
+* auth clients.
 
 [#role-type-authenticated]
 === Authenticated
@@ -181,25 +181,25 @@ The roles that are defined as anonymous have restricted editing options.
 
 If the user is *not* authenticated with {PRODUCT_NAME} when they are accessing a resource, the system additionally assigns them anonymous roles.
 
-== Important notes
+== Important Notes
 
-=== System setup
+=== System Setup
 
 {PRODUCT_NAME} defines a series of system role types: bypass, authenticated, and anonymous.
 System role types are defined on the server configuration level, and *cannot* be changed directly through the user interface.
 
 If a role is assigned to one of the system role types, the editing is restricted.
-If the role was somehow removed or changed to the extent where the system can not identify it, the system would refuse to start.
+If the role is somehow removed or changed to the extent where the system can not identify it, the system should refuse to start.
 
 .The rationale behind such restrictions:
 * The configuration affects the RBAC facility and its setup process.
 * Systems that work with access tokens need to be aware of such changes.
 * The security model on this level rarely changes, and the change is drastic when it does.
 
-=== Bypass RBAC roles
+=== Bypass RBAC Roles
 
-If a role is assigned as a bypass, it may *not* appear as any other role type (such as an authenticated or anonymous).
-In the case where this is not the case, the system will refuse to start.
+If a role is assigned as a bypass, it may *not* appear as any other role type.
+In the occasion where this is not the case, the system will refuse to start.
 
 [IMPORTANT]
 ====
@@ -208,7 +208,7 @@ Only members of the bypass role may manage the membership of the bypass role.
 
 Bypass roles can be listed on auth clients as permitted or prohibited roles but are *silently ignored* when defined under forced roles.
 
-=== Authenticated and anonymous
+=== Authenticated and Anonymous
 
 Authenticated and anonymous roles may not appear in any auth client security role lists (the allowed, denied, and forced roles) and are silently ignored.
 

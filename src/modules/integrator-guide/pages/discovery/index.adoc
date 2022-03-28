@@ -6,7 +6,7 @@ include::ROOT:partial$icons.adoc[]
 :description: Learn how to configure and use {PRODUCT_NAME} {APP_NAME_DISCOVERY}, a powerful search engine for your data
 
 {PRODUCT_NAME} {APP_NAME_DISCOVERY} provides a powerful search engine to interact with your data.
-{PRODUCT_NAME} {APP_NAME_DISCOVERY} defines an intuitive interface to search and, for some cases, visualize the data such as geographical metadata.
+{PRODUCT_NAME} {APP_NAME_DISCOVERY} defines an intuitive interface to search and, in some cases, visualize the data such as geographical metadata.
 
 Refer to the xref:devops-guide:discovery/index.adoc[menu:DevOps Guide[{PRODUCT_NAME} {APP_NAME_DISCOVERY}]] to learn how to configure the systems.
 
@@ -63,9 +63,10 @@ In the {PRODUCT_NAME} {APP_NAME_DISCOVERY} application you are presented with an
 }
 ----
 
-== Advanced querying
+== Advanced Querying
 
-To find exactly what you're looking for, apply a general filter in the left side of the screen.
+To find exactly what you're looking for, apply a general filter.
+It is located on the left side of the screen.
 Click on the checkbox next to a filter to apply it to the search results.
 
 [annotation,role="data-zoomable"]
@@ -87,7 +88,7 @@ Click on the checkbox next to a filter to apply it to the search results.
 }
 ----
 
-You can insert a search query in the input box on the top of the screen, to filter over the remaining search results.
+You can insert a search query in the input box on the top of the screen to filter over the remaining search results.
 The querying tries to find the best results based on the available data and the search term you've provided.
 
 [annotation,role="data-zoomable"]
@@ -116,9 +117,9 @@ The querying tries to find the best results based on the available data and the 
 }
 ----
 
-=== Visualize geo location
+=== Visualizing a Geographical Location
 
-If a search result defines geo location, it can be visualized on a map.
+If a search result defines a geographical location, it can be visualized on a map.
 To visualize search results on a map, click on the *map button* {ICON_DISCOVERY_MAP} in the bottom-right corner.
 
 [annotation,role="data-zoomable"]
@@ -147,8 +148,8 @@ To visualize search results on a map, click on the *map button* {ICON_DISCOVERY_
 }
 ----
 
-When you click on the map button {ICON_DISCOVERY_MAP} a map will appear right from the resulting data.
-Mappable search results will be represented as pins on the map; search results that can not be mapped are omitted from the map but still preserved in search results.
+When you click on the map button {ICON_DISCOVERY_MAP} a map appears right from the resulting data.
+Mappable search results are represented as pins on the map; search results that can not be mapped are omitted from the map but still preserved in search results.
 
 [annotation,role="data-zoomable"]
 ----
@@ -183,21 +184,21 @@ Mappable search results will be represented as pins on the map; search results t
 ----
 
 [#integration-configuration]
-== Integration configuration
+== Integration Configuration
 
-{PRODUCT_NAME} {APP_NAME_DISCOVERY} is a stand alone application, independent from the rest of the {PRODUCT_NAME} ecosystem.
-In order to make {APP_NAME_DISCOVERY} functional, we need to *grant access* by creating an *auth client* along with *a user* and *a role*.
+{PRODUCT_NAME} {APP_NAME_DISCOVERY} is a stand alone application, independent from the rest of the {PRODUCT_NAME} system.
+In order to make {APP_NAME_DISCOVERY} functional, you must *grant access* by creating an *auth client* along with *a user* and *a role*.
 
 [IMPORTANT]
 ====
 Access control defines what data the {APP_NAME_DISCOVERY} indexer has access to; more in the <<index-configuration,index configuration>> sections.
 ====
 
-=== Indexer role
+=== Indexer Role
 
-Firstly define a new role that the {APP_NAME_DISCOVERY} indexer will use.
+Firstly define a new role for the {APP_NAME_DISCOVERY} indexer to use.
 Open the {PRODUCT_NAME} {APP_NAME_ADMIN} web application and navigate to menu:system[roles].
-Click on the btn:[new] button, fill in the parameters, and click on the btn:[submit] button.
+Click on the btn:[new] button, fill in the parameters and click on the btn:[submit] button.
 
 [annotation,role="data-zoomable"]
 ----
@@ -225,9 +226,9 @@ Click on the btn:[new] button, fill in the parameters, and click on the btn:[sub
 ----
 
 [#indexer-user]
-=== Indexer user
+=== Indexer User
 
-Next, define a new user that the {APP_NAME_DISCOVERY} indexer will identify as.
+Next, define a new user that the {APP_NAME_DISCOVERY} indexer should identify as.
 In the {PRODUCT_NAME} {APP_NAME_ADMIN} web application navigate to menu:system[users].
 Click on the btn:[new] button and fill in the parameters and click on the btn:[submit] button.
 
@@ -283,22 +284,22 @@ After you save the user, assign them the role you've created earlier.
 }
 ----
 
-=== Indexer auth client
+=== Indexer Auth Client
 
-Lastly, define an auth client that the {APP_NAME_DISCOVERY} indexer will use to authenticate with {PRODUCT_NAME}.
+Lastly, define an auth client that the {APP_NAME_DISCOVERY} indexer should use to authenticate with {PRODUCT_NAME}.
 
 [NOTE]
 ====
-Since we're performing authentication between two systems, we're going to use the `client_credentials` grant type.
+Since authentication between two systems is being performed, you should to use the `client_credentials` grant type.
 ====
 
 In the {PRODUCT_NAME} {APP_NAME_ADMIN} web application navigate to menu:system[auth clients].
 Click on the btn:[new] button and fill in the basic parameters; make sure you select the `client_credentials` grant type and check the `allow client access to Corteza Discovery API on behalf of user`.
-Select the previously created user in the `impersonate uer` input and click on the btn:[submit] button.
+Select the previously created user in the `impersonate user` input and click on the btn:[submit] button.
 
 [NOTE]
 ====
-We recommend you define a new auth client for a new external application instead of reusing existing ones.
+It is recommended you define a new auth client for a new external application instead of reusing existing ones.
 ====
 
 [annotation,role="data-zoomable"]
@@ -376,22 +377,22 @@ The clientID is located in the URL address bar, and the client secret is in the 
 ----
 
 [#index-configuration]
-== Indexing configuration
+== Indexing Configuration
 
 [#data-visibility]
-=== Data visibility
+=== Data Visibility
 
 *Data visibility* defines *what is indexed* and is controlled by the standard *access control facility*.
 The {APP_NAME_DISCOVERY} indexes everything it currently has access to.
 
 To control data visibility, configure *access control rules* for the role we've defined in the <<integration-configuration,integration configuration section>> above.
 
-Refer to the example where we limit the indexer to only show records from a specified namespace.
+Refer to the example where the indexer is limited to only show records from a specified namespace.
 
-=== Indexing policy
+=== Indexing Policy
 
-Indexing policy defines how the data is indexed and by whom it can be accessed.
-Indexing policy allows us to make specific fields accessible publicly or only for authenticated users.
+Indexing policy defines how the data is indexed and who it can be accessed by.
+Indexing policy allows you to make specific fields accessible publicly or only for authenticated users.
 
 [IMPORTANT]
 ====
@@ -399,14 +400,15 @@ Currently, the indexing policy applies to specific fields.
 To control entire rows, use <<data-visibility,data visibility>>.
 ====
 
-There are three policies: *private*, *protected*, and *public* where the private policy is used by default.
+There are three policies: *private*, *protected*, and *public*.
+The private policy is used by default.
 
 [NOTE]
 ====
 Currently, only compose modules allow custom indexing policy.
 ====
 
-If a resource supports indexing policy, there will be a *discovery settings* {ICON_DISCOVERY_ICON} button on the configuration page.
+If a resource supports indexing policy, there is a *discovery settings* {ICON_DISCOVERY_ICON} button on the configuration page.
 
 [annotation,role="data-zoomable"]
 ----
@@ -439,7 +441,8 @@ If a resource supports indexing policy, there will be a *discovery settings* {IC
 }
 ----
 
-When you click on the discovery settings {ICON_DISCOVERY_ICON} button, a popup opens which presents the index policy configurator.
+When you click on the discovery settings {ICON_DISCOVERY_ICON} button, a popup opens.
+It presents the index policy configurator.
 
 [annotation,role="data-zoomable"]
 ----
@@ -503,7 +506,7 @@ To configure the policy, click on the corresponding tab and add the fields you w
 
 [IMPORTANT]
 ====
-If a search result appears in multiple index policies, only one is used determined based on the current security context.
+If a search result is covered by multiple index policies, the one covered by the most restricting policy is returned.
 ====
 
 .Available indexing policies:
@@ -512,28 +515,28 @@ If a search result appears in multiple index policies, only one is used determin
 | [#indexing-policy-private]#<<indexing-policy-private,Private>>#
 | Private indexing policy is used by known, authenticated users to do cross-system searches.
 
-Private index policy should be used whenever we are indexing sensitive data or data we don't wish to expose publicly.
+Private index policy should be used whenever indexing sensitive data or data you don't wish to expose publicly.
 
 | [#indexing-policy-protected]#<<indexing-policy-protected,Protected>>#
 | Protected indexing policy is meant for foreign systems that are under some kind of access control.
 
 [IMPORTANT]
 ====
-Currently unused; support will be added in a future release.
+Currently not in use; support will be added in a future release.
 ====
 
-Protected indexing policy should be used when we have an external system accessing the data and that external system performs the required access control.
+Protected indexing policy should be used when you have an external system accessing the data and that external system performs the required access control.
 
-If external systems are not involved use either private or public indexing policies.
+If external systems are not involved, use either private or public indexing policies.
 
 | [#indexing-policy-public]#<<indexing-policy-public,Public>>#
 | Public indexing policy is meant for users that are not logged-in.
 
 [IMPORTANT]
 ====
-Currently unused; support will be added in a future release.
+Currently not in use; support will be added in a future release.
 ====
 
-Public indexing policy should be used when we want to make data available publicly without the need to know who is accessing it.
+Public indexing policy should be used when you want to make data available publicly without the need to know who is accessing it.
 
 |===

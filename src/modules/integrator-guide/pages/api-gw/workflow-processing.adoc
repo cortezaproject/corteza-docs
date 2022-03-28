@@ -1,24 +1,24 @@
 include::ROOT:partial$variables.adoc[]
 
-= Workflow processing
+= Workflow Processing
 :attachment-path: ../../examples/api-gw/
 
-When your Integration gateway endpoint requires additional processing and the built-in processors do not suffice, you can bind a workflow to the endpoint to handle requests.
+When your integration gateway endpoint requires additional processing and the built-in processors do not suffice, you can bind a workflow to the endpoint to handle requests.
 
-To bind a workflow to an Integration gateway route, you firstly need to properly configure the workflow, and then bind it to the route's xref:api-gw/index.adoc#filters-proc-wfexec[workflow processor].
+To bind a workflow to an integration gateway route, you first need to properly configure the workflow, and then bind it to the route's xref:api-gw/index.adoc#filters-proc-wfexec[workflow processor].
 
-== Workflow configuration
+== Workflow Configuration
 
-If you wish for a workflow to be executable by the Integration gateway, the workflow must define a proper trigger.
+If you wish for a workflow to be executable by the integration gateway, the workflow must define a proper trigger.
 
 .To configure your workflow:
 . Create a new workflow or edit an existent workflow.
 Refer to the xref:automation/workflows/index.adoc[workflow documentation] for details.
 . Assure that the workflow in question defines a trigger with the resource of `System` and an event of `onManual`.
 
-=== Reading a request body via function
+=== Reading a Request Body via Function
 
-The way the http.Request is wrapped, it allows us to use it in the JS environment processing function (see more at xref:api-gw/index.adoc[JavaScript processing]) or the function designed specifically for request body content fetching.
+The way the http.Request is wrapped allows us to use it in the JS environment processing function (see more at xref:api-gw/index.adoc[JavaScript processing]) or the function designed specifically for request body content fetching.
 
 .The screenshot shows the base workflow definition via read request body function.
 [annotation,role="data-zoomable"]
@@ -35,9 +35,9 @@ The way the http.Request is wrapped, it allows us to use it in the JS environmen
 }
 ----
 
-The link:{attachment-path}/wf-request-read-fn.json[workflow] for this example.
+Find the link:{attachment-path}/wf-request-read-fn.json[workflow] for this example in the hyperlink.
 
-=== Reading a request body via JS
+=== Reading a Request Body via JS
 
 .The screenshot shows the base workflow definition via JS function.
 [annotation,role="data-zoomable"]
@@ -54,7 +54,7 @@ The link:{attachment-path}/wf-request-read-fn.json[workflow] for this example.
 }
 ----
 
-The link:{attachment-path}/wf-request-read-js.json[workflow] for this example.
+Find the link:{attachment-path}/wf-request-read-js.json[workflow] for this example in the hyperlink.
 
 .The input Javascript source can be as simple as:
 [source,javascript]
@@ -76,11 +76,11 @@ try {
 }
 ----
 
-== Integration gateway route configuration
+== Integration Gateway Route Configuration
 
-.To bind a workflow to the Integration gateway endpoint:
-. Create a new Integration gateway endpoint or edit an existing endpoint.
-Refer to the xref:api-gw/index.adoc[Integration gateway documentation] for details.
+.To bind a workflow to the integration gateway endpoint:
+. Create a new integration gateway endpoint or edit an existing endpoint.
+Refer to the xref:api-gw/index.adoc[integration gateway documentation] for details.
 . Add a xref:api-gw/index.adoc#filters-proc-wfexec[workflow processor] to the endpoint.
 . Select the workflow you wish to bind from the dropdown in the modal window.
 . Confirm the selection and press on the btn:[save] button to update the endpoint.
@@ -117,6 +117,6 @@ Refer to the xref:api-gw/index.adoc[Integration gateway documentation] for detai
 
 == Testing
 
-To test if the Integration gateway route and the workflow are properly interacting, initiate an HTTP request using Postman or any other tool such as cURL.
+To test if the integration gateway route and the workflow are properly interacting, initiate an HTTP request using Postman or any other tool such as cURL.
 
 Refer to the xref:api-gw/index.adoc#apigw-proc-js-example[curl examples] for details.

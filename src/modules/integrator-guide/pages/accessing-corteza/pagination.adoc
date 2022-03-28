@@ -4,7 +4,7 @@ include::ROOT:partial$variables.adoc[]
 :keywords: API, {PRODUCT_NAME} API, paging, pagination
 :description: Learn how to use the page cursor based pagination
 
-When you perform an operation that supports pagination (such as fetching records), you will see a `filter` object.
+When you perform an operation that supports pagination (such as fetching records), see a `filter` object.
 
 .The `filter` object contains:
 [source,json]
@@ -18,8 +18,8 @@ When you perform an operation that supports pagination (such as fetching records
 ----
 <1> `limit` (number) specifies the maximum number of items on a page.
 <2> `cursor` (string) specifies the cursor to the current page.
-<3> `nextPage` (string) specifies the next page (omitted if no next page).
-<4> `prevPage` (string) specifies the previous page (omitted if no previous page).
+<3> `nextPage` (string) specifies the next page (omitted if there is no next page).
+<4> `prevPage` (string) specifies the previous page (omitted if there is no previous page).
 
 When you wish to access a specific page, you must provide the `pageCursor=$PAGE_CURSOR` query parameter.
 When accessing the next page, `$PAGE_CURSOR` is `filter.nextPage`; when accessing the previous page, `$PAGE_CURSOR` is `filter.prevPage`.

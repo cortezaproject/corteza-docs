@@ -6,7 +6,7 @@ include::ROOT:partial$variables.adoc[]
 :description: Learn how to create and manage your platform users
 
 A user is an entity which is allowed to interact with your {PRODUCT_NAME} instance.
-A user can be an employee who needs to interact with their, or a system user which may be used to identify external integrations or webhook requests.
+A user can be an employee who needs to interact with your {PRODUCT_NAME}, or a system user which may be used to identify external integrations or webhook requests.
 
 A user can be assigned to a series of xref:security-model/roles.adoc[roles] which define the scope of the access for the given user.
 
@@ -22,12 +22,12 @@ This can be configured by setting appropriate access control rules for either al
 
 .To change information masking for specific users:
 . Click on the edit icon next to the user you wish to change this for,
-. Click on the btn:[permissions] button in the top right corner,
+. click on the btn:[permissions] button in the top right corner,
 . select the role you wish to change this for,
 . select the appropriate access option for the "show email details for (name here)" or "show name details for (name here)".
 ====
 
-== The user interface
+== The User Interface
 
 The user management user interface resides in the xref:index.adoc#webapp-admin[{PRODUCT_NAME} {APP_NAME_ADMIN}] web application, under the menu:system[users] section.
 
@@ -51,7 +51,7 @@ The user management user interface resides in the xref:index.adoc#webapp-admin[{
 }
 ----
 
-== Listing users
+== Listing Users
 
 .To list current system users:
 . navigate to menu:system[users],
@@ -77,7 +77,7 @@ The user management user interface resides in the xref:index.adoc#webapp-admin[{
 }
 ----
 
-== Creating users
+== Creating Users
 
 [IMPORTANT]
 ====
@@ -109,7 +109,7 @@ Permissions can only be defined for existing users.
 }
 ----
 
-== Editing users
+== Editing Users
 
 .To edit an existing user:
 . navigate to menu:system[users],
@@ -137,7 +137,7 @@ Permissions can only be defined for existing users.
 ----
 
 [#suspending-users]
-== Suspending users
+== Suspending Users
 
 .To suspend an existing user:
 . Navigate to menu:system[users],
@@ -176,7 +176,7 @@ Permissions can only be defined for existing users.
 }
 ----
 
-== Deleting users
+== Deleting Users
 
 [TIP]
 ====
@@ -220,7 +220,7 @@ Instead of deleting users, you can temporarily <<suspending-users,suspend them>>
 }
 ----
 
-== Assign role
+== Assigning Roles
 
 [CAUTION]
 ====

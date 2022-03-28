@@ -5,9 +5,10 @@ include::ROOT:partial$variables.adoc[]
 :description: Learn how to authenticate {PRODUCT_NAME} instances using different {PRODUCT_NAME} instances
 
 [#provider]
-== Setup {PRODUCT_NAME} you will use to authenticate with
+== Configuring the Authentication Provider
 
-Create a new xref:authentication/index.adoc#_auth_client[auth client] and make sure you select the `authorization_code` grant type, as well as check the `allow client to use OIDC and verify user's identity` capability.
+Create a new xref:authentication/index.adoc#_auth_client[auth client] and make sure you select the `authorization_code` grant type.
+In addition, check the `allow client to use OIDC and verify user's identity` capability.
 
 Optionally check the trusted checkbox to skip the final verification step.
 
@@ -37,11 +38,11 @@ Optionally check the trusted checkbox to skip the final verification step.
 }
 ----
 
-== Setup {PRODUCT_NAME} you will authenticate
+== Configuring the Authentication Client
 
-Open to the {PRODUCT_NAME} {APP_NAME_ADMIN}, navigate to menu:system[settings], and scroll to the bottom of the page.
+Open to the {PRODUCT_NAME} {APP_NAME_ADMIN}, navigate to menu:system[settings] and scroll to the bottom of the page.
 
-Make sure the enable external authentication is checked, and clock on the btn:[add OIDC provider].
+Make sure the _enable external authentication_ is checked, and clock on the btn:[add OIDC provider].
 
 [annotation,role="data-zoomable"]
 ----
@@ -121,13 +122,13 @@ Click on the btn:[submit] button to save the changes.
 }
 ----
 
-== Authenticate
+== Authentication
 
-The next time your users try to authenticate, they will be presented with an extra external authentication option.
+When your users try to authenticate, they are presented with an extra external authentication option.
 
 [NOTE]
 ====
-If the OIDC provider is not available check your server logs in case there are some errors.
+If the OIDC provider is not available, check your server logs in case there are some errors.
 ====
 
 [annotation,role="data-zoomable"]
@@ -149,7 +150,7 @@ If the OIDC provider is not available check your server logs in case there are s
 }
 ----
 
-When you click on the new OIDC authentication option you are redirected and asked to authenticate using your credentials from the provider {PRODUCT_NAME} instance.
+When you click on the new OIDC authentication option, you are redirected and asked to authenticate using your credentials from the provider {PRODUCT_NAME} instance.
 
 [annotation,role="data-zoomable"]
 ----

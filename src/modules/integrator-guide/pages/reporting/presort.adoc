@@ -2,7 +2,7 @@ include::ROOT:partial$variables.adoc[]
 
 = Presort
 
-A presort allows you to define the default sort that the datasource should apply to the output data.
+A presort allows you to define the default sort that the data-source should apply to the output data.
 
 .The screenshot illustrates the presort user interface.
 image::reporter/presort.png[]
@@ -11,4 +11,4 @@ The first input defines the column to use in the sort expression.
 
 The second input defines the sort direction; either ascending (older first) or descending (newer first).
 
-When defining multiple sort expressions, the rows are firstly sorted by the first expression, and only the rows that have the same value for the given column are sorted based on the next expression.
+When defining multiple sort expressions, the rows are firstly sorted by the first expression and only the rows that have the same value for the given column are sorted based on the next expression.

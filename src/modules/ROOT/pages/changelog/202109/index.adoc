@@ -8,7 +8,7 @@ In addition, we've improved the overall design and user experience, improved the
 
 *Internationalization*
 
-With xref:integrator-guide:personalization/i18n.adoc[internationalization], we add support for the translation of user interfaces, as well as locale specific date-time and number formatting.
+With xref:2021.9@integrator-guide:personalization/i18n.adoc[internationalization], we add support for the translation of user interfaces, as well as locale specific date-time and number formatting.
 {PRODUCT_NAME} allows you to modify the built-in translations entirely as well as define translations for additional languages you might need or any custom web application modifications you might have performed.
 You can also translate most of the user-provided configurations (such as namespaces and module fields), allowing you to configure your {APP_NAME_COMPOSE} applications to be accessible.
 
@@ -24,8 +24,8 @@ Most notably, we've reworked page navigation, improved consistency between diffe
 
 *Access control*
 
-The xref:integrator-guide:access-control.adoc[access control facility] received an upgrade, providing more fine-grained control over the access to your data, such as specific records or modules of particular namespaces.
-xref:integrator-guide:access-control.adoc#role-type-ctx[Contextual roles] allow you to determine role membership and thus access to resources based on the xref:integrator-guide:access-control.adoc#role-type-ctx[state the system is in] (such as what record we are editing).
+The xref:2021.9@integrator-guide:access-control.adoc[access control facility] received an upgrade, providing more fine-grained control over the access to your data, such as specific records or modules of particular namespaces.
+xref:2021.9@integrator-guide:access-control.adoc#role-type-ctx[Contextual roles] allow you to determine role membership and thus access to resources based on the xref:2021.9@integrator-guide:access-control.adoc#role-type-ctx[state the system is in] (such as what record we are editing).
 
 [TIP]
 ====
@@ -35,13 +35,13 @@ With contextual roles, you can cover cases where a user is only allowed to acces
 *Authentication and security*
 
 
-The authentication flow is now more flexible by introducing support for xref:integrator-guide:authentication/external/index.adoc#saml[SAML] and split credential flow.
+The authentication flow is now more flexible by introducing support for xref:2021.9@administrator-guide:authentication/authentication-providers/index.adoc#saml[SAML] and split credential flow.
 Further improvements to the authentication token generator and handler help increase the stability and security of the system.
 
 *Integration gateway*
 
-Responding to the needs of defining custom API endpoints, we've expanded the sink route facility and introduced the xref:integrator-guide:api-gw/index.html[Integration gateway].
-The improved facility simplifies the process of defining and managing custom API endpoints and defining processing for HTTP requests either via the built-in functions, workflows, or xref:integrator-guide:api-gw/index.adoc#js-processing[custom code].
+Responding to the needs of defining custom API endpoints, we've expanded the sink route facility and introduced the xref:2021.9@integrator-guide:api-gw/index.adoc[Integration gateway].
+The improved facility simplifies the process of defining and managing custom API endpoints and defining processing for HTTP requests either via the built-in functions, workflows, or xref:2021.9@integrator-guide:api-gw/index.adoc#js-processing[custom code].
 
 [NOTE]
 ====
@@ -50,7 +50,7 @@ The legacy sink route facility is still present and works as it did before, but 
 
 *Reporter*
 
-xref:integrator-guide:reporting/index.adoc[The reporter] provides a dedicated facility to define and view reports based on the data your {PRODUCT_NAME} {APP_NAME_COMPOSE} defines.
+xref:2021.9@integrator-guide:reporting/index.adoc[The reporter] provides a dedicated facility to define and view reports based on the data your {PRODUCT_NAME} {APP_NAME_COMPOSE} defines.
 
 .[#2021_3-important]#<<2021_3-important,Important upgrade notes:>>#
 [cols="1s,5a"]

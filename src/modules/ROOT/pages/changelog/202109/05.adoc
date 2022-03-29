@@ -3,7 +3,7 @@ include::ROOT:partial$variables.adoc[]
 = `2021.9.5`
 
 .[#2021_9_5-important]#<<2021_9_5-important,Important upgrade notes:>>#
-* The xref:devops-guide:cli/record-import.adoc[record import] via the import CLI command requires you to provide module field definitions along with the record import definitions.
+* The xref:2021.9@devops-guide:cli/record-import.adoc[record import] via the import CLI command requires you to provide module field definitions along with the record import definitions.
 The constraint will be lifted in future patch releases.
 
 *Released on*: 2021-12-16
@@ -29,7 +29,7 @@ Peter Grlica (https://github.com/petergrlica[GH]).
 * Added custom processing button ({WEBAPP_VUE_COMMIT_BASE}6ec4157[`6ec4157`]).
 * Translations for reporter webapp ({WEBAPP_REPORTER_COMMIT_BASE}6e26d5a[`6e26d5a`], {LOCALE_COMMIT_BASE}931011c[`931011c`]).
 * Added additional string manipulation functions to reporter expressions ({SERVER_COMMIT_BASE}a45c914e[`a45c914e`]).
-* Added support for xref:devops-guide:cli/record-import.adoc[record import] via the import CLI command ({SERVER_COMMIT_BASE}96556f54[`96556f54`]).
+* Added support for xref:2021.9@devops-guide:cli/record-import.adoc[record import] via the import CLI command ({SERVER_COMMIT_BASE}96556f54[`96556f54`]).
 
 //
 //

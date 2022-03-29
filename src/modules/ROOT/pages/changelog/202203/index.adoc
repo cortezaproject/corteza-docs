@@ -3,8 +3,34 @@ include::ROOT:partial$variables.adoc[]
 [#2022-3-x]
 = `2022.3`
 
-With {PRODUCT_NAME} `2022.3`, we introduce {PRODUCT_NAME} {APP_NAME_DISCOVERY} -- an intuitive search engine to interact with your data.
-Alongside we focus primarily on increasing stability, security, performance, as well as groundwork preparations for all the new exciting bits the next major release expects to introduce!
+With {PRODUCT_NAME} `2022.3`, we continue to improve system stability, security, performance, as well as introducing new setup and development quality-of-life improvements.
+In addition we introduce the new {PRODUCT_NAME} {APP_NAME_DISCOVERY} and integration gateway profiler.
+
+xref:2022.3@integrator-guide:discovery/index.adoc[*{PRODUCT_NAME} {APP_NAME_DISCOVERY}*]
+
+xref:2022.3@integrator-guide:discovery/index.adoc[] provides a powerful search engine to interact with your data with an intuitive user interface to search and, for some cases, visualize the data such as geographical metadata.
+
+[IMPORTANT]
+====
+In order to enable {PRODUCT_NAME} {APP_NAME_DISCOVERY} you will need to configure your instance.
+Refer to the xref:2022.3@devops-guide:discovery/index.adoc[setup documentation] for instructions
+====
+
+*{PRODUCT_NAME} configuration UX improvements*
+
+To make {PRODUCT_NAME} {APP_NAME_COMPOSE} app configuration process simpler, we introduce a few quality of life tweaks such as workflow step configuration preview tooltips, additional workflow help tooltips and labels, workflow step label suggestions, and delete strategy for pages with sub-pages.
+
+In addition, we introduce the integration gateway xref:2022.3@integrator-guide:api-gw/profiler.adoc[route profiler] to help you benchmark the system and help with automation troubleshooting and optimization.
+
+*{PRODUCT_NAME} deployment UX improvements*
+
+To simplify initial {PRODUCT_NAME} deployment troubleshooting steps, we introduce xref:2022.3@devops-guide:troubleshooting/web-console.adoc[].
+The web console allows you to quickly access system logs, health checks, and other parameters you may need to debug a faulty instance.
+
+[TIP]
+====
+The web console is most useful for scenarios where you may not have (or want to give) direct access to your servers.
+====
 
 :leveloffset: +1
 

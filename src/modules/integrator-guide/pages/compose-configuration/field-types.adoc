@@ -523,3 +523,16 @@ Defines how the files are presented when they are being viewed.
 The `File` field only permits file IDs (references to files) which exist in the system.
 
 |===
+
+[#field-type-geometry]
+== Geometry
+
+A `Geometry` field type stores a location which can be selected and plotted on a map.
+
+The `Geometry` field type should be used when you wish to store a location.
+For example, a client's geo location.
+
+A field of type `Geometry` is represented as a location on a map.
+When the field is being edited, it is represented as a selectable location on a map.
+
+The `Geometry` field does not define kind specific configuration options.

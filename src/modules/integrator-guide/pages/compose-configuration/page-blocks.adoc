@@ -416,9 +416,9 @@ image::compose-configuration/page-block-reference/config-sf.png[...,50%,role="pr
 
 The *comment page block* allows you to show the records in a comment-like formatting.
 
-@todo image
+image:compose-configuration/page-block-reference/config-comments.png[...,49%,role="preview data-zoomable"]
+image:compose-configuration/page-block-reference/added-comments.png[...,49%,role="preview data-zoomable"]
 
-image::compose-configuration/page-block-reference/config-ro.png[...,50%,role="preview data-zoomable"]
 
 .Additional configurations:
 [cols="2s,5a"]
@@ -449,5 +449,26 @@ This allows you to show specific comments for specific records.
 |
 Defines the direction in which the comments will be sorted.
 The sorting is done based on when the comment was created at.
+
+|===
+
+[#page-block-report]
+== Report
+
+The *report page block* allows you to show particular reporter components inside your {PRODUCT_NAME} {APP_NAME_COMPOSE} app.
+
+image:compose-configuration/page-block-reference/config-report.png[...,49%,role="preview data-zoomable"]
+image:compose-configuration/page-block-reference/added-report.png[...,49%,role="preview data-zoomable"]
+
+.Additional configurations:
+[cols="2s,5a"]
+|===
+| [#page-block-report-report]#<<page-block-report-report,Report>>#
+|
+Defines the report the page bock will use when showing data.
+
+| [#page-block-report-display-element]#<<page-block-report-display-element,Display element>>#
+|
+Defines the display element from the selected report the page block will use when showing data.
 
 |===

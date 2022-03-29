@@ -891,6 +891,11 @@ This can be used to request additional information from the receiving user, such
 An *option select prompt* displays a notification with a list of available options either as a select or a list of radio buttons.
 This can be used as a more verbose <<step-prompt-choice,choice prompt>> or a more constrained <<step-prompt-input,input prompt>>.
 
+| [#step-prompt-record-select]#<<step-prompt-record-select,Record select>>#
+|
+A *record select* prompt displays a notification with a record list search box from where the selected record is passed into the workflow.
+This can be used to allow users to select some record relevant to workflow execution.
+
 |===
 
 == Delay and schedule workflows

@@ -1,0 +1,315 @@
+include::ROOT:partial$variables.adoc[]
+
+= Route Profiler
+:keywords: integration gateway performance, integration gateway profiling, profiling, performance
+:description: Learn how to profile your integration gateway endpoints for debugging and analytics
+
+The *integration gateway route profiler* simplifies the development and troubleshooting process by allowing you to inspect particular requests in a detailed manner.
+
+Besides development, the profiler can be used to benchmark system performance to help determine potential bottlenecks or to get the general idea of what tye system is capable of.
+
+[TIP]
+====
+You can use these benchmarks to determine if you will need to perform some system scaling strategy.
+====
+
+== Configuring The Route Profiler
+
+In order for the profiler to include an integration gateway route, you must explicitly enable it by configuring the *profiler* prefilter.
+To add profiler prefilter to an integration gateway endpoint click on the btn:[add filter] and select the "profiler" from the dropdown list
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "api-gw/profiler/prefilter-select.png",
+    "alias": "api-gw-profiler-prefilter-select",
+    "w": 1920,
+    "h": 1080
+  },
+    "view": {
+    "x": 320,
+    "y": 0,
+    "w": 1600,
+    "h": 1080
+  },
+  "annotations": [{
+    "kind": "box-note",
+    "padding": "sm",
+    "x": 588,
+    "y": 651,
+    "w": 111,
+    "h": 32
+  }, {
+    "kind": "box-note",
+    "padding": "sm",
+    "x": 589,
+    "y": 698,
+    "w": 185,
+    "h": 14
+  }]
+}
+----
+
+In the configuration modal window make sure the enabled option is checked and click on the btn:[save & close] button.
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "api-gw/profiler/prefilter-cofigure.png",
+    "alias": "api-gw-profiler-prefilter-cofigure",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {},
+  "focus": {
+    "x": 577,
+    "y": 51,
+    "w": 767,
+    "h": 148
+  }
+}
+----
+
+When the profiler prefilter is added you will see a new *requests list* at the bottom of the page.
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "api-gw/profiler/preflter-added.png",
+    "alias": "api-gw-profiler-preflter-added",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {},
+  "focus": {
+    "x": 577,
+    "y": 544,
+    "h": 510,
+    "w": 1079
+  },
+  "annotations": [{
+    "kind": "box",
+    "x": 564,
+    "y": 900,
+    "h": 166,
+    "w": 1105
+  }]
+}
+----
+
+[#profile-specific]
+== Profiling Specific Routes
+
+To profile a specific route open up the route and scroll to the bottom of the page.
+The requests list shows all HTTP requests for the particular integration gateway route which ocurred *after* the profiler prefilter has been added.
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "api-gw/profiler/route-profiler.png",
+    "alias": "api-gw-profiler-route-profiler",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {},
+  "focus": {
+    "x": 577,
+    "y": 490,
+    "w": 1087,
+    "h": 579
+  },
+  "annotations": [{}]
+}
+----
+
+To inspect the details of a particular request, click on the btn:[edit] icon at the end of the request entry.
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "api-gw/profiler/route-profiler.png",
+    "alias": "api-gw-profiler-route-profiler-details-open",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {},
+  "focus": {
+    "x": 577,
+    "y": 490,
+    "w": 1087,
+    "h": 579
+  },
+  "annotations": [{
+    "kind": "box-note",
+    "x": 1650,
+    "y": 629,
+    "w": 13,
+    "h": 13
+  }]
+}
+----
+
+At the very top of the page you see the *general information*, such as the request ID, HTTP method, response status code, and duration.
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "api-gw/profiler/request-details-top.png",
+    "alias": "api-gw-profiler-request-details-top-general",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {},
+  "focus": {
+    "x": 585,
+    "y": 105,
+    "w": 530,
+    "h": 566
+  }
+}
+----
+
+Next up is the list of *request headers* provided with with the HTTP request.
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "api-gw/profiler/request-details-bottom.png",
+    "alias": "api-gw-profiler-request-details-bottom-headers",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {},
+  "focus": {
+    "x": 580,
+    "y": 127,
+    "w": 1077,
+    "h": 298
+  }
+}
+----
+
+Lastly the raw *request payload* provided with the HTTP request.
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "api-gw/profiler/request-details-bottom.png",
+    "alias": "api-gw-profiler-request-details-bottom-body",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {},
+  "focus": {
+    "x": 586,
+    "y": 502,
+    "w": 1070,
+    "h": 559
+  }
+}
+----
+
+== Profiling the System
+
+To see general system performance we offer a system-wide profiler view.
+Navigate to menu:system[integration gateway] and click on the btn:[profiler] button in the top right corner.
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "api-gw/profiler/route-list.png",
+    "alias": "api-gw-profiler-route-list",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {
+    "x": 320,
+    "y": 0,
+    "w": 1600,
+    "h": 600
+  },
+  "annotations": [{
+    "kind": "box-note",
+    "x": 1451,
+    "y": 80,
+    "w": 83,
+    "h": 30
+  }]
+}
+----
+
+A new screen appears showing you all registered integration gateway routes (only routes with a *profiler prefilter* are displayed) along with their statistics such as average request times and payload size.
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "api-gw/profiler/profiler-general.png",
+    "alias": "api-gw-profiler-profiler-general",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {
+    "x": 320,
+    "y": 0,
+    "w": 1600,
+    "h": 600
+  }
+}
+----
+
+To inspect requests for a particular route, either click on the btn:[edit] icon next to the integration gateway route or follow the instructions <<profile-specific,provided above>>.
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "api-gw/profiler/profiler-general.png",
+    "alias": "api-gw-profiler-profiler-general-see-specific",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {
+    "x": 320,
+    "y": 0,
+    "w": 1600,
+    "h": 600
+  },
+  "annotations": [{
+    "kind": "box-note",
+    "x": 1648,
+    "y": 243,
+    "w": 15,
+    "h": 15
+  }]
+}
+----
+
+When you inspect a particular integration gateway route, a list of all logged requests is shown.
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "api-gw/profiler/profiler-general-route.png",
+    "alias": "api-gw-profiler-profiler-general-route",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {
+    "x": 320,
+    "y": 0,
+    "h": 830,
+    "w": 1600
+  }
+}
+----

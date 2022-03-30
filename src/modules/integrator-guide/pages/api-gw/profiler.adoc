@@ -121,8 +121,7 @@ The requests list shows all HTTP requests for the particular integration gateway
     "y": 490,
     "w": 1087,
     "h": 579
-  },
-  "annotations": [{}]
+  }
 }
 ----
 

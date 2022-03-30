@@ -1,6 +1,7 @@
 include::ROOT:partial$variables.adoc[]
 
 = Access control
+:page-aliases: maintenance/access-control.adoc
 
 {PRODUCT_NAME} defines three particular role types which need to be registered in the `.env` file.
 

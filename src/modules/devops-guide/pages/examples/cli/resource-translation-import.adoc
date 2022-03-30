@@ -1,6 +1,7 @@
 include::ROOT:partial$variables.adoc[]
 
 = Import Resource Translations
+:page-aliases: cli/resource-translation-import.adoc
 
 [IMPORTANT]
 ====

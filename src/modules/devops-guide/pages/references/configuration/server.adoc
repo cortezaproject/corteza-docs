@@ -1,4 +1,5 @@
 = Server configuration
+:page-aliases: configuration/server.adoc
 
 :leveloffset: +1
 

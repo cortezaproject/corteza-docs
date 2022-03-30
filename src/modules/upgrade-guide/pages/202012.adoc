@@ -11,7 +11,6 @@ Please be extra careful, backup your database and follow recommended steps.
 [IMPORTANT]
 ====
 If you use {PRODUCT_NAME} REST API, please note that paging parameters on certain endpoints have changed.
-Refer to xref:2020.12@ROOT:developer-guide/pagination.adoc#_pagination[developers guide] for details.
 ====
 
 == After upgrade

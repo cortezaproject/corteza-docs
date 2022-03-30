@@ -2,7 +2,7 @@ include::ROOT:partial$variables.adoc[]
 
 = `2022.3.0`
 
-*Released on*: TBD
+*Released on*: 2022-03-30
 
 .[#2022_3_0-added]#<<2022_3_0-added,Added:>>#
 * Added additional development tools for nicer user experience; step configuration preview on hover ({WEBAPP_WORKFLOW_COMMIT_BASE}b017702[`b017702`] {WEBAPP_WORKFLOW_COMMIT_BASE}6e2a4be[`6e2a4be`] {WEBAPP_WORKFLOW_COMMIT_BASE}51d1f9e[`51d1f9e`]), additional help labels ({WEBAPP_WORKFLOW_COMMIT_BASE}214c973[`214c973`]), and a predefined HTTP method select ({SERVER_COMMIT_BASE}5e59bbab2[`5e59bbab2`]).

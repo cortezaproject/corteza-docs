@@ -10,8 +10,6 @@ In case you are experiencing issues while setting up or using {PRODUCT_NAME} you
 {PRODUCT_NAME} introduces a xref:troubleshooting/web-console.adoc[] which provides an easy way to access important information such as server logs.
 The web console can be used to try and pinpoint what is causing the issue.
 
-In addition to the server console, we prepared a list of xref:troubleshooting/common-issues.adoc[common issues] which we have experienced or identified while interacting with the community.
-
 If you are unable to resolve the issue, you can reach out to the community on https://forum.cortezaproject.org/[our forum].
 
 == Ports are not available

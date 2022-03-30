@@ -250,7 +250,7 @@ The profiler prefilter enables a specific endpoint to gather useful statistics o
 
 The prefilter can be added after any `Query parameters` or `Header` prefilter in order to enable the request to go through any authentication checks that might exist on a route.
 
-See more on adding a profiler prefilter on the xref:integrator-guide:pages/api-gw/profiler.adoc#profiler-add[profiler page].
+See more on adding a profiler prefilter on the xref:integrator-guide:api-gw/profiler.adoc#profiler-add[profiler page].
 
 |===
 

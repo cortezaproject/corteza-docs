@@ -39,7 +39,7 @@ To execute an automation-script, add a function step image:workflow/function.svg
 Insert the *script reference* under the script argument.
 
 .The script reference can be obtained by:
-* Navigating to the menu:{PRODUCT_NAME} {APP_ADMIN}[Automation,{APP_AUTOMATION} scripts] and find the automation script you wish to execute and copy its reference.
+* Navigating to the menu:{PRODUCT_NAME} {APP_NAME_ADMIN}[Automation,{APP_AUTOMATION} scripts] and find the automation script you wish to execute and copy its reference.
 * Construct it manually using the pattern of `/server-scripts/path-to/the-script/script-name.js:default`.
 For the example above, the reference is `/server-scripts/invoked-from-the-workflow.js:default`.
 

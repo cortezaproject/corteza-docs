@@ -179,7 +179,7 @@ Use explicit triggers when you wish to *manually initiate an action*, for exampl
 
 Use implicit triggers when you wish for an action to be *automatically performed* when triggered by another action or process; such as sending an email when you register a new user or adding a changelog entry when the content changes.
 
-Refer to xref:ROOT:integrator-guide/resource-events-reference.adoc[resources and events] for a complete list of events you can listen for.
+Refer to xref:automation-scripts/references/resource-events.adoc[resources and events] for a complete list of events you can listen for.
 
 | [#trigger-type-deferred]#<<trigger-type-deferred,Deferred>>#
 Deferred triggers can only be used in server scripts and require explicit security context.
@@ -220,14 +220,14 @@ triggers ({ before }) {
 },
 ----
 
-Refer to xref:ROOT:integrator-guide/resource-events-reference.adoc[resources and events] for a complete list of available resources and supported events.
+Refer to xref:automation-scripts/references/resource-events.adoc[resources and events] for a complete list of available resources and supported events.
 
 [#trigger-define-constraint]
 === Defining a constraint
 
 [NOTE]
 ====
-Refer to xref:ROOT:integrator-guide/resource-constraints.adoc[resource constraints] for a list of available constraint properties for each resource.
+Refer to xref:automation-scripts/references/resource-constraints/index.adoc[resource constraints] for a list of available constraint properties for each resource.
 ====
 
 To define how an event should be presented as (such as the module name, user email, role handle), we use the `.where(property, operator, value)` method or a variation of it.

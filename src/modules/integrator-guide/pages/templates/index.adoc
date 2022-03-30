@@ -39,11 +39,6 @@ The HTML template editor implements syntax highlighting and some other useful to
 |
 The preview section allows you to test how your templates will look when rendered into an actual document.
 
-[IMPORTANT]
-====
-Refer to the xref:templates/pdf.adoc[] section to setup PDF rendering.
-====
-
 |===
 
 == The content

@@ -125,7 +125,7 @@ If you need to be more specific you can use region suffix, such as `en-US` and `
 Inside the newly created directory create a `config.yaml` file.
 The `config.yaml` file defines some base properties of the language, such as the display label (the `name` property).
 
-Refer to the https://github.com/cortezaproject/corteza-locale/blob/2021.9.x/src/schema/config.json[`schema/config.json`] file for details.
+Refer to the https://github.com/cortezaproject/corteza-locale/blob/{VERSION}/src/schema/config.json[`schema/config.json`] file for details.
 
 .An example of the `config.yaml` file contents:
 [source,yaml]

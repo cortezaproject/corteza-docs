@@ -3,9 +3,9 @@ include::ROOT:partial$variables.adoc[]
 = Workflow Processing
 :attachment-path: ../../examples/api-gw/
 
-When your integration gateway endpoint requires additional processing and the built-in processors do not suffice, you can bind a workflow to the endpoint to handle requests.
+When your integration gateway endpoint requires additional processing and the built-in processers do not suffice, you can bind a workflow to the endpoint to handle requests.
 
-To bind a workflow to an integration gateway route, you first need to properly configure the workflow, and then bind it to the route's xref:api-gw/index.adoc#filters-proc-wfexec[workflow processor].
+To bind a workflow to an integration gateway route, you first need to properly configure the workflow, and then bind it to the route's xref:api-gw/index.adoc#filters-proc-wfexec[workflow processer].
 
 == Workflow Configuration
 
@@ -81,7 +81,7 @@ try {
 .To bind a workflow to the integration gateway endpoint:
 . Create a new integration gateway endpoint or edit an existing endpoint.
 Refer to the xref:api-gw/index.adoc[integration gateway documentation] for details.
-. Add a xref:api-gw/index.adoc#filters-proc-wfexec[workflow processor] to the endpoint.
+. Add a xref:api-gw/index.adoc#filters-proc-wfexec[workflow processer] to the endpoint.
 . Select the workflow you wish to bind from the dropdown in the modal window.
 . Confirm the selection and press on the btn:[save] button to update the endpoint.
 

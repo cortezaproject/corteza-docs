@@ -4,7 +4,7 @@ include::ROOT:partial$variables.adoc[]
 = `2022.3`
 
 With {PRODUCT_NAME} `2022.3`, we continue to improve system stability, security, performance, as well as introducing new setup and development quality-of-life improvements.
-In addition we introduce the new {PRODUCT_NAME} {APP_NAME_DISCOVERY} and integration gateway profiler.
+In addition we introduce the new {PRODUCT_NAME} {APP_NAME_DISCOVERY} and Integration gateway profiler.
 
 xref:2022.3@integrator-guide:discovery/index.adoc[*{PRODUCT_NAME} {APP_NAME_DISCOVERY}*]
 

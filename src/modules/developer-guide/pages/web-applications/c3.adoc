@@ -28,14 +28,14 @@ yarn dev-env
 
 The `src/dev-env.js` file defines all of the configuration required by the C3 feature; essentially it defines an insulated Vue application.
 
-Refer to the https://github.com/cortezaproject/corteza-webapp-admin/blob/2021.9.x/src/dev-env.js[corteza-webapp-admin; /src/dev-env.js] for an example configuration.
+Refer to the https://github.com/cortezaproject/corteza-webapp-admin/blob/{VERSION}/src/dev-env.js[corteza-webapp-admin; /src/dev-env.js] for an example configuration.
 
 [#c3-registry]
 === `components/C3.js`
 
 The `components/C3.js` file is the main registry that defines components usable by the C3 feature.
 
-Refer to the https://github.com/cortezaproject/corteza-webapp-admin/blob/2021.9.x/src/components/C3.js[corteza-webapp-admin; /src/components/C3.js] for an example configuration
+Refer to the https://github.com/cortezaproject/corteza-webapp-admin/blob/{VERSION}/src/components/C3.js[corteza-webapp-admin; /src/components/C3.js] for an example configuration
 
 === `*.c3.js`
 

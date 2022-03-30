@@ -25,6 +25,7 @@ include::ROOT:partial$variables.adoc[]
 * Added a new xref:2022.3@integrator-guide:compose-configuration/field-types.adoc#field-type-geometry[`Geometry` field] to store geo location, primarily for use with {APP_NAME_DISCOVERY} ({WEBAPP_COMPOSE_COMMIT_BASE}cb3ac6c2[`cb3ac6c2`], {WEBAPP_JS_COMMIT_BASE}3f56b79[`3f56b79`], {WEBAPP_JS_COMMIT_BASE}2a12fc0[`2a12fc0`]).
 * Added support to hide selected roles from the permission list ({WEBAPP_ADMIN_COMMIT_BASE}5bdc3e9[`5bdc3e9`]).
 * Added additional media styling for nicer PDF output ({WEBAPP_COMPOSE_COMMIT_BASE}908ba673[`908ba673`]).
+* Added Integration gateway profiler ({SERVER_COMMIT_BASE}9a7f6f90[`9a7f6f90`], {WEBAPP_ADMIN_COMMIT_BASE}cbd7ab45[`cbd7ab45`]).
 
 //
 //
@@ -85,6 +86,8 @@ include::ROOT:partial$variables.adoc[]
 * Fixed record organizer, changed prefilter evaluation ({WEBAPP_COMPOSE_COMMIT_BASE}74b047de[`74b047de`], {WEBAPP_COMPOSE_COMMIT_BASE}2ea20d86[`2ea20d86`]) and added additional record source evaluation ({WEBAPP_COMPOSE_COMMIT_BASE}5cbefcb8[`5cbefcb8`]).
 * Fixed record list filtering by properly handling `Boolean` values ({WEBAPP_COMPOSE_COMMIT_BASE}43a1d3cf[`43a1d3cf`]), added missing system fields ({WEBAPP_COMPOSE_COMMIT_BASE}67e7f4fa[`67e7f4fa`], {WEBAPP_COMPOSE_COMMIT_BASE}7cae2b0b[`7cae2b0b`]), tweaked internal logic ({WEBAPP_COMPOSE_COMMIT_BASE}f11def50[`f11def50`], {WEBAPP_COMPOSE_COMMIT_BASE}751c589b[`751c589b`]), fixing improper field kind handling ({WEBAPP_COMPOSE_COMMIT_BASE}1082cf73[`1082cf73`]), and adding a fallback to the equality operator ({WEBAPP_COMPOSE_COMMIT_BASE}b5ee8752[`b5ee8752`]).
 * Fixed settings not applying when they are updated and saved ({WEBAPP_ADMIN_COMMIT_BASE}7f5eebe[`7f5eebe`]).
+* Fixed timeout issues in http request workflow function ({SERVER_COMMIT_BASE}6620b6ea[`6620b6ea`]).
+* Fixed queue name matching on workflow onMessage event ({SERVER_COMMIT_BASE}465e8ffe[`465e8ffe`]).
 
 .[#2022_3_0-security]#<<2022_3_0-security,Security:>>#
 * Replaced `dgrijalva/jwt-go` with `lestrrat-go/jwx`, refactored the JWT handling implementation ({SERVER_COMMIT_BASE}59ec77e20[`59ec77e20`], {SERVER_COMMIT_BASE}46675080f[`46675080f`]), token issuer ({SERVER_COMMIT_BASE}6c3bef075[`6c3bef075`]), and moved token validation to earlier stages ({SERVER_COMMIT_BASE}53dd7cc29[`53dd7cc29`]) for a safer, more robust and configurable implementation.
@@ -102,7 +105,7 @@ include::ROOT:partial$variables.adoc[]
 * Fixed `pinio` version mismatch between `corteza-js` and `corteza-vue` ({WEBAPP_JS_COMMIT_BASE}a8c46b9[`a8c46b9`], {WEBAPP_VUE_COMMIT_BASE}a8f5e24[`a8f5e24`]).
 * Tweaked Envoy to properly handle user email lookups ({SERVER_COMMIT_BASE}d841aad13[`d841aad13`]), expanded resource definition for easier state access ({SERVER_COMMIT_BASE}da1828642[`da1828642`]), and removed potential import cycles ({SERVER_COMMIT_BASE}bc1550938[`bc1550938`]), and general improvements ({WEBAPP_COMPOSE_COMMIT_BASE}f5a93caa[`f5a93caa`], {WEBAPP_COMPOSE_COMMIT_BASE}7bb22d96[`7bb22d96`]).
 * Improved HTTP server startup ({SERVER_COMMIT_BASE}d74239c73[`d74239c73`]).
-* Cleaned up te store interface ({SERVER_COMMIT_BASE}1949782cc[`1949782cc`]).
+* Cleaned up the store interface ({SERVER_COMMIT_BASE}1949782cc[`1949782cc`]).
 * Added additional identifiers for report resources ({SERVER_COMMIT_BASE}330a332fd[`330a332fd`]).
 * Defined a general component to be used with item selection such as module fields and chart columns ({WEBAPP_COMPOSE_COMMIT_BASE}c3c2d5d6[`c3c2d5d6`], {WEBAPP_COMPOSE_COMMIT_BASE}e4a93e78[`e4a93e78`], {WEBAPP_COMPOSE_COMMIT_BASE}0b39fcc8[`0b39fcc8`], {WEBAPP_REPORTER_COMMIT_BASE}02b7cb9[`02b7cb9`], {WEBAPP_VUE_COMMIT_BASE}bd02931[`bd02931`]).
 * Define a generic reusable chart container ({WEBAPP_VUE_COMMIT_BASE}afc6d15[`afc6d15`]).

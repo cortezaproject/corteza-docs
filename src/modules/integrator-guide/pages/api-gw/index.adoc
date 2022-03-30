@@ -129,15 +129,15 @@ Subsequent sections explore specific filters in more depth; what they do, and ho
 
 == Request Validation
 
-Request validation is done by using *pre-filters*.
-Pre-filters allow you to validate the request and determine if the given endpoint should process it.
+Request validation is done by using *prefilters*.
+prefilters allow you to validate the request and determine if the given endpoint should process it.
 
 [annotation,role="data-zoomable"]
 ----
 {
   "image": {
     "rel": "api-gw/route-filters.png",
-    "alias": "api-gw-route-filters-pre-filter",
+    "alias": "api-gw-route-filters-prefilter",
     "w": 1920,
     "h": 1080
   },
@@ -170,12 +170,12 @@ It is currently not possible to use the built-in authentication facility to auth
 This feature will be added in the future.
 ====
 
-.The list of available pre-filters:
+.The list of available prefilters:
 [cols="1s,5a"]
 |===
-| [#filters-pre-filter-queryparam]#<<filters-pre-filter-queryparam,Query parameters>>#
+| [#filters-prefilter-queryparam]#<<filters-prefilter-queryparam,Query parameters>>#
 |
-The query parameters pre-filter allows you to define a condition which asserts if the request can be processed by this endpoint based on the query parameters.
+The query parameters prefilter allows you to define a condition which asserts if the request can be processed by this endpoint based on the query parameters.
 
 The query parameters are passed into the expression evaluation engine as they were provided.
 To exemplify; the query parameters `?param1=value1&param2=value2` would be referenced as `param1` and `param2` in the expression.
@@ -187,7 +187,7 @@ The following example checks whether the given HTTP request defines the `token` 
 .Endpoint definition:
 * endpoint: `/test-query`
 * method: `GET`
-* query parameters pre-filter expression: `token == "super-secret-value"`
+* query parameters prefilter expression: `token == "super-secret-value"`
 
 .An example of an HTTP request that conforms to the filter:
 [source,bash]
@@ -206,9 +206,9 @@ curl -X GET $BASE_URL/api/test-query?token=some-other-value-i-guessed
 Multi-word and multi-value query parameters can not be used currently.
 ====
 
-| [#filters-pre-filter-header]#<<filters-pre-filter-header,Header>>#
+| [#filters-prefilter-header]#<<filters-prefilter-header,Header>>#
 |
-The header pre-filter allows you to define a condition which asserts whether the request can be processed by this endpoint based on the request's headers.
+The header prefilter allows you to define a condition which asserts whether the request can be processed by this endpoint based on the request's headers.
 
 All system defined headers are passed into the expression evaluation engine as provided.
 User-define headers will automatically be converted into the `snake-case` + `PascalCase` format.
@@ -223,7 +223,7 @@ The following example checks if the given HTTP request defines the `Token` heade
 .Endpoint definition:
 * endpoint: `/test-query`
 * method: `GET`
-* header pre-filter expression: `Token == "super-secret-value"`
+* header prefilter expression: `Token == "super-secret-value"`
 
 .An example of an HTTP request that conforms to the filter:
 [source,bash]
@@ -244,12 +244,20 @@ curl -X GET $BASE_URL/api/test-query \
 Multi-word and multi-value headers can not be used currently.
 ====
 
+| [#filters-prefilter-profiler]#<<filters-prefilter-profiler,Profiler>>#
+|
+The profiler prefilter enables a specific endpoint to gather useful statistics on an incoming route, such as headers, request body, content length, and request URI.
+
+The prefilter can be added after any `Query parameters` or `Header` prefilter in order to enable the request to go through any authentication checks that might exist on a route.
+
+See more on adding a profiler prefilter on the xref:integrator-guide:pages/api-gw/profiler.adoc#profiler-add[profiler page].
+
 |===
 
 == Request Processing
 
-Request processing is done using *processors*.
-A processor defines the core business logic that the endpoint performs.
+Request processing is done using *processers*.
+A processer defines the core business logic that the endpoint performs.
 {PRODUCT_NAME} allows you to process arbitrary payloads, such as a structured JSON or a binary attachment.
 
 [annotation,role="data-zoomable"]
@@ -257,7 +265,7 @@ A processor defines the core business logic that the endpoint performs.
 {
   "image": {
     "rel": "api-gw/route-filters.png",
-    "alias": "api-gw-route-filters-processor",
+    "alias": "api-gw-route-filters-processer",
     "w": 1920,
     "h": 1080
   },
@@ -284,17 +292,17 @@ A processor defines the core business logic that the endpoint performs.
 }
 ----
 
-.A list of available processors:
+.A list of available processers:
 [cols="1s,5a"]
 |===
 | [#filters-proc-wfexec]#<<filters-proc-wfexec,Workflow processer>>#
 |
-The workflow processor allows you to bind a xref:automation/workflows/index.adoc[workflow] to the endpoint.
+The workflow processer allows you to bind a xref:automation/workflows/index.adoc[workflow] to the endpoint.
 Refer to the xref:api-gw/workflow-processing.adoc[workflow processing] page for details regarding the interaction.
 
 | [#filters-proc-payloadproc]#<<filters-proc-payloadproc,Payload processer>>#
 |
-The payload processor allows you to handle the request's payload with the help of JavaScript.
+The payload processer allows you to handle the request's payload with the help of JavaScript.
 
 Refer to the xref:api-gw/javascript-processing.adoc[] section for more details.
 
@@ -302,15 +310,15 @@ Refer to the xref:api-gw/javascript-processing.adoc[] section for more details.
 
 == Response Preparation
 
-Response preparation is done using *post-filters*.
-Post-filters allow you to finalize the request lifecycle depending on the result of the processing.
+Response preparation is done using *postfilters*.
+Postfilters allow you to finalize the request lifecycle depending on the result of the processing.
 
 [annotation,role="data-zoomable"]
 ----
 {
   "image": {
     "rel": "api-gw/route-filters.png",
-    "alias": "api-gw-route-filters-post-filter",
+    "alias": "api-gw-route-filters-postfilter",
     "w": 1920,
     "h": 1080
   },
@@ -337,16 +345,16 @@ Post-filters allow you to finalize the request lifecycle depending on the result
 }
 ----
 
-.A list of available post-filters:
+.A list of available postfilters:
 [cols="1s,5a"]
 |===
 | [#filters-postfilter-redirect]#<<filters-postfilter-redirect,Redirection>>#
 |
-The redirect post-filter enriches the response payload with the required redirect HTTP headers.
+The redirect postfilter enriches the response payload with the required redirect HTTP headers.
 
 | [#filters-postfilter-json]#<<filters-postfilter-json,Default JSON response>>#
 |
-The JSON response post-filter enriches the response headers with the `application/json` content type and JSON encodes the processing results.
+The JSON response postfilter enriches the response headers with the `application/json` content type and JSON encodes the processing results.
 
 |===
 

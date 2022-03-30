@@ -4,19 +4,43 @@ include::ROOT:partial$variables.adoc[]
 :keywords: integration gateway performance, integration gateway profiling, profiling, performance
 :description: Learn how to profile your integration gateway endpoints for debugging and analytics
 
-The *integration gateway route profiler* simplifies the development and troubleshooting process by allowing you to inspect particular requests in a detailed manner.
-
+The *Integration gateway route profiler* simplifies the development and troubleshooting process by allowing you to inspect particular requests in a detailed manner.
 Besides development, the profiler can be used to benchmark system performance to help determine potential bottlenecks or to get the general idea of what tye system is capable of.
+
+The profiler was designed in a way that it can be used as a development and debugging tool or as a dashboard to glance over incoming requests.
+
+[IMPORTANT]
+====
+The profiling results and aggregating stats do not get persisted to the store, so any server restart will restart the profiler itself and consequently remove the gateway requests gathered earlier.
+====
 
 [TIP]
 ====
 You can use these benchmarks to determine if you will need to perform some system scaling strategy.
 ====
 
+== Enabling the Profiler
+
+.There are two ways to use the Integration gateway profiler:
+* enabled globally (xref:devops-guide:references/configuration/server.adoc#_apigw_profiler_global[`APIGW_PROFILER_GLOBAL`] `.env` variable)
+* enabled specifically per-route (by using profiler prefilter)
+
+[IMPORTANT]
+====
+The profiler itself is enabled by default, but the global option is disabled, so there will be no requests on the profiler page apart from those that already exist in the Integration gateway and have a profiler prefilter added and enabled.
+====
+
+[#profiler-add]
 == Configuring The Route Profiler
 
 In order for the profiler to include an integration gateway route, you must explicitly enable it by configuring the *profiler* prefilter.
-To add profiler prefilter to an integration gateway endpoint click on the btn:[add filter] and select the "profiler" from the dropdown list
+To add the profiler prefilter to an integration gateway endpoint click on the btn:[add filter] and select the "profiler" from the dropdown list.
+
+[CAUTION]
+====
+The prefilters are applied in the same order they are defined in, meaning, the profiler applies after all other prefilters defined before it execute.
+There is no filter sorting (via drag-drop functionality), so the only way for now it is to remove the other filters and create them in the fashionable order.
+====
 
 [annotation,role="data-zoomable"]
 ----

@@ -8,7 +8,7 @@ The API GW processing filter includes support to process the request using arbit
 
 To process your requests using JavaScript, open the {APP_NAME_ADMIN} web application, navigate to menu:system[integration gateway] and edit the endpoint you wish to define the code for.
 
-Click on the btn:[processing] tab in the filter list and select the btn:[payload processor] option.
+Click on the btn:[processing] tab in the filter list and select the btn:[payload processer] option.
 
 [annotation,role="data-zoomable"]
 ----
@@ -49,7 +49,7 @@ Click on the btn:[processing] tab in the filter list and select the btn:[payload
 }
 ----
 
-When you add the payload processor a pop-up opens presenting the editor.
+When you add the payload processer a pop-up opens presenting the editor.
 
 [annotation,role="data-zoomable"]
 ----
@@ -95,7 +95,7 @@ The following example code snippet takes in the provided `name` and `surname` of
 [source,js]
 ----
 // We firstly need to get the body of the request
-var b = JSON.parse(readRequestBody(input.Get('request').Body));
+var b = JSON.parse(readRequestBody(input.Get('request')));
 
 return {
   // Assure correct casing
@@ -141,8 +141,8 @@ Refer to the https://pkg.go.dev/net/http?utm_source=gopls#Request[GO documentati
 
 | [#proc-js-input-opts]#<<proc-js-input-opts,opts>>#
 |
-This is the integration gateway configuration.
-Refer to the https://github.com/cortezaproject/corteza-server/blob/2021.9.x/pkg/options/apigw.gen.go#L16[source] for details.
+Integration gateway configuration.
+Refer to the https://github.com/cortezaproject/corteza-server/blob/{VERSION}/pkg/options/options.gen.go#L84[source] for details.
 
 [NOTE]
 ====

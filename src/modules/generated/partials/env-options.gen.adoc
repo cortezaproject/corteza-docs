@@ -510,7 +510,7 @@ Validates format of external IDs. Defaults to UUID
 Secret to use to validate requests on SCIM API endpoints
 = Email sending
 
-== *SMPT_FROM*
+== *SMTP_FROM*
 
 === Type
 
@@ -521,7 +521,7 @@ Secret to use to validate requests on SCIM API endpoints
 
 The SMTP `from` email parameter
 
-== *SMPT_HOST*
+== *SMTP_HOST*
 
 === Type
 
@@ -538,7 +538,7 @@ localhost
 
 The SMTP server hostname.
 
-== *SMPT_PASS*
+== *SMTP_PASS*
 
 === Type
 
@@ -549,7 +549,7 @@ The SMTP server hostname.
 
 The SMTP password.
 
-== *SMPT_PORT*
+== *SMTP_PORT*
 
 === Type
 
@@ -560,7 +560,7 @@ The SMTP password.
 
 The SMTP post.
 
-== *SMPT_TLS_INSECURE*
+== *SMTP_TLS_INSECURE*
 
 === Type
 
@@ -571,7 +571,7 @@ The SMTP post.
 
 Allow insecure (invalid, expired TLS certificates) connections.
 
-== *SMPT_TLS_SERVER_NAME*
+== *SMTP_TLS_SERVER_NAME*
 
 === Type
 
@@ -579,7 +579,7 @@ Allow insecure (invalid, expired TLS certificates) connections.
 
 
 
-== *SMPT_USER*
+== *SMTP_USER*
 
 === Type
 
@@ -659,6 +659,28 @@ Enable extra logging
 === Description
 
 Enable incoming request body output in logs
+
+== *APIGW_PROFILER_ENABLED*
+
+=== Type
+
+`bool`
+
+
+=== Description
+
+Enable profiler
+
+== *APIGW_PROFILER_GLOBAL*
+
+=== Type
+
+`bool`
+
+
+=== Description
+
+Profiler enabled for all routes
 
 == *APIGW_PROXY_ENABLE_DEBUG_LOG*
 
@@ -2133,6 +2155,17 @@ Enables verbose logging for workflow execution
 === Description
 
 Registers enabled and valid workflows and executes them when triggered
+
+== *WORKFLOW_STACK_TRACE_ENABLED*
+
+=== Type
+
+`bool`
+
+
+=== Description
+
+Enables execution stack trace construction
 = Discovery
 
 == *DISCOVERY_BASE_URL*

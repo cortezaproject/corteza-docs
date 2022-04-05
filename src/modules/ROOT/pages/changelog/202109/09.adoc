@@ -1,0 +1,26 @@
+include::ROOT:partial$variables.adoc[]
+
+:PATCH_V: 2021_9_9
+
+= `2021.9.9`
+
+*Released on*: `2022-04-05`
+
+.[#{PATCH_V}-added]#<<{PATCH_V}-added,Added:>>#
+* Added support for `Boolean` field label resource translations ({SERVER_COMMIT_BASE}11af9dba7[`11af9dba7`], {WEBAPP_COMPOSE_COMMIT_BASE}245c20e24[`245c20e24`]).
+
+.[#{PATCH_V}-changed]#<<{PATCH_V}-changed,Changed:>>#
+* Changed resource translation sanitization to be looser to support a wider range of formatting options ({SERVER_COMMIT_BASE}4278e5823[`4278e5823`]).
+
+.[#{PATCH_V}-fixed]#<<{PATCH_V}-fixed,Fixed:>>#
+* Fixed missing role references for namespace export where the User module field defined role prefilters ({SERVER_COMMIT_BASE}cb44b6591[`cb44b6591`]).
+* Fixed improper namespace import resource re-identification due to resources being ignored ({SERVER_COMMIT_BASE}3b235e330[`3b235e330`]).
+* Fixed workflow trace parameter ({SERVER_COMMIT_BASE}3e068026[`3e068026`]).
+* Fixed improper resource translation content sanitization for RTE contents ({SERVER_COMMIT_BASE}50671180d[`50671180d`]), link attributes ({SERVER_COMMIT_BASE}f699d4b1e[`f699d4b1e`]).
+* Fixed actionlog codegen lapsus ({SERVER_COMMIT_BASE}d44d396b3[`d44d396b3`])
+* Fixed missing roles in the impersonated user -- roles were not included in the generated JWT ({SERVER_COMMIT_BASE}e4ba223da[`e4ba223da`])
+* Fixed improper resource iterator data chunking which caused the database to error out for large datasets ({SERVER_COMMIT_BASE}69c95a5a3[`69c95a5a3`])
+* Fixed record list not working when duplicate fields reside on same page ({WEBAPP_COMPOSE_COMMIT_BASE}c13dd1e81[`c13dd1e81`]).
+
+.[#{PATCH_V}-security]#<<{PATCH_V}-security,Security:>>#
+* Added additional link tags to make them more secure ({WEBAPP_COMPOSE_COMMIT_BASE}889e2485f[`889e2485f`]).

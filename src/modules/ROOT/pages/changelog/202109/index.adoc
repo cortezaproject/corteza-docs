@@ -78,6 +78,8 @@ All memberships and RBAC rules are transferred to the updated role IDs.
 
 :leveloffset: +1
 
+include::09.adoc[]
+
 include::08.adoc[]
 
 include::07.adoc[]

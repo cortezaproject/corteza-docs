@@ -1,0 +1,14 @@
+include::ROOT:partial$variables.adoc[]
+
+= `2021.9.10`
+
+*Released on*: `2022-04-20`
+
+.[#2021_9_10-changed]#<<2021_9_10-changed,Changed:>>#
+* Changed the profiler endpoints (when enabled) to be under `/debug` instead of `/__profiler` to conform to pprof requirements ({SERVER_COMMIT_BASE}2653c3894[`2653c3894`]).
+
+.[#2021_9_10-fixed]#<<2021_9_10-fixed,Fixed:>>#
+* Fixed improper static translation loading for custom languages ({SERVER_COMMIT_BASE}964b71a56[`964b71a56`]).
+* Fixed memory leaks and general performance optimizations for content sanitization ({SERVER_COMMIT_BASE}2711b0211[`2711b0211`]), workflow loading ({SERVER_COMMIT_BASE}35c1c0892[`35c1c0892`]), and expression processing ({SERVER_COMMIT_BASE}4eccaa826[`4eccaa826`]).
+* Fixed workflow attachment uploading for all supported types (`Reader`, `Bytes`, and `String`) ({SERVER_COMMIT_BASE}7448a2d7b[`7448a2d7b`]).
+* Fixed prompt duplication by preventing prompts from being resent over web sockets (SERVER_COMMIT_BASE)f8a089a15[`f8a089a15`].

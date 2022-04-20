@@ -1,0 +1,45 @@
+include::ROOT:partial$variables.adoc[]
+
+= `2022.3.1`
+
+*Released on*: `2022-04-20`
+
+.[#2022_3_1-added]#<<2022_3_1-added,Added:>>#
+* Added deleted resources to Discovery indexing and searching ({SERVER_DISCOVERY_COMMIT_BASE}09d69f124[`09d69f124`])
+* Added JWT token duration option to the CLI command ({SERVER_COMMIT_BASE}679af2f55[`679af2f55`]).
+* Added additional `Geometry` field configuration options such as default zoom-level ({WEBAPP_VUE_COMMIT_BASE}a8534ed[`a8534ed`], {WEBAPP_COMPOSE_COMMIT_BASE}b7ab3e47[`b7ab3e47`], {WEBAPP_COMPOSE_COMMIT_BASE}97d1aed3[`97d1aed3`], {WEBAPP_COMPOSE_COMMIT_BASE}98cf01b8[`98cf01b8`]).
+* Added processing indicator to record organizer for improved UX ({WEBAPP_COMPOSE_COMMIT_BASE}0e85fbca[`0e85fbca`]).
+* Added support for translating system {APP_NAME_COMPOSE} module fields ({WEBAPP_COMPOSE_COMMIT_BASE}623adaf3[`623adaf3`]).
+* Added persistent storage to record list filters allowing you to reuse previously used filters ({WEBAPP_COMPOSE_COMMIT_BASE}e18267fd[`e18267fd`]).
+* Added Discovery web application to the `make webapp` make command
+* Added pagination to search responses improving web application performance for large responses ({SERVER_DISCOVERY_COMMIT_BASE}e046f12[`e046f12`], {WEBAPP_DISCOVERY_COMMIT_BASE}7cb2d64[`7cb2d64`])
+
+.[#2022_3_1-changed]#<<2022_3_1-changed,Changed:>>#
+* General UI/UX improvements on {PRODUCT_NAME} {APP_NAME_COMPOSE}, {PRODUCT_NAME} {APP_NAME_ADMIN}, {PRODUCT_NAME} {APP_NAME_SHELL}, and {PRODUCT_NAME} {APP_NAME_WORKFLOW}.
+* Changed {APP_NAME_COMPOSE} deletion to also remove the related record page {WEBAPP_COMPOSE_COMMIT_BASE}0ceade66[`0ceade66`]
+
+.[#2022_3_1-fixed]#<<2022_3_1-fixed,Fixed:>>#
+* Fixed File upload for CSV files where the server incorrectly detected the MimeType {SERVER_COMMIT_BASE}195c2bb13[`195c2bb13`]
+* Fixed invalid workflow resource iterator management where larger datasets crashed execution due to improper resource limitation implementation ({SERVER_COMMIT_BASE}0792c0a17[`0792c0a17`]).
+* Fixed improper workflow execution tracing where the workflow execution logic ignored the workflow trace parameter ({SERVER_COMMIT_BASE}41667a7da[`41667a7da`]).
+* Fixed data race errors for pkg/locale ({SERVER_COMMIT_BASE}345050990[`345050990`]), pkg/corredor healthcheck ({SERVER_COMMIT_BASE}a797c847b[`a797c847b`]), pkg/healtcheck ({SERVER_COMMIT_BASE}662f5155b[`662f5155b`]), WebSockets ({SERVER_COMMIT_BASE}e8cd7d37d[`e8cd7d37d`]), and pkg/scheduler ({SERVER_COMMIT_BASE}4a75778c1[`4a75778c1`]).
+* Fixed time transformation expression functions erroring out when valid string encoded time values were used ({SERVER_COMMIT_BASE}5b40f7875[`5b40f7875`]).
+* Fixed memory leak errors causing performance degradation on WebSockets ({SERVER_COMMIT_BASE}c64116fc8[`c64116fc8`]), content sanitization ({SERVER_COMMIT_BASE}9346b5702[`9346b5702`]), Workflow loading ({SERVER_COMMIT_BASE}fa614c7ac[`fa614c7ac`]), and expression processing ({SERVER_COMMIT_BASE}adee67f6b[`adee67f6b`]).
+* Fixed workflow attachment uploading for all supported types (`Reader`, `Bytes`, and `String`) ({SERVER_COMMIT_BASE}6fd2288df[`6fd2288df`]).
+* Fixed prompt duplication by preventing prompts from being resent over web sockets (SERVER_COMMIT_BASE)9c0026462[`9c0026462`].
+* Fixed Workflow HTTP request function basic authentication header preparation {SERVER_COMMIT_BASE}2898e1b8c[`2898e1b8c`]
+* Fixed `CInputDateTime` responsiveness ({WEBAPP_VUE_COMMIT_BASE}b0c6422[`b0c6422`]).
+* Fixed CSidebarNavItems behavior ({WEBAPP_VUE_COMMIT_BASE}7c7b708[`7c7b708`]).
+* Fixed missing report page block display elements ({WEBAPP_COMPOSE_COMMIT_BASE}1625d1fc[`1625d1fc`])
+* Fix {APP_NAME_COMPOSE} failing to load due to read-only parameter assignment ({WEBAPP_COMPOSE_COMMIT_BASE}ce5cd504[`ce5cd504`]).
+* Fixed system field translations in record page blocks ({WEBAPP_COMPOSE_COMMIT_BASE}fa7e6808[`fa7e6808`]).
+* Fixed overflowing record list notification indicating there are no records to show ({WEBAPP_COMPOSE_COMMIT_BASE}12b9fc7f[`12b9fc7f`]).
+* Fixed inline record list saving ({WEBAPP_COMPOSE_COMMIT_BASE}f54452c7[`f54452c7`]).
+* Fixed system fields not appearing in record page blocks ({WEBAPP_COMPOSE_COMMIT_BASE}de874a8b[`de874a8b`]).
+* Fixed record list footer overflowing page block ({WEBAPP_COMPOSE_COMMIT_BASE}9cb2d923[`9cb2d923`])
+* Fixed field expression documentation link ({WEBAPP_COMPOSE_COMMIT_BASE}301a1de8[`301a1de8`]).
+* Fixed dropdown selects overflowing the screen ({WEBAPP_COMPOSE_COMMIT_BASE}8e37e2b8[`8e37e2b8`]).
+* Fixed feed indexing for deleted resources ({SERVER_DISCOVERY_COMMIT_BASE}f5cfb6c[`f5cfb6c`]).
+
+.[#2022_3_1-development]#<<2022_3_1-development,Development:>>#
+* Improved E2E testing by adding `data-test-id` tags to specific UI components ({SERVER_COMMIT_BASE}56af630c0[`56af630c0`], {WEBAPP_COMPOSE_COMMIT_BASE}3bb8fe59[`3bb8fe59`]).

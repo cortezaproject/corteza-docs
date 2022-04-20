@@ -35,6 +35,7 @@
 :LOCAL_HOSTNAME:        local.cortezaproject.org
 
 :SERVER_COMMIT_BASE: https://github.com/cortezaproject/corteza-server/commit/
+:SERVER_DISCOVERY_COMMIT_BASE: https://github.com/cortezaproject/corteza-server-discovery/commit/
 :SERVER_CORREDOR_COMMIT_BASE: https://github.com/cortezaproject/corteza-server-corredor/commit/
 :LOCALE_COMMIT_BASE: https://github.com/cortezaproject/corteza-locale/commit/
 :WEBAPP_COMPOSE_COMMIT_BASE: https://github.com/cortezaproject/corteza-webapp-compose/commit/
@@ -42,6 +43,7 @@
 :WEBAPP_ADMIN_COMMIT_BASE: https://github.com/cortezaproject/corteza-webapp-admin/commit/
 :WEBAPP_WORKFLOW_COMMIT_BASE: https://github.com/cortezaproject/corteza-webapp-workflow/commit/
 :WEBAPP_REPORTER_COMMIT_BASE: https://github.com/cortezaproject/corteza-webapp-reporter/commit/
+:WEBAPP_DISCOVERY_COMMIT_BASE: https://github.com/cortezaproject/corteza-webapp-discovery/commit/
 :WEBAPP_JS_COMMIT_BASE: https://github.com/cortezaproject/corteza-js/commit/
 :WEBAPP_VUE_COMMIT_BASE: https://github.com/cortezaproject/corteza-vue/commit/
 :LOCALE_COMMIT_BASE: https://github.com/cortezaproject/corteza-locale/commit/

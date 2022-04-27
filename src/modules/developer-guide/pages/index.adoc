@@ -13,21 +13,21 @@ In case you wish to learn more about low-code app development, refer to the xref
 {PRODUCT_NAME} defines the classic front-end back-end architecture where the core components are split into separate repositories.
 
 .Core back-end components:
-* {PRODUCT_NAME} server ({GIT_REPO_LINK_PREFIX}corteza-server[cortezaproject/corteza-server]),
-* {PRODUCT_NAME} {APP_AUTOMATION} automation script runner ({GIT_REPO_LINK_PREFIX}corteza-server-corredor[cortezaproject/corteza-server-corredor]),
-* {PRODUCT_NAME} {APP_NAME_DISCOVERY} indexer ({GIT_REPO_LINK_PREFIX}cortezaproject/corteza-discovery-indexer[cortezaproject/corteza-discovery-indexer]).
+* {PRODUCT_NAME} server ({GIT_REPO_LINK_PREFIX}-server[cortezaproject/corteza-server]),
+* {PRODUCT_NAME} {APP_AUTOMATION} automation script runner ({GIT_REPO_LINK_PREFIX}-server-corredor[cortezaproject/corteza-server-corredor]),
+* {PRODUCT_NAME} {APP_NAME_DISCOVERY} indexer ({GIT_REPO_LINK_PREFIX}project/corteza-discovery-indexer[cortezaproject/corteza-discovery-indexer]).
 
 .Core front-end components:
-* {PRODUCT_NAME} {APP_NAME_WORKFLOW} ({GIT_REPO_LINK_PREFIX}corteza-webapp-workflow[cortezaproject/corteza-webapp-workflow]),
-* {PRODUCT_NAME} {APP_NAME_REPORTER} ({GIT_REPO_LINK_PREFIX}corteza-webapp-reporter[cortezaproject/corteza-webapp-reporter]),
-* {PRODUCT_NAME} {APP_NAME_SHELL} ({GIT_REPO_LINK_PREFIX}corteza-webapp-one[cortezaproject/corteza-webapp-one]),
-* {PRODUCT_NAME} {APP_NAME_COMPOSE} ({GIT_REPO_LINK_PREFIX}corteza-webapp-compose[cortezaproject/corteza-webapp-compose]),
-* {PRODUCT_NAME} {APP_NAME_ADMIN} ({GIT_REPO_LINK_PREFIX}corteza-webapp-admin[cortezaproject/corteza-webapp-admin]),
-* {PRODUCT_NAME} {APP_NAME_DISCOVERY} ({GIT_REPO_LINK_PREFIX}corteza-webapp-discovery[cortezaproject/corteza-webapp-discovery]).
+* {PRODUCT_NAME} {APP_NAME_WORKFLOW} ({GIT_REPO_LINK_PREFIX}-webapp-workflow[cortezaproject/corteza-webapp-workflow]),
+* {PRODUCT_NAME} {APP_NAME_REPORTER} ({GIT_REPO_LINK_PREFIX}-webapp-reporter[cortezaproject/corteza-webapp-reporter]),
+* {PRODUCT_NAME} {APP_NAME_SHELL} ({GIT_REPO_LINK_PREFIX}-webapp-one[cortezaproject/corteza-webapp-one]),
+* {PRODUCT_NAME} {APP_NAME_COMPOSE} ({GIT_REPO_LINK_PREFIX}-webapp-compose[cortezaproject/corteza-webapp-compose]),
+* {PRODUCT_NAME} {APP_NAME_ADMIN} ({GIT_REPO_LINK_PREFIX}-webapp-admin[cortezaproject/corteza-webapp-admin]),
+* {PRODUCT_NAME} {APP_NAME_DISCOVERY} ({GIT_REPO_LINK_PREFIX}-webapp-discovery[cortezaproject/corteza-webapp-discovery]).
 
 .Core front-end packages:
-* JavaScript package ({GIT_REPO_LINK_PREFIX}corteza-js[cortezaproject/corteza-js]),
-* Vue.js package ({GIT_REPO_LINK_PREFIX}corteza-vue[cortezaproject/corteza-vue]),
+* JavaScript package ({GIT_REPO_LINK_PREFIX}-js[cortezaproject/corteza-js]),
+* Vue.js package ({GIT_REPO_LINK_PREFIX}-vue[cortezaproject/corteza-vue]),
 
 == Component diagram
 

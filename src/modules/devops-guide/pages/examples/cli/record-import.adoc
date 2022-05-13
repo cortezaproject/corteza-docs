@@ -5,21 +5,21 @@ include::ROOT:partial$variables.adoc[]
 
 [IMPORTANT]
 ====
-`2021.9.5` patch release requires you to provide module field definitions along with record import definitions (note the module fields entries in the `defs.yaml` snippet below).
+`2021.9.5` patch release requires you to provide module field definitions along with record import definitions (note the module fields entries in the `defs.yaml` -- snippet below).
 If the field definitions are not provided, the import process errors out with missing field errors.
 This requirement will be lifted in a future patch release.
 ====
 
 [CAUTION]
 ====
-Before importing larger datasets (especially to production) it is advised to make a database backup and to test the configuration locally or on a staging server.
+Before importing larger datasets (especially to production), it is advised to make a database backup and to test the configuration locally or on a staging server.
 ====
 
 .To import {APP_NAME_COMPOSE} records you need to:
-. Prepare the source files -- the CSV or JSONL files and the definition file(s)
-. run the command
+. Prepare the source files -- the CSV or JSONL files and the definition file(s),
+. run the command.
 
-== Source files
+== Source Files
 
 Prepare a directory where all of your source files reside in.
 
@@ -37,7 +37,7 @@ The `.csv` files contain the records we wish to import, and the `defs.yaml` prov
 
 [TIP]
 ====
-You can use multiple definition files, such as one per module.
+You can use multiple definition files, for example one per module.
 ====
 
 [TIP]
@@ -142,6 +142,7 @@ bb_7,aa_3,bb_v_7
 ====
 Notice how we're using records from `aa.csv` to reference in `bb.csv`.
 ====
+//Editor's note: add the info on what we should notice, explain further.
 
 .`cc.csv`:
 [source,csv]
@@ -155,7 +156,7 @@ cc_5,aa_3,bb_6,cc_v_5
 cc_6,aa_3,bb_7,cc_v_6
 ----
 
-== Run the import
+== Running the Import
 
 Use the xref:references/cli-reference.adoc#import[import CLI command] to import your records.
 
@@ -167,7 +168,7 @@ The argument to the CLI command needs to be the location of the source files, in
 corteza-server import --merge-left-existing /import
 ----
 
-== Updating records
+== Updating Records
 
 [NOTE]
 ====

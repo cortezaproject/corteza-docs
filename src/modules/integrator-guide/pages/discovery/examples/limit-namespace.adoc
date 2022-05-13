@@ -7,7 +7,7 @@ xref:discovery/index.adoc#data-visibility[Data visibility] is controlled with th
 The {APP_NAME_DISCOVERY} indexes everything it currently has access to.
 To control data visibility, configure access control rules for the role assigned to the xref:discovery/index.adoc#indexer-user[{APP_NAME_DISCOVERY} indexer user].
 
-In this example we will configure {PRODUCT_NAME} {APP_NAME_DISCOVERY} to only index records from the discovery namespace.
+In this example we configure {PRODUCT_NAME} {APP_NAME_DISCOVERY} to only index records from the discovery namespace.
 
 Click on the btn:[permissions] button to open up global namespace access control rules.
 
@@ -32,7 +32,7 @@ Click on the btn:[permissions] button to open up global namespace access control
 ----
 
 Select the *authenticated* role and set the `read any namespace` rule to `deny`.
-Alternatively, you can set the same rule to deny for the {APP_NAME_DISCOVERY} indexer role.
+Alternatively, you may set the same rule to deny for the {APP_NAME_DISCOVERY} indexer role.
 
 [annotation,role="data-zoomable"]
 ----
@@ -59,7 +59,7 @@ Alternatively, you can set the same rule to deny for the {APP_NAME_DISCOVERY} in
 }
 ----
 
-Next, click on the btn:[edit] button for the namespace you wish to allow access to and click on the btn:[permissions] button to open up access control rules for the given namespace.
+Next, click on the btn:[edit] button for the namespace you wish to allow access to, and click on the btn:[permissions] button to open up access control rules for the given namespace.
 
 [annotation,role="data-zoomable"]
 ----
@@ -112,7 +112,7 @@ Select the *discoverer* role (the role assigned to the {APP_NAME_DISCOVERY} inde
 }
 ----
 
-After the {APP_NAME_DISCOVERY} indexer reindexes your instance, the search results become limited to the discovery namespace for which we allowed access to.
+After the {APP_NAME_DISCOVERY} indexer reindexes your instance, the search results become limited to the discovery namespace for which the access is allowed.
 
 [IMPORTANT]
 ====

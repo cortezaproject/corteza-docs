@@ -1,6 +1,6 @@
 include::ROOT:partial$variables.adoc[]
 
-= Sink routes
+= Sink Routes
 :page-aliases: extension-requirements/sink-route.adoc
 :description: {PRODUCT_NAME} allows you to detect incoming HTTP requests via automation scripts.
 :keywords: dev-ops, DevOps, webhook, automation scripts
@@ -14,7 +14,7 @@ Here, we only cover how to setup a sink route.
 Refer to the xref:integrator-guide:index.adoc[] for details on how to use them.
 ====
 
-== Generate a signature
+== Generating a Signature
 
 A *sink signature* is used to authorize incoming HTTP requests to the `/sink` route.
 
@@ -42,8 +42,10 @@ The above command creates an unconstrained signature (any request is considered 
 ====
 
 The signature can be found at the end of the `__sign` query parameter.
+[IMPORTANT]
+====
 This signature should be stored somewhere safe as it is required to authenticate any request to the sink route.
-
+====
 Each request to the sink route must specify the sink signature we generated above.
 
 [CAUTION]
@@ -52,7 +54,7 @@ Some services (when implementing the OAuth2 flow) may not allow the use of query
 See <<sign-in-path>> to bypass the restriction.
 ====
 
-== Use the sink route
+== Use the Sink Route
 
 When you need to use the sink route (e.g. you wish to define a webhook), all inbound requests must specify the sink signature generated above.
 Either in the query parameter or in the path (depending on the provided CLI parameters).
@@ -67,7 +69,7 @@ curl '$BASE_API_URL/system/sink?__sign=$SINK_SIGNATURE' \
 ----
 
 [#sign-in-path]
-== Unable to use query parameters
+== Unable to Use Query Parameters?
 
 If you can't use a query parameter to authenticate the request, add the `--signature-in-path` argument tho the xref:references/cli-reference.adoc#sink-signature[sink signature] CLI command.
 

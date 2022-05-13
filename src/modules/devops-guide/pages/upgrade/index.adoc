@@ -3,11 +3,11 @@ include::ROOT:partial$variables.adoc[]
 = Upgrading {PRODUCT_NAME}
 :page-aliases: upgrade-guide:index.adoc
 
-This guide will help you upgrade your {PRODUCT_NAME} to the newest version in no time!
+This guide helps you upgrade your {PRODUCT_NAME} to the newest version in no time!
 
 [IMPORTANT]
 ====
-While there are internal safeguards in place that can prevent data loss or other kinds of disasters, make sure you backup your database before you do an upgrade.
+While there are internal safeguards in place that can prevent data loss or other kinds of disasters, make sure you backup your database before you upgrade.
 Refer to xref:devops-guide:maintenance/backups.adoc[devops guide on backup procedure] for details.
 ====
 
@@ -15,14 +15,15 @@ Refer to xref:devops-guide:maintenance/backups.adoc[devops guide on backup proce
 ====
 If you are upgrading multiple versions at the same time; for example from 2019.12 to 2020.9; you should follow all the upgrade guides between the two versions.
 ====
+//Editor's note: where are the guides available?
 
-== Recommended steps for {PRODUCT_NAME} upgrade
+== Recommended Steps for {PRODUCT_NAME} Upgrade
 
-.Especially before any major version upgrade we recommend that before upgrading your production you either:
+.Especially before any major version upgrade, it is recommended that before upgrading your production you either:
 - upgrade your staging environment, or
-- deploy a temporary environment with a copy of the production database and do a test upgrade there
+- deploy a temporary environment with a copy of the production database and perform a test upgrade there.
 
-.Steps to upgrade {PRODUCT_NAME} when deployed with *docker-compose*
+.Steps to upgrade {PRODUCT_NAME} when deployed with *docker-compose*:
 . changing image versions in your `docker-compose.yaml` (or  `.env`) file,
 . pull new images from docker hub with `docker-compose pull`,
 . recreate containers with `docker-compose up -d`.

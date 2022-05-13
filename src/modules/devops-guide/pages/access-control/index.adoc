@@ -1,6 +1,6 @@
 include::ROOT:partial$variables.adoc[]
 
-= Access control
+= Access Control
 :page-aliases: maintenance/access-control.adoc
 
 {PRODUCT_NAME} defines three particular role types which need to be registered in the `.env` file.
@@ -10,11 +10,11 @@ include::ROOT:partial$variables.adoc[]
 Bypass roles may *not* appear in any of the other lists.
 * Authenticated: `RBAC_AUTHENTICATED_ROLES`; defaults to `authenticated`.
 Authenticated roles may *not* appear in any of the other lists.
-* Anonymous: `RBAC_ANONYMOUS_ROLES`; defaults to `anonymous`
+* Anonymous: `RBAC_ANONYMOUS_ROLES`; defaults to `anonymous`.
 
 The `.env` variables accept a space-delimited list of role handles.
 
 [CAUTION]
 ====
-{PRODUCT_NAME} will refuse to start if the role type configuration is invalid or if the roles don't exist.
+{PRODUCT_NAME} will refuse to start if the role type configuration is invalid or the roles don't exist.
 ====

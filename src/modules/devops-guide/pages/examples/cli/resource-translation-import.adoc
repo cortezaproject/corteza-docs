@@ -1,25 +1,25 @@
 include::ROOT:partial$variables.adoc[]
 
-= Import Resource Translations
+= Importing Resource Translations
 :page-aliases: cli/resource-translation-import.adoc
 
 [IMPORTANT]
 ====
-After you have imported the translations you will need to restart the server for the changes to take affect.
+After you have imported the translations, you need to restart the server for the changes to take affect.
 Translations are kept in-memory of the process running the server.
-We are looking in improving this in the future releases
+We are looking into improving this in the future releases.
 ====
 
 [CAUTION]
 ====
-Before importing larger datasets (especially to production) it is advised to make a database backup and to test the configuration locally or on a staging server.
+Before importing larger datasets (especially to production), it is advised to make a database backup and to test the configuration locally or on a staging server.
 ====
 
 .To import resource translations you need to:
 . Prepare the source files,
-. run the command
+. run the command.
 
-== Source files
+== Source Files
 
 Prepare a directory where all of your source files reside in.
 
@@ -32,7 +32,7 @@ Prepare a directory where all of your source files reside in.
   /resource-translation.yaml
 ----
 
-The `resource-translation.yaml` file contains the resource translations you wish to import, and the other two files (`corteza::compose:module.yaml` and `corteza::compose:namespace.yaml`) contain the definitions for the resources we are applying the translations for.
+The `resource-translation.yaml` file contains the resource translations you wish to import, and the other two files,(`corteza::compose:module.yaml` and `corteza::compose:namespace.yaml`) contain the definitions for the resources we are applying the translations for.
 
 [IMPORTANT]
 ====
@@ -40,7 +40,7 @@ The current resource-translations importer requires you to provide the definitio
 We are looking in improving this in the future releases
 ====
 
-== Run the import
+== Running the Import
 
 Use the xref:references/cli-reference.adoc#import[import CLI command] to import your resource-translations.
 

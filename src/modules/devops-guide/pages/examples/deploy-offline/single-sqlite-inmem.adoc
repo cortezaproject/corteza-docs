@@ -1,4 +1,4 @@
-= Single image SQLite in memory
+= Single Image SQLite in Memory
 :page-aliases: offline-deployment/single-sqlite-inmem.adoc, offline-deployment/single-sqlite.adoc
 :page-noindex: true
 

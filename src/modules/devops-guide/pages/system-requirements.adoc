@@ -1,8 +1,8 @@
 include::ROOT:partial$variables.adoc[]
 
-= System requirements
+= System Requirements
 
-== Supported clients
+== Supported Clients
 
 [IMPORTANT]
 ====
@@ -36,7 +36,7 @@ We recommend a Linux-based operating system, preferably Ubuntu LTS.
 
 The minimum Docker Engine version is 1.12.x
 
-== HTTP server
+== HTTP Server
 
 You should place the API and the web applications behind a firewall or an HTTP reverse proxy.
 The reverse proxy is responsible for traffic forwarding to {PRODUCT_NAME} services and https://en.wikipedia.org/wiki/TLS_termination_proxy[SSL termination].
@@ -50,14 +50,14 @@ The documentation provides configurations guides for https://github.com/jwilder/
 
 [NOTE]
 ====
-You don't need to use Nginx; you can use the HTTP server you are most familiar with.
+It isn't obligatory to use Nginx; you can use the HTTP server you are most familiar with.
 
 Use provided examples for Nginx as a reference on how to configure it.
 ====
 
 == Database
 
-We recommend the https://hub.docker.com/_/percona[Percona Server for MySQL] 8.x, either native on the host or provided via Docker.
+It is recommended to use the https://hub.docker.com/_/percona[Percona Server for MySQL] 8.x, either native on the host or provided via Docker.
 
 == Hardware
 
@@ -91,7 +91,7 @@ We recommend the https://hub.docker.com/_/percona[Percona Server for MySQL] 8.x,
 
 |===
 
-.Annual storage calculation:
+.For the annual storage calculation you will need:
 * Base storage (operating system and core components) of 10 GB,
 * recommended storage per user per month based on the matrix above (multiplied by 12 to get the yearly amount),
 * average number of users in a year,
@@ -117,7 +117,7 @@ If you enable federation, the nodes ({PRODUCT_NAME} instances) must be *visible 
 
 If you enable OAuth2 or OIDC sign-up or access external services via automation scripts, you should allow HTTP traffic.
 
-== Domain and hostname
+== Domain and Hostname
 
 .The most common setup involves two domains -- API and web app:
 * Hostname for Web application,
@@ -136,5 +136,5 @@ We use https://en.wikipedia.org/wiki/Let's_Encrypt[Let's Encrypt].
 ====
 If you aren't using any other HTTP server, we highly recommend using the use of https://github.com/jwilder/nginx-proxy[Nginx Reverse Proxy] and https://github.com/JrCs/docker-letsencrypt-nginx-proxy-companion[LetsEncrypt companion container for nginx-prox].
 
-Its an automated and the simplest way to secure {PRODUCT_NAME} or any other web application you host.
+It is an automated and the simplest way to secure {PRODUCT_NAME} or any other web application you host.
 ====

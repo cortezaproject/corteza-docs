@@ -1,6 +1,6 @@
 include::ROOT:partial$variables.adoc[]
 
-= CLI reference
+= CLI Reference
 :page-aliases: maintenance/cli-reference.adoc
 :description: {PRODUCT_NAME} command-line interface tool allows you to quickly interact with different parts of the system -- from changing the settings to assigning roles to users.
 :keywords: dev-ops, devops, cli, command-line interface, maintenance
@@ -15,9 +15,9 @@ Update/assure the commands are still as are and valid.
 
 == Authentication
 
-=== Auto discovery
+=== Auto Discovery
 
-Auto discovers new OIDC client
+Auto discovers new OIDC client.
 
 [source,shell]
 ----
@@ -33,7 +33,7 @@ Flags:
 [#auth-jwt]
 === JWT
 
-Generates a new JWT for a user
+Generates a new JWT for a user.
 
 [source,shell]
 ----
@@ -44,9 +44,10 @@ Flags:
   -h, --help   help for jwt
 ----
 
-=== Test notification
+=== Test Notification
 
-Sends samples of all authentication notification to receipient
+Sends samples of all authentication notification to recipients.
+//Editor's note: or 'a recipient'. Fix according to what is most accurate.
 
 [source,shell]
 ----
@@ -60,7 +61,7 @@ Flags:
 [#import]
 == Import
 
-Import data from yaml sources.
+Imports data from yaml sources.
 
 [CAUTION]
 ====
@@ -84,6 +85,7 @@ Flags:
 == Provision
 
 Provision tasks
+//Editor's note: Add more information.
 
 [source,shell]
 ----
@@ -96,11 +98,11 @@ Flags:
 
 == RBAC
 
-Check and manipulates permissions
+Checks and manipulates permissions.
 
 === Check 
 
-Check applied permissions against given file (only supports compose permissions for now)
+Checks applied permissions against given file (only supports compose permissions for now).
 
 [source,shell]
 ----
@@ -114,10 +116,12 @@ Flags:
 == Roles
 
 Role management
+//Editor's note: Add more information.
 
 === Add user
 
-Add user to role
+Adds a user to a role.
+//Editor's note: Add more information. Check for accuracy.
 
 [source,shell]
 ----
@@ -130,7 +134,7 @@ Flags:
 
 == Serve api
 
-Start HTTP server with REST API
+Starts HTTP server with REST API.
 
 [source,shell]
 ----
@@ -147,7 +151,7 @@ Flags:
 [#sink-signature]
 == Sink signature
 
-Creates signature for sink HTTP endpoint
+Creates a signature for a sink HTTP endpoint.
 
 [source,shell]
 ----
@@ -165,7 +169,7 @@ Flags:
       --signature-in-path     Include signature in a path instead of query string
 ----
 
-== Upgrade
+== Upgrading
 
 [source,shell]
 ----
@@ -179,10 +183,12 @@ Flags:
 == Users
 
 User management
+//Editor's note: Add more information.
 
 === Add user
 
 Add new user
+//Editor's note: Add more information.
 
 [source,shell]
 ----
@@ -197,6 +203,7 @@ Flags:
 === List
 
 List users
+//Editor's note: Add more information.
 
 [source,shell]
 ----
@@ -212,6 +219,7 @@ Flags:
 === Password
 
 Change password for user
+//Editor's note: Add more information.
 
 [source,shell]
 ----
@@ -222,9 +230,9 @@ Flags:
   -h, --help   help for password
 ----
 
-== Federation sync
+== Federation Sync
 
-.There are two commands to handle federation sync:
+.There are two commands with which you can handle federation sync:
 * data sync,
 * structure sync.
 
@@ -244,6 +252,7 @@ Flags:
 ----
 
 == Version
+//Editor's note: Add more information.
 
 [source,shell]
 ----

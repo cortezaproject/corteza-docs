@@ -1,4 +1,4 @@
-= Single-image PostgreSQL
+= Single-Image PostgreSQL
 
 [source,txt]
 ----

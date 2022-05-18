@@ -1,0 +1,34 @@
+include::ROOT:partial$variables.adoc[]
+
+= `2022.3.2`
+
+*Released on*: `2022-05-18`
+
+.[#2022_3_2-added]#<<2022_3_2-added,Added:>>#
+* Added an empty check for module field name validation ({WEBAPP_COMPOSE_COMMIT_BASE}d3c33a6[`d3c33a6`]).
+* Added more descriptive tab titles based on what page the user is currently on ({LOCALE_COMMIT_BASE}d6bb352[`d6bb352`], {WEBAPP_COMPOSE_COMMIT_BASE}a7f36e5[`a7f36e5`]).
+* Added record list filter preservation in the local browser storage ({WEBAPP_COMPOSE_COMMIT_BASE}52ff728[`52ff728`], {LOCALE_COMMIT_BASE}bc2dd98[`bc2dd98`]).
+Note that the saved filters are only available on the browser they were saved in.
+
+.[#2022_3_2-changed]#<<2022_3_2-changed,Changed:>>#
+* Changed static translations for {APP_NAME_COMPOSE} modules ({LOCALE_COMMIT_BASE}5efb7c9[`5efb7c9`]) and integration gateway filters ({LOCALE_COMMIT_BASE}98f8e4b[`98f8e4b`]).
+* Changed resource configuration input states to be more consistent ({WEBAPP_COMPOSE_COMMIT_BASE}2ef02c5[`2ef02c5`]).
+* Changed date-time record filter format template to ignore seconds ({WEBAPP_COMPOSE_COMMIT_BASE}fc2eab1[`fc2eab1`], {SERVER_COMMIT_BASE}07c409e[`07c409e`]).
+* Changed resource activity log store definitions to be more restrictive and less flexible ({SERVER_COMMIT_BASE}e7ed1d8[`e7ed1d8`]).
+* Changed record module fields to show a user-friendly label of the nested user field instead of the user ID ({WEBAPP_COMPOSE_COMMIT_BASE}0d4d74b[`0d4d74b`]).
+* Changed chart configuration by hiding the "add metric" button when no module is selected ({WEBAPP_COMPOSE_COMMIT_BASE}a3177bc[`a3177bc`]).
+
+.[#2022_3_2-fixed]#<<2022_3_2-fixed,Fixed:>>#
+* Fixed queue search on the {APP_NAME_ADMIN} web application ({WEBAPP_ADMIN_COMMIT_BASE}98a5d95[`98a5d95`], {SERVER_COMMIT_BASE}e6a0b0f[`e6a0b0f`]).
+* Fixed integration gateway route search on the {APP_NAME_ADMIN} web application ({WEBAPP_ADMIN_COMMIT_BASE}f821dd8[`f821dd8`], {SERVER_COMMIT_BASE}5ddddf8[`5ddddf8`]).
+* Fixed broken resource translation migration when the related resource was deleted ({SERVER_COMMIT_BASE}1786eda[`1786eda`]).
+* Fixed chart configuration's improper error handling ({WEBAPP_COMPOSE_COMMIT_BASE}d4bf472[`d4bf472`]) and improper state handling when a new chart was created ({WEBAPP_COMPOSE_COMMIT_BASE}41b0a15[`41b0a15`]).
+* Fixed improper resource translation handling for {APP_NAME_COMPOSE} module field's hint and description properties.
+The two properties were flipped ({SERVER_COMMIT_BASE}q7fbaf94[`q7fbaf94`], {SERVER_COMMIT_BASE}1c6b793[`1c6b793`]), incorrectly removed from resource translations when removed in the field configuration popup ({SERVER_COMMIT_BASE}d4c9243[`d4c9243`]), and not reflected on the web application ({WEBAPP_COMPOSE_COMMIT_BASE}18de72f[`18de72f`]).
+* Fixed charts failing to load in cases of incorrect state management ({WEBAPP_COMPOSE_COMMIT_BASE}629d306[`629d306`]).
+* Fixed record list filter not resetting when deleting filter rows ({WEBAPP_COMPOSE_COMMIT_BASE}00b491d[`00b491d`]).
+* Fixed improper authentication scenarios loading when running the in development mode ({SERVER_COMMIT_BASE}d280fc7[`d280fc7`]).
+* Fixed improper refresh token expiration.
+When new refresh tokens got issued they did not adjust the expiration timestamps ({SERVER_COMMIT_BASE}e7d3df1[`e7d3df1`]).
+* Fixed new {APP_NAME_COMPOSE} record pages failing to load due to missing button definitions ({SERVER_COMMIT_BASE}b135287[`b135287`]).
+* Fixed item selection lists (primarily module fields) where the item would get duplicated ({WEBAPP_VUE_COMMIT_BASE}9a33368[`9a33368`]).

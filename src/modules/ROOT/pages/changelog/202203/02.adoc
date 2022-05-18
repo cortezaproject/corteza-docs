@@ -32,3 +32,5 @@ The two properties were flipped ({SERVER_COMMIT_BASE}q7fbaf94[`q7fbaf94`], {SERV
 When new refresh tokens got issued they did not adjust the expiration timestamps ({SERVER_COMMIT_BASE}e7d3df1[`e7d3df1`]).
 * Fixed new {APP_NAME_COMPOSE} record pages failing to load due to missing button definitions ({SERVER_COMMIT_BASE}b135287[`b135287`]).
 * Fixed item selection lists (primarily module fields) where the item would get duplicated ({WEBAPP_VUE_COMMIT_BASE}9a33368[`9a33368`]).
+* Fixed the system crashing once user attempts to exchange invalid credentials by redirecting them to the login page ({SERVER_COMMIT_BASE}0c49832e[`0c49832e`]).
+* Fixed improper `peer-closed` connection error handling which needlessly spammed error tracking systems ({SERVER_COMMIT_BASE}ab248fe1[`ab248fe1`]).

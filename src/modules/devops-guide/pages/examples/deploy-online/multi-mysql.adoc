@@ -14,7 +14,7 @@ include::example$deploy/prod-mysql/docker-compose.yaml[]
 ----
 
 .`.env`
-[source,yaml]
+[source,env]
 ----
 include::example$deploy/prod-mysql/env-example.txt[]
 ----

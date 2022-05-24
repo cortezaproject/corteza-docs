@@ -14,7 +14,7 @@ include::example$deploy/prod-pgsql/docker-compose.yaml[]
 ----
 
 .`.env`
-[source,yaml]
+[source,env]
 ----
 include::example$deploy/prod-pgsql/env-example.txt[]
 ----

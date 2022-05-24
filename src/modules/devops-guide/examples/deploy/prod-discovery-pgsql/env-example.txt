@@ -1,0 +1,40 @@
+########################################################################################################################
+# General settings
+DOMAIN=your-demo.example.tld
+VERSION=2022.3.0
+
+########################################################################################################################
+# Database connection
+
+DB_DSN=postgres://corteza:corteza@db:5432/corteza?sslmode=disable
+
+########################################################################################################################
+# Server settings
+
+# Serve Corteza webapps alongside API
+HTTP_WEBAPP_ENABLED=true
+
+########################################################################################################################
+# Server Discovery configs
+
+DISCOVERY_ENABLED=true
+DISCOVERY_DEBUG=true
+DISCOVERY_CORTEZA_DOMAIN=https://your-demo.example.tld
+DISCOVERY_BASE_URL=//discovery.your-demo.example.tld
+CORTEZA_SERVER_BASE_URL=http://server:80
+
+ES_ADDRESS=http://es:9200
+ES_INDEX_INTERVAL=300
+HTTP_ADDR=0.0.0.0:80
+
+# Corteza Discovery indexer configuration
+DISCOVERY_INDEXER_ENABLED=true
+DISCOVERY_INDEXER_PRIVATE_INDEX_CLIENT_KEY=${PRIVATE_KEY_EXAMPLE}
+DISCOVERY_INDEXER_PRIVATE_INDEX_CLIENT_SECRET=${SECRET_EXAMPLE}
+
+# Corteza Discovery searcher configuration
+DISCOVERY_SEARCHER_ENABLED=true
+DISCOVERY_SEARCHER_CLIENT_KEY=${CLIENT_KEY_EXAMPLE}
+DISCOVERY_SEARCHER_CLIENT_SECRET=${CLIENT_SECRET_EXAMPLE}
+DISCOVERY_SEARCHER_JWT_SECRET=${JWT_SECRET_EXAMPLE}
+DISCOVERY_SEARCHER_ALLOWED_ROLE=${ROLE_ALLOWED_EXAMPLE}

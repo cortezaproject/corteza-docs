@@ -6,6 +6,8 @@ include::./multi-mysql.adoc[]
 
 include::./multi-pgsql.adoc[]
 
+include::./multi-discovery-pgsql.adoc[]
+
 // include::./single-mysql.adoc[]
 
 // include::./single-pgsql.adoc[]

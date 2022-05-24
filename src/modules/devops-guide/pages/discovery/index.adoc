@@ -19,7 +19,7 @@ To access the Docker container, run the following command:
 
 [source,bash]
 ----
-docker-compose exec server sh
+docker-compose exec server bash
 ----
 ====
 
@@ -56,45 +56,7 @@ DISCOVERY_BASE_URL=your-discovery-server-base-url
 # DISCOVERY_DEBUG=true
 ----
 
-== Configuring {PRODUCT_NAME} {APP_NAME_DISCOVERY} Server
-
-.Example `.env` file for for your {PRODUCT_NAME} {APP_NAME_DISCOVERY} server:
-[source,env]
-----
-AUTH_CLIENT_KEY=your-client-key-here
-AUTH_CLIENT_SECRET=your-client-secret-here
-
-########################################################################################################################
-########################################################################################################################
-# Corteza Discovery configuration
-CORTEZA_SERVER_BASE_URL=your-corteza-server-base-url
-
-# Adjust log level to your needs
-LOG_LEVEL=debug
-
-ES_ADDRESS=your-elastic/open-search-base-url
-# Reindex interval in seconds
-ES_INDEX_INTERVAL=10
-
-DOMAIN=your-domain-here
-HTTP_ADDR=your-domain-here
-
-########################################################################################################################
-########################################################################################################################
-# Corteza Discovery indexer configuration
-
-DISCOVERY_INDEXER_ENABLED=true
-
-DISCOVERY_INDEXER_PRIVATE_INDEX_CLIENT_KEY=${AUTH_CLIENT_KEY}
-DISCOVERY_INDEXER_PRIVATE_INDEX_CLIENT_SECRET=${AUTH_CLIENT_SECRET}
-
-
-########################################################################################################################
-########################################################################################################################
-# Corteza Discovery searcher configuration
-
-DISCOVERY_SEARCHER_ENABLED=true
-DISCOVERY_SEARCHER_CLIENT_KEY=${AUTH_CLIENT_KEY}
-DISCOVERY_SEARCHER_CLIENT_SECRET=${AUTH_CLIENT_SECRET}
-DISCOVERY_SEARCHER_JWT_SECRET=some-random-value-here
-----
+[NOTE]
+====
+For an example of an online deployment, refer to xref:devops-guide:deploy-online/multi-discovery-pgsql.adoc[].
+====

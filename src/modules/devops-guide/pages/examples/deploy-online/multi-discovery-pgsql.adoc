@@ -1,0 +1,20 @@
+= Multi-image Discovery with PostgreSQL
+:page-noindex: true
+
+[NOTE]
+====
+Currently Corteza Discovery is tested on a running production servers in combination with PostgreSQL database, but should work with the latest MySQL versions.
+Beside the `server` and `db` containers, there should be also the indexer (`es`) and the searcher (`discovery`) running.
+====
+
+.`docker-compose.yaml`
+[source,yaml]
+----
+include::example$deploy/prod-discovery-pgsql/docker-compose.yaml[]
+----
+
+.`.env`
+[source,env]
+----
+include::example$deploy/prod-discovery-pgsql/env-example.txt[]
+----

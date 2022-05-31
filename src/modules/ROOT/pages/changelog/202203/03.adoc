@@ -1,0 +1,31 @@
+include::ROOT:partial$variables.adoc[]
+
+= `2022.3.3`
+
+[NOTE]
+====
+`2022.3.3` currently released as a release candidate.
+====
+
+*Released on*: `TBD`
+
+.[#2022_3_3-changed]#<<2022_3_3-changed,Changed:>>#
+* Changed {APP_NAME_COMPOSE} user interface UX by adding spinners to indicate data loading ({WEBAPP_COMPOSE_COMMIT_BASE}11c7cf8[`#11c7cf8`]), changing calendar event cursor to pointer ({WEBAPP_COMPOSE_COMMIT_BASE}75cc346[`#75cc346`]), added additional exceptions for record list sorting and filtering to avoid strange behavior ({WEBAPP_JS_COMMIT_BASE}70c6277[`#70c6277`], {WEBAPP_COMPOSE_COMMIT_BASE}6826d19[`#6826d19`]), added a small delay when processing Record fields ({WEBAPP_COMPOSE_COMMIT_BASE}b6e722d[`#b6e722d`]).
+* Changed chart font family to Poppins-Regular to make them consistent with the rest of the {PRODUCT_NAME} design ({WEBAPP_JS_COMMIT_BASE}0349363[`#0349363`]).
+* Changed user authentication session and access token logic as well as updating corresponding `.env` variables and their descriptions ({SERVER_COMMIT_BASE}7f84994[`#7f84994`]).
+Changed the authentication session and corresponding cookie to expire on session end when using "log in", and after the specified lifetime when using "login and remember me" ({SERVER_COMMIT_BASE}5fd5b93[`#5fd5b93`]).
+Changed the "login and remember me" button to not show if the `AUTH_SESSION_PERM_LIFETIME` `.env` variable is set to 0 (disabling the feature) ({SERVER_COMMIT_BASE}ad53ea9[`#ad53ea9`])
+
+.[#2022_3_3-removed]#<<2022_3_3-removed,Removed:>>#
+* Removed the `AUTH_JWT_EXPIRY` `.env` variable because it is replaced by the `AUTH_OAUTH2_ACCESS_TOKEN_LIFETIME` `.env` variable ({SERVER_COMMIT_BASE}e626bcd[`#e626bcd`]).
+
+.[#2022_3_3-fixed]#<<2022_3_3-fixed,Fixed:>>#
+* Fixed improper number and text setting value decoding by covering edge-cases ({SERVER_COMMIT_BASE}ced2daf[`#ced2daf`]).
+* Fixed invalid valid JSONL files being rejected when importing records by adding additional fallback content-type checks to the preprocessing logic ({SERVER_COMMIT_BASE}f726d3f[`#f726d3f`]).
+* Fixed improper record access control rule migration due to invalid paging ({SERVER_COMMIT_BASE}b6d13d9[`#b6d13d9`]).
+* Fixed infinite loop webconsole alerts when offline ({SERVER_COMMIT_BASE}d8e57b1[`#d8e57b1`]).
+* Fixed improper Federation URI node generation by including the API base URL ({SERVER_COMMIT_BASE}798c31e[`#798c31e`]).
+* Fixed system healthcheck panic when {APP_AUTOMATION} connection is not available ({SERVER_COMMIT_BASE}2ff1108[`#2ff1108`]).
+
+.[#2022_3_3-development]#<<2022_3_3-development,Development:>>#
+* Including the web console bundle into the built corteza-server ({SERVER_COMMIT_BASE}54fffd0[`#54fffd0`]).

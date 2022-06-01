@@ -1,4 +1,4 @@
-= Multi-image MySQL
+= Multi-Image MySQL
 :page-aliases: online-deployment/multi-mysql.adoc, online-deployment/single-mysql.adoc
 :page-noindex: true
 

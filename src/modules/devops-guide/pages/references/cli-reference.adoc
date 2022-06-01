@@ -1,6 +1,6 @@
 include::ROOT:partial$variables.adoc[]
 
-= CLI reference
+= CLI Reference
 :page-aliases: maintenance/cli-reference.adoc
 :description: {PRODUCT_NAME} command-line interface tool allows you to quickly interact with different parts of the system -- from changing the settings to assigning roles to users.
 :keywords: dev-ops, devops, cli, command-line interface, maintenance
@@ -11,13 +11,19 @@ include::ROOT:partial$variables.adoc[]
 Update/assure the commands are still as are and valid.
 ====
 
+[NOTE]
+====
+*DevNote* add some more notes, descriptions.
+Consider generating this.
+====
+
 {PRODUCT_NAME} command-line interface tool allows you to quickly interact with different parts of the system -- from changing the settings to assigning roles to users.
 
 == Authentication
 
-=== Auto discovery
+=== Auto Discovery
 
-Auto discovers new OIDC client
+Auto discovers new OIDC client.
 
 [source,shell]
 ----
@@ -33,7 +39,7 @@ Flags:
 [#auth-jwt]
 === JWT
 
-Generates a new JWT for a user
+Generates a new JWT for a user.
 
 [source,shell]
 ----
@@ -44,9 +50,9 @@ Flags:
   -h, --help   help for jwt
 ----
 
-=== Test notification
+=== Test Notification
 
-Sends samples of all authentication notification to receipient
+Sends samples of all authentication notification to a recipient.
 
 [source,shell]
 ----
@@ -60,7 +66,7 @@ Flags:
 [#import]
 == Import
 
-Import data from yaml sources.
+Imports data from yaml sources.
 
 [CAUTION]
 ====
@@ -96,11 +102,11 @@ Flags:
 
 == RBAC
 
-Check and manipulates permissions
+Checks and manipulates permissions.
 
 === Check 
 
-Check applied permissions against given file (only supports compose permissions for now)
+Checks applied permissions against given file (only supports compose permissions for now).
 
 [source,shell]
 ----
@@ -117,7 +123,7 @@ Role management
 
 === Add user
 
-Add user to role
+Adds a user to a role.
 
 [source,shell]
 ----
@@ -130,7 +136,7 @@ Flags:
 
 == Serve api
 
-Start HTTP server with REST API
+Starts HTTP server with REST API.
 
 [source,shell]
 ----
@@ -147,7 +153,7 @@ Flags:
 [#sink-signature]
 == Sink signature
 
-Creates signature for sink HTTP endpoint
+Creates a signature for a sink HTTP endpoint.
 
 [source,shell]
 ----
@@ -165,7 +171,7 @@ Flags:
       --signature-in-path     Include signature in a path instead of query string
 ----
 
-== Upgrade
+== Upgrading
 
 [source,shell]
 ----
@@ -222,9 +228,9 @@ Flags:
   -h, --help   help for password
 ----
 
-== Federation sync
+== Federation Sync
 
-.There are two commands to handle federation sync:
+.There are two commands with which you can handle federation sync:
 * data sync,
 * structure sync.
 

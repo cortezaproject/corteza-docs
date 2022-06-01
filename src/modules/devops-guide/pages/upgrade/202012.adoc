@@ -5,8 +5,8 @@ include::ROOT:partial$variables.adoc[]
 
 [IMPORTANT]
 ====
-Due to *database schema changes* it's not possible to downgrade or revert your installation after upgrading to `2020.12`.
-Please be extra careful, backup your database and follow recommended steps.
+Due to *database schema changes*, it's not possible to downgrade or revert your installation after upgrading to `2020.12`.
+Please be extremely careful, backup your database and follow the recommended steps.
 ====
 
 [IMPORTANT]
@@ -14,15 +14,15 @@ Please be extra careful, backup your database and follow recommended steps.
 If you use {PRODUCT_NAME} REST API, please note that paging parameters on certain endpoints have changed.
 ====
 
-== After upgrade
+== After the Upgrade
 
-=== Field expressions and automation scripts
+=== Field Expressions and Automation Scripts
 
 With the introduction of field expressions, some {APP_AUTOMATION} automation scripts became obsolete and were removed from the 2020.12 release.
 This affects existing deployments that use CRM and Case Management applications.
 
-We did not want to make an automated upgrade and change your module fields on those applications (namespaces).
-It's not possible to know what kind of changes you might have made in your modules.
+THe automated upgrade does not replace the removed automation scripts with module field expressions in case you've manually changed parts of the configuration.
+The removed automation scripts need to be manually replaced with module field expressions.
 
 .Module modifications:
 |===

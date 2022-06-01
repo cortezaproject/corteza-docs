@@ -6,21 +6,21 @@ include::ROOT:partial$variables.adoc[]
 {PRODUCT_NAME} allows you to fully translate most aspect of the system.
 From the <<ui-translations,user interface>> to custom <<resource-translations,{APP_NAME_COMPOSE} configurations>> such as modules and their fields.
 
-User interface translations are provided via static `.yaml` files which are bundled into the `corteza-server` docker image.
+User interface translations are provided via static `.yaml` files, which are bundled into the `corteza-server` docker image.
 
-If you wish to upload additional or modified translations, you will need to do some server-side configuration.
+If you wish to upload additional or modified translations, you need to do some server-side configuration.
 
-== Configuring the system
+== Configuring the System
 
-Applying the following steps will allow your {PRODUCT_NAME} instance to serve customized translations.
+Applying the following steps allows your {PRODUCT_NAME} instance to serve customized translations.
 
 [CAUTION]
 ====
-{PRODUCT_NAME} will ignore translations for languages that are not defined in the `.env` file.
+{PRODUCT_NAME} ignores translations for languages that are not defined in the `.env` file.
 See <<languages-manage,managing languages>> for details.
 ====
 
-=== Prepare the file structure
+=== Preparing the File Structure
 
 Create a new directory on the server running {PRODUCT_NAME}.
 
@@ -33,12 +33,12 @@ Create a new directory on the server running {PRODUCT_NAME}.
   📁 my-locale <1>
     📁 src <2>
 ----
-<1> We will use the `my-locale` directory to hold our custom translations and any corresponding metadata.
-<2> The `src` directory will hold the translation files and appropriate configuration files.
+<1> We use the `my-locale` directory to hold our custom translations and any corresponding metadata.
+<2> The `src` directory holds the translation files and appropriate configuration files.
 
-=== System configurations
+=== System Configurations
 
-Firstly define the volume in your `docker-compose.yaml` file.
+Firstly, define the volume in your `docker-compose.yaml` file.
 An example following the above file system would look like this:
 
 [source,yaml]
@@ -85,11 +85,11 @@ LOCALE_PATH=../my-locale/src <1>
 <1> This is where you define the path.
 If you wish to define multiple paths, use the colon (`:`) as the delimiter.
 To exemplify; `LOCALE_PATH="../my-locale-en/src:../my-locale-de/src"`.
-When multiple paths are used, defiitions are overriden in the same order as defined
+When multiple paths are used, defiitions are overriden in the same order as defined.
 
-=== Applying changes
+=== Applying Changes
 
-After all of the configuration is in place you will need to reload the configurations.
+After all of the configuration is in place, you need to reload the configurations.
 
 .Run:
 [source,bash]
@@ -99,7 +99,7 @@ docker-compose up -d
 
 [IMPORTANT]
 ====
-If you update translation files after {PRODUCT_NAME} server started, you will need to restart it.
+If you update translation files after {PRODUCT_NAME} server started, you must restart it.
 
 .Run:
 [source,bash]
@@ -109,28 +109,28 @@ docker-compose restart
 ====
 
 [#languages-manage]
-== Managing available languages
+== Managing Available Languages
 
 The languages that you wish to support by your {PRODUCT_NAME} instance *must* be defined by the `LOCALE_LANGUAGES` `.env` variable.
 
 The language tag must follow the https://en.wikipedia.org/wiki/IETF_language_tag[BCP-47] standard.
-An extensive list of languages is available https://www.techonthenet.com/js/language_tags.php[here]
+An extensive list of languages is available https://www.techonthenet.com/js/language_tags.php[here].
 
 Languages can be defined using a simple language tag, such as `en` and `sl`.
-If you need to be more specific you can use region suffix, such as `en-US` and `en-UK`.
-{PRODUCT_NAME} will try to detect the language from the request headers and serve appropriate translation.
+If you need to be more specific, you can use a region suffix, such as `en-US` and `en-UK`.
+{PRODUCT_NAME} tries to detect the language from the request headers and serve appropriate translation.
 
 If you want to define multiple languages, you need to separate them with a comma (`,`).
 
-.An example config that uses English, German, and Italian languages:
+.An example configuration that uses English, German, and Italian languages:
 [source]
 ----
 LOCALE_LANGUAGES="en,de,it"
 ----
 
-== Development environment
+== Development Environment
 
-{PRODUCT_NAME} provides some helpful utilities for debugging and general translations that can be enabled with the following `.env` variables.
+{PRODUCT_NAME} provides some helpful utilities for debugging and general translations, which can be enabled with the following `.env` variables.
 
 [cols="2s,5a"]
 |===
@@ -147,7 +147,7 @@ This can help you debug issues.
 
 == Troubleshooting
 
-=== Language not loaded as expected
+=== Language Not Loaded as Expected?
 
 When languages do not load as expected, enable logging and restart the server.
 First few log lines should describe what is going on and what languages are loaded.

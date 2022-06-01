@@ -1,16 +1,16 @@
 include::ROOT:partial$variables.adoc[]
 
-= Email relay
+= Email Relay
 :page-aliases: extension-requirements/email-relay.adoc
 :description: {PRODUCT_NAME} allows you to detect and react to incoming emails via automation scripts.
 :keywords: dev-ops, DevOps, email relay, automation scripts
 
 {PRODUCT_NAME} allows you to detect and react to incoming emails via automation scripts.
-You can implement automatic responses, create records based on the email content, and forward the email to our supervisor.
+You can implement automatic responses, create records based on the email content, and forward the email to your supervisor.
 
 [NOTE]
 ====
-Here, we only cover how to setup an email relay.
+Here, only how to setup an email relay is covered.
 Refer to the xref:integrator-guide:index.adoc[low-code platform developer guide] for details on using this feature.
 ====
 
@@ -33,9 +33,9 @@ Refer to the xref:integrator-guide:index.adoc[low-code platform developer guide]
 . {PRODUCT_NAME} sink service processes the payload to prepare an automation script event,
 . the event is dispatched on the event bus, executing any automation scripts that match the event constraints.
 
-== {PRODUCT_NAME} setup
+== {PRODUCT_NAME} Setup
 
-Under the hood, email relays use sink routes, so we need to generate a sink route signature.
+Internally, email relays use sink routes, a sink route signature must be generated.
 See xref:sink-route.adoc[] on how to set that up.
 
 [IMPORTANT]
@@ -43,7 +43,7 @@ See xref:sink-route.adoc[] on how to set that up.
 Make sure to specify a `--content-type email`.
 ====
 
-== Postfix setup
+== Post-fix Setup
 
 [IMPORTANT]
 ====
@@ -87,7 +87,7 @@ The above forwards any email for a specific mailbox to a curl command, which the
 newaliases
 ----
 
-== Testing Postfix changes
+== Testing Post-fix Changes
 
 [NOTE]
 ====
@@ -102,7 +102,7 @@ You can verify if everything works correctly by either sending an email to the c
 echo "hello corteza"|mail -s 'hello' test@corteza.domain.tld
 ----
 
-This should produce a new entry in your mail log (usually `/var/log/mail.log`) for the test email, along with a log that looks something in the lines of:
+This produces a new entry in your mail log (usually `/var/log/mail.log`) for the test email, along with a log that looks something in the lines of:
 
 [source,text]
 ----
@@ -117,12 +117,12 @@ postfix/qmgr[14490]: 277AF5C1B78: removed
 
 [TIP]
 ====
-If nothing happens when you send an email, there could be a firewall issue and blocked ports.
+If nothing happens when you send an email, it is possible that there is a firewall issue and blocked ports.
 ====
 
 == Testing {PRODUCT_NAME}
 
-To test if your sink signature and automaton script are setup correctly, you can use the following command:
+To test whether your sink signature and automaton script are setup correctly, you can use the following command:
 
 [source,bash,subs=attributes]
 ----

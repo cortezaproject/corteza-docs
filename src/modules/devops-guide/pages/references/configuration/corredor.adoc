@@ -10,16 +10,19 @@ include::ROOT:partial$variables.adoc[]
 * *description*: This setting is used by both, Corredor and API Server.
 For Corredor server: where is server listening on
 For API server: where can Corredor server be accessed.
+//Editor's note: please clarify, I don't see how the second sentence could work.
 * *default*: `corredor:80`
 
 .[#CORREDOR_ENABLED]#<<CORREDOR_ENABLED,*CORREDOR_ENABLED*>>#
 * *type*: `bool`
 * *description*: This is a setting for API server, will Corredor be used for server automation?
+//Editor's note: I believe the reader cannot answer your question - clarify?
 * *default*: `false`
 
 .[#CORREDOR_MAX_BACKOFF_DELAY]#<<CORREDOR_MAX_BACKOFF_DELAY,*CORREDOR_MAX_BACKOFF_DELAY*>>#
 * *type*: `duration`
 * *description*: Connection timeout (from API server to Corredor).
+//Editor's note: means what? It would be useful to add a starting paragraph before you start listing, to add context on what is going on.
 * *default*: `1m`
 
 .[#CORREDOR_EXEC_CSERVERS_API_BASEURL_TEMPLATE]#<<CORREDOR_EXEC_CSERVERS_API_BASEURL_TEMPLATE,*CORREDOR_EXEC_CSERVERS_API_BASEURL_TEMPLATE*>>#
@@ -30,14 +33,14 @@ For API server: where can Corredor server be accessed.
 
 .[#CORREDOR_EXEC_CSERVERS_API_HOST]#<<CORREDOR_EXEC_CSERVERS_API_HOST,*CORREDOR_EXEC_CSERVERS_API_HOST*>>#
 * *type*: `string`
-* *description*: Hostname used for the template.
+* *description*: Hostname is used for the template.
 * *default*: ``
 
 .[#CORREDOR_LOG_ENABLED]#<<CORREDOR_LOG_ENABLED,*CORREDOR_LOG_ENABLED*>>#
 * *type*: `boolean`
 * *description*: This setting is used by both, Corredor and API Server.
 For Corredor service: where is service listening on (gRPC)
-For API server: where can Corredor service be accessed.
+For API server it is used where Corredor service can be accessed.
 * *default*: `corredor`
 
 .[#CORREDOR_LOG_LEVEL]#<<CORREDOR_LOG_LEVEL,*CORREDOR_LOG_LEVEL*>>#
@@ -48,16 +51,17 @@ For API server: where can Corredor service be accessed.
 .[#CORREDOR_LOG_PRETTY]#<<CORREDOR_LOG_PRETTY,*CORREDOR_LOG_PRETTY*>>#
 * *type*: `boolean`
 * *description*: Are events logged in one-line JSON or formatted to ease development?
+//Editor's note: Answer the question?
 * *default*: `false`
 
 .[#CORREDOR_DEBUG]#<<CORREDOR_DEBUG,*CORREDOR_DEBUG*>>#
 * *type*: `boolean`
-* *description*: Corredor will log even more information.
+* *description*: Corredor logs even more information.
 * *default*: `false`
 
 .[#CORREDOR_EXT_DEPENDENCIES_AUTO_UPDATE]#<<CORREDOR_EXT_DEPENDENCIES_AUTO_UPDATE,*CORREDOR_EXT_DEPENDENCIES_AUTO_UPDATE*>>#
 * *type*: `boolean`
-* *description*: Corredor will auto update script dependencies found in `package.json` files.
+* *description*: Corredor auto updates script dependencies found in `package.json` files.
 * *default*: `true`
 
 .[#CORREDOR_EXT_SERVER_SCRIPTS_ENABLED]#<<CORREDOR_EXT_SERVER_SCRIPTS_ENABLED,*CORREDOR_EXT_SERVER_SCRIPTS_ENABLED*>>#
@@ -67,7 +71,7 @@ For API server: where can Corredor service be accessed.
 
 .[#CORREDOR_EXT_SERVER_SCRIPTS_WATCH]#<<CORREDOR_EXT_SERVER_SCRIPTS_WATCH,*CORREDOR_EXT_SERVER_SCRIPTS_WATCH*>>#
 * *type*: `boolean`
-* *description*: Corredor will reload server-scripts on change.
+* *description*: Corredor reloads server-scripts on change.
 * *default*: `true`
 
 .[#CORREDOR_EXT_CLIENT_SCRIPTS_ENABLED]#<<CORREDOR_EXT_CLIENT_SCRIPTS_ENABLED,*CORREDOR_EXT_CLIENT_SCRIPTS_ENABLED*>>#
@@ -77,5 +81,5 @@ For API server: where can Corredor service be accessed.
 
 .[#CORREDOR_EXT_CLIENT_SCRIPTS_WATCH]#<<CORREDOR_EXT_CLIENT_SCRIPTS_WATCH,*CORREDOR_EXT_CLIENT_SCRIPTS_WATCH*>>#
 * *type*: `boolean`
-* *description*: Corredor will reload client-scripts on change.
+* *description*: Corredor reloads client-scripts on change.
 * *default*: `true`

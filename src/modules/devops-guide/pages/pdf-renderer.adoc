@@ -3,12 +3,12 @@ include::ROOT:partial$variables.adoc[]
 = PDF Renderer
 :page-aliases: extension-requirements/pdf-renderer.adoc
 
-To enable PDF rendering, we need to set up https://github.com/gotenberg/gotenberg[Gotenberg].
+To enable PDF rendering, you need to set up https://github.com/gotenberg/gotenberg[Gotenberg].
 Gotenberg exposes an API to a headless browser that can convert various formats into PDF documents.
 
 [CAUTION]
 ====
-Don't forget to reload the configuration with `docker-compose up -d`
+Don't forget to reload the configuration with `docker-compose up -d`.
 ====
 
 After the feature is enabled, you will see a btn:[Preview PDF] button at the bottom of the template editor page.
@@ -33,7 +33,7 @@ services:
 # ...
 ----
 
-.An example setup which includes Gotenberg
+.An example setup which includes Gotenberg:
 [source,yaml]
 ----
 version: '3.5'
@@ -67,7 +67,7 @@ services:
 networks: { internal: {}, party: { name: party } }
 ----
 
-== Configure {PRODUCT_NAME} server
+== Configuring {PRODUCT_NAME} Server
 
 Add the following two variables to the `.env` file:
 
@@ -77,6 +77,6 @@ TEMPLATE_RENDERER_GOTENBERG_ADDRESS=http://gotenberg:3000
 TEMPLATE_RENDERER_GOTENBERG_ENABLED=true
 ----
 
-== Reload the configuration
+== Reload the Configuration
 
 Reload the configuration with the `docker-compose up -d` command.

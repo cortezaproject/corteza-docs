@@ -3,9 +3,9 @@ include::ROOT:partial$variables.adoc[]
 = Upgrading to 2020.3
 :page-aliases: upgrade-guide:202003.adoc
 
-== After upgrade
+== After the Upgrade
 
-=== {APP_AUTOMATION} scripts
+=== {APP_AUTOMATION} Scripts
 
 {PRODUCT_NAME} 2020.3 introduces a new way of how automation scripts are stored, handled and executed.
 The code, configuration and triggers are no longer stored in the {PRODUCT_NAME} database, but are defined as JavaScript files on the filesystem and accessed directly by the {PRODUCT_NAME} {APP_AUTOMATION} server.
@@ -14,7 +14,7 @@ All pre-installed scripts for the CRM and ServiceCloud have already been migrate
 
 [IMPORTANT]
 ====
-You will need to migrate any custom automation scripts manually.
+You need to migrate any custom automation scripts manually.
 ====
 
 There are 2 available `script-migrator` commands, one for system other one for {APP_NAME_COMPOSE} service:
@@ -25,7 +25,7 @@ There are 2 available `script-migrator` commands, one for system other one for {
 {CLI_CMD_COMPOSE} script-migrator --dst <base-location>
 ----
 
-These two commands will create a simple structure under `<base-location>/<service>/custom`
+These two commands create a simple structure under `<base-location>/<service>/custom`
 (`system/custom/` and `compose/custom/`) containing scripts from both services.
 
 [CAUTION]
@@ -35,9 +35,9 @@ Make sure you test each script and trigger after the migration.
 ====
 
 Point script-migrator tool (base-location) to Corredor's `usr/server` directory.
-This will create script source files (javascript) directly to the recommended location.
+This creates script source files (javascript) directly to the recommended location.
 
-Script files names are created from the script names (with suffixing script ID in case of any duplicated).
+The script files' names are created from the script names (with suffixing script ID in case of any duplicated).
 Migrator skips all deleted scripts, deleted triggers, scripts with "test" name or without any code.
 
 [NOTE]

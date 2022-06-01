@@ -5,7 +5,7 @@ include::ROOT:partial$variables.adoc[]
 
 Logging can be configured in the `.env` file using the `LOG_*` variables.
 
-== Log levels
+== Log Levels
 
 [NOTE]
 ====
@@ -26,17 +26,18 @@ The log level should be used for testing, diagnostic, and troubleshooting purpos
 | [#log-level-info]#<<log-level-info,INFO>>#
 |
 The `LOG_LEVEL=INFO` logs informative outputs of the system, such as services stopping or starting.
-The log level can be used to describe what a particular task has done, such as what data it has accessed and what interactions it performed.
+The log level can be used to describe what a particular task has done, such as what data was accessed and what interactions were performed.
 
 | [#log-level-warn]#<<log-level-warn,WARN>>#
 |
-The `LOG_LEVEL=WARN` logs unexpected issues that may occur when the particular service isn't sure on what it should do with the input or the provided data is malformed.
+The `LOG_LEVEL=WARN` logs unexpected issues that may occur when it isn't clear to the particular service what it should do with the input, or the provided data is malformed.
 The log level is used when the system functions correctly, but the issue should be looked into.
 
 | [#log-level-error]#<<log-level-error,ERROR>>#
 |
 The `LOG_LEVEL=ERROR` logs unexpected issues that prevent the system from functioning properly, such as inability to access files, other {PRODUCT_NAME} services, or external services.
-The log level is used when the issue is blocking the system from functioning properly, and it should be addressed as a priority.
+The log level is used when the issue is blocking the system from functioning properly.
+It should be addressed as a priority.
 
 | [#log-level-dpanic]#<<log-level-dpanic,DPANIC>>#
 |
@@ -48,20 +49,22 @@ Reserved; unused.
 
 | [#log-level-fatal]#<<log-level-fatal,FATAL>>#
 |
-The `LOG_LEVEL=FATAL` logs unexpected issues which may cause a serious problem or a corruption to happen.
-The log level is used to indicate a catastrophic state of the system, which must be addressed on a priority.
+The `LOG_LEVEL=FATAL` logs unexpected issues which may cause a serious problem or a corruption to occur.
+The log level is used to indicate a catastrophic state of the system, which must be addressed as a priority.
 
 | [#log-level-off]#<<log-level-off,OFF>>#
 |
 If both logging `.env` variables are not set (`LOG_DEBUG` and `LOG_LEVEL`), logs are not recorded.
 |===
 
-== Env variables:
+== Env Variables:
 [source,.env]
 ----
 # Logging level we want to use (values: debug, info, warn, error, dpanic, panic, fatal)
 # Minimise the logging level. If set to "warn", Levels warn, error, dpanic panic and fatal will be logged.
 LOG_LEVEL=debug
+
+//Editor's note: Line 63 - MinimiZe
 
 # Disables JSON format for logging and enables more human-readable output with colors.
 # Disable for production.
@@ -86,7 +89,7 @@ LOG_STACKTRACE_LEVEL
 
 ----
 
-== Workflow logging
+== Workflow Logging
 
 The xref:integrator-guide:automation/workflows/index.adoc#functions[workflow function steps] allow you to log messages from inside a workflow.
 
@@ -112,7 +115,7 @@ LOG_DEBUG=true
 
 [cols="1s,5a"]
 |===
-| Function | .env configuration
+| Function | .env Configuration
 
 | [#workflow-log-debug]#<<workflow-log-debug,Log debug message>>#
 |

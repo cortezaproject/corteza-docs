@@ -14,16 +14,16 @@ If you are unable to resolve the issue, you can reach out to the community on ht
 
 == Ports are not available
 
-When you're running various services on your machine, it's common that the ports are already in use.
-You will see something like this:
+When running various services on your machine, it's common that the ports are already in use.
+You see something like this:
 
 [source]
 ----
 Cannot start service server: Ports are not available: listen tcp 127.0.0.1:18080: bind: address already in use
 ----
 
-If you see this error, you can change the port number to something between `1024` and `65535`.
-You can also replace the value for `services.server.ports` in `docker-compose.yaml` to `["80"]`, and Docker will pick an available port for you.
+If you see this error, you can change the port number to a number between `1024` and `65535`.
+You can also replace the value for `services.server.ports` in `docker-compose.yaml` to `["80"]`, and Docker then picks an available port for you.
 
 [#ws-nginx-connection-fail]
 == WebSocket connection failing with Nginx
@@ -35,12 +35,7 @@ If the WebSocket connection is failing to establish, you might need to enable Ng
 You can find detailed instructions and further examples in the https://nginx.org/en/docs/http/websocket.html[Nginx documentation].
 ====
 
-Inside your `nginx.conf` file (by default, it is located inside the `/etc/nginx` directory), add the following lines to the `server` configuration section.
-
-[CAUTION]
-====
-Make sure to adjust the location if you've defined a custom configuration that affects the base path.
-====
+Inside your `nginx.conf` file (by default, it is located inside the `/etc/nginx` directory), add the following lines to the `server` configuration section;
 
 [source]
 ----
@@ -51,7 +46,12 @@ location /api/websocket {
   proxy_set_header Connection "Upgrade";
   proxy_set_header Host $host;
 }
+
 ----
+[CAUTION]
+====
+Make sure to adjust the location if you've defined a custom configuration that affects the base path.
+====
 
 == Connection to {APP_AUTOMATION} server
 
@@ -65,9 +65,9 @@ You might see one or more connection refused errors in server container logs (`d
 If there are a couple of errors when the server is starting up, that's ok.
 Sometimes it takes more time to start up {APP_AUTOMATION} server, and {PRODUCT_NAME} server can not yet connect to it.
 
-If the problem persists, and you can see {APP_AUTOMATION} state as healthy, verify the changes you might have made to the configuration.
+If the problem persists and you can see {APP_AUTOMATION} state as healthy, verify the changes you might have made to the configuration.
 
-== Network proxy declared as external
+== Network Proxy Declared as External
 
 [source]
 ----
@@ -76,21 +76,21 @@ ERROR: Network proxy declared as external, but could not be found. Please create
 
 Make sure your nginx-proxy service is up and running before running {PRODUCT_NAME}.
 
-== Blank screen on `/auth` with the "state does not match" error in the browser console
+== Blank Screen on `/auth` With the "state does not match" Error in the Browser Console
 
 The `state does not match` error usually occurs in the development environment or where the {PRODUCT_NAME} server is frequently restarted.
 
-The authentication state which is carried through the user authentication flow is not persistent and will perish on server restart.
+The authentication state, which is carried through the user authentication flow, is not persistent and will perish on server restart.
 If the error occurs and persists on the production environment, verify your `AUTH_SESSION_*` `.env` settings (in case you have modified them).
 
-== Stuck on login screen after providing valid credentials
+== Stuck on Login Screen After Providing Valid Credentials
 
-Please note that some deployments (like with Docker) might not have all configuration available for valid autoconfiguration.
-Check what how the cookies are sent in the response headers on login.
+Please note that some deployments (like with Docker) might not have all configuration available for valid auto-configuration.
+Check what cookies are sent in the response headers on login.
 
 _Please note that examples below have an abbreviated session value._
 
-=== Broken configuration, user is stuck on login screen
+=== Broken Configuration, User is Stuck on Login Screen
 
 [source]
 ----
@@ -102,11 +102,12 @@ set-Cookie:
     Max-Age=31104000;
     HttpOnly
 ----
-<1> Set of random characters where the domain or hostname should be represent Docker container ID (and hostname).
-Setup like this require `DOMAIN` variable to be set (for example. `DOMAIN=localhost:8080`).
+<1> A set of random characters where the domain or hostname should represent the Docker container ID (and hostname).
+Setup like this requires `DOMAIN` variable to be set (for example. `DOMAIN=localhost:8080`).
+//Editor's note: is what it is set to important?
 Do not forget to recreate your server container after the change.
 
-=== Valid cookie example
+=== Valid Cookie Example
 
 [source]
 ----
@@ -117,10 +118,10 @@ set-Cookie: <1>
     Max-Age=31104000;
     HttpOnly
 ----
-<1> When you provide `DOMAIN` option like instructed in the example above, you'll notice that "Domain" flag on the cookie is missing.
-Corteza removes it when you use port in the domain.
+<1> When you provide `DOMAIN` option like instructed in the example above, notice that "Domain" flag on the cookie is missing.
+{PRODUCT_NAME} removes it when you use port in the domain.
 
-=== Valid example of a cookie on a secure host
+=== Valid Example of a Cookie on a Secure Host
 
 [source]
 ----
@@ -134,16 +135,16 @@ set-cookie:
     Secure <1>
 ----
 <1> Note the "Secure" cookie flag.
-This cookie will be sent back to the server only if server is on secure domain (HTTPS).
-If you used `HTTP_SSL_TERMINATED` or `LETSENCRYPT_HOST` options Corteza will assume that it is served on a secured domain.
+This cookie is sent back to the server only if server is on secure domain (HTTPS).
+If you used `HTTP_SSL_TERMINATED` or `LETSENCRYPT_HOST` options, Corteza assumes that it is served on a secured domain.
 
-== Further troubleshooting
+== Further Troubleshooting
 
-If you're continuing to have issues with {PRODUCT_NAME}, we encourage you to contact other users on our https://latest.cortezaproject.org[community server].
+If you continue to have issues with {PRODUCT_NAME}, we encourage you to contact other users on our https://latest.cortezaproject.org[community server].
 You'll more than likely find someone who can help you out.
 You can also open an issue on our https://github.com/cortezaproject/corteza-server[cortezaproject/corteza-server] GitHub repository.
 
-== SMTP not working
+== SMTP not Working
 
 You can use the `corteza-server auth test-notifications` command to verify that your SMTP configuration is working correctly.
 The command sends a test email to the provided email address.
@@ -153,10 +154,10 @@ The command sends a test email to the provided email address.
 corteza-server auth test-notifications your-email@example.tld
 ----
 
-Depending on your provider, the email can take a bit to be delivered.
+Depending on your provider, the email can take different amounts of time to be delivered.
 If you can't see the email, make sure to check your spam folder and server logs.
 
-.Connection/authentication errors look like this:
+.Connection and authentication errors look like this:
 [source]
 ----
 could not send email: dial tcp [::1]:25: connect: connection refused

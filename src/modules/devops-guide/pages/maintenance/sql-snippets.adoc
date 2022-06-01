@@ -6,7 +6,7 @@ include::ROOT:partial$variables.adoc[]
 
 [CAUTION]
 ====
-Before performing destructive operations it is recommended you create a database backup.
+Before performing destructive operations, it is recommended you create a database backup.
 ====
 
 [TIP]
@@ -14,7 +14,7 @@ Before performing destructive operations it is recommended you create a database
 When deleting data, you can replace `DELETE` with `SELECT` to view what is about to get deleted.
 ====
 
-== Delete all records
+== Deleting All Records
 
 [source,sql]
 ----
@@ -25,7 +25,7 @@ delete from compose_record_value;
 delete from compose_record;
 ----
 
-== Delete all records of a namespace
+== Deleting All Records of a Namespace
 
 [source,sql]
 ----
@@ -36,7 +36,7 @@ delete from compose_record_value where record_id in (select id from compose_reco
 delete from compose_record where rel_namespace = {NAMESPACE_ID};
 ----
 
-== Delete all records of a module
+== Deleting All Records of a Module
 
 [source,sql]
 ----
@@ -48,14 +48,14 @@ delete from compose_record where rel_namespace = {NAMESPACE_ID} AND module_id = 
 ----
 
 
-== Delete specific record values
+== Deleting Specific Record Values
 
 [source,sql]
 ----
 delete from compose_record_value where name = {FIELD_NAME} AND record_id in (select id from compose_record where rel_namespace = {NAMESPACE_ID} AND module_id = {MODULE_ID});
 ----
 
-== Delete all soft deleted records
+== Deleting All Soft Deleted Records
 
 [source,sql]
 ----

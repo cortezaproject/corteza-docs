@@ -1,6 +1,6 @@
 include::ROOT:partial$variables.adoc[]
 
-= DevOps guide
+= DevOps Guide
 :page-aliases: prerequisites.adoc
 :description: Learn how to setup and maintain {PRODUCT_NAME}
 :keywords: Dev-Pps, DevOps, setup, configure, deploy, maintenance
@@ -13,7 +13,7 @@ More complex use cases and advanced readers should refer to additional DevOps gu
 [IMPORTANT]
 ====
 {PRODUCT_NAME} is compiled, developed, and tested for modern browsers.
-If you need to support older browsers, such as InternetExplorer, you will need to build your images.
+If you need to support older browsers, such as InternetExplorer, you need to build your images.
 Refer to xref:system-requirements.adoc[] for more details.
 ====
 
@@ -22,7 +22,7 @@ Refer to xref:system-requirements.adoc[] for more details.
 [#docker]
 === Docker
 
-To use our pre-built Docker images, you will need to have Docker setup and running on every system you wish to set up {PRODUCT_NAME}.
+To use our pre-built Docker images, you must have Docker setup and running on every system you wish to set up {PRODUCT_NAME}.
 You can follow https://docs.docker.com/get-docker/[the official documentation] to get it setup.
 
 Alternatively, you can download prebuilt sources from our https://releases.cortezaproject.org/files/[releases page] or you can build your own.
@@ -53,9 +53,9 @@ services:
 ----
 ====
 
-== Architecture and repository overview
+== Architecture and Repository Overview
 
-=== {PRODUCT_NAME} architecture
+=== {PRODUCT_NAME} Architecture
 
 .The diagram outlines different {PRODUCT_NAME} parts, their relation, and how they interact.
 [plantuml,data-sync-origin,svg,role=component data-zoomable]
@@ -184,7 +184,7 @@ The server interacts with all internal auxiliary services such as the database, 
 * logger,
 * email sender.
 
-=== {PRODUCT_NAME} repositories and their relation
+=== {PRODUCT_NAME} Repositories and Their Relation
 
 .The diagram outlines {PRODUCT_NAME} repositories and their relation in regards to the build pipeline.
 image::developer-guide:build-pipelines.png[role="data-zoomable"]
@@ -197,7 +197,7 @@ image::developer-guide:build-pipelines.png[role="data-zoomable"]
 * {GIT_REPO_LINK_PREFIX}-webapp-discovery[*{PRODUCT_NAME} {APP_NAME_DISCOVERY}*]
 * {GIT_REPO_LINK_PREFIX}-webapp-one[*{PRODUCT_NAME} {APP_NAME_SHELL}*]
 
-== System configuration files
+== System Configuration Files
 
 {PRODUCT_NAME} is configured via the environment (`.env`) file.
 It allows you to quickly deploy and configure how {PRODUCT_NAME} should behave on another system.
@@ -215,7 +215,7 @@ The `.env` file performs *implicit Docker Compose configuration*, *variable subs
 You can use variables defined in the `.env` file inside your `docker-compose.yaml` files using `$\{VARIABLE_HERE}`.
 
 [#deploy-offline]
-== Deploy offline
+== Offline Deployment
 
 Offline deployments run all services on the same network where the ports are bound to the host's network.
 
@@ -227,7 +227,7 @@ Offline deployments are suitable only for local development and demos (environme
 This section provides a minimum setup with PostgreSQL as the persistent database storage.
 See xref:examples/deploy-offline/index.adoc[] for example offline deployment configurations.
 
-=== Setup your file structure
+=== Setting up Your File Structure
 
 .Your file structure should look like this:
 [source]
@@ -241,7 +241,7 @@ See xref:examples/deploy-offline/index.adoc[] for example offline deployment con
 ----
 <1> Make sure to change the owner to the Docker container (you can use `chown 1001:1001 data/db` and `chown 4242:4242 data/server`).
 Omit if you won't use persistent storage.
-<2> Here is where all of the server data is stored, such as uploaded attachments.
+<2> Here is where all of the server data is stored, for example uploaded attachments.
 <3> Here is where the database data is stored.
 
 === Configure docker-compose.yaml
@@ -260,7 +260,7 @@ include::example$deploy/local-mysql/docker-compose.yaml[]
 include::example$deploy/local-mysql/env-example.txt[]
 ----
 
-=== Run the services
+=== Running the Services
 
 In the root of your project (next to your `docker-compose.yaml` and `.env` files), run the docker compose (the execution can take a few seconds).
 The command (downloads and) runs all of the services configured in your `docker-compose.yaml` file.
@@ -278,16 +278,16 @@ The output should look like this:
 include::example$deploy/local-mysql/output-ps.txt[]
 ----
 
-See xref:troubleshooting/index.adoc[] if something went wrong/failed to start.
+See xref:troubleshooting/index.adoc[] if something went wrong or failed to start.
 
-=== Test the deploy
+=== Testing the Deploy
 
 . Direct your browser to http://localhost:18080 (change the port if you used a different port).
-You will be redirected to the authentication page (`/auth`).
+You should be redirected to the authentication page (`/auth`).
 . Create your account through the sign-up form (the first created account is an administrator by default).
-. Check the server version http://localhost:18080/version
-. Check the server's health http://localhost:18080/healthcheck
-. Check the API documentation http://localhost:18080/api/docs/
+. Check the server version http://localhost:18080/version.
+. Check the server's health http://localhost:18080/healthcheck.
+. Check the API documentation http://localhost:18080/api/docs/.
 
 [NOTE]
 ====
@@ -295,7 +295,7 @@ If you did not configure your SMTP settings, all sign-ups are marked as confirme
 ====
 
 [#deploy-online]
-== Deploy online
+== Online Deployment
 
 [NOTE]
 ====
@@ -308,12 +308,12 @@ This section provides a minimum setup with MySQL as the persistent database stor
 
 [TIP]
 ====
-You can use the same steps to configure multiple online deployments, such as a staging and a production environment.
+You can use the same steps to configure multiple online deployments, for example a staging and a production environment.
 ====
 
 See xref:examples/deploy-online/index.adoc[] for example online deployment configurations.
 
-=== Setup your file structure
+=== Setting up Your File Structure
 
 .Your file structure should look like this:
 [source]
@@ -332,14 +332,14 @@ See xref:examples/deploy-online/index.adoc[] for example online deployment confi
 <2> `custom.conf` must be placed next to the `docker-compose.yaml` file.
 <3> Make sure to change the owner to the Docker container (you can use `chown 1001:1001 data/db` and `chown 4242:4242 data/server`).
 Omit if you won't use persistent storage.
-<4> Here is where all of the server stuff is stored, such as uploaded attachments.
+<4> Here is where all of the server data is stored, such as uploaded attachments.
 <5> Here is where the database can store the data.
 
-=== Setup your Nginx reverse proxy
+=== Setting up Your Nginx Reverse Proxy
 
 ⚠️ We are inside the `my-proxy` directory.
 
-This part automates the creation and renewal of Let's Encrypt TLS certificates, forward traffic to Docker containers, and simplifies complicated firewall configurations.
+This part automates the creation and renewal of Let's Encrypt TLS certificates, forward traffic to Docker containers and simplifies complicated firewall configurations.
 
 [CAUTION]
 ====
@@ -374,7 +374,7 @@ The output should look like this:
 include::example$deploy/prod-proxy-nginx/output-ps.txt[]
 ----
 
-=== Configure docker-compose.yaml
+=== Configuring docker-compose.yaml
 
 ⚠️ We are inside the `my-corteza` directory.
 
@@ -399,7 +399,7 @@ include::example$deploy/prod-mysql/docker-compose.yaml[]
 include::example$deploy/prod-mysql/env-example.txt[]
 ----
 
-=== Run the services
+=== Running the Services
 
 Inside your `my-corteza` directory (next to your `docker-compose.yaml` and `.env` files), run the docker compose (the execution can take a few seconds).
 The command (downloads and) runs all of the services configured in your `docker-compose.yaml` file.
@@ -409,7 +409,7 @@ The command (downloads and) runs all of the services configured in your `docker-
 docker-compose up -d
 ----
 
-Check if everything started correctly by running `docker-compose ps`.
+Check whether everything started correctly by running `docker-compose ps`.
 The output should look like this:
 
 [source]
@@ -417,9 +417,9 @@ The output should look like this:
 include::example$deploy/prod-mysql/output-ps.txt[]
 ----
 
-See xref:troubleshooting/index.adoc[] if something went wrong/failed to start.
+See xref:troubleshooting/index.adoc[] if something went wrong or failed to start.
 
-=== Test the deploy
+=== Testing the Deployment
 
 . Direct your browser to `http://your-demo.example.tld`.
 You will be redirected to the authentication page (`/auth`).
@@ -460,14 +460,14 @@ You will be redirected to the authentication page (`/auth`).
 == Where to next
 
 .The sub-sections under menu:DevOps guide go into more details regarding specific topics, such as:
-* xref:maintenance/backups.adoc[Performing backups],
+* xref:maintenance/backups.adoc[performing backups],
 * xref:troubleshooting/index.adoc[troubleshooting issues],
 * opening additional automation capabilities with xref:email-relay.adoc[], xref:sink-route.adoc[], xref:pdf-renderer.adoc[], and
-* xref:i18n/index.adoc[]
+* xref:i18n/index.adoc[].
 
 .To develop your own {APP_NAME_COMPOSE} applications, refer to the xref:integrator-guide:index.adoc[]:
 * xref:integrator-guide:authentication/index.adoc[] and xref:integrator-guide:security-model/index.adoc[],
-* xref:integrator-guide:i18n/index.adoc[Internationalization],
-* xref:integrator-guide:accessing-corteza/index.adoc[Interacting via the REST API],
+* xref:integrator-guide:i18n/index.adoc[internationalization],
+* xref:integrator-guide:accessing-corteza/index.adoc[interacting via the REST API],
 * xref:integrator-guide:compose-configuration/index.adoc[{APP_NAME_COMPOSE} configuration], and
-* xref:integrator-guide:automation/index.adoc[]
+* xref:integrator-guide:automation/index.adoc[].

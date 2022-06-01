@@ -19,6 +19,8 @@ You can define a cron job that backups your data to external storage.
 
 == MySQL Database
 
+If you're using a different database engine, refer to their documentation on how to perform backups.
+
 === Backup
 
 We recommend you use the `mysqldump` tool.
@@ -30,10 +32,6 @@ Do not attempt to copy raw database files to perform a backup.
 It might lead to corrupted data.
 ====
 
-If you want to use a different tool to create your backup, you need to connect to the container or publish MySQL ports.
-
-If you're using a different database engine, refer to their documentation on how to perform backups.
-
 [WARNING]
 ====
 By default, `mysqldump` locks the tables when you run the export.
@@ -43,12 +41,11 @@ Table locks might cause issues when running in production, so do keep this in mi
 .Database dump command:
 [source,bash]
 ----
-# This will dump the entire database and place it in the dump.sql file.
+# This dumps the entire database and place it in the dump.sql file.
 docker-compose exec -T \
     --env MYSQL_PWD=your-password db \
     mysqldump your-db-name --add-drop-database -u your-username > dump.sql
 ----
-//Editor's note: will dump --> dumps
 
 [CAUTION]
 ====
@@ -65,12 +62,11 @@ We recommend that {PRODUCT_NAME} server is shut-down until the restore procedure
 .Database restore command:
 [source,bash]
 ----
-# This will restore the database based on the dump.sql file
+# This restores the database based on the dump.sql file.
 docker-compose exec -T \
     --env MYSQL_PWD=your-password db \
     mysql your-db-name -u your-username < dump.sql
 ----
-//Editor's note: will restore --> restores, add a dot at the end (after "file").
 
 [CAUTION]
 ====
@@ -92,11 +88,6 @@ Do not try to copy raw database files to perform a backup.
 It might lead to corrupted data.
 ====
 
-If you want to use a different tool to create your backup, you need to connect ... to the container, or publish PostgreSQL ports.
-//Editor's note: to connect what to the container? 
-
-If you're using a different database engine, refer to their documentation on how to perform backups.
-
 [WARNING]
 ====
 By default, `pg_dump` locks the tables when you run the export.
@@ -106,21 +97,20 @@ Table locks might cause issues when running in production, so do keep this in mi
 .Database Dump Command:
 [source,bash]
 ----
-# This will dump all databases and place them in the dump.sql file.
+# This dumps all databases and place them in the dump.sql file.
 docker-compose exec db \
     pg_dumpall -c -U your-username > dump.sql
 
-# This will dump the entire database and place it in the dump.sql file.
+# This dumps the entire database and place it in the dump.sql file.
 docker-compose exec db \
     pg_dump -d your-db-name -c -U your-username > dump.sql
 
 # To reduce the size of the sql,
-# This will dump all databases and place them in the dump.gz file.
+# This dumps all databases and place them in the dump.gz file.
 docker-compose exec db \
     pg_dumpall -c -U your-username | \
     gzip > /var/data/postgres/backups/dump.gz
 ----
-//Editor's note: will dump --> dumps
 
 [CAUTION]
 ====
@@ -137,20 +127,19 @@ It is recommended that {PRODUCT_NAME} server is shut-down until the restore proc
 .Database Restore Command:
 [source,bash]
 ----
-# This will restore the database based on the dump.sql file
+# This restores the database based on the dump.sql file.
 cat dump.sql | \
     docker-compose exec db psql -U your-username
 
-# This will restore a specific database based on the dump.sql file
+# This restores a specific database based on the dump.sql file.
 cat dump.sql | \
     docker-compose exec db psql -U your-username -d your-db-name
 
 # To restore a compressed sql,
-# This will restore the database based on the dump.gz file
+# This restores the database based on the dump.gz file.
 gzip < dump.gz | \
     docker-compose exec db psql -U your-username
 ----
-//Editor's note: will restore --> restores
 
 [CAUTION]
 ====
@@ -169,16 +158,14 @@ You can use any standard file management tools to make a backup copy of the file
 .Compressing files with the `tar` command:
 [source,bash]
 ----
-# This will compress all your uploaded files into the backup.tar.bz2 archive
+# This compresses all your uploaded files into the backup.tar.bz2 archive,
 tar -cjf backup.tar.bz2 data/server/
 ----
-//Editor's note: will compress --> compresses
 === Restore
 
 .Uncompromising files from the archive with the `tar` command:
 [source,bash]
 ----
-# This will restore your backup.tar.bz2 archive
+# This restores your backup.tar.bz2 archive
 tar -xjf backup.tar.bz2
 ----
-//Editor's note: will restore --> restores

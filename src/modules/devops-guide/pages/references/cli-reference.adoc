@@ -11,6 +11,12 @@ include::ROOT:partial$variables.adoc[]
 Update/assure the commands are still as are and valid.
 ====
 
+[NOTE]
+====
+*DevNote* add some more notes, descriptions.
+Consider generating this.
+====
+
 {PRODUCT_NAME} command-line interface tool allows you to quickly interact with different parts of the system -- from changing the settings to assigning roles to users.
 
 == Authentication
@@ -46,8 +52,7 @@ Flags:
 
 === Test Notification
 
-Sends samples of all authentication notification to recipients.
-//Editor's note: or 'a recipient'. Fix according to what is most accurate.
+Sends samples of all authentication notification to a recipient.
 
 [source,shell]
 ----
@@ -85,7 +90,6 @@ Flags:
 == Provision
 
 Provision tasks
-//Editor's note: Add more information.
 
 [source,shell]
 ----
@@ -116,12 +120,10 @@ Flags:
 == Roles
 
 Role management
-//Editor's note: Add more information.
 
 === Add user
 
 Adds a user to a role.
-//Editor's note: Add more information. Check for accuracy.
 
 [source,shell]
 ----
@@ -183,12 +185,10 @@ Flags:
 == Users
 
 User management
-//Editor's note: Add more information.
 
 === Add user
 
 Add new user
-//Editor's note: Add more information.
 
 [source,shell]
 ----
@@ -203,7 +203,6 @@ Flags:
 === List
 
 List users
-//Editor's note: Add more information.
 
 [source,shell]
 ----
@@ -219,7 +218,6 @@ Flags:
 === Password
 
 Change password for user
-//Editor's note: Add more information.
 
 [source,shell]
 ----
@@ -252,7 +250,6 @@ Flags:
 ----
 
 == Version
-//Editor's note: Add more information.
 
 [source,shell]
 ----

@@ -86,8 +86,7 @@ If the error occurs and persists on the production environment, verify your `AUT
 == Stuck on Login Screen After Providing Valid Credentials
 
 Please note that some deployments (like with Docker) might not have all configuration available for valid auto-configuration.
-Check what how the cookies are sent in the response headers on login.
-//Editor's note: which one is it? How the cookies are sent or what cookies are sent?
+Check what cookies are sent in the response headers on login.
 
 _Please note that examples below have an abbreviated session value._
 
@@ -103,8 +102,7 @@ set-Cookie:
     Max-Age=31104000;
     HttpOnly
 ----
-<1> A set of random characters where the domain or hostname should be, represent the Docker container ID (and hostname).
-//Editor's note: check for accuracy. In case it is not okay, please expand and clarify.
+<1> A set of random characters where the domain or hostname should represent the Docker container ID (and hostname).
 Setup like this requires `DOMAIN` variable to be set (for example. `DOMAIN=localhost:8080`).
 //Editor's note: is what it is set to important?
 Do not forget to recreate your server container after the change.
@@ -121,8 +119,7 @@ set-Cookie: <1>
     HttpOnly
 ----
 <1> When you provide `DOMAIN` option like instructed in the example above, notice that "Domain" flag on the cookie is missing.
-Corteza removes it when you use port in the domain.
-//Editor's note: Corteza or {PRODUCT_NAME}? (What's the distinction and where should one or the other be used? - the question has nothing to do with the content here, just for my information :).)
+{PRODUCT_NAME} removes it when you use port in the domain.
 
 === Valid Example of a Cookie on a Secure Host
 
@@ -140,7 +137,6 @@ set-cookie:
 <1> Note the "Secure" cookie flag.
 This cookie is sent back to the server only if server is on secure domain (HTTPS).
 If you used `HTTP_SSL_TERMINATED` or `LETSENCRYPT_HOST` options, Corteza assumes that it is served on a secured domain.
-//Editor's note: Corteza or {PRODUCT_NAME}? 
 
 == Further Troubleshooting
 

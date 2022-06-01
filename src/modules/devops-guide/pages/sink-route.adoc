@@ -42,10 +42,12 @@ The above command creates an unconstrained signature (any request is considered 
 ====
 
 The signature can be found at the end of the `__sign` query parameter.
+
 [IMPORTANT]
 ====
 This signature should be stored somewhere safe as it is required to authenticate any request to the sink route.
 ====
+
 Each request to the sink route must specify the sink signature we generated above.
 
 [CAUTION]

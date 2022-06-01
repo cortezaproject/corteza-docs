@@ -31,8 +31,7 @@ Refer to the xref:integrator-guide:templates/index.adoc[low-code platform develo
 === Authentication
 
 {PRODUCT_NAME} reworks how the authentication system works.
-As of 2021.3, all of the authentication endpoints are removed and will no longer work.
-//Editor's note: if there is any instance in which it still works (aka if the update isn't compulsory and other versions where it can still be used exist) keep the will, otherwise remove it.
+As of 2021.3, all of the authentication endpoints are removed and no longer work.
 
 If you were using the authentication endpoints to obtain a JWT token for API access, you can use the xref:devops-guide:references/cli-reference.adoc#auth-jwt[JWT CLI command].
 

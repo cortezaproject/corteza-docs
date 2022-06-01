@@ -140,9 +140,8 @@ bb_7,aa_3,bb_v_7
 
 [NOTE]
 ====
-Notice how we're using records from `aa.csv` to reference in `bb.csv`.
+Notice how the `ref_a` column in the `bb.csv` file references the `id` column in the `aa.csv` file.
 ====
-//Editor's note: add the info on what we should notice, explain further.
 
 .`cc.csv`:
 [source,csv]

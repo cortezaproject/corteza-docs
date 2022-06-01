@@ -215,7 +215,7 @@ The `.env` file performs *implicit Docker Compose configuration*, *variable subs
 You can use variables defined in the `.env` file inside your `docker-compose.yaml` files using `$\{VARIABLE_HERE}`.
 
 [#deploy-offline]
-== Deployment Offline
+== Offline Deployment
 
 Offline deployments run all services on the same network where the ports are bound to the host's network.
 
@@ -295,7 +295,7 @@ If you did not configure your SMTP settings, all sign-ups are marked as confirme
 ====
 
 [#deploy-online]
-== Deployment Online
+== Online Deployment
 
 [NOTE]
 ====
@@ -333,7 +333,6 @@ See xref:examples/deploy-online/index.adoc[] for example online deployment confi
 <3> Make sure to change the owner to the Docker container (you can use `chown 1001:1001 data/db` and `chown 4242:4242 data/server`).
 Omit if you won't use persistent storage.
 <4> Here is where all of the server data is stored, such as uploaded attachments.
-//Editor's note: check for accuracy
 <5> Here is where the database can store the data.
 
 === Setting up Your Nginx Reverse Proxy

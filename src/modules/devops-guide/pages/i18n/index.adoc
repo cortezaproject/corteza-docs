@@ -99,7 +99,7 @@ docker-compose up -d
 
 [IMPORTANT]
 ====
-If you update translation files after {PRODUCT_NAME} server started, you must to restart it.
+If you update translation files after {PRODUCT_NAME} server started, you must restart it.
 
 .Run:
 [source,bash]
@@ -131,7 +131,6 @@ LOCALE_LANGUAGES="en,de,it"
 == Development Environment
 
 {PRODUCT_NAME} provides some helpful utilities for debugging and general translations, which can be enabled with the following `.env` variables.
-//Editor's note: what can be enabled with the '.env' variables? Utilities for both debugging and general translations? Is that one and the same thing with 2 functions or 2 different things with 2 functions?
 
 [cols="2s,5a"]
 |===

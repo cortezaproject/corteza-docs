@@ -21,10 +21,8 @@ If you use {PRODUCT_NAME} REST API, please note that paging parameters on certai
 With the introduction of field expressions, some {APP_AUTOMATION} automation scripts became obsolete and were removed from the 2020.12 release.
 This affects existing deployments that use CRM and Case Management applications.
 
-We did not want to make an automated upgrade and change your module fields on those applications (namespaces).
-//Editor's note: 'those' referring to what? What does the choice to not make an automated upgrade mean for the user?
-It's not possible to know what kind of changes you might have made in your modules.
-//Editor's note: How does that relate to the above? Expand on why that is important to note.
+THe automated upgrade does not replace the removed automation scripts with module field expressions in case you've manually changed parts of the configuration.
+The removed automation scripts need to be manually replaced with module field expressions.
 
 .Module modifications:
 |===

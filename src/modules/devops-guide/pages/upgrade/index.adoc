@@ -15,7 +15,6 @@ Refer to xref:devops-guide:maintenance/backups.adoc[devops guide on backup proce
 ====
 If you are upgrading multiple versions at the same time; for example from 2019.12 to 2020.9; you should follow all the upgrade guides between the two versions.
 ====
-//Editor's note: where are the guides available?
 
 == Recommended Steps for {PRODUCT_NAME} Upgrade
 

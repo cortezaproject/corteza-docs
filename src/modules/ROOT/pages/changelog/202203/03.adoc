@@ -15,17 +15,26 @@ include::ROOT:partial$variables.adoc[]
 * Changed user authentication session and access token logic as well as updating corresponding `.env` variables and their descriptions ({SERVER_COMMIT_BASE}7f84994[`#7f84994`]).
 Changed the authentication session and corresponding cookie to expire on session end when using "log in", and after the specified lifetime when using "login and remember me" ({SERVER_COMMIT_BASE}5fd5b93[`#5fd5b93`]).
 Changed the "login and remember me" button to not show if the `AUTH_SESSION_PERM_LIFETIME` `.env` variable is set to 0 (disabling the feature) ({SERVER_COMMIT_BASE}ad53ea9[`#ad53ea9`])
+* Changed the {PRODUCT_NAME} {APP_NAME_COMPOSE} sidebar to show the link to all namespaces at the top of the dropdown.
+This change allows the link to be visible even with many namespaces present ({COMPOSE_COMMIT_BASE}15ca4000[`#15ca4000`]).
 
 .[#2022_3_3-removed]#<<2022_3_3-removed,Removed:>>#
 * Removed the `AUTH_JWT_EXPIRY` `.env` variable because it is replaced by the `AUTH_OAUTH2_ACCESS_TOKEN_LIFETIME` `.env` variable ({SERVER_COMMIT_BASE}e626bcd[`#e626bcd`]).
 
 .[#2022_3_3-fixed]#<<2022_3_3-fixed,Fixed:>>#
+* Fixed broken {APP_NAME_COMPOSE} module export which caused `Record` fields to become unconfigurable after the module was imported ({WEBAPP_COMPOSE_COMMIT_BASE}1219112[`#1219112`]).
+* Fixed invalid RBAC rule migration where a rule could use wildcards between resource IDs (invalid state).
+A new migration step attempts to correct the broken RBAC rules ({SERVER_COMMIT_BASE}563a73c6[`563a73c6`]).
+* Fixed improper workflow prompt handling when user has multiple {PRODUCT_NAME} instances (tabs) open at the same time.
+{PRODUCT_NAME} web applications improved communication on what prompts are already resolved and where the prompts should be shown ({CORTEZA_WEBAPP_VUE_COMMIT_BASE}40e5416[`#40e5416`]).
 * Fixed improper number and text setting value decoding by covering edge-cases ({SERVER_COMMIT_BASE}ced2daf[`#ced2daf`]).
 * Fixed invalid valid JSONL files being rejected when importing records by adding additional fallback content-type checks to the preprocessing logic ({SERVER_COMMIT_BASE}f726d3f[`#f726d3f`]).
 * Fixed improper record access control rule migration due to invalid paging ({SERVER_COMMIT_BASE}b6d13d9[`#b6d13d9`]).
 * Fixed infinite loop webconsole alerts when offline ({SERVER_COMMIT_BASE}d8e57b1[`#d8e57b1`]).
 * Fixed improper Federation URI node generation by including the API base URL ({SERVER_COMMIT_BASE}798c31e[`#798c31e`]).
 * Fixed system healthcheck panic when {APP_AUTOMATION} connection is not available ({SERVER_COMMIT_BASE}2ff1108[`#2ff1108`]).
+* Fixed broken module field value expressions where the `old` record reference was used.
+The issue occurred because the value was never provided ({SERVER_COMMIT_BASE}7135903[`#7135903`]).
 
 .[#2022_3_3-development]#<<2022_3_3-development,Development:>>#
 * Including the web console bundle into the built corteza-server ({SERVER_COMMIT_BASE}54fffd0[`#54fffd0`]).

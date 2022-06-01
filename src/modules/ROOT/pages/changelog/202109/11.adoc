@@ -8,3 +8,7 @@ include::ROOT:partial$variables.adoc[]
 * Fixed improper PostgreSQL formatting for ISO timestamp templates by adding an edge-case exception ({SERVER_COMMIT_BASE}034a7f9[`#034a7f9`]).
 * Fixed improper number and text setting value decoding by covering edge-cases ({SERVER_COMMIT_BASE}ced2daf[`#ced2daf`]).
 * Fixed improper module field resource translation encoding, decoding, and store persistance causing the field description and hint field to get mixed up by fixing invalid value mapping and removing translations from the DB ({SERVER_COMMIT_BASE}0422e5f[`#0422e5f`], {SERVER_COMMIT_BASE}e7ea299[`#e7ea299`], {SERVER_COMMIT_BASE}6c2dd28[`#6c2dd28`]).
+* Fixed improper workflow prompt handling when user has multiple {PRODUCT_NAME} instances (tabs) open at the same time.
+{PRODUCT_NAME} web applications improved communication on what prompts are already resolved and where the prompts should be shown ({CORTEZA_WEBAPP_VUE_COMMIT_BASE}ef238df[`#ef238df`]).
+* Fixed broken module field value expressions where the `old` record reference was used.
+The issue occurred because the value was never provided ({SERVER_COMMIT_BASE}993cd22[`#993cd22`]).

@@ -1,0 +1,263 @@
+{
+  "workflows": [
+    {
+      "handle": "queue_read",
+      "enabled": true,
+      "meta": {
+        "name": "Read From Queue",
+        "description": "",
+        "visual": null
+      },
+      "keepSessions": 0,
+      "steps": [
+        {
+          "stepID": "4",
+          "kind": "function",
+          "ref": "jsenvExecute",
+          "arguments": [
+            {
+              "target": "scope",
+              "expr": "payload.Payload",
+              "type": "Any"
+            },
+            {
+              "target": "source",
+              "value": "return JSON.parse(input)",
+              "type": "String"
+            }
+          ],
+          "results": [
+            {
+              "target": "event",
+              "expr": "resultAny"
+            }
+          ],
+          "meta": {
+            "name": "",
+            "description": "",
+            "visual": {
+              "defaultName": true,
+              "id": "4",
+              "parent": "1",
+              "value": "Process arbitrary data in jsenv",
+              "xywh": [
+                2040,
+                2080,
+                200,
+                80
+              ]
+            }
+          }
+        },
+        {
+          "stepID": "5",
+          "kind": "function",
+          "ref": "logInfo",
+          "arguments": [
+            {
+              "target": "message",
+              "expr": "format(\"event info: %v\", toJSON(event[0]))",
+              "type": "String"
+            }
+          ],
+          "results": [],
+          "meta": {
+            "name": "",
+            "description": "",
+            "visual": {
+              "defaultName": true,
+              "id": "5",
+              "parent": "1",
+              "value": "Log info message",
+              "xywh": [
+                2040,
+                2240,
+                200,
+                80
+              ]
+            }
+          }
+        },
+        {
+          "stepID": "8",
+          "kind": "function",
+          "ref": "httpRequestSend",
+          "arguments": [
+            {
+              "target": "url",
+              "value": "http://localhost:8084/api/gateway/example_kafka",
+              "type": "String"
+            },
+            {
+              "target": "method",
+              "value": "POST",
+              "type": "String"
+            },
+            {
+              "target": "headers",
+              "expr": "{\n  \"Accept\": [\n    \"application/vnd.kafka.v2+json, application/vnd.kafka+json, application/json\"\n  ]\n}",
+              "type": "KVV"
+            },
+            {
+              "target": "headerContentType",
+              "value": "application/vnd.kafka.binary.v2+json",
+              "type": "String"
+            },
+            {
+              "target": "body",
+              "expr": "toJSON({\n    \"records\": event\n  })",
+              "type": "String"
+            }
+          ],
+          "results": [
+            {
+              "target": "status",
+              "expr": "status"
+            }
+          ],
+          "meta": {
+            "name": "",
+            "description": "",
+            "visual": {
+              "defaultName": false,
+              "id": "8",
+              "parent": "1",
+              "value": "HTTP request to Kafka",
+              "xywh": [
+                2040,
+                2400,
+                200,
+                80
+              ]
+            }
+          }
+        },
+        {
+          "stepID": "10",
+          "kind": "function",
+          "ref": "logInfo",
+          "arguments": [
+            {
+              "target": "message",
+              "expr": "format(\"status: %v\", status)",
+              "type": "String"
+            }
+          ],
+          "results": [],
+          "meta": {
+            "name": "",
+            "description": "",
+            "visual": {
+              "defaultName": true,
+              "id": "10",
+              "parent": "1",
+              "value": "Log info message",
+              "xywh": [
+                2040,
+                2560,
+                200,
+                80
+              ]
+            }
+          }
+        }
+      ],
+      "paths": [
+        {
+          "parentID": "4",
+          "childID": "5",
+          "meta": {
+            "name": "",
+            "description": "",
+            "visual": {
+              "id": "7",
+              "parent": "1",
+              "points": [],
+              "style": "exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;",
+              "value": null
+            }
+          }
+        },
+        {
+          "parentID": "5",
+          "childID": "8",
+          "meta": {
+            "name": "",
+            "description": "",
+            "visual": {
+              "id": "9",
+              "parent": "1",
+              "points": [],
+              "style": "exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;",
+              "value": null
+            }
+          }
+        },
+        {
+          "parentID": "8",
+          "childID": "10",
+          "meta": {
+            "name": "",
+            "description": "",
+            "visual": {
+              "id": "11",
+              "parent": "1",
+              "points": [],
+              "style": "exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;",
+              "value": null
+            }
+          }
+        }
+      ],
+      "triggers": [
+        {
+          "resourceType": "system:queue",
+          "eventType": "onMessage",
+          "constraints": [
+            {
+              "name": "payload.queue",
+              "op": "=",
+              "values": [
+                "queue_example_kafka"
+              ]
+            }
+          ],
+          "enabled": true,
+          "stepID": "4",
+          "meta": {
+            "description": "",
+            "visual": {
+              "defaultName": true,
+              "edges": [
+                {
+                  "childID": "4",
+                  "meta": {
+                    "description": "",
+                    "label": "",
+                    "visual": {
+                      "id": "6",
+                      "parent": "1",
+                      "points": [],
+                      "style": "exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;",
+                      "value": null
+                    }
+                  },
+                  "parentID": "3"
+                }
+              ],
+              "id": "3",
+              "parent": "1",
+              "value": "System queue - onMessage",
+              "xywh": [
+                2040,
+                1920,
+                200,
+                80
+              ]
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -20,4 +20,6 @@ include::./dynamic-config.adoc[]
 
 include::./execution-timeout.adoc[]
 
+include::./messagebus-read-write.adoc[]
+
 :leveloffset: -1

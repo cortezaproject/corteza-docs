@@ -1,0 +1,100 @@
+{
+  "workflows": [
+    {
+      "handle": "queue_write",
+      "enabled": true,
+      "meta": {
+        "name": "Write To Queue",
+        "description": "",
+        "visual": null
+      },
+      "keepSessions": 0,
+      "steps": [
+        {
+          "stepID": "4",
+          "kind": "function",
+          "ref": "queueWrite",
+          "arguments": [
+            {
+              "target": "payload",
+              "expr": "toJSON([\n  {\"key\":\"foo\", \"value\": \"bar\"},\n  {\"key\":\"bar\", \"value\": \"baz\"}\n])",
+              "type": "String"
+            },
+            {
+              "target": "queue",
+              "value": "queue_example_kafka",
+              "type": "String"
+            }
+          ],
+          "results": [],
+          "meta": {
+            "name": "",
+            "description": "",
+            "visual": {
+              "defaultName": true,
+              "id": "4",
+              "parent": "1",
+              "value": "Queue message send",
+              "xywh": [
+                2040,
+                2080,
+                200,
+                80
+              ]
+            }
+          }
+        }
+      ],
+      "paths": [],
+      "triggers": [
+        {
+          "resourceType": "system",
+          "eventType": "onManual",
+          "constraints": [
+            {
+              "name": "",
+              "op": "=",
+              "values": [
+                ""
+              ]
+            }
+          ],
+          "enabled": true,
+          "stepID": "4",
+          "meta": {
+            "description": "",
+            "visual": {
+              "defaultName": true,
+              "edges": [
+                {
+                  "childID": "4",
+                  "meta": {
+                    "description": "",
+                    "label": "",
+                    "visual": {
+                      "id": "5",
+                      "parent": "1",
+                      "points": null,
+                      "style": "exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;",
+                      "value": null
+                    }
+                  },
+                  "parentID": "3"
+                }
+              ],
+              "id": "3",
+              "parent": "1",
+              "value": "System - onManual",
+              "xywh": [
+                2040,
+                1920,
+                200,
+                80
+              ]
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

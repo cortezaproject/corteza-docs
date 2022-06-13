@@ -1,0 +1,76 @@
+= Messagebus Queue
+:attachment-path: ../../../_attachments/automation/workflows/
+:page-noindex: true
+
+Messagebus queue mechanism complements the workflows in a way that any asynchronous computation can be offloaded to another workflow or workflow-extendable process.
+More info on the described topics can be found at xref:automation/workflows/index.adoc[], Integration Gateway xref:api-gw/profiler.adoc[] and the xref:developer-guide:corteza-server/messagebus.adoc[] subsystem.
+
+.In this example we will:
+* create a queue
+* create an endpoint
+* write to queue via workflow
+* read from queue via workflow
+** send a payload to an endpoint
+* view endpoint payload in profiler
+
+== Create a new Queue
+
+[IMPORTANT]
+====
+The `Consumer` here should be `Eventbus`, since this is how the internal mechanism provides the payload data to the {PRODUCT_NAME} subsystems, including Workflows.
+====
+
+.The screenshot shows the creation of the queue in UI.
+image::automation/workflows/examples/queue-create.png[role="data-zoomable"]
+
+== Write to Queue
+
+This is a workflow we will use just to manually trigger the write to queue.
+
+[NOTE]
+====
+You can either use any of the automation buttons to trigger this workflow from the UI.
+Usually the case would be after creating a record and then sending the new recordID to the queue.
+====
+
+The payload is defined as an `Array` that is then stringified
+[source,json]
+----
+toJSON([
+  {"key":"foo", "value": "bar"},
+  {"key":"bar", "value": "baz"}
+])
+----
+
+.A screenshot of the add to queue workflow.
+image::automation/workflows/examples/queue-wf-add.png[role="data-zoomable"]
+
+The link:{attachment-path}queue_add.json[source code] for the workflow example.
+
+== Read from Queue
+
+Here we parse the queue payload and create a custom HTTP request to an outside, ie. Kafka (in our example an endpoint we will create for this purpose only).
+
+.An example of reading the data from queue.
+image::automation/workflows/examples/queue-wf-read.png[role="data-zoomable"]
+
+The link:{attachment-path}queue_read.json[source code] for the workflow example.
+
+== Create a mock service endpoint
+
+What we need now is to trigger the `Queue Write` workflow and a request will be sent to our local server on the `/api/gateway/example_kafka` endpoint.
+
+The resulting request can be seen on the Integration Gateway profiler (if you have it enabled, see more at xref:api-gw/profiler.adoc[]).
+
+.Adding a new endpoint to the Integration Gateway.
+image::automation/workflows/examples/queue-endpoint.png[role="data-zoomable"]
+
+== Preview the request in the Profiler
+
+This preview is for example only, a way to use the profiler to debug any sending payloads to production / external services.
+
+.Preview the request headers and other metadata.
+image::automation/workflows/examples/queue-profiler-1.png[role="data-zoomable"]
+
+.Preview the request payload.
+image::automation/workflows/examples/queue-profiler-2.png[role="data-zoomable"]

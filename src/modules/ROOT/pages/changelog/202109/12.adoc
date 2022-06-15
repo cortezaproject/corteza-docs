@@ -1,0 +1,11 @@
+include::ROOT:partial$variables.adoc[]
+
+= `2021.9.12`
+
+*Released on*: `2022-06-15`
+
+.[#2021_9_12-fixed]#<<2021_9_12-fixed,Fixed:>>#
+* Fixed improper credential validation on user registration causing the user to be created even when invalid credentials (mainly the password) was provided.
+The fix moves the password validation step to the earlier stage of the sign up flow ({SERVER_COMMIT_BASE}ff13912[`#ff13912`]).
+* Fixed improper record count for grouped reports where multi-value fields are involved.
+The fix, for some cases, omits duplicate values ({SERVER_COMMIT_BASE}7546dbb[`7546dbb`]).

@@ -35,7 +35,7 @@ The change was made to provide a more consistent user experience when configurin
 * Fixed invalid RBAC rule migration where a rule could use wildcards between resource IDs (invalid state).
 A new migration step attempts to correct the broken RBAC rules ({SERVER_COMMIT_BASE}563a73c6[`563a73c6`]).
 * Fixed improper workflow prompt handling when user has multiple {PRODUCT_NAME} instances (tabs) open at the same time.
-{PRODUCT_NAME} web applications improved communication on what prompts are already resolved and where the prompts should be shown ({CORTEZA_WEBAPP_VUE_COMMIT_BASE}40e5416[`#40e5416`]).
+{PRODUCT_NAME} web applications improved communication on what prompts are already resolved and where the prompts should be shown ({WEBAPP_VUE_COMMIT_BASE}40e5416[`#40e5416`]).
 * Fixed improper number and text setting value decoding by covering edge-cases ({SERVER_COMMIT_BASE}ced2daf[`#ced2daf`]).
 * Fixed invalid valid JSONL files being rejected when importing records by adding additional fallback content-type checks to the preprocessing logic ({SERVER_COMMIT_BASE}f726d3f[`#f726d3f`]).
 * Fixed improper record access control rule migration due to invalid paging ({SERVER_COMMIT_BASE}b6d13d9[`#b6d13d9`]).

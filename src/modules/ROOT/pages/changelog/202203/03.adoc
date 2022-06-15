@@ -2,21 +2,30 @@ include::ROOT:partial$variables.adoc[]
 
 = `2022.3.3`
 
-[NOTE]
-====
-`2022.3.3` currently released as a release candidate.
-====
+*Released on*: `2022-06-15`
 
-*Released on*: `TBD`
+.[#2022_3_3-added]#<<2022_3_3-added,Added:>>#
+* Added support for workflow prompts to {PRODUCT_NAME} {APP_NAME_SHELL} and {APP_NAME_ADMIN} web applications ({APP_NAME_COMPOSE} already supports prompts).
+Some web applications don't show certain prompt types such as "redirect to record page" ({WEBAPP_VUE_COMMIT_BASE}76e4410[`#76e4410`], {WEBAPP_VUE_COMMIT_BASE}c74fe70[`#c74fe70`], {WEBAPP_JS_COMMIT_BASE}f95d26f[`#f95d26f`], {WEBAPP_ONE_COMMIT_BASE}6e835bc[`6e835bc`], {WEBAPP_COMPOSE_COMMIT_BASE}c62f9fe[`#c62f9fe`], {WEBAPP_ADMIN_COMMIT_BASE}2909ca3[`#2909ca3`]).
+* Added a print layout to assist with print to PDF browser features.
+This feature helps produce nicer output PDF document without the unneeded UI navigation and other resource management elements ({WEBAPP_COMPOSE_COMMIT_BASE}ed8ee8b[`#ed8ee8b`], {WEBAPP_ADMIN_COMMIT_BASE}d980c0b[`#d980c0b`], {WEBAPP_REPORTER_COMMIT_BASE}c71e1f0[`#c71e1f0`], {WEBAPP_WORKFLOW_COMMIT_BASE}f005b62[`#f005b62`], {WEBAPP_ONE_COMMIT_BASE}d582560[`d582560`]).
+* Added support for provisioning JSON system setting values when running the provisioning step.
+The support was added to allow provision YAML files configure record toolbar button visibility ({SERVER_COMMIT_BASE}05b97ee[`#05b97ee`]).
+An example of this would be `compose.ui.record-toolbar: { "hideBack": true }`.
 
 .[#2022_3_3-changed]#<<2022_3_3-changed,Changed:>>#
 * Changed {APP_NAME_COMPOSE} user interface UX by adding spinners to indicate data loading ({WEBAPP_COMPOSE_COMMIT_BASE}11c7cf8[`#11c7cf8`]), changing calendar event cursor to pointer ({WEBAPP_COMPOSE_COMMIT_BASE}75cc346[`#75cc346`]), added additional exceptions for record list sorting and filtering to avoid strange behavior ({WEBAPP_JS_COMMIT_BASE}70c6277[`#70c6277`], {WEBAPP_COMPOSE_COMMIT_BASE}6826d19[`#6826d19`]), added a small delay when processing Record fields ({WEBAPP_COMPOSE_COMMIT_BASE}b6e722d[`#b6e722d`]).
 * Changed chart font family to Poppins-Regular to make them consistent with the rest of the {PRODUCT_NAME} design ({WEBAPP_JS_COMMIT_BASE}0349363[`#0349363`]).
 * Changed user authentication session and access token logic as well as updating corresponding `.env` variables and their descriptions ({SERVER_COMMIT_BASE}7f84994[`#7f84994`]).
 Changed the authentication session and corresponding cookie to expire on session end when using "log in", and after the specified lifetime when using "login and remember me" ({SERVER_COMMIT_BASE}5fd5b93[`#5fd5b93`]).
-Changed the "login and remember me" button to not show if the `AUTH_SESSION_PERM_LIFETIME` `.env` variable is set to 0 (disabling the feature) ({SERVER_COMMIT_BASE}ad53ea9[`#ad53ea9`])
+Changed the "login and remember me" button to not show if the `AUTH_SESSION_PERM_LIFETIME` `.env` variable is set to 0 (disabling the feature) ({SERVER_COMMIT_BASE}ad53ea9[`#ad53ea9`]).
 * Changed the {PRODUCT_NAME} {APP_NAME_COMPOSE} sidebar to show the link to all namespaces at the top of the dropdown.
 This change allows the link to be visible even with many namespaces present ({WEBAPP_COMPOSE_COMMIT_BASE}15ca4000[`#15ca4000`]).
+* Changed and standardized name and handle input value validation across all web apps.
+The change was made to provide a more consistent user experience across {PRODUCT_NAME} web applications.
+The inputs now properly display if the provided value is a valid name/handle or not ({WEBAPP_REPORTER_COMMIT_BASE}e3bbec7[`#e3bbec7`], {WEBAPP_WORKFLOW_COMMIT_BASE}cae73df[`#cae73df`], {WEBAPP_ADMIN_COMMIT_BASE}1b1d165[`#1b1d165`]).
+* Changed the module field kinds to be sorted alphabetically when editing the module.
+The change was made to provide a more consistent user experience when configuring {APP_NAME_COMPOSE} modules ({WEBAPP_COMPOSE_COMMIT_BASE}8378e73[`#8378e73`]).
 
 .[#2022_3_3-removed]#<<2022_3_3-removed,Removed:>>#
 * Removed the `AUTH_JWT_EXPIRY` `.env` variable because it is replaced by the `AUTH_OAUTH2_ACCESS_TOKEN_LIFETIME` `.env` variable ({SERVER_COMMIT_BASE}e626bcd[`#e626bcd`]).
@@ -35,6 +44,22 @@ A new migration step attempts to correct the broken RBAC rules ({SERVER_COMMIT_B
 * Fixed system healthcheck panic when {APP_AUTOMATION} connection is not available ({SERVER_COMMIT_BASE}2ff1108[`#2ff1108`]).
 * Fixed broken module field value expressions where the `old` record reference was used.
 The issue occurred because the value was never provided ({SERVER_COMMIT_BASE}7135903[`#7135903`]).
+* Fixed improper credential validation on user registration causing the user to be created even when invalid credentials (mainly the password) was provided.
+The fix moves the password validation step to the earlier stage of the sign up flow ({SERVER_COMMIT_BASE}c1500df[`#c1500df`]).
+* Fixed improper record count for grouped reports where multi-value fields are involved.
+The fix, for some cases, omits duplicate values ({SERVER_COMMIT_BASE}416a7ec[`#416a7ec`]).
+* Fixed page blocks resetting to their default positions when the changes are saved ({WEBAPP_COMPOSE_COMMIT_BASE}efe24c3[`#efe24c3`]).
+* Fixed improper resource translation user interface content parsing which caused some of the paste events to clear out the contents or block the editor ({WEBAPP_COMPOSE_COMMIT_BASE}6a195df[`#6a195df`])
+* Fixed and assured that multi-value delimiters are properly displayed when viewing the record value ({WEBAPP_COMPOSE_COMMIT_BASE}a211af6[`#a211af6`])
+* Fixed duplicate resource translations when exporting the {APP_NAME_COMPOSE} namespace.
+The fix applies extra pre-processing and validations before the resource translations are outputted to the archive ({WEBAPP_COMPOSE_COMMIT_BASE}dcef397[`#dcef397`]).
+* Fixed custom field validation error messages not showing based on the user's language.
+The value validator now utilizes i18n capabilities to provide appropriate error messages ({SERVER_COMMIT_BASE}f9e9433[`#f9e9433`]).
+* Fixed improper RBAC rule correction migration procedure caused by an unrestricted data fetch overloading the database.
+The procedure now gradually fetches the required data thus avoiding the issue ({SERVER_COMMIT_BASE}f310442[`#f310442`]).
+* Fixed failed workflow prompts from not being dismissible ({WEBAPP_VUE_COMMIT_BASE}ff3d0e6[`#ff3d0e6`]).
 
 .[#2022_3_3-development]#<<2022_3_3-development,Development:>>#
 * Including the web console bundle into the built corteza-server ({SERVER_COMMIT_BASE}54fffd0[`#54fffd0`]).
+* Defined a new resource utility structure which helps improve operation performance by performing smarter indexing strategies.
+The structure was applied to current RBAC access control service, the RBAC rule export and resource translations export services ({SERVER_COMMIT_BASE}0466ffe[`#0466ffe`], {SERVER_COMMIT_BASE}e7c1fe1[`#e7c1fe1`], {SERVER_COMMIT_BASE}a68ddf1[`#a68ddf1`], {SERVER_COMMIT_BASE}aef3171[`#aef3171`]).

@@ -508,7 +508,7 @@ Casts the value to a string.
 
 [CAUTION]
 ====
-The string length for MySQL and PostgreSQL is limited to `8192` characters.
+The string length for PostgreSQL and MySQL is limited to `8192` characters.
 ====
 
 .[#expr-cast-string-sig]#<<expr-cast-string-sig,Signatures:>>#

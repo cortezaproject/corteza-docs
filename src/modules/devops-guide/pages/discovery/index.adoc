@@ -48,7 +48,7 @@ DISCOVERY_BASE_URL=your-discovery-server-base-url
 
 [NOTE]
 ====
-For an example of an online deployment, refer to xref:devops-guide:deploy-online/multi-discovery-pgsql.adoc[].
+For an example of an online deployment, refer to xref:examples/deploy-online/multi-discovery-pgsql.adoc[].
 ====
 
 [NOTE]

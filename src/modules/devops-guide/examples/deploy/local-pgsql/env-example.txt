@@ -1,0 +1,31 @@
+########################################################################################################################
+# docker-compose supports environment variable interpolation/substitution in compose configuration file
+# (more info: https://docs.docker.com/compose/environment-variables)
+
+########################################################################################################################
+# General settings
+DOMAIN=localhost:18083
+VERSION=2022.3.3
+
+########################################################################################################################
+# Database connection
+DB_DSN=postgres://corteza:corteza@db:5432/corteza?sslmode=disable
+
+########################################################################################################################
+# Server settings
+
+# Running all-in-one and serving web applications directly from server container
+HTTP_WEBAPP_ENABLED=true
+
+# Disabled, we do not need detailed persistent logging of actions in local env
+ACTIONLOG_ENABLED=false
+
+########################################################################################################################
+# SMTP (mail sending) settings
+
+# Point this to your local or external SMTP server if you want to send emails.
+# In most cases, Corteza can detect that SMTP is disabled and skips over sending emails without an error
+#SMTP_HOST=smtp-server.example.tld:587
+#SMTP_USER=postmaster@smtp-server.example.tld
+#SMTP_PASS=this-is-your-smtp-password
+#SMTP_FROM='"Demo" <info@your-demo.example.tld>'

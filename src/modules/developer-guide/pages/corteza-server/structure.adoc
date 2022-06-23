@@ -74,7 +74,7 @@ The packages residing in the `/pkg` directory should not define any explicit dep
 == `/store`
 
 The `store` package defines the store layer used by {PRODUCT_NAME}.
-The store layer is a generic interface to any of the supported databases, such as MySQL and PostgreSQL.
+The store layer is a generic interface to any of the supported databases, such as PostgreSQL and MySQL.
 
 Besides the core logic, the store package defines any database driver-specific logic (such as data encoding and datatype casting), as well as any schema migration procedures, such as `store/rdbms/rdbms_schema.go` and `store/rdbms/generic_upgrades.go` for relational databases.
 

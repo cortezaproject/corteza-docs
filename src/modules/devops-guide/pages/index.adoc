@@ -249,7 +249,7 @@ Omit if you won't use persistent storage.
 .Your configuration should look like this:
 [source,yaml]
 ----
-include::example$deploy/local-mysql/docker-compose.yaml[]
+include::example$deploy/local-pgsql/docker-compose.yaml[]
 ----
 
 === Configure .env
@@ -257,7 +257,7 @@ include::example$deploy/local-mysql/docker-compose.yaml[]
 .Your configuration should look like this:
 [source,.env]
 ----
-include::example$deploy/local-mysql/env-example.txt[]
+include::example$deploy/local-pgsql/env-example.txt[]
 ----
 
 === Running the Services
@@ -275,7 +275,7 @@ The output should look like this:
 
 [source]
 ----
-include::example$deploy/local-mysql/output-ps.txt[]
+include::example$deploy/local-pgsql/output-ps.txt[]
 ----
 
 See xref:troubleshooting/index.adoc[] if something went wrong or failed to start.
@@ -304,7 +304,7 @@ If you're using Nginx and the WebSocket connection is failing, refer to xref:tro
 
 Online setups separate your services into two networks; internal and proxy.
 The internal network hides most of the system from the internet.
-This section provides a minimum setup with MySQL as the persistent database storage with {APP_AUTOMATION} server enabled.
+This section provides a minimum setup with PostgreSQL as the persistent database storage with {APP_AUTOMATION} server enabled.
 
 [TIP]
 ====
@@ -386,7 +386,7 @@ Containers *must* be on the same network as `nginx-proxy` (in the examples, we'r
 .Your configuration should look like this:
 [source,yaml]
 ----
-include::example$deploy/prod-mysql/docker-compose.yaml[]
+include::example$deploy/prod-pgsql/docker-compose.yaml[]
 ----
 
 === Configure .env
@@ -396,7 +396,7 @@ include::example$deploy/prod-mysql/docker-compose.yaml[]
 .Your configuration should look like this:
 [source,.env]
 ----
-include::example$deploy/prod-mysql/env-example.txt[]
+include::example$deploy/prod-pgsql/env-example.txt[]
 ----
 
 === Running the Services
@@ -414,7 +414,7 @@ The output should look like this:
 
 [source]
 ----
-include::example$deploy/prod-mysql/output-ps.txt[]
+include::example$deploy/prod-pgsql/output-ps.txt[]
 ----
 
 See xref:troubleshooting/index.adoc[] if something went wrong or failed to start.

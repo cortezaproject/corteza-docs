@@ -57,7 +57,12 @@ Use provided examples for Nginx as a reference on how to configure it.
 
 == Database
 
-It is recommended to use the https://hub.docker.com/_/percona[Percona Server for MySQL] 8.x, either native on the host or provided via Docker.
+It is recommended to use the https://hub.docker.com/_/postgres[PostgreSQL] 13, either native on the host or provided via Docker.
+
+[NOTE]
+====
+{PRODUCT_NAME} also supports MySQL for which we recommend https://hub.docker.com/_/percona[Percona Server for MySQL] 8.x.
+====
 
 == Hardware
 

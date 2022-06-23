@@ -8,7 +8,7 @@ The core logic is written in GO, using https://pkg.go.dev/github.com/go-chi/chi@
 Communication between the {PRODUCT_NAME} server and web applications is done using the REST API and web sockets.
 Communication between back-end services ({PRODUCT_NAME} server and {APP_AUTOMATION}) is done using gRPC.
 
-Non-binary data is handled by the store layer and stored inside a database -- currently MySQL and PostgreSQL.
+Non-binary data is handled by the store layer and stored inside a database -- currently PostgreSQL and MySQL.
 We will add support for additional databases in the future.
 
 Binary data is handled using minIO and stored either locally or on a supported cloud provider.

@@ -17,11 +17,78 @@ You can define a cron job that backups your data to external storage.
 *DevNote* add some example setups, as we have now with a CRON job?
 ====
 
+[#reduce-size]
+== Reducing Backup Size
+
+For some cases, you can omit specific database tables which allow you to reduce the size of the backup.
+This reduction also comes in handy when you wish to migrate your production database to your local instance.
+
+[cols="2s,5a"]
+|===
+| [#backup-optional_table-auth_sessions]#<<backup-optional_table-auth_sessions,auth_sessions>>#
+| The `auth_sessions` table stores user's authentication sessions.
+If you omit this table, the users will have to re-login after the database is restored.
+The `auth_sessions` table can safely be omitted in any case.
+
+| [#backup-optional_table-credentials]#<<backup-optional_table-credentials,credentials>>#
+| The `credentials` table stores authentication related secrets such as passwords, reset tokens, and email confirmation tokens.
+If you omit the `credentials` table all issued credentials will need to be re-issues requiring your users to reset their passwords, re-send the password reset emails, and re-send the email confirm emails.
+The `credentials` table can can safely be omitted in any case where some cases might recommend for it to be omitted.
+
+| [#backup-optional_table-auth_oa2tokens]#<<backup-optional_table-auth_oa2tokens,auth_oa2tokens>>#
+| The `auth_oa2tokens` table stores access tokens issues by the {PRODUCT_NAME} server to web applications.
+If you omit the `auth_oa2tokens` table all of the access tokens will be invalidated and will need to be re-issued.
+The `auth_oa2tokens` table can safely be omitted in any case where some cases might recommend for it to be omitted.
+
+[CAUTION]
+====
+If you invalidate access tokens all of the authenticated web applications must re-authenticate.
+This could cause issues for cases where the web application only re-generates tokens when they are scheduled to expire.
+====
+
+| [#backup-optional_table-actionlog]#<<backup-optional_table-actionlog,actionlog>>#
+| The `actionlog` table stores events the {PRODUCT_NAME} server considered significant, such as creating users, registering auth clients, and looking up records.
+If you omit the `actionlog` table the action history will be lost.
+The `actionlog` table can safely be omitted for development related cases.
+
+| [#backup-optional_table-automation_sessions]#<<backup-optional_table-automation_sessions,automation_sessions>>#
+| The `automation_sessions` table stores metadata regarding workflow execution such as what step the workflow is on, what parameters were passed to the workflow, and the outcome of the execution.
+If you omit the `automation_sessions` table the workflow execution history will be lost and any prompted or suspended workflows will not complete.
+The `automation_sessions` table can safely be omitted for development related cases.
+
+| [#backup-optional_table-compose_record]#<<backup-optional_table-compose_record,compose_record>>#
+| The `compose_record` table stores record metadata created in your {PRODUCT_NAME} {APP_NAME_COMPOSE} applications.
+If you omit the `compose_record` table all of the records created for your {APP_NAME_COMPOSE} applications will be lost.
+The `compose_record` table can be omitted if you want to backup the system structure but omit all of the data.
+
+| [#backup-optional_table-compose_record_value]#<<backup-optional_table-compose_record_value,compose_record_value>>#
+| The `compose_record_value` table stores record values created in your {PRODUCT_NAME} {APP_NAME_COMPOSE} applications.
+If you omit the `compose_record_value` table all of the records created for your {APP_NAME_COMPOSE} applications will be lost.
+The `compose_record_value` table can be omitted if you want to backup the system structure but omit all of the data.
+
+| [#backup-optional_table-queue_messages]#<<backup-optional_table-queue_messages,queue_messages>>#
+| The `queue_messages` table stores the messages passed into the messaging queue.
+If you omit the `queue_messages` table all of the messages passed into the messaging queue will be lost.
+The `queue_messages` table can safely be dropped for most cases.
+
+| [#backup-optional_table-resource_activity_log]#<<backup-optional_table-resource_activity_log,resource_activity_log>>#
+| The `resource_activity_log` table stores the history of resource changes such as record value changes.
+If you omit the `resource_activity_log` table the history of all resources will be lost.
+The `resource_activity_log` table can safely be omitted for development cases.
+
+|===
+
 == MySQL Database
 
 If you're using a different database engine, refer to their documentation on how to perform backups.
 
 === Backup
+
+[NOTE]
+====
+Refer to the <<reduce-size,reducing backup size>> section to see what tables you can omit for your use-case.
+An example command which omits specific tables is available below.
+====
 
 We recommend you use the `mysqldump` tool.
 It's builtin into the `db` container (`percona:8.0` image).
@@ -45,6 +112,12 @@ Table locks might cause issues when running in production, so do keep this in mi
 docker-compose exec -T \
     --env MYSQL_PWD=your-password db \
     mysqldump your-db-name --add-drop-database -u your-username > dump.sql
+
+# This dumps the database without actionlog, automation sessions, and resource activity log
+# These are generally the largest and can safely be omitted.
+docker-compose exec -T \
+    --env MYSQL_PWD=your-password db \
+    mysqldump your-db-name --add-drop-database --ignore-table=dbname.actionlog --ignore-table=dbname.automation_sessions --ignore-table=dbname.resource_activity_log -u your-username > dump.sql
 ----
 
 [CAUTION]
@@ -76,6 +149,12 @@ If you've changed the database service name (`db`) inside your `docker-compose.y
 == PostgreSQL Database
 
 === Backup
+
+[NOTE]
+====
+Refer to the <<reduce-size,reducing backup size>> section to see what tables you can omit for your use-case.
+An example command which omits specific tables is available below.
+====
 
 We recommend you use the `pg_dumpall` or `pg_dump` tool.
 `pg_dumpall` is a utility for writing out ("dumping") all PostgreSQL databases of a cluster into one script file.
@@ -110,6 +189,12 @@ docker-compose exec db \
 docker-compose exec db \
     pg_dumpall -c -U your-username | \
     gzip > /var/data/postgres/backups/dump.gz
+
+
+# This dumps the database without actionlog, automation sessions, and resource activity log
+# These are generally the largest and can safely be omitted.
+docker-compose exec db \
+    pg_dump -T corteza.actionlog -T corteza.automation_sessions -T corteza.resource_activity_log -c -U your-username corteza > dump.sql
 ----
 
 [CAUTION]

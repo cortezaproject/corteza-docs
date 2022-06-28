@@ -12,6 +12,7 @@
 **** xref:authentication/external/github.adoc[]
 **** xref:authentication/external/linkedin.adoc[]
 **** xref:authentication/external/saml.adoc[]
+***** xref:authentication/external/saml/okta.adoc[Okta]
 
 ** xref:security-model/index.adoc[]
 *** xref:security-model/users.adoc[]

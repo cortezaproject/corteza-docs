@@ -1,0 +1,302 @@
+include::ROOT:partial$variables.adoc[]
+
+[#saml-okta]
+= SAML Corteza integration with Okta
+:page-aliases: administrator-guide:authentication/authentication-providers/saml/okta.adoc
+:page-noindex: true
+
+To enable SAML SSO on {PRODUCT_NAME} through Okta you need to add necessary configuration parameters in the {PRODUCT_NAME} administration, as well as a new application on the Okta IdP.
+
+== Adding a new application in Okta
+
+For the documentation purposes a trial Okta account has been created, it may not support all the features that are in the subscription version, but the basic features for the SAML SSO are included.
+
+[NOTE]
+====
+For more help on Okta, head to their https://support.okta.com/help[official support site].
+====
+
+.First you need to create an application via menu:Applications[Applications] side-menu.
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "authentication/external/saml/okta/okta-application.png",
+    "alias": "authentication-saml-okta",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {
+    "x": 0,
+    "y": 0,
+    "w": 1920,
+    "h": 1080
+  },
+  "annotations": [{
+    "kind": "box",
+    "x": 20,
+    "y": 220,
+    "w": 250,
+    "h": 80
+  }]
+}
+----
+
+.Click on the **Create App Integration** button and choose SAML 2.0 integration.
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "authentication/external/saml/okta/okta-application-screen2.png",
+    "alias": "authentication-saml-okta-screen2",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {
+    "x": 0,
+    "y": 0,
+    "w": 1920,
+    "h": 1080
+  },
+  "annotations": [{
+    "kind": "box",
+    "x": 863,
+    "y": 455,
+    "w": 560,
+    "h": 84
+  },
+  {
+    "kind": "box",
+    "x": 1345,
+    "y": 740,
+    "w": 85,
+    "h": 65
+  }]
+}
+----
+
+.The application wizard will guide you to the next screen where you specify the name and look of the application, click **Next** to proceed.
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "authentication/external/saml/okta/okta-application-screen3.png",
+    "alias": "authentication-saml-okta-screen3",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {
+    "x": 0,
+    "y": 0,
+    "w": 1920,
+    "h": 1080
+  },
+  "annotations": [{
+    "kind": "box",
+    "x": 1230,
+    "y": 570,
+    "w": 85,
+    "h": 65
+  }]
+}
+----
+
+.On the SAML settings page you need to specify the details of the Service Provider, in this case {PRODUCT_NAME} instance url where SAML is configured.
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "authentication/external/saml/okta/okta-application-screen4.png",
+    "alias": "authentication-saml-okta-screen4",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {
+    "x": 0,
+    "y": 0,
+    "w": 1920,
+    "h": 1080
+  },
+  "annotations": [{
+    "kind": "box",
+    "x": 863,
+    "y": 370,
+    "w": 460,
+    "h": 84
+  },
+  {
+    "kind": "box",
+    "x": 863,
+    "y": 490,
+    "w": 460,
+    "h": 124
+  }]
+}
+----
+
+.Once you are satisfied with the SAML settings click **Next** to the final screen where another confirmation on the **Finish** button is needed.
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "authentication/external/saml/okta/okta-application-screen5.png",
+    "alias": "authentication-saml-okta-screen5",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {
+    "x": 0,
+    "y": 0,
+    "w": 1920,
+    "h": 1080
+  },
+  "annotations": [{
+    "kind": "box",
+    "x": 1230,
+    "y": 540,
+    "w": 85,
+    "h": 65
+  }]
+}
+----
+
+The final application can be previewed once it's successfuly added.
+
+.This is where user management can be fulfilled, as the created application needs to be connected to the users that will be using it.
+image::authentication/external/saml/okta/okta-application-preview.png[Screenshot of the app settings confirmation screen.,role="data-zoomable"]
+
+[NOTE]
+====
+The values used in the screenshot and the table are for informational use only and should be changed to reflect your instance settings.
+====
+
+=== Okta SAML application settings
+
+[Attributes]
+|===
+|**Setting** |**Value**
+
+|**Single Sign On URL**
+|https://{API_DOMAIN}/auth/external/saml/callback
+
+|**Recipient URL**
+|https://{API_DOMAIN}/auth/external/saml/callback
+
+|**Destination URL**
+|https://{API_DOMAIN}/auth/external/saml/callback
+
+|**Audience Restriction**
+|https://{API_DOMAIN}/auth/external/saml/metadata
+
+|**Name ID Format**
+|EmailAddress
+|===
+
+== Adding the Okta settings to {PRODUCT_NAME}
+
+After the Okta application has been successfuly created, the access to Okta IdP needs to be enabled on the {PRODUCT_NAME} side.
+
+.Select the **SAML** by clicking on the settings icon
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "authentication/external/saml/okta/corteza-select-saml.png",
+    "alias": "authentication-saml-corteza",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {
+    "x": 0,
+    "y": 0,
+    "w": 1920,
+    "h": 1080
+  },
+  "annotations": [{
+    "kind": "box",
+    "x": 1600,
+    "y": 920,
+    "w": 40,
+    "h": 40
+  }]
+}
+----
+
+The Okta related settings are specified in the **Identity provider** section, where a metadata URL needs to be provided.
+
+[IMPORTANT]
+====
+How to generate the metadata URL for Okta is available https://support.okta.com/help/s/question/0D50Z00008G7VVzSAN/how-to-use-okta-idp-metadata-in-service-provider-application?language=en_US[here].
+====
+
+[NOTE]
+====
+You can find more info on creating the certificate on the xref:authentication/external/saml.adoc[] page.
+====
+
+.Proceed to add the details in the **Identity provider** section.
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "authentication/external/saml/okta/corteza-saml-details.png",
+    "alias": "authentication-saml-corteza-details",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {
+    "x": 0,
+    "y": 0,
+    "w": 1920,
+    "h": 1080
+  }
+}
+----
+
+Publish the settings by clicking on the **OK** button.
+
+.Click **OK** to apply changes.
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "authentication/external/saml/okta/corteza-saml-details2.png",
+    "alias": "authentication-saml-corteza-details2",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {
+    "x": 0,
+    "y": 0,
+    "w": 1920,
+    "h": 1080
+  },
+  "annotations": [{
+    "kind": "box",
+    "x": 1290,
+    "y": 1000,
+    "w": 70,
+    "h": 40
+  }]
+}
+----
+
+
+=== {PRODUCT_NAME} Okta SAML application settings
+
+[Attributes]
+|===
+|**Setting** |**Value**
+
+|**URL**
+|https://okta-example-instance.okta.com/app/exk1fgv7123/sso/saml/metadata
+
+|**Name field**
+|http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname
+
+|**Handle field**
+|http://schemas.microsoft.com/identity/claims/objectidentifier
+
+|**Identifier field**
+|http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name
+|===

@@ -19,6 +19,38 @@ Consider generating this.
 
 {PRODUCT_NAME} command-line interface tool allows you to quickly interact with different parts of the system -- from changing the settings to assigning roles to users.
 
+== Running CLI interface via docker
+
+If you are running a deployment via docker or docker compose, you can easily execute an already running server outside of the containers.
+
+=== Docker Compose
+
+[NOTE]
+====
+Refer to more docker compose examples at xref:index.adoc#useful-commands[useful Docker commands].
+====
+
+[source,shell]
+----
+$ docker-compose exec <service name> ./bin/corteza-server <command>
+----
+
+=== Docker
+
+First, find the ID of the container which is running your {PRODUCT_NAME} server in the current project directory.
+You can use the accrued container ID to execute CLI commands as illustrated by the following example.
+
+[NOTE]
+====
+The example assumes the service name is `server`.
+====
+
+[source,shell]
+----
+$ docker ps | grep `basename $PWD | sed -e 's/\.//g'`_server
+$ docker exec <container ID> ./bin/corteza-server <command>
+----
+
 == Authentication
 
 === Auto Discovery

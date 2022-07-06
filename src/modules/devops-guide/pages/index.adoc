@@ -428,7 +428,7 @@ You will be redirected to the authentication page (`/auth`).
 . Check the server's health http://your-demo.example.tld/healthcheck
 . Check the API documentation http://your-demo.example.tld/api/docs/
 
-
+[#useful-commands]
 == Useful Commands
 
 .A list of useful Docker commands:
@@ -455,6 +455,9 @@ You will be redirected to the authentication page (`/auth`).
 
 | [#docker-compose-exec]#<<docker-compose-exec,Execute with Docker Compose>>#
 | docker-compose exec <service name> help
+
+| [#docker-compose-bash]#<<docker-compose-bash,Access bash in the container at `WORKDIR`>>#
+| docker-compose exec <service name> bash
 |===
 
 == Where to next

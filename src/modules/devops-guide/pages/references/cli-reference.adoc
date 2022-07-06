@@ -23,11 +23,11 @@ Consider generating this.
 
 If you are running a deployment via docker or docker compose, you can easily execute an already running server outside of the containers.
 
-=== Docker compose
+=== Docker Compose
 
 [NOTE]
 ====
-Refer to more docker compose examples at xref:devops-guide:index.adoc#useful-commands[useful Docker commands].
+Refer to more docker compose examples at xref:index.adoc#useful-commands[useful Docker commands].
 ====
 
 [source,shell]
@@ -37,16 +37,19 @@ $ docker-compose exec <service name> ./bin/corteza-server <command>
 
 === Docker
 
-First, find the container ID of the running server in the current project directory.
-After the container ID is found, use it to execute the CLI command.
-For the illustration purpose, we will name the service name `server`.
+First, find the ID of the container which is running your {PRODUCT_NAME} server in the current project directory.
+You can use the accrued container ID to execute CLI commands as illustrated by the following example.
+
+[NOTE]
+====
+The example assumes the service name is `server`.
+====
 
 [source,shell]
 ----
 $ docker ps | grep `basename $PWD | sed -e 's/\.//g'`_server
 $ docker exec <container ID> ./bin/corteza-server <command>
 ----
-
 
 == Authentication
 

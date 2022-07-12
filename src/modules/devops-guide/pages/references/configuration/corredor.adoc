@@ -7,28 +7,45 @@ include::ROOT:partial$variables.adoc[]
 
 .[#CORREDOR_ADDR]#<<CORREDOR_ADDR,*CORREDOR_ADDR*>>#
 * *type*: `string`
-* *description*: This setting is used by both, Corredor and API Server.
-For Corredor server: where is server listening on
-For API server: where can Corredor server be accessed.
-//Editor's note: please clarify, I don't see how the second sentence could work.
-* *default*: `corredor:80`
+* *description*: Be careful when sharing your environmental variables, `CORREDOR_ADDR` is used by both, {APP_AUTOMATION} and API Server.
+
+When used by {APP_AUTOMATION} server it sets the IP address and port server listens on.
+It defaults to `0.0.0.0:80` in Docker and `localhost:50051` in development mode.
+This instructs server to listen on all interfaces, all IP addresses on port 80.
+
+It is also used by API server to set where the server can find and connect to {APP_AUTOMATION} Server.
+Defaults are defined by context. Building from source and running in development mode, value is `localhost:50051`,
+in Docker container it is set to `corredor:80`.
+
+These context-dependant defaults allow us to have working setup without additional changes.
+
+* *default*: `0.0.0.0:80`
 
 .[#CORREDOR_ENABLED]#<<CORREDOR_ENABLED,*CORREDOR_ENABLED*>>#
 * *type*: `bool`
-* *description*: This is a setting for API server, will Corredor be used for server automation?
-//Editor's note: I believe the reader cannot answer your question - clarify?
+* *description*: Only used by the API server to enable or disable {APP_AUTOMATION} server use.
+{APP_AUTOMATION} server ignores this config.
+
+* *default*: `false`
+
+.[#CORREDOR_ENABLED]#<<CORREDOR_ENVIRONMENT,*CORREDOR_ENVIRONMENT*>>#
+* *type*: `string`
+* *description*: Enables development mode when value of the variable starts with `"dev"`.
+Otherwise {APP_AUTOMATION} starts in production mode.
+
+When `CORREDOR_ENVIRONMENT` is not set, Corredor looks for `CORREDOR_ENV` and `NODE_ENV` and uses first one available.
+
 * *default*: `false`
 
 .[#CORREDOR_MAX_BACKOFF_DELAY]#<<CORREDOR_MAX_BACKOFF_DELAY,*CORREDOR_MAX_BACKOFF_DELAY*>>#
 * *type*: `duration`
-* *description*: Connection timeout (from API server to Corredor).
-//Editor's note: means what? It would be useful to add a starting paragraph before you start listing, to add context on what is going on.
+* *description*: Maximum amount of time to wait before retrying the failed connection from API to {APP_AUTOMATION} server.
 * *default*: `1m`
 
 .[#CORREDOR_EXEC_CSERVERS_API_BASEURL_TEMPLATE]#<<CORREDOR_EXEC_CSERVERS_API_BASEURL_TEMPLATE,*CORREDOR_EXEC_CSERVERS_API_BASEURL_TEMPLATE*>>#
 * *type*: `string`
 * *description*: Location of the Corteza server API.
-\{host\} is replaced with value from env variables (in this order: `CORREDOR_EXEC_CSERVERS_API_HOST`, `DOMAIN`, `HOSTNAME`, `HOST`), \{service\} is replaced dynamically inside Corredor with `compose`, `system` or `messaging`.
+\{host\} is replaced with value from env variables (in this order: `CORREDOR_EXEC_CSERVERS_API_HOST`, `DOMAIN`, `HOSTNAME`, `HOST`), \{service\} is replaced dynamically inside {APP_AUTOMATION} with `compose`, `system` or `messaging`.
 * *default*: `https://api.\{host\}/\{service\}`
 
 .[#CORREDOR_EXEC_CSERVERS_API_HOST]#<<CORREDOR_EXEC_CSERVERS_API_HOST,*CORREDOR_EXEC_CSERVERS_API_HOST*>>#
@@ -38,30 +55,23 @@ For API server: where can Corredor server be accessed.
 
 .[#CORREDOR_LOG_ENABLED]#<<CORREDOR_LOG_ENABLED,*CORREDOR_LOG_ENABLED*>>#
 * *type*: `boolean`
-* *description*: This setting is used by both, Corredor and API Server.
-For Corredor service: where is service listening on (gRPC)
-For API server it is used where Corredor service can be accessed.
+* *description*: Enable logging in {APP_AUTOMATION} server.
 * *default*: `corredor`
 
 .[#CORREDOR_LOG_LEVEL]#<<CORREDOR_LOG_LEVEL,*CORREDOR_LOG_LEVEL*>>#
 * *type*: `string`
-* *description*: Defaults to `trace` when `CORREDOR_DEBUG` is `true`, defines amount of log information outputed.
+* *description*: Default is `trace` when `CORREDOR_ENVIRONMENT` is set to `dev`.
+Defines amount of information server logs.
 * *default*: `info`
 
 .[#CORREDOR_LOG_PRETTY]#<<CORREDOR_LOG_PRETTY,*CORREDOR_LOG_PRETTY*>>#
 * *type*: `boolean`
-* *description*: Are events logged in one-line JSON or formatted to ease development?
-//Editor's note: Answer the question?
-* *default*: `false`
-
-.[#CORREDOR_DEBUG]#<<CORREDOR_DEBUG,*CORREDOR_DEBUG*>>#
-* *type*: `boolean`
-* *description*: Corredor logs even more information.
+* *description*: When set to true, logs are logged formatted to ease development.
 * *default*: `false`
 
 .[#CORREDOR_EXT_DEPENDENCIES_AUTO_UPDATE]#<<CORREDOR_EXT_DEPENDENCIES_AUTO_UPDATE,*CORREDOR_EXT_DEPENDENCIES_AUTO_UPDATE*>>#
 * *type*: `boolean`
-* *description*: Corredor auto updates script dependencies found in `package.json` files.
+* *description*: {APP_AUTOMATION} auto updates script dependencies found in `package.json` files.
 * *default*: `true`
 
 .[#CORREDOR_EXT_SERVER_SCRIPTS_ENABLED]#<<CORREDOR_EXT_SERVER_SCRIPTS_ENABLED,*CORREDOR_EXT_SERVER_SCRIPTS_ENABLED*>>#
@@ -71,7 +81,7 @@ For API server it is used where Corredor service can be accessed.
 
 .[#CORREDOR_EXT_SERVER_SCRIPTS_WATCH]#<<CORREDOR_EXT_SERVER_SCRIPTS_WATCH,*CORREDOR_EXT_SERVER_SCRIPTS_WATCH*>>#
 * *type*: `boolean`
-* *description*: Corredor reloads server-scripts on change.
+* *description*: {APP_AUTOMATION} reloads server-scripts on change.
 * *default*: `true`
 
 .[#CORREDOR_EXT_CLIENT_SCRIPTS_ENABLED]#<<CORREDOR_EXT_CLIENT_SCRIPTS_ENABLED,*CORREDOR_EXT_CLIENT_SCRIPTS_ENABLED*>>#
@@ -81,5 +91,77 @@ For API server it is used where Corredor service can be accessed.
 
 .[#CORREDOR_EXT_CLIENT_SCRIPTS_WATCH]#<<CORREDOR_EXT_CLIENT_SCRIPTS_WATCH,*CORREDOR_EXT_CLIENT_SCRIPTS_WATCH*>>#
 * *type*: `boolean`
-* *description*: Corredor reloads client-scripts on change.
+* *description*: {APP_AUTOMATION} reloads client-scripts on change.
 * *default*: `true`
+
+.[#CORREDOR_SERVER_CERTIFICATES_ENABLED]#<<CORREDOR_SERVER_CERTIFICATES_ENABLED,*CORREDOR_SERVER_CERTIFICATES_ENABLED*>>#
+* *type*: `boolean`
+* *description*: Requires a valid certificate for connecting to {APP_AUTOMATION} server.
+Set to false when running in development mode.
+
+Used by {APP_AUTOMATION} server.
+* *default*: `true`
+
+.[#CORREDOR_SERVER_CERTIFICATES_PATH]#<<CORREDOR_SERVER_CERTIFICATES_PATH,*CORREDOR_SERVER_CERTIFICATES_PATH*>>#
+* *type*: `string`
+* *description*: Base path for all certificate files
+
+Used by {APP_AUTOMATION} server.
+* *default*: `/certs`
+
+.[#CORREDOR_SERVER_CERTIFICATES_CA]#<<CORREDOR_SERVER_CERTIFICATES_CA,*CORREDOR_SERVER_CERTIFICATES_CA*>>#
+* *type*: `string`
+* *description*: Path to certificate authority file
+
+Used by {APP_AUTOMATION} server.
+* *default*: `ca.crt`
+
+.[#CORREDOR_SERVER_CERTIFICATES_PRIVATE]#<<CORREDOR_SERVER_CERTIFICATES_PRIVATE,*CORREDOR_SERVER_CERTIFICATES_PRIVATE*>>#
+* *type*: `string`
+* *description*: Path to private key file for {APP_AUTOMATION} server.
+
+Used by {APP_AUTOMATION} server.
+* *default*: `private.key`
+
+.[#CORREDOR_SERVER_CERTIFICATES_PUBLIC]#<<CORREDOR_SERVER_CERTIFICATES_PUBLIC,*CORREDOR_SERVER_CERTIFICATES_PUBLIC*>>#
+* *type*: `string`
+* *description*: Path to certificate file for {APP_AUTOMATION} server.
+
+Used by {APP_AUTOMATION} server.
+* *default*: `public.crt`
+
+.[#CORREDOR_CLIENT_CERTIFICATES_ENABLED]#<<CORREDOR_CLIENT_CERTIFICATES_ENABLED,*CORREDOR_CLIENT_CERTIFICATES_ENABLED*>>#
+* *type*: `boolean`
+* *description*: Establish secure connection to {APP_AUTOMATION} server.
+Set to false when running in development mode.
+
+Used by API server.
+* *default*: `true`
+
+.[#CORREDOR_CLIENT_CERTIFICATES_PATH]#<<CORREDOR_CLIENT_CERTIFICATES_PATH,*CORREDOR_CLIENT_CERTIFICATES_PATH*>>#
+* *type*: `string`
+* *description*: Base path for all certificate files.
+
+Used by API server.
+* *default*: `/certs/corredor/client`
+
+.[#CORREDOR_CLIENT_CERTIFICATES_CA]#<<CORREDOR_CLIENT_CERTIFICATES_CA,*CORREDOR_CLIENT_CERTIFICATES_CA*>>#
+* *type*: `string`
+* *description*: Path to certificate authority file.
+
+Used by API server.
+* *default*: `ca.crt`
+
+.[#CORREDOR_CLIENT_CERTIFICATES_PRIVATE]#<<CORREDOR_CLIENT_CERTIFICATES_PRIVATE,*CORREDOR_CLIENT_CERTIFICATES_PRIVATE*>>#
+* *type*: `string`
+* *description*: Path to private key file for {APP_AUTOMATION} server.
+
+Used by API server.
+* *default*: `private.key`
+
+.[#CORREDOR_CLIENT_CERTIFICATES_PUBLIC]#<<CORREDOR_CLIENT_CERTIFICATES_PUBLIC,*CORREDOR_CLIENT_CERTIFICATES_PUBLIC*>>#
+* *type*: `string`
+* *description*: Path to certificate file for {APP_AUTOMATION} server.
+
+Used by API server.
+* *default*: `public.crt`

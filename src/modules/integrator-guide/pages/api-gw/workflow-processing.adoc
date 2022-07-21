@@ -1,7 +1,7 @@
 include::ROOT:partial$variables.adoc[]
 
 = Workflow Processing
-:attachment-path: ../../examples/api-gw/
+:attachment-path: ../_attachments/api-gw/workflow-processing
 
 When your integration gateway endpoint requires additional processing and the built-in processers do not suffice, you can bind a workflow to the endpoint to handle requests.
 

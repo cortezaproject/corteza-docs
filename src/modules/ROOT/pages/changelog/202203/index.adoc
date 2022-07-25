@@ -34,6 +34,8 @@ The web console is most useful for scenarios where you may not have (or want to 
 
 :leveloffset: +1
 
+include::04.adoc[]
+
 include::03.adoc[]
 
 include::02.adoc[]

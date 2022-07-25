@@ -1,0 +1,85 @@
+include::ROOT:partial$variables.adoc[]
+
+= `2022.3.4`
+
+*Released on*: `yyyy-mm-dd`
+
+.[#2022_3_4-added]#<<2022_3_4-added,Added:>>#
+* Added a new option to the record list which forces the viewed records to be opened in a new tab instead of the current window.
+The feature was added to remove the need to navigate back and forth, re-apply filters when users are working on multiple records from a record list ({LOCALE_COMMIT_BASE}25e7090[`25e7090`], {WEBAPP_COMPOSE_COMMIT_BASE}f7191e5[`f7191e5`], {WEBAPP_JS_COMMIT_BASE}98fc48e[`98fc48e`]).
+* Added a new link to parent option to the `Record` module field which dictates wether the input value will be pre-filled with the parent's record ID.
+The feature was added to allow some cases from not pre-populating the input, such as a module with a record field which points to itself ({LOCALE_COMMIT_BASE}059ebf8[`059ebf8`], {WEBAPP_COMPOSE_COMMIT_BASE}a79a852[`a79a852`], {WEBAPP_JS_COMMIT_BASE}0e9de63[`0e9de63`]).
+* Added support for resource translations on {APP_NAME_COMPOSE} funnel and gauge charts.
+The feature allows the user to translate funnel and gauge chart step labels ({WEBAPP_COMPOSE_COMMIT_BASE}9f61346[`9f61346`]).
+* Added `Content-Type: text/javascript` header to the `config.js` file served by {PRODUCT_NAME} server.
+The headers were added because when https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types#mime_sniffing[MIME sniffing] was prevented, the web applications would stop working ({SERVER_COMMIT_BASE}1bdf2b5[`1bdf2b5`]).
+* Added new `.env` `AUTH_JWT_ALGORITHM` option allowing you to configure what algorithm to use with your JWT tokens ({SERVER_COMMIT_BASE}480e70e[`480e70e`], {SERVER_COMMIT_BASE}8e42126[`8e42126`]).
+
+.[#2022_3_4-changed]#<<2022_3_4-changed,Changed:>>#
+* The record list now waits for the filtering to finish before allowing further filtering.
+The change was made due to unexpected cases where filter A resulted after filter B so the record list showed data from filter A instead of B.
+The record list now waits for you to finish typing the query before fetching the data and locking the input ({WEBAPP_COMPOSE_COMMIT_BASE}dea2d99[`dea2d99`]).
+* Changed module field expressions to clear out the record value when the expression returns the value `null`.
+Previously, the field would show the zero-value for that type, such as `0` for `Number` field.
+The change was made to allow field expressions to clear out their values, useful for some specific cases ({SERVER_COMMIT_BASE}0bef905[`0bef905`]).
+* Changed the password reset policy to prevent users from re-using their old passwords.
+Previously, users could reset their current password to the same one as they've previously used, but now such a change is no linger allowed and caused the password reset to fail ({SERVER_COMMIT_BASE}b44024f[`b44024f`])
+* General UI/UX changes; tweaked chart resource translation button sizes ({WEBAPP_COMPOSE_COMMIT_BASE}255317a[`255317a`]), remove console error about undefined module when creating a chart ({WEBAPP_COMPOSE_COMMIT_BASE}482d971[`482d971`]), fix record field multi delimiter ({WEBAPP_COMPOSE_COMMIT_BASE}e7249fb[`e7249fb`])
+
+.[#2022_3_4-removed]#<<2022_3_4-removed,Removed:>>#
+* Removed `Boolean` and `Record` fields when searching {PRODUCT_NAME} {APP_NAME_COMPOSE} records using the search input box.
+The `Boolean` field was removed because the truthy/faulty evaluation produced too loose filters causing unexpected results.
+The `Record` field was removed because the values are searched using identifiers which caused confusion in some cases.
+You can use the field-specific filters to cover these two cases ({WEBAPP_COMPOSE_COMMIT_BASE}dea2d99[`dea2d99`]).
+
+[IMPORTANT]
+====
+The API filtering still supports the same set of fields as it did previously.
+The exclusion was specific to {APP_NAME_COMPOSE} record lists.
+====
+
+* Removed the btn:[delete] button on the create template user interface on the {APP_NAME_ADMIN} web application.
+The button was removed because there is no need for it to be there since you can't delete a not yet created template ({WEBAPP_ADMIN_COMMIT_BASE}b72bdd0[`b72bdd0`]).
+
+
+.[#2022_3_4-fixed]#<<2022_3_4-fixed,Fixed:>>#
+* Fixed the workflow expression editor modal discarding the changes when saving using the kbd:[cmd+s] shortcut.
+The kbd:[cmd+s] shortcut is now disabled when an expression editor modal window is opened ({WEBAPP_WORKFLOW_COMMIT_BASE}0803d25[`0803d25`]).
+* Fixed the trigger path change notification not disappearing when reverting using the kbd:[cmd+z] shortcut.
+The trigger path change logic now properly evaluates the kbd:[cmd+z] and kbd:[cmd+y] shortcuts ({WEBAPP_WORKFLOW_COMMIT_BASE}a43e106[`a43e106`]).
+* Fixed improper multi-value module field handling in {PRODUCT_NAME} {APP_NAME_REPORTER} tables.
+Previously, the multi-value field would cause the row to duplicate, but now it is shown as one where the values use the same multi-value delimiter as configured in the module field ({SERVER_COMMIT_BASE}d65a767[`d65a767`]).
+* Fixed RBAC rule provisioning issue where the rule migration attempted to create a duplicated RBAC rule entry.
+The migration step now skips any RBAC rules which would cause a duplicate error when migrated ({SERVER_COMMIT_BASE}1f657b3[`1f657b3`]).
+* Fixed broken backwards compatibility for the workflow compose record delete function.
+A prior bug-fix introduced additional lookup parameters which were set as required, causing the old scenario where an actual Compose Record was provided to no longer work.
+The compose record delete function's namespace and module arguments are no longer required but are enforced in the background logic ({SERVER_COMMIT_BASE}378d0f2[`378d0f2`]).
+* Fixed improper password constraint validation where the input boxes didn't properly validate some edge cases.
+The minimum password length is now limited to minimum of 8 characters and the other properties no longer allow negative values ({WEBAPP_ADMIN_COMMIT_BASE}192bc08[`192bc08`], {LOCALE_COMMIT_BASE}e0f912b[`e0f912b`], {SERVER_COMMIT_BASE}9b424a6[`9b424a6`]).
+* Fixed improper calendar {APP_NAME_COMPOSE} page block responsiveness which caused it to appear cropped when it was added.
+The bug was fixed by manually tweaking the calendar's elements for layout changes ({WEBAPP_COMPOSE_COMMIT_BASE}cf66f22[`cf66f22`]).
+* Fixed {APP_NAME_COMPOSE} charts not showing any data when the `${record}` or `${recordID}` pre-filter variables were used.
+The issue was caused because records were incorrectly resolved and not available in time ({WEBAPP_COMPOSE_COMMIT_BASE}ec33de1[`ec33de1`]).
+* Fixed `Record` field's options when using a nested `Record` field where data is duplicated.
+The fix now correctly resolves duplicated records and correctly displays option labels ({WEBAPP_COMPOSE_COMMIT_BASE}b954f59[`b954f59`]).
+* Fixed record list's display where only one column is shown.
+The issue was resolved by adjusting the columns for the "metadata" (the checkbox and the action buttons) ({WEBAPP_COMPOSE_COMMIT_BASE}2671c5d[`2671c5d`])
+* Fixed record page preview when accessing without a record.
+The page no longer infinitely loads and generally prevents access if there is no record ({WEBAPP_COMPOSE_COMMIT_BASE}21c4f04[`21c4f04`], {WEBAPP_COMPOSE_COMMIT_BASE}924934e[`924934e`]).
+* Fixed a visual bug with multi-value `Record` fields where the last selected record would be shown as the placeholder even if removed from the list of selected records.
+The fix now opts out of using the last selected record as the placeholder but falls back to a generic label ({WEBAPP_COMPOSE_COMMIT_BASE}491bc19[`491bc19`]).
+* Fixed a display error for report tables when a joined data source provided no data.
+The table column now properly handles this edge-cases and constructs the table appropriately ({WEBAPP_REPORTER_COMMIT_BASE}953556a[`953556a`])
+* Fixed an error when trying to mark a role as contextual.
+The error was caused by an invalid internal state and is now resolved ({WEBAPP_ADMIN_COMMIT_BASE}b14e4e7[`b14e4e7`])
+* Fixed failing index creation for {PRODUCT_NAME} {APP_NAME_DISCOVERY} caused by an unsupported data type.
+The fix changes the used data type for the cases which caused the index to fail.
+The error was caused by identifier indexes such as module ID, namespace ID, and record ID ({SERVER_COMMIT_BASE}25ebf75[`25ebf75`])
+* Fixed invalid time produced by the `Date Time` field when time, past/future, and relative output options were selected.
+The date-time logic now properly handles this option combination and properly handles the value ({WEBAPP_JS_COMMIT_BASE}a4bbbab[`a4bbbab`]).
+* Fix improper resource translations for {APP_NAME_COMPOSE} charts when looking up specific charts ({SERVER_COMMIT_BASE}b8ad97e[`b8ad97e`]), module fields when looking up specific modules ({SERVER_COMMIT_BASE}5ccd682[`5ccd682`])
+* Fixed improper record list and chart pre-filter evaluation which caused a pre-filter with `${recordID}` to display no data when creating new records ({WEBAPP_COMPOSE_COMMIT_BASE}6da48a0[`6da48a0`])
+* Fixed invalid counter when exporting records from a record list ({WEBAPP_COMPOSE_COMMIT_BASE}d837e9e[`d837e9e`]).
+
+.[#2022_3_4-development]#<<2022_3_4-development,Development:>>#
+* Added SonarQube GitHub build action to {PRODUCT_NAME} server ({SERVER_COMMIT_BASE}5999c70[`5999c70`]).

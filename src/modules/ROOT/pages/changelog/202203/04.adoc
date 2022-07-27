@@ -2,7 +2,7 @@ include::ROOT:partial$variables.adoc[]
 
 = `2022.3.4`
 
-*Released on*: `yyyy-mm-dd`
+*Released on*: `2022-07-27`
 
 .[#2022_3_4-added]#<<2022_3_4-added,Added:>>#
 * Added a new option to the record list which forces the viewed records to be opened in a new tab instead of the current window.

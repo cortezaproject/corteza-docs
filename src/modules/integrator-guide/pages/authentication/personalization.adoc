@@ -155,7 +155,7 @@ The development tool displays all of the templates with all of the scenarios.
 .A screenshot of the authentication customization development tool.
 image::personalization/devtool.png[role="data-zoomable"]
 
-== Deploying the Changed Sssets
+== Deploying the Changed Assets
 
 Once you enable the <<env-devmode,`AUTH_DEVELOPMENT_MODE`>> `.env` variable, the changed assets deploy automatically.
 

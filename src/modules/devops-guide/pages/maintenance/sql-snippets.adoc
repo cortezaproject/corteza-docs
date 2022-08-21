@@ -30,7 +30,7 @@ delete from compose_record;
 [source,sql]
 ----
 -- Record values
-delete from compose_record_value where record_id in (select id from compose_record where rel_namespace = {NAMESPACE_ID} AND module_id = {MODULE_ID});
+delete from compose_record_value where record_id in (select id from compose_record where rel_namespace = {NAMESPACE_ID} AND rel_module = {MODULE_ID});
 
 -- Records
 delete from compose_record where rel_namespace = {NAMESPACE_ID};
@@ -41,10 +41,10 @@ delete from compose_record where rel_namespace = {NAMESPACE_ID};
 [source,sql]
 ----
 -- Record values
-delete from compose_record_value where record_id in (select id from compose_record where rel_namespace = {NAMESPACE_ID} AND module_id = {MODULE_ID});
+delete from compose_record_value where record_id in (select id from compose_record where rel_namespace = {NAMESPACE_ID} AND rel_module = {MODULE_ID});
 
 -- Records
-delete from compose_record where rel_namespace = {NAMESPACE_ID} AND module_id = {MODULE_ID};
+delete from compose_record where rel_namespace = {NAMESPACE_ID} AND rel_module = {MODULE_ID};
 ----
 
 
@@ -52,7 +52,7 @@ delete from compose_record where rel_namespace = {NAMESPACE_ID} AND module_id = 
 
 [source,sql]
 ----
-delete from compose_record_value where name = {FIELD_NAME} AND record_id in (select id from compose_record where rel_namespace = {NAMESPACE_ID} AND module_id = {MODULE_ID});
+delete from compose_record_value where name = {FIELD_NAME} AND record_id in (select id from compose_record where rel_namespace = {NAMESPACE_ID} AND rel_module = {MODULE_ID});
 ----
 
 == Deleting All Soft Deleted Records
@@ -60,8 +60,8 @@ delete from compose_record_value where name = {FIELD_NAME} AND record_id in (sel
 [source,sql]
 ----
 -- Record values
-delete from compose_record_value where record_id in (select id from compose_record where rel_namespace = {NAMESPACE_ID} AND module_id = {MODULE_ID} and deleted_at IS NOT NULL);
+delete from compose_record_value where record_id in (select id from compose_record where rel_namespace = {NAMESPACE_ID} AND rel_module = {MODULE_ID} and deleted_at IS NOT NULL);
 
 -- Records
-delete from compose_record where rel_namespace = {NAMESPACE_ID} AND module_id = {MODULE_ID} and deleted_at IS NOT NULL;
+delete from compose_record where rel_namespace = {NAMESPACE_ID} AND rel_module = {MODULE_ID} and deleted_at IS NOT NULL;
 ----

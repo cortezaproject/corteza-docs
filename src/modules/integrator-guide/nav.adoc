@@ -37,6 +37,7 @@
 **** xref:accessing-corteza/examples/compose-records-bulk.adoc[]
 **** xref:accessing-corteza/examples/compose-attachments.adoc[]
 
+
 ** xref:compose-configuration/index.adoc[]
 *** xref:compose-configuration/import-export.adoc[]
 *** xref:compose-configuration/field-types.adoc[]
@@ -124,6 +125,15 @@
 *** xref:troubleshooting/logging.adoc[]
 
 ** xref:miscellaneous.adoc[]
+
+** xref:data-access-layer/index.adoc[]
+
+** xref:data-privacy/index.adoc[]
+
+** xref:corteza-duplicate-detection/index.adoc[]
+
+** xref:record-revision/index.adoc[]
+
 
 // ** xref:provisioning/index.adoc[]
 // *** ...

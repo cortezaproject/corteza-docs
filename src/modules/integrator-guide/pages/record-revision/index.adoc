@@ -1,0 +1,10 @@
+include::ROOT:partial$variables.adoc[]
+
+
+= Record revision
+
+[Note]
+This feature is one of the many capabilities of data access layer(DAL).
+
+
+Extending records and adding “revision” system field that holds a number that increments every time record is updated. All changes of a record is stored with an author and timestamp and can be accessed from the Compose.

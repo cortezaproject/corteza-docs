@@ -43,13 +43,13 @@ Corteza finds and handles duplicates using a combination of matching rules and d
 
 |=======================
 
-// === Customize Duplicate Management
+=== Customize Duplicate Management
 
-// Configure duplicate management to align with other customizations you make and detect duplicates missed by standard rules. Customize the user interface for handling duplicates: For example, block users from creating duplicates instead of just warning them, or run different duplicate rules for different user profiles. Customize the logic used to identify duplicates: For example, include a custom field in a matching rule, specify field mapping, or customize matching criteria on fields.
+Configure duplicate management to align with other customizations you make and detect duplicates missed by standard rules. Customize the user interface for handling duplicates: For example, block users from creating duplicates instead of just warning them, or run different duplicate rules for different user profiles. Customize the logic used to identify duplicates: For example, include a custom field in a matching rule, specify field mapping, or customize matching criteria on fields.
 
 // All duplicate detection jobs use pre-defined rules often referred to as **Duplicate Detection Rules** when searching for duplicates. These rules have single or multiple combinations of selecting the data entities referred to as **Criteria**, fields and defining constraints on selecting values under each.
 
-=== Benefits of corteza duplicate tection
+=== Benefits of corteza duplicate detetection
 - To maintain data quality
 - For improved accuracy and efficiency in data processing and generating information
 - For effective description making

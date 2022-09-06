@@ -1,8 +1,6 @@
 include::ROOT:partial$variables.adoc[]
 
-
 = Corteza duplicate detection
-
 
 :keywords: API, {PRODUCT_NAME} API, {PRODUCT_NAME}
 :description: Learn how to USE {PRODUCT_NAME} duplicate detection to maintain clean and accurate data.
@@ -11,7 +9,6 @@ Corteza through the Duplicate detection feature helps maintain clean and accurat
 
 [NOTE]
 The duplicate detection feature can be used in  creating or editing a record, on existing records, importing records, etc. 
-
 
 There are two main distinctive Categories:
     
@@ -55,7 +52,6 @@ Configure duplicate management to align with other customizations you make and d
 - For effective description making
 - For optimising data storage requirements
 - To minimise and manage errors
-
 
 === User Stories
 [User Stories]

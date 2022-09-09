@@ -2,3 +2,4 @@
 
 ** xref:crm/index.adoc[]
 ** xref:case-management/index.adoc[]
+** xref:access-control/index.adoc[]

@@ -1,0 +1,40 @@
+= Corteza Access control
+
+Corteza's access control is a powerful tool that restricts access based on  roles(RBAC-role based access control) of individual users within an enterprise. This ensures users can only access information they need to do their jobs and prevents them from accessing information that doesn't pertain to them.
+
+[IMPORTANT]
+The core principle is to allocate enough access for an employee to do their job.
+
+//The corteza RBAC has a feature rich interface that not only allows the adminstartor to review users but also combine their variouis roles.
+
+*Role definition*
+
+A role definition is a collection of *permissions*. It's sometimes just called a role. A role definition lists the actions that can be performed, such as 
+read, write, and delete.
+
+For example, you may designate a user an administrator role and limit access to specific resources or tasks. Inside an organization, different roles may be provided write access while others may only be provided viewing permissions.
+
+*Evaluation of permission applied*
+
+Corteza RBAC uses the roles of the given user to determine if they have access to a given resource.
+
+Therefore you can evaluate the permissions applied to a particular user by listing  the actions that are allowed actions against actions that are forbidden.
+
+  The following shows an example of the various roles.
+  // IMAGE 
+
+===  Use cases
+
+* Through RBAC, you can control what end-users can do at board and granular levels. You can designate whether the user is an administrator or standard user, and align roles and permissions based on the user's position in the organization. 
+
+* If the employee's job changes, you may need to add and/or remove them for their current role group.
+
+* By adding a user to a role group, the user has access to all the permissions of that group. If they are removed, access becomes restricted. Users can also be assigned temporary access to certain data or programs to complete a task and be removed after.
+
+An update for this. Endpoint for evaluating permissions of a combination of roles and/or a user has been prepared.
+
+=== Features 
+* Review users and their asssigned permissions.
+* Permissions of a role Authenticated are editable.
+* combination of roles.
+* Low code administrator permissions are evaluated

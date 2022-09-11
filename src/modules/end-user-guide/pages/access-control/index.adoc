@@ -1,4 +1,4 @@
-= Corteza Access control
+= Access Control
 
 Corteza's access control is a powerful tool that restricts access based on  roles(RBAC-role based access control) of individual users within an enterprise. This ensures users can only access information they need to do their jobs and prevents them from accessing information that doesn't pertain to them.
 
@@ -7,23 +7,29 @@ The core principle is to allocate enough access for an employee to do their job.
 
 //The corteza RBAC has a feature rich interface that not only allows the adminstartor to review users but also combine their variouis roles.
 
-*Role definition*
+== What is Role-Based Access Control?
 
-A role definition is a collection of *permissions*. It's sometimes just called a role. A role definition lists the actions that can be performed, such as 
-read, write, and delete.
+Role-based access control (RBAC) helps you manage who has access to resources, what they can do with those resources, and what areas they have access to.
 
-For example, you may designate a user an administrator role and limit access to specific resources or tasks. Inside an organization, different roles may be provided write access while others may only be provided viewing permissions.
+Corteza RBAC has many features, such as access to an operating system limited to specified functions, including generating, altering, or viewing a file. You can ensure the security of a company's essential data and mission-critical applications with RBAC. 
 
-*Evaluation of permission applied*
+Three primary rules are defined for RBAC:
 
-Corteza RBAC uses the roles of the given user to determine if they have access to a given resource.
+1. Role assignment: A subject can exercise a permission only if the subject has selected or been assigned a role.
 
-Therefore you can evaluate the permissions applied to a particular user by listing  the actions that are allowed actions against actions that are forbidden.
+2. Role authorization: A subject's active role must be authorized for the subject. With rule 1 above, this rule ensures that users can take on only roles for which they are authorized.
 
-  The following shows an example of the various roles.
-  // IMAGE 
+3. Permission authorization: A subject can exercise a permission only if the permission is authorized for the subject's active role. With rules 1 and 2, this rule ensures that users can exercise only permissions for which they are authorized.
 
-===  Use cases
+=== Features of Corteza RBAC System
+
+* Review users and their asssigned permissions.
+* Permissions of a role Authenticated are editable.
+* combination of roles.
+* Low code administrator permissions are evaluated
+
+
+*Use cases*
 
 * Through RBAC, you can control what end-users can do at board and granular levels. You can designate whether the user is an administrator or standard user, and align roles and permissions based on the user's position in the organization. 
 
@@ -31,10 +37,3 @@ Therefore you can evaluate the permissions applied to a particular user by listi
 
 * By adding a user to a role group, the user has access to all the permissions of that group. If they are removed, access becomes restricted. Users can also be assigned temporary access to certain data or programs to complete a task and be removed after.
 
-An update for this. Endpoint for evaluating permissions of a combination of roles and/or a user has been prepared.
-
-=== Features 
-* Review users and their asssigned permissions.
-* Permissions of a role Authenticated are editable.
-* combination of roles.
-* Low code administrator permissions are evaluated

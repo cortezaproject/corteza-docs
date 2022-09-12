@@ -29,7 +29,7 @@ Three primary rules are defined for RBAC:
 * Low code administrator permissions are evaluated
 
 
-*Use cases*
+=== Use cases
 
 * Through RBAC, you can control what end-users can do at board and granular levels. You can designate whether the user is an administrator or standard user, and align roles and permissions based on the user's position in the organization. 
 

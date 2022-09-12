@@ -1,0 +1,7 @@
+= Permissions
+
+A permission is what is needed to execute/access an resource. Permissions are assigned to roles, and resources require a set of permissions.
+
+Permissions control who has access to what on a network and even what level of permission they have. Administrators, for example, will have access to all folders or files, and they grant access to those resources to others. Those permissions might be to only read a file, but not edit it, or they may include edit access as well. Permissions are typically granted based on the role a person plays inside a company.
+
+For example: The user has Read access to Folder A. Folder B is a child folder of Folder A. Therefore, User has Read access to Folder B. Permissions propagation also works for new folders. If someone creates Folder C as a child of either Folder A or B, User has Read access to Folder C.

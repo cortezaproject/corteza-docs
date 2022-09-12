@@ -1,0 +1,40 @@
+= Evaluate applied permissions
+
+Corteza RBAC uses the roles of the given user to determine if they have access to a given resource.
+
+Therefore a user can evaluate the permissions applied to a particular user by listing  the actions that are allowed actions.
+
+== How to evaluate applied permissions
+
+1. Once you're logged into corteza, click the *[admin area]* card
+
+image::access-control/admin-area.png[role="data-zoomable"]
+
+2.Click on *[Roles]* button to see a list of all availabe roles 
+
+image::access-control/role-button.png[role="data-zoomable"]
+ 
+3.Click the *[permissions button]*.
+
+image::access-control/role-permission.png[role="data-zoomable"]
+
+
+4.Click the *[add +]* button to evaluate applied permissions
+
+image::access-control/evaluate-permission.png[role="data-zoomable"]
+
+
+5.Click the *[select roles]* dropdown and select a role or the *[select user]* to choose a user.
+
+image::access-control/evaluatePermission.png[role="data-zoomable"]
+
+
+6.Click the *[save & close]* button.
+
+image::access-control/save-permissions.png[role="data-zoomable"]
+
+
+7.Repeat the steps again choosing a different role on step 5 inorder to make a comparison on the different permissions allowed to a given user.
+
+image::access-control/save-eval.png[role="data-zoomable"]
+

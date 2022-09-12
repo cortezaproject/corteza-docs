@@ -2,4 +2,11 @@
 
 ** xref:crm/index.adoc[]
 ** xref:case-management/index.adoc[]
+
 ** xref:access-control/index.adoc[]
+*** xref:access-control/users/index.adoc[]
+**** xref:access-control/users/creating.adoc[]
+*** xref:access-control/roles/index.adoc[]
+**** xref:access-control/roles/assign.adoc[]
+*** xref:access-control/permissions/index.adoc[]
+**** xref:access-control/permissions/evaluate-applied-permissions.adoc[]

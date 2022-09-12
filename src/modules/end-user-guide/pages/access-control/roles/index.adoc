@@ -1,0 +1,5 @@
+= Role 
+
+== What is a role ?
+
+Roles are a collection of permissions that you can bind to a resource; this binding allows the privileges associated with that role to be performed on that resource.

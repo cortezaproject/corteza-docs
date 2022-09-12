@@ -1,0 +1,46 @@
+= Assigning a role
+
+[NOTE]
+When assigning a role to a user it is important to note that both the role being assigned and the user the role is being assigned to must already exist. 
+
+Refer to the documentation to create a user and create a role for help.
+
+Role assignment: A subject can exercise a permission only if the subject has been assigned a role.
+
+When assigning a role it is to important allocate enough access for an employee to do their job.
+
+Follow these steps to assign a new role in corteza.
+
+1. Once you're logged in, click the *admin area card*
+ 
+ image::access-control/admin-area.png[role="data-zoomable"]
+
+ 
+2. Click on *user* tab to see a list of all availabe users
+
+image::access-control/user-button.png[role="data-zoomable"]
+
+3.If the user does on yet exist, click the *[New] button to add a new user.
+
+image::access-control/new-user.png[role="data-zoomable"]
+
+4.Fill in the details of the user.
+
+image::access-control/user-details.png[role="data-zoomable"]
+
+5.Click the *[submit]* button.
+
+image::access-control/user-submit.png[role="data-zoomable"]
+ 
+6.Click on *[edit]* button on the particular user to assign  
+  
+  image::access-control/edit-role.png[role="data-zoomable"]
+
+7.on role membership section, type out the details a particular role and *[select]* the preferred role to assign it th the user 
+
+image::access-control/search-role.png[role="data-zoomable"]
+  
+8.Click the submit button.
+
+image::access-control/submit-role.png[role="data-zoomable"]
+  

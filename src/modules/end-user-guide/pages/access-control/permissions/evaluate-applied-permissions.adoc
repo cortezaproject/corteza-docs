@@ -2,7 +2,7 @@
 
 Corteza RBAC uses the roles of the given user to determine if they have access to a given resource.
 
-Therefore a user can evaluate the permissions applied to a particular user by listing  the actions that are allowed actions.
+Therefore a user can evaluate the permissions applied to a particular user by listing  the actions that are allowed in different roles.
 
 == How to evaluate applied permissions
 

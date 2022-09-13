@@ -2,22 +2,22 @@
 
 [cols="1s,5a,5a"]
 |===
-| Operation| Description | Default
+| Operation| Description | Access Rights
 
 
 | [#rbac-chart-read]#<<rbac-chart-read,read>>#
 | read
-| Deny
+| Allow, Inherit, *Deny*(Default)
 
 
 | [#rbac-chart-update]#<<rbac-chart-update,update>>#
 | update
-| Deny
+| Allow, Inherit, *Deny*(Default)
 
 
 | [#rbac-chart-delete]#<<rbac-chart-delete,delete>>#
 | delete
-| Deny
+| Allow, Inherit, *Deny*(Default)
 
 
 |===

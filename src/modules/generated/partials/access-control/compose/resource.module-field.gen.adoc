@@ -2,17 +2,17 @@
 
 [cols="1s,5a,5a"]
 |===
-| Operation| Description | Default
+| Operation| Description | Access Rights
 
 
 | [#rbac-module-field-record.value.read]#<<rbac-module-field-record.value.read,record.value.read>>#
 | Read field value on records
-| Deny
+| Allow, Inherit, *Deny*(Default)
 
 
 | [#rbac-module-field-record.value.update]#<<rbac-module-field-record.value.update,record.value.update>>#
 | Update field value on records
-| Deny
+| Allow, Inherit, *Deny*(Default)
 
 
 |===

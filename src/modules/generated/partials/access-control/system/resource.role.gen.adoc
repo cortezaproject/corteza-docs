@@ -2,27 +2,27 @@
 
 [cols="1s,5a,5a"]
 |===
-| Operation| Description | Default
+| Operation| Description | Access Rights
 
 
 | [#rbac-role-read]#<<rbac-role-read,read>>#
 | Read role
-| Deny
+| Allow, Inherit, *Deny*(Default)
 
 
 | [#rbac-role-update]#<<rbac-role-update,update>>#
 | Update role
-| Deny
+| Allow, Inherit, *Deny*(Default)
 
 
 | [#rbac-role-delete]#<<rbac-role-delete,delete>>#
 | Delete role
-| Deny
+| Allow, Inherit, *Deny*(Default)
 
 
 | [#rbac-role-members.manage]#<<rbac-role-members.manage,members.manage>>#
 | Manage members
-| Deny
+| Allow, Inherit, *Deny*(Default)
 
 
 |===

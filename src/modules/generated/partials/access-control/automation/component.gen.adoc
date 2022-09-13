@@ -2,37 +2,37 @@
 
 [cols="1s,5a,5a"]
 |===
-| Operation| Description | Default
+| Operation| Description | Access Rights
 
 
 | [#rbac-automation-grant]#<<rbac-automation-grant,grant>>#
 | Manage automation permissions
-| Deny
+| Allow, Inherit, *Deny*(Default)
 
 
 | [#rbac-automation-workflow.create]#<<rbac-automation-workflow.create,workflow.create>>#
 | Create workflows
-| Deny
+| Allow, Inherit, *Deny*(Default)
 
 
 | [#rbac-automation-triggers.search]#<<rbac-automation-triggers.search,triggers.search>>#
 | List, search or filter triggers
-| Deny
+| Allow, Inherit, *Deny*(Default)
 
 
 | [#rbac-automation-sessions.search]#<<rbac-automation-sessions.search,sessions.search>>#
 | List, search or filter sessions
-| Deny
+| Allow, Inherit, *Deny*(Default)
 
 
 | [#rbac-automation-workflows.search]#<<rbac-automation-workflows.search,workflows.search>>#
 | List, search or filter workflows
-| Deny
+| Allow, Inherit, *Deny*(Default)
 
 
 | [#rbac-automation-resource-translations.manage]#<<rbac-automation-resource-translations.manage,resource-translations.manage>>#
 | List, search, create, or update resource translations
-| Deny
+| Allow, Inherit, *Deny*(Default)
 
 
 |===

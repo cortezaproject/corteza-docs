@@ -2,37 +2,37 @@
 
 [cols="1s,5a,5a"]
 |===
-| Operation| Description | Default
+| Operation| Description | Access Rights
 
 
 | [#rbac-compose-grant]#<<rbac-compose-grant,grant>>#
 | Manage compose permissions
-| Deny
+| Allow, Inherit, *Deny*(Default)
 
 
 | [#rbac-compose-settings.read]#<<rbac-compose-settings.read,settings.read>>#
 | Read settings
-| Deny
+| Allow, Inherit, *Deny*(Default)
 
 
 | [#rbac-compose-settings.manage]#<<rbac-compose-settings.manage,settings.manage>>#
 | Manage settings
-| Deny
+| Allow, Inherit, *Deny*(Default)
 
 
 | [#rbac-compose-namespace.create]#<<rbac-compose-namespace.create,namespace.create>>#
 | Create namespace
-| Deny
+| Allow, Inherit, *Deny*(Default)
 
 
 | [#rbac-compose-namespaces.search]#<<rbac-compose-namespaces.search,namespaces.search>>#
 | List, search or filter namespaces
-| Deny
+| Allow, Inherit, *Deny*(Default)
 
 
 | [#rbac-compose-resource-translations.manage]#<<rbac-compose-resource-translations.manage,resource-translations.manage>>#
 | List, search, create, or update resource translations
-| Deny
+| Allow, Inherit, *Deny*(Default)
 
 
 |===

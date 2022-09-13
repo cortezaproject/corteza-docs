@@ -2,12 +2,12 @@
 
 [cols="1s,5a,5a"]
 |===
-| Operation| Description | Default
+| Operation| Description | Access Rights
 
 
 | [#rbac-exposed-module-manage]#<<rbac-exposed-module-manage,manage>>#
 | Manage exposed module module
-| Deny
+| Allow, Inherit, *Deny*(Default)
 
 
 |===

@@ -2,27 +2,27 @@
 
 [cols="1s,5a,5a"]
 |===
-| Operation| Description | Default
+| Operation| Description | Access Rights
 
 
 | [#rbac-report-read]#<<rbac-report-read,read>>#
 | Read report
-| Deny
+| Allow, Inherit, *Deny*(Default)
 
 
 | [#rbac-report-update]#<<rbac-report-update,update>>#
 | Update report
-| Deny
+| Allow, Inherit, *Deny*(Default)
 
 
 | [#rbac-report-delete]#<<rbac-report-delete,delete>>#
 | Delete report
-| Deny
+| Allow, Inherit, *Deny*(Default)
 
 
 | [#rbac-report-run]#<<rbac-report-run,run>>#
 | Run report
-| Deny
+| Allow, Inherit, *Deny*(Default)
 
 
 |===

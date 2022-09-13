@@ -2,37 +2,37 @@
 
 [cols="1s,5a,5a"]
 |===
-| Operation| Description | Default
+| Operation| Description | Access Rights
 
 
 | [#rbac-federation-grant]#<<rbac-federation-grant,grant>>#
 | Manage federation permissions
-| Deny
+| Allow, Inherit, *Deny*(Default)
 
 
 | [#rbac-federation-pair]#<<rbac-federation-pair,pair>>#
 | Pair federation nodes
-| Deny
+| Allow, Inherit, *Deny*(Default)
 
 
 | [#rbac-federation-settings.read]#<<rbac-federation-settings.read,settings.read>>#
 | Read settings
-| Deny
+| Allow, Inherit, *Deny*(Default)
 
 
 | [#rbac-federation-settings.manage]#<<rbac-federation-settings.manage,settings.manage>>#
 | Manage settings
-| Deny
+| Allow, Inherit, *Deny*(Default)
 
 
 | [#rbac-federation-node.create]#<<rbac-federation-node.create,node.create>>#
 | Create new federation node
-| Deny
+| Allow, Inherit, *Deny*(Default)
 
 
 | [#rbac-federation-nodes.search]#<<rbac-federation-nodes.search,nodes.search>>#
 | List, search or filter federation nodes
-| Deny
+| Allow, Inherit, *Deny*(Default)
 
 
 |===

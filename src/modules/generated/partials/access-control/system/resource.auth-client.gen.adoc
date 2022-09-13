@@ -2,27 +2,27 @@
 
 [cols="1s,5a,5a"]
 |===
-| Operation| Description | Default
+| Operation| Description | Access Rights
 
 
 | [#rbac-auth-client-read]#<<rbac-auth-client-read,read>>#
 | Read authorization client
-| Deny
+| Allow, Inherit, *Deny*(Default)
 
 
 | [#rbac-auth-client-update]#<<rbac-auth-client-update,update>>#
 | Update authorization client
-| Deny
+| Allow, Inherit, *Deny*(Default)
 
 
 | [#rbac-auth-client-delete]#<<rbac-auth-client-delete,delete>>#
 | Delete authorization client
-| Deny
+| Allow, Inherit, *Deny*(Default)
 
 
 | [#rbac-auth-client-authorize]#<<rbac-auth-client-authorize,authorize>>#
 | Authorize authorization client
-| Deny
+| Allow, Inherit, *Deny*(Default)
 
 
 |===

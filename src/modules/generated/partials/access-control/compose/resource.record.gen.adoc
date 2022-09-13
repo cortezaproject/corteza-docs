@@ -2,22 +2,22 @@
 
 [cols="1s,5a,5a"]
 |===
-| Operation| Description | Default
+| Operation| Description | Access Rights
 
 
 | [#rbac-record-read]#<<rbac-record-read,read>>#
 | read
-| Deny
+| Allow, Inherit, *Deny*(Default)
 
 
 | [#rbac-record-update]#<<rbac-record-update,update>>#
 | update
-| Deny
+| Allow, Inherit, *Deny*(Default)
 
 
 | [#rbac-record-delete]#<<rbac-record-delete,delete>>#
 | delete
-| Deny
+| Allow, Inherit, *Deny*(Default)
 
 
 |===

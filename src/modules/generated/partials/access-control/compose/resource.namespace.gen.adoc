@@ -2,57 +2,57 @@
 
 [cols="1s,5a,5a"]
 |===
-| Operation| Description | Default
+| Operation| Description | Access Rights
 
 
 | [#rbac-namespace-read]#<<rbac-namespace-read,read>>#
 | read
-| Deny
+| Allow, Inherit, *Deny*(Default)
 
 
 | [#rbac-namespace-update]#<<rbac-namespace-update,update>>#
 | update
-| Deny
+| Allow, Inherit, *Deny*(Default)
 
 
 | [#rbac-namespace-delete]#<<rbac-namespace-delete,delete>>#
 | delete
-| Deny
+| Allow, Inherit, *Deny*(Default)
 
 
 | [#rbac-namespace-manage]#<<rbac-namespace-manage,manage>>#
 | Access to namespace admin panel
-| Deny
+| Allow, Inherit, *Deny*(Default)
 
 
 | [#rbac-namespace-module.create]#<<rbac-namespace-module.create,module.create>>#
 | Create module on namespace
-| Deny
+| Allow, Inherit, *Deny*(Default)
 
 
 | [#rbac-namespace-modules.search]#<<rbac-namespace-modules.search,modules.search>>#
 | List, search or filter module on namespace
-| Deny
+| Allow, Inherit, *Deny*(Default)
 
 
 | [#rbac-namespace-chart.create]#<<rbac-namespace-chart.create,chart.create>>#
 | Create chart on namespace
-| Deny
+| Allow, Inherit, *Deny*(Default)
 
 
 | [#rbac-namespace-charts.search]#<<rbac-namespace-charts.search,charts.search>>#
 | List, search or filter chart on namespace
-| Deny
+| Allow, Inherit, *Deny*(Default)
 
 
 | [#rbac-namespace-page.create]#<<rbac-namespace-page.create,page.create>>#
 | Create page on namespace
-| Deny
+| Allow, Inherit, *Deny*(Default)
 
 
 | [#rbac-namespace-pages.search]#<<rbac-namespace-pages.search,pages.search>>#
 | List, search or filter pages on namespace
-| Deny
+| Allow, Inherit, *Deny*(Default)
 
 
 |===

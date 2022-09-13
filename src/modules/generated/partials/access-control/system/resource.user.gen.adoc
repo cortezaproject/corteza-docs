@@ -2,47 +2,47 @@
 
 [cols="1s,5a,5a"]
 |===
-| Operation| Description | Default
+| Operation| Description | Access Rights
 
 
 | [#rbac-user-read]#<<rbac-user-read,read>>#
 | Read user
-| Deny
+| Allow, Inherit, *Deny*(Default)
 
 
 | [#rbac-user-update]#<<rbac-user-update,update>>#
 | Update user
-| Deny
+| Allow, Inherit, *Deny*(Default)
 
 
 | [#rbac-user-delete]#<<rbac-user-delete,delete>>#
 | Delete user
-| Deny
+| Allow, Inherit, *Deny*(Default)
 
 
 | [#rbac-user-suspend]#<<rbac-user-suspend,suspend>>#
 | Suspend user
-| Deny
+| Allow, Inherit, *Deny*(Default)
 
 
 | [#rbac-user-unsuspend]#<<rbac-user-unsuspend,unsuspend>>#
 | Unsuspend user
-| Deny
+| Allow, Inherit, *Deny*(Default)
 
 
 | [#rbac-user-email.unmask]#<<rbac-user-email.unmask,email.unmask>>#
 | Unmask email
-| Deny
+| Allow, Inherit, *Deny*(Default)
 
 
 | [#rbac-user-name.unmask]#<<rbac-user-name.unmask,name.unmask>>#
 | Unmask name
-| Deny
+| Allow, Inherit, *Deny*(Default)
 
 
 | [#rbac-user-impersonate]#<<rbac-user-impersonate,impersonate>>#
 | Impersonate user
-| Deny
+| Allow, Inherit, *Deny*(Default)
 
 
 |===

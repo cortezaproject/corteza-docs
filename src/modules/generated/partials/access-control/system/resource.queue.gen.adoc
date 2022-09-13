@@ -2,32 +2,32 @@
 
 [cols="1s,5a,5a"]
 |===
-| Operation| Description | Default
+| Operation| Description | Access Rights
 
 
 | [#rbac-queue-read]#<<rbac-queue-read,read>>#
 | Read queue
-| Deny
+|Allow, Inherit, *Deny*(Default)
 
 
 | [#rbac-queue-update]#<<rbac-queue-update,update>>#
 | Update queue
-| Deny
+|Allow, Inherit, *Deny*(Default)
 
 
 | [#rbac-queue-delete]#<<rbac-queue-delete,delete>>#
 | Delete queue
-| Deny
+|Allow, Inherit, *Deny*(Default)
 
 
 | [#rbac-queue-queue.read]#<<rbac-queue-queue.read,queue.read>>#
 | Read from queue
-| Deny
+|Allow, Inherit, *Deny*(Default)
 
 
 | [#rbac-queue-queue.write]#<<rbac-queue-queue.write,queue.write>>#
 | Write to queue
-| Deny
+| Allow, Inherit, *Deny*(Default)
 
 
 |===

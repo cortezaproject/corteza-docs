@@ -1,11 +1,11 @@
-= Adding a new User
+= Create a new User
 
 1. Once you're logged in, click the *admin area card*
  
 image::access-control/admin-area.png[role="data-zoomable"]
 
  
-2.Click on *user* tab to see a list of all availabe users
+2.Click on *Users* tab to see a list of all availabe users
 
 image::access-control/user-button.png[role="data-zoomable"]
 

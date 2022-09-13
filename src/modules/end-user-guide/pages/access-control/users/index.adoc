@@ -1,9 +1,39 @@
-= User
+= User Management
 
-A user, or user account, allows an employee to establish a presence on the network in order to gain access to important files and folders. Without a user account, which typically requires a user name and password, an employee credentials cannot be authenticated and he or she is unknown to the network.
+A user is anyone visiting your corteza instance. There are three groups of users:
 
-A user account inside an organization is what identifies an individual as authorized to enter the network and prevents the outside world from getting into a business' system. Most users have a standard account, with permissions set by another type of user account - an administrator.
+* Users who are not logged in, or anonymous users
+* Users who are logged in, or authenticated users
+* The administrative user account that was automatically created when you installed your site, or the first user of your corteza instance.
+
+User account, allows an employee to establish a presence in the corteza instance in order to gain access to resources. 
+
+Most users have a standard account, with permissions set by another type of user account - an administrator.
 
 User accounts are designed to enable an administrator to assign file access and grant task permissions.
 
 A group is made up of users that needs the same access rights to the same resources, folders and files.
+
+== User Interface
+
+The user management user interface resides in the xref:index.adoc#webapp-admin[{PRODUCT_NAME} {APP_NAME_ADMIN}] web application, under the menu:system[users] section.
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "access-control/user-list.png",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {},
+  "annotations": [{
+    "kind": "box",
+    "padding": "xs",
+    "x": 16,
+    "y": 144,
+    "w": 288,
+    "h": 37
+  }]
+}
+----

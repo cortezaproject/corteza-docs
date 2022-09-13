@@ -1,0 +1,28 @@
+= List all roles
+
+== Listing Roles
+
+To list current system roles:
+
+. On the homepage click the *[Admin Area]* to navigate to menu:system[roles],
+. optionally insert the filtering parameters.
+. The list refreshes automatically.
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "access-control/roles/list.png",
+    "alias": "security-model-roles-list",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {
+    "x": 321,
+    "y": 0,
+    "w": 1599,
+    "h": 960
+  },
+  "annotations": []
+}
+----

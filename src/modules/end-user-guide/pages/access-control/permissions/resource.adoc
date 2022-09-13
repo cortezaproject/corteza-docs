@@ -1,0 +1,13 @@
+= Resource Operation Reference
+
+:leveloffset: +1
+
+include::generated:partial$access-control/system/index.gen.adoc[]
+
+include::generated:partial$access-control/compose/index.gen.adoc[]
+
+include::generated:partial$access-control/federation/index.gen.adoc[]
+
+include::generated:partial$access-control/automation/index.gen.adoc[]
+
+:leveloffset: -1

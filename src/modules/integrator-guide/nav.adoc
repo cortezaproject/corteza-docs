@@ -133,7 +133,6 @@
 ** xref:corteza-duplicate-detection/index.adoc[]
 
 ** xref:record-revision/index.adoc[]
-** xref:permissions/index.adoc[]
 
 
 // ** xref:provisioning/index.adoc[]

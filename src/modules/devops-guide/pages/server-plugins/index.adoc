@@ -2,47 +2,8 @@ include::ROOT:partial$variables.adoc[]
 
 = Server plugins
 
-{PRODUCT_NAME} implements the support for https://pkg.go.dev/plugin[Go plugins] which can be used to modify default behaviour of the server and provide new functionalities like workflow functions and types.
-
-== Enabling and Adding Plugins to {PRODUCT_NAME} Instance
-
-Plugins can be added to {PRODUCT_NAME} by specifying their location with `PLUGINS_PATHS`.
-Provide a colon separated list of paths to plugin files (plugin file has `.so` extension).
-Paths can contain wildcards and are resolved accordingly.
-
-You can quickly disable all plugins by setting `PLUGINS_ENABLED` to `false` (enabled by default).
-
-== Versions
-
-In case plugin is not fully compatible with {PRODUCT_NAME}, server refuses to start.
-It yields some variation of the following error:
-
-----
-Error: plugin.Open("myplugin"): plugin was built with a different version of package github.com/cortezaproject/corteza-server/pkg/rand
-----
-
-== Plugins and {PRODUCT_NAME} Inside Docker Container
-
-Plugins need to be accessible to server.
-You can either map files or directories via volume or copy files inside a new Docker image.
-
-=== Using Container Volume Parameter
-
-[source]
-----
-docker run --rm -it \
-  -v "$(pwd)/myplugin.so:/myplugin.so:ro" \
-  -e "PLUGINS_PATHS=/myplugin.so" \
-  "cortezaproject/corteza-server:2021.9"
-----
-
-=== Using Docker Compose Configuration
-
-[source,yaml]
-----
-services:
-  server:
-    image: cortezaproject/corteza:2021.9.3
-    volumes:
-     - "./plugins/plugin.so:/corteza/plugin.so:ro"
-----
+[IMPORTANT]
+====
+*Deprecation warning:* Plugin support has been deprecated in {PRODUCT_NAME} _2022.9_.
+This section of documentation will be removed in {PRODUCT_NAME} _2023.3_.
+====

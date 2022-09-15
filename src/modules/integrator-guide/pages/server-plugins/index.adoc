@@ -2,6 +2,11 @@ include::ROOT:partial$variables.adoc[]
 
 = Server plugins
 
+[IMPORTANT]
+====
+*Deprecation warning:* Plugin support has been deprecated in version _2022.9_ as the current go plugin support with go >= 1.18 does not suite the architecture of {PRODUCT_NAME}.
+====
+
 {PRODUCT_NAME} implements the support for https://pkg.go.dev/plugin[Go plugins] which can be used to modify default behaviour of the server and provide new functionalities like workflow functions and types.
 
 == Basic plugin structure

@@ -1,6 +1,6 @@
 = Access Control
 
-Corteza's access control is a powerful tool that restricts access based on  roles(RBAC-role based access control) of individual users within an enterprise. This ensures users can only access information they need to do their jobs and prevents them from accessing information that doesn't pertain to them.
+Corteza's access control is a powerful tool that restricts access based on  roles(role based access control-RBAC) of individual users within an enterprise. This ensures users can only access information they need to do their jobs and prevents them from accessing information that doesn't pertain to them.
 
 [IMPORTANT]
 The core principle is to allocate enough access for an employee to do their job.

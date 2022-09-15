@@ -1,8 +1,8 @@
 = List and search users
 
 .To list current system users:
-.On the homepage click the *[Admin Area]* card:system[users],
-. optionally insert the filtering parameters.
+.On the homepage click the *[Admin Area]* card menu:system[users],
+. optionally insert the filtering parameters to search a user.
 . The list refreshes automatically.
 
 [annotation,role="data-zoomable"]

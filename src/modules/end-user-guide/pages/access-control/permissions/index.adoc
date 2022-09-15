@@ -28,4 +28,3 @@ You can use the Inheritance access right to streamline the process of assigning 
 
 By default, an item inherits the access rights that are assigned to the items that are higher up the content tree (the ancestors). For example, a security administrator can configure the security settings of a single item and all the items that are lower down the content tree (the descendants) automatically inherit the same settings. However, if there is an item that should not inherit any security settings from its ancestors, you can use the Inheritance access right to deny the item the right to inherit the security settings.
 
-For example: The user has Read access to Folder A. Folder B is a child folder of Folder A. Therefore, User has Read access to Folder B. Permissions propagation also works for new folders. If someone creates Folder C as a child of either Folder A or B, User has Read access to Folder C.

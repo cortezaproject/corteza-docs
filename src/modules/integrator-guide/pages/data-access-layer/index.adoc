@@ -1,9 +1,0 @@
-= Data Access Layer (DAL)
-
-The corteza Data access Layer(DAL) extends and expands  Corteza’s capabilities to store and read data from primary and external databases.
-
-The corteza Data access Layer(DAL) feature gives you the ability to change the underlying database with ease.
-
-[TIP]
-If you are thinking of changing the underlying database, for example ,moving from one relational database like postgreSQL to mySQL, then abstracting the underlying databse is very crucial. The data access layer enables you to make the change with ease.
-

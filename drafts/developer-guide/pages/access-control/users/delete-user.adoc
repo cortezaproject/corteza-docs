@@ -1,0 +1,42 @@
+= Deleting a user
+
+[TIP]
+====
+Instead of deleting users, you can temporarily <<suspending-users,suspend them>>.
+====
+
+.To delete an existing user:
+. navigate to menu:system[users],
+. click on the btn:[edit] icon next to the user you wish to suspend,
+. press and confirm the btn:[delete] button.
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "access-control/user-edit.png",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {
+    "x": 321,
+    "y": 0,
+    "w": 1599,
+    "h": 1080
+  },
+  "focus": {
+    "x": 573,
+    "y": 130,
+    "w": 1093,
+    "h": 385
+  },
+  "annotations": [{
+    "kind": "box",
+    "padding": "sm",
+    "x": 586,
+    "y": 478,
+    "w": 77,
+    "h": 32
+  }]
+}
+----

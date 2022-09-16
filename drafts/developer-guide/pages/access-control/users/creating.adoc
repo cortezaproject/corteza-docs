@@ -1,0 +1,118 @@
+= Create a new User
+
+1. Once you're logged in, click the *[admin area]* card to navigate to menu:system[Users]
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "access-control/adminn-area.png",
+    "alias": "admin-area",
+    "w": 516,
+    "h": 353
+  },
+  "view": {},
+  "annotations": [{
+    "kind": "box",
+    "x": 135,
+    "y": 145,
+    "w": 43,
+    "h": 43
+  }]
+}
+----
+ 
+2.Click on *[Users]* tab to see a list of all availabe users
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "access-control/user-page.png",
+    "alias": "user-page",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {},
+  "annotations": [{
+    "kind": "box",
+    "padding": "xs",
+    "x": 16,
+    "y": 147,
+    "w": 288,
+    "h": 37
+  }]
+}
+----
+
+3.To add a new user, click the *[New]*.
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "access-control/new-user.png",
+    "alias": "new-user",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {},
+  "annotations": [{
+    "kind": "box",
+    "padding": "xs",
+    "x": 1285,
+    "y": 75,
+    "w": 90,
+    "h": 42
+  }]
+}
+----
+
+4.Fill in the details of the user.
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "access-control/user-create.png",
+    "alias": "user-create",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {
+    "x": 321,
+    "y": 0,
+    "w": 1599,
+    "h": 480
+  },
+  "annotations": []
+}
+----
+
+5.Click the *[submit]* button.
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "access-control/create-button.png",
+    "alias": "create-button",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {
+    "x": 321,
+    "y": 0,
+    "w": 1599,
+    "h": 480
+  },
+  "annotations": [{
+    "kind": "box",
+    "padding": "xs",
+    "x": 1563,
+    "y": 335,
+    "w": 95,
+    "h": 40
+}]
+}
+----

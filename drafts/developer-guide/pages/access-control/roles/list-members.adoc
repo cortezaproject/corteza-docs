@@ -1,0 +1,98 @@
+= List all members of a role
+
+To list current system roles:
+
+1.Navigate to menu:system[roles],
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "access-control/role-page.png",
+    "alias": "roles-page",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {},
+  "annotations": [{
+    "kind": "box",
+    "padding": "xs",
+    "x": 16,
+    "y": 180,
+    "w": 288,
+    "h": 37
+  }]
+}
+----
+
+
+2 .optionally you can search for a particular role by inserting the details of the particular role to filter.
+
+The list refreshes automatically.
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "access-control/role-search.png",
+    "alias": "roles-search",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {},
+  "annotations": [{
+    "kind": "box",
+    "padding": "xs",
+    "x": 1324,
+    "y": 127,
+    "w": 336,
+    "h": 42
+  }]
+}
+----
+
+3.Click on the *[edit]* button next to the role you wish to list it's members. 
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "access-control/role-edit.png",
+    "alias": "roles-edit",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {},
+  "annotations": [{
+    "kind": "box",
+    "padding": "xs",
+    "x": 1430,
+    "y": 320,
+    "w": 250,
+    "h": 42
+  }]
+}
+----
+
+4.You can view list of members assigned to a role under the *Role membership* section.
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "access-control/role-members.png",
+    "alias": "role-members",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {},
+  "annotations": [{
+    "kind": "box",
+    "padding": "xs",
+    "x": 618,
+    "y": 510,
+    "w": 250,
+    "h": 42
+  }]
+}
+----

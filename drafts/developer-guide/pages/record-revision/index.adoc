@@ -1,0 +1,74 @@
+= Record revision
+
+[Note]
+This feature is among many capabilities of xref:data-access-layer/index.adoc[
+data access layer(DAL).]
+
+
+Extending records and adding “revision” system field that holds a number that increments every time record is updated.
+
+All changes of a record is stored with an author and timestamp and can be accessed from the Compose.
+
+== Compose record revisions
+
+When enabled, all record operations are stored in the database.
+
+Corteza keeps a revision counter for each record (starting from 1) that increments every time record is updated and only changes of record values are stored for each revision
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "record-revision/revisions_block.png",
+    "alias": "revisions_block",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {},
+  "annotations": []
+}
+----
+
+== Enabling and limitations
+
+Revision history can be enabled per compose module.
+
+Users can use a different physical database table as a storage
+
+[IMPORTANT]
+Table must be on the same DAL connection as the records of that module.
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "record-revision/new-module-conf.gif",
+    "alias": "new-module",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {},
+  "annotations": []
+}
+----
+
+== Viewing changes
+
+Record changes can be viewed inside the new “record revision history” page block (only available on record pages)
+
+User can select a subgroup of fields to view changes.
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "record-revision/revisions_page_block.png",
+    "alias": "revisions_page",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {},
+  "annotations": []
+}
+----
+

@@ -1,0 +1,84 @@
+include::ROOT:partial$variables.adoc[]
+
+= Corteza duplicate detection
+
+:keywords: API, {PRODUCT_NAME} API, {PRODUCT_NAME}
+:description: Learn how to USE {PRODUCT_NAME} duplicate detection to maintain clean and accurate data.
+
+Corteza through the Duplicate detection feature helps maintain clean and accurate data. Corteza gives you tools for managing duplicates one at a time and across your org, and to track your progress in eliminating duplicates.
+
+[NOTE]
+The duplicate detection feature can be used in  creating or editing a record, on existing records, importing records, etc. 
+
+There are two main distinctive Categories:
+    
+    * on creating and updating a record/records (active duplicate detection)
+    * on checking for duplicates on existing records
+    
+=== Duplicate Detection and Handling Process
+
+Corteza finds and handles duplicates using a combination of matching rules and duplicate rules. Duplicate rules and duplicate jobs specify matching rules that determine how duplicates are identified. Duplicate sets and reports list the duplicates found.
+
+* Detection Rule - A collection of matching rules
+
+* Matching Rule - A combination of a matching field, matching method and matching value
+
+* Matching Field - A field selected for detecting  duplicates
+
+* Matching Value - A value definition used to compare(match) with other values
+
+* Matching Method - How to compare a value with the matching value
+
+=== Features
+[Features and capabilities]
+|=======================
+|Feature |Description   | Level
+|General Detection  |Any field can be opted in for duplicate detection by a toggle option in field configurator. A general duplicate detection rule will be applied on such selected fields.     |Field
+|Detection Rule Definition |Multiple detection rules can be defined per module, within compose module configurator    |Module
+|Detection on Single Record|Duplicate detection on Record Create / Update. A default/custom message will be shown based on configurations and will be allowed/restricted record save based on configuration|Record Page
+|Detection on All Records |Duplicate detection on all records of a selected module. Will be an option available in all records page (or new TBD) to detect duplicates if any rules or fields are defined for duplicate detection.|All Records
+
+|=======================
+
+=== Customize Duplicate Management
+
+Configure duplicate management to align with other customizations you make and detect duplicates missed by standard rules. Customize the user interface for handling duplicates: For example, block users from creating duplicates instead of just warning them, or run different duplicate rules for different user profiles. Customize the logic used to identify duplicates: For example, include a custom field in a matching rule, specify field mapping, or customize matching criteria on fields.
+
+// All duplicate detection jobs use pre-defined rules often referred to as **Duplicate Detection Rules** when searching for duplicates. These rules have single or multiple combinations of selecting the data entities referred to as **Criteria**, fields and defining constraints on selecting values under each.
+
+=== Benefits of corteza duplicate detetection
+- To maintain data quality
+- For improved accuracy and efficiency in data processing and generating information
+- For effective description making
+- For optimising data storage requirements
+- To minimise and manage errors
+
+=== User Stories
+[User Stories]
+|=======================
+|ID|Feature      | Story
+|US1   |General Detection | As an admin, I can define a field to restrict value duplication, So that users will be restricted from creating duplicate values when creating a new record OR updating an existing record. A default/general duplicate detection rule will be applied and the record save will be prohibited with duplicates.
+|US2    |Detection Rule Definition   |As  an admin, I can create duplicate detection rules for a selected module, So that I can use them to identify duplicates in the selected module.
+|US2.1    |Detection Rule Definition     |As an admin, I can manage, edit and duplicate detection rules, So that I can quickly create new rules.
+|US2.2.1  |Matching Rule Definition|As an admin, I can select a field from the module fields list, a matching method from a methods list and a matching value, During a matching rule definition.
+|US2.2.2  |Matching Rule Definition|As an admin, I can select to ignore or include empty field values, During a matching rule definition. 
+
+|US2.2.3|Matching Rule Definition|As an admin, I can group multiple matching rules under a defined detection rule
+|US2.3  |Detection Rule Definition|As an admin, I can choose to run the duplicate detection rule on record create/update, During duplicate detection rule creation
+|US2.4  |Detection Rule Definition|As an admin, I can add a custom ‘duplicate detected’ message, During duplicate detection creation, So that it will be shown when a duplicate is detected
+|US2.5  |Detection Rule Definition|As an admin, I can choose to ‘warn and allow’ or ‘prompt and restrict’ duplicate creation, During duplication rule definition, so that users will be given the appropriate option for record save
+|US3   |Detection on Single Record|As a user, I will be prompted before record save if the record has duplicate values as defined in US1 and/or US2, so that I can change the values to avoid duplication OR chose to ignore based on US3.2
+|US4   |Detection on Single Record|As an admin, I can run duplicate detection on a selected module by selecting an available duplicate detection rule
+|US4.1  |Detection on Single Record|As an admin, I can run duplicate detection on a selected module by selecting a combination of available rules
+|US5 |Duplicated Results Management|As an admin, I can view and filter the results of a duplicate detection
+|US5.1 |Duplicated Results Management|As an admin, I can export results of an duplicate detection
+|US5.2  |Duplicated Results Management|As an admin, I can select records in results of a duplicate detection and take bulk actions (ignore, delete records).
+|US5.3  |Duplicated Results Management|As an admin, I can edit a duplicated record from results of a duplicate detection
+|US5.4  |Duplicated Results Management|As an admin, I can merge records by selecting the records and specifying the overriding values
+|US6  |Detection on Importer|As an admin, I can select a pre-defined duplicate detection rule (US2) AND action (ignore OR prompt for confirmation OR break, OR ...)
+|US6.1   |Detection on Importer|As an admin, I can view duplicated results after import and merge/delete duplicated records
+|US7  |Detection on WorkFlowr|As an admin, I can run duplicate detection rule (US2) in a WorkFlow
+|=======================
+
+
+

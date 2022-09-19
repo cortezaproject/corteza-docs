@@ -76,6 +76,11 @@ ERROR: Network proxy declared as external, but could not be found. Please create
 
 Make sure your nginx-proxy service is up and running before running {PRODUCT_NAME}.
 
+[source,bash]
+----
+$ docker network create proxy
+----
+
 == Blank Screen on `/auth` With the "state does not match" Error in the Browser Console
 
 The `state does not match` error usually occurs in the development environment or where the {PRODUCT_NAME} server is frequently restarted.

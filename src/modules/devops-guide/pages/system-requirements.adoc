@@ -46,7 +46,7 @@ The reverse proxy is responsible for traffic forwarding to {PRODUCT_NAME} servic
 Most of the popular HTTP servers support this.
 ====
 
-The documentation provides configurations guides for https://github.com/jwilder/nginx-proxy[Nginx Reverse Proxy] and the https://github.com/JrCs/docker-letsencrypt-nginx-proxy-companion[LetsEncrypt nginx-proxy companion].
+The documentation provides configurations guides for https://github.com/nginxproxy/nginx-proxy[Nginx Reverse Proxy] and the https://github.com/JrCs/docker-letsencrypt-nginx-proxy-companion[LetsEncrypt nginx-proxy companion].
 
 [NOTE]
 ====
@@ -139,7 +139,7 @@ We use https://en.wikipedia.org/wiki/Let's_Encrypt[Let's Encrypt].
 
 [NOTE]
 ====
-If you aren't using any other HTTP server, we highly recommend using the use of https://github.com/jwilder/nginx-proxy[Nginx Reverse Proxy] and https://github.com/JrCs/docker-letsencrypt-nginx-proxy-companion[LetsEncrypt companion container for nginx-prox].
+If you aren't using any other HTTP server, we highly recommend using the use of https://github.com/nginxproxy/nginx-proxy[Nginx Reverse Proxy] and https://github.com/JrCs/docker-letsencrypt-nginx-proxy-companion[LetsEncrypt companion container for nginx-proxy].
 
 It is an automated and the simplest way to secure {PRODUCT_NAME} or any other web application you host.
 ====

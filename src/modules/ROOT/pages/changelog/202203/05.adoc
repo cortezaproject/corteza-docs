@@ -1,0 +1,43 @@
+include::ROOT:partial$variables.adoc[]
+
+= `2022.3.5`
+
+*Released on*: `2022-09-20`
+
+.[#2022_3_5-added]#<<2022_3_5-added,Added:>>#
+* Added a button to stop the automation session execution ({WEBAPP_ADMIN_COMMIT_BASE}4bdf43b[`4bdf43b`], {LOCALE_COMMIT_BASE}6f72928[`6f72928`], {WEBAPP_VUE_COMMIT_BASE}8bcb405[`8bcb405`], {WEBAPP_JS_COMMIT_BASE}8b7791[`8b7791`], {SERVER_COMMIT_BASE}132948[`132948`], {SERVER_COMMIT_BASE}bc62f7[`bc62f7`]).
+We also added the button on the workflow trigger steps ({WEBAPP_WORKFLOW_COMMIT_BASE}3363a37[`3363a37`]).
+We added the feature to allow the termination of long-running or unresponsive workflows.
+
+.[#2022_3_5-changed]#<<2022_3_5-changed,Changed:>>#
+* General UI/UX changes:
+** Changed the colour of the record deleted alert from info to warning variant ({WEBAPP_COMPOSE_COMMIT_BASE}88b6006[`88b6006`]).
+** Fixed the app selector overflow where the user interface cut off the application labels on {APP_NAME_SHELL} ({WEBAPP_ONE_COMMIT_BASE}997d799[`997d799`]).
+** Tweaked the responsive layout on the {APP_NAME_REPORTER} web application where blocks would overlap on smaller screens ({WEBAPP_REPORTER_COMMIT_BASE}287ed67[`287ed67`]).
+** Added missing translations and general UI and layout tweaks.
+* Changed the password reset flow to no longer log out of the current user ({SERVER_COMMIT_BASE}f7d1015[`f7d1015`]).
+We changed to improve UX when the user would change their password multiple times in a row or the {APP_NAME_ADMIN} web application.
+{PRODUCT_NAME} no longer invalidates the access token if it belongs to the currently authenticated user who is resetting their password.
+* Changed the {APP_NAME_COMPOSE} record toolbar interface to only apply the _can delete record_ operation to the btn:[delete] button ({WEBAPP_COMPOSE_COMMIT_BASE}56b5b5c[`56b5b5c`]).
+We changed as it introduced unexpected behaviour when users weren't allowed to delete records.
+
+.[#2022_3_5-fixed]#<<2022_3_5-fixed,Fixed:>>#
+* Fixed missing translations on dropdown fields for funnel and gauge charts by moving gauge labels to tooltips ({WEBAPP_JS_COMMIT_BASE}11640e6[`11640e6`]) and tweaking translations to be applied on initial load ({WEBAPP_JS_COMMIT_BASE}65ea532[`65ea532`], {WEBAPP_COMPOSE_COMMIT_BASE}9af61fa[`9af61fa`]).
+* Fixed possible step corruption and other issues with fork and join steps ({SERVER_COMMIT_BASE}2521ac9[`2521ac9`]).
+* Fixed missing translations for automation buttons on record list by fixing them on {PRODUCT_NAME} server ({SERVER_COMMIT_BASE}a2cea1c[`a2cea1c`]) and {PRODUCT_NAME} {APP_NAME_COMPOSE} ({WEBAPP_COMPOSE_COMMIT_BASE}eee5b37[`eee5b37`]).
+* Fixed problematic database state when upgrading from older `2021.9` versions due to `NULL` constraints ({SERVER_COMMIT_BASE}fe464c4[`fe464c4`]).
+The issue was caused by adding a table upgrade for the scenarios column where it explicitly demanded the column should not be `NULL` and expressly stated that the default value is, in fact, NULL.
+The database migration now correctly sets the default value to a non-`NULL` value.
+* Fixed calendars always show the month view as the default view regardless of what was configured on the page block.
+This is fixed by correctly applying the provided configuration options instead of constant values ({WEBAPP_COMPOSE_COMMIT_BASE}8e46baa[`8e46baa`]).
+* Fixed toolbar system button translations are disappearing when reordering pages.
+Toolbar system button translations were lost when reorganizing page hierarchy.
+The browser caused the issue due to cache clearing ({WEBAPP_COMPOSE_COMMIT_BASE}c88f3a0[`c88f3a0`]).
+* Fixed the {APP_NAME_COMPOSE} record page from raising errors by removing the view button for record pages without a record ({WEBAPP_COMPOSE_COMMIT_BASE}a256393[`a256393`]).
+* Fixed record lists not properly refreshing when viewed in the page builder ({WEBAPP_COMPOSE_COMMIT_BASE}564c0aa[`564c0aa`]).
+The filters weren't properly handled when evaluated from the page builder.
+When viewing the page, however, the filters were evaluated correctly.
+* Fixed a bug which prevented the roles from being unarchived ({SERVER_COMMIT_BASE}11dfd0a[`11dfd0a`]).
+We fixed the bug by correcting the lapsus in the state when updating roles.
+* Fixed `Number` module field number display is limited to 3 decimals.
+The `Number` field now correctly allows precision ({WEBAPP_JS_COMMIT_BASE}e3a8ecd[`e3a8ecd`], {WEBAPP_COMPOSE_COMMIT_BASE}e1b08bf[`e1b08bf`]) with the default on 3 decimals ({WEBAPP_JS_COMMIT_BASE}0b2aa68[`0b2aa68`]).

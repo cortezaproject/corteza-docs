@@ -2,10 +2,13 @@ include::ROOT:partial$variables.adoc[]
 
 = Access Control
 
-{PRODUCT_NAME} access control is a powerful tool that restricts access based on the roles(role-based access control-RBAC) of individual users within an enterprise. This ensures users can only access the information they need to do their jobs and prevents them from accessing information that doesn't pertain to them.
+{PRODUCT_NAME} access control is a powerful tool that restricts access based on the roles(role-based access control-RBAC) of individual users within an enterprise. 
+This ensures users can only access the information they need to do their jobs and prevents them from accessing information that doesn't pertain to them.
 
 [IMPORTANT]
+====
 The core principle is to allocate enough access for an employee to do their job.
+====
 
 //The {PRODUCT_NAME} RBAC has a feature rich interface that not only allows the adminstartor to review users but also combine their variouis roles.
 
@@ -13,15 +16,18 @@ The core principle is to allocate enough access for an employee to do their job.
 
 Role-based access control (RBAC) system helps you manage who has access to resources, what they can do with them, and what areas they have access to.
 
-{PRODUCT_NAME} RBAC has many features, such as access to an operating system limited to specified functions, including generating, altering, or viewing a file. You can ensure the security of a company's essential data and mission-critical applications with RBAC. 
+{PRODUCT_NAME} RBAC has many features, such as access to an operating system limited to specified functions, including generating, altering, or viewing a file. 
+You can ensure the security of a company's essential data and mission-critical applications with RBAC. 
 
  RBAC has three defined rules:
 
 1. Role assignment: A subject can exercise permission only if the subject is assigned a role.
 
-2. Role authorization: A subject's active role must be authorized for the subject. Rule 1 above ensures that users can take on only roles for which they are authorized.
+2. Role authorization: A subject's active role must be authorized for the subject. 
+Rule 1 above ensures that users can take on only roles for which they are authorized.
 
-3. Permission authorization: A subject can exercise permission only if the permission is authorized for the subject's active role. Rules 1 and 2 ensure that users can exercise only permissions for which they are authorized.
+3. Permission authorization: A subject can exercise permission only if the permission is authorized for the subject's active role. 
+Rules 1 and 2 ensure that users can exercise only permissions for which they are authorized.
 
 === Features of {PRODUCT_NAME} RBAC System
 

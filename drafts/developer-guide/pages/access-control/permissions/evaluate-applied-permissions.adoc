@@ -2,9 +2,10 @@ include::ROOT:partial$variables.adoc[]
 
 = Evaluate applied permissions
 
-{PRODUCT_NAME} RBAC uses the roles of the given user to determine if they have access to a given resource.
+xref:access-control/index.adoc[{PRODUCT_NAME} RBAC] uses the roles of the given user to determine if they have access to a given resource.
+Using this feature, You determine the effective access of a user to resources by comparing the permissions associated with different roles available to the user.
 
-Therefore a user can evaluate the permissions applied to a particular user by listing  the actions that are allowed in different roles.
+Therefore one can evaluate the permissions applied to a particular user by listing the actions permitted in different roles.
 
 == How to evaluate applied permissions
 
@@ -16,8 +17,8 @@ Therefore a user can evaluate the permissions applied to a particular user by li
   "image": {
     "rel": "access-control/permission-admin-area.png",
     "alias": "admin-area",
-    "w": 516,
-    "h": 353
+    "w": 1920,
+    "h": 1080
   },
   "view": {},
   "annotations": [{

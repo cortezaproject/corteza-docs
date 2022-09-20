@@ -6,11 +6,14 @@ include::ROOT:partial$variables.adoc[]
 
 Permissions are a collection of roles. An admin can define one or more roles on your corteza instance and grant the relevant permissions to each role. 
 
-Permissions granted to authenticated and anonymous users belong to the Authenticated user and Anonymous user roles. When setting up the corteza instance, an Administrator role is assigned all permissions on your site.
+Permissions granted to authenticated and anonymous users belong to the Authenticated user and Anonymous user roles. 
+When setting up the corteza instance, an Administrator role is assigned all permissions on your site.
 
-Each user account on your site is automatically given the Authenticated user role, and may optionally be assigned one or more additional roles. When you assign a role to a user account, the user will have all the permissions of the role when logged in.
+Each user account on your site is automatically given the Authenticated user role, and may optionally be assigned one or more additional roles. 
+When you assign a role to a user account, the user will have all the permissions of the role when logged in.
 
-It is good practice to make several roles in your {PRODUCT_NAME} instance. You might want the following roles on your {PRODUCT_NAME} instance.
+It is good practice to make several roles in your {PRODUCT_NAME} instance. 
+You might want the following roles on your {PRODUCT_NAME} instance.
 
 * Adminstartor 
 

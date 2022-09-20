@@ -1,6 +1,7 @@
 = User Management
 
-A user is anyone visiting your corteza instance. We can categorize users into three groups:
+A user is anyone visiting your corteza instance. 
+We can categorize users into three groups:
 
 * Users who are not logged in -  anonymous users.
 * Users who are logged in - authenticated users.

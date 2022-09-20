@@ -2,16 +2,23 @@ include::ROOT:partial$variables.adoc[]
 
 = Permissions
 
-Permission is what is needed to execute/access a resource. Permissions assigned to roles and resources require a set of permissions.
+Permission is what is needed to execute/access a resource.
+Permissions assigned to roles and resources require a set of permissions.
 
 [IMPORTANT]
-A set of permissions can be tailored for each role to meet its particular needs and inherited by users who fulfil that role. If  permissions for a role need to be changed, those changes are passed on to the users or members of that role.
+====
+A set of permissions can be tailored for each role to meet its particular needs and inherited by users who fulfil that role. 
+If  permissions for a role need to be changed, those changes are passed on to the users or members of that role.
+====
 
-Permissions control who has access to resources and even what level of permission they have. Administrators, for example, will have access to all folders or files and grant access to those resources to others. Those permissions might be only to read a file but not edit it or include edit access. Permissions are typically granted based on a person's role in a company.
+Permissions control who has access to resources and even what level of permission they have. Administrators, for example, will have access to all folders or files and grant access to those resources to others. 
+Those permissions might be only to read a file but not edit it or include edit access. 
+Permissions are typically granted based on a person's role in a company.
 
 == Access rights
 
-Each role has explicit access rights to determine what operations a user can perform on a {PRODUCT_NAME} resource. For instance, the access rights on a security account can decide if the user or role has the right to create items, delete, or push items through a workflow.
+Each role has explicit access rights to determine what operations a user can perform on a {PRODUCT_NAME} resource. 
+For instance, the access rights on a security account can decide if the user or role has the right to create items, delete, or push items through a workflow.
 
 Each  permission access right has one of three possible settings, which are as follows :
 
@@ -27,6 +34,8 @@ An Inheritance access right is a setting that determines whether an item can inh
 
 An administrator can use Inheritance access rights to streamline the process of assigning access rights. This spares administrators the tedious task of giving each role explicit access rights to every item.
 
-An item inherits the access rights assigned to items higher up the content tree (the ancestors). For instance, You can configure the security settings of a single item and all the items that are lower down the content tree automatically inherit the same settings. If suppose there is an item that should not inherit any security settings from its ancestors, the Inheritance access right can be used to deny the item the right to inherit the security settings.
+An item inherits the access rights assigned to items higher up the content tree (the ancestors). 
+For instance, You can configure the security settings of a single item and all the items that are lower down the content tree automatically inherit the same settings. 
+If suppose there is an item that should not inherit any security settings from its ancestors, the Inheritance access right can be used to deny the item the right to inherit the security settings.
 
 

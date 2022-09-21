@@ -1,9 +1,90 @@
+include::ROOT:partial$variables.adoc[]
+
 = Data Access Layer (DAL)
 
-The corteza Data access Layer(DAL) extends and expands  Corteza’s capabilities to store and read data from primary and external databases.
+The {PRODUCT_NAME} Data access Layer(DAL) extends and expands  Corteza’s capabilities to store and read data from primary and external databases.
 
-The corteza Data access Layer(DAL) feature gives you the ability to change the underlying database with ease.
+The data access layer helps us isolate( separation of concerns) our code from the presentation and business layers. 
+We use the data access layer to pull data from different data stores (database server, flat files, web services, whatever else).
 
 [TIP]
-If you are thinking of changing the underlying database, for example ,moving from one relational database like postgreSQL to mySQL, then abstracting the underlying databse is very crucial. The data access layer enables you to make the change with ease.
+====
+Wen changing the underlying database, for example, moving from one relational database like PostgreSQL to MySQL and then abstracting the underlying database is crucial.
+{PRODUCT_NAME} data access layer enables you to make the change with ease.
+====
+
+=== {PRODUCT_NAME} DAL Features.
+
+* Drivers
+Data access drivers enable connection to various data sources.
+They supports any facilty that can store and or retrieve records(can be reead or write only).
+The drivers include; PostgreSQL, MySQL, SQLIte.
+
+* DAL operations to describe supported operations on driver (pagination, 
+searching, reading, writing, updating, deleting).
+
+* Allows multiple connections to different data sources
+
+* Support "dedicated" / "physical" / "existing" RDBMS (SQL) tables
+
+== Database Connection.
+To setup a new database connection follow the following steps:
+
+1. Click on *[Admin Area]* card, navigate to *[Connections]*
+
+2. On the primary database section, click on the *[edit]* button.
+
+3. Fill in the form on *[Basic Settings]* section. 
+
+image::data-access-layer/basic-settings.png[role="data-zoomable"]
+
+The form contains the following:
+* Name
+
+* Handle
+
+* Location name - Name of the city, country, continent, etc where the data is stored.
+
+* Location coordinates - Coordinates of the location where the data is stored
+
+* Ownership - Name of the company or person who owns the data.
+
+* Highest allowed Sensitivity level - Highest allowed level of sensitivity for the data stored (as set on fields of the module that uses this connection)
+
+image::data-access-layer/db-connection.png[role="data-zoomable"]
+
+The figure contains the following information;
+
+* Enable encryption of data at rest.
+Data at Rest Encryption (DARE) encrypts stored data in the database to prevent unauthorized access.
+
+Click *[Encrypt data at rest Enabled]* checkbox to enable it.
+
+* Enable data at rest protection.
+Click *[Data at rest protection provided]* checkbox to enable it.
+
+* Enable data at transit encryption (network encryption).
+Stored data is encrypted when moved across networks.
+
+Click on *[Enable data at transit encryption]* checkbox to enable it.
+
+* Enable data at rest backup and restoration implementation.
+Click on *[Data at rest backup and restoration implementation]* checkbox to enable it.
+
+== Data access layer Configuration
+
+Click on *[Admin Area]* card, navigate to *[Connections]*
+
+On the primary database section, click on the *[edit]* button and navigate to the *Data access layer configuration and connection parameters* section.
+
+image::data-access-layer/database-configuration.png[role="data-zoomable"]
+
+As shown in the figure above there are three parameters required to configure the DAL connection :
+
+1. *Default table or container name* - 
+Identifier can contain placeholders like {{module}} (replaced with module handle) and/or {{namespace}} (replace with namespace handle). When set, it is used as a default for modules without configured ident.
+
+2.*Connection and parameter type* - for example  corteza::dal:connection:dsn
+
+3.*Connection parameters* -for example {"dsn": "postgres://user:pass@host:port/dbname"}
 

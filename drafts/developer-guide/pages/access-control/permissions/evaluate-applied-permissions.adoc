@@ -9,51 +9,45 @@ Therefore one can evaluate the permissions applied to a particular user by listi
 
 == How to evaluate applied permissions
 
-1. Once you're logged into corteza, click the *[admin area]* card
+[NOTE]
+====
+Most of the {PRODUCT_NAME} resources allow you to define which xref:access-control/roles.adoc[roles] are allowed to access the resource.
+Locate the btn:[permissions] button in the user interface in order to manage the resource.
 
 [annotation,role="data-zoomable"]
 ----
 {
   "image": {
-    "rel": "access-control/permission-admin-area.png",
-    "alias": "admin-area",
+    "rel": "access-control/general-permissions-button.png",
+    "alias": "general-permissions-button",
     "w": 1920,
     "h": 1080
   },
-  "view": {},
+  "view": {
+    "x": 320,
+    "y": 0,
+    "h": 550,
+    "w": 1600
+  },
+  "focus": {
+    "x": 1466,
+    "y": 80,
+    "h": 31,
+    "w": 206
+  },
   "annotations": [{
     "kind": "box",
-    "x": 135,
-    "y": 145,
-    "w": 43,
-    "h": 43
+    "x": 1536,
+    "y": 80,
+    "w": 134,
+    "h": 30
   }]
 }
 ----
-2.Click on *[Roles]* button to see a list of all availabe roles 
+====
 
-[annotation,role="data-zoomable"]
-----
-{
-  "image": {
-    "rel": "access-control/permission-role-page.png",
-    "alias": "roles-page",
-    "w": 1920,
-    "h": 1080
-  },
-  "view": {},
-  "annotations": [{
-    "kind": "box",
-    "padding": "xs",
-    "x": 16,
-    "y": 180,
-    "w": 288,
-    "h": 37
-  }]
-}
-----
- 
-3.Click the *[permissions button]*.
+1.Navigate to the resource of choice, click the *[permissions button]*.
+
 [annotation,role="data-zoomable"]
 ----
 {
@@ -75,7 +69,7 @@ Therefore one can evaluate the permissions applied to a particular user by listi
 }
 ----
 
-4.Click the *[add +]* button to evaluate applied permissions
+2.Click the *[add +]* button to evaluate applied permissions
 
 [annotation,role="data-zoomable"]
 ----
@@ -98,7 +92,7 @@ Therefore one can evaluate the permissions applied to a particular user by listi
 }
 ----
 
-5.Click the *[select roles]* dropdown and select a role or the *[select user]* to choose a user.
+3.Click the *[select roles]* dropdown and select a role or the *[select user]* to choose a user.
 
 [annotation,role="data-zoomable"]
 ----
@@ -114,8 +108,7 @@ Therefore one can evaluate the permissions applied to a particular user by listi
 }
 ----
 
-6.Click the *[save & close]* button.
-
+4.Click the *[save & close]* button.
 [annotation,role="data-zoomable"]
 ----
 {
@@ -130,8 +123,7 @@ Therefore one can evaluate the permissions applied to a particular user by listi
 }
 ----
 
-7.Repeat the steps again choosing a different role on step 5 and 6 respectively inorder to evaluate  the different permissions applied on a role.
-
+5.Repeat the steps again choosing a different role on step 3 and 4 respectively inorder to evaluate  the different permissions applied on a role.
 [annotation,role="data-zoomable"]
 ----
 {

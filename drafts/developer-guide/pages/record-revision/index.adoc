@@ -20,23 +20,30 @@ Corteza keeps a revision counter for each record (starting from 1) that incremen
 A revision is only added when a record is updated, so newly created records don't have revisions. This intentionally reduces the number of revisions that need to be kept.
 ====
 
-== Accessing and Enabling Record Revisions.
+== Enabling Record Revisions.
 
 Revision history can be enabled per compose module.
 
 Accessing record revisions:
 
-1.Navigate to compose *[Admin Panel]*.
+.The screenshot indicates how to access the low code application.
+image::data-privacy/adminn-area.png[role="data-zoomable"]
 
-2.Click on *[Modules]*
+A new screen showing you all of the available namespaces will appear. Select your preferred namespace.
 
-3.Select an existing module or click on *[New Module]* button to create a new module.
+image::record-revision/namespaces.png[role="data-zoomable"]
 
-4.Select the *[Record Revisions]* tab  and click the *[enable record revision]* check box to enable record revisions.
+. From there depending on the namespace chosen.
+. Navigate to the *[Admin panel]* and click on it.
+. Click on *[Module]* dropdown to an existing module or click *[New Module]* to create new module.
+
+4.Navigate to the *[Record Revisions]* tab  and click the *[enable record revision]* check box to enable record revisions.
 
 image::record-revision/new-module-conf.gif[role="data-zoomable"]
 
-5.Fill in the *[identifier]* input field.
+5.Fill in the *[identifier]* input field. Which is the name of the database table or collection where revisions records can be accessed and stored. 
+
+image::record-revision/enable-record-revision.png[role="data-zoomable"]
 
 6.Click the *[save]* button.
 
@@ -63,9 +70,14 @@ Table must be on the same DAL connection as the records of that module.
 
 == Viewing changes
 
-Record changes can be viewed inside the new “record revision history” page block (only available on record pages)
-
+Record changes can be viewed inside the record revision history page block (only available on record pages).
 User can select a subgroup of fields to view changes.
+
+To view changes on a record :
+
+. Navigate to the *[pages]* dropdown which is just below the *[Modules]* dropdown.
+. Click the *[pages]* dropdown and select the *Record list* dropdown for the given module.
+. Select the preferred module from the record list to view the record pages
 
 [annotation,role="data-zoomable"]
 ----

@@ -9,7 +9,7 @@ We use the data access layer to pull data from different data stores (database s
 
 [TIP]
 ====
-Wen changing the underlying database, for example, moving from one relational database like PostgreSQL to MySQL and then abstracting the underlying database is crucial.
+When changing the underlying database, for example, moving from one relational database like PostgreSQL to MySQL and then abstracting the underlying database is crucial.
 {PRODUCT_NAME} data access layer enables you to make the change with ease.
 ====
 
@@ -28,17 +28,17 @@ searching, reading, writing, updating, deleting).
 * Support "dedicated" / "physical" / "existing" RDBMS (SQL) tables
 
 == Database Connection.
-To setup a new database connection follow the following steps:
+ 
+Corteza defines new data sources in two ways:
+. Primary data source
+. External Data Source (EDS).
 
-1. Click on *[Admin Area]* card, navigate to *[Connections]*
+To setup a primary database connection follow the following steps:
 
-2. On the primary database section, click on the *[edit]* button.
+.Click on *[Admin Area]* card, navigate to *[Connections]*
+.On the primary database connections section, click on the *[edit]* button.
+.Fill in the which requires the following details;
 
-3. Fill in the form on *[Basic Settings]* section. 
-
-image::data-access-layer/basic-settings.png[role="data-zoomable"]
-
-The form contains the following:
 * Name
 
 * Handle
@@ -51,9 +51,32 @@ The form contains the following:
 
 * Highest allowed Sensitivity level - Highest allowed level of sensitivity for the data stored (as set on fields of the module that uses this connection)
 
-image::data-access-layer/db-connection.png[role="data-zoomable"]
+To setup a new external database connection follow the following steps:
 
-The figure contains the following information;
+1. Click on *[Admin Area]* card, navigate to *[Connections]*
+
+2. On the List of database connections section, click on the *[Add connection]* button.
+
+3. Fill in the form on *[Basic Settings]* section. 
+
+image::data-access-layer/basic-settings.png[role="data-zoomable"]
+
+The form requires the following details:
+* Name
+
+* Handle
+
+* Location name - Name of the city, country, continent, etc where the data is stored.
+
+* Location coordinates - Coordinates of the location where the data is stored
+
+* Ownership - Name of the company or person who owns the data.
+
+* Highest allowed Sensitivity level - Highest allowed level of sensitivity for the data stored (as set on fields of the module that uses this connection)
+
+image::data-access-layer/database-connection.png[role="data-zoomable"]
+
+The screenshot above contains the following information;
 
 * Enable encryption of data at rest.
 Data at Rest Encryption (DARE) encrypts stored data in the database to prevent unauthorized access.
@@ -71,20 +94,4 @@ Click on *[Enable data at transit encryption]* checkbox to enable it.
 * Enable data at rest backup and restoration implementation.
 Click on *[Data at rest backup and restoration implementation]* checkbox to enable it.
 
-== Data access layer Configuration
-
-Click on *[Admin Area]* card, navigate to *[Connections]*
-
-On the primary database section, click on the *[edit]* button and navigate to the *Data access layer configuration and connection parameters* section.
-
-image::data-access-layer/database-configuration.png[role="data-zoomable"]
-
-As shown in the figure above there are three parameters required to configure the DAL connection :
-
-1. *Default table or container name* - 
-Identifier can contain placeholders like {{module}} (replaced with module handle) and/or {{namespace}} (replace with namespace handle). When set, it is used as a default for modules without configured ident.
-
-2.*Connection and parameter type* - for example  corteza::dal:connection:dsn
-
-3.*Connection parameters* -for example {"dsn": "postgres://user:pass@host:port/dbname"}
 

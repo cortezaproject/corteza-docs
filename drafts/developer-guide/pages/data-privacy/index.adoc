@@ -3,12 +3,121 @@ include::ROOT:partial$variables.adoc[]
 = Data privacy
 
 Data privacy allows us to configure and describe how and where sensitive data is stored on a module-field level.
+
 It expands the current data storing capabilities and adds features that enable {PRODUCT_NAME} administrators to have more control over data privacy and managing private data.
 
-=== Defining Privacy Policies.
+=== *Defining Privacy Policies*.
 
 With information from data sources set on a specific data module, each record will be able to hold detailed information about the ownership and location(s) of particular data. 
+
 System Administrators will be obliged to provide a data storage location upon setting a Corteza data module. 
+
 {PRODUCT_NAME} will enable the selection of predefined data policies or new policies to describe the processing purpose and rules at a record field level.
 
-== Data Privacy Console
+== Sensitivity Levels
+
+{PRODUCT_NAME} allows users to classify data by categorizing data assets based on their information sensitivity. By classifying data, organizations can determine two key things:
+
+Who should be authorized to access it?
+
+What protection policies to apply when storing and transferring it.
+
+There are  10 levels of data sensitivity with level 1 being the lowest and level 10 beng the highest.
+You can specify sensitivity levels  limits when setting up a database connection or on modules.
+Modules sensitivity levels rely on sensitivity level limit set at *connections*.
+
+By specifying sensitivity level, the data becomes private which means only authorized users can access the data.
+
+=== Setting up sensitivity levels
+
+To set up sensitivity, navigate to system adminstration by clicking the *[Admin area]* card as shown in the screenshot below.
+
+1. Click on *[sensitivity levels]*.
+2. Click on *[New] button to add a new sensitivity level
+
+image::data-privacy/system-sensitivity-level.png[role="data-zoomable"]
+
+3.Fill in the basic information.
+
+image::data-privacy/create-sensitivity.png[role="data-zoomable"]
+
+4.Set the sensitivity level using the *level indicator*.
+
+5.Add a description to describe the sensitivity level.
+
+6.Click the *[submit]* button.
+
+=== *Specifying sensitivity level on Modules*
+
+You can specify the highest level of sensitivity allowed for fields within a module.
+
+[NOTE]
+====
+changing sensitivity level value  on  a module will reset the sensitivity level of fields within the module if they are incompatible.
+====
+
+To set up sensitivity level on modules, navigate to your {PRODUCT_NAME} instance ( http://qc.cortezaproject.org/) and click the *Low Code application*.
+
+.The screenshot indicates how to access the low code application.
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "app-selector.png",
+    "alias": "automation-workflows-app-selector-workflow",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {},
+  "focus": {
+    "x": 828,
+    "y": 463,
+    "w": 266,
+    "h": 217,
+    "padding": "md"
+  },
+  "annotations": []
+}
+----
+
+A new screen showing you all of the available namespaces will appear. Select your preferred namespace.
+
+1.From there depending on the namespace chosen.
+
+2.Navigate to the *[Admin panel]* and click on it.
+
+3.Click on *[Module]* dropdown to select an existing module.
+4.Click on *[Data privacy]* tab  
+
+image::data-privacy/privacy-settings.png[role="data-zoomable"]
+
+5.Fill in the following details:
+
+* Highest allowed allowed sensitivity - this means you can specify new sensitivity level for fields within a module that is within the sensitivity level set during connection to the database. 
+Click the *[dropdown]* to select sensitivity level
+
+* Description box for sensitivity data usage disclosure(also visible on data-privacy-console).
+
+6.Click the *[save]* button.
+
+=== *Specifying sensitivity level on Module Field*
+
+1.Navigate to the *[Admin panel]* and click on it.
+
+2.Click on *[Module]* dropdown to an existing module or click *[New Module]* to create new module.
+
+3.Fill in the field mappings forms on *[field]* tab.
+
+4.On *manage record fields section* navigate to the *settings icon* next to the type input field and clock on it.
+
+image::data-privacy/manage-record-field.png[role="data-zoomable"]
+
+5.Navigate to the *[privacy]* tab.
+
+image::data-privacy/field-settings.png[role="data-zoomable"]
+
+6.Click the *[sensitivity level]* dropdown and select the sensitivity level.
+
+7.Fill in the sensitivity data usage disclosure description box
+
+8.Click the *[save and close]* button.

@@ -14,7 +14,7 @@ All record changes are stored with an author and timestamp and can be accessed f
 
 When enabled, all record operations are stored in the database.
 
-Corteza keeps a revision counter for each record (starting from 1) that increments every time record is updated and only changes of record values are stored for each revision.
+{PRODUCT_NAME} keeps a revision counter for each record (starting from 1) that increments every time record is updated and only changes of record values are stored for each revision.
 [NOTE]
 ====
 A revision is only added when a record is updated, so newly created records don't have revisions. This intentionally reduces the number of revisions that need to be kept.

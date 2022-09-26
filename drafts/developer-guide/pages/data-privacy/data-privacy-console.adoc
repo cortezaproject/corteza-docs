@@ -1,0 +1,57 @@
+
+= Data Privacy Console
+
+The Data Privacy Console enables you to access the overview of your personal data, request data deletion or data export.
+
+This feature allows all users to browse locations and contents of their private data and make requests concerning the treatment of this data (e.g. Delete, Update), which are then escalated to the <<data-privacy-officer, *data privacy officer (DPO)*>> Console.
+
+.The screenshot shows the overview of the Data Privacy Console
+image::data-privacy/data-privacy-console.png[role="data-zoomable"]
+
+== Features of the Privacy Console
+
+* Data Overview
+* Privacy Requests
+* Data Export
+* Data Deletion
+
+=== *Data Overview*
+
+Data overview allows you to review your profile information and your personal data stored in Corteza applications.
+
+image::data-privacy/data-overview.png[role="data-zoomable"]
+
+
+* Profile Information - Contact information,names,surnames, nickname, profile picture.
+
+* Data Application - Personal data stored in your corteza instance.
+
+=== *Privacy Requests*
+Access, manage or export a list of all your privacy-related (deletion, export, correction) requests
+
+=== *Data Export*
+Open a new data export request by selecting the data type, date range and outcome file format
+
+=== *Data Deletion*
+Request for your selected personal data to be deleted from the system
+
+[#data-privacy-officer]
+== Data Privacy Officer(DPO)
+
+The *Data privacy officer (DPO)* is a role assigned to a user to grant him sufficient permissions to access the list of all received data privacy requests and sort and filter them. A DPO can accept or reject requests with comments and schedule requests for execution.
+
+=== *Capabilities of Data privacy officer(DPO)*
+
+A data privacy officer has the following capabilities:
+
+. Search for records with data-sensitivity fields to collect requested data
+
+. Reject a submitted request because it's not unsubstantiated or aligned with the defined privacy policies.
+
+. Review submitted requests and prepare responses.
+
+. Update records with sensitive data to comply with the data update or removal request
+
+. Access list of data privacy requests and make  response.
+
+. Create a privacy-request policy  to control what happens to privacy requests.

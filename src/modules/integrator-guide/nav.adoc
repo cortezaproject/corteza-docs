@@ -132,13 +132,15 @@
 
 ** xref:miscellaneous.adoc[]
 
-//** xref:data-access-layer/index.adoc[]
+// ** xref:data-access-layer/index.adoc[]
+// **** xref:data-access-layer/module-config.adoc[]
 
 // ** xref:data-privacy/index.adoc[]
+// **** xref:data-privacy/data-privacy-console.adoc[]
 
 // ** xref:corteza-duplicate-detection/index.adoc[]
 
-// ** xref:record-revision/index.adoc[]
+// xref:record-revision/index.adoc[]
 
 
 // ** xref:provisioning/index.adoc[]

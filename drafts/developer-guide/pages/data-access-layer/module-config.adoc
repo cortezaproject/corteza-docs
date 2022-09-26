@@ -1,0 +1,38 @@
+include::ROOT:partial$variables.adoc[]
+
+= Compose Module configuration.
+
+To configure your database connection at module level, navigate to your {PRODUCT_NAME} instance ( http://qc.cortezaproject.org/) and click the *Low Code application*.
+
+.The screenshot indicates how to access the low code application.
+image::access-control/adminn-area.png[role="data-zoomable"]
+
+A new screen showing you all of the available namespaces will appear. Select your preferred namespace.
+
+. From there depending on the namespace chosen
+
+. Navigate to the *[Admin panel]* and click on it.
+
+. Click on *[Module]* dropdown to choose an existing module or click *[New Module]* to create new module.
+
+. Fill in the field mappings forms and save.
+
+. Click the data store tabs to setup the database connection and fill in the following requirements;
+
+* Database Connection - click the dropdown to select the database from the list of available connections.
+
+[NOTE]
+====
+Changing the connection will reset the sensitivity level configuration on the module and fields, if the sensitivity level is incompatible with the new connection
+====
+
+* Collection or database table name - Name of the database table or collection where records can be accessed and stored.
+
+* Module field mapping and encoding - Configure how record fields are stored and read from the database. 
+
+[NOTE]
+====
+Default behaviour is to encode values into JSON and store them in a single field. Alternatively you can use columns with the same name as the field name (Column) or use an Alias and store the value directly in the column
+====
+
+* System field mapping and encoding - System fields are used to store metadata about the record. Configure to skip or store them into a column with the same name (Column), a different column (Alias) or encode them into JSON.

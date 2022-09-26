@@ -3,7 +3,7 @@ include::ROOT:partial$variables.adoc[]
 = Evaluate applied permissions
 
 xref:access-control/index.adoc[{PRODUCT_NAME} RBAC] uses the roles of the given user to determine if they have access to a given resource.
-Using this feature, You determine the effective access of a user to resources by comparing the permissions associated with different roles available to the user.
+This is achieved by comparing the permissions associated with different roles available to the user.
 
 Therefore one can evaluate the permissions applied to a particular user by listing the actions permitted in different roles.
 
@@ -46,7 +46,7 @@ Locate the btn:[permissions] button in the user interface in order to manage the
 ----
 ====
 
-1.Navigate to the resource of choice, click the *[permissions button]*.
+1.Navigate to the resource of choice, click the [btn:[permissions].
 
 [annotation,role="data-zoomable"]
 ----
@@ -69,7 +69,8 @@ Locate the btn:[permissions] button in the user interface in order to manage the
 }
 ----
 
-2.Click the *[add +]* button to evaluate applied permissions
+2.Click the *[add +]* button to evaluate applied permissions. An evaluation window appears with the *[select role(s)]* and *[search or select user]* dropdowns.
+You can only use one of the two options per time.
 
 [annotation,role="data-zoomable"]
 ----
@@ -92,7 +93,7 @@ Locate the btn:[permissions] button in the user interface in order to manage the
 }
 ----
 
-3.Click the *[select roles]* dropdown and select a role or the *[select user]* to choose a user.
+3.Click the *[select roles]* dropdown and select a role or  the  *[select user]* dropdown to choose a user.
 
 [annotation,role="data-zoomable"]
 ----

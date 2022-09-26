@@ -7,8 +7,6 @@ include::ROOT:partial$variables.adoc[]
 
 {PRODUCT_NAME} through the Duplicate detection feature helps maintain clean and accurate data. {PRODUCT_NAME} gives you tools for managing duplicates one at a time and across your organization, and to track your progress in eliminating duplicates.
 
-image::duplication-detection/duplicate-detection.gif[role="data-zoomable"]
-
 [NOTE]
 The duplicate detection feature can be used in  creating or editing a record, on existing records, importing records, etc. 
 

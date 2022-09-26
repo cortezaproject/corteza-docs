@@ -51,7 +51,7 @@ image::data-privacy/create-sensitivity.png[role="data-zoomable"]
 
 You can specify the highest level of sensitivity allowed for fields within a module.
 
-[NOTE]
+[CAUTION]
 ====
 changing sensitivity level value  on  a module will reset the sensitivity level of fields within the module if they are incompatible.
 ====

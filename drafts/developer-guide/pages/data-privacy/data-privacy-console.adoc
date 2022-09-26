@@ -28,7 +28,10 @@ image::data-privacy/data-overview.png[role="data-zoomable"]
 * Data Application - Personal data stored in your {PRODUCT_NAME} instance.
 
 === *Privacy Requests*
-Access, manage or export a list of all your privacy-related (deletion, export, correction) requests
+Access, manage or export a list of all your privacy-related requests.
+Types of privacy requests include:
+
+*deletion, export, correction
 
 === *Data Export*
 Open a new data export request by selecting the data type, date range and outcome file format

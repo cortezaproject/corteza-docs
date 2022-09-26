@@ -138,7 +138,7 @@
 // ** xref:data-privacy/index.adoc[]
 // **** xref:data-privacy/data-privacy-console.adoc[]
 
-// ** xref:corteza-duplicate-detection/index.adoc[]
+ ** xref:corteza-duplicate-detection/index.adoc[]
 
 // xref:record-revision/index.adoc[]
 

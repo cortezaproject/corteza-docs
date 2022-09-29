@@ -5,57 +5,81 @@ include::ROOT:partial$variables.adoc[]
 :keywords: API, {PRODUCT_NAME} API, {PRODUCT_NAME}
 :description: Learn how to USE {PRODUCT_NAME} duplicate detection to maintain clean and accurate data.
 
-{PRODUCT_NAME} through the Duplicate detection feature helps maintain clean and accurate data. {PRODUCT_NAME} gives you tools for managing duplicates one at a time and across your organization, and to track your progress in eliminating duplicates.
+{PRODUCT_NAME} through the Duplicate detection feature helps maintain clean and accurate data by using matching rules to apply a criterion that determines how closely a field on a new or edited record matches the same field on an existing record.  
+
+This is achieved through a customized user interface for handles duplicates: For example, block users from creating duplicates by displaying a warning and an error message.
 
 image::duplication-detection/duplicate-detection.gif[role="data-zoomable"]
 
-[NOTE]
-The duplicate detection feature can be used in  creating or editing a record, on existing records, importing records, etc. 
-
-There are two main distinctive Categories:
-    
-    * on creating and updating a record/records (active duplicate detection)
-    * on checking for duplicates on existing records
-    
-=== Duplicate Detection and Handling Process
-
-{PRODUCT_NAME} finds and handles duplicates using a combination of matching rules and duplicate rules. Duplicate rules and duplicate jobs specify matching rules that determine how duplicates are identified. Duplicate sets and reports list the duplicates found.
-
-* Detection Rule - A collection of matching rules
-
-* Matching Rule - A combination of a matching field, matching method and matching value
-
-* Matching Field - A field selected for detecting  duplicates
-
-* Matching Value - A value definition used to compare(match) with other values
-
-* Matching Method - How to compare a value with the matching value
-
 === Features
+
 [Features and capabilities]
 |=======================
 |Feature |Description   | Level
 |General Detection  |Any field can be opted in for duplicate detection by a toggle option in field configurator. A general duplicate detection rule will be applied on such selected fields.     |Field
-|Detection Rule Definition |Multiple detection rules can be defined per module, within compose module configurator    |Module
+|Detection Rule Definition |Multiple detection rules can be defined per Module, within compose module configurator    | Module
 |Detection on Single Record|Duplicate detection on Record Create / Update. A default/custom message will be shown based on configurations and will be allowed/restricted record save based on configuration|Record Page
-|Detection on All Records |Duplicate detection on all records of a selected module. Will be an option available in all records page (or new TBD) to detect duplicates if any rules or fields are defined for duplicate detection.|All Records
+|Detection on All Records |Duplicate detection on all records of a selected module is an option available in all records page  to detect duplicates if any rules or fields are defined for duplicate detection.|All Records
 
 |=======================
 
-=== Customize Duplicate Management
+=== Benefits of corteza duplicate detection
 
-Configure duplicate management to align with other customizations you make and detect duplicates missed by standard rules. 
-
-Customize the user interface for handling duplicates: For example, block users from creating duplicates instead of just warning them, or run different duplicate rules for different user profiles. 
-
-Customize the logic used to identify duplicates: For example, include a custom field in a matching rule, specify field mapping, or customize matching criteria on fields.
-
-// All duplicate detection jobs use pre-defined rules often referred to as **Duplicate Detection Rules** when searching for duplicates. These rules have single or multiple combinations of selecting the data entities referred to as **Criteria**, fields and defining constraints on selecting values under each.
-
-=== Benefits of corteza duplicate detetection
 - To maintain data quality
 - For improved accuracy and efficiency in data processing and generating information
 - For effective description making
-- For optimising data storage requirements
-- To minimise and manage errors
+- For optimizing data storage requirements
+- To minimize and manage errors
+
+=== Enabling Duplication Detection on a Module.
+
+Through validation, corteza ensures that no duplicate value is entered into the form for the designated field id when creating or editing a record.
+
+image::duplication-detection/validation.png[role="data-zoomable"]
+
+Validation is set up using two rules; Strict duplicate value validation and Soft duplicate value validation.
+
+* *Strict duplicate value validation*
+
+A record will not be saved when a duplicate value is detected in the selected fields in any existing record of this Module. 
+
+[NOTE]
+====
+When the Strict duplicate value validation rule is applied, an error message will be displayed on the screen's bottom right side, indicating that a record with the same name exists.
+====
+
+* *Soft duplicate value validation*
+
+This rule Record will not be saved when a duplicate value is detected in the selected fields in any existing record of this Module.
+
+[NOTE]
+====
+When Soft duplicate value validation is applied a warning message will be displayed on the bottom right side of the screen.
+==== 
+
+To enable the validation rules:
+
+1.Navigate to modules and create a new module.
+2.Fill in the field mapping details and click the *[save]* button.
+3.Navigate to the *[validation]* tab. It brings you to a new window which has two sections, namely; *Strict duplicate value validation *Soft duplicate value validation*
+
+[IMPORTANT]
+==== 
+You can choose Strict duplicate value validation or Soft duplicate value validation when setting up the validation rule on a module.
+====
+
+4.On the Strict duplicate value validation section has two columns, one for *Available fields* on the left and the second for *Selected fields* on the right.
+
+image::duplication-detection/available-fields.png[role="data-zoomable"]
+
+Click on the field under availble fields to select. Once a field is selected it moves to the left under the selected field column and vice-versa is true when unselecting the selected fields.
+
+image::duplication-detection/selected-field.png[role="data-zoomable"]
+
+
+5.Soft duplicate value validation section has two columns, one for *Available fields* on the left and the second for *Selected fields* on the right.
+
+Click on the specific field under *available fields* to select. Once a field is selected, it moves to the left under the *selected field* column, and vice-versa is true when unselecting the selected fields
+
+
 

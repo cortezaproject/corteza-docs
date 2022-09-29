@@ -2,7 +2,7 @@ include::ROOT:partial$variables.adoc[]
 
 = Data Privacy Console
 
-The Data Privacy Console enables you to access the overview of your personal data, request data deletion or data export.
+The Data Privacy Console enables you to access the overview of your personal data and request data deletion or export.
 
 This feature allows all users to browse locations and contents of their private data and make requests concerning the treatment of this data (e.g. Delete, Update), which are then escalated to the <<data-privacy-officer, *data privacy officer (DPO)*>> Console.
 
@@ -16,33 +16,81 @@ image::data-privacy/data-privacy-console.png[role="data-zoomable"]
 * Data Export
 * Data Deletion
 
-=== *Data Overview*
+== Data Overview
 
 Data overview allows you to review your profile information and your personal data stored in Corteza applications.
 
 image::data-privacy/data-overview.png[role="data-zoomable"]
 
 
-* Profile Information - Contact information,names,surnames, nickname, profile picture.
+* Profile Information - Contact information,names, surnames, nickname, profile picture.
 
 * Data Application - Personal data stored in your {PRODUCT_NAME} instance.
 
-=== *Privacy Requests*
+== Privacy Requests
 Access, manage or export a list of all your privacy-related requests.
+
+
 Types of privacy requests include:
 
-*deletion, export, correction
+=== Correction Request
 
-=== *Data Export*
-Open a new data export request by selecting the data type, date range and outcome file format
+When a user is unsatisfied with their personal data because it may be inaccurate, incomplete, misleading or not up-to-date, they can request to correct or delete the particular data.
 
-=== *Data Deletion*
-Request for your selected personal data to be deleted from the system
+To make a correction request:
+
+. Click on *[Data Overview]* 
+. Select Application data(Your personal data stored in corteza).
+. Click on the connection dropdown to select the type of connection
+. Fill in the data, i.e. how it should be corrected.
+. Click the *[Request Correction]* button.
+
+=== Deletion request 
+
+When a user needs to delete their data for any reason, they can use the Data Deletion Requests feature to request its deletion.
+
+To make a deletion request:
+
+. Click on *[Data Overview]* 
+. Select Application data(Your personal data stored in corteza).
+. Click on the connection dropdown to select the type of connection
+. Click the *[Request Deletion]* button.
+
+=== Data Export Request
+
+The data export feature provides a convenient way to obtain a copy of your data; it can either be for backup or for importing into a different system.
+
+To make a data export request;
+
+. Open a new data export request
+. Select the data type; it can either be *Profile information* or *Application Data* 
+. Select data range and outcome file format; it can either be JSON or CSV files.
 
 [#data-privacy-officer]
 == Data Privacy Officer(DPO)
 
-The *Data privacy officer (DPO)* is a role assigned to a user to grant him sufficient permissions to access the list of all received data privacy requests and sort and filter them. A DPO can accept or reject requests with comments and schedule requests for execution.
+The *Data privacy officer (DPO)* is a role assigned to a user to grant him sufficient permissions to access the list of all received data privacy requests and sort and filter them.
+A DPO can accept or reject requests with comments and schedule requests for execution using the data privacy officer console.
+
+=== Data Privacy Officer Console
+
+image::data-privacy/dpo-console.png[role="data-zoomable"]
+
+The DPO console can only be accessed by a user who has been assigned the data privacy officer role.
+It has a different view from the console accessed by all the users.
+It enables the DPO access to privacy requests and an overview of modules with sensitive data fields.
+
+* Privacy requests.
+The DPO has access to a list of pending privacy requests that awaits his approval.
+The privacy requests include correction, export and deletion requests.
+
+[NOTE]
+====
+The Data privacy officer can either approve or reject a privacy request.
+====
+
+* Sensitive Modules
+Overview of a list of all modules with sensitive data fields.
 
 === *Capabilities of Data privacy officer(DPO)*
 
@@ -54,8 +102,8 @@ A data privacy officer has the following capabilities:
 
 . Review submitted requests and prepare responses.
 
-. Update records with sensitive data to comply with the data update or removal request
+. Update records with sensitive data to comply with the data update or removal request.
 
-. Access list of data privacy requests and make  response.
+. Access a list of data privacy requests and make a response.
 
-. Create a privacy-request policy  to control what happens to privacy requests.
+. Create a privacy-request policy to control what happens to privacy requests.

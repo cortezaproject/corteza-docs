@@ -6,7 +6,7 @@ Data privacy allows us to configure and describe how and where sensitive data is
 
 It expands the current data storing capabilities and adds features that enable {PRODUCT_NAME} administrators to have more control over data privacy and managing private data.
 
-=== *Defining Privacy Policies*.
+== Defining Privacy Policies.
 
 With information from data sources set on a specific data module, each record will be able to hold detailed information about the ownership and location(s) of particular data. 
 
@@ -22,9 +22,10 @@ Who should be authorized to access it?
 
 What protection policies to apply when storing and transferring it.
 
-There are  10 levels of data sensitivity with level 1 being the lowest and level 10 beng the highest.
+Data sensitivity can be classified into different levels. Fpr example we can have 10 levels of data sensitivity with level 1 being the lowest and level 10 being the highest.
+
 You can specify sensitivity levels  limits when setting up a database connection or on modules.
-Modules sensitivity levels rely on sensitivity level limit set at *connections*.
+Module filed sensitivity levels rely on sensitivity level limit set on the module or at connections.
 
 By specifying sensitivity level, the data becomes private which means only authorized users can access the data.
 
@@ -56,7 +57,7 @@ You can specify the highest level of sensitivity allowed for fields within a mod
 changing sensitivity level value  on  a module will reset the sensitivity level of fields within the module if they are incompatible.
 ====
 
-To set up sensitivity level on modules, navigate to your {PRODUCT_NAME} instance ( http://qc.cortezaproject.org/) and click the *Low Code application*.
+To set up sensitivity level on modules, navigate to your {PRODUCT_NAME} instance {LOCAL_NAME} and click the *Low Code application*.
 
 .The screenshot indicates how to access the low code application.
 [annotation,role="data-zoomable"]

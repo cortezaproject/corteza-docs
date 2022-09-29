@@ -94,4 +94,22 @@ Click on *[Enable data at transit encryption]* checkbox to enable it.
 * Enable data at rest backup and restoration implementation.
 Click on *[Data at rest backup and restoration implementation]* checkbox to enable it.
 
+=== Issues
+
+Connections and modules, in the context of DAL, can report errors in a special way.
+Issues are used to allow modules/connections to be misconfigured while allowing the system to continue working (for example, if you restart the server with a misconfigured connection, it will still start up). It does, however, prevent specific operations such as creating records for a broken module configuration.
+
+Instead of showing an error message in the toast, it provides a list of issues in a separate UI section.
+
+Module issues are shown under the issues tab on the module edit screen
+
+img issues.png
+
+Connection issues are shown at the bottom next to where you provide DB connection parameters
+
+img connection-isssues.png
+
+
+
+
 

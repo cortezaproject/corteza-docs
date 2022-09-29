@@ -109,7 +109,7 @@ You can only use one of the two options per time.
 }
 ----
 
-4.Click the *[save & close]* button.
+Click the *[save & close]* button.
 [annotation,role="data-zoomable"]
 ----
 {
@@ -124,7 +124,7 @@ You can only use one of the two options per time.
 }
 ----
 
-5.Repeat the steps again choosing a different role on step 3 and 4 respectively inorder to evaluate  the different permissions applied on a role.
+4.Repeat the steps again choosing a different role on step 3 and 4 respectively inorder to evaluate  the different permissions applied on a role.
 [annotation,role="data-zoomable"]
 ----
 {
@@ -138,4 +138,60 @@ You can only use one of the two options per time.
   "annotations": []
 }
 ----
+
+== Permission Evaluation on Resource Components 
+
+Corteza has three major resource components, namely;
+System component, compose component and automation component.
+Each resource component has operations that are performed in it.
+
+Permissions to the various operations within a component resource are subject to the roles assigned to a user.
+
+Permissions applied can be evaluated by selecting a combination of roles or selecting a particular user.
+
+Follow these to access and evaluate system, compose and automation permissions.
+
+1.Navigate to your {PRODUCT_NAME} instance {LOCAL_NAME} and click the *[Admin area]* application.
+
+A new screen showing you all of the available components will appear. Each component has a btn:[permissions] button.
+
+2.Click on the btn:[permissions] on either system, compose or the automation component. A new screen appears that show a list of all the available operations within a component.
+
+3.Click the *[add +]* button. A window appears with the *[select role(s)]* and *[search or select user]* dropdowns.
+You can only use one of the two per time.
+
+4.Click the *[select roles]* dropdown and select a role or  the  *[select user]* dropdown to choose a user.
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "access-control/eval-permission.png",
+    "alias": "user-create",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {},
+  "annotations": []
+}
+----
+
+Click the *[save & close]* button.
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "access-control/add-role-button.png",
+    "alias": "user-create",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {},
+  "annotations": []
+}
+----
+
+5.Repeat the steps again choosing a different role on step 4 in order to evaluate  the different permissions applied on a role.
+
+image::access-control/system-permissions.png[role="data-zoomable"]
 

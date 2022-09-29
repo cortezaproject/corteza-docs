@@ -35,9 +35,10 @@ Corteza defines new data sources in two ways:
 
 To setup a primary database connection follow the following steps:
 
-.Click on *[Admin Area]* card, navigate to *[Connections]*
-.On the primary database connections section, click on the *[edit]* button.
-.Fill in the which requires the following details;
+. Navigate to menu:Admin Area Application[Connections]
+
+. On the primary database connections section, click on the *[edit]* button.
+. Fill in the which requires the following details;
 
 * Name
 
@@ -53,7 +54,7 @@ To setup a primary database connection follow the following steps:
 
 To setup a new external database connection follow the following steps:
 
-1. Click on *[Admin Area]* card, navigate to *[Connections]*
+1. Navigate to menu:Admin Area Application[Connections]
 
 2. On the List of database connections section, click on the *[Add connection]* button.
 
@@ -96,18 +97,22 @@ Click on *[Data at rest backup and restoration implementation]* checkbox to enab
 
 === Issues
 
-Connections and modules, in the context of DAL, can report errors in a special way.
-Issues are used to allow modules/connections to be misconfigured while allowing the system to continue working (for example, if you restart the server with a misconfigured connection, it will still start up). It does, however, prevent specific operations such as creating records for a broken module configuration.
+Connections and modules, in the context of DAL, can uniquely report errors through the *Issues*.
+
+Issues are used to allow modules/connections to be misconfigured while allowing the system to continue working (for example, if you restart the server with a misconfigured connection, it will still start up).
+
+However, it prevents specific operations, such as creating records for a broken module configuration.
 
 Instead of showing an error message in the toast, it provides a list of issues in a separate UI section.
 
 Module issues are shown under the issues tab on the module edit screen
 
-img issues.png
+image::data-access-layer/issues.png[role="data-zoomable"]
 
 Connection issues are shown at the bottom next to where you provide DB connection parameters
 
-img connection-isssues.png
+image::data-access-layer/connection-issues.png[role="data-zoomable"]
+
 
 
 

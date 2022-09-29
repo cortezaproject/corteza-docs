@@ -30,7 +30,6 @@ image::data-privacy/data-overview.png[role="data-zoomable"]
 == Privacy Requests
 Access, manage or export a list of all your privacy-related requests.
 
-
 Types of privacy requests include:
 
 === Correction Request

@@ -44,6 +44,8 @@
 *** xref:miscellaneous/containerized-storage.adoc[]
 
 ** xref:upgrade/index.adoc[]
+*** xref:upgrade/202109.adoc[]
+*** xref:upgrade/202103.adoc[]
 *** xref:upgrade/202012.adoc[]
 *** xref:upgrade/202009.adoc[]
 *** xref:upgrade/202003.adoc[]

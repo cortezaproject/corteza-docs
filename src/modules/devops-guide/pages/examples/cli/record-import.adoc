@@ -1,7 +1,7 @@
 include::ROOT:partial$variables.adoc[]
 
 = Import {APP_NAME_COMPOSE} Records
-:page-aliases: cli/record-import.adoc
+:page-aliases: 2022.9@cli/record-import.adoc
 
 [IMPORTANT]
 ====

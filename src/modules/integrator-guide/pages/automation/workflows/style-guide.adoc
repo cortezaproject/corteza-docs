@@ -2,7 +2,7 @@ include::ROOT:partial$variables.adoc[]
 include::ROOT:partial$icons.adoc[]
 
 = Style Guide
-:page-aliases: automation/workflows/organizing-workflows.adoc, automation/workflows/style-guide-best-practices.adoc
+:page-aliases: 2022.9@automation/workflows/organizing-workflows.adoc, 2022.9@automation/workflows/style-guide-best-practices.adoc
 :keywords: automation, style guide, designing workflows
 :description: Learn how you should structure your workflows for consistency and ease of maintenance
 

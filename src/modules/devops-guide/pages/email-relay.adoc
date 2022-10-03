@@ -1,7 +1,7 @@
 include::ROOT:partial$variables.adoc[]
 
 = Email Relay
-:page-aliases: extension-requirements/email-relay.adoc
+:page-aliases:  2022.9@extension-requirements/email-relay.adoc
 :description: {PRODUCT_NAME} allows you to detect and react to incoming emails via automation scripts.
 :keywords: dev-ops, DevOps, email relay, automation scripts
 

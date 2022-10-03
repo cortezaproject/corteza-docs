@@ -1,7 +1,7 @@
 include::ROOT:partial$variables.adoc[]
 
 = Low-Code Platform Developer Guide
-:page-aliases: administrator-guide:index.adoc
+:page-aliases: 2022.9@administrator-guide:index.adoc
 :keywords: low-code app, low-code application, custom application, low-code config, low-code configuration, extending {PRODUCT_NAME}, {APP_NAME_COMPOSE} development
 :description: Learn how to build your own custom {PRODUCT_NAME} {APP_NAME_COMPOSE} application
 

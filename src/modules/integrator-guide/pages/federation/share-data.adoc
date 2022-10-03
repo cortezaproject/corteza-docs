@@ -1,7 +1,7 @@
 include::ROOT:partial$variables.adoc[]
 
 = Data Synchronization
-:page-aliases: administrator-guide:federation/share-data.adoc
+:page-aliases: 2022.9@administrator-guide:federation/share-data.adoc
 
 When two nodes have *successfully performed the <<node-pairing,node pairing>>* process, we can *share the data between the two nodes*.
 

@@ -1,7 +1,7 @@
 include::ROOT:partial$variables.adoc[]
 
 = The Security Model
-:page-aliases: administrator-guide:access-control/index.adoc
+:page-aliases: 2022.9@administrator-guide:access-control/index.adoc
 :keywords: security model, access control
 :description: Learn how to configure your security model to conform to your business requirements
 

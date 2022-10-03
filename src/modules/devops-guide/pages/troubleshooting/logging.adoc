@@ -1,7 +1,7 @@
 include::ROOT:partial$variables.adoc[]
 
 = Logging
-:page-aliases: logging.adoc
+:page-aliases: 2022.9@logging.adoc
 
 Logging can be configured in the `.env` file using the `LOG_*` variables.
 

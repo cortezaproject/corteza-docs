@@ -1,7 +1,7 @@
 include::ROOT:partial$variables.adoc[]
 
 = Internationalization
-:page-aliases: maintenance/i18n.adoc
+:page-aliases: 2022.9@maintenance/i18n.adoc
 
 {PRODUCT_NAME} allows you to fully translate most aspect of the system.
 From the <<ui-translations,user interface>> to custom <<resource-translations,{APP_NAME_COMPOSE} configurations>> such as modules and their fields.

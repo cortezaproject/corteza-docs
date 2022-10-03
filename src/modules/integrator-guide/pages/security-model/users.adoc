@@ -1,7 +1,7 @@
 include::ROOT:partial$variables.adoc[]
 
 = User Management
-:page-aliases: administrator-guide:users.adoc
+:page-aliases: 2022.9@administrator-guide:users.adoc
 :keywords: security model, users, user management
 :description: Learn how to create and manage your platform users
 

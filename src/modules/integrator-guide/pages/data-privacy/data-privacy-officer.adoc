@@ -1,0 +1,62 @@
+include::ROOT:partial$variables.adoc[]
+
+= Data Privacy Officer
+
+The data privacy officer (also referred to as DPO) is a role assigned to a user to grant him sufficient permissions to access all received data privacy requests.
+Using the data privacy officer console, a DPO can accept or reject requests, leave comments, and schedule requests for execution.
+
+== Data Privacy Officer Console
+
+The data privacy officer console is a user interface that is feature enabled to allow a dpo to have access to privacy requests from other users concerning the treatment of their personal data.
+
+[IMPORTANT]
+====
+The DPO console can only be accessed by a user who has been assigned the role of a data privacy officer.
+====
+
+Using the data privacy officer console, a DPO can accept or reject requests, leave comments, schedule requests for execution, and have an overview of modules with sensitive data.
+
+image::data-privacy/dpo-console.png[role="data-zoomable"]
+
+
+// It has a different view from the console accessed by all the users.
+
+
+
+
+
+
+
+
+
+
+
+
+
+* Privacy requests.
+The DPO has access to a list of pending privacy requests that awaits his approval.
+The privacy requests include correction, export and deletion requests.
+
+[NOTE]
+====
+The Data privacy officer can either approve or reject a privacy request.
+====
+
+* Sensitive Modules
+Overview of a list of all modules with sensitive data fields.
+
+=== *Capabilities of Data privacy officer(DPO)*
+
+A data privacy officer has the following capabilities:
+
+. Search for records with data-sensitivity fields to collect requested data
+
+. Reject a submitted request because it's not unsubstantiated or aligned with the defined privacy policies.
+
+. Review submitted requests and prepare responses.
+
+. Update records with sensitive data to comply with the data update or removal request.
+
+. Access a list of data privacy requests and make a response.
+
+. Create a privacy-request policy to control what happens to privacy requests.

@@ -1,0 +1,14 @@
+include::ROOT:partial$variables.adoc[]
+
+= Duplicate Detection
+
+{PRODUCT_NAME} through the duplicate detection feature helps maintain clean and accurate data by preventing record duplication.
+This is achieved by using rules to apply a criterion that determines how closely a field on a new or edited record matches the same field on an existing record.
+
+The user interface displays a warning or an error message to alert the user of an existing record with the exact field values within a module thereby preventing duplicates.
+
+.Benefits of corteza duplicate detection:
+* Maintain data quality,
+* improves accuracy and efficiency in data,
+* enhances effective description of records,
+* optimizes data storage.

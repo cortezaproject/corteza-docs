@@ -1,0 +1,28 @@
+include::ROOT:partial$variables.adoc[]
+
+= Data Access Layer
+
+The {PRODUCT_NAME} Data access Layer(also referred to as DAL) extends and expands  Corteza’s capabilities to store and read data from primary and external databases.
+
+The data access layer helps us isolate( separation of concerns) our code from the presentation and business layers. 
+We use the data access layer to pull data from different data stores (database server, flat files, web services, whatever else).
+
+[TIP]
+====
+When changing the underlying database, for example, moving from one relational database like PostgreSQL to MySQL and then abstracting the underlying database is crucial.
+{PRODUCT_NAME} data access layer enables you to make the change with ease.
+====
+
+== {PRODUCT_NAME} DAL Features.
+
+* Drivers
+Data access drivers enable connection to various data sources.
+They supports any facilty that can store and or retrieve records(can be reead or write only).
+The drivers include; PostgreSQL, MySQL, SQLIte.
+
+* DAL operations to describe supported operations on driver (pagination, 
+searching, reading, writing, updating, deleting).
+
+* Allows multiple connections to different data sources.
+
+* Support "dedicated" / "physical" / "existing" RDBMS (SQL) tables.

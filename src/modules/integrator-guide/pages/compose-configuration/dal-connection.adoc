@@ -1,0 +1,27 @@
+include::ROOT:partial$variables.adoc[]
+
+
+= Database Connection.
+ 
+{PRODUCT_NAME} defines new data sources in two ways:
+. Primary data source
+. External Data Source (EDS).
+
+When connecting to an external data source we use data access layer(also reffered to as DAL) to isolate our code from the presentation and business layers. 
+This enables pulling of data from different data stores.
+
+== Data access layer configuration.
+
+When configuring the data access layer you need to specify the following.
+
+* Defaulty table or container name 
+
+This is an identifier which can contain placeholders like {{module}} (replaced with module handle) and/or {{namespace}} (replace with namespace handle). When set it is used as a default for modules.
+
+* Connection and parameter type.
+
+This specifies the data source connection and the parameter type to be used when creating the connection. For example it can be *corteza::dal:connection:dsn*
+
+* Connection parameters
+
+Connection parameters are used to specify information such as database name, database server name , and the user ID. 

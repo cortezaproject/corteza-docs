@@ -1,0 +1,11 @@
+include::ROOT:partial$variables.adoc[]
+
+= Permission Evaluation
+
+Permission evaluation allows adminstrators to see which actions can be performed by a user or a combination of roles.
+The evaluation entails comparing the different roles assigned to a user to determine user's ability to perform the various operations within a resource.
+
+[NOTE]
+====
+xref:access-control/index.adoc[{PRODUCT_NAME} RBAC] uses the roles of the given user to determine if they have access to a given resource.
+====

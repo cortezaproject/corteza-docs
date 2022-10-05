@@ -45,6 +45,13 @@
 
 
 ** xref:compose-configuration/index.adoc[]
+*** xref:compose-configuration/record-revisions.adoc[]
+*** xref:compose-configuration/duplication-detection.adoc[]
+*** xref:compose-configuration/data-access-layer.adoc[]
+*** xref:compose-configuration/dal-module-configuration.adoc[]
+*** xref:compose-configuration/dal-connection.adoc[]
+
+
 *** xref:compose-configuration/import-export.adoc[]
 *** xref:compose-configuration/field-types.adoc[]
 *** xref:compose-configuration/page-blocks.adoc[]
@@ -54,6 +61,10 @@
 // *** Examples
 // **** xref:compose-configuration/examples/page-blocks/index.adoc[]
 // **** xref:compose-configuration/examples/field-expressions.adoc[]
+
+** xref:data-privacy/index.adoc[]
+*** xref:data-privacy/data-privacy-console.adoc[]
+
 
 ** xref:automation/index.adoc[]
 *** xref:automation/execution-flow-details.adoc[]
@@ -135,7 +146,6 @@
 // ** xref:data-access-layer/index.adoc[]
 // **** xref:data-access-layer/module-config.adoc[]
 
-// ** xref:data-privacy/index.adoc[]
 // **** xref:data-privacy/data-privacy-console.adoc[]
 
  ** xref:corteza-duplicate-detection/index.adoc[]

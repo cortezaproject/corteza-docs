@@ -57,7 +57,7 @@ You can specify the highest level of sensitivity allowed for fields within a mod
 changing sensitivity level value  on  a module will reset the sensitivity level of fields within the module if they are incompatible.
 ====
 
-To set up sensitivity level on modules, navigate to your {PRODUCT_NAME} instance {LOCAL_NAME} and click the *Low Code application*.
+To set up sensitivity level on modules, navigate to your {PRODUCT_NAME} instance {LOCAL_HOSTNAME} and click the *Low Code application*.
 
 .The screenshot indicates how to access the low code application.
 [annotation,role="data-zoomable"]

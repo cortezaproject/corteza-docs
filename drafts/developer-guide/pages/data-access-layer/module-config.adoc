@@ -1,8 +1,8 @@
 include::ROOT:partial$variables.adoc[]
 
-= Compose Module configuration.
+= Compose Module Configuration
 
-To configure your database connection at module level, navigate to your {PRODUCT_NAME} instance {LOCAL_NAME} and click the *Low Code application*.
+To configure your database connection at module level, navigate to your {PRODUCT_NAME} instance {LOCAL_HOSTNAME} and click the *Low Code application*.
 
 .The screenshot indicates how to access the low code application.
 image::access-control/adminn-area.png[role="data-zoomable"]

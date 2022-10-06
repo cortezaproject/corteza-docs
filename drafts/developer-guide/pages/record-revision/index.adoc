@@ -63,7 +63,7 @@ image::record-revision/enable-record-revision.png[role="data-zoomable"]
 
 Users can use a different physical database table as a storage
 
-[IMPORTANT]
+[CAUTION]
 ====
 Table must be on the same DAL connection as the records of that module.
 ====

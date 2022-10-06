@@ -1,5 +1,19 @@
 include::ROOT:partial$variables.adoc[]
 
+
+// List of features over here
+// 1. Record revisions
+// 2. Privacy
+// 3. DAL
+// 4. Permission debugging
+// 5. De-dup
+
+
+
+// You do this:
+// 1. make a new file/folder for it
+// 2. move the rough overview of the feature and it's capabilities
+
 = Corteza duplicate detection
 
 :keywords: API, {PRODUCT_NAME} API, {PRODUCT_NAME}
@@ -50,7 +64,7 @@ When the Strict duplicate value validation rule is applied, an error message wil
 
 * *Soft duplicate value validation*
 
-This rule Record will not be saved when a duplicate value is detected in the selected fields in any existing record of this Module.
+This rule allows the record will to be saved but issues out a warning when an duplicate value is detected that there is an existing record with the exact field values within the module.
 
 [NOTE]
 ====
@@ -58,6 +72,11 @@ When Soft duplicate value validation is applied a warning message will be displa
 ==== 
 
 To enable the validation rules:
+
+[NOTE]
+====
+Validations can enabled when creating new modules or on exiting modules.
+====
 
 1.Navigate to modules and create a new module.
 2.Fill in the field mapping details and click the *[save]* button.
@@ -79,7 +98,8 @@ image::duplication-detection/selected-field.png[role="data-zoomable"]
 
 5.Soft duplicate value validation section has two columns, one for *Available fields* on the left and the second for *Selected fields* on the right.
 
-Click on the specific field under *available fields* to select. Once a field is selected, it moves to the left under the *selected field* column, and vice-versa is true when unselecting the selected fields
+Click on the specific field under *available fields* to select. 
+Once a field is selected, it moves to the left under the *selected field* column, and vice-versa is true when unselecting the selected fields
 
 
 

@@ -33,7 +33,7 @@ Corteza defines new data sources in two ways:
 . Primary data source
 . External Data Source (EDS).
 
-To setup a primary database connection follow the following steps:
+To setup a connection to the primary database  follow the following steps:
 
 . Navigate to menu:Admin Area Application[Connections]
 

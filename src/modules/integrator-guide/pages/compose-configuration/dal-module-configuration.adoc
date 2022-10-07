@@ -2,8 +2,10 @@ include::ROOT:partial$variables.adoc[]
 
 = Compose Module Configuration
 
-{PRODUCT_NAME} allows you to configure connections on modules.
-This is achieved through selecting a database to connect to(The database can either be primary or an external database) and also specifying the name of the database table or collection where records can be accessed and stored.
+{PRODUCT_NAME}, through the data access layer, provides a way of connecting modules to different data stores. This means businesses can have various modules connected to different data stores.
+This capability enables businesses to easily integrate records with their database(primary or external databases), access more records from different data stores, and create backups.
+
+The connection is enabled through selecting a database to connect to(The database can either be primary or an external database) and also specifying the name of the database table or collection where records can be accessed and stored.
 
 [CAUTION]
 ====
@@ -11,14 +13,16 @@ Changing the connection will reset the sensitivity level configuration on the mo
 ====
 
 You can also configure how record fields are stored and read from the database through module field mapping and encoding. 
-
-[NOTE]
-====
-The default behaviour is to encode values into JSON and store them in a single field. Alternatively you can use columns with the same name as the field name (Column) or use an Alias and store the value directly in the column. The available options are:
+You can encode values into JSON and store them in a single field.
+Alternatively you can use columns with the same name as the field name (Column) or use an Alias and store the value directly in the column. The available options are:
 
 * JSON
 * COLUMNS
 * ALIAS
+
+[NOTE]
+====
+The default strategy is to encode values into JSON.
 ====
 
 System field mapping and encoding - System fields are used to store metadata about the record.

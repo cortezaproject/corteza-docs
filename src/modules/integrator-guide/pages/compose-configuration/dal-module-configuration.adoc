@@ -5,7 +5,10 @@ include::ROOT:partial$variables.adoc[]
 {PRODUCT_NAME}, through the data access layer, provides a way of connecting modules to different data stores. This means businesses can have various modules connected to different data stores.
 This capability enables businesses to easily integrate records with their database(primary or external databases), access more records from different data stores, and create backups.
 
-The connection is enabled through selecting a database to connect to(The database can either be primary or an external database) and also specifying the name of the database table or collection where records can be accessed and stored.
+An example would be when a sales manager wants to include sales forecast data which is available in a spreadsheet stored on a sale's officer local machine, into the actual sales data available on the primary data source.
+To make this integration, he would connect the spreadsheet as a relational data source, and the sales forecast data would be viewed along with the actual sales data available.
+
+The connection is enabled through selecting a database to connect to(the connection can either be primary or an external database) and also specifying the name of the database table or collection where records can be accessed and stored.
 
 [CAUTION]
 ====

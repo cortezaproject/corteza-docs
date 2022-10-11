@@ -13,7 +13,7 @@ When changing the underlying database, for example, moving from one relational d
 {PRODUCT_NAME} data access layer enables you to make the change with ease.
 ====
 
-== {PRODUCT_NAME} DAL Features.
+== {PRODUCT_NAME} DAL Features
 
 * Drivers
 Data access drivers enable connection to various data sources.

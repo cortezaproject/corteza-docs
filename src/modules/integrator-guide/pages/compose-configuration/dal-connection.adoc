@@ -1,14 +1,18 @@
 include::ROOT:partial$variables.adoc[]
 
 
-= Database Connection.
+= Database Connection
  
-{PRODUCT_NAME} defines new data sources in two ways:
-. Primary data source
+The data access layer enables you to connect your {PRODUCT_NAME} instance to multiple datasources. 
+The data sources are defened in two ways:
+
+. Primary data source(always available and is configured during system setup).
 . External Data Source (EDS).
 
-When connecting to an external data source we use data access layer(also reffered to as DAL) to isolate our code from the presentation and business layers. 
-This enables pulling of data from different data stores.
+The capability to connect to different data sources helps the business integrate information from the various connections into the business.
+
+An example would be when a sales manager wants to include sales forecast data which is available in a spreadsheet stored on a sale's officer local machine, into the actual sales data available on the primary data source.
+To make this integration, he would connect the spreadsheet as a relational data source, and the sales forecast data would be viewed along with the actual sales data available.
 
 == Data access layer configuration.
 

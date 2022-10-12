@@ -376,6 +376,33 @@ Defines what value the key field must have to be shown in a given column.
 
 |===
 
+[#page-block-record-revisions]
+== Record revisions
+
+The *record revisions page blocks* allow you to display the revision history tracked for a particular module.
+The revision history is listed in ascending order, with the latest change at the bottom.
+
+image::compose-configuration/page-block-reference/config-record-revisions.png[...,50%,role="preview data-zoomable"]
+
+.Additional configurations:
+[cols="2s,5a"]
+|===
+| [#page-block-record-revisions-preload-revisions]#<<page-block-record-revisions-preload-revisions,Preload record revisions>>#
+|
+Defines if the record revisions page block should display the revision history unconditionally or if the page block should load the revision history on demand (when unchecked).
+Keeping the option disabled may help with performance regarding more extensive revision histories, but you can generally enable it.
+
+If the revisions are loaded on demand, the page block displays a btn:[show record revisions] button that allows the user to load the revision history.
+
+image::compose-configuration/page-block-reference/config-record-revisions-on-demand.png[...,50%,role="preview data-zoomable"]
+
+| [#page-block-record-revisions-show-all-changes]#<<page-block-record-revisions-show-all-changes,Show changes for all fields>>#
+|
+Defines if the revision history page block should show all changed values or just a subset.
+If the checkbox is unchecked, the table underneath lets you pick what fields the page block should show.
+
+|===
+
 [#page-block-record]
 == Record
 

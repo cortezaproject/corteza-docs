@@ -14,6 +14,9 @@
 **** xref:authentication/external/saml/index.adoc[]
 ***** xref:authentication/external/saml/okta.adoc[Okta]
 
+** xref:security-model/Permissions/permissions-evaluation.adoc[]
+
+
 // ** xref:access-control/index.adoc[]
 // *** xref:access-control/users/index.adoc[]
 // **** xref:access-control/users/creating.adoc[]

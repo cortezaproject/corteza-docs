@@ -2,10 +2,201 @@ include::ROOT:partial$variables.adoc[]
 
 = Permission Evaluation
 
-Permission evaluation allows adminstrators to see which actions can be performed by a user or a combination of roles.
+Permission evaluation feature allows adminstrators to check which actions or operations can be performed by a user or a combination of roles.
 The evaluation entails comparing the different roles assigned to a user to determine user's ability to perform the various operations within a resource.
 
 [NOTE]
 ====
 xref:access-control/index.adoc[{PRODUCT_NAME} RBAC] uses the roles of the given user to determine if they have access to a given resource.
 ====
+
+== How to evaluate applied permissions
+
+[NOTE]
+====
+Most of the {PRODUCT_NAME} resources allow you to define which xref:access-control/roles.adoc[roles] are allowed to access the resource.
+Locate the btn:[permissions] button in the user interface in order to manage the resource.
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "security-model/access-control/general-permissions-button.png",
+    "alias": "general-permissions-button",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {
+    "x": 320,
+    "y": 0,
+    "h": 550,
+    "w": 1600
+  },
+  "focus": {
+    "x": 1466,
+    "y": 80,
+    "h": 31,
+    "w": 206
+  },
+  "annotations": [{
+    "kind": "box",
+    "x": 1536,
+    "y": 80,
+    "w": 134,
+    "h": 30
+  }]
+}
+----
+====
+
+1.Navigate to the resource of choice, click the [btn:[permissions].
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "security-model/access-control/permission-button-page.png",
+    "alias": "new-user",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {},
+  "annotations": [{
+    "kind": "box",
+    "padding": "xs",
+    "x": 1535,
+    "y": 75,
+    "w": 130,
+    "h": 42
+  }]
+}
+----
+
+2.Click the *[add +]* button.
+An evaluation window appears with the *[select role(s)]* and *[search or select user]* dropdowns.
+You can only use one of the two options per time.
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "security-model/access-control/add-role.png",
+    "alias": "add-role",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {},
+  "annotations": [{
+    "kind": "box",
+    "padding": "xs",
+    "x": 765,
+    "y": 150,
+    "w": 750,
+    "h": 80
+}]
+}
+----
+
+3.Click the *[select roles]* dropdown and then select a role or  the  *[select user]* dropdown to choose a user.
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "security-model/access-control/eval-permission.png",
+    "alias": "user-create",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {},
+  "annotations": []
+}
+----
+
+Click the *[save & close]* button.
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "security-model/access-control/add-role-button.png",
+    "alias": "user-create",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {},
+  "annotations": []
+}
+----
+
+4.Repeat the steps again choosing a different role on step 3 and 4 respectively inorder to evaluate  the different permissions applied on a role.
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "security-model/access-control/save-eval.png",
+    "alias": "save-eval",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {},
+  "annotations": []
+}
+----
+
+== Permission Evaluation on Resource Components 
+
+Corteza has three major resource components, namely;
+*System*, *compose* and *automation* components.
+Each resource component has operations that are performed in it.
+
+Permissions to the various operations within a component resource are subject to the roles assigned to a user.
+
+Permissions applied can be evaluated by selecting a combination of roles or selecting a particular user.
+
+Follow these steps to access and evaluate system, compose and automation permissions.
+
+1.Navigate to your {PRODUCT_NAME} instance {LOCAL_HOSTNAME} and click the *[Admin area]* application.
+
+A new screen showing you all of the available components will appear. Each component has a btn:[permissions] button.
+
+2.Click on the btn:[permissions] on either system, compose or the automation component. A new screen appears that show a list of all the available operations within a component.
+
+3.Click the *[add +]* button. A window appears with the *[select role(s)]* and *[search or select user]* dropdowns.
+You can only use one of the two per time.
+
+4.Click the *[select roles]* dropdown and select a role or  the  *[select user]* dropdown to choose a user.
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "security-model/access-control/eval-permission.png",
+    "alias": "user-create",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {},
+  "annotations": []
+}
+----
+
+Click the *[save & close]* button.
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "security-model/access-control/add-role-button.png",
+    "alias": "user-create",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {},
+  "annotations": []
+}
+----
+
+5.Repeat the steps again choosing a different role on step 4 in order to evaluate  the different permissions applied on a role.
+
+image::security-model/access-control/system-permissions.png[role="data-zoomable"]
+
+

@@ -2,8 +2,8 @@ include::ROOT:partial$variables.adoc[]
 
 = Data Privacy Console
 
-The data privacy console enables you to have access to your personal data by which you can request the company to provide you with access to your personal data allowing you to request modifications, deletions, and exports.
-The requests concerning the treatment of your personal data (deletion, correction, and export) are then escalated to the *data privacy officer (DPO)*.
+The data privacy console enables you to have access to your personal data and provides a platform where you can make modification, deletion, and export requests to the company concerning your personal data.
+These requests(deletion, correction, and export) concerning the treatment of your personal data are then escalated to the *data privacy officer (DPO)*.
 
 This feature is also enabled to allow all users to browse locations of where the data is stored.
 

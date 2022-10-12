@@ -1,0 +1,431 @@
+include::ROOT:partial$variables.adoc[]
+
+= Tracking Record Revisions
+
+{PRODUCT_NAME} provides a record revision feature which allows you to configure modules to track changes on records by introducing a new revision counter and providing a history of changes.
+{PRODUCT_NAME} keeps a revision counter for each record (starting from 1) that increments every time the record is updated, and only changes in record values are stored for each revision.
+
+Revisions must be enabled for a specific module and can be viewed inside a record revision page block.
+When enabled, all record changes are stored in the database with the author and the timestamp.
+
+[NOTE]
+====
+A revision is only added when a record is updated, so newly created records don't have revisions, which reduces the number of stored revisions.
+====
+
+[#configure-module]
+== Enabling Revision Tracking
+
+To enable revision tracking for specific records, we need to enable the option on the {APP_NAME_COMPOSE} module.
+In addition to module configuration, you'll need to <<configure-record-page,configure the record page>> to display the revision history.
+
+[IMPORTANT]
+====
+Record revisions are stored in the same connection as the module itself.
+====
+
+Firstly, navigate to your {APP_NAME_COMPOSE} namespace and enter the admin area (you can also enable record revision for brand new modules).
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "compose-configuration/record-revisions/ns-home.png",
+    "alias": "compose-configuration-record-revisions-ns-home",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {},
+  "annotations": [{
+    "kind": "box",
+    "x": 17,
+    "y": 135,
+    "w": 318,
+    "h": 35
+  }]
+}
+----
+
+In the list of modules, click on the one you wish to enable record revisions for.
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "compose-configuration/record-revisions/admin-modules.png",
+    "alias": "compose-configuration-record-revisions-admin-modules",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {
+    "x": 352,
+    "y": 0,
+    "w": 1568,
+    "h": 1080
+  },
+  "annotations": [{
+    "kind": "box",
+    "x": 525,
+    "y": 222,
+    "h": 65,
+    "w": 1220
+  }]
+}
+----
+
+Click on the record revisions tab and check the *enable record revisions checkbox*.
+Optionally input the identifier option.
+
+[NOTE]
+====
+The identifier option allows you to specify the database table or collection which {PRODUCT_NAME} should use to log the revisions.
+A system-defined location is used that should satisfy most use cases.
+====
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "compose-configuration/record-revisions/admin-module-edit-revisions-enable.png",
+    "alias": "compose-configuration-record-revisions-admin-module-edit-revisions-enable",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {
+    "x": 352,
+    "y": 0,
+    "w": 1568,
+    "h": 1080
+  },
+  "annotations": [{
+    "kind": "box",
+    "x": 547,
+    "y": 255,
+    "w": 213,
+    "h": 19
+  }]
+}
+----
+
+Once finished, click the btn:[save] button to save the changes and enable record revision tracking.
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "compose-configuration/record-revisions/admin-module-edit-revisions-enable.png",
+    "alias": "compose-configuration-record-revisions-admin-module-edit-revisions-enable-save",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {
+    "x": 352,
+    "y": 0,
+    "w": 1568,
+    "h": 1080
+  },
+  "annotations": [{
+    "kind": "box",
+    "x": 1821,
+    "y": 1015,
+    "w": 81,
+    "h": 47
+  }]
+}
+----
+
+[#configure-record-page]
+== Displaying the Revision History
+
+To display the revision history, we need to add a xref:compose-configuration/page-blocks.adoc#page-block-record-revisions[*record revision* page block] to the record page.
+You can skip this step if you only want to track the revision history and not display it.
+
+[IMPORTANT]
+====
+Since they are tightly correlated, the record revision page block can only appear on the record page.
+====
+
+Navigate to the record page directly from the module itself or from the list of pages (the screenshot below shows how to access the record page from the module edit screen).
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "compose-configuration/record-revisions/admin-module-edit-open-record-page.png",
+    "alias": "compose-configuration-record-revisions-admin-module-edit-open-record-page",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {
+    "x": 352,
+    "y": 0,
+    "w": 1568,
+    "h": 1080
+  },
+  "annotations": [{
+    "kind": "box",
+    "x": 1563,
+    "y": 175,
+    "w": 133,
+    "h": 18
+  }]
+}
+----
+
+Next, click on the btn:[+ add block] button in the toolbar to open up the page block selection modal window.
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "compose-configuration/record-revisions/admin-record-page-base.png",
+    "alias": "compose-configuration-record-revisions-admin-record-page-base",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {
+    "x": 352,
+    "y": 0,
+    "w": 1568,
+    "h": 1080
+  },
+  "annotations": [{
+    "kind": "box",
+    "x": 1028,
+    "y": 1013,
+    "w": 144,
+    "h": 48
+  }]
+}
+----
+
+Find and click on the record revisions page block in the page selection modal.
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "compose-configuration/record-revisions/admin-record-page-add-block-select.png",
+    "alias": "compose-configuration-record-revisions-admin-record-page-add-block-select",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {},
+  "focus": {
+    "padding": "xs",
+    "x": 530,
+    "y": 41,
+    "w": 860,
+    "h": 895
+  },
+  "annotations": [{
+    "kind": "box",
+    "x": 554,
+    "y": 680,
+    "h": 50,
+    "w": 250
+  }]
+}
+----
+
+In the page block configuration modal window, click on the record revisions tab and make sure the configuration matches your needs.
+The configuration allows you to select a subset of module fields to show on the record revisions page block.
+
+Once satisfied, click on the btn:[save] button to configure the page block and add it to the record page.
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "compose-configuration/record-revisions/admin-record-page-add-block-configure.png",
+    "alias": "compose-configuration-record-revisions-admin-record-page-add-block-configure",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {},
+  "focus": {
+    "padding": "xs",
+    "x": 344,
+    "y": 42,
+    "w": 1232,
+    "h": 584
+  },
+  "annotations": [{
+    "kind": "box",
+    "x": 1454,
+    "y": 583,
+    "w": 115,
+    "h": 36
+  }]
+}
+----
+
+Place the newly added record revisions page block to fit your page.
+
+When the revision tracking is enabled, {PRODUCT_NAME} also provides a new *record revision* module field, which indicates the revision number.
+You can add the module field on both the *record* and *record list* page blocks.
+
+Once satisfied with your changes, click on the btn:[save] button to save your changes.
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "compose-configuration/record-revisions/admin-record-page-add-block-place.png",
+    "alias": "compose-configuration-record-revisions-admin-record-page-add-block-place",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {
+    "x": 352,
+    "y": 0,
+    "w": 1568,
+    "h": 1080
+  },
+  "annotations": [{
+    "y": 68,
+    "x": 1394,
+    "w": 518,
+    "h": 882
+  }, {
+    "kind": "box",
+    "x": 1820,
+    "y": 1015,
+    "w": 82,
+    "h": 48
+  }]
+}
+----
+
+== Viewing the Revision History
+
+[NOTE]
+====
+To view the revision history, you'll firstly need to <<configure-module,configure the module>> and <<configure-record-page,add the record revisions page block>> to the record page.
+====
+
+To view record revisions, click on the record you wish to see the revision history for.
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "compose-configuration/record-revisions/ns-home-with-revisions.png",
+    "alias": "compose-configuration-record-revisions-ns-home-with-revisions",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {
+    "x": 352,
+    "y": 0,
+    "w": 1568,
+    "h": 1080
+  },
+  "annotations": [{
+    "kind": "box",
+    "x": 370,
+    "y": 464,
+    "w": 1533,
+    "h": 51
+  }]
+}
+----
+
+You can view the entire revision history in the record revisions page block.
+Each revision entry logs the timestamp, the performed operation, and the user that performed the operation.
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "compose-configuration/record-revisions/view-record-revision-overview.png",
+    "alias": "compose-configuration-record-revisions-view-record-revision-overview",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {
+    "x": 352,
+    "y": 0,
+    "w": 1568,
+    "h": 1080
+  },
+  "focus": {
+    "padding": "xs",
+    "x": 1410,
+    "y": 89,
+    "w": 482,
+    "h": 886
+  },
+  "annotations": []
+}
+----
+
+To view the revision details, click on the btn:[change(s)] button at the far right of the revision you wish to inspect.
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "compose-configuration/record-revisions/view-record-revision-overview.png",
+    "alias": "compose-configuration-record-revisions-view-record-revision-overview-expand-details",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {
+    "x": 352,
+    "y": 0,
+    "w": 1568,
+    "h": 1080
+  },
+  "focus": {
+    "padding": "xs",
+    "padding": "xs",
+    "x": 1410,
+    "y": 89,
+    "w": 482,
+    "h": 886
+  },
+  "annotations": [{
+    "kind": "box",
+    "x": 1784,
+    "y": 149,
+    "w": 88,
+    "h": 41
+  }]
+}
+----
+
+The detailed view will list the logged value changes for that revision.
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "compose-configuration/record-revisions/view-record-revision-details.png",
+    "alias": "compose-configuration-record-revisions-view-record-revision-details",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {
+    "x": 352,
+    "y": 0,
+    "w": 1568,
+    "h": 1080
+  },
+  "focus": {
+    "padding": "xs",
+    "padding": "xs",
+    "x": 1410,
+    "y": 89,
+    "w": 482,
+    "h": 886
+  },
+  "annotations": [{
+    "kind": "box",
+    "x": 1468,
+    "y": 220,
+    "w": 420,
+    "h": 255
+  }]
+}
+----

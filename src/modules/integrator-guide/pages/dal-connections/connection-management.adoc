@@ -1,0 +1,210 @@
+include::ROOT:partial$variables.adoc[]
+
+= Connection Management
+
+The connection management user interface resides in the {PRODUCT_NAME} {APP_NAME_ADMIN} web application, under the menu:system[connections] section.
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "dal-connections/management/interface.png",
+    "alias": "dal-connections-management-interface",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {},
+  "annotations": [{
+    "kind": "box",
+    "x": 16,
+    "y": 577,
+    "h": 37,
+    "w": 288
+  }]
+}
+----
+
+== Listing Connections
+
+.To list current connections:
+. navigate to menu:system[connections],
+. optionally include deleted connections,
+. the list refreshes automatically.
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "dal-connections/management/interface.png",
+    "alias": "dal-connections-management-interface-filtering",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {
+    "x": 352,
+    "y": 0,
+    "w": 1568,
+    "h": 1080
+  },
+  "focus": {
+    "padding": "xs",
+    "x": 534,
+    "y": 450,
+    "w": 1204,
+    "h": 586
+  },
+  "annotations": []
+}
+----
+
+[IMPORTANT]
+====
+The list includes only external connections; the primary connection is available at the top of the list.
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "dal-connections/management/interface.png",
+    "alias": "dal-connections-management-interface-primary",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {
+    "x": 352,
+    "y": 0,
+    "w": 1568,
+    "h": 1080
+  },
+  "focus": {
+    "padding": "xs",
+    "x": 535,
+    "y": 106,
+    "w": 1202,
+    "h": 300
+  },
+  "annotations": []
+}
+----
+====
+
+== Creating Connections
+
+.To create a new connection:
+. navigate to menu:system[connections],
+. click on the btn:[add connection] button and fill out the form.
+
+[NOTE]
+====
+refer to the xref:dal-connections/index.adoc#configuration[connection configuration] section for details on the form.
+====
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "dal-connections/management/interface.png",
+    "alias": "dal-connections-management-interface-create",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {
+    "x": 352,
+    "y": 0,
+    "w": 1568,
+    "h": 1080
+  },
+  "focus": {
+    "padding": "xs",
+    "x": 534,
+    "y": 450,
+    "w": 1204,
+    "h": 586
+  },
+  "annotations": [{
+    "x": 548,
+    "y": 515,
+    "h": 34,
+    "w": 160
+  }]
+}
+----
+
+== Editing Connections
+
+.To update an existing connection:
+. navigate to menu:system[connections],
+. click on the btn:[edit] button and update the connection.
+
+[NOTE]
+====
+refer to the xref:dal-connections/index.adoc#configuration[connection configuration] section for details on the form.
+====
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "dal-connections/management/interface.png",
+    "alias": "dal-connections-management-interface-edit",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {
+    "x": 352,
+    "y": 0,
+    "w": 1568,
+    "h": 1080
+  },
+  "focus": {
+    "padding": "xs",
+    "x": 534,
+    "y": 450,
+    "w": 1204,
+    "h": 586
+  },
+  "annotations": [{
+    "x": 1689,
+    "y": 658,
+    "h": 56,
+    "w": 55
+  }]
+}
+----
+
+== Deleting Connections
+
+.To update an existing connection:
+. navigate to menu:system[connections],
+. click on the btn:[edit] button,
+. click and confirm the btn:[delete] button.
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "dal-connections/management/delete.png",
+    "alias": "dal-connections-management-delete",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {
+    "x": 436,
+    "y": 280,
+    "w": 1400,
+    "h": 801
+  },
+  "focus": {
+    "x": 512,
+    "y": 1015,
+    "w": 1248,
+    "h": 58
+  },
+  "annotations": [{
+    "x": 527,
+    "y": 1023,
+    "w": 85,
+    "h": 36
+  }]
+}
+----

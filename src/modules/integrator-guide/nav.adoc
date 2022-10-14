@@ -41,6 +41,8 @@
 **** xref:accessing-corteza/examples/compose-attachments.adoc[]
 
 ** xref:compose-configuration/index.adoc[]
+*** xref:compose-configuration/record-revisions.adoc[]
+*** xref:compose-configuration/record-storage.adoc[]
 *** xref:compose-configuration/import-export.adoc[]
 *** xref:compose-configuration/duplication-detection.adoc[]
 *** xref:compose-configuration/field-types.adoc[]
@@ -51,6 +53,10 @@
 // *** Examples
 // **** xref:compose-configuration/examples/page-blocks/index.adoc[]
 // **** xref:compose-configuration/examples/field-expressions.adoc[]
+
+** xref:dal-connections/index.adoc[]
+*** xref:dal-connections/connection-management.adoc[]
+*** xref:dal-connections/troubleshooting.adoc[]
 
 ** xref:automation/index.adoc[]
 *** xref:automation/execution-flow-details.adoc[]

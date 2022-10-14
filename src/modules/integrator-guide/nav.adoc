@@ -14,7 +14,7 @@
 **** xref:authentication/external/saml/index.adoc[]
 ***** xref:authentication/external/saml/okta.adoc[Okta]
 
-// ** xref:security-model/Permissions/permissions-evaluation.adoc[]
+ ** xref:security-model/Permissions/permissions-evaluation.adoc[]
 
 
 // ** xref:access-control/index.adoc[]
@@ -151,7 +151,7 @@
 
 // **** xref:data-privacy/data-privacy-console.adoc[]
 
- ** xref:corteza-duplicate-detection/index.adoc[]
+// ** xref:corteza-duplicate-detection/index.adoc[]
 
 // xref:record-revision/index.adoc[]
 

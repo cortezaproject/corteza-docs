@@ -104,27 +104,53 @@ You can only use one of the two options per time.
 {
   "image": {
     "rel": "security-model/access-control/eval-permission.png",
-    "alias": "user-create",
+    "alias": "eval-permission.png",
     "w": 1920,
     "h": 1080
   },
   "view": {},
-  "annotations": []
+  "focus": {
+    "padding": "xs",
+    "x": 604,
+    "y": 320,
+    "w": 1232,
+    "h": 684
+  },
+  "annotations": [{
+    "kind": "box",
+    "x": 600,
+    "y": 330,
+    "w": 735,
+    "h": 270
+  }]
 }
 ----
 
-Click the *[save & close]* button.
+click on the btn:[save] button.
 [annotation,role="data-zoomable"]
 ----
 {
   "image": {
-    "rel": "security-model/access-control/add-role-button.png",
-    "alias": "user-create",
+    "rel": "security-model/access-control/save-evaluation-permission.png",
+    "alias": "save-evaluation-permission",
     "w": 1920,
     "h": 1080
   },
   "view": {},
-  "annotations": []
+  "focus": {
+    "padding": "xs",
+    "x": 344,
+    "y": 42,
+    "w": 1232,
+    "h": 630
+  },
+  "annotations": [{
+    "kind": "box",
+    "x": 1150,
+    "y": 613,
+    "w": 145,
+    "h": 36
+  }]
 }
 ----
 
@@ -149,7 +175,10 @@ Corteza has three major resource components, namely;
 *System*, *compose* and *automation* components.
 Each resource component has operations that are performed in it.
 
+[IMPORTANT]
+====
 Permissions to the various operations within a component resource are subject to the roles assigned to a user.
+====
 
 Permissions applied can be evaluated by selecting a combination of roles or selecting a particular user.
 
@@ -159,7 +188,7 @@ Follow these steps to access and evaluate system, compose and automation permiss
 
 A new screen showing you all of the available components will appear. Each component has a btn:[permissions] button.
 
-2.Click on the btn:[permissions] on either system, compose or the automation component. A new screen appears that show a list of all the available operations within a component.
+2.Click on the btn:[permissions] button on either system, compose or the automation component. A new screen appears that displays a list of all the available operations within a component.
 
 3.Click the *[add +]* button. A window appears with the *[select role(s)]* and *[search or select user]* dropdowns.
 You can only use one of the two per time.
@@ -180,7 +209,7 @@ You can only use one of the two per time.
 }
 ----
 
-Click the *[save & close]* button.
+click on the btn:[save] button.
 [annotation,role="data-zoomable"]
 ----
 {

@@ -124,11 +124,16 @@ If you enable OAuth2 or OIDC sign-up or access external services via automation 
 
 == Domain and Hostname
 
-.The most common setup involves two domains -- API and web app:
-* Hostname for Web application,
-* hostname for API server.
+For the most common and effortless setup, we recommend using a {PRODUCT_NAME} docker image that contains web applications and an API server (all-in-one), and both are served from the same domain.
 
-If you already own a domain, you can add two or more hosts and use them to access your {PRODUCT_NAME} instance.
+Alternatively, if needed, the setup could be split into two; the web application and the API server would be hosted separately. 
+
+[NOTE]
+====
+If you decide on a split setup, {PRODUCT_NAME} does not require different domains for its services.
+You can use different hosts or subdomains and point them to each service.
+To exemplify; you can use `web.example.tld` for your web applications and `api.example.tld` for your API.
+====
 
 == HTTPS/SSL Certificates
 

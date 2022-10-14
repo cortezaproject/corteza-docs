@@ -148,8 +148,8 @@ click on the btn:[save] button.
     "kind": "box",
     "x": 1150,
     "y": 613,
-    "w": 145,
-    "h": 36
+    "w": 193,
+    "h": 38
   }]
 }
 ----
@@ -205,7 +205,20 @@ You can only use one of the two per time.
     "h": 1080
   },
   "view": {},
-  "annotations": []
+  "focus": {
+    "padding": "xs",
+    "x": 604,
+    "y": 320,
+    "w": 1232,
+    "h": 784
+  },
+  "annotations": [{
+    "kind": "box",
+    "x": 600,
+    "y": 360,
+    "w": 760,
+    "h": 210
+  }]
 }
 ----
 
@@ -214,13 +227,26 @@ click on the btn:[save] button.
 ----
 {
   "image": {
-    "rel": "security-model/access-control/add-role-button.png",
-    "alias": "user-create",
+    "rel": "security-model/access-control/save-eval-permission.png",
+    "alias": "save-eval-permission-button",
     "w": 1920,
     "h": 1080
   },
   "view": {},
-  "annotations": []
+  "focus": {
+    "padding": "xs",
+    "x": 344,
+    "y": 42,
+    "w": 1232,
+    "h": 630
+  },
+  "annotations": [{
+    "kind": "box",
+    "x": 1150,
+    "y": 613,
+    "w": 193,
+    "h": 38
+  }]
 }
 ----
 

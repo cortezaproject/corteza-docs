@@ -43,3 +43,9 @@ The permission debugger is available in all of the permission configuration moda
 .[#2022_9-important]#<<2022_9-important,Important upgrade notes:>>#
 * The {PRODUCT_NAME} {APP_NAME_REPORTER}'s `Group` step changed to `Aggregate`, the old `Join` step changed to `Link` and a new `Join` step was added.
 * The {PRODUCT_NAME} {APP_NAME_REPORTER}'s `date()` expression function changed to return the entire *date without time* (the previous version returned the day number), and added a new `day()` function to retrieve the day number.
+
+:leveloffset: +1
+
+include::01.adoc[]
+
+:leveloffset: -1

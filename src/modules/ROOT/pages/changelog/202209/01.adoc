@@ -1,0 +1,47 @@
+include::ROOT:partial$variables.adoc[]
+
+= `2022.9.1`
+
+*Released on*: `2022-10-13`
+
+.[#2022_3_1-added]#<<2022_3_1-added,Added:>>#
+* Added support for DAL aggregation on the RDBMS level to improve performance on larder datasets by utilizing existing technology ({SERVER_COMMIT_BASE}1215511e2[`1215511e2`]).
+
+.[#2022_3_1-changed]#<<2022_3_1-changed,Changed:>>#
+* Changed privacy request comment loading indicator by introducing a spinner ({WEBAPP_PRIVACY_COMMIT_BASE}46da70e[`46da70e`]).
+* Changed {APP_NAME_AUTOMATION} server to use a newer Pino version to the same version as elsewhere to avoid interface collisions ({SERVER_CORREDOR_COMMIT_BASE}8893f33[`8893f33`]).
+* Changed {APP_NAME_AUTOMATION} server to no longer start if the provided configuration is invalid.
+The {APP_NAME_AUTOMATION} server now checks for validity and errors out if invalid ({SERVER_CORREDOR_COMMIT_BASE}8893f33[`8893f33`]).
+* Changed JSON handling within the {PRODUCT_NAME}'s DAL package.
+We made the change to improve performance when processing a lot of JSON objects by switching to the valyala/fastjson package ({SERVER_COMMIT_BASE}ce6d7d02e[`ce6d7d02e`]).
+* Changed multi-value geometry field editor and viewer ({WEBAPP_COMPOSE_COMMIT_BASE}32703e4[`32703e4`], {WEBAPP_JS_COMMIT_BASE}46378d8[`46378d8`]).
+* Changed the API docs to be up to date and include automation endpoints ({SERVER_COMMIT_BASE}b03a09812[`b03a09812`]).
+
+.[#2021_3_1-removed]#<<2021_3_1-removed,Removed:>>#
+* Removed the color scheme dependency because it was unneeded and it was causing build errors ({WEBAPP_VUE_COMMIT_BASE}a76323e[`a76323e`], {WEBAPP_ONE_COMMIT_BASE}e10a353[`e10a353`], {WEBAPP_DISCOVERY_COMMIT_BASE}e86cf2e[`e86cf2e`], {WEBAPP_PRIVACY_COMMIT_BASE}bfc910a[`bfc910a`], {WEBAPP_WORKFLOW_COMMIT_BASE}1e8842d[`1e8842d`], {WEBAPP_ADMIN_COMMIT_BASE}42bef4a[`42bef4a`])
+
+.[#2022_3_1-fixed]#<<2022_3_1-fixed,Fixed:>>#
+* Fixed memory leaks caused by DAL when running reports.
+The reporting logic didn't close the open data sources ({SERVER_COMMIT_BASE}5d476dcfa[`5d476dcfa`]).
+* Fixed invalid resource retrieval, which led to missing logos and fav icons on instances where the server and webapp are split.
+We resolved the issue by properly determining the URL for this scenario ({WEBAPP_VUE_COMMIT_BASE}1079236[`1079236`])
+* Fixed UI/UX issues in regards to the report builder's tooltip and button sizes ({WEBAPP_REPORTER_COMMIT_BASE}bcf2b36[`bcf2b36`]), properly displaying page block headers and footers on plain page blocks ({WEBAPP_COMPOSE_COMMIT_BASE}7e8fb2f[`7e8fb2f`]).
+* Fixed duplicated result argument display on workflow function configuration.
+The issue occurred due to improper rendering condition ({WEBAPP_WORKFLOW_COMMIT_BASE}945f287[`945f287`])
+* Fixed expression values not being visible in the configuration sidebar when configuring workflows.
+* Fixed expression values not showing in the sidebar ({WEBAPP_WORKFLOW_COMMIT_BASE}2bae1bd[`2bae1bd`])
+* Fixed failing namespace export when using namespace with characters such as `/` and `.`.
+The names are encoded before being sent over to avoid these issues ({WEBAPP_COMPOSE_COMMIT_BASE}1d2fe47[`1d2fe47`])
+* Fixed record edit/clone button not appearing on all records if no record page is present ({WEBAPP_COMPOSE_COMMIT_BASE}71af271[`71af271`])
+* Fixed using `${ownerID}` in filters, now properly uses the `ownedBy` value instead of the currently logged in user (like userID for its value does) ({WEBAPP_COMPOSE_COMMIT_BASE}93f7ebc[`93f7ebc`])
+* Fixed the process of undeleting auth clients ({WEBAPP_ADMIN_COMMIT_BASE}e69b0ef[`e69b0ef`], {LOCALE_COMMIT_BASE}9ccdcae[`9ccdcae`], {WEBAPP_ADMIN_COMMIT_BASE}38626bd[`38626bd`])
+* Fixed record export when the record count was 0 by preventing the export ({WEBAPP_COMPOSE_COMMIT_BASE}2d7a1f6[`2d7a1f6`]).
+* Fixed performance issues on integration gateway route reloading caused by re-registering all of the endpoints when one was updated ({SERVER_COMMIT_BASE}269cdb1ba[`269cdb1ba`], {SERVER_COMMIT_BASE}955c4d9b9[`955c4d9b9`]).
+* Fixed data corruption which was caused by an improper {APP_NAME_COMPOSE} record value migration ({SERVER_COMMIT_BASE}7e4e4d3b5[`7e4e4d3b5`]).
+* Fixed exporting records to a specific timezone by encoding the URI params ({WEBAPP_COMPOSE_COMMIT_BASE}362ddca[`362ddca`]).
+* Fix workflow function errors caused by fetching an array of resources.
+The error was caused by a change in how expression types are determined and is temporarily patched with an _edge-case_ exception ({SERVER_COMMIT_BASE}b581fe86a[`b581fe86a`]).
+* Improved error reporting on new user sign-up ({SERVER_COMMIT_BASE}57721291b[`57721291b`])
+
+.[#2022_3_1-security]#<<2022_3_1-security,Security:>>#
+* Prevented stored XSS attacks in the logout back link by implying additional sanitation steps to the value ({SERVER_COMMIT_BASE}f1f4f4bd1[`f1f4f4bd1`]).

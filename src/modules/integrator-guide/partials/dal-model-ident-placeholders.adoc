@@ -1,0 +1,3 @@
+.You can use the following placeholders:
+* [#ident-placeholder-module]#<<ident-placeholder-module,`{{module}}`>>#: the `{{module}}` placeholder is replaced with the module's handle or the ID if the handle is not defined.
+* [#ident-placeholder-namespace]#<<ident-placeholder-namespace,`{{namespace}}`>>#: the `{{namespace}}` placeholder is replaced with the namespace's slug or the ID if the slug is not defined.

@@ -1,0 +1,38 @@
+include::ROOT:partial$variables.adoc[]
+
+= Troubleshooting
+
+== Connection Issues
+
+In case the connection is miss configured or generally unable to connect to the storage location, a list of identified issues is presented in the connection configuration screen.
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "dal-connections/troubleshooting-connection-issues.png",
+    "alias": "dal-connections-troubleshooting-connection-issues",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {
+    "x": 352,
+    "y": 0,
+    "w": 1568,
+    "h": 1080
+  },
+  "focus": {
+    "x": 535,
+    "y": 379,
+    "w": 1200,
+    "h": 629
+  },
+  "annotations": [{
+    "x": 565,
+    "y": 436,
+    "w": 1144,
+    "h": 82
+  }]
+}
+----
+

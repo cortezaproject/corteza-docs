@@ -1,0 +1,415 @@
+include::ROOT:partial$variables.adoc[]
+
+= DAL Connections
+
+DAL connections (also referred to as *connections*) define a location where {PRODUCT_NAME} can store and retrieve the data.
+A connection outlines the physical location of the data storage, describes its properties (such as encoding and recovery) and provides connection parameters.
+
+[NOTE]
+====
+.Currently, only connections to the following RDBMS databases are supported:
+* MySQL,
+* PostgreSQL,
+* SQLite.
+====
+
+You can define as many connections as you need to help your business conform to data privacy regulations, offload specific datasets to specialized databases, and easily integrate external data.
+
+[TIP]
+====
+You can connect to databases with already existing data, removing the need to migrate it over to {PRODUCT_NAME}.
+====
+
+The connection management interface is available in the {PRODUCT_NAME} {APP_NAME_ADMIN} under the menu:system[connections] section
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "dal-connections/list.png",
+    "alias": "dal-connections-list",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {},
+  "annotations": [{
+    "kind": "box",
+    "x": 16,
+    "y": 577,
+    "h": 37,
+    "w": 288
+  }]
+}
+----
+
+== Connection Types
+
+[cols="1s,5a"]
+|===
+| [#connection-type-primary]#<<connection-type-primary,Primary connection>>#
+|
+The primary connection is the default connection the {PRODUCT_NAME} uses to store records and is the same as the `DB_DSN` defined in your `.env` file.
+The primary connection is defined when provisioning a fresh {PRODUCT_NAME} instance or upgrading from an older release.
+
+[IMPORTANT]
+====
+Primary connections only partially support modification and block any change which would change its identification or underlying storage connection.
+====
+
+| [#connection-type-external]#<<connection-type-external,External connection>>#
+|
+The administrator adds external connections that can be used as an alternative to the primary connection.
+
+[CAUTION]
+====
+Modifying connection parameters may lead to data loss issues when {PRODUCT_NAME} can no longer connect to the original storage location.
+====
+
+// | [#connection-type-federation-node]#<<connection-type-federation-node,Federation node>>#
+// |
+|===
+
+[#configuration]
+== Connection Configuration
+
+=== Basic Settings
+
+Basic settings provide the general outline of the connection, such as its identification, physical location, ownership, and data sensitivity levels.
+Data sensitivity levels are discussed in the data privacy sections.
+
+[NOTE]
+====
+*DevNote* link to the data privacy section
+====
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "dal-connections/config-basic.png",
+    "alias": "dal-connections-config-basic",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {
+    "x": 352,
+    "y": 0,
+    "w": 1568,
+    "h": 1080
+  },
+  "focus": {
+    "padding": "xs",
+    "x": 535,
+    "y": 106,
+    "w": 1200,
+    "h": 409
+  },
+  "annotations": []
+}
+----
+
+[cols="1s,5a"]
+|===
+| [#connection-config-basic-name]#<<connection-config-basic-name,Name>>#
+|
+The name specifies a user-friendly label for this connection.
+The name is used when displaying connections on the user interfaces, such as the map on the privacy console.
+
+| [#connection-config-basic-handle]#<<connection-config-basic-handle,Handle>>#
+|
+The handle specifies a user-friendly identifier used by the system.
+The handle, in some cases, can be used instead of the ID to identify the connection uniquely.
+
+The handle implies the same constraints as any other handle.
+
+include::partial$handle-constraints.adoc[]
+
+| [#connection-config-basic-location-name]#<<connection-config-basic-location-name,Location name>>#
+|
+The location name specifies the physical location of where the data is located.
+The location name can be the name of the data centre, the region, or the continent.
+
+| [#connection-config-basic-location-coordinates]#<<connection-config-basic-location-coordinates,Location coordinates>>#
+|
+The location coordinates provide the exact location of where the data is located.
+The connection is plotted on the map in the data privacy console when the coordinates are provided.
+
+| [#connection-config-basic-ownership]#<<connection-config-basic-ownership,Ownership>>#
+|
+The ownership specifies who owns the data or the data centre where the data is stored.
+The ownership can come in handy if you're offloading your database management needs to external service providers.
+
+| [#connection-config-basic-max-sensitivity-level]#<<connection-config-basic-max-sensitivity-level,Highest allowed sensitivity level>>#
+|
+The highest allowed sensitivity level specifies the upper limit of what can be stored in the given connection regarding data privacy.
+Any modules and fields utilizing the connection can not exceed the upper limit.
+
+You can define multiple connections with multiple sensitivity levels to better conform to data privacy regulations worldwide.
+
+|===
+
+=== Connection Properties
+
+Connection properties provide additional information regarding the database or data centre.
+The connection properties primarily focus on data encryption and restoration.
+
+[CAUTION]
+====
+Connection properties outline the underlying storage we're connecting to.
+These properties *do not* configure {PRODUCT_NAME} to perform anything outlined by the properties.
+====
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "dal-connections/config-properties.png",
+    "alias": "dal-connections-config-properties",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {
+    "x": 352,
+    "y": 0,
+    "w": 1568,
+    "h": 1080
+  },
+  "focus": {
+    "padding": "xs",
+    "x": 535,
+    "y": 190,
+    "w": 1200,
+    "h": 733
+  },
+  "annotations": []
+}
+----
+
+[cols="1s,5a"]
+|===
+| [#connection-config-properties-encrypt-rest]#<<connection-config-basic-encrypt-rest,Encrypt data at rest enabled>>#
+|
+Data at rest encryption indicates the data is encrypted when stored in the data centre.
+Data encryption at rest helps mitigate damages in case of a breach.
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "dal-connections/config-properties.png",
+    "alias": "dal-connections-config-properties-connection-config-properties-encrypt-rest",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {
+    "x": 440,
+    "y": 92,
+    "h": 925,
+    "w": 1397
+  },
+  "focus": {
+    "padding": "xs",
+    "x": 535,
+    "y": 190,
+    "w": 1200,
+    "h": 733
+  },
+  "annotations": [{
+    "x": 548,
+    "y": 247,
+    "h": 145,
+    "w": 1177
+  }]
+}
+----
+
+| [#connection-config-properties-protected-rest]#<<connection-config-basic-protected-rest,Data at rest protection provided>>#
+|
+Data at rest protection indicates that the data is physically protected from unauthorised access when stored in the data centre.
+Data protection helps reduce the chance of a data breach.
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "dal-connections/config-properties.png",
+    "alias": "dal-connections-config-properties-connection-config-properties-protected-rest",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {
+    "x": 440,
+    "y": 92,
+    "h": 925,
+    "w": 1397
+  },
+  "focus": {
+    "padding": "xs",
+    "x": 535,
+    "y": 190,
+    "w": 1200,
+    "h": 733
+  },
+  "annotations": [{
+    "x": 548,
+    "y": 413,
+    "h": 145,
+    "w": 1177
+  }]
+}
+----
+
+| [#connection-config-properties-encrypt-transit]#<<connection-config-basic-encrypt-transit,Encrypt data at transit enabled>>#
+|
+Data at transit encryption indicates the data when transported between systems, is encrypted.
+Data encryption at transit helps mitigate the risks of wiretapping attacks.
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "dal-connections/config-properties.png",
+    "alias": "dal-connections-config-properties-connection-config-properties-encrypt-transit",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {
+    "x": 440,
+    "y": 92,
+    "h": 925,
+    "w": 1397
+  },
+  "focus": {
+    "padding": "xs",
+    "x": 535,
+    "y": 190,
+    "w": 1200,
+    "h": 733
+  },
+  "annotations": [{
+    "x": 548,
+    "y": 579,
+    "h": 145,
+    "w": 1177
+  }]
+}
+----
+
+| [#connection-config-properties-data-backup-rest]#<<connection-config-basic-data-backup-rest,Data at rest backup and restoration implemented>>#
+|
+Data at rest backup and restoration indicates the data is backed up and can be restored in case of system failures and disasters.
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "dal-connections/config-properties.png",
+    "alias": "dal-connections-config-properties-connection-config-properties-data-backup-restore",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {
+    "x": 440,
+    "y": 92,
+    "h": 925,
+    "w": 1397
+  },
+  "focus": {
+    "padding": "xs",
+    "x": 535,
+    "y": 190,
+    "w": 1200,
+    "h": 733
+  },
+  "annotations": [{
+    "x": 548,
+    "y": 747,
+    "h": 145,
+    "w": 1177
+  }]
+}
+----
+
+|===
+
+=== Connection Parameters
+
+Connection parameters provide the parameters needed for {PRODUCT_NAME}'s DAL to connect to the underlying storage.
+
+Connection parameters define how {PRODUCT_NAME} should interact with the underlying storage.
+Connection parameters also define some default values in regard to the internals of the storage driver, such as default table or collection identifier.
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "dal-connections/config-connection.png",
+    "alias": "dal-connections-config-connection",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {
+    "x": 352,
+    "y": 0,
+    "w": 1568,
+    "h": 1080
+  },
+  "focus": {
+    "padding": "xs",
+    "x": 535,
+    "y": 480,
+    "w": 1200,
+    "h": 523
+  },
+  "annotations": []
+}
+----
+
+[cols="1s,5a"]
+|===
+| [#connection-config-conn-default-container]#<<connection-config-conn-default-container,Default table or container name>>#
+|
+The default table or container name specifies where {PRODUCT_NAME} should store the records inside of the connection.
+In the context of RDBMS, the identifier would specify what table {PRODUCT_NAME} should use.
+
+The identifier input supports value placeholders which help reduce the required configuration for larger instances.
+
+include::partial$dal-model-ident-placeholders.adoc[]
+
+To exemplify; the following identifier `compose_records_{{namespace}}_{{module}}` could produce the identifier of `compose_records_crm_lead`.
+
+| [#connection-config-conn-type]#<<connection-config-conn-type,Connection and parameter type>>#
+|
+The connection and parameter type specify how we'll provide the connection parameters and, consequentially, the underlying storage driver type.
+Refer to the <<drivers,connection parameter types>> section for a complete overview of available options and their input formatting.
+
+| [#connection-config-conn-parameters]#<<connection-config-conn-parameters,Connection parameters>>#
+|
+The connection parameters specify the connection parameters used by {PRODUCT_NAME} and depend on the option selected in <<connection-config-conn-type,connection parameter type>>.
+Refer to the <<drivers,Connection Types>> sub-section for details.
+
+|===
+
+[#drivers]
+== Connection Parameter Types
+
+[cols="1s,5a"]
+|===
+| [#connection-driver-dsn]#<<connection-driver-dsn,`corteza::dal:connection:dsn`>>#
+|
+The `corteza::dal:connection:dsn` connection type specifies we'll use a DSN string to connect to the database.
+
+. You must provide the configuration parameters in the following format:
+[source,json]
+----
+{
+  "dsn": ""
+}
+----
+
+.Currently, {PRODUCT_NAME} supports the following databases:
+* MySQL
+* PostgreSQL
+* SQLite
+
+|===

@@ -5,10 +5,122 @@ include::ROOT:partial$variables.adoc[]
 {PRODUCT_NAME} through the duplicate detection feature helps maintain clean and accurate data by preventing record duplication.
 This is achieved by using rules to apply a criterion that determines how closely a field on a new or edited record matches the same field on an existing record.
 
-The user interface displays a warning or an error message to alert the user of an existing record with the exact field values within a module thereby preventing duplicates.
+The user interface displays a warning or an error message to alert the user of an existing record with the exact field values within a module, thereby preventing duplicates.
 
 .Benefits of corteza duplicate detection:
 * Maintain data quality,
 * improves accuracy and efficiency in data,
 * enhances effective description of records,
 * optimizes data storage.
+
+== Validation Rules
+
+The duplicate detection feature is enabled by using the value validation rules on a module.
+Validation rules verify that the designated fields in a record do not contain the same values, therefore ensuring that no duplicate values are saved when creating or editing a record.
+
+Validation can be configured using two rules:
+
+* Strict duplicate value validation
+
+This rule ensures that a record will not be saved when a duplicate value is detected in the selected fields in any existing record of this module. 
+
+When the Strict duplicate value validation rule is applied, an error message pop-up will be displayed on the bottom right side of the screen as an indication that a record with the same values exists.
+
+* Soft duplicate value validation
+
+This rule allows a record to be saved but issues a warning message pop-up when a duplicate value is detected, indicating that there is an existing record with the exact field values within the module.
+
+When Soft duplicate value validation is applied, the warning message is displayed on the bottom right side of the screen.
+
+=== Enabling value validation rules:
+
+[NOTE]
+====
+Validation rules can be enabled when creating new modules or on exiting modules.
+====
+
+Navigate to your Low Code namespace. Click on an existing module or create a new module.
+
+On the given module, navigate to the *[validation]* tab.
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "duplication-detection/duplicate-detection-validation.png",
+    "alias": "duplicate-detection-validation",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {},
+  "annotations": [{
+    "kind": "box",
+    "x": 650,
+    "y": 122,
+    "w": 89,
+    "h": 25
+  }]
+}
+----
+
+There are two sections containing the two validation rules, the strict duplicate value validation and the Soft duplicate value validation.
+Each value validation rule has two columns, *Available fields* on the left and *Selected fields* on the right.
+
+[CAUTION]
+====
+only one validation rule can be applied on a
+record field.
+====
+
+Click on a field from the available fields list to select it. 
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "duplication-detection/duplicate-detection-availablefields.png",
+    "alias": "duplicate-detection-availablefields",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {},
+  "annotations": [{
+    "kind": "box",
+    "x": 678,
+    "y": 345,
+    "w": 405,
+    "h": 120
+  }]
+}
+----
+
+Once a field is selected, it is moved to the selected field column.
+This means that a validation rule has been applied to that selected field.
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "duplication-detection/duplicate-detection-selectedfields.png",
+    "alias": "duplicate-detection-selectedfields",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {},
+  "annotations": [{
+    "kind": "box",
+    "x": 1090,
+    "y": 315,
+    "w": 376,
+    "h": 35
+  }]
+}
+----
+You can remove the validation rule on a record field by unselecting it, and it will be moved back to the available fields column.
+
+
+
+
+
+
+

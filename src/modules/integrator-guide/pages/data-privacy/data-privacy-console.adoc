@@ -2,32 +2,19 @@ include::ROOT:partial$variables.adoc[]
 
 = Data Privacy Console
 
-The data privacy console enables you to have access to your personal data and provides a platform where you can make modification, deletion, and export requests to the company concerning your personal data.
-These requests(deletion, correction, and export) concerning the treatment of your personal data are then escalated to the *data privacy officer (DPO)*.
+The data privacy console enables you to access your personal data.
+It provides a platform where you can make a modification, deletions, and export requests to the company concerning your data.
+These requests(deletion, correction, and export) concerning the treatment of your data are then escalated to the xref:data-privacy/data-privacy-officer.adoc[data privacy officer (DPO)].
 
-This feature is also enabled to allow all users to browse locations of where the data is stored.
+This feature is also enabled to allow all users to browse locations where the data is stored.
 
 .The screenshot shows the overview of the data privacy console.
 image::data-privacy/data-privacy-console.png[role="data-zoomable"]
-
-
-
-
-
-
-
-
-
-
-
-
 
 == Features of the Privacy Console
 
 * Data Overview
 * Privacy Requests
-* Data Export
-* Data Deletion
 
 == Data Overview
 
@@ -35,45 +22,54 @@ Data overview allows you to review your profile information and your personal da
 
 image::data-privacy/data-overview.png[role="data-zoomable"]
 
-
-* Profile Information - Contact information,names, surnames, nickname, profile picture.
+* Profile Information - Contact information, names, surnames, nickname, profile picture.
 
 * Data Application - Personal data stored in your {PRODUCT_NAME} instance.
 
 == Privacy Requests
 Access, manage or export a list of all your privacy-related requests.
 
-Types of privacy requests include:
+=== Types of privacy requests
 
-=== Correction Request
-
+[cols="1s,5a"]
+|===
+| [#privacy-request-correction]#<<Correction-Request,Correction Request>>#
+|
 When a user is unsatisfied with their personal data because it may be inaccurate, incomplete, misleading or not up-to-date, they can request to correct or delete the particular data.
 
 To make a correction request:
 
+. Navigate to menu:privacy[Data Privacy Console]
 . Click on *[Data Overview]* 
-. Select Application data(Your personal data stored in corteza).
+. Select Application data(Your data is stored in corteza).
 . Click on the connection dropdown to select the type of connection
-. Fill in the data, i.e. how it should be corrected.
+. Fill in the data, i.e. with the corrections.
 . Click the *[Request Correction]* button.
 
-=== Deletion request 
 
-When a user needs to delete their data for any reason, they can use the Data Deletion Requests feature to request its deletion.
+| [#privacy-request-deletion]#<<Deletion-request,Deletion request>>#
+|
+When users need to delete their data for any reason, they can use the Data Deletion Requests feature to request its deletion.
 
 To make a deletion request:
 
+. Navigate to menu:privacy[Data Privacy Console]
 . Click on *[Data Overview]* 
-. Select Application data(Your personal data stored in corteza).
+. Select Application data(Your data is stored in corteza).
 . Click on the connection dropdown to select the type of connection
-. Click the *[Request Deletion]* button.
+. Click on the *[Request Deletion]* button.
 
-=== Data Export Request
 
-The data export feature provides a convenient way to obtain a copy of your data; it can either be for backup or for importing into a different system.
+| [#privacy-request-data-export]#<<Data-export-request,Data Export Request>>#
+|
+The data export feature provides a convenient way to obtain a copy of your data, either for backup or for importing it into a different system.
 
 To make a data export request;
 
+. Navigate to menu:privacy[Data Privacy Console]
 . Open a new data export request
 . Select the data type; it can either be *Profile information* or *Application Data* 
-. Select data range and outcome file format; it can either be JSON or CSV files.
+. Select the data range and outcome file format; it can be JSON or CSV files.
+
+|
+|===

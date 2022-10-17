@@ -14,6 +14,8 @@
 **** xref:authentication/external/saml/index.adoc[]
 ***** xref:authentication/external/saml/okta.adoc[Okta]
 
+** xref:security-model/permissions-evaluation.adoc[]
+
 ** xref:i18n/index.adoc[]
 *** xref:i18n/static.adoc[]
 *** xref:i18n/resource.adoc[]
@@ -53,6 +55,7 @@
 
 ** xref:data-privacy/index.adoc[]
 *** xref:data-privacy/data-privacy-console.adoc[]
+*** xref:data-privacy/data-privacy-officer.adoc[]
 
 
 ** xref:automation/index.adoc[]

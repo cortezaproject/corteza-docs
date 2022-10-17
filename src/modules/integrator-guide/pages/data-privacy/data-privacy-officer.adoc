@@ -7,7 +7,7 @@ Using the data privacy officer console, a DPO can accept or reject requests, lea
 
 == Data Privacy Officer Console
 
-The data privacy officer console is a user interface that is feature enabled to allow a dpo to have access to privacy requests from other users concerning the treatment of their personal data.
+The data privacy officer console is a user interface that enables a DPO to access privacy requests from other users concerning the treatment of their data.
 
 [IMPORTANT]
 ====
@@ -18,20 +18,7 @@ Using the data privacy officer console, a DPO can accept or reject requests, lea
 
 image::data-privacy/dpo-console.png[role="data-zoomable"]
 
-
-// It has a different view from the console accessed by all the users.
-
-
-
-
-
-
-
-
-
-
-
-
+=== Features of  Data Privacy Officer Console
 
 * Privacy requests.
 The DPO has access to a list of pending privacy requests that awaits his approval.

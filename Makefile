@@ -41,3 +41,6 @@ dev:
 # Defines the environment required by DocSearch
 dev.search:
 	docker run -it -e ALGOLIA_API_KEY -e ALGOLIA_INDEX_NAME -e ALGOLIA_APP_ID --rm --volume $(CURDIR):/antora --entrypoint /antora/dev-docker-entryfile.sh antora/antora
+
+changelog:
+	node lib/changelogenator/index.js

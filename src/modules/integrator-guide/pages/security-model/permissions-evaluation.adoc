@@ -2,8 +2,8 @@ include::ROOT:partial$variables.adoc[]
 
 = Permission Evaluation
 
-Permission evaluation feature allows adminstrators to check which actions or operations can be performed by a user or a combination of roles.
-The evaluation entails comparing the different roles assigned to a user to determine user's ability to perform the various operations within a resource.
+The permission evaluation feature allows administrators to check which actions or operations can be performed by a user or a combination of roles.
+The evaluation entails comparing the different roles assigned to a user to determine the user's ability to perform the various operations within a resource.
 
 [NOTE]
 ====
@@ -49,7 +49,7 @@ Locate the btn:[permissions] button in the user interface in order to manage the
 ----
 ====
 
-1.Navigate to the resource of choice, click the [btn:[permissions].
+1. Navigate to the resource of choice, and click the [btn:[permissions].
 
 [annotation,role="data-zoomable"]
 ----
@@ -73,8 +73,7 @@ Locate the btn:[permissions] button in the user interface in order to manage the
 ----
 
 2.Click the *[add +]* button.
-An evaluation window appears with the *[select role(s)]* and *[search or select user]* dropdowns.
-You can only use one of the two options per time.
+An evaluation window appears with two dropdown options, the *[select role(s)]* and *[search or select user]*.
 
 [annotation,role="data-zoomable"]
 ----
@@ -97,7 +96,8 @@ You can only use one of the two options per time.
 }
 ----
 
-3.Click the *[select roles]* dropdown and then select a role or  the  *[select user]* dropdown to choose a user.
+3.Click on the *[select roles]* or the *[select user]* dropdown and select a role or a user to evaluate.
+Only one of two options can be applied.
 
 [annotation,role="data-zoomable"]
 ----
@@ -126,7 +126,7 @@ You can only use one of the two options per time.
 }
 ----
 
-click on the btn:[save] button.
+Click on the btn:[save] button.
 [annotation,role="data-zoomable"]
 ----
 {
@@ -154,7 +154,9 @@ click on the btn:[save] button.
 }
 ----
 
-4.Repeat the steps again choosing a different role on step 3 and 4 respectively inorder to evaluate  the different permissions applied on a role.
+4.If you chose role evaluation in step 3, repeat the step again, choosing a different role in order to evaluate the permissions applied to the different roles.
+
+.The screenshot shows an overview of permissions appied on the roles being evaluated.
 [annotation,role="data-zoomable"]
 ----
 {
@@ -180,49 +182,87 @@ Each resource component has operations that are performed in it.
 Permissions to the various operations within a component resource are subject to the roles assigned to a user.
 ====
 
-Permissions applied can be evaluated by selecting a combination of roles or selecting a particular user.
+Permissions can be evaluated by selecting a combination of roles or a particular user.
 
-Follow these steps to access and evaluate system, compose and automation permissions.
+Follow these steps to access and evaluate the system, compose and automation permissions.
 
-1.Navigate to your {PRODUCT_NAME} instance {LOCAL_HOSTNAME} and click the *[Admin area]* application.
+1.Navigate to your {PRODUCT_NAME} instance *{LOCAL_HOSTNAME}* and click the *[Admin area]* application.
 
 A new screen showing you all of the available components will appear. Each component has a btn:[permissions] button.
 
 2.Click on the btn:[permissions] button on either system, compose or the automation component. A new screen appears that displays a list of all the available operations within a component.
 
-3.Click the *[add +]* button. A window appears with the *[select role(s)]* and *[search or select user]* dropdowns.
-You can only use one of the two per time.
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "security-model/access-control/system-permissions-button.png",
+    "alias": "system-permissions-button.png",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {},
+  
+  "annotations": [{
+    "kind": "box",
+    "padding": "xs",
+    "x": 15,
+    "y": 480,
+    "w": 110,
+    "h": 32
+}]
+}
+----
 
-4.Click the *[select roles]* dropdown and select a role or  the  *[select user]* dropdown to choose a user.
+3.Click on the *[add +]* button.
+An evaluation window appears with two dropdown options.
 
 [annotation,role="data-zoomable"]
 ----
 {
   "image": {
-    "rel": "security-model/access-control/eval-permission.png",
+    "rel": "security-model/access-control/system-permissions-add-button.png",
+    "alias": "system-permissions-add-button.png",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {},
+  
+  "annotations": [{
+    "kind": "box",
+    "padding": "xs",
+    "x": 640,
+    "y": 150,
+    "w": 1190,
+    "h": 125
+}]
+}
+----
+
+4.Click on the *[evaluate]* button and then click on the *[select roles]* or the *[select user]* dropdown and select a role or a user to evaluate.
+Only one of two options can be applied.
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "security-model/access-control/evaluate-permissions.png",
     "alias": "user-create",
     "w": 1920,
     "h": 1080
   },
   "view": {},
-  "focus": {
-    "padding": "xs",
-    "x": 604,
-    "y": 320,
-    "w": 1232,
-    "h": 784
-  },
   "annotations": [{
     "kind": "box",
-    "x": 600,
-    "y": 360,
-    "w": 760,
-    "h": 210
+    "x": 770,
+    "y": 510,
+    "w": 380,
+    "h": 140
   }]
 }
 ----
 
-click on the btn:[save] button.
+Click on the btn:[save] button.
 [annotation,role="data-zoomable"]
 ----
 {
@@ -236,7 +276,7 @@ click on the btn:[save] button.
   "focus": {
     "padding": "xs",
     "x": 344,
-    "y": 42,
+    "y": 45,
     "w": 1232,
     "h": 630
   },
@@ -250,8 +290,26 @@ click on the btn:[save] button.
 }
 ----
 
-5.Repeat the steps again choosing a different role on step 4 in order to evaluate  the different permissions applied on a role.
+5.If you chose role evaluation in step 4, repeat the step again, choosing a different role in order to evaluate the permissions applied to the different roles.
 
-image::security-model/access-control/system-permissions.png[role="data-zoomable"]
+.The screenshot shows an overview of permissions applied on the roles being evaluated.
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "security-model/access-control/system-evaluated-permissions.png",
+    "alias": "system-evaluated-permissions.png",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {},
+  
+  "annotations": []
+}
+----
+
+
+
+
 
 

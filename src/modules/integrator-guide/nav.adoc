@@ -14,24 +14,6 @@
 **** xref:authentication/external/saml/index.adoc[]
 ***** xref:authentication/external/saml/okta.adoc[Okta]
 
- ** xref:security-model/Permissions/permissions-evaluation.adoc[]
-
-
-// ** xref:access-control/index.adoc[]
-// *** xref:access-control/users/index.adoc[]
-// **** xref:access-control/users/creating.adoc[]
-// **** xref:access-control/users/list-search-user.adoc[]
-// **** xref:access-control/users/delete-user.adoc[]
-// *** xref:access-control/roles/index.adoc[]
-// **** xref:access-control/roles/list-roles.adoc[]
-// **** xref:access-control/roles/assign.adoc[]
-// **** xref:access-control/rolesl/ist-members.adoc[]
-// **** xref:access-control/roles/remove-roles.adoc[]
-// *** xref:access-control/permissions/index.adoc[]
-// **** xref:access-control/permissions/evaluate-applied-permissions.adoc[]
-// **** xref:access-control/permissions/resource.adoc[]
-
-
 ** xref:i18n/index.adoc[]
 *** xref:i18n/static.adoc[]
 *** xref:i18n/resource.adoc[]
@@ -51,7 +33,7 @@
 *** xref:compose-configuration/record-revisions.adoc[]
 *** xref:compose-configuration/duplication-detection.adoc[]
 *** xref:compose-configuration/data-access-layer.adoc[]
-*** xref:compose-configuration/dal-module-configuration.adoc[]
+*** xref:compose-configuration/record-storage.adoc[]
 *** xref:compose-configuration/dal-connection.adoc[]
 
 
@@ -64,6 +46,10 @@
 // *** Examples
 // **** xref:compose-configuration/examples/page-blocks/index.adoc[]
 // **** xref:compose-configuration/examples/field-expressions.adoc[]
+
+** xref:dal-connections/index.adoc[]
+*** xref:dal-connections/connection-management.adoc[]
+*** xref:dal-connections/troubleshooting.adoc[]
 
 ** xref:data-privacy/index.adoc[]
 *** xref:data-privacy/data-privacy-console.adoc[]

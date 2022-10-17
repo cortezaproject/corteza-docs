@@ -1,0 +1,493 @@
+include::ROOT:partial$variables.adoc[]
+
+= Customizing Record Storage
+
+The redefined {PRODUCT_NAME} record storage now enables you to *customize the way records are stored* under the hood.
+Customizing record storage enables you to *easily integrate external data* as if it was created through {PRODUCT_NAME}, *offload* datasets to *dedicated databases*, or larger datasets to *specialized data* centres*.
+
+[NOTE]
+====
+To store records into a different connection, you'll xref:dal-connections/index.adoc[need to create it first].
+====
+
+By default, *{PRODUCT_NAME} stores* all records (along with their values) into a *single table*, which should suffice for *most basic use-cases*.
+If your use case doesn't require storing records in dedicated storage, feel free to skip this section.
+
+== Configuration
+
+The record storage configuration options are available in the *module edit page* under the btn:[data store] tab.
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "compose-configuration/dal-module/config-base.png",
+    "alias": "compose-configuration-dal-module-config-base",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {
+    "x": 352,
+    "y": 0,
+    "w": 1568,
+    "h": 790
+  },
+  "annotations": [{
+    "x": 617,
+    "y": 187,
+    "w": 120,
+    "h": 44
+  }]
+}
+----
+
+=== Connection
+
+Basic connection parameters define *what connection* {PRODUCT_NAME} should use when storing the module's records and *where in the connection* the data should be stored -- such as what table or collection.
+
+[CAUTION]
+====
+Changing the connection will reset the sensitivity level configuration on the module and fields if the sensitivity level is incompatible with the new connection.
+Refer to xref:compose-configuration/privacy.adoc[privacy settings] to learn more about sensitivity levels.
+====
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "compose-configuration/dal-module/config-base.png",
+    "alias": "compose-configuration-dal-module-config-connection",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {
+    "x": 352,
+    "y": 0,
+    "w": 1568,
+    "h": 790
+  },
+  "focus": {
+    "padding": "xs",
+    "x": 537,
+    "y": 249,
+    "w": 1200,
+    "h": 240
+  },
+  "annotations": []
+}
+----
+
+[cols="1s,5a"]
+|===
+| [#config-connection-connection]#<<config-connection-connection,Database connection>>#
+|
+The *database connection* specifies what connection {PRODUCT_NAME} should use when handling the module's records.
+By default, {PRODUCT_NAME} uses the primary connection.
+
+| [#config-connection-ident]#<<config-connection-ident,Collection or database table name>>#
+|
+The *collection or database table name* specifies where the module's records are stored inside the connection.
+
+[IMPORTANT]
+====
+If the identifier is omitted, the connection-defined identifier is used.
+If the connection doesn't provide a default, the system default `compose_recrd` is used.
+====
+
+For some scenarios, {PRODUCT_NAME} can create the appropriate structures if they don't already exist in the connection (such as a new table in an RDBMS database).
+
+[NOTE]
+====
+*DevNote* expand notes when tables can are automatically created.
+====
+
+include::partial$dal-model-ident-placeholders.adoc[]
+|===
+
+=== Module Field Mapping
+
+The module field mapping and encoding parameters specify which module fields should be stored and how they should be stored.
+Refer to the <<encoding-codec,field encoding codecs>> section for details on the available value encoding codecs.
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "compose-configuration/dal-module/config-base.png",
+    "alias": "compose-configuration-dal-module-config-fields",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {
+    "x": 352,
+    "y": 300,
+    "w": 1568,
+    "h": 580
+  },
+  "focus": {
+    "x": 537,
+    "y": 500,
+    "w": 1200,
+    "h": 210
+  },
+  "annotations": []
+}
+----
+
+[cols="1s,5a"]
+|===
+| [#config-module-fields-map]#<<config-module-fields-map,Map module field>>#
+|
+The *map module field checkbox* allows you to choose whether {PRODUCT_NAME} should store the module field's values or not.
+If the checkbox is unchecked, {PRODUCT_NAME} will drop the values.
+
+Generally, you'll want to store all of the module fields.
+If a field is no longer needed, you should remove it from the module definition.
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "compose-configuration/dal-module/config-base.png",
+    "alias": "compose-configuration-dal-module-config-fields-use",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {
+    "x": 487,
+    "y": 450,
+    "w": 1300,
+    "h": 310
+  },
+  "focus": {
+    "x": 537,
+    "y": 500,
+    "w": 1200,
+    "h": 210
+  },
+  "annotations": [{
+    "x": 567,
+    "y": 542,
+    "w": 77,
+    "h": 19
+  }]
+}
+----
+
+| [#config-module-fields-codec]#<<config-module-fields-codec,Codec>>#
+|
+The *encoding codec* defines what coded {PRODUCT_NAME} should use when dealing with the field's values.
+Refer to the <<encoding-codec,field encoding codecs>> section for details.
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "compose-configuration/dal-module/config-base.png",
+    "alias": "compose-configuration-dal-module-config-fields-codec",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {
+    "x": 487,
+    "y": 450,
+    "w": 1300,
+    "h": 310
+  },
+  "focus": {
+    "x": 537,
+    "y": 500,
+    "w": 1200,
+    "h": 210
+  },
+  "annotations": [{
+    "x": 859,
+    "y": 534,
+    "w": 261,
+    "h": 33
+  }]
+}
+----
+
+| [#config-module-fields-codec-conf]#<<config-module-fields-codec-conf,Codec configuration>>#
+|
+The *codec configuration* provides the required configuration parameters to the selected encoding codec.
+Refer to the <<encoding-codec,field encoding codecs>> section for details.
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "compose-configuration/dal-module/config-base.png",
+    "alias": "compose-configuration-dal-module-config-fields-ident",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {
+    "x": 487,
+    "y": 450,
+    "w": 1300,
+    "h": 310
+  },
+  "focus": {
+    "x": 537,
+    "y": 500,
+    "w": 1200,
+    "h": 210
+  },
+  "annotations": [{
+    "x": 1152,
+    "y": 534,
+    "w": 552,
+    "h": 33
+  }]
+}
+----
+
+|===
+
+=== System Fields
+
+The *system module field mapping* and encoding parameters allow you to specify which module fields should be stored and how they should be stored.
+Refer to the <<encoding-codec,field encoding codecs>> section for details on the available value encoding codecs.
+
+[TIP]
+====
+System fields, for the most part, provide metadata about the record.
+If needed, you can omit specific system fields from being stored.
+Omitting system fields can come in handy when connecting to existing databases whose structure doesn't define all supported system fields.
+====
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "compose-configuration/dal-module/config-system.png",
+    "alias": "compose-configuration-dal-module-config-system",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {
+    "x": 352,
+    "y": 270,
+    "w": 1568,
+    "h": 850
+  },
+  "focus": {
+    "padding": "xs",
+    "x": 537,
+    "y": 350,
+    "w": 1200,
+    "h": 590
+  },
+  "annotations": []
+}
+----
+
+[cols="1s,5a"]
+|===
+| [#config-module-fields-map]#<<config-module-fields-map,Map module field>>#
+|
+The *map module field checkbox* allows you to choose whether {PRODUCT_NAME} should store the module field's values or not.
+If the checkbox is unchecked, {PRODUCT_NAME} will drop the values.
+
+Generally, you'll want to store all of the system module fields, but you can omit the ones your custom schema does not support.
+
+[CAUTION]
+====
+Omitting system fields like the `id` and the timestamps may lead to unexpected behaviour.
+We suggest you keep all of the system fields.
+====
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "compose-configuration/dal-module/config-base.png",
+    "alias": "compose-configuration-dal-module-config-fields-use",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {
+    "x": 487,
+    "y": 450,
+    "w": 1300,
+    "h": 310
+  },
+  "focus": {
+    "x": 537,
+    "y": 500,
+    "w": 1200,
+    "h": 210
+  },
+  "annotations": [{
+    "x": 567,
+    "y": 542,
+    "w": 77,
+    "h": 19
+  }]
+}
+----
+
+| [#config-module-fields-codec]#<<config-module-fields-codec,Codec>>#
+|
+The *encoding codec* defines what coded {PRODUCT_NAME} should use when dealing with the field's values.
+Refer to the <<encoding-codec,field encoding codecs>> section for details.
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "compose-configuration/dal-module/config-base.png",
+    "alias": "compose-configuration-dal-module-config-fields-codec",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {
+    "x": 487,
+    "y": 450,
+    "w": 1300,
+    "h": 310
+  },
+  "focus": {
+    "x": 537,
+    "y": 500,
+    "w": 1200,
+    "h": 210
+  },
+  "annotations": [{
+    "x": 859,
+    "y": 534,
+    "w": 261,
+    "h": 33
+  }]
+}
+----
+
+| [#config-module-fields-codec-conf]#<<config-module-fields-codec-conf,Codec configuration>>#
+|
+The *codec configuration* provides the required configuration parameters to the selected encoding codec.
+Refer to the <<encoding-codec,field encoding codecs>> section for details.
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "compose-configuration/dal-module/config-base.png",
+    "alias": "compose-configuration-dal-module-config-fields-ident",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {
+    "x": 487,
+    "y": 450,
+    "w": 1300,
+    "h": 310
+  },
+  "focus": {
+    "x": 537,
+    "y": 500,
+    "w": 1200,
+    "h": 210
+  },
+  "annotations": [{
+    "x": 1152,
+    "y": 534,
+    "w": 552,
+    "h": 33
+  }]
+}
+----
+
+|===
+
+[#encoding-codec]
+== Field Encoding Codecs
+
+The field encoding codec defines how the record value for the corresponding field should be stored and retrieved later.
+The available encoding codecs are listed in the table below with an explanation, configuration, and use cases.
+
+[cols="1s,5a"]
+|===
+| [#field-codec-json]#<<field-codec-json,JSON>>#
+|
+The JSON field codec encodes the record value into a JSON object.
+The location of the JSON object (relative to the connection's storage, such as the table column) is defined by the identifier provided alongside the encoding codec definition.
+
+[NOTE]
+====
+This encoding strategy is used by default for *user-defined module fields*.
+====
+
+The encoding codec is useful when you wish to retrieve values from JSON objects.
+
+[IMPORTANT]
+====
+.Currently, {PRODUCT_NAME} only supports the following JSON structure (future versions plan to expand the flexibility):
+[source,json]
+----
+{
+  "identifier": [<1>
+    ...<2>
+  ]
+}
+----
+<1> The value identifier should match the module field's name.
+<2> One or more values are stored for the record.
+Values are provided as an array to allow the field to go from a single to a multi-value field.
+====
+
+| [#field-codec-alias]#<<field-codec-alias,Alias>>#
+|
+The alias field codec encodes the record value as a stand-alone value under a custom identifier.
+The location (relative to the connection's storage, such as the table column) is defined by the identifier provided alongside the encoding codec definition.
+
+The encoding codec is useful when you retrieve values from a dedicated location that can have a different identifier to the module field, such as a table column or collection attribute.
+
+| [#field-codec-column]#<<field-codec-column,Column>>#
+|
+The column field codec encodes the record value as a stand-alone value using the same identifier as the module field.
+The location (relative to the connection's storage, such as the table column) is defined by the module field's name.
+
+[NOTE]
+====
+This encoding strategy is used for *system-defined module fields*.
+====
+
+The encoding codec is useful when you wish to retrieve values from a dedicated location with the same identifier as the module field, such as a table column or collection attribute.
+
+|===
+
+== Troubleshooting
+
+== Module Issues
+
+In case the module is miss configured or the underlying connection reports any errors, a list of identified issues is presented in the module edit screen.
+If there are any issues, a new btn:[issues] tab is displayed.
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "compose-configuration/dal-module/troubleshooting-issues.png",
+    "alias": "compose-configuration-dal-module-troubleshooting-issues",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {
+    "x": 352,
+    "y": 0,
+    "w": 1568,
+    "h": 1080
+  },
+  "annotations": [{
+    "x": 1189,
+    "y": 186,
+    "w": 110,
+    "h": 43
+  }]
+}
+----
+
+
+

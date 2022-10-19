@@ -2,163 +2,337 @@ include::ROOT:partial$variables.adoc[]
 
 = Changelog
 
-The changelog page is a place where we aggregate all of the changes for the given release.
-All releases reside on the same page in the reverse chronological order (newer at the top).
+A changelog page is where we aggregate all the changes for the given release.
+All releases reside on the same page in reverse chronological order (newer at the top).
 
 The core structure is based on https://keepachangelog.com/en/1.0.0/[Keep a Changelog].
 
-== The structure
+== Index File
 
+The index file recaps major releases, which we were focusing on, such as DAL in the `2022.9` release.
+The index file is located in the folder, which denotes the version such as `202209/index.adoc`.
+
+.The index file is structured as follows:
 [source,adoc]
 ----
-[#2021-3]
-= `2021.3`
+\include::ROOT:partial$variables.adoc[]
 
-// A quick introduction to the release and what interesting new things it brings.
-// `2021.3` introduced workflows, reworked the auth flow, and some other nifty features.
+[#yyyy-mm-x]
+= `yyyy.mm`
 
-// Try to be as short as possible, provide some references.
+// Release recap and introduction (sales pitch sort of a thing).
 
-.[#2021_3-important]#<<2021_3-important,Important upgrade notes:>>#
-// An unordered bullet list of important additions to the standard upgrade procedure.
-// If the order of these items needs to be respected, you may use an ordered list.
-// If the note describes a long process, shorten it down and provide a reference to the long version.
-//
-// This may also include any known bugs that you will encounter when upgrading to this version, such as bundle version mixup.
+:leveloffset: +1
 
-== `2021.3.0`
-// The rest of the section is dedicated to the patch releases in reverse chronological order (newer first).
+// Include patch releases ordered by patch number descending (05 -> 04 -> ... -> 00)
 
-.[#2021_3_1-important]#<<2021_3_1-important,Important upgrade notes:>>#
-// Same as above
-
-// Exact release date
-*Released on*: `YYYY-MM-DD`
-
-// The rest of the sub-section is for lists of changes.
-// Omit any list that is not relevant for the release.
-// Respect the order.
-
-// A list of contributors in some order
-*Contributors*: Full Name (https://github.com/...[GH]), ...
-
-.[#2021_3_1-added]#<<2021_3_1-added,Added:>>#
-// Use list for *new features*
-
-.[#2021_3_1-changed]#<<2021_3_1-changed,Changed:>>#
-// Use list for *additions to the existing features*
-
-.[#2021_3_1-deprecated]#<<2021_3_1-deprecated,Deprecated:>>#
-// Use list for *things that should not be used but are still there*
-
-.[#2021_3_1-removed]#<<2021_3_1-removed,Removed:>>#
-// Use list for *removed things*
-
-.[#2021_3_1-fixed]#<<2021_3_1-fixed,Fixed:>>#
-// Use list for *fixes to existing features*
-// If the modification changes the original flow of the feature, mention it under changes as well
-
-.[#2021_3_1-security]#<<2021_3_1-security,Security:>>#
-// Use list for *security related changes*
+:leveloffset: -1
 
 ----
 
-== Content guidelines
+== Patch Versions
 
-=== Scope of an entry
+Patch versions outline the changes that were presented in the given version patch, such as additions, deprecations, and changes.
 
-We have many repositories with more coming.
-An entry should outline the change regardless of what part of the system it was on.
+We now use a tool for the changelog to handle the heavy lifting.
+Patch releases are described in `JSON` files inside the `src/modules/ROOT/pages/changelog` directory (inside the version folder).
+To exemplify, the `02` patch for the `2022.9` version would be located in the `src/modules/ROOT/pages/changelog/202209/02.json` file.
 
-For example, when we add a new workflow step (sub-workflow), we can say:
-
-[source,adoc]
+.The patch release JSON file is structured as follows:
+[source,json]
 ----
-.[#2021_3_1-added]#<<2021_3_1-added,Added:>>#
-* Added a sub-workflow workflow step.
-----
+{
+  "meta": {
+    "releasedOn": "YYYY.MM.DD"
+  },
 
-In cases where we want to indicate what repository it is on, incorporate it in the text.
-
-.For example:
-[source,adoc]
-----
-.[#2021_3_1-added]#<<2021_3_1-added,Added:>>#
-* Changed the default sidebar navigation on the {PRODUCT_NAME} {APP_NAME_ADMIN}.
-----
-
-=== Descriptive entries
-
-Each changelog entry should be descriptive enough for us to understand what happened.
-
-.Don't:
-[source,adoc]
-----
-.[#2021_3_1-fixed]#<<2021_3_1-fixed,Fixed:>>#
-* General record list UX fixes
+  "added": [],
+  "changed": [],
+  "deprecated": [],
+  "removed": [],
+  "fixed": [],
+  "security": [],
+  "development": []
+}
 ----
 
-.Do:
-[source,adoc]
+.A simple sample with a single changelog entry:
+[source,json]
 ----
-.[#2021_3_1-fixed]#<<2021_3_1-fixed,Fixed:>>#
-* Fixed record lists not refreshing on filter change.
-* Fixed record lists not respecting pre-filter.
+{
+  "meta": {
+    "releasedOn": "2022.10.20"
+  },
+
+  "added": [{
+    "what": ["..."],
+    "why": ["..."],
+    "refs": ["..."]
+  }],
+  "changed": []
+}
 ----
-
-=== References
-
-Where possible and relevant, provide references to the documentation, commits, and pull requests.
-References to the documentation should be incorporated in the text.
-
-.For example:
-[source,adoc]
-----
-.[#2021_3_1-fixed]#<<2021_3_1-fixed,Fixed:>>#
-* Fixed server crash when an authentication message is sent (https://github.com/cortezaproject/corteza-server/commit/ffb297f8b1b21a87b51e293bad058cef1646613a[`ffb297f`])
-* Fixed workflow execution for deferred triggers (https://github.com/cortezaproject/corteza-server/pull/218/files[`!218`])
-----
-
-=== Changelog entry lists
-
-These are the templates for the lists and when we should use them, alongside some conventions.
 
 [NOTE]
 ====
-*DevNote* add conventions and such.
+You can freely omit unneeded bits from the JSON.
 ====
 
-[source,adoc]
+== Changelog Entries
+
+=== `added`
+
+`added` outlines additions to {PRODUCT_NAME} such as new features or added UI elements.
+
+[cols="1s,5a"]
+|===
+| [#entry-added-what]#<<entry-added-what,what>>#
+|
+Describe what the new addition is.
+To exemplify: `"what": "gauge, funnel, and pie charts to the {APP_NAME_COMPOSE} charts"`.
+
+The `what` should provide enough information for the reader to know what was added and where it was added.
+
+| [#entry-added-why]#<<entry-added-why,why _optional_>>#
+|
+Describe the reasoning behind the new addition.
+To exemplify: `"why": "to cover use-cases which require these charts"`.
+
+The `why` should provide some background for the addition.
+
+|===
+
+.Template:
+[source,json]
 ----
-.[#2021_3_1-added]#<<2021_3_1-added,Added:>>#
+{
+  "what": ["..."],
+  "why": ["..."],
+  "refs": []
+}
 ----
 
-[source,adoc]
+=== `changed`
+
+`changed` outlines changes to existing {PRODUCT_NAME} features.
+
+[cols="1s,5a"]
+|===
+| [#entry-changed-what]#<<entry-changed-what,what>>#
+|
+Describe what was changed.
+To exemplify: `"what": "workflow initialization and preprocessing pipeline"`.
+
+The `what` should provide enough information for the reader to know what was changed.
+
+| [#entry-changed-why]#<<entry-changed-why,why _optional_>>#
+|
+Describe the reasoning behind the change.
+To exemplify: `"why": "to increase performance and optimize memory usage"`.
+
+The `why` should provide some background for the addition.
+
+| [#entry-changed-how]#<<entry-changed-how,how _optional_>>#
+|
+Describe how the _thing_ changed.
+To exemplify: `"how": "by pre-processing workflows and initializing them in {PRODUCT_NAME} boot procedure"`.
+
+The `how` should provide enough information for the reader to know the new state and potential implications.
+
+|===
+
+.Template:
+[source,json]
 ----
-.[#2021_3_1-changed]#<<2021_3_1-changed,Changed:>>#
+{
+  "what": ["..."],
+  "why": ["..."],
+  "how": ["..."],
+  "refs": []
+}
 ----
 
-[source,adoc]
+=== `deprecated`
+
+`deprecated` outlines things that are pending removal.
+Deprecated bits can still be used but should no longer be relied on, as we can remove them in future releases.
+
+[cols="1s,5a"]
+|===
+| [#entry-deprecated-what]#<<entry-deprecated-what,what>>#
+|
+Describe what was deprecated.
+To exemplify: `"what": "automation scripts and the {APP_AUTOMATION} server"`.
+
+The `what` should provide enough information for the reader to know what was deprecated.
+
+| [#entry-deprecated-why]#<<entry-deprecated-why,why _optional_>>#
+|
+Describe the reasoning behind the deprecation.
+To exemplify: `"why": "because it's a legacy system and the NG {APP_AUTOMATION} server will replace it"`.
+
+The `why` should provide some background into the reasoning behind the deprecation.
+
+|===
+
+.Template:
+[source,json]
 ----
-.[#2021_3_1-deprecated]#<<2021_3_1-deprecated,Deprecated:>>#
+{
+  "what": ["..."],
+  "why": ["..."],
+  "refs": []
+}
 ----
 
-[source,adoc]
+=== `removed`
+
+`removed` outlines things that are no longer available in {PRODUCT_NAME}.
+
+[cols="1s,5a"]
+|===
+| [#entry-removed-what]#<<entry-removed-what,what>>#
+|
+Describe what was removed.
+To exemplify: `"what": "automation scripts and the {APP_AUTOMATION} server"`.
+
+The `what` should provide enough information for the reader to know what was removed.
+
+| [#entry-removed-why]#<<entry-removed-why,why _optional_>>#
+|
+Describe the reasoning behind the removal.
+To exemplify: `"why": "because the NG {APP_AUTOMATION} server replaced it"`.
+
+The `why` should provide some background into the reasoning behind the deprecation.
+
+|===
+
+.Template:
+[source,json]
 ----
-.[#2021_3_1-removed]#<<2021_3_1-removed,Removed:>>#
+{
+  "what": ["..."],
+  "why": ["..."],
+  "refs": []
+}
 ----
 
-[source,adoc]
+=== `fixed`
+
+`fixed` outlines changes to existing {PRODUCT_NAME} features.
+
+[IMPORTANT]
+====
+If the bug fix changes the original flow of the feature, mention it under `changed` as well.
+====
+
+[cols="1s,5a"]
+|===
+| [#entry-fixed-what]#<<entry-fixed-what,what>>#
+|
+Describe what was fixed.
+To exemplify: `"what": "funnel chart labels rendered over the page block when there were too many available options"`.
+
+The `what` should provide enough information for the reader to know what was fixed.
+Focus more on what the issue was from the UI perspective instead of the logic perspective.
+
+| [#entry-fixed-how]#<<entry-fixed-how,how _optional_>>#
+|
+Describe how the _thing_ was fixed.
+To exemplify: `"how": "by moving overflowing elements into /dev/null"`.
+
+The `how` should provide enough information for the reader what the patch does.
+
+|===
+
+.Template:
+[source,json]
 ----
-.[#2021_3_1-fixed]#<<2021_3_1-fixed,Fixed:>>#
+{
+  "what": ["..."],
+  "how": ["..."],
+  "refs": []
+}
 ----
 
-[source,adoc]
+=== `security`
+
+`security` outlines security-related fixes.
+
+[IMPORTANT]
+====
+If the bug fix changes the original flow of the feature, mention it under `changed` as well.
+====
+
+[cols="1s,5a"]
+|===
+| [#entry-security-what]#<<entry-security-what,what>>#
+|
+Describe what the security hole was.
+To exemplify: `"what": "Fixed the stored XSS attack via xyz"`.
+
+The `what` should provide enough information for the reader to know the issue and what caused it.
+Focus more on what the issue was from the UI perspective instead of the logic perspective.
+
+| [#entry-security-how]#<<entry-security-how,how _optional_>>#
+|
+Describe how the _thing_ was fixed.
+To exemplify: `"how": "by removing xyz completely"`.
+
+The `how` should provide enough information for the reader about what the patch does.
+
+|===
+
+.Template:
+[source,json]
 ----
-.[#2021_3_1-security]#<<2021_3_1-security,Security:>>#
+{
+  "what": ["..."],
+  "how": ["..."],
+  "refs": []
+}
 ----
 
-[source,adoc]
+=== `development`
+
+`development` outlines the development-related quality of life additions.
+
+[cols="1s,5a"]
+|===
+| [#entry-development-what]#<<entry-development-what,what>>#
+|
+Describe what the development quality of life addition was.
+To exemplify: `"what": "Added C3 to simplify component development in a containerized environment"`.
+
+The `what` should provide enough information for the reader to know what was added and why it's good.
+
+|===
+
+.Template:
+[source,json]
 ----
-.[#2021_3_1-development]#<<2021_3_1-development,Development:>>#
+{
+  "what": ["..."],
+  "refs": []
+}
 ----
+
+== Adding References
+
+=== GitHub Commits
+
+To reference a GitHub commit, simply add the full URL into the `refs` array.
+
+.An example of a GitHub commit reference:
+[source,json]
+----
+{
+  "refs": ["https://github.com/cortezaproject/corteza-server/commit/fd6465d0f95d78210401f0d0be9c16e1290341af"]
+}
+----
+
+== Tips for Better Changelogs
+
+* avoid ambiguous text, such as `Fixed {APP_NAME_COMPOSE} chart rendering` -- what was the issue? How was it fixed? Is this the one I was affected by?
+* Try to phrase the changelog entries in a way that describes what the user was facing or what a user could do with it.
+To exemplify, `"Fixed chart legend overflowing onto the chart when a lot of options are presented"` instead of `Fixed chart legend positioning"`.

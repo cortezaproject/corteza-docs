@@ -1,1 +1,4 @@
-* https://docs.cortezaproject.org/corteza-api-docs/2022.9/index.html[Corteza-js API]
+include::ROOT:partial$variables.adoc[]
+
+* https://docs.cortezaproject.org/corteza-api-docs/corteza-js/{PAGE-VERSION}/index.html[Corteza js API]
+* https://docs.cortezaproject.org/corteza-api-docs/corteza-server/{PAGE-VERSION}/index.html[Corteza server API]

@@ -620,6 +620,11 @@ trim(firstName + " " + lastName)
 Sanitizers modify the field value to cleanup (sanitize) the data before it is saved.
 A sanitizer is a simple expression that results in a single value.
 
+[IMPORTANT]
+====
+Sanitizers are ran multiple times, once before data is sent to event bus (corredor and workflows) and the second is right before the record is sent to the API.
+====
+
 Refer to the xref:expr/index.adoc[] for details on writing expressions.
 
 By their nature, sanitizers *should not* result in an error.

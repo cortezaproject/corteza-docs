@@ -1,0 +1,563 @@
+{
+  "meta": {
+    "releasedOn": "2022.11.03"
+  },
+
+  "changed": [
+    {
+      "what": [
+        "the workflow step configuration results section when no results are present for execute workflow, function, prompt, and iterator steps."
+      ],
+      "why": [
+        "because the results section was present even if no results were listed for the specified workflow steps"
+      ],
+      "how": ["by hiding the results section if no results are present."],
+      "refs": [
+        "https://github.com/cortezaproject/corteza-webapp-workflow/commit/2b4619af88d999019904264d0b4d8e8a2d4a33c4"
+      ]
+    },
+    {
+      "what": [
+        "the uninformative RBAC rule import error messages reported by the provisioning system.",
+        "The error was uninformative because RBAC rules, in this context, don't use identifiers."
+      ],
+      "why": [
+        "because the error in question was uninformative and looked like this: `failed to complete transaction: store encoder encode rbac-rule []: unsupported resource type '' for RBAC store encode`."
+      ],
+      "how": [
+        "by allowing custom error reporting logic for specific resources such as RBAC rules."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza-server/commit/e2ac9c4f3e5ddc2a7e2449bf7a5911774cefa451"
+      ]
+    },
+    {
+      "what": [
+        "password constraints which saved their values as strings to save them as numbers.",
+        "Additionally, the labels of the two fields were reworded to match the style of the other inputs in the password constraints section."
+      ],
+      "why": [
+        "because the password constraints were saved as strings; with this change, the constraints will be saved as numbers."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza-webapp-admin/commit/aad919f90700a5b8de8f15c299ddf351f3c2e1b2",
+        "https://github.com/cortezaproject/corteza-locale/commit/703516c9e23bf5373de01ba073b11426cbe66390",
+        "https://github.com/cortezaproject/corteza-webapp-admin/commit/a2480009e6f1c59c10569343bef98270ce0968d2"
+      ]
+    },
+    {
+      "what": [
+        "the documentation about sanitizers and fixed the example links in module field validation tab to now point to the correct anchors."
+      ],
+      "why": [
+        "because the documentation was lacking information about field value sanitization."
+      ],
+      "how": [
+        "by updating the documentation with a new important section describing this behavior and changing the documentation links in the module field configuration to point to validators/sanitizers."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza-webapp-compose/commit/9af28f269ae4752c036522273ec9c1af6a14efd2"
+      ]
+    },
+    {
+      "what": [
+        "record pages to reflect the operation (creating, editing, viewing) in the title of the public page."
+      ],
+      "why": [
+        "because the previous titles didn't match the consistency of the other page titles.",
+        "When you were editing a record instead of saying `Editing a record page` the title was saying `Viewing record page`, which was wrong."
+      ],
+      "how": [
+        "by changing the translation message of a record in the create, view and edit components."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza-webapp-compose/commit/b3ded1bf9513535339d0356561d0878a48a42728",
+        "https://github.com/cortezaproject/corteza-locale/commit/f7a520f4dd453b5b396edaa98c9aa03bcf2879b2"
+      ]
+    }
+  ],
+
+  "fixed": [
+    {
+      "what": [
+        "incorrect user count from the system metrics report due to system-defined users."
+      ],
+      "how": [
+        "by excluding system users from the metric report.",
+        "We didn't exclude them from the total, but they were excluded from the per-day aggregation."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza-server/commit/fd6465d0f95d78210401f0d0be9c16e1290341af"
+      ]
+    },
+    {
+      "what": [
+        "the timestamp in the details of an action log being different as the one in search results."
+      ],
+      "how": ["by applying a custom formatting to the timestamp."],
+      "refs": [
+        "https://github.com/cortezaproject/corteza-webapp-admin/commit/a4596fb283b42822fe3bb4c81c4cbc4f43d7bfe4"
+      ]
+    },
+    {
+      "what": [
+        "strict record value duplicate detection, which was preventing record creation with same values for fields for strict duplicate detection validation."
+      ],
+      "how": ["by validating duplication only for selected field."],
+      "refs": [
+        "https://github.com/cortezaproject/corteza-server/commit/eac2f07"
+      ]
+    },
+    {
+      "what": [
+        "sub workflows being unavailable in the workflow execution step after the server was restarted.",
+        "The issue was caused by the initialization logic excluding sub-workflows from the filter."
+      ],
+      "how": [
+        "by including the sub-workflows in the initial load, thus resolving the issue."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza-server/commit/d64b732c25273ca3b588cc94ebb716a1a0fabca7"
+      ]
+    },
+    {
+      "what": ["action log search results not showing the correct outputs."],
+      "how": [
+        "by fixing the lapsus where the `from` timestamp was used for both the from and to date range which resulted in no matches."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza-server/commit/1fa5f39ab2132b196b543bb8b4f376abca3bc24c",
+        "https://github.com/cortezaproject/corteza-webapp-admin/commit/c63df822a2a276bdc29bdf792c7527fa74e1f9de"
+      ]
+    },
+    {
+      "what": [
+        "{APP_NAME_COMPOSE} namespace export where the name contained characters like `/`, `.` broke the export because they broke the URL.",
+        "The same issue was addressed for record export but with module name."
+      ],
+      "how": [
+        "by URI encoding the filename and replacing dots with `-` as that caused the URL to be broken."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza-webapp-compose/commit/1f0ea56cf1348fc60a51f489e61afe69d51ca736",
+        "https://github.com/cortezaproject/corteza-webapp-compose/commit/920cc5a0d62f47272a15090cfe1f4b35de3efca1"
+      ]
+    },
+    {
+      "what": [
+        "JSON codecs ident getting set to the field's name instead of `values`, when editing a module/configuring field mapping.",
+        "The JSON codec requires you to specify where the JSON object is located, not the name of the value.",
+        "Since values are stored in values, the value has to be `values` (where the JSON is).",
+        "The bug told {PRODUCT_NAME} to look for the column with the field name which probably never existed."
+      ],
+      "how": ["By correctly defaulting the values."],
+      "refs": [
+        "https://github.com/cortezaproject/corteza-webapp-compose/commit/580db32585ecc9ae348314e08279c8f7c52f3ec6"
+      ]
+    },
+    {
+      "what": [
+        "DAL connection configuration displaying the default DSN connection parameters instead of the configured one."
+      ],
+      "how": [
+        "by properly merging the default values and user-provided configurations, as well as fixing edge-cases where the configuration was made available after the page had loaded.",
+        "In the later case, the user-provided configuration was never displayed instead of the default values."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza-webapp-admin/commit/0b41074d9e9f8c04d50864a1abeb069ce92fc836",
+        "https://github.com/cortezaproject/corteza-js/commit/f9f7e920f85cbf2b554640c86d507917cc8da375"
+      ]
+    },
+    {
+      "what": [
+        "using `workflowID` parameter in workflowList not working because the returning value was getting corrupted in JavaScript due to unsupported `uint64`."
+      ],
+      "how": [
+        "by replacing `[]uint64` with `[]string` for `filter.workflowID` that corrupted the input value for JavaScript (`uint64` vs `int64`).",
+        "In addition, the filtering was moved to the store level."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza-server/commit/ca7d4b00c01c648b7cf0a2ac90c2afb2620a9749"
+      ]
+    },
+    {
+      "what": [
+        "DAL code ignoring module ID when doing record lookup.",
+        "If you wanted to select a record you were receiving the error message: `Could not create record: check error messages on the form`, and on the form it was saying: `record not found`",
+        "This fix ensures proper module ID is used (one from the module field options)when doing lookup."
+      ],
+      "how": [
+        "By using module-id from module field options and not field's module ID."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza-server/commit/a8d2fef3cc7552461580439742b76e337c7744a2"
+      ]
+    },
+    {
+      "what": [
+        "broken filter and codegen definition for workflow filters which resulted in generating broken filter functionality.",
+        "Filtering subworkflows with subWorkflow `2 flag` in workflowList was not returning any subworkflows."
+      ],
+      "how": [
+        "by properly applying conditions when sub-workflow filter was used."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza-server/commit/5b2ba5428"
+      ]
+    },
+    {
+      "what": [
+        "missing dal connection translation by converting its error meta key reference to kebab-case."
+      ],
+      "how": [
+        "by adding missing credentials translations to the locale under system/credentials."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza-server/pull/434/commits/88fa6cec325fd2a8f8e7acf557d8590ea6086b68",
+        "https://github.com/cortezaproject/corteza-locale/commit/9021d1b1ee2d50d78e491e96dc50a5f2e5f6dd52",
+        "https://github.com/cortezaproject/corteza-locale/commit/baff7b7e533e1d76d0010f84cfe8931127f01930"
+      ]
+    },
+    {
+      "what": [
+        "broken translation due to incompatible fileName case in locale."
+      ],
+      "how": [
+        "by renaming the file name for resources as per expected format (kebab-case)."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza-locale/commit/b2ad8c2"
+      ]
+    },
+    {
+      "what": [
+        "record search endpoints needlessly degrading performance by computing totals and paging cursors even when not required.",
+        "The performance hit was noticeable on larger datasets."
+      ],
+      "how": [
+        "by short-circuiting processing sooner when totals and page cursor navigation was not required.",
+        "This doesn't change external behavior as those parameters were not included even tho they were computed."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza-server/commit/24b5d7c72dca66a71490c47bcbc50419ee53a79e"
+      ]
+    },
+    {
+      "what": [
+        "data aggregation `count` function crashing the server when no arguments were provided (`count()`).",
+        "The old version allowed this format while the new one did not and it crashed the server."
+      ],
+      "how": [
+        "by adjusting validations and adding additional exceptions for this specific case."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza-server/commit/fd3552eaa5cfad8d880a00ee046feec154578d18"
+      ]
+    },
+    {
+      "what": [
+        "action log search results did not change if you reset the filter parameters.",
+        "The filter parameters are reflected in the URL."
+      ],
+      "how": ["by properly updating the search parameters in the URL."],
+      "refs": [
+        "https://github.com/cortezaproject/corteza-webapp-admin/commit/ca14671d2300d39699363a3b21b071032f230321"
+      ]
+    },
+    {
+      "what": [
+        "geometry values not being saved when changed manually in inputs."
+      ],
+      "how": [
+        "by correctly detecting changes on the geometry value since it uses a more complex structure then the rest of the inputs."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza-webapp-compose/commit/893e644e1ae8cce7666fbf4280271e72684afa73"
+      ]
+    },
+    {
+      "what": [
+        "record export filter not interpolating placeholders such as `${userID}` which lead to non functional exports."
+      ],
+      "how": [
+        "by adding evaluation to the record export filter to correctly evaluate and interpolate placeholders."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza-webapp-compose/commit/9e9898bcc7722e56acd34c5ff8cafb6a955de6b0"
+      ]
+    },
+    {
+      "what": [
+        "privacy web apps not being enabled in the default {PRODUCT_NAME} configuration."
+      ],
+      "how": [
+        "by adding the privacy web applications to the `HTTP_WEBAPP_LIST` `.env` variable."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza-server/commit/c8508f437"
+      ]
+    },
+    {
+      "what": [
+        "Data Privacy Officer role unable to see or review requests in the privacy web application due to invalid permission configuration."
+      ],
+      "how": [
+        "by updating provision YAML files with search and read on `corteza::compose`, `corteza::compose:namespace`, `corteza::compose:module` and `corteza::system` resources.",
+        "Additionally, Data privacy officer permissions were changed to be able to view and edit a privacy request."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza-server/commit/1d390f9a0",
+        "https://github.com/cortezaproject/corteza-server/commit/69f33fa9614306f28109d039f4fa53decbc8dbda",
+        "https://github.com/cortezaproject/corteza-webapp-privacy/commit/2b35b9804c92985a6878be03ff1c798b2fae8bed",
+        "https://github.com/cortezaproject/corteza-server/commit/a5e192fc99ce16e6bb2adaeb4d5f4f2835b21c5e",
+        "https://github.com/cortezaproject/corteza-server/commit/18a687a7bdfd2437d05600938fce1300c81d8834"
+      ]
+    },
+    {
+      "what": [
+        "missing translations for gateway, auth, dal sensitivity, and data privacy."
+      ],
+      "how": [
+        "by adding the missing translations to corteza-locale."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza-locale/commit/bb29fe25b06164c6e9f421057f793947066224ad",
+        "https://github.com/cortezaproject/corteza-webapp-compose/commit/56046e9c995faea875a109e40f8d0fd5c8191bb8",
+        "https://github.com/cortezaproject/corteza-webapp-privacy/commit/e64befaaae22596314dc9e10184d01cdf6d397b3"
+      ]
+    },
+    {
+      "what": ["errors on reports not being captured."],
+      "how": ["by properly capturing and displaying errors."],
+      "refs": [
+        "https://github.com/cortezaproject/corteza-server/commit/8926c040cda74c01f7a278906d296f299ec8ad3a"
+      ]
+    },
+    {
+      "what": [
+        "required module field flag is not reflected on the corresponding model attribute on the *nullable* flag."
+      ],
+      "how": [
+        "by explicitly setting the nullable flag on all attributes when generating models where fields set the *required* flag."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza-server/commit/eb899925c8beecb107d23d9913c406ee1fcc43ae"
+      ]
+    },
+    {
+      "what": [
+        "incorrect type encoding for {APP_NAME_COMPOSE} charts where numbers were represented as strings and references (IDs) as numbers instead of strings."
+      ],
+      "how": [
+        "by adding a hotfix to assure that these exceptions are properly encoded and presented to {APP_NAME_COMPOSE} charts.",
+        "The initial issue is on the database level but the exact solution is still up for debate and will be addressed later."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza-server/commit/55702ec2568f8a34a00fcfaffeaef0341f77ad2c"
+      ]
+    },
+    {
+      "what": [
+        "`Email`, `File`, `Number`, `String`, and `URL` fields not showing validation errors.",
+        "The error under the field now also indicates the duplicated value.",
+        "You still need the field on the record itself in order to see the validation error."
+      ],
+      "how": [
+        "by adding the missing errors component to field viewers that didn't have it (that is shown for expression fields on record edit)."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza-webapp-compose/commit/1cf316c9f7a55a93a0575b8da4ee03206e0d6dad",
+        "https://github.com/cortezaproject/corteza-locale/commit/6bebd2172cb0a13f7ef79e37a571b842b922e6f2"
+      ]
+    },
+    {
+      "what": [
+        "the suspended and revoke access buttons being shown even when creating a new user."
+      ],
+      "how": ["by only showing those buttons when editing a user."],
+      "refs": [
+        "https://github.com/cortezaproject/corteza-webapp-admin/commit/2c3555212732a335860dfe7dc1f909447b342688"
+      ]
+    },
+    {
+      "what": [
+        "users unable to press the submit button when trying to edit a user and the submit button remaining enabled even if an invalid (or missing) email was provided."
+      ],
+      "how": [
+        "by properly applying the permissions obtained from the API user object in the webapp User class and correctly updating the form's state based on the email validation."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza-js/commit/d58539906857abc56e905bb7bfe7efeade7ecc02",
+        "https://github.com/cortezaproject/corteza-webapp-admin/commit/99775e190d4a620ea441e247c06d2224fb91b889"
+      ]
+    },
+    {
+      "what": [
+        "external auth providers not being re-fetched after updating user password."
+      ],
+      "how": ["by refetching the external auth providers after updating."],
+      "refs": [
+        "https://github.com/cortezaproject/corteza-webapp-admin/commit/07de6a6cddcc5626d4473406b8ff6f7455110d47"
+      ]
+    },
+    {
+      "what": [
+        "gauge chart step name not displaying when value was larger than the largest step."
+      ],
+      "how": [
+        "by setting the default step name to the largest, since if we find another step where the value currently is, we will use that one instead."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza-js/commit/808e438570c71cefc2b00359323ee7c084e880fd"
+      ]
+    },
+    {
+      "what": [
+        "extra whitespace disappearing when using a rich text editor for the String field."
+      ],
+      "how": [
+        "by tweaking the configuration for the viewer (adding `'white-space': 'pre-wrap'`) and the editor (adding `preserveWhitespace: 'full'` to CRichTextInput parse options)."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza-vue/commit/854e6c89a29b2652102b7cdfd67d9fa5cfb10ceb",
+        "https://github.com/cortezaproject/corteza-webapp-compose/commit/db1ace1152e780f92b3f44968a624a95daaab754"
+      ]
+    },
+    {
+      "what": [
+        "being able to submit a federation node form even if URL and name were not defined."
+      ],
+      "how": [
+        "by correctly validating the form and disabling the buttons as needed."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza-webapp-admin/commit/0f5170dcac6c75a016bc07d06f93b86d7fd03c26",
+        "https://github.com/cortezaproject/corteza-webapp-admin/commit/b8a49fd02ca22071543c87bb321e17a79e59a8a7"
+      ]
+    },
+    {
+      "what": ["ownership information not being displayed on the connection."],
+      "how": [
+        "by using the correct value for the field ownership (by switching the value from `connection.ownership` to `connection.meta.ownership`)."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza-js/commit/d58539906857abc56e905bb7bfe7efeade7ecc02",
+        "https://github.com/cortezaproject/corteza-webapp-admin/commit/6e2e2b270c1d0064fe435cc2c46d6270f1baf8c4"
+      ]
+    },
+    {
+      "what": [
+        "unable to save auth clients when setting either the valid from or expires at."
+      ],
+      "how": ["correctly parsing date-time values we get from the API."],
+      "refs": [
+        "https://github.com/cortezaproject/corteza-webapp-admin/commit/04c8c4e94f86bec028121def5ce270ffb5d34d51"
+      ]
+    },
+    {
+      "what": [
+        "incorrectly displayed error message when un-deleting messaging queue; it was displaying the error message `Queue deleted` instead of `Queue restored`."
+      ],
+      "how": ["Translations were added in locale and applied in admin."],
+      "refs": [
+        "https://github.com/cortezaproject/corteza-webapp-admin/commit/7af6c9e57314d802d97dcc5556ecc8e906225233",
+        "https://github.com/cortezaproject/corteza-locale/commit/e00a3dab4a1c742fd504f34d7bec56d360750834"
+      ]
+    },
+    {
+      "what": [
+        "deleted messaging queues being un-deleted if they were edited."
+      ],
+      "how": [
+        "by correctly preserving the deleted state when updating the messaging queue."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza-server/commit/90b54146dcff0514a1c24b03489e013b0aec647f"
+      ]
+    },
+    {
+      "what": [
+        "incorrectly passed translations to Results/Namespace, Record and User."
+      ],
+      "how": [
+        "by correctly passing translations via props and interpolation.",
+        "Previously, part of the translations were passed without using interpolation and the other translations were passed as attributes causing the texts to not be properly translated."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza-webapp-discovery/commit/bed2dfaf92e129c22dfa9a9ddf25bf190e4a6145"
+      ]
+    },
+    {
+      "what": [
+        "the {PRODUCT_NAME} crashing when adding additional DAL connections.",
+        "The issue was caused by improperly handled initial and empty states for the DAL connection resource."
+      ],
+      "how": [
+        "adding exceptions to reject default configuration options (no connection params) and properly handling the default state on the web application's connection editor."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza-webapp-admin/commit/55636d979849dde2c775065b9eedf6e897b0efeb",
+        "https://github.com/cortezaproject/corteza-server/commit/f5297d33c7f58beb3777bbd28519e49aeba224d2"
+      ]
+    },
+    {
+      "what": [
+        "file uploads being rejected when specifying what MIME types are allowed or not.",
+        "The issue occurred due to additional meta tags provided by the files or the underlying libraries."
+      ],
+      "how": [
+        "by reworking how MIME types are validated by switching from comparing MIME type labels to a more robust library which was already used for detecting MIME types."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza-server/commit/ab987ccff"
+      ]
+    },
+    {
+      "what": [
+        "disappearing white spaces when using a rich text editor in the String field."
+      ],
+      "how": [
+        "by adding 'white-space': 'pre-wrap' to String viewer and preserveWhitespace: 'full' to CRichTextInput parse options."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza-webapp-compose/commit/a89208febc5e5f885aeaaeab7639deaa5d7da9b2",
+        "https://github.com/cortezaproject/corteza-vue/commit/854e6c89a29b2652102b7cdfd67d9fa5cfb10ceb"
+      ]
+    },
+    {
+      "what": [
+        "automation button resource translations not preserving between page refreshes.",
+        "The issue was caused due to improper indexing as well as missing code to apply resource translations to record list selection buttons."
+      ],
+      "how": [
+        "correcting resource translation indexing to start with `0` instead of `1` as well as adding missing code to correctly apply resource translations to record list selection buttons."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza-webapp-compose/commit/7a5e8393e9ef1e3093768b0c015b3270fa3bc21e",
+        "https://github.com/cortezaproject/corteza-server/commit/6d58bf4e3b7dd1b543a18aa68cf6810a22415029"
+      ]
+    },
+    {
+      "what": [
+        "record page navigation and sorting issue."
+      ],
+      "how": [
+        "by improving record iterator implementation for page navigation and sorting and also fixing store drivers to be consistent respective to their query language for dateTime, number, boolean data types."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza-server/commit/6f04666a7946e54d2d3a7fe0c120d2c4cff6996d"
+      ]
+    },
+    {
+      "what": [
+        "simple equality operator `=` in the filter query that checks for all values in multi-value fields but only the first one due to the changed encoding of record values."
+      ],
+      "how": [
+        "by introducing new operators `IN` and `NOT IN` and should be used when filtering records containing value inside multi value field."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza-server/commit/f6e3035b426674d065591737e8094812a87d52b1"
+      ]
+    }
+  ]
+}

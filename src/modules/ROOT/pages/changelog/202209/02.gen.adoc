@@ -1,0 +1,184 @@
+include::ROOT:partial$variables.adoc[]
+
+= `2022.9.2`
+
+*Released on*: `2022.11.08`
+
+.[#2022_9_2-important]#<<2022_9_2-important,Important upgrade notes:>>#
+* There is a known bug where multi-value fields crash the server or produce unexpected results in reports.
+If your configuration uses reports which utilize multi-value fields, skip this patch version.
+
+.[#2022_09_02-changed]#<<2022_09_02-changed,Changed:>>#
+* Changed the workflow step configuration results section when no results are present for execute workflow, function, prompt, and iterator steps.
+The change was made because the results section was present even if no results were listed for the specified workflow steps
+The change was made by hiding the results section if no results are present
+({WEBAPP_WORKFLOW_COMMIT_BASE}2b4619a[`2b4619a`]).
+* Changed the uninformative RBAC rule import error messages reported by the provisioning system.
+The error was uninformative because RBAC rules, in this context, don't use identifiers.
+The change was made because the error in question was uninformative and looked like this: `failed to complete transaction: store encoder encode rbac-rule []: unsupported resource type '' for RBAC store encode`.
+The change was made by allowing custom error reporting logic for specific resources such as RBAC rules
+({SERVER_COMMIT_BASE}e2ac9c4[`e2ac9c4`]).
+* Changed password constraints which saved their values as strings to save them as numbers.
+Additionally, the labels of the two fields were reworded to match the style of the other inputs in the password constraints section.
+The change was made because the password constraints were saved as strings; with this change, the constraints will be saved as numbers
+({WEBAPP_ADMIN_COMMIT_BASE}aad919f[`aad919f`], {LOCALE_COMMIT_BASE}703516c[`703516c`], {WEBAPP_ADMIN_COMMIT_BASE}a248000[`a248000`]).
+* Changed the documentation about sanitizers and fixed the example links in module field validation tab to now point to the correct anchors.
+The change was made because the documentation was lacking information about field value sanitization.
+The change was made by updating the documentation with a new important section describing this behavior and changing the documentation links in the module field configuration to point to validators/sanitizers
+({WEBAPP_COMPOSE_COMMIT_BASE}9af28f2[`9af28f2`]).
+* Changed record pages to reflect the operation (creating, editing, viewing) in the title of the public page.
+The change was made because the previous titles didn't match the consistency of the other page titles.
+When you were editing a record instead of saying `Editing a record page` the title was saying `Viewing record page`, which was wrong.
+The change was made by changing the translation message of a record in the create, view and edit components
+({WEBAPP_COMPOSE_COMMIT_BASE}b3ded1b[`b3ded1b`], {LOCALE_COMMIT_BASE}f7a520f[`f7a520f`]).
+
+.[#2022_09_02-fixed]#<<2022_09_02-fixed,Fixed:>>#
+* Fixed incorrect user count from the system metrics report due to system-defined users.
+The fix was made by excluding system users from the metric report
+We didn't exclude them from the total, but they were excluded from the per-day aggregation
+({SERVER_COMMIT_BASE}fd6465d[`fd6465d`]).
+* Fixed the timestamp in the details of an action log being different as the one in search results.
+The fix was made by applying a custom formatting to the timestamp
+({WEBAPP_ADMIN_COMMIT_BASE}a4596fb[`a4596fb`]).
+* Fixed strict record value duplicate detection, which was preventing record creation with same values for fields for strict duplicate detection validation.
+The fix was made by validating duplication only for selected field
+({SERVER_COMMIT_BASE}eac2f07[`eac2f07`]).
+* Fixed sub workflows being unavailable in the workflow execution step after the server was restarted.
+The issue was caused by the initialization logic excluding sub-workflows from the filter.
+The fix was made by including the sub-workflows in the initial load, thus resolving the issue
+({SERVER_COMMIT_BASE}d64b732[`d64b732`]).
+* Fixed action log search results not showing the correct outputs.
+The fix was made by fixing the lapsus where the `from` timestamp was used for both the from and to date range which resulted in no matches
+({SERVER_COMMIT_BASE}1fa5f39[`1fa5f39`], {WEBAPP_ADMIN_COMMIT_BASE}c63df82[`c63df82`]).
+* Fixed {APP_NAME_COMPOSE} namespace export where the name contained characters like `/`, `.` broke the export because they broke the URL.
+The same issue was addressed for record export but with module name.
+The fix was made by URI encoding the filename and replacing dots with `-` as that caused the URL to be broken
+({WEBAPP_COMPOSE_COMMIT_BASE}1f0ea56[`1f0ea56`], {WEBAPP_COMPOSE_COMMIT_BASE}920cc5a[`920cc5a`]).
+* Fixed JSON codecs ident getting set to the field's name instead of `values`, when editing a module/configuring field mapping.
+The JSON codec requires you to specify where the JSON object is located, not the name of the value.
+Since values are stored in values, the value has to be `values` (where the JSON is).
+The bug told {PRODUCT_NAME} to look for the column with the field name which probably never existed.
+The fix was made By correctly defaulting the values
+({WEBAPP_COMPOSE_COMMIT_BASE}580db32[`580db32`]).
+* Fixed DAL connection configuration displaying the default DSN connection parameters instead of the configured one.
+The fix was made by properly merging the default values and user-provided configurations, as well as fixing edge-cases where the configuration was made available after the page had loaded
+In the later case, the user-provided configuration was never displayed instead of the default values
+({WEBAPP_ADMIN_COMMIT_BASE}0b41074[`0b41074`], {JS_COMMIT_BASE}f9f7e92[`f9f7e92`]).
+* Fixed using `workflowID` parameter in workflowList not working because the returning value was getting corrupted in JavaScript due to unsupported `uint64`.
+The fix was made by replacing `[]uint64` with `[]string` for `filterworkflowID` that corrupted the input value for JavaScript (`uint64` vs `int64`)
+In addition, the filtering was moved to the store level
+({SERVER_COMMIT_BASE}ca7d4b0[`ca7d4b0`]).
+* Fixed DAL code ignoring module ID when doing record lookup.
+If you wanted to select a record you were receiving the error message: `Could not create record: check error messages on the form`, and on the form it was saying: `record not found`
+This fix ensures proper module ID is used (one from the module field options)when doing lookup.
+The fix was made By using module-id from module field options and not field's module ID
+({SERVER_COMMIT_BASE}a8d2fef[`a8d2fef`]).
+* Fixed broken filter and codegen definition for workflow filters which resulted in generating broken filter functionality.
+Filtering subworkflows with subWorkflow `2 flag` in workflowList was not returning any subworkflows.
+The fix was made by properly applying conditions when sub-workflow filter was used
+({SERVER_COMMIT_BASE}5b2ba54[`5b2ba54`]).
+* Fixed missing dal connection translation by converting its error meta key reference to kebab-case.
+The fix was made by adding missing credentials translations to the locale under system/credentials
+({SERVER_COMMIT_BASE}434[`434`], {LOCALE_COMMIT_BASE}9021d1b[`9021d1b`], {LOCALE_COMMIT_BASE}baff7b7[`baff7b7`]).
+* Fixed broken translation due to incompatible fileName case in locale.
+The fix was made by renaming the file name for resources as per expected format (kebab-case)
+({LOCALE_COMMIT_BASE}b2ad8c2[`b2ad8c2`]).
+* Fixed record search endpoints needlessly degrading performance by computing totals and paging cursors even when not required.
+The performance hit was noticeable on larger datasets.
+The fix was made by short-circuiting processing sooner when totals and page cursor navigation was not required
+This doesn't change external behavior as those parameters were not included even tho they were computed
+({SERVER_COMMIT_BASE}24b5d7c[`24b5d7c`]).
+* Fixed data aggregation `count` function crashing the server when no arguments were provided (`count()`).
+The old version allowed this format while the new one did not and it crashed the server.
+The fix was made by adjusting validations and adding additional exceptions for this specific case
+({SERVER_COMMIT_BASE}fd3552e[`fd3552e`]).
+* Fixed action log search results did not change if you reset the filter parameters.
+The filter parameters are reflected in the URL.
+The fix was made by properly updating the search parameters in the URL
+({WEBAPP_ADMIN_COMMIT_BASE}ca14671[`ca14671`]).
+* Fixed geometry values not being saved when changed manually in inputs.
+The fix was made by correctly detecting changes on the geometry value since it uses a more complex structure then the rest of the inputs
+({WEBAPP_COMPOSE_COMMIT_BASE}893e644[`893e644`]).
+* Fixed record export filter not interpolating placeholders such as `${userID}` which lead to non functional exports.
+The fix was made by adding evaluation to the record export filter to correctly evaluate and interpolate placeholders
+({WEBAPP_COMPOSE_COMMIT_BASE}9e9898b[`9e9898b`]).
+* Fixed privacy web apps not being enabled in the default {PRODUCT_NAME} configuration.
+The fix was made by adding the privacy web applications to the `HTTP_WEBAPP_LIST` `env` variable
+({SERVER_COMMIT_BASE}c8508f4[`c8508f4`]).
+* Fixed Data Privacy Officer role unable to see or review requests in the privacy web application due to invalid permission configuration.
+The fix was made by updating provision YAML files with search and read on `corteza::compose`, `corteza::compose:namespace`, `corteza::compose:module` and `corteza::system` resources
+Additionally, Data privacy officer permissions were changed to be able to view and edit a privacy request
+({SERVER_COMMIT_BASE}1d390f9[`1d390f9`], {SERVER_COMMIT_BASE}69f33fa[`69f33fa`], {WEBAPP_PRIVACY_COMMIT_BASE}2b35b98[`2b35b98`], {SERVER_COMMIT_BASE}a5e192f[`a5e192f`], {SERVER_COMMIT_BASE}18a687a[`18a687a`]).
+* Fixed missing translations for gateway, auth, dal sensitivity, and data privacy.
+The fix was made by adding the missing translations to corteza-locale
+({LOCALE_COMMIT_BASE}bb29fe2[`bb29fe2`], {WEBAPP_COMPOSE_COMMIT_BASE}56046e9[`56046e9`], {WEBAPP_PRIVACY_COMMIT_BASE}e64befa[`e64befa`]).
+* Fixed errors on reports not being captured.
+The fix was made by properly capturing and displaying errors
+({SERVER_COMMIT_BASE}8926c04[`8926c04`]).
+* Fixed required module field flag is not reflected on the corresponding model attribute on the *nullable* flag.
+The fix was made by explicitly setting the nullable flag on all attributes when generating models where fields set the *required* flag
+({SERVER_COMMIT_BASE}eb89992[`eb89992`]).
+* Fixed incorrect type encoding for {APP_NAME_COMPOSE} charts where numbers were represented as strings and references (IDs) as numbers instead of strings.
+The fix was made by adding a hotfix to assure that these exceptions are properly encoded and presented to {APP_NAME_COMPOSE} charts
+The initial issue is on the database level but the exact solution is still up for debate and will be addressed later
+({SERVER_COMMIT_BASE}55702ec[`55702ec`]).
+* Fixed `Email`, `File`, `Number`, `String`, and `URL` fields not showing validation errors.
+The error under the field now also indicates the duplicated value.
+You still need the field on the record itself in order to see the validation error.
+The fix was made by adding the missing errors component to field viewers that didn't have it (that is shown for expression fields on record edit)
+({WEBAPP_COMPOSE_COMMIT_BASE}1cf316c[`1cf316c`], {LOCALE_COMMIT_BASE}6bebd21[`6bebd21`]).
+* Fixed the suspended and revoke access buttons being shown even when creating a new user.
+The fix was made by only showing those buttons when editing a user
+({WEBAPP_ADMIN_COMMIT_BASE}2c35552[`2c35552`]).
+* Fixed users unable to press the submit button when trying to edit a user and the submit button remaining enabled even if an invalid (or missing) email was provided.
+The fix was made by properly applying the permissions obtained from the API user object in the webapp User class and correctly updating the form's state based on the email validation
+({JS_COMMIT_BASE}d585399[`d585399`], {WEBAPP_ADMIN_COMMIT_BASE}99775e1[`99775e1`]).
+* Fixed external auth providers not being re-fetched after updating user password.
+The fix was made by refetching the external auth providers after updating
+({WEBAPP_ADMIN_COMMIT_BASE}07de6a6[`07de6a6`]).
+* Fixed gauge chart step name not displaying when value was larger than the largest step.
+The fix was made by setting the default step name to the largest, since if we find another step where the value currently is, we will use that one instead
+({JS_COMMIT_BASE}808e438[`808e438`]).
+* Fixed extra whitespace disappearing when using a rich text editor for the String field.
+The fix was made by tweaking the configuration for the viewer (adding `'white-space': 'pre-wrap'`) and the editor (adding `preserveWhitespace: 'full'` to CRichTextInput parse options)
+({VUE_COMMIT_BASE}854e6c8[`854e6c8`], {WEBAPP_COMPOSE_COMMIT_BASE}db1ace1[`db1ace1`]).
+* Fixed being able to submit a federation node form even if URL and name were not defined.
+The fix was made by correctly validating the form and disabling the buttons as needed
+({WEBAPP_ADMIN_COMMIT_BASE}0f5170d[`0f5170d`], {WEBAPP_ADMIN_COMMIT_BASE}b8a49fd[`b8a49fd`]).
+* Fixed ownership information not being displayed on the connection.
+The fix was made by using the correct value for the field ownership (by switching the value from `connectionownership` to `connectionmetaownership`)
+({JS_COMMIT_BASE}d585399[`d585399`], {WEBAPP_ADMIN_COMMIT_BASE}6e2e2b2[`6e2e2b2`]).
+* Fixed unable to save auth clients when setting either the valid from or expires at.
+The fix was made correctly parsing date-time values we get from the API
+({WEBAPP_ADMIN_COMMIT_BASE}04c8c4e[`04c8c4e`]).
+* Fixed incorrectly displayed error message when un-deleting messaging queue; it was displaying the error message `Queue deleted` instead of `Queue restored`.
+The fix was made Translations were added in locale and applied in admin
+({WEBAPP_ADMIN_COMMIT_BASE}7af6c9e[`7af6c9e`], {LOCALE_COMMIT_BASE}e00a3da[`e00a3da`]).
+* Fixed deleted messaging queues being un-deleted if they were edited.
+The fix was made by correctly preserving the deleted state when updating the messaging queue
+({SERVER_COMMIT_BASE}90b5414[`90b5414`]).
+* Fixed incorrectly passed translations to Results/Namespace, Record and User.
+The fix was made by correctly passing translations via props and interpolation
+Previously, part of the translations were passed without using interpolation and the other translations were passed as attributes causing the texts to not be properly translated
+({WEBAPP_DISCOVERY_COMMIT_BASE}bed2dfa[`bed2dfa`]).
+* Fixed the {PRODUCT_NAME} crashing when adding additional DAL connections.
+The issue was caused by improperly handled initial and empty states for the DAL connection resource.
+The fix was made adding exceptions to reject default configuration options (no connection params) and properly handling the default state on the web application's connection editor
+({WEBAPP_ADMIN_COMMIT_BASE}55636d9[`55636d9`], {SERVER_COMMIT_BASE}f5297d3[`f5297d3`]).
+* Fixed file uploads being rejected when specifying what MIME types are allowed or not.
+The issue occurred due to additional meta tags provided by the files or the underlying libraries.
+The fix was made by reworking how MIME types are validated by switching from comparing MIME type labels to a more robust library which was already used for detecting MIME types
+({SERVER_COMMIT_BASE}ab987cc[`ab987cc`]).
+* Fixed disappearing white spaces when using a rich text editor in the String field.
+The fix was made by adding 'white-space': 'pre-wrap' to String viewer and preserveWhitespace: 'full' to CRichTextInput parse options
+({WEBAPP_COMPOSE_COMMIT_BASE}a89208f[`a89208f`], {VUE_COMMIT_BASE}854e6c8[`854e6c8`]).
+* Fixed automation button resource translations not preserving between page refreshes.
+The issue was caused due to improper indexing as well as missing code to apply resource translations to record list selection buttons.
+The fix was made correcting resource translation indexing to start with `0` instead of `1` as well as adding missing code to correctly apply resource translations to record list selection buttons
+({WEBAPP_COMPOSE_COMMIT_BASE}7a5e839[`7a5e839`], {SERVER_COMMIT_BASE}6d58bf4[`6d58bf4`]).
+* Fixed record page navigation and sorting issue.
+The fix was made by improving record iterator implementation for page navigation and sorting and also fixing store drivers to be consistent respective to their query language for dateTime, number, boolean data types
+({SERVER_COMMIT_BASE}6f04666[`6f04666`]).
+* Fixed simple equality operator `=` in the filter query that checks for all values in multi-value fields but only the first one due to the changed encoding of record values.
+The fix was made by introducing new operators `IN` and `NOT IN` and should be used when filtering records containing value inside multi value field
+({SERVER_COMMIT_BASE}f6e3035[`f6e3035`]).

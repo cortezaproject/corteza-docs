@@ -46,5 +46,7 @@
 :WEBAPP_DISCOVERY_COMMIT_BASE: https://github.com/cortezaproject/corteza-webapp-discovery/commit/
 :WEBAPP_PRIVACY_COMMIT_BASE: https://github.com/cortezaproject/corteza-webapp-privacy/commit/
 :WEBAPP_JS_COMMIT_BASE: https://github.com/cortezaproject/corteza-js/commit/
+:JS_COMMIT_BASE: https://github.com/cortezaproject/corteza-js/commit/
 :WEBAPP_VUE_COMMIT_BASE: https://github.com/cortezaproject/corteza-vue/commit/
+:VUE_COMMIT_BASE: https://github.com/cortezaproject/corteza-vue/commit/
 :LOCALE_COMMIT_BASE: https://github.com/cortezaproject/corteza-locale/commit/

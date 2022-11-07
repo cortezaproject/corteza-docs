@@ -1,0 +1,100 @@
+{
+  "meta": {
+    "releasedOn": "2022.11.08"
+  },
+
+  "changed": [
+    {
+      "what": [
+        "password constraints which saved their values as strings to save them as numbers.",
+        "Additionally, the labels of the two fields were reworded to match the style of the other inputs in the password constraints section."
+      ],
+      "why": [
+        "because the password constraints were saved as strings; with this change, the constraints will be saved as numbers."
+      ],
+      "how": [
+        "'.number' was appended to the password constraint's input model."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza-locale/commit/1b8e02ca71fd24374aedf363b23cd62365bc2105",
+        "https://github.com/cortezaproject/corteza-locale/commit/1d8eb4ba2ce5210ad475f53a9e5ba47e95a84c59",
+        "https://github.com/cortezaproject/corteza-webapp-admin/commit/9fd49e1ff6e2b1cbbe4c7b2fd7174fc89da9d0c1",
+        "https://github.com/cortezaproject/corteza-webapp-admin/commit/53d861944e73b54fce59f35ea49684a26ce5ee5e",
+        "https://github.com/cortezaproject/corteza-server/commit/651993b65d68c3b924009bc86c309e5dbb22192a",
+        "https://github.com/cortezaproject/corteza-server/commit/4c4f1dfd25a2b361e64a1788cb07c5b36ff07b7e"
+      ]
+    }    
+  ],
+
+  "fixed": [
+    {
+      "what": [
+        "geometry values not being saved when changed manually in inputs."
+      ],
+      "how": [
+        "by correctly detecting changes on the geometry value since it uses a more complex structure then the rest of the inputs."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza-webapp-compose/commit/1c220ec723ba37ccc6c16ebace21805234324a99"
+      ]
+    },
+    {
+      "what": [
+        "record export filter not interpolating placeholders such as `${userID}` which lead to non functional exports."
+      ],
+      "how": [
+        "by adding evaluation to the record export filter to correctly evaluate and interpolate placeholders."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza-webapp-compose/commit/ee123ea92f395e914dac13cca034b927ef21bea7"
+      ]
+    },
+    {
+      "what": [
+        "file uploads being rejected when specifying what MIME types are allowed or not.",
+        "The issue occurred due to additional meta tags provided by the files or the underlying libraries."
+      ],
+      "how": [
+        "by reworking how MIME types are validated by switching from comparing MIME type labels to a more robust library which was already used for detecting MIME types."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza-server/commit/84e2ff1b09e3d096ae17449f7297ca0e8156ef7c"
+      ]
+    },
+    {
+      "what": [
+        "corredor server was crashing on startup due to nil pointer error."
+      ],
+      "how": [
+        "by adding nil check for Vars methods so it does not cause any unexpected error, if nil value is used."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza-server/commit/9ad5b36caf36002a06d08cce1ce603578683afda"
+      ]
+    },
+    {
+      "what": [
+        "getting stuck on sign up page on error."
+      ],
+      "how": [
+        "by redirecting back to sign up page with respective error message."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza-server/commit/be1e0352e9983b33fc645f24e133bd49e25509e1"
+      ]
+    },
+    {
+      "what": [
+        "automation button resource translations not preserving between page refreshes.",
+        "The issue was caused due to improper indexing as well as missing code to apply resource translations to record list selection buttons."
+      ],
+      "how": [
+        "correcting resource translation indexing to start with `0` instead of `1` as well as adding missing code to correctly apply resource translations to record list selection buttons."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza-webapp-compose/commit/34827c5fbee8d89c2d8b630d0128fab0129bc89a",
+        "https://github.com/cortezaproject/corteza-server/commit/04eb3cde92e8f65301e528a19bd78151aa6c4119"
+      ]
+    }
+  ]
+}

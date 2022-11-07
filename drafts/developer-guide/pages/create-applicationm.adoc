@@ -1,0 +1,14 @@
+include::ROOT:partial$variables.adoc[]
+
+
+To create a new application, follow the steps below
+
+Access  your {PRODUCT_NAME} instance and click the btn:[Admin Area] application.
+
+After identifying the [Applications] button, click it. 
+
+Locate and click the new button, then complete the form with the application's name. Click the submit button.
+
+You can make the newly-created application visible by selecting the list checkbox. 
+This step makes the application visible in your {PRODUCT_NAME} instance's list of available applications.
+This step makes the application visible in your {PRODUCT_NAME} instance's list of available applications.

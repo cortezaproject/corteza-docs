@@ -1,0 +1,249 @@
+include::ROOT:partial$variables.adoc[]
+
+= Application Management
+
+An application on the {PRODUCT_NAME} low-code platform is a link to a resource's home page. 
+Each application has a corresponding thumbnail for each resource as shown in the screenshot below.
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "application/c-applications.png",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {},
+  "annotations": []
+}
+----
+
+== Creating an Application
+
+To create a new application, access your {PRODUCT_NAME} instance and click the btn:[Admin Area] application.
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "application/c-application.png",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {},
+  "annotations": [{
+    "kind": "box",
+    "x": 967,
+    "y": 356,
+    "w": 204,
+    "h": 166
+  }]
+}
+----
+
+Locate and click on the menu:System[Applications] button.
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "application/application-button.png",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {},
+  "annotations": [{
+    "kind": "box",
+    "x": 13,
+    "y": 179,
+    "w": 161,
+    "h": 24
+  }]
+}
+----
+
+Locate and click on the btn:[new] button. 
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "application/new-application.png",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {},
+  "annotations": [{
+    "kind": "box",
+    "x": 1369,
+    "y": 64,
+    "w": 50,
+    "h": 24
+  }]
+}
+----
+
+Complete the form with the application's name and click the btn:[submit] button.
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "application/create-application.png",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {},
+  "annotations": [{
+    "kind": "box",
+    "x": 1451,
+    "y": 216,
+    "w": 64,
+    "h": 25
+  }]
+}
+----
+
+== Editing an Application
+
+[NOTE]
+====
+After creating a new application, you are automatically redirected to the edit application page.
+====
+
+To make changes to the details of an application, access your {PRODUCT_NAME} instance and click the btn:[Admin Area] application.
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "application/c-application.png",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {},
+  "annotations": [{
+    "kind": "box",
+    "x": 967,
+    "y": 356,
+    "w": 204,
+    "h": 166
+  }]
+}
+----
+
+Locate and click on the menu:System[Applications] button.
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "application/application-button.png",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {},
+  "annotations": [{
+    "kind": "box",
+    "x": 13,
+    "y": 179,
+    "w": 161,
+    "h": 24
+  }]
+}
+----
+
+Locate and click on the btn:[Edit] icon. 
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "application/new-edit-application.png",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {},
+  "annotations": [{
+    "kind": "box",
+    "x": 1487,
+    "y": 189,
+    "w": 40,
+    "h": 24
+  }]
+}
+----
+
+Make the necessary changes to the form; for instance, you could modify the name or replace the application's thumbnail.
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "application/edit-application.png",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {},
+  "annotations": []
+}
+----
+
+After completing the form with the application's details, click the btn:[submit] button.
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "application/edit-applications.png",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {},
+  "annotations": [{
+    "kind": "box",
+    "x": 1452,
+    "y": 973,
+    "w": 63,
+    "h": 23
+  }]
+}
+----
+
+== Enabling Visibility of the Application 
+
+To enable visiblity of an application, locate and click on the btn:[Listed] checkbox on the edit application page.
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "application/application-checkbox.png",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {},
+  "annotations": [{
+    "kind": "box",
+    "x": 798,
+    "y": 658,
+    "w": 66,
+    "h": 21
+  }]
+}
+----
+
+This step makes the application visible in your {PRODUCT_NAME} instance's list of available applications, as shown in the screenshot below.
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "application/c-applications.png",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {},
+  "annotations": []
+}
+----

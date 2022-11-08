@@ -1,14 +1,123 @@
 include::ROOT:partial$variables.adoc[]
 
-
 To create a new application, follow the steps below
 
 Access  your {PRODUCT_NAME} instance and click the btn:[Admin Area] application.
 
-After identifying the [Applications] button, click it. 
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "application/c-application.png",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {},
+  "annotations": [{
+    "kind": "box",
+    "x": 967,
+    "y": 356,
+    "w": 204,
+    "h": 166
+  }]
+}
+----
 
-Locate and click the new button, then complete the form with the application's name. Click the submit button.
+Locate and click on the btn:[Applications] button.
 
-You can make the newly-created application visible by selecting the list checkbox. 
-This step makes the application visible in your {PRODUCT_NAME} instance's list of available applications.
-This step makes the application visible in your {PRODUCT_NAME} instance's list of available applications.
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "application/application-button.png",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {},
+  "annotations": [{
+    "kind": "box",
+    "x": 13,
+    "y": 179,
+    "w": 161,
+    "h": 24
+  }]
+}
+----
+
+Locate and click on the btn:[new] button. 
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "application/new-application.png",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {},
+  "annotations": [{
+    "kind": "box",
+    "x": 1369,
+    "y": 64,
+    "w": 50,
+    "h": 24
+  }]
+}
+----
+
+Complete the form with the application's name and click the btn:[submit] button.
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "application/create-application.png",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {},
+  "annotations": [{
+    "kind": "box",
+    "x": 1451,
+    "y": 216,
+    "w": 64,
+    "h": 25
+  }]
+}
+----
+
+To enable the visilibility of the newly-created click on the list checkbox. 
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "application/application-checkbox.png",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {},
+  "annotations": [{
+    "kind": "box",
+    "x": 798,
+    "y": 658,
+    "w": 66,
+    "h": 21
+  }]
+}
+----
+
+This step makes the application visible in your {PRODUCT_NAME} instance's list of available applications as shown in the screenshot below.
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "application/application-list.png",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {},
+  "annotations": []
+}
+----

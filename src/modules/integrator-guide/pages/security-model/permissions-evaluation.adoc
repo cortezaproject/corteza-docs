@@ -1,0 +1,311 @@
+include::ROOT:partial$variables.adoc[]
+
+= Permission Evaluation
+
+The permission evaluation feature allows administrators to check which actions or operations can be performed by a user or a combination of roles.
+The evaluation entails comparing the different roles assigned to a user to determine the user's ability to perform the various operations within a resource.
+
+[NOTE]
+====
+xref:access-control/index.adoc[{PRODUCT_NAME} RBAC] uses the roles of the given user to determine if they have access to a given resource.
+====
+
+== How to evaluate applied permissions
+
+[NOTE]
+====
+Most of the {PRODUCT_NAME} resources allow you to define which xref:access-control/roles.adoc[roles] are allowed to access the resource.
+Locate the btn:[permissions] button in the user interface in order to manage the resource.
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "security-model/access-control/general-permissions-button.png",
+    "alias": "general-permissions-button",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {
+    "x": 320,
+    "y": 0,
+    "h": 550,
+    "w": 1600
+  },
+  "focus": {
+    "x": 1466,
+    "y": 80,
+    "h": 31,
+    "w": 206
+  },
+  "annotations": [{
+    "kind": "box",
+    "x": 1539,
+    "y": 80,
+    "w": 130,
+    "h": 30
+  }]
+}
+----
+====
+
+Navigate to the desired resource, and click the btn:[permissions].
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "security-model/access-control/permission-button-page.png",
+    "alias": "new-user",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {},
+  "annotations": [{
+    "kind": "box",
+    "padding": "xs",
+    "x": 1539,
+    "y": 80,
+    "w": 131,
+    "h": 31
+  }]
+}
+----
+
+Click the btn:[add +] button.
+A popup window with two dropdown options displays, the btn:[select role(s)] and btn:[search or select user].
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "security-model/access-control/add-role.png",
+    "alias": "add-role",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {},
+  "annotations": [{
+    "kind": "box",
+    "padding": "xs",
+    "x": 762,
+    "y": 145,
+    "w": 758,
+    "h": 97
+}]
+}
+----
+
+Click on the btn:[select roles] or the btn:[select user] dropdown and select a role or a user to evaluate.
+Only one of two options can be applied.
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "security-model/access-control/eval-permission.png",
+    "alias": "eval-permission.png",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {},
+  "focus": {
+    "padding": "xs",
+    "x": 585,
+    "y": 254,
+    "w": 783,
+    "h": 410
+  },
+  "annotations": [{
+    "kind": "box",
+    "x": 603,
+    "y": 353,
+    "w": 751,
+    "h": 217
+  }]
+}
+----
+
+Click on the btn:[save] button.
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "security-model/access-control/save-evaluation-permission.png",
+    "alias": "save-evaluation-permission",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {},
+  "focus": {
+    "padding": "xs",
+    "x": 585,
+    "y": 254,
+    "w": 783,
+    "h": 410
+  },
+  "annotations": [{
+    "kind": "box",
+    "x": 1148,
+    "y": 615,
+    "w": 200,
+    "h": 43
+  }]
+}
+----
+
+If you chose role evaluation, repeat the step again, choosing a different role in order to evaluate the permissions applied to the different roles.
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "security-model/access-control/save-evaluation.png",
+    "alias": "save-evaluation",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {},
+  "annotations": []
+}
+----
+
+== Permission Evaluation on Components 
+
+{PRODUCT_NAME} has three key resource components, namely:
+*System*, *Compose* and *Automation*.
+Each resource component has operations that are performed in it.
+
+[IMPORTANT]
+====
+Permissions to the various operations within a component resource are subject to the roles assigned to a user.
+====
+
+Permissions can be evaluated by selecting a combination of roles or a particular user.
+
+Follow these steps to access and evaluate the system, compose and automation permissions.
+
+Navigate to your {PRODUCT_NAME} instance (such as {LOCAL_HOSTNAME}) and click the btn:[Admin area] application.
+
+A new screen showing you all of the available components will appear. 
+Each component has a btn:[permissions] button.
+
+Click on the btn:[permissions] button on either system, compose or the automation component.
+A new screen appears that displays a list of all the available operations within a component.
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "security-model/access-control/system-permissions-button.png",
+    "alias": "system-permissions-button.png",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {},
+  
+  "annotations": [{
+    "kind": "box",
+    "padding": "xs",
+    "x": 14,
+    "y": 480,
+    "w": 170,
+    "h": 32
+}]
+}
+----
+
+Click on the btn:[add +] button.
+A popup window appears with two dropdown options.
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "security-model/access-control/system-permissions-add-button.png",
+    "alias": "system-permissions-add-button.png",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {},
+  
+  "annotations": [{
+    "kind": "box",
+    "padding": "xs",
+    "x": 633,
+    "y": 152,
+    "w": 1265,
+    "h": 129
+}]
+}
+----
+
+Click on the btn:[evaluate] button and then click on the btn:[select roles] or the btn:[select user] dropdown and select a role or a user to evaluate.
+Only one of two options can be applied.
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "security-model/access-control/evaluate-permissions.png",
+    "alias": "user-create",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {},
+  "annotations": [{
+    "kind": "box",
+    "x": 772,
+    "y": 510,
+    "w": 376,
+    "h": 121
+  }]
+}
+----
+
+Click on the btn:[save] button.
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "security-model/access-control/save-eval-permission.png",
+    "alias": "save-eval-permission-button",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {},
+  "focus": {
+    "padding": "xs",
+    "x": 585,
+    "y": 254,
+    "w": 783,
+    "h": 430
+  },
+  "annotations": [{
+    "kind": "box",
+    "x": 1148,
+    "y": 615,
+    "w": 200,
+    "h": 42
+  }]
+}
+----
+
+If you chose role evaluation, repeat the step again, choosing a different role in order to evaluate the permissions applied to the different roles.
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "security-model/access-control/system-evaluated-permissions.png",
+    "alias": "system-evaluated-permissions.png",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {},
+  
+  "annotations": []
+}
+----

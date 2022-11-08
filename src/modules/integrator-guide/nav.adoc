@@ -17,6 +17,7 @@
 ** xref:security-model/index.adoc[]
 *** xref:security-model/users.adoc[]
 *** xref:security-model/roles.adoc[]
+*** xref:security-model/permissions-evaluation.adoc[]
 *** References
 **** xref:security-model/references/contextual-role-parameters.adoc[]
 **** xref:security-model/references/operations.adoc[]

@@ -7,14 +7,14 @@ The evaluation entails comparing the different roles assigned to a user to deter
 
 [NOTE]
 ====
-xref:access-control/index.adoc[{PRODUCT_NAME} RBAC] uses the roles of the given user to determine if they have access to a given resource.
+{PRODUCT_NAME} RBAC uses the roles of the given user to determine if they have access to a given resource.
 ====
 
 == How to evaluate applied permissions
 
 [NOTE]
 ====
-Most of the {PRODUCT_NAME} resources allow you to define which xref:access-control/roles.adoc[roles] are allowed to access the resource.
+Most of the {PRODUCT_NAME} resources allow you to define which xref:security-model/roles.adoc[roles] are allowed to access the resource.
 Locate the btn:[permissions] button in the user interface in order to manage the resource.
 
 [annotation,role="data-zoomable"]
@@ -63,7 +63,6 @@ Navigate to the desired resource, and click the btn:[permissions].
   "view": {},
   "annotations": [{
     "kind": "box",
-    "padding": "xs",
     "x": 1539,
     "y": 80,
     "w": 131,
@@ -87,7 +86,6 @@ A popup window with two dropdown options displays, the btn:[select role(s)] and 
   "view": {},
   "annotations": [{
     "kind": "box",
-    "padding": "xs",
     "x": 762,
     "y": 145,
     "w": 758,
@@ -232,7 +230,6 @@ A popup window appears with two dropdown options.
   
   "annotations": [{
     "kind": "box",
-    "padding": "xs",
     "x": 633,
     "y": 152,
     "w": 1265,

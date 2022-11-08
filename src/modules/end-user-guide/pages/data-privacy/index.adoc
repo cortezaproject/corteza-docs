@@ -1,0 +1,10 @@
+include::ROOT:partial$variables.adoc[]
+
+= Data Privacy
+
+Data privacy allows us to specify and describe, how and where sensitive data is stored on a module-field level.
+
+It expands the current data storing capabilities and adds features that enable {PRODUCT_NAME} administrators to have more control over data privacy and managing private data.
+With information from data sources set on a specific module, each record will be able to hold detailed information about the ownership and location(s) of particular data. 
+
+{PRODUCT_NAME} enables the selection of predefined data policies or new policies to describe the processing purpose and rules at a record field level.

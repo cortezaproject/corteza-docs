@@ -1,0 +1,196 @@
+include::ROOT:partial$variables.adoc[]
+
+= Data Privacy Officer
+
+The data privacy officer (also referred to as DPO) is a role assigned to a user to grant him sufficient permissions to access all received data privacy requests.
+A DPO can approve or deny requests, give comments, and schedule execution using the data privacy officer console.
+
+== Capabilities of Data privacy officer(DPO)
+
+A data privacy officer has the following capabilities:
+
+. Search for records with data-sensitive fields retrieve the required information.
+
+. Reject a request if it is not unjustified or in accordance with the established privacy policies.
+
+. Review submitted requests and prepare responses.
+
+. Update records with sensitive data to comply with the data update or removal request.
+
+. Access a list of data privacy requests and provide responses.
+
+. Create a privacy-request policy to govern how privacy requests are handled.
+
+== Data Privacy Officer Console
+
+The data privacy officer console is a user interface that enables a DPO to access privacy requests from other users concerning the handling of personal data.
+
+[IMPORTANT]
+====
+The DPO console is only accessible to users assigned the role of a data privacy officer.
+====
+
+Using the data privacy officer console, a DPO can approve or reject requests, provide feedback in the form of comments, schedule requests for execution, and have an overview of modules with sensitive data.
+
+image::data-privacy/dpo-console.png[role="data-zoomable"]
+
+=== Privacy Requests
+
+The DPO has access to a list of pending requests that need to be approved.
+The privacy requests include correction, export, and deletion.
+
+To access these requests:
+
+On your {PRODUCT_NAME} instance navigate to the Data Privacy Console by clicking on btn:[Privacy] application.
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "data-privacy/corteza-application.png",
+    "alias": "corteza-application",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {},
+  "annotations": [{
+    "kind": "box",
+    "x": 640,
+    "y": 539,
+    "h": 169,
+    "w": 202
+  }]
+}
+----
+
+On the data privacy console, click on btn:[incoming privacy button].
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "data-privacy/incoming-privacy.png",
+    "alias": "incomimg-privacy",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {},
+  "annotations": [{
+    "kind": "box",
+    "x": 30,
+    "y": 205,
+    "h": 25,
+    "w": 422
+  }]
+}
+----
+
+Once on the privacy requests page, you can click on btn:[approve Requests] to approve all pending requests.
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "data-privacy/privacy-request-list.png",
+    "alias": "privacy-request-list",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {
+    "x": 20,
+    "y": 0,
+    "w": 1599,
+    "h": 1080
+  },
+  "focus": {
+    "x": 20,
+    "y": 0,
+    "w": 1070,
+    "h": 228
+  },
+  "annotations": [{
+    "kind": "box",
+    "x": 33,
+    "y": 75,
+    "h": 30,
+    "w": 136
+  }]
+}
+----
+
+Additionally,you can click on each individual request to approve or reject it.
+
+[NOTE]
+====
+Additionally, the DPO can also respond by providing feedback to a request using the comment dialog box.
+====
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "data-privacy/data-export-request.png",
+    "alias": "data-export-request",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {},
+  "annotations": [{
+    "kind": "box",
+    "x": 1777,
+    "y": 1033,
+    "h": 32,
+    "w": 128
+  }]
+}
+----
+
+[cols="1s,5a"]
+|===
+| [#correction-request]#<<correction-request,Correction Request>>#
+|
+Through the data privacy console, the DPO has access to correction requests made by users to correct their data because it is inaccurate, incomplete, misleading, or out-of-date.
+
+image::data-privacy/correction-request.png[role="data-zoomable"]
+
+| [#deletion-request]#<<deletion-request,Deletion request>>#
+|
+Through the data privacy console, the DPO has access to deletion requests made by users in case they are dissatisfied with their personal information for any reason.
+
+image::data-privacy/data-deletion-request.png[role="data-zoomable"]
+
+| [#data-export-request]#<<data-export-request,Data Export Request>>#
+|
+Through the data privacy console, the DPO has access to data export requests made by users when they want to obtain a copy of their data for backup or import it into a different system.
+
+image::data-privacy/data-export-request.png[role="data-zoomable"]
+
+|===
+
+=== Sensitive Modules
+
+The DPO has access to an overview of all modules with sensitive data fields. 
+In addition, he can search for modules containing sensitive data fields.
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "data-privacy/sensitive-modules.png",
+    "alias": "sensitive-modules",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {
+    "w": 1820,
+    "h": 1080
+  },
+  "focus": {
+    "x": 10,
+    "y": 10,
+    "w": 1770,
+    "h": 170
+  },
+  "annotations": []
+}
+----

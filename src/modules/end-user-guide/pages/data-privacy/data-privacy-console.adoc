@@ -1,0 +1,169 @@
+include::ROOT:partial$variables.adoc[]
+
+= Data Privacy Console
+
+The data privacy console enables you to access your data.
+It provides a platform where you may submit requests to modify, delete, and export your data.
+These requests (deletion, correction, and export) concerning the treatment of your data are forwarded to the xref:data-privacy/data-privacy-officer.adoc[data privacy officer (DPO)].
+
+This feature is also enabled to allow all users to browse locations where the data is stored.
+
+.The screenshot shows the overview of the data privacy console.
+image::data-privacy/data-privacy-console.png[role="data-zoomable"]
+
+// == Data Overview
+
+// Data overview allows you to review your profile information and your data stored in Corteza applications.
+
+// image::data-privacy/data-overview.png[role="data-zoomable"]
+
+// * Profile Information - Contact information, names, surnames, nicknames, profile picture.
+
+// * Data Application - Personal data stored in your {PRODUCT_NAME} instance.
+
+== Privacy Requests
+The privacy request feature enables you to access and manage a list of all your privacy-related requests.
+
+image::data-privacy/privacy-requests-list.png[role="data-zoomable"]
+
+You can cancel pending requests by selecting them from the list and clicking the btn:[Cancel Request] button.
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "data-privacy/manage-request-lists.png",
+    "alias": "manage-request-lists",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {},
+  "annotations": [{
+    "kind": "box",
+    "x": 30,
+    "y": 73,
+    "h": 32,
+    "w": 126
+  }]
+}
+----
+
+Additionally, you can click on a specific request to examine it and make comments instructing the data privacy officer how to treat your data or cancel the request using the btn:[Cancel Request] button.
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "data-privacy/pending-export-request.png",
+    "alias": "pending-export-request",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {},
+  "annotations": [{
+    "kind": "box",
+    "x": 1782,
+    "y": 1035,
+    "h": 32,
+    "w": 123
+  }]
+}
+----
+
+=== Correction Request
+
+When a user is dissatisfied with their personal information because it is inaccurate, incomplete, misleading, or out-of-date, they can request that the information be rectified or deleted.
+
+To request a correction:
+
+. On your {PRODUCT_NAME} instance navigate to the Data Privacy Console by clicking on btn:[Privacy] application.
+. Click on btn:[Data Overview] 
+. Select Application data(Your data is stored in {PRODUCT_NAME} instance).
+. Select the type of connection by selecting it from the Connection dropdown. 
+. Fill in the data with the necessary corrections. 
+. Click the btn:[Request Correction] button.
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "data-privacy/correction-request.png",
+    "alias": "correction-request",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {},
+  "annotations": [{
+    "kind": "box",
+    "x": 1717,
+    "y": 1023,
+    "h": 40,
+    "w": 186
+  }]
+}
+----
+
+=== Deletion request
+
+When a user is dissatisfied with their personal information for any reason, they can make use of the Data Deletion Requests feature to request its deletion.
+
+To request a data deletion:
+
+. On your {PRODUCT_NAME} instance navigate to the Data Privacy Console by clicking on btn:[Privacy] application.
+. Click on btn:[Data Overview] 
+. Select Application data(Your data is stored in {PRODUCT_NAME} instance).
+. Select the type of connection by selecting it from the Connection dropdown. 
+. Click on the btn:[Delete Selected Data] button.
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "data-privacy/delete-request.png",
+    "alias": "delete-request",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {},
+  "annotations": [{
+    "kind": "box",
+    "x": 1703,
+    "y": 1023,
+    "h": 40,
+    "w": 200
+  }]
+}
+----
+
+=== Data Export Request
+
+The data export feature provides a convenient way to obtain a copy of your data for backup or import it into a different system.
+
+To make a data export request;
+
+. On your {PRODUCT_NAME} instance navigate to the Data Privacy Console by clicking on btn:[Privacy] application.
+. Open a new data export request.
+. Choose either *Profile information* or *Application Data* as the data type.
+. Choose the data range and output file format, either JSON or CSV.
+. Click on the btn:[Export Selected Data] button.
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "data-privacy/export-request.png",
+    "alias": "export-request",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {},
+  "annotations": [{
+    "kind": "box",
+    "x": 1704,
+    "y": 1024,
+    "h": 39,
+    "w": 199
+  }]
+}
+----
+

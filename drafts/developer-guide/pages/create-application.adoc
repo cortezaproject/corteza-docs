@@ -1,0 +1,239 @@
+include::ROOT:partial$variables.adoc[]
+
+= Application Management
+
+An application on the corteza lowcode platform is a link to a resource's home page. Each application has a corresponding Icon for each resource.
+
+== Creating an application
+
+To create a new application, follow the steps below
+
+Access  your {PRODUCT_NAME} instance and click the btn:[Admin Area] application.
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "application/c-application.png",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {},
+  "annotations": [{
+    "kind": "box",
+    "x": 967,
+    "y": 356,
+    "w": 204,
+    "h": 166
+  }]
+}
+----
+
+Locate and click on the btn:[Applications] button.
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "application/application-button.png",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {},
+  "annotations": [{
+    "kind": "box",
+    "x": 13,
+    "y": 179,
+    "w": 161,
+    "h": 24
+  }]
+}
+----
+
+Locate and click on the btn:[new] button. 
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "application/new-application.png",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {},
+  "annotations": [{
+    "kind": "box",
+    "x": 1369,
+    "y": 64,
+    "w": 50,
+    "h": 24
+  }]
+}
+----
+
+Complete the form with the application's name and click the btn:[submit] button.
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "application/create-application.png",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {},
+  "annotations": [{
+    "kind": "box",
+    "x": 1451,
+    "y": 216,
+    "w": 64,
+    "h": 25
+  }]
+}
+----
+
+== Editing an application.
+
+To edit or make changes on the details of an application follow the following steps.
+
+Access  your {PRODUCT_NAME} instance and click the btn:[Admin Area] application.
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "application/c-application.png",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {},
+  "annotations": [{
+    "kind": "box",
+    "x": 967,
+    "y": 356,
+    "w": 204,
+    "h": 166
+  }]
+}
+----
+
+Locate and click on the btn:[Applications] button.
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "application/application-button.png",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {},
+  "annotations": [{
+    "kind": "box",
+    "x": 13,
+    "y": 179,
+    "w": 161,
+    "h": 24
+  }]
+}
+----
+
+Locate and click on the btn:[Edit] icon. 
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "application/new-application.png",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {},
+  "annotations": [{
+    "kind": "box",
+    "x": 1369,
+    "y": 64,
+    "w": 50,
+    "h": 24
+  }]
+}
+----
+
+Make the necessary changes on the form.For example you change or edit the name of the application.
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "application/new-application.png",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {},
+  "annotations": [{
+    "kind": "box",
+    "x": 1369,
+    "y": 64,
+    "w": 50,
+    "h": 24
+  }]
+}
+----
+
+Additionally you can enable the visilibility of the newly-created click on the list checkbox. 
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "application/application-checkbox.png",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {},
+  "annotations": [{
+    "kind": "box",
+    "x": 798,
+    "y": 658,
+    "w": 66,
+    "h": 21
+  }]
+}
+----
+
+This step makes the application visible in your {PRODUCT_NAME} instance's list of available applications as shown in the screenshot below.
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "application/application-list.png",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {},
+  "annotations": []
+}
+----
+
+After succesfully completing the form with the application's details and click the btn:[submit] button.
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "application/create-application.png",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {},
+  "annotations": [{
+    "kind": "box",
+    "x": 1451,
+    "y": 216,
+    "w": 64,
+    "h": 25
+  }]
+}
+----
+

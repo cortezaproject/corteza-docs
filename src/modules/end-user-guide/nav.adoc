@@ -1,4 +1,6 @@
 * xref:index.adoc[]
+** xref:create-application.adoc[]
+
 
 ** xref:crm/index.adoc[]
 ** xref:case-management/index.adoc[]

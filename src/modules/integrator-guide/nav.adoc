@@ -1,4 +1,5 @@
 * xref:index.adoc[]
+** xref:create-application.adoc[]
 
 ** xref:authentication/index.adoc[]
 *** xref:authentication/mfa.adoc[]

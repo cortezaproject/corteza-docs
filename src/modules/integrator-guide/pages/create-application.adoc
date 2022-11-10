@@ -2,7 +2,8 @@ include::ROOT:partial$variables.adoc[]
 
 = Application Management
 
-An application on the {PRODUCT_NAME} low-code platform is a link to a resource's home page. Each application has a corresponding thumbnail for each resource.
+An application on the {PRODUCT_NAME} low-code platform is a link to a resource's home page. 
+Each application has a corresponding thumbnail for each resource as shown in the screenshot below.
 
 [annotation,role="data-zoomable"]
 ----
@@ -17,11 +18,9 @@ An application on the {PRODUCT_NAME} low-code platform is a link to a resource's
 }
 ----
 
-== Creating an application
+== Creating an Application
 
-To create a new application, follow the steps below.
-
-Access your {PRODUCT_NAME} instance and click the btn:[Admin Area] application.
+To create a new application, access your {PRODUCT_NAME} instance and click the btn:[Admin Area] application.
 
 [annotation,role="data-zoomable"]
 ----
@@ -42,7 +41,7 @@ Access your {PRODUCT_NAME} instance and click the btn:[Admin Area] application.
 }
 ----
 
-Locate and click on the btn:[Applications] button.
+Locate and click on the menu:System[Applications] button.
 
 [annotation,role="data-zoomable"]
 ----
@@ -105,11 +104,14 @@ Complete the form with the application's name and click the btn:[submit] button.
 }
 ----
 
-== Editing an application.
+== Editing an Application
 
-To edit or make changes to the details of an application, follow the following steps.
+[NOTE]
+====
+After creating a new application, you are automatically redirected to the edit application page.
+====
 
-Access your {PRODUCT_NAME} instance and click the btn:[Admin Area] application.
+To make changes to the details of an application, access your {PRODUCT_NAME} instance and click the btn:[Admin Area] application.
 
 [annotation,role="data-zoomable"]
 ----
@@ -130,7 +132,7 @@ Access your {PRODUCT_NAME} instance and click the btn:[Admin Area] application.
 }
 ----
 
-Locate and click on the btn:[Applications] button.
+Locate and click on the menu:System[Applications] button.
 
 [annotation,role="data-zoomable"]
 ----
@@ -172,50 +174,13 @@ Locate and click on the btn:[Edit] icon.
 }
 ----
 
-Make the necessary changes to the form. 
-You might, for instance, modify the name or replace the application's thumbnail.
+Make the necessary changes to the form; for instance, you could modify the name or replace the application's thumbnail.
 
 [annotation,role="data-zoomable"]
 ----
 {
   "image": {
     "rel": "application/edit-application.png",
-    "w": 1920,
-    "h": 1080
-  },
-  "view": {},
-  "annotations": []
-}
-----
-
-Additionally, you can enable the visibility of the newly created by clicking on the list checkbox. 
-
-[annotation,role="data-zoomable"]
-----
-{
-  "image": {
-    "rel": "application/application-checkbox.png",
-    "w": 1920,
-    "h": 1080
-  },
-  "view": {},
-  "annotations": [{
-    "kind": "box",
-    "x": 798,
-    "y": 658,
-    "w": 66,
-    "h": 21
-  }]
-}
-----
-
-This step makes the application visible in your {PRODUCT_NAME} instance's list of available applications, as shown in the screenshot below.
-
-[annotation,role="data-zoomable"]
-----
-{
-  "image": {
-    "rel": "application/application-list.png",
     "w": 1920,
     "h": 1080
   },
@@ -245,3 +210,40 @@ After completing the form with the application's details, click the btn:[submit]
 }
 ----
 
+== Enabling Visibility of the Application 
+
+To enable visiblity of an application, locate and click on the btn:[Listed] checkbox on the edit application page.
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "application/application-checkbox.png",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {},
+  "annotations": [{
+    "kind": "box",
+    "x": 798,
+    "y": 658,
+    "w": 66,
+    "h": 21
+  }]
+}
+----
+
+This step makes the application visible in your {PRODUCT_NAME} instance's list of available applications, as shown in the screenshot below.
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "application/c-applications.png",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {},
+  "annotations": []
+}
+----

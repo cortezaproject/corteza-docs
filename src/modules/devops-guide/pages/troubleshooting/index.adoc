@@ -170,7 +170,7 @@ could not send email: dial tcp [::1]:25: connect: connection refused
 
 == Default auth-client
 
-The 'AUTH DEFAULT CLIENT' environment variable, often referred to as  `corteza-webapp`, specifies the handle of the default client, which is an authentication client.
+The `AUTH_DEFAULT_CLIENT` environment variable, often referred to as  `corteza-webapp`, specifies the handle of the default client, which is an authentication client.
 
 [CAUTION]
 ====

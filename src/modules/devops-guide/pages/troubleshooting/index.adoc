@@ -168,11 +168,6 @@ If you can't see the email, make sure to check your spam folder and server logs.
 could not send email: dial tcp [::1]:25: connect: connection refused
 ----
 
-== Changes to the Default Auth-Client Settings not Visible
+== Changes to the Default Auth-Client Settings Seem not to have been Applied
 
-The `AUTH_DEFAULT_CLIENT` environment variable, often referred to as  `corteza-webapp`, specifies the handle of the default client, which is an authentication client.
-
-[CAUTION]
-====
 Restarting the server is required when an admin modifies default authentication client settings, such as client secret or redirect URIs, because those changes are not applied immediately.
-====

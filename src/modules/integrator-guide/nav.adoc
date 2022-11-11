@@ -1,5 +1,4 @@
 * xref:index.adoc[]
-** xref:create-application.adoc[]
 
 ** xref:authentication/index.adoc[]
 *** xref:authentication/mfa.adoc[]
@@ -24,6 +23,8 @@
 **** xref:security-model/references/operations.adoc[]
 *** xref:security-model/examples/index.adoc[]
 **** xref:security-model/examples/examples-contextual.adoc[]
+
+** xref:create-application.adoc[]
 
 ** xref:i18n/index.adoc[]
 *** xref:i18n/static.adoc[]

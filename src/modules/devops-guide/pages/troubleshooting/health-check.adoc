@@ -34,7 +34,7 @@ Alternatively, you can run the `docker-compose ps` command to check the health f
        Name                      Command                  State                Ports         
 ---------------------------------------------------------------------------------------------
 my-corteza_db_1       /docker-entrypoint.sh mysqld     Up (healthy)   3306/tcp, 33060/tcp    
-my-corteza_server_1   ./bin/corteza-server serve-api   Up (healthy)   127.0.0.1:18083->80/tcp
+my-corteza_server_1   ./bin/corteza-server serve-api   Up (healthy)   127.0.0.1:18080->80/tcp
 ----
 
 Refer to the xref:troubleshooting/index.adoc[] docs for additional help with fixing unhealthy parts of the system.

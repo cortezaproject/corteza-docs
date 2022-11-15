@@ -326,10 +326,79 @@ Click on execute workflow connector.
 
 On the execute connector, Click on the configuration icon (a cog) {ICON_WORKFLOW_COG} on the header and map variables from its scope to the current one. 
 
-There is a pane where you can input different arguments on the left side of the screen. 
-Click the dropdowns, enter the ID parameter, and select a sub-workflow.
+There is a pane on the left side of the screen where you can input exec-workflow configurations; arguments and results sections respectively. 
 
-To save the changes, select the pop-up notification that displays on the left side of the screen.
+The argument section allows you to specify which piece of data the exec-workflow connector should use to perform out the operation by passing it as an argument.
+The arguments include :
+
+* workflow (ID or Handle)
+* scope (Vars)
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "automation/workflows/exec-argument.png",
+    "alias": "exec-argument",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {},
+  "annotations": [{
+    "kind": "box-note",
+    "x": 1542,
+    "y": 170,
+    "w": 368,
+    "h": 288
+  }]
+}
+----
+
+Under the results section you can define the results generated inputing target workflow ,selecting type of data and the result to be generated.
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "automation/workflows/exec-results.png",
+    "alias": "exec-results",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {},
+  "annotations": [{
+    "kind": "box-note",
+    "x": 1542,
+    "y": 470,
+    "w": 368,
+    "h": 298
+  }]
+}
+----
+
+Click on the btn:[Add result] button.
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "automation/workflows/add-results.png",
+    "alias": "add-results",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {},
+  "annotations": [{
+    "kind": "box-note",
+    "x": 1824,
+    "y": 1045,
+    "w": 85,
+    "h": 26
+  }]
+}
+----
+
+To save the changes, click on the  pop-up notification that displays on the left side of the screen.
 
 == Execution control
 

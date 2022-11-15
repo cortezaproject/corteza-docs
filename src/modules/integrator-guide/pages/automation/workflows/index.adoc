@@ -26,7 +26,7 @@ You are not required to have any BPMN knowledge, although it might be helpful.
 *DevNote* how to include the flow from the admin panel?
 ====
 
-To create a workflow, navigate to your {PRODUCT_NAME} instance (for example http://latest.cortezaproject.org/) and click ok tne "Workflows" application.
+To create a workflow, navigate to your {PRODUCT_NAME} instance (for example http://latest.cortezaproject.org/) and click ok the "Workflows" application.
 
 .The screenshot indicates how to access the workflow web application.
 [annotation,role="data-zoomable"]
@@ -166,6 +166,170 @@ The workflow needs to be saved in order for the configuration to take affect.
 
 .The screenshot shows the step connector for the expression step.
 image::automation/workflows/step-config.svg[role="data-zoomable"]
+
+== Sub Workflows
+
+Sub-workflows describe a logic or set of steps you would want to call in a workflow, simplifying the workflow's specification.
+
+In {PRODUCT_NAME}, a workflow is converted into a sub-workflow, by clicking on the enable checkbox.
+
+[NOTE]
+====
+A sub-workflow cannot have a trigger since triggers are executed on workflows.
+====
+
+=== Creating a Sub Workflow
+
+To create a workflow, navigate to your {PRODUCT_NAME} instance (for example, http://latest.cortezaproject.org/) and click ok on the "Workflows" application.
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "automation/workflows/corteza-application.png",
+    "alias": "corteza-application",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {},
+  "annotations": [{
+    "kind": "box-note",
+    "x": 1220,
+    "y": 370,
+    "w": 137,
+    "h": 138
+  }]
+}
+----
+
+A new screen showing you all of the available workflows will appear.
+Click on the btn:[New Workflow] button
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "automation/workflows/available-workflows.png",
+    "alias": "available-workflows",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {},
+  "annotations": [{
+    "kind": "box-note",
+    "x": 560,
+    "y": 74,
+    "w": 107,
+    "h": 28
+  }]
+}
+----
+
+Fill in the form with the required details to configure the workflow.
+Click on enable checkbox to create the sub-workflow
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "automation/workflows/new-sub-workflow.png",
+    "alias": "new-sub-worflow",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {},
+  "annotations": [{
+    "kind": "box-note",
+    "x": 673,
+    "y": 391,
+    "w": 106,
+    "h": 10
+  }]
+}
+----
+
+Click on the btn:[Save] button.
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "automation/workflows/save-workflow.png",
+    "alias": "save-workflow",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {},
+  "annotations": [{
+    "kind": "box-note",
+    "x": 1198,
+    "y": 458,
+    "w": 49,
+    "h": 23
+  }]
+}
+----
+
+=== Using a sub-workflow
+
+After creating and configuring a sub-workflow, you can use it or call it in another workflow to simplify the steps of that particular workflow.
+
+Navigate to your Corteza instance (for example, http://latest.cortezaproject.org/) and click ok on the "Workflows" application.
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "automation/workflows/corteza-application.png",
+    "alias": "corteza-application",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {},
+  "annotations": [{
+    "kind": "box-note",
+    "x": 1220,
+    "y": 370,
+    "w": 137,
+    "h": 138
+  }]
+}
+----
+
+A new screen showing you all of the available workflows will appear.
+
+Choose a specific workflow and click on it.
+
+image::automation/workflows/workflows.png[role="data-zoomable"]
+
+Click on execute workflow connector.
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "automation/workflows/exec-icon.png",
+    "alias": "exec-icon",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {},
+  "annotations": [{
+    "kind": "box-note",
+    "x": 7,
+    "y": 216,
+    "w": 36,
+    "h": 33
+  }]
+}
+----
+
+On the execute connector, Click on the configuration icon (a cog) {ICON_WORKFLOW_COG} on the header and map variables from its scope to the current one. 
+
+There is a pane where you can input different arguments on the left side of the screen. 
+Click the dropdowns, enter the ID parameter, and select a sub-workflow.
+
+To save the changes, select the pop-up notification that displays on the left side of the screen.
 
 == Execution control
 

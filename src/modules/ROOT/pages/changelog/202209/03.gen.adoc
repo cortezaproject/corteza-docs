@@ -1,0 +1,45 @@
+include::ROOT:partial$variables.adoc[]
+
+= `2022.9.3`
+
+*Released on*: `2022.xx.xx`
+
+.[#2022_09_03-added]#<<2022_09_03-added,Added:>>#
+* Added a new label position option for charts with y-axis.
+It enables you to position the label at the bottom, middle or top of the y-axis.
+The change was added because the y-axis label was overlapping with the values if they were bigger
+({CORTEZA_COMMIT_BASE}18248a2[`18248a2`]).
+* Added new *multi value* filter operators (`IN` and `NOT IN`) to the pre-filter in the reporter UI.
+This why users have the ability to filter records using multi value fields.
+The change was added to bring back the support to filter records using their multi value fields inside reports
+({CORTEZA_PULL_BASE}560[`560`]).
+* Added additional configuration for pie, bar, line, and doughnut charts.
+Three new sections were added - tooltip, legend and offset as well as the options to rotate x and y axis labels (only for bar and line charts).
+The change was added to give the users more freedom to customize charts
+({CORTEZA_COMMIT_BASE}a8d3b83[`a8d3b83`], {CORTEZA_COMMIT_BASE}b2c9de5[`b2c9de5`]).
+* Added support to set the minimum value and default value (value, min, and max) for progress bar module fields and page blocks.
+The change was added to provide the user with more customization and easier use of the progress bar in {PRODUCT_NAME}
+({CORTEZA_COMMIT_BASE}f367836[`f367836`]).
+
+.[#2022_09_03-changed]#<<2022_09_03-changed,Changed:>>#
+* Changed the resource list now uses the same component, item count and pagination and it is also enabled for resource lists that support it.
+Now almost on every resource we show the total item count and we have the ability to go to the next page if there are items.
+The change was made because the look and feel of lists across {PRODUCT_NAME} needed to be unified.
+Also for better user experience and to always know the correct number of how many records/items we have.
+The change was made by updating and using the reusable CResourceList component in corteza-vue
+That means we can control the look of all lists from one place
+({VUE_COMMIT_BASE}030109b[`030109b`], {WEBAPP_ADMIN_COMMIT_BASE}229bf12[`229bf12`], {WEBAPP_COMPOSE_COMMIT_BASE}c67daa7[`c67daa7`], {WEBAPP_REPORTER_COMMIT_BASE}06c07d8[`06c07d8`], {WEBAPP_WORKFLOW_COMMIT_BASE}6033433[`6033433`]).
+* Changed the requirement to provide a handle when creating a resource is removed and handles are now optional.
+The change is applied in compose, admin, reporter, and workflow.
+The change was made because providing a handle shouldn't be a necessity and resources should have the option to omit it.
+The change was made by removing the strict handle existence validation
+({WEBAPP_COMPOSE_COMMIT_BASE}cd86e85[`cd86e85`], {WEBAPP_REPORTER_COMMIT_BASE}cf21c47[`cf21c47`], {WEBAPP_ADMIN_COMMIT_BASE}456c896[`456c896`], {WEBAPP_WORKFLOW_COMMIT_BASE}9b88af0[`9b88af0`], {LOCALE_COMMIT_BASE}24b0dda[`24b0dda`], {VUE_COMMIT_BASE}34f261a[`34f261a`], {JS_COMMIT_BASE}3a90a10[`3a90a10`]).
+* Changed the color of the button for confirming the action to accept a privacy request.
+The change was made to match the colors with the ones when confirming/denying the action to reject a privacy request.
+The change was made by changing the color to dark blue
+({CORTEZA_COMMIT_BASE}d4ed9ff[`d4ed9ff`]).
+
+.[#2022_09_03-fixed]#<<2022_09_03-fixed,Fixed:>>#
+* Fixed the avatar not being clickable on the auth screens on mobile devices due to the login form overlapping the top bar.
+The fix was made by adjusting the styling of the auth screens and the {PRODUCT_NAME} top bar
+({CORTEZA_PULL_BASE}541[`541`], {CORTEZA_PULL_BASE}541[`541`], {CORTEZA_PULL_BASE}541[`541`]).

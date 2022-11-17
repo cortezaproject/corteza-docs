@@ -1,0 +1,131 @@
+{
+  "meta": {
+    "releasedOn": "2022.11.25"
+  },
+
+  "added": [
+    {
+      "what": [
+        "a new label position option for charts with y-axis.",
+        "It enables you to position the label at the bottom, middle or top of the y-axis."
+      ],
+      "why": [
+        "because the y-axis label was overlapping with the values if they were bigger."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/18248a2376ec4400ac562faae32be3ec129acca1"
+      ]
+    },
+    {
+      "what": [
+        "new multi value filter operators (`IN` and `NOT IN`) to the pre-filter in the reporter UI.",
+        "This why users have the ability to filter records using multi value fields."
+      ],
+      "why": [
+        "to bring back the support to filter records using their multi value fields inside reports."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/pull/560/commits/22ceca9ad21bbd9f2675930879128030696d4c8f"
+      ]
+    },
+    {
+      "what": [
+        "additional configuration for pie, bar, line, and doughnut charts.",
+        "Three new sections were added - tooltip, legend and offset as well as the options to rotate x and y axis labels (only for bar and line charts)."
+      ],
+      "why": [
+        "to give the users more freedom to customize charts."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/a8d3b831db94538f6cfd84bd86fe35ec555b1bc7",
+        "https://github.com/cortezaproject/corteza/commit/b2c9de57a73c84aa16f255e8f7c281be91c76c34"
+      ]
+    },
+    {
+      "what": [
+        "support to set the minimum value and default value (value, min, and max) for progress bar module fields and page blocks."
+      ],
+      "why": [
+        "to provide the user with more customization and easier use of the progress bar in {PRODUCT_NAME}"
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/f3678369d2fa8d60cb7b55eaff672be330a657ef"
+      ]
+    }
+  ],
+
+  "changed": [
+    {
+      "what": [
+        "the resource list now uses the same component, item count and pagination and it is also enabled for resource lists that support it.",
+        "Now almost on every resource we show the total item count and we have the ability to go to the next page if there are items."
+      ],
+      "why": [
+        "because the look and feel of lists across {PRODUCT_NAME} needed to be unified.",
+        "Also for better user experience and to always know the correct number of how many records/items we have."
+      ],
+      "how": [
+        "by updating and using the reusable CResourceList component in corteza-vue.",
+        "That means we can control the look of all lists from one place."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza-vue/commit/030109b86e3e2d35ec0f0104f5b279c0f33f7ebd", 
+        "https://github.com/cortezaproject/corteza-webapp-admin/commit/229bf12d9c6608f40bf49dfb6ef4ca68defa0875", 
+        "https://github.com/cortezaproject/corteza-webapp-compose/commit/c67daa7a60e1fb38a49a0df770aab6257e5f03bb", 
+        "https://github.com/cortezaproject/corteza-webapp-reporter/commit/06c07d8036f8ad3736c06bd69ae1ab23df095563",
+        "https://github.com/cortezaproject/corteza-webapp-workflow/commit/60334336292aca9ed4f581213d6d4bb300772986"
+      ]
+    },
+    {
+      "what": [
+        "the requirement to provide a handle when creating a resource is removed and handles are now optional.",
+        "The change is applied in compose, admin, reporter, and workflow."
+      ],
+      "why": [
+        "because providing a handle shouldn't be a necessity and resources should have the option to omit it."
+      ],
+      "how": [
+        "by removing the strict handle existence validation."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza-webapp-compose/commit/cd86e854b76866eeb67d33753b1b736be0d1957a",
+        "https://github.com/cortezaproject/corteza-webapp-reporter/commit/cf21c47c17c1b76eefc461543236abdf04277cb0", 
+        "https://github.com/cortezaproject/corteza-webapp-admin/commit/456c896adaa7e3423c81d05a541f044b5acc9cc8", 
+        "https://github.com/cortezaproject/corteza-webapp-workflow/commit/9b88af07260977ea744cce8ff7f54185ad9bd5d3", 
+        "https://github.com/cortezaproject/corteza-locale/commit/24b0dda5d434b8f8f0df55d98d6695171533d81c", 
+        "https://github.com/cortezaproject/corteza-vue/commit/34f261acc5297654eb372b8e804a7fd37e7b0d0e",
+        "https://github.com/cortezaproject/corteza-js/commit/3a90a1002074e31017b2ae22e5d74404283ea3e2" 
+      ]
+    },
+    {
+      "what": [
+        "the color of the button for confirming the action to accept a privacy request."
+      ],
+      "why": [
+        "to match the colors with the ones when confirming/denying the action to reject a privacy request."
+      ],
+      "how": [
+        "by changing the color to dark blue."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/d4ed9ff53965b85f97a66d15214f526461392210"
+      ]
+    }
+  ],
+
+  "fixed": [
+    {
+      "what": [
+        "the avatar not being clickable on the auth screens on mobile devices due to the login form overlapping the top bar."
+      ],
+      "how": [
+        "by adjusting the styling of the auth screens and the {PRODUCT_NAME} top bar."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/pull/541/commits/c53325f157a0e6daac8a70999bd6bd092271f65f",
+        "https://github.com/cortezaproject/corteza/pull/541/commits/a65053a1f653043847a8387f1b9dec3eaf17328c",
+        "https://github.com/cortezaproject/corteza/pull/541/commits/59473d457b02e8141151ad8d89b7f97c3043f15e"
+      ]
+    }
+  ]
+}

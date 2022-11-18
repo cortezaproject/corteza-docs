@@ -156,25 +156,25 @@ include::partial$handle-constraints.adoc[]
 {PRODUCT_NAME} provides a tool to generate synthetic data for a module.
 You can use it to generate a large amount of data for a module to test the application's performance or to demonstrate the implementation.
 
-The tool is currently only available in the command line interface (CLI) and supports synthetic data generation for {APP_NAME_COMPOSE} records (`compose records compose records`) and users (`users synthetic`)
+The tool is currently only available in the command line interface (CLI) and supports synthetic data generation for {APP_NAME_COMPOSE} records (`compose records synthetic`) and users (`users synthetic`).
 
-Generated records are flagged with `synthetic:true` (meta), and users will have their handles prefixed with "synthetic_" and email domain "synthetic.tld".
+Generated records are flagged with `synthetic:true` in the record's meta field, and users will have their handles prefixed with `synthetic_` and email domain `synthetic.tld`.
 
 ==== Usage
 
-.Show help for synthetic {APP_NAME_COMPOSE} record generator
+.Show help for synthetic {APP_NAME_COMPOSE} record generator:
 [source,shell]
 ----
 corteza-server compose records synthetic --help
 ----
 
-.Generate 10 leads in the crm namespace
+.Generate 10 leads in the crm namespace:
 [source,shell]
 ----
 corteza-server compose records synthetic generate --namespace crm --module lead --total 10
 ----
 
-.Remove all synthetic records in leads module in the crm namespace
+.Remove all synthetic records in leads module in the crm namespace:
 [source,shell]
 ----
 corteza-server compose records synthetic rm --namespace crm --module lead

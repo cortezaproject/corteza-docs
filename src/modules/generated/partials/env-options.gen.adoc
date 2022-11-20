@@ -1813,13 +1813,6 @@ provision/*
 === Description
 
 Colon seperated paths to config files for provisioning.
-= Seeder
-
-== *SEEDER_LOG_ENABLED*
-
-=== Type
-
-`bool`
 
 
 === Description

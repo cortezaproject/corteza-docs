@@ -34,6 +34,8 @@
 
 :LOCAL_HOSTNAME:        local.cortezaproject.org
 
+:CORTEZA_PULL_BASE: https://github.com/cortezaproject/corteza/pull/
+:CORTEZA_COMMIT_BASE: https://github.com/cortezaproject/corteza/commit/
 :SERVER_COMMIT_BASE: https://github.com/cortezaproject/corteza-server/commit/
 :SERVER_DISCOVERY_COMMIT_BASE: https://github.com/cortezaproject/corteza-server-discovery/commit/
 :SERVER_CORREDOR_COMMIT_BASE: https://github.com/cortezaproject/corteza-server-corredor/commit/

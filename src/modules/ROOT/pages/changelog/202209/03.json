@@ -1,9 +1,9 @@
 {
   "meta": {
-    "releasedOn": "2022.xx.xx"
+    "releasedOn": "2022.11.25"
   },
 
-  "Added": [
+  "added": [
     {
       "what": [
         "a new label position option for charts with y-axis.",
@@ -19,10 +19,10 @@
     {
       "what": [
         "new multi value filter operators (`IN` and `NOT IN`) to the pre-filter in the reporter UI.",
-        "This why users have the ability to show or not show certain value contained in the record."
+        "This why users have the ability to filter records using multi value fields."
       ],
       "why": [
-        "because to enable the users to have the option to use `IN` / `NOT IN` operator in Reporter's filter for better control of what they want to show on the record lists."
+        "to bring back the support to filter records using their multi value fields inside reports."
       ],
       "refs": [
         "https://github.com/cortezaproject/corteza/pull/560/commits/22ceca9ad21bbd9f2675930879128030696d4c8f"
@@ -30,7 +30,7 @@
     },
     {
       "what": [
-        "extended configuration for pie, bar, line, and doughnut charts.",
+        "additional configuration for pie, bar, line, and doughnut charts.",
         "Three new sections were added - tooltip, legend and offset as well as the options to rotate x and y axis labels (only for bar and line charts)."
       ],
       "why": [
@@ -43,7 +43,7 @@
     },
     {
       "what": [
-        "a support for the number field progress for the setting of minimum value, alongside providing a way to configure the default value for each (value, min, max)."
+        "support to set the minimum value and default value (value, min, and max) for progress bar module fields and page blocks."
       ],
       "why": [
         "to provide the user with more customization and easier use of the progress bar in {PRODUCT_NAME}"
@@ -78,15 +78,14 @@
     },
     {
       "what": [
-        "the requirement to provide a handle when creating a resource is removed and this is now optional.",
-        "The change is applied in compose, admin, reporter and workflow."
+        "the requirement to provide a handle when creating a resource is removed and handles are now optional.",
+        "The change is applied in compose, admin, reporter, and workflow."
       ],
       "why": [
-        "because providing a handle shouldn't be a necessity.",
-        "The resource can be created without it."
+        "because providing a handle shouldn't be a necessity and resources should have the option to omit it."
       ],
       "how": [
-        "by removing the requirement for the handle to be provided."
+        "by removing the strict handle existence validation."
       ],
       "refs": [
         "https://github.com/cortezaproject/corteza-webapp-compose/commit/cd86e854b76866eeb67d33753b1b736be0d1957a",
@@ -103,8 +102,7 @@
         "the color of the button for confirming the action to accept a privacy request."
       ],
       "why": [
-        "This was done to match the same color pattern as the colors when confirming/denying the action to reject a privacy request.",
-        "This also improves consistency and UX."
+        "to match the colors with the ones when confirming/denying the action to reject a privacy request."
       ],
       "how": [
         "by changing the color to dark blue."
@@ -118,10 +116,10 @@
   "fixed": [
     {
       "what": [
-        "the login form covering up the topbar on auth screens on mobile and not being able to click the avatar button."
+        "the avatar not being clickable on the auth screens on mobile devices due to the login form overlapping the top bar."
       ],
       "how": [
-        "by adjusting the styling of the auth screens and the {PRODUCT_NAME} topbar."
+        "by adjusting the styling of the auth screens and the {PRODUCT_NAME} top bar."
       ],
       "refs": [
         "https://github.com/cortezaproject/corteza/pull/541/commits/c53325f157a0e6daac8a70999bd6bd092271f65f",

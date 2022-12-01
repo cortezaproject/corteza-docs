@@ -40,17 +40,6 @@
         "https://github.com/cortezaproject/corteza/commit/a8d3b831db94538f6cfd84bd86fe35ec555b1bc7",
         "https://github.com/cortezaproject/corteza/commit/b2c9de57a73c84aa16f255e8f7c281be91c76c34"
       ]
-    },
-    {
-      "what": [
-        "support to set the minimum value and default value (value, min, and max) for progress bar module fields and page blocks."
-      ],
-      "why": [
-        "to provide the user with more customization and easier use of the progress bar in {PRODUCT_NAME}"
-      ],
-      "refs": [
-        "https://github.com/cortezaproject/corteza/commit/f3678369d2fa8d60cb7b55eaff672be330a657ef"
-      ]
     }
   ],
 

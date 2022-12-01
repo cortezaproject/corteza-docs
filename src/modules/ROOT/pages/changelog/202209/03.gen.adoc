@@ -2,14 +2,14 @@ include::ROOT:partial$variables.adoc[]
 
 = `2022.9.3`
 
-*Released on*: `2022.xx.xx`
+*Released on*: `2022.11.25`
 
 .[#2022_09_03-added]#<<2022_09_03-added,Added:>>#
 * Added a new label position option for charts with y-axis.
 It enables you to position the label at the bottom, middle or top of the y-axis.
 The change was added because the y-axis label was overlapping with the values if they were bigger
 ({CORTEZA_COMMIT_BASE}18248a2[`18248a2`]).
-* Added new *multi value* filter operators (`IN` and `NOT IN`) to the pre-filter in the reporter UI.
+* Added new multi value filter operators (`IN` and `NOT IN`) to the pre-filter in the reporter UI.
 This why users have the ability to filter records using multi value fields.
 The change was added to bring back the support to filter records using their multi value fields inside reports
 ({CORTEZA_PULL_BASE}560[`560`]).
@@ -17,9 +17,6 @@ The change was added to bring back the support to filter records using their mul
 Three new sections were added - tooltip, legend and offset as well as the options to rotate x and y axis labels (only for bar and line charts).
 The change was added to give the users more freedom to customize charts
 ({CORTEZA_COMMIT_BASE}a8d3b83[`a8d3b83`], {CORTEZA_COMMIT_BASE}b2c9de5[`b2c9de5`]).
-* Added support to set the minimum value and default value (value, min, and max) for progress bar module fields and page blocks.
-The change was added to provide the user with more customization and easier use of the progress bar in {PRODUCT_NAME}
-({CORTEZA_COMMIT_BASE}f367836[`f367836`]).
 
 .[#2022_09_03-changed]#<<2022_09_03-changed,Changed:>>#
 * Changed the resource list now uses the same component, item count and pagination and it is also enabled for resource lists that support it.

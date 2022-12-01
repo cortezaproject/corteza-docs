@@ -13,7 +13,7 @@ RUN yarn --non-interactive --no-progress --silent --emoji false install
 RUN ls /antora/
 RUN antora antora-playbook.yml
 
-COPY corteza-js/corteza-api-docs /antora/dist/corteza-api-docs
+COPY corteza/lib/js/corteza-api-docs /antora/dist/corteza-api-docs
 
 FROM nginx:1.17-alpine
 

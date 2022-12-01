@@ -16,16 +16,11 @@ jobs:
     steps:
       - run: echo "BUILD_VERSION=${GITHUB_REF#refs/tags/}" >> $GITHUB_ENV
       - uses: actions/checkout@v2
-      - name: Checkout corteza-js
+      - name: Checkout corteza
         uses: actions/checkout@v3
         with:
-          repository: cortezaproject/corteza-js
-          path: corteza-js
-      - name: Checkout corteza-server
-        uses: actions/checkout@v3
-        with:
-          repository: cortezaproject/corteza-server
-          path: corteza-server
+          repository: cortezaproject/corteza
+          path: corteza
       - uses: docker/login-action@v1
         if: ${{ !env.ACT }}
         with:
@@ -33,7 +28,7 @@ jobs:
           password: ${{ secrets.DOCKERHUB_TOKEN }}
       - name: Build corteza-js api docs
         run: |
-          cd corteza-js
+          cd corteza/lib/js
           yarn add typescript@4.7.4
           yarn add typedoc@0.23.17
           LATEST=$(git tag -l | grep 2022.9 | sort | tail -n 1) && \
@@ -47,17 +42,17 @@ jobs:
             npx typedoc --name "Corteza JS 2021.9" --hideGenerator --skipErrorChecking --out corteza-api-docs/corteza-js/2021.9 src/api-clients/index.ts
       - name: Build corteza-server api docs
         run: |
-          cd corteza-server
-          mkdir -p ../corteza-js/corteza-api-docs/corteza-server/{2022.9,2022.3,2021.9}
+          cd corteza/server
+          mkdir -p ../lib/js/corteza-api-docs/corteza-server/{2022.9,2022.3,2021.9}
           LATEST=$(git tag -l | grep 2022.9 | sort | tail -n 1) && \
             git checkout ${LATEST} && \
-            cp -r docs/* ../corteza-js/corteza-api-docs/corteza-server/2022.9
+            cp -r docs/* ../lib/js/corteza-api-docs/corteza-server/2022.9
           LATEST=$(git tag -l | grep 2022.3 | sort | tail -n 1) && \
             git checkout ${LATEST} && \
-            cp -r docs/* ../corteza-js/corteza-api-docs/corteza-server/2022.3
+            cp -r docs/* ../lib/js/corteza-api-docs/corteza-server/2022.3
           LATEST=$(git tag -l | grep 2021.9 | sort | tail -n 1) && \
             git checkout ${LATEST} && \
-            cp -r docs/* ../corteza-js/corteza-api-docs/corteza-server/2021.9
+            cp -r docs/* ../lib/js/corteza-api-docs/corteza-server/2021.9
 
       - run: docker build --build-arg ALGOLIA_APP_ID="$ALGOLIA_APP_ID" --build-arg ALGOLIA_API_KEY="$ALGOLIA_API_KEY" --build-arg ALGOLIA_INDEX_NAME="$ALGOLIA_INDEX_NAME" -t cortezaproject/corteza-docs:${{ env.BUILD_VERSION }} .
       - run: docker push cortezaproject/corteza-docs:${{ env.BUILD_VERSION }}

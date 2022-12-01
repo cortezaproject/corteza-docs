@@ -1,0 +1,119 @@
+{
+  "meta": {
+    "releasedOn": "2022.12.07"
+  },
+
+  "added": [
+    {
+      "what": [
+        "support for coalesce sorting on all supported store driver."
+      ],
+      "why": [
+        "to allow sorting of first non-NULL value among given columns into one column."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/pull/547/commits/10a27198d2e8d25cadf7d24d3c28224efc0b0528"
+      ]
+    },
+    {
+      "what": [
+        "test SMTP server button for the admin email settings."
+      ],
+      "why": [
+        "to let administrators test SMTP configuration validity before deploying changes."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/pull/539/commits/eee2b9e996a1b14659302a6680e45fb752ef32ca"
+      ]
+    },
+    {
+      "what": [
+        "nylas integration which allows you to easily connect {PRODUCT_NAME} with email, calendar, and contacts provider.",
+        "A new page block on compose called Nylas was added, that can display Nylas components defined in the Nylas dashboard.",
+        "The Nylas external provider was also added to the list in the Admin panel under System settings."
+      ],
+      "why": [
+        "to enable the integration with Nylas and support the use of its components inside {APP_NAME_COMPOSE}."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/pull/539/commits/eee2b9e996a1b14659302a6680e45fb752ef32ca"
+      ]
+    }
+  ],
+
+  "changed": [
+    {
+      "what": [
+        "the labels being displayed in metric page block instead of names."
+      ],
+      "why": [
+        "because we were incorrectly displaying the field names instead of its labels."
+      ],
+      "how": [
+        "by changing the metric page block fields to show labels instead of names."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/pull/586/commits/b32c19af88e118a5c3cc532a27264708b1694573"
+      ]
+    }    
+  ],
+
+  "fixed": [
+    {
+      "what": [
+        "the namespace, module, page, workflow, and reporter lists to properly sort the last change column.",
+        "Previously the sorting was done on the updatedAt value and the value was shown as updatedAt or createdAt if the resource wasn't updated yet."
+      ],
+      "how": [
+        "by using the coalesce (`deletedAt`, `updatedAt`, `createdAt`) to sort based on all three columns, so that the value displayed matches the value that is being used to sort."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/pull/547/commits/3d4de63c8f08dd63258c73d1a1fa16253e9a0353"
+      ]
+    },
+    {
+      "what": [
+        "invalid data ordering on {APP_NAME_COMPOSE} charts caused by improperly ordered data on the record report endpoint."
+      ],
+      "how": [
+        "by adding an explicit sorting by the specified dimension field."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/956e30e2b21649749a98273c3a5ccf32cb80da92"
+      ]
+    },
+    {
+      "what": [
+        "users not being able to go to the previous page on reporter tables."
+      ],
+      "how": [
+        "by updating the page cursor only if it exists while creating a report paging filter to preserve the valid cursor for the next page."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/pull/588/commits/f16f681e3665fe19d27e53ceb6b45363aa64ee83"
+      ]
+    },
+    {
+      "what": [
+        "not being able to close the workflow modal once you press `New Workflow`."
+      ],
+      "how": [
+        "by adding a back button that simulates the back button behavior of the browser."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/pull/585/commits/3da461703345eafd180091373a5725eb20057817"
+      ]
+    },
+    {
+      "what": [
+        "reporter chart display element configuration not being properly saved on creation if the chart type was changed."
+      ],
+      "how": [
+        "by properly updating the chart display element options when the chart type is changed."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/074b2fde604c76d3927fcbb745f1da717487fb62"
+      ]
+    }
+  ]
+}

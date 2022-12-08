@@ -46,6 +46,8 @@ The permission debugger is available in all of the permission configuration moda
 
 :leveloffset: +1
 
+include::04.gen.adoc[]
+
 include::03.gen.adoc[]
 
 include::02.gen.adoc[]

@@ -1,0 +1,42 @@
+include::ROOT:partial$variables.adoc[]
+
+= `2022.9.4`
+
+*Released on*: `2022.12.08`
+
+.[#2022_09_04-added]#<<2022_09_04-added,Added:>>#
+* Added support for coalesce sorting on all supported store driver.
+The change was added to allow sorting of first non-NULL value among given columns into one column
+({CORTEZA_PULL_BASE}547[`547`]).
+* Added test SMTP server button for the admin email settings.
+The change was added to let administrators test SMTP configuration validity before deploying changes
+({CORTEZA_PULL_BASE}539[`539`]).
+* Added nylas integration which allows you to easily connect {PRODUCT_NAME} with email, calendar, and contacts provider.
+A new page block on compose called Nylas was added, that can display Nylas components defined in the Nylas dashboard.
+The Nylas external provider was also added to the list in the Admin panel under System settings.
+The change was added to enable the integration with Nylas and support the use of its components inside {APP_NAME_COMPOSE}
+({CORTEZA_PULL_BASE}539[`539`]).
+
+.[#2022_09_04-changed]#<<2022_09_04-changed,Changed:>>#
+* Changed the labels being displayed in metric page block instead of names.
+The change was made because we were incorrectly displaying the field names instead of its labels.
+The change was made by changing the metric page block fields to show labels instead of names
+({CORTEZA_PULL_BASE}586[`586`]).
+
+.[#2022_09_04-fixed]#<<2022_09_04-fixed,Fixed:>>#
+* Fixed the namespace, module, page, workflow, and reporter lists to properly sort the last change column.
+Previously the sorting was done on the updatedAt value and the value was shown as updatedAt or createdAt if the resource wasn't updated yet.
+The fix was made by using the coalesce (`deletedAt`, `updatedAt`, `createdAt`) to sort based on all three columns, so that the value displayed matches the value that is being used to sort
+({CORTEZA_PULL_BASE}547[`547`]).
+* Fixed invalid data ordering on {APP_NAME_COMPOSE} charts caused by improperly ordered data on the record report endpoint.
+The fix was made by adding an explicit sorting by the specified dimension field
+({CORTEZA_COMMIT_BASE}956e30e[`956e30e`]).
+* Fixed users not being able to go to the previous page on reporter tables.
+The fix was made by updating the page cursor only if it exists while creating a report paging filter to preserve the valid cursor for the next page
+({CORTEZA_PULL_BASE}588[`588`]).
+* Fixed not being able to close the workflow modal once you press `New Workflow`.
+The fix was made by adding a back button that simulates the back button behavior of the browser
+({CORTEZA_PULL_BASE}585[`585`]).
+* Fixed reporter chart display element configuration not being properly saved on creation if the chart type was changed.
+The fix was made by properly updating the chart display element options when the chart type is changed
+({CORTEZA_COMMIT_BASE}074b2fd[`074b2fd`]).

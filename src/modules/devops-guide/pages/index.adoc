@@ -189,13 +189,10 @@ The server interacts with all internal auxiliary services such as the database, 
 .The diagram outlines {PRODUCT_NAME} repositories and their relation in regards to the build pipeline.
 image::developer-guide:build-pipelines.png[role="data-zoomable"]
 
-.{PRODUCT_NAME} defines a series of web applications defined by our `corteza-webapp-*` repositories:
-* {GIT_REPO_LINK_PREFIX}-webapp-compose[*{PRODUCT_NAME} {APP_NAME_COMPOSE}*]
-* {GIT_REPO_LINK_PREFIX}-webapp-workflow[*{PRODUCT_NAME} Workflow*]
-* {GIT_REPO_LINK_PREFIX}-webapp-admin[*{PRODUCT_NAME} {APP_NAME_ADMIN}*]
-* {GIT_REPO_LINK_PREFIX}-webapp-reporter[*{PRODUCT_NAME} {APP_NAME_REPORTER}*]
-* {GIT_REPO_LINK_PREFIX}-webapp-discovery[*{PRODUCT_NAME} {APP_NAME_DISCOVERY}*]
-* {GIT_REPO_LINK_PREFIX}-webapp-one[*{PRODUCT_NAME} {APP_NAME_SHELL}*]
+.{PRODUCT_NAME} core repositories:
+. {GIT_MONOREPO_LINK}[`corteza`]: The monorepo containing the codebase for core {PRODUCT_NAME} features.
+. {GIT_REPO_LINK_PREFIX}-server-corredor[`corteza-server-corredor`]: {APP_AUTOMATION} automation runner.
+. {GIT_REPO_LINK_PREFIX}-docs[`corteza-docs`]: {PRODUCT_NAME} documentation.
 
 == System Configuration Files
 

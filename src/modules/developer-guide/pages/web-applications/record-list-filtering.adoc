@@ -4,9 +4,7 @@ include::ROOT:partial$variables.adoc[]
 
 The record list filter provides a set of components which allow you to provide flexible record filtering.
 
-All of the logic is contained within the https://github.com/cortezaproject/corteza-webapp-compose[corteza-webapp-compose] repository.
-
-Refer to the https://github.com/cortezaproject/corteza-webapp-compose/blob/2021.9.x/src/components/PageBlocks/RecordListBase.vue[record list implementation] for an example usage.
+Refer to the https://github.com/cortezaproject/corteza/blob/{VERSION}/client/web/compose/src/components/PageBlocks/RecordListBase.vue[record list implementation] for an example usage.
 
 [NOTE]
 ====

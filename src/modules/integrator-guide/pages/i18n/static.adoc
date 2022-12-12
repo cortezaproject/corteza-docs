@@ -68,11 +68,11 @@ A locale namespace encapsulates content that falls into the common area, such as
 For the complete list of locale namespaces used by a specific web application take English translations as a reference.
 
 .You can also inspect web application i18n plugin initialization code:
-* https://github.com/cortezaproject/corteza-webapp-compose/blob/{VERSION}/src/app.js[compose web application]
-* https://github.com/cortezaproject/corteza-webapp-admin/blob/{VERSION}/src/app.js[admin web application]
-* https://github.com/cortezaproject/corteza-webapp-one/blob/{VERSION}/src/app.js[one web application]
-* https://github.com/cortezaproject/corteza-webapp-workflow/blob/{VERSION}/src/app.js[workflow web application]
-* https://github.com/cortezaproject/corteza-webapp-reporter/blob/{VERSION}/src/app.js[reporter web application]
+* https://github.com/cortezaproject/corteza/blob/{VERSION}/client/web/compose/src/app.js[compose web application]
+* https://github.com/cortezaproject/corteza/blob/{VERSION}/client/web/admin/src/app.js[admin web application]
+* https://github.com/cortezaproject/corteza/blob/{VERSION}/client/web/one/src/app.js[one web application]
+* https://github.com/cortezaproject/corteza/blob/{VERSION}/client/web/workflow/src/app.js[workflow web application]
+* https://github.com/cortezaproject/corteza/blob/{VERSION}/client/web/reporter/src/app.js[reporter web application]
 ====
 
 .The contents of the `en/corteza-webapp-compose/chart.yaml` file:

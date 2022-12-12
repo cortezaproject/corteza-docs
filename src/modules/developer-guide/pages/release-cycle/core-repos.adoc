@@ -10,15 +10,10 @@ image::build-pipelines.png[{PRODUCT_NAME} build pipelines]
 Go over each repository and (try to) assure that there aren't any warnings with any of the dependencies.
 GitHub provides a friendly system for this, so that shouldn't be an issue.
 
-.Repos:
-. corteza-js: ({GIT_REPO_LINK_PREFIX}-js)
-. corteza-vue: ({GIT_REPO_LINK_PREFIX}-vue)
-. corteza-server-corredor: ({GIT_REPO_LINK_PREFIX}-server-corredor)
-. corteza-webapp-one: ({GIT_REPO_LINK_PREFIX}-webapp-one)
-. corteza-webapp-admin: ({GIT_REPO_LINK_PREFIX}-webapp-admin)
-. corteza-webapp-compose: ({GIT_REPO_LINK_PREFIX}-webapp-compose)
-. corteza-webapp-workflow: ({GIT_REPO_LINK_PREFIX}-webapp-workflow)
-. corteza-webapp-reporter: ({GIT_REPO_LINK_PREFIX}-webapp-reporter)
+.Repositories:
+. {GIT_MONOREPO_LINK}[`corteza`]: The monorepo containing the codebase for core {PRODUCT_NAME} features.
+. {GIT_REPO_LINK_PREFIX}-server-corredor[`corteza-server-corredor`]: {APP_AUTOMATION} automation runner.
+. {GIT_REPO_LINK_PREFIX}-docs[`corteza-docs`]: {PRODUCT_NAME} documentation.
 
 == Building infrastructure
 
@@ -87,14 +82,8 @@ The rest of the repositories depend on these two, so you should handle them firs
 * push the changes and the created tag to the Github repository
 
 .The steps defined above should be used for all core repositories:
-* corteza-server: ({GIT_REPO_LINK_PREFIX}-server)
-* corteza-server-corredor: ({GIT_REPO_LINK_PREFIX}-server-corredor)
-* corteza-webapp-one: ({GIT_REPO_LINK_PREFIX}-webapp-one)
-* corteza-webapp-admin: ({GIT_REPO_LINK_PREFIX}-webapp-admin)
-* corteza-webapp-compose: ({GIT_REPO_LINK_PREFIX}-webapp-compose)
-* corteza-webapp-workflow: ({GIT_REPO_LINK_PREFIX}-webapp-workflow)
-* corteza-webapp-reporter: ({GIT_REPO_LINK_PREFIX}-webapp-reporter)
-
+. {GIT_MONOREPO_LINK}[`corteza`]: The monorepo containing the codebase for core {PRODUCT_NAME} features.
+. {GIT_REPO_LINK_PREFIX}-server-corredor[`corteza-server-corredor`]: {APP_AUTOMATION} automation runner.
 
 == Server
 
@@ -113,16 +102,3 @@ The Docker images are placed on the https://hub.docker.com/u/cortezaproject[Dock
 Unofficially, you can use the released packages with a Vagrant box {GIT_REPO_LINK_PREFIX}-vagrant.
 
 Alternatively, you can (build and) install these packages manually, either on the virtual machine or a regular machine.
-
-== Meta repositories
-
-Meta repositories are used to trigger the build process for web applications and the all-in-one Docker container.
-
-.Steps to release:
-* tag the version
-* push the changes and the created tag to the Github repository
-
-The {GIT_REPO_LINK_PREFIX}-webapp[corteza-webapp] (#private#) repository produces a single https://hub.docker.com/r/cortezaproject/corteza-webapp[docker image] containing all of the web applications.
-
-The {GIT_REPO_LINK_PREFIX}[corteza] (#private#) repository produces a single https://hub.docker.com/r/cortezaproject/corteza[docker image] and an RPM package containing the {PRODUCT_NAME} server and all of the web applications.
-The RPM package is located on the https://releases.cortezaproject.org/files/[{PRODUCT_NAME} releases].

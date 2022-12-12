@@ -28,9 +28,12 @@
 :APP_MESSAGING_BASE_URL: https://{APP_DOMAIN}/messaging
 :APP_COMPOSE_BASE_URL:   https://{APP_DOMAIN}/compose
 
-:GIT_REPO_GROUP:        cortezaproject
-:GIT_REPO_PREFIX:       corteza
-:GIT_REPO_LINK_PREFIX:  https://github.com/{GIT_REPO_GROUP}/{GIT_REPO_PREFIX}
+:GIT_REPO_GROUP:                cortezaproject
+:GIT_REPO_PREFIX:               corteza
+:GIT_REPO_LINK_PREFIX:          https://github.com/{GIT_REPO_GROUP}/{GIT_REPO_PREFIX}
+:GIT_MONOREPO_LINK:             {GIT_REPO_LINK_PREFIX}
+:GIT_MONOREPO_ROOT_LINK_PREFIX: {GIT_MONOREPO_LINK}/tree/{VERSION}/
+
 
 :LOCAL_HOSTNAME:        local.cortezaproject.org
 

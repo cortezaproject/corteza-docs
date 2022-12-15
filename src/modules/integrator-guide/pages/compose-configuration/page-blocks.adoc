@@ -14,7 +14,25 @@ Refer to xref:accessing-corteza/ql.adoc#query-mv[menu:accessing {PRODUCT_NAME}[q
 
 The automation page block allows you to show xref:automation/index.adoc#automation-application-general[automation with manual triggers].
 
-image::compose-configuration/page-block-reference/config-automation.png[...,50%,role="preview data-zoomable"]
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "compose-configuration/page-block-reference/config-automation.png",
+    "alias": "compose-configuration/page-block-reference/config-automation",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {},
+  "focus": {
+    "x": 410,
+    "y": 50,
+    "w": 1100,
+    "h": 957
+  },
+  "annotations": []
+}
+----
 
 The automation page block allows you to use both xref:automation/automation-scripts/index.adoc[automation scripts] and xref:automation/workflows/index.adoc[workflows].
 
@@ -66,7 +84,25 @@ The calendar page block pre-filter supports value interpolation.
 The *chart page block* allows you to display a pre-configured chart on your page.
 Refer to xref:compose-configuration/index.adoc#charts[{APP_NAME_COMPOSE} configuration] for more details.
 
-image::compose-configuration/page-block-reference/config-chart.png[...,50%,role="preview data-zoomable"]
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "compose-configuration/page-block-reference/config-chart.png",
+    "alias": "compose-configuration/page-block-reference/config-chart",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {},
+  "focus": {
+    "x": 410,
+    "y": 50,
+    "w": 1100,
+    "h": 258
+  },
+  "annotations": []
+}
+----
 
 [#page-block-content]
 == Content
@@ -74,14 +110,50 @@ image::compose-configuration/page-block-reference/config-chart.png[...,50%,role=
 The *content page block* allows you to show static content on the page.
 This can be an important announcement, a how-to guide, or any other piece of information.
 
-image::compose-configuration/page-block-reference/config-content.png[...,50%,role="preview data-zoomable"]
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "compose-configuration/page-block-reference/config-content.png",
+    "alias": "compose-configuration/page-block-reference/config-content",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {},
+  "focus": {
+    "x": 410,
+    "y": 50,
+    "w": 1100,
+    "h": 497
+  },
+  "annotations": []
+}
+----
 
 [#page-block-file]
 == File
 
 The *file page block* allows you to upload static files such as a TOS, a work schedule, or a brochure to the page.
 
-image::compose-configuration/page-block-reference/config-file.png[...,50%,role="preview data-zoomable"]
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "compose-configuration/page-block-reference/config-file.png",
+    "alias": "compose-configuration/page-block-reference/config-file",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {},
+  "focus": {
+    "x": 410,
+    "y": 50,
+    "w": 1100,
+    "h": 352
+  },
+  "annotations": []
+}
+----
 
 The attachment is static and does not change based on the current context.
 
@@ -109,7 +181,25 @@ The *iframe page block* allows you to embed an external website into your applic
 Make sure to keep any *iframe embedding limitation* in mind.
 ====
 
-image::compose-configuration/page-block-reference/config-iframe.png[...,50%,role="preview data-zoomable"]
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "compose-configuration/page-block-reference/config-iframe.png",
+    "alias": "compose-configuration/page-block-reference/config-iframe",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {},
+  "focus": {
+    "x": 410,
+    "y": 50,
+    "w": 1100,
+    "h": 259
+  },
+  "annotations": []
+}
+----
 
 [#page-block-metric]
 == Metric
@@ -118,7 +208,25 @@ The *metric page block* allows you to display a calculated numerical value based
 This is usually an indicator important to your process. 
 It may be information such as the total finances in your sales pipeline or the current number of open accounts.
 
-image::compose-configuration/page-block-reference/config-metric.png[...,50%,role="preview data-zoomable"]
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "compose-configuration/page-block-reference/config-metric.png",
+    "alias": "compose-configuration/page-block-reference/config-metric",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {},
+  "focus": {
+    "x": 410,
+    "y": 50,
+    "w": 1100,
+    "h": 957
+  },
+  "annotations": []
+}
+----
 
 .Additional configurations:
 [cols="2s,5a"]
@@ -197,14 +305,50 @@ Record lists also provide the features for adding, importing, and exporting reco
 When using the search box on the record list, the system only includes the selected fields.
 ====
 
-image::compose-configuration/page-block-reference/config-record-list.png[...,50%,role="preview data-zoomable"]
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "compose-configuration/page-block-reference/config-record-list.png",
+    "alias": "compose-configuration/page-block-reference/config-record-list",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {},
+  "focus": {
+    "x": 410,
+    "y": 50,
+    "w": 1100,
+    "h": 957
+  },
+  "annotations": []
+}
+----
 
 [TIP]
 ====
 You can trigger *explicit automation scripts* within the record list's header.
 Click the "Automation" tab to *select the automation scripts*.
 
-image::compose-configuration/page-block-reference/config-record-list-automation.png[...,50%,role="preview data-zoomable"]
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "compose-configuration/page-block-reference/config-record-list-automation.png",
+    "alias": "compose-configuration/page-block-reference/config-record-list-automation",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {},
+  "focus": {
+    "x": 410,
+    "y": 50,
+    "w": 1100,
+    "h": 957
+  },
+  "annotations": []
+}
+----
 ====
 
 .Additional configurations:
@@ -338,7 +482,25 @@ The records are moved around using the drag-and-drop interface.
 A single record organizer page block defines one column.
 Add additional record organizer page blocks to define additional columns.
 
-image::compose-configuration/page-block-reference/config-ro.png[...,50%,role="preview data-zoomable"]
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "compose-configuration/page-block-reference/config-ro.png",
+    "alias": "compose-configuration/page-block-reference/config-ro",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {},
+  "focus": {
+    "x": 410,
+    "y": 50,
+    "w": 1100,
+    "h": 856
+  },
+  "annotations": []
+}
+----
 
 .Additional configurations:
 [cols="2s,5a"]
@@ -382,7 +544,25 @@ Defines what value the key field must have to be shown in a given column.
 The *record revisions page blocks* allow you to display the revision history tracked for a particular module.
 The revision history is listed in ascending order, with the latest change at the bottom.
 
-image::compose-configuration/page-block-reference/config-record-revisions.png[...,50%,role="preview data-zoomable"]
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "compose-configuration/page-block-reference/config-record-revisions.png",
+    "alias": "compose-configuration/page-block-reference/config-record-revisions",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {},
+  "focus": {
+    "x": 410,
+    "y": 50,
+    "w": 1100,
+    "h": 510
+  },
+  "annotations": []
+}
+----
 
 .Additional configurations:
 [cols="2s,5a"]
@@ -394,7 +574,35 @@ Keeping the option disabled may help with performance regarding more extensive r
 
 If the revisions are loaded on demand, the page block displays a btn:[show record revisions] button that allows the user to load the revision history.
 
-image::compose-configuration/page-block-reference/config-record-revisions-on-demand.png[...,50%,role="preview data-zoomable"]
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "compose-configuration/page-block-reference/config-record-revisions-on-demand.png",
+    "alias": "compose-configuration/page-block-reference/config-record-revisions-on-demand",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {
+    "x": 1380,
+    "y": 360,
+    "h": 352,
+    "w": 543
+  },
+  "focus": {
+    "x": 1410,
+    "y": 90,
+    "h": 882,
+    "w": 473
+  },
+  "annotations": [{
+    "x": 1540,
+    "y": 517,
+    "h": 32,
+    "w": 217
+  }]
+}
+----
 
 | [#page-block-record-revisions-show-all-changes]#<<page-block-record-revisions-show-all-changes,Show changes for all fields>>#
 |
@@ -414,7 +622,25 @@ When creating or editing the record, record page blocks provide a way of input o
 Record page blocks are available only on record pages.
 ====
 
-image::compose-configuration/page-block-reference/config-record.png[...,50%,role="preview data-zoomable"]
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "compose-configuration/page-block-reference/config-record.png",
+    "alias": "compose-configuration/page-block-reference/config-record",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {},
+  "focus": {
+    "x": 410,
+    "y": 50,
+    "w": 1100,
+    "h": 865
+  },
+  "annotations": []
+}
+----
 
 [TIP]
 ====
@@ -436,7 +662,25 @@ When added on a *list page*, the specified feed is provided as a fixed URL addre
 When added on a *record page*, the specified feed is provided either as a fixed URL address or as a URL field.
 Using a module field instead of a fixed value allows a social media feed to change depending on the context.
 
-image::compose-configuration/page-block-reference/config-sf.png[...,50%,role="preview data-zoomable"]
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "compose-configuration/page-block-reference/config-sf.png",
+    "alias": "compose-configuration/page-block-reference/config-sf",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {},
+  "focus": {
+    "x": 410,
+    "y": 50,
+    "w": 1100,
+    "h": 340
+  },
+  "annotations": []
+}
+----
 
 [#page-block-comment]
 == Comment

@@ -1,5 +1,8 @@
 * xref:index.adoc[]
 
 
+** xref:data-privacy/index.adoc[]
+*** xref:data-privacy/data-privacy-console.adoc[]
+*** xref:data-privacy/data-privacy-officer.adoc[]
 ** xref:crm/index.adoc[]
 ** xref:case-management/index.adoc[]

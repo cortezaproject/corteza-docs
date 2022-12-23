@@ -1,0 +1,161 @@
+{
+  "meta": {
+    "releasedOn": "2022.12.22"
+  },
+
+  "added": [
+    {
+      "what": [
+        "missing configuration options that were in compose charts but not in reporter charts, e.g. Legend, Tooltip, Offset, label rotation for X and Y axis."
+      ],
+      "why": [
+        "to provide the same set of features on both chart configurators."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/d8fa5bee6e1cef0456ad5a44593900490eccce19"
+      ]
+    },
+    {
+      "what": [
+        "function INSTR that can be used in the compose pre-filters, used like INSTR('foobar', 'foo').",
+        "It returns the position of the first occurrence of the second parameter in the first, starting with 1.",
+        "Returns 0 if no match was found and the matching is case insensitive."
+      ],
+      "why": [
+        "to providing more flexibility for the compose pre-filters."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/36d8fc6f78438651e168925a64a29b718a4727ad"
+      ]
+    }  
+  ],
+
+  "changed": [
+    {
+      "what": [
+        "disabled the field picker drag and drop while searching for a field when configuring module, chart and page fields."
+      ],
+      "why": [
+        "because reordering of fields while searching was causing issues."
+      ],
+      "how": [
+        "by adding a computed property that tracks if a query parameter is added and if dragging is disabled."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/a0a70315893e3ece0043b1551c24877a908dcd36"
+      ]
+    },
+    {
+      "what": [
+        "the column selectors in reporter (pre-filter, label/primary/secondary column) now all show the label and name of the column, they can also now be searched except for the presort."
+      ],
+      "why": [
+        "to make it easier to differentiate between the different fields that have the same label, for example after using a Join."
+      ],
+      "how": [
+        "by replacing the default bootstrap select with the vue-select component."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/e61cfdece1d233debebf1c2249356a1a29ce1e2d"
+      ]
+    },
+    {
+      "what": [
+        "greater than and less than filter operators, they are now only available on number and date fields.",
+        "Contains and Not contains filter operators are now only available for multi value fields."
+      ],
+      "why": [
+        "to prevent users from using filter operators that are not supported for specific field types."
+      ],
+      "how": [
+        "by updating the operators list configuration in the record list filter."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/pull/713/commits/c36c251252956d7b18539f1e7d7d1480bacbf1f6",
+        "https://github.com/cortezaproject/corteza/pull/713/commits/6f6fe5e3953e97e0370f1f91dc131a02e6a33da2"
+      ]
+    }     
+  ],
+
+  "fixed": [
+    {
+      "what": [
+        "filtering for bool type for equal and not equal operator."
+      ],
+      "how": [
+        "by adding custom val handler for bool type to convert it properly while parsing the query according to supported drivers."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/8e5d63c09b921c83571a6d99408cfc78e41291ef"
+      ]
+    },
+    {
+      "what": [
+        "sensitivity level un-delete prompting a not found error due to an invalid HTTP request."
+      ],
+      "how": [
+        "by properly handling the different sensitivity level states to call the correct endpoint."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/7eb26e6ef"
+      ]
+    },
+    {
+      "what": [
+        "RBAC rules not applying when assigning them via workflows when providing the role via the Role type.",
+        "The workflow didn't raise any errors, but the saved RBAC rule was invalid (the roleID was set to 0 -- invalid)."
+      ],
+      "how": [
+        "by updating the automation handler code to check all of the supported types and not just the roleID.",
+        "The handler logic was only using the roleID parameter and omitting the others."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/6a14808af"
+      ]
+    },
+    {
+      "what": [
+        "page list not displaying in busy state while pages are being fetched."
+      ],
+      "how": [
+        "by adding a spinner with `Loading` text."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/pull/671/commits/c47188d6b4e18e4ac9954b25d047fd7372fd2db5"
+      ]
+    },
+    {
+      "what": [
+        "resource list not being updated after a new resource was imported."
+      ],
+      "how": [
+        "by adding an updating function that re-fetches the list of resources."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/f2f90325bf60e98645a60d0465d3208c0a995e6a"
+      ]
+    },
+    {
+      "what": [
+        "the chart overflowing the block if a reporter chart was used inside a compose page block and the block had a title."
+      ],
+      "how": [
+        "by using the same layout as on regular compose charts."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/c09e0f54169655e78f1a0cdf4dd8ae4fc00bbe60"
+      ]
+    },
+    {
+      "what": [
+        "permissions modal title being incorrect if the resource didn't have a title or handle defined."
+      ],
+      "how": [
+        "by making sure the resourceID will show in the permissions modal title if no other identifiable information exists."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/fd76c8f46427a7b676fa5505c2eee1c928db8a95"
+      ]
+    }
+  ]
+}

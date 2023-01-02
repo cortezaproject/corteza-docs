@@ -22,8 +22,6 @@ In our case, we specify *modules and module fields*.
 The origin node has *full control over what data* the destination node is *allowed to access*.
 This can be as simple as allowing access to specific modules and as complex as allowing access to only specific module fields (configured in the xref:integrator-guide:federation/index.adoc#expose-module[{PRODUCT_NAME} {APP_NAME_COMPOSE} administration panel], or via the API).
 
-// @todo diagrams
-
 The origin node defines exposed structures::
     The origin node specifies what structures the destination node is allowed to access (modules and module fields).
     The origin node can also change or remove these structures after the initial configuration.

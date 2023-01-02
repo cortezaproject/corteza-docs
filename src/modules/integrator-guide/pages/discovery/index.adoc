@@ -23,7 +23,7 @@ To access {PRODUCT_NAME} {APP_NAME_DISCOVERY}, navigate to your {PRODUCT_NAME} i
   },
   "view": {},
   "focus": {
-    "x": 1257,
+    "x": 1224,
     "y": 462,
     "w": 262,
     "h": 220

@@ -40,7 +40,7 @@ To create a new namespace, navigate to your {PRODUCT_NAME} instance (for example
   "view": {},
   "focus": {
     "x": 400,
-    "y": 225,
+    "y": 255,
     "w": 266,
     "h": 217
   },

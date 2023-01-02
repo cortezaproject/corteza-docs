@@ -136,14 +136,3 @@ For example, the `compose/namespace` service will collect the `name`, `subtitle`
 Refer to the `compose/service/namespace.go@Update` function for an example.
 
 Refer to the `compose/service/module.go@Update` function for a more complex example when the resource is extended.
-
-== Language extensions
-
-This is currently as @todo, so we can probably ignore this section for now
-
-== Glossary
-
-[NOTE]
-====
-*DevNote* Do we need this?
-====

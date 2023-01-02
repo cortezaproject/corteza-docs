@@ -62,8 +62,7 @@ The node pairing does not proceed until the pairing URL is inserted, and the han
 .[#node-pairing-accept-invite-manual]#<<node-pairing-accept-invite-manual,To accept the invitation without email:>>#
 . navigate to the {PRODUCT_NAME} {APP_NAME_ADMIN},
 . click on the "Nodes" under "Federation" in the navigation drawer,
-. click on the ... button, // @todo
-//Editor's note: ... button needs to have a name :). To do indeed.
+. click on the btn:[edit] button
 . enter the received URL and confirm.
 
 [NOTE]

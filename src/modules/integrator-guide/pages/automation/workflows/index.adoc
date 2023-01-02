@@ -41,9 +41,9 @@ To create a workflow, navigate to your {PRODUCT_NAME} instance (for example http
   "view": {},
   "focus": {
     "x": 828,
-    "y": 463,
+    "y": 513,
     "w": 266,
-    "h": 217,
+    "h": 218,
     "padding": "md"
   },
   "annotations": []

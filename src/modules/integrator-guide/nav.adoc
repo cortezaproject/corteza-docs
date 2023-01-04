@@ -58,6 +58,9 @@
 *** xref:dal-connections/connection-management.adoc[]
 *** xref:dal-connections/troubleshooting.adoc[]
 
+** Data Privacy
+*** xref:data-privacy/sensitivity-levels.adoc[]
+
 ** xref:automation/index.adoc[]
 *** xref:automation/execution-flow-details.adoc[]
 *** xref:automation/workflows/index.adoc[]

@@ -16,10 +16,7 @@ The monorepo includes the server, the web applications, NPM packages, and Discov
 
 == Component diagram
 
-[NOTE]
-====
-*DevNote* @todo make nice diagram
-====
+image::build-pipelines.png[{PRODUCT_NAME} component diagram]
 
 == Contribution checklist
 

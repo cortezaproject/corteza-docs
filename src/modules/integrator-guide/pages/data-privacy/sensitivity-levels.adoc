@@ -1,0 +1,380 @@
+include::ROOT:partial$variables.adoc[]
+
+= Sensitivity Levels
+:keywords: data privacy, sensitive data, data sensitivity
+:description: Learn how to introduce data privacy policies to your {PRODUCT_NAME} {APP_NAME_COMPOSE} application
+// @note the initial version of this feature was written by https://github.com/Njukierick
+
+*Sensitivity levels* provide a way to classify what connections, modules, and fields store sensitive information.
+
+[IMPORTANT]
+====
+Currently, the user interface permits up to 10 sensitivity levels.
+====
+
+.Sensitivity levels can be defined in three locations:
+[cols="1s,5a"]
+|===
+| [#sensitivity-level-connection]#<<sensitivity-level-connection,DAL Connection>>#
+|
+The sensitivity level on a *DAL connection* specifies the highest sensitivity level of a record stored in the given connection.
+The connection sensitivity level also dictates the highest sensitivity level defined on underlying *modules* and *module fields*.
+
+To exemplify, you can make {PRODUCT_NAME} save all medical records to a dedicated encrypted database.
+
+By default, if no sensitivity level is specified, the data is considered non-sensitive.
+
+| [#sensitivity-level-module]#<<sensitivity-level-module,{APP_NAME_COMPOSE} Module>>#
+|
+The sensitivity level on a *{APP_NAME_COMPOSE} Module* specifies the sensitivity level of records stored in the given module.
+The module sensitivity level also dictates the highest sensitivity level defined on underlying *module fields*.
+
+By default, if no sensitivity level is specified, the data is considered non-sensitive.
+
+| [#sensitivity-level-module-field]#<<sensitivity-level-module-field,{APP_NAME_COMPOSE} Module Field>>#
+|
+The sensitivity level on a *{APP_NAME_COMPOSE} module field* specifies the sensitivity level of a record value stored in the given module.
+
+[NOTE]
+====
+Specific record values can be defined as less sensitive to the {APP_NAME_COMPOSE} module.
+====
+
+By default, if no sensitivity level is specified, the data is considered non-sensitive.
+
+|===
+
+== Configuring Sensitivity Levels
+
+To configure sensitivity levels, open the {PRODUCT_NAME} {APP_NAME_ADMIN} web application and navigate to menu:system[sensitivity levels].
+You can create new and manage existing sensitivity levels from the list of sensitivity levels.
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "data-privacy/sensitivity-levels/sensitivity-level-ui.png",
+    "alias": "data-privacy-sensitivity-levels-sensitivity-level-ui-loc",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {},
+  "annotations": [{
+    "x": 24,
+    "y": 574,
+    "w": 270,
+    "h": 16
+  }]
+}
+----
+
+To create a new sensitivity level, click on the btn:[new] button in the top right corner of the list
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "data-privacy/sensitivity-levels/sensitivity-level-ui.png",
+    "alias": "data-privacy-sensitivity-levels-sensitivity-level-ui",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {},
+  "focus": {
+    "padding": "xs",
+    "x": 330,
+    "y": 10,
+    "w": 1580,
+    "h": 1070
+  },
+  "annotations": [{
+    "x": 1605,
+    "y": 80,
+    "w": 62,
+    "h": 30
+  }]
+}
+----
+
+Fill out the form and click on the btn:[submit] button.
+
+[CAUTION]
+====
+The level parameter determines the order regarding which one is more sensitive.
+====
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "data-privacy/sensitivity-levels/sensitivity-level-create.png",
+    "alias": "data-privacy-sensitivity-levels-sensitivity-level-create",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {},
+  "focus": {
+    "padding": "xs",
+    "x": 330,
+    "y": 10,
+    "w": 1580,
+    "h": 1070
+  },
+  "annotations": []
+}
+----
+
+== Configuring DAL Connections
+
+To configure DAL connections with sensitivity levels, open the {PRODUCT_NAME} {APP_NAME_ADMIN} web application and navigate to menu:system[connections].
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "data-privacy/sensitivity-levels/dal-connections-ui.png",
+    "alias": "data-privacy-sensitivity-levels-dal-connections-ui-loc",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {},
+  "annotations": [{
+    "x": 24,
+    "y": 536,
+    "w": 270,
+    "h": 16
+  }]
+}
+----
+
+From the list of DAL connections, click on the edit icon next to the one you wish to update.
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "data-privacy/sensitivity-levels/dal-connections-ui.png",
+    "alias": "data-privacy-sensitivity-levels-dal-connections-ui",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {},
+  "focus": {
+    "padding": "xs",
+    "x": 330,
+    "y": 10,
+    "w": 1580,
+    "h": 1070
+  },
+  "annotations": [{
+    "x": 1631,
+    "y": 113,
+    "w": 17,
+    "h": 17
+  }]
+}
+----
+
+Locate the "highest sensitivity level" parameter and set it to the desired sensitivity level.
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "data-privacy/sensitivity-levels/dal-connections-edit.png",
+    "alias": "data-privacy-sensitivity-levels-dal-connections-edit",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {},
+  "focus": {
+    "padding": "xs",
+    "x": 330,
+    "y": 10,
+    "w": 1580,
+    "h": 1070
+  },
+  "annotations": [{
+    "x": 1135,
+    "y": 336,
+    "w": 520,
+    "h": 65
+  }]
+}
+----
+
+== Configuring {APP_NAME_COMPOSE} Modules
+
+To configure a {PRODUCT_NAME} {APP_NAME_COMPOSE} with a sensitivity level, open the {PRODUCT_NAME} {APP_NAME_COMPOSE} web application and navigate to the admin panel of the desired namespace.
+From the list of modules, click on the module you wish to update.
+
+[CAUTION]
+====
+If incompatible, changing the sensitivity level value on a module will reset the sensitivity level defined on module fields.
+====
+
+Navigate to the btn:[privacy settings] tab and locate the "highest allowed sensitivity level" option.
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "data-privacy/sensitivity-levels/module-privacy.png",
+    "alias": "data-privacy-sensitivity-levels-module-privacy-sensitivity-level",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {},
+  "focus": {
+    "padding": "xs",
+    "x": 572,
+    "y": 89,
+    "w": 1093,
+    "h": 360
+  },
+  "annotations": [{
+    "padding": "sm",
+    "x": 585,
+    "y": 232,
+    "h": 85,
+    "w": 1070
+  }, {
+    "padding": "sm",
+    "x": 1020,
+    "y": 170,
+    "w": 149,
+    "h": 40
+  }]
+}
+----
+
+Additionally, you can set the sensitivity level to specific fields.
+Under the btn:[fields] tab, click on the btn:[edit] button next to the field you want to update.
+Navigate to the btn:[privacy] tab and locate the "sensitivity level" option.
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "data-privacy/sensitivity-levels/module-field-privacy.png",
+    "alias": "data-privacy-sensitivity-levels-module-field-privacy-sensitivity-level",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {},
+  "focus": {
+    "padding": "xs",
+    "x": 570,
+    "y": 40,
+    "w": 780,
+    "h": 383
+  },
+  "annotations": [{
+    "padding": "sm",
+    "x": 581,
+    "y": 162,
+    "h": 66,
+    "w": 758
+  }, {
+    "padding": "sm",
+    "x": 1042,
+    "y": 100,
+    "w": 86,
+    "h": 40
+  }]
+}
+----
+
+= Usage Disclosure
+
+*Usage disclosure* provides a way for you to communicate to the end user how their sensitive data is used within the system and your organization.
+
+[NOTE]
+====
+Usage disclosure is shown on the privacy console when the user interacts with their sensitive information.
+====
+
+.Usage disclosure can be defined on two levels:
+* <<usage-disclosure-module,*Module-level disclosure*>> notes how the entire record is used,
+* <<usage-disclosure-field,*module field-level disclosure*>> notes how the specific value is used.
+
+[#usage-disclosure-module]
+== Module-Level Disclosure
+
+*Module-level disclosure* notes how the entire record is used.
+Module-level usage disclosures are ideal for noting the general idea of what the module is used for, such as sellable data to advertisement providers.
+
+To set module-level usage disclosure, navigate to the admin panel of your {APP_NAME_COMPOSE} namespace and edit the relevant module.
+The sensitive data usage disclosure input is available under the btn:[privacy settings] tab.
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "data-privacy/sensitivity-levels/module-privacy.png",
+    "alias": "data-privacy-sensitivity-levels-module-privacy-usage-disclosure",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {},
+  "focus": {
+    "padding": "xs",
+    "x": 574,
+    "y": 90,
+    "w": 1091,
+    "h": 360
+  },
+  "annotations": [{
+    "x": 585,
+    "y": 338,
+    "h": 85,
+    "w": 1070
+  }, {
+    "x": 1020,
+    "y": 170,
+    "w": 149,
+    "h": 40
+  }]
+}
+----
+
+[#usage-disclosure-field]
+== Field-Level Disclosure
+
+*Module field-level disclosure* notes how a specific record value is used.
+Module field-level usage disclosures are ideal to note specific fields that may not be intuitive from the general module-level disclosure.
+
+To set module field-level usage disclosure, navigate to the admin panel of your {APP_NAME_COMPOSE} namespace and edit the relevant module.
+Click on the btn:[edit] button next to the module field you wish to set the disclosure.
+The sensitive data usage disclosure input is available under the btn:[privacy] tab.
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "data-privacy/sensitivity-levels/module-field-privacy.png",
+    "alias": "data-privacy-sensitivity-levels-module-field-privacy-usage-disclosure",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {},
+  "focus": {
+    "padding": "xs",
+    "x": 570,
+    "y": 40,
+    "w": 780,
+    "h": 383
+  },
+  "annotations": [{
+    "x": 581,
+    "y": 244,
+    "h": 88,
+    "w": 758
+  }, {
+    "x": 1042,
+    "y": 100,
+    "w": 86,
+    "h": 40
+  }]
+}
+----

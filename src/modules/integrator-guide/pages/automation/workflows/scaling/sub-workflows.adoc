@@ -1,0 +1,217 @@
+include::ROOT:partial$variables.adoc[]
+include::ROOT:partial$icons.adoc[]
+
+= Subworkflows
+:attachment-path: ../../../_attachments/automation/workflows/scaling/
+:keywords: automation, modular, modularity
+:description: Learn how to utilize subworkflows to simplify your business logic
+
+Subworkflows enable you to define reusable pieces of logic that other workflows can utilize.
+You can think of a subworkflow as a function from classic programming languages.
+
+[TIP]
+====
+On the list of available workflows, there is an additional subworkflow inclusion filter option.
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "automation/workflows/scaling/sub-wf-list.png",
+    "alias": "sub-wf-list",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {
+    "x": 0,
+    "y": 0,
+    "h": 380,
+    "w": 1920
+  },
+  "annotations": [{
+    "x": 425,
+    "y": 154,
+    "w": 292,
+    "h": 29
+  }]
+}
+----
+====
+
+[#exec-args]
+== Execution Arguments
+
+When calling subworkflows, you can pass an arbitrary execution argument encoded as a `Vars` data type.
+
+Click on the cog {ICON_WORKFLOW_COG} icon on the exec-workflow {ICON_WORKFLOW_EXEC_WORKFLOW} step and locate the "arguments" section.
+Any value passed in the `scope` argument will be available in the execution context of the subworkflow.
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "automation/workflows/scaling/main-wf-args.png",
+    "alias": "main-wf-args-in",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {
+    "x": 704,
+    "y": 0,
+    "w": 1216,
+    "h": 1080
+  },
+  "focus": {
+    "padding": "xs",
+    "x": 1429,
+    "y": 10,
+    "w": 480,
+    "h": 1060
+  },
+  "annotations": [{
+    "x": 1431,
+    "y": 255,
+    "w": 480,
+    "h": 326
+  }]
+}
+----
+
+[#exec-results]
+== Execution Results
+
+After the subworkflow is done with its execution, the calling workflow gains access to the subworkflow's execution scope at the state it finished.
+
+Click on the cog {ICON_WORKFLOW_COG} icon on the exec-workflow {ICON_WORKFLOW_EXEC_WORKFLOW} step and locate the "results" section.
+Specify a list of values (and the variable name) you'd like to preserve from the subworkflow.
+The `result` field identifies the variable name in the subworkflow's state, and the `target` identifies the variable name in the caller's state.
+
+[TIP]
+====
+There is no limit to the number of values you can access from the subworkflow's state.
+====
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "automation/workflows/scaling/main-wf-args.png",
+    "alias": "main-wf-args-out",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {
+    "x": 704,
+    "y": 0,
+    "w": 1216,
+    "h": 1080
+  },
+  "focus": {
+    "padding": "xs",
+    "x": 1429,
+    "y": 10,
+    "w": 480,
+    "h": 1060
+  },
+  "annotations": [{
+    "x": 1431,
+    "y": 646,
+    "w": 478,
+    "h": 358
+  }]
+}
+----
+
+== Creating Subworkflows
+
+To create a subworkflow, navigate to the {APP_NAME_WORKFLOW} web application and create a new workflow.
+Tick the btn:[subworkflow] checkbox when configuring the workflow metadata.
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "automation/workflows/scaling/sub-wf-create.png",
+    "alias": "sub-wf-create",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {},
+  "focus": {
+    "padding": "xs",
+    "x": 570,
+    "y": 38,
+    "w": 780,
+    "h": 611
+  },
+  "annotations": [{
+    "x": 576,
+    "y": 522,
+    "w": 241,
+    "h": 38
+  }]
+}
+----
+
+Configure the rest of the workflow as you would with any other workflow.
+Refer to xref:automation/workflows/index.adoc[main workflow documentation] for details.
+
+[IMPORTANT]
+====
+Subworkflows can not utilize triggers and can not be executed like regular workflows.
+====
+
+The following example defines a simple subworkflow where we log the received value and then prepare a new value for the calling workflow.
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "automation/workflows/scaling/sub-wf-example.png",
+    "alias": "sub-wf-example",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {
+    "x": 551,
+    "y": 258,
+    "w": 802,
+    "h": 281
+  },
+  "annotations": []
+}
+----
+
+The link:{attachment-path}sub-wf-example.json[source code] for the subworkflow example.
+
+
+== Using Subworkflows
+
+Subworkflows are called from _regular_ workflows using the *exec-workflow* {ICON_WORKFLOW_EXEC_WORKFLOW} step.
+The *exec-workflow* {ICON_WORKFLOW_EXEC_WORKFLOW} step requires you to specify what workflow you wish to execute (must be a subworkflow), <<exec-args,execution arguments>>, and <<exec-results,execution results>>.
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "automation/workflows/scaling/main-wf-example.png",
+    "alias": "main-wf-example",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {
+    "x": 104,
+    "y": 243,
+    "w": 1082,
+    "h": 603
+  },
+  "annotations": [{
+    "x": 423,
+    "y": 523,
+    "w": 263,
+    "h": 276
+  }]
+}
+----
+
+The link:{attachment-path}main-wf-example.json[source code] for the workflow example.

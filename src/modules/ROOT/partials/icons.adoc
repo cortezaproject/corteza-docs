@@ -17,6 +17,7 @@
 :ICON_WORKFLOW_TERMINATION: image:ROOT:workflows/termination.svg[width=20px]
 :ICON_WORKFLOW_TRIGGER: image:ROOT:workflows/trigger.svg[width=20px]
 :ICON_WORKFLOW_ITERATOR: image:ROOT:workflows/iterator.svg[width=20px]
+:ICON_WORKFLOW_EXEC_WORKFLOW: image:ROOT:workflows/exec-workflow.svg[width=20px]
 
 :ICON_I18N: image:ROOT:i18n/language-solid.svg[width=20px]
 

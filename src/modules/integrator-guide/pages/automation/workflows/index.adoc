@@ -26,7 +26,7 @@ You are not required to have any BPMN knowledge, although it might be helpful.
 *DevNote* how to include the flow from the admin panel?
 ====
 
-To create a workflow, navigate to your {PRODUCT_NAME} instance (for example http://latest.cortezaproject.org/) and click ok tne "Workflows" application.
+To create a workflow, navigate to your {PRODUCT_NAME} instance (for example http://latest.cortezaproject.org/) and click ok the "Workflows" application.
 
 .The screenshot indicates how to access the workflow web application.
 [annotation,role="data-zoomable"]

@@ -91,7 +91,7 @@ The *collection or database table name* specifies where the module's records are
 [IMPORTANT]
 ====
 If the identifier is omitted, the connection-defined identifier is used.
-If the connection doesn't provide a default, the system default `compose_recrd` is used.
+If the connection doesn't provide a default, the system default `compose_record` is used.
 ====
 
 For some scenarios, {PRODUCT_NAME} can create the appropriate structures if they don't already exist in the connection (such as a new table in an RDBMS database).

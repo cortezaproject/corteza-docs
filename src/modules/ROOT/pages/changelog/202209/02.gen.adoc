@@ -4,9 +4,12 @@ include::ROOT:partial$variables.adoc[]
 
 *Released on*: `2022.11.08`
 
-.[#2022_9_2-important]#<<2022_9_2-important,Important upgrade notes:>>#
+[IMPORTANT]
+====
+.[#2022_09_02-important]#<<2022_09_02-important,Important upgrade notes:>>#
 * There is a known bug where multi-value fields crash the server or produce unexpected results in reports.
-If your configuration uses reports which utilize multi-value fields, skip this patch version.
+If your configuration uses reports which utilize multi-value fields, skip this patch version..
+====
 
 .[#2022_09_02-changed]#<<2022_09_02-changed,Changed:>>#
 * Changed the workflow step configuration results section when no results are present for execute workflow, function, prompt, and iterator steps.
@@ -79,7 +82,7 @@ The fix was made by properly applying conditions when sub-workflow filter was us
 ({SERVER_COMMIT_BASE}5b2ba54[`5b2ba54`]).
 * Fixed missing dal connection translation by converting its error meta key reference to kebab-case.
 The fix was made by adding missing credentials translations to the locale under system/credentials
-({SERVER_COMMIT_BASE}434[`434`], {LOCALE_COMMIT_BASE}9021d1b[`9021d1b`], {LOCALE_COMMIT_BASE}baff7b7[`baff7b7`]).
+({SERVER_PULL_BASE}434[`434`], {LOCALE_COMMIT_BASE}9021d1b[`9021d1b`], {LOCALE_COMMIT_BASE}baff7b7[`baff7b7`]).
 * Fixed broken translation due to incompatible fileName case in locale.
 The fix was made by renaming the file name for resources as per expected format (kebab-case)
 ({LOCALE_COMMIT_BASE}b2ad8c2[`b2ad8c2`]).

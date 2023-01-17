@@ -432,11 +432,10 @@ If a resource supports indexing policy, there is a *discovery settings* {ICON_DI
     "w": 208
   },
   "annotations": [{
-    "kind": "box-note",
-    "x": 580,
+    "x": 585,
     "y": 100,
-    "h": 42,
-    "w": 208
+    "h": 43,
+    "w": 203
   }]
 }
 ----

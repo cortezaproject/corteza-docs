@@ -2,7 +2,6 @@
   "meta": {
     "releasedOn": "2022.12.22"
   },
-
   "added": [
     {
       "what": [
@@ -27,9 +26,8 @@
       "refs": [
         "https://github.com/cortezaproject/corteza/commit/36d8fc6f78438651e168925a64a29b718a4727ad"
       ]
-    }  
+    }
   ],
-
   "changed": [
     {
       "what": [
@@ -74,9 +72,8 @@
         "https://github.com/cortezaproject/corteza/pull/713/commits/c36c251252956d7b18539f1e7d7d1480bacbf1f6",
         "https://github.com/cortezaproject/corteza/pull/713/commits/6f6fe5e3953e97e0370f1f91dc131a02e6a33da2"
       ]
-    }     
+    }
   ],
-
   "fixed": [
     {
       "what": [

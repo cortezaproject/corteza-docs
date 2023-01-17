@@ -1,8 +1,15 @@
 {
   "meta": {
-    "releasedOn": "2022.11.03"
+    "releasedOn": "2022.11.08"
   },
-
+  "important": [
+    {
+      "note": [
+        "There is a known bug where multi-value fields crash the server or produce unexpected results in reports.",
+        "If your configuration uses reports which utilize multi-value fields, skip this patch version."
+      ]
+    }
+  ],
   "changed": [
     {
       "what": [
@@ -11,7 +18,9 @@
       "why": [
         "because the results section was present even if no results were listed for the specified workflow steps"
       ],
-      "how": ["by hiding the results section if no results are present."],
+      "how": [
+        "by hiding the results section if no results are present."
+      ],
       "refs": [
         "https://github.com/cortezaproject/corteza-webapp-workflow/commit/2b4619af88d999019904264d0b4d8e8a2d4a33c4"
       ]
@@ -76,7 +85,6 @@
       ]
     }
   ],
-
   "fixed": [
     {
       "what": [
@@ -94,7 +102,9 @@
       "what": [
         "the timestamp in the details of an action log being different as the one in search results."
       ],
-      "how": ["by applying a custom formatting to the timestamp."],
+      "how": [
+        "by applying a custom formatting to the timestamp."
+      ],
       "refs": [
         "https://github.com/cortezaproject/corteza-webapp-admin/commit/a4596fb283b42822fe3bb4c81c4cbc4f43d7bfe4"
       ]
@@ -103,7 +113,9 @@
       "what": [
         "strict record value duplicate detection, which was preventing record creation with same values for fields for strict duplicate detection validation."
       ],
-      "how": ["by validating duplication only for selected field."],
+      "how": [
+        "by validating duplication only for selected field."
+      ],
       "refs": [
         "https://github.com/cortezaproject/corteza-server/commit/eac2f07"
       ]
@@ -121,7 +133,9 @@
       ]
     },
     {
-      "what": ["action log search results not showing the correct outputs."],
+      "what": [
+        "action log search results not showing the correct outputs."
+      ],
       "how": [
         "by fixing the lapsus where the `from` timestamp was used for both the from and to date range which resulted in no matches."
       ],
@@ -150,7 +164,9 @@
         "Since values are stored in values, the value has to be `values` (where the JSON is).",
         "The bug told {PRODUCT_NAME} to look for the column with the field name which probably never existed."
       ],
-      "how": ["By correctly defaulting the values."],
+      "how": [
+        "By correctly defaulting the values."
+      ],
       "refs": [
         "https://github.com/cortezaproject/corteza-webapp-compose/commit/580db32585ecc9ae348314e08279c8f7c52f3ec6"
       ]
@@ -259,7 +275,9 @@
         "action log search results did not change if you reset the filter parameters.",
         "The filter parameters are reflected in the URL."
       ],
-      "how": ["by properly updating the search parameters in the URL."],
+      "how": [
+        "by properly updating the search parameters in the URL."
+      ],
       "refs": [
         "https://github.com/cortezaproject/corteza-webapp-admin/commit/ca14671d2300d39699363a3b21b071032f230321"
       ]
@@ -327,8 +345,12 @@
       ]
     },
     {
-      "what": ["errors on reports not being captured."],
-      "how": ["by properly capturing and displaying errors."],
+      "what": [
+        "errors on reports not being captured."
+      ],
+      "how": [
+        "by properly capturing and displaying errors."
+      ],
       "refs": [
         "https://github.com/cortezaproject/corteza-server/commit/8926c040cda74c01f7a278906d296f299ec8ad3a"
       ]
@@ -374,7 +396,9 @@
       "what": [
         "the suspended and revoke access buttons being shown even when creating a new user."
       ],
-      "how": ["by only showing those buttons when editing a user."],
+      "how": [
+        "by only showing those buttons when editing a user."
+      ],
       "refs": [
         "https://github.com/cortezaproject/corteza-webapp-admin/commit/2c3555212732a335860dfe7dc1f909447b342688"
       ]
@@ -395,7 +419,9 @@
       "what": [
         "external auth providers not being re-fetched after updating user password."
       ],
-      "how": ["by refetching the external auth providers after updating."],
+      "how": [
+        "by refetching the external auth providers after updating."
+      ],
       "refs": [
         "https://github.com/cortezaproject/corteza-webapp-admin/commit/07de6a6cddcc5626d4473406b8ff6f7455110d47"
       ]
@@ -436,7 +462,9 @@
       ]
     },
     {
-      "what": ["ownership information not being displayed on the connection."],
+      "what": [
+        "ownership information not being displayed on the connection."
+      ],
       "how": [
         "by using the correct value for the field ownership (by switching the value from `connection.ownership` to `connection.meta.ownership`)."
       ],
@@ -449,7 +477,9 @@
       "what": [
         "unable to save auth clients when setting either the valid from or expires at."
       ],
-      "how": ["correctly parsing date-time values we get from the API."],
+      "how": [
+        "correctly parsing date-time values we get from the API."
+      ],
       "refs": [
         "https://github.com/cortezaproject/corteza-webapp-admin/commit/04c8c4e94f86bec028121def5ce270ffb5d34d51"
       ]
@@ -458,7 +488,9 @@
       "what": [
         "incorrectly displayed error message when un-deleting messaging queue; it was displaying the error message `Queue deleted` instead of `Queue restored`."
       ],
-      "how": ["Translations were added in locale and applied in admin."],
+      "how": [
+        "Translations were added in locale and applied in admin."
+      ],
       "refs": [
         "https://github.com/cortezaproject/corteza-webapp-admin/commit/7af6c9e57314d802d97dcc5556ecc8e906225233",
         "https://github.com/cortezaproject/corteza-locale/commit/e00a3dab4a1c742fd504f34d7bec56d360750834"

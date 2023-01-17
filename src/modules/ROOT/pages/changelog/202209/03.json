@@ -2,7 +2,6 @@
   "meta": {
     "releasedOn": "2022.11.25"
   },
-
   "added": [
     {
       "what": [
@@ -42,7 +41,6 @@
       ]
     }
   ],
-
   "changed": [
     {
       "what": [
@@ -58,9 +56,9 @@
         "That means we can control the look of all lists from one place."
       ],
       "refs": [
-        "https://github.com/cortezaproject/corteza-vue/commit/030109b86e3e2d35ec0f0104f5b279c0f33f7ebd", 
-        "https://github.com/cortezaproject/corteza-webapp-admin/commit/229bf12d9c6608f40bf49dfb6ef4ca68defa0875", 
-        "https://github.com/cortezaproject/corteza-webapp-compose/commit/c67daa7a60e1fb38a49a0df770aab6257e5f03bb", 
+        "https://github.com/cortezaproject/corteza-vue/commit/030109b86e3e2d35ec0f0104f5b279c0f33f7ebd",
+        "https://github.com/cortezaproject/corteza-webapp-admin/commit/229bf12d9c6608f40bf49dfb6ef4ca68defa0875",
+        "https://github.com/cortezaproject/corteza-webapp-compose/commit/c67daa7a60e1fb38a49a0df770aab6257e5f03bb",
         "https://github.com/cortezaproject/corteza-webapp-reporter/commit/06c07d8036f8ad3736c06bd69ae1ab23df095563",
         "https://github.com/cortezaproject/corteza-webapp-workflow/commit/60334336292aca9ed4f581213d6d4bb300772986"
       ]
@@ -78,12 +76,12 @@
       ],
       "refs": [
         "https://github.com/cortezaproject/corteza-webapp-compose/commit/cd86e854b76866eeb67d33753b1b736be0d1957a",
-        "https://github.com/cortezaproject/corteza-webapp-reporter/commit/cf21c47c17c1b76eefc461543236abdf04277cb0", 
-        "https://github.com/cortezaproject/corteza-webapp-admin/commit/456c896adaa7e3423c81d05a541f044b5acc9cc8", 
-        "https://github.com/cortezaproject/corteza-webapp-workflow/commit/9b88af07260977ea744cce8ff7f54185ad9bd5d3", 
-        "https://github.com/cortezaproject/corteza-locale/commit/24b0dda5d434b8f8f0df55d98d6695171533d81c", 
+        "https://github.com/cortezaproject/corteza-webapp-reporter/commit/cf21c47c17c1b76eefc461543236abdf04277cb0",
+        "https://github.com/cortezaproject/corteza-webapp-admin/commit/456c896adaa7e3423c81d05a541f044b5acc9cc8",
+        "https://github.com/cortezaproject/corteza-webapp-workflow/commit/9b88af07260977ea744cce8ff7f54185ad9bd5d3",
+        "https://github.com/cortezaproject/corteza-locale/commit/24b0dda5d434b8f8f0df55d98d6695171533d81c",
         "https://github.com/cortezaproject/corteza-vue/commit/34f261acc5297654eb372b8e804a7fd37e7b0d0e",
-        "https://github.com/cortezaproject/corteza-js/commit/3a90a1002074e31017b2ae22e5d74404283ea3e2" 
+        "https://github.com/cortezaproject/corteza-js/commit/3a90a1002074e31017b2ae22e5d74404283ea3e2"
       ]
     },
     {
@@ -101,7 +99,6 @@
       ]
     }
   ],
-
   "fixed": [
     {
       "what": [

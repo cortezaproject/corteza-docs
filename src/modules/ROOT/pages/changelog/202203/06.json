@@ -2,7 +2,6 @@
   "meta": {
     "releasedOn": "2022.11.08"
   },
-
   "changed": [
     {
       "what": [
@@ -23,9 +22,8 @@
         "https://github.com/cortezaproject/corteza-server/commit/651993b65d68c3b924009bc86c309e5dbb22192a",
         "https://github.com/cortezaproject/corteza-server/commit/4c4f1dfd25a2b361e64a1788cb07c5b36ff07b7e"
       ]
-    }    
+    }
   ],
-
   "fixed": [
     {
       "what": [

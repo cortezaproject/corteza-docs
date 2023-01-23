@@ -5,43 +5,29 @@ include::ROOT:partial$variables.adoc[]
 *Released on*: `2023.01.18`
 
 .[#2022_09_06-changed]#<<2022_09_06-changed,Changed:>>#
-* Changed workflow iterators to treat limit 0 parameter as no limit set.
-The change was made to make workflow iterators consistent with other searching/filtering interactions.
-The change was made by changing the limit in the code
+* Changed workflow iterators to iterate all entries when the limit is set to 0.
+The change was made to make workflow iterators more consistent with other resource searching operations.
+The change was made by changing the internal logic to rely on parameter presence rather then value
 ({CORTEZA_COMMIT_BASE}fc259ca[`fc259ca`]).
 * Changed error message when trying to delete a sensitivity level that's in use to be more informative on what is wrong.
 The change was made to make error messages more consistent and user friendly.
 The change was made by adding additional validation before the sensitivity level is deleted
 ({CORTEZA_COMMIT_BASE}56e5543[`56e5543`]).
-* Changed the closing of the import modal.
-The change was made to give the user a better UX.
-The change was made by adding an id to the import modal through which the modal is closed after a successful import
-({CORTEZA_PULL_BASE}735[`735`]).
-* Changed the location of the attachment modal.
-The change was made to enable previewing of attachments in private pages.
-The change was made by moving the attachment modal from Public/Pages/View to Namespace/View
-({CORTEZA_COMMIT_BASE}ea1c1fa[`ea1c1fa`]).
 * Changed the requirement to provide a handle when creating a role is now removed and the handle is now optional.
-The change was made because providing a handle shouldn't be a necessity.
-The resource can be created without it.
-The change was made by removing the requirement for the handle to be provided
+The change was made because providing a handle shouldn't be a necessity and resources can be created without it
 ({CORTEZA_COMMIT_BASE}fd55cce[`fd55cce`]).
-
-.[#2022_09_06-removed]#<<2022_09_06-removed,Removed:>>#
-* Removed the bootstrap class text-truncate from the <b-list-group-item>.
-The removal was made because the federation nodes in modules were not shown as they should and this class was making the problem
-({CORTEZA_COMMIT_BASE}efe382b[`efe382b`]).
 
 .[#2022_09_06-fixed]#<<2022_09_06-fixed,Fixed:>>#
 * Fixed invalid record revision history for multi value fields.
-The fix was made The first value appeared duplicated, the last value was omitted, and when a value was removed the value was no longer visible in the old version
+The first value appeared duplicated, the last value was omitted, and when a value was removed the value was no longer visible in the old version.
+The fix was made by converting the delta into a table correctly
 ({CORTEZA_COMMIT_BASE}b203224[`b203224`]).
-* Fixed uninformative internal error error message on the user profile change password interface.
+* Fixed the attachment modal not being visible in the admin area of compose.
+The fix was made by moving the attachment modal from Public/Pages/View to Namespace/View
+({CORTEZA_COMMIT_BASE}ea1c1fa[`ea1c1fa`]).
+* Fixed missing error exception for change password handler.
 The fix was made by properly handling and serving the error message
 ({CORTEZA_COMMIT_BASE}82c70b3[`82c70b3`]).
-* Fixed issues with Block title and Description when translations are included.
-The fix was made by updating translations and they no longer affects other blocks with duplicate titles and description are included
-({CORTEZA_PULL_BASE}752[`752`]).
 * Fixed being unable to export an user that had a suspended or deleted role assigned to it.
 The fix was made the export logic was resolving unresolved resources on the fly and it was not excluded and this edge case caused the server to panic
 ({CORTEZA_COMMIT_BASE}1432671[`1432671`]).
@@ -49,17 +35,21 @@ The fix was made the export logic was resolving unresolved resources on the fly 
 The fix was made by enabling filtering, sorting, and paging for federation nodes
 ({CORTEZA_COMMIT_BASE}22f49b0[`22f49b0`]).
 * Fixed hiding of calendar in calendar block when switching from page builder to view page and vice versa.
+When we had couple calendars with records or events configured, the event configured calendars were hidden and no info was displayed.
 The fix was made by replacing throttle with async/await in the CalendarBase component
 ({CORTEZA_COMMIT_BASE}4124f8f[`4124f8f`]).
-* Fixed searching a record list if it does not have any fields selected in the configurator.
+* Fixed querying record list not showing any result if the record list does not have any fields selected in the block configuration.
 The fix was made by making sure a record list with default fields uses those instead of the selected ones to search from
 ({CORTEZA_COMMIT_BASE}0f03f9c[`0f03f9c`]).
-* Fixed filtering for multi-value number field with contains or not contains criteria.
+* Fixed filtering for multi-value number field with contains or not contains criteria which was not retuning any values back.
 The fix was made by making sure to convert numbers into string format while building a query for the selected filter
 ({CORTEZA_COMMIT_BASE}7185611[`7185611`]).
 * Fixed when record list records per page was set to 0, the pagination information was not displayed properly.
 The fix was made by adding a check for this case where the pagination information is generated
 ({CORTEZA_COMMIT_BASE}045da2e[`045da2e`]).
-* Fixed filtering for bool type for equal and not equal operator.
-The fix was made by adding custom val handler for bool type to convert it properly while parsing the query according to supported drivers
+* Fixed not being able to filter checkbox module fields from the record list filter interface.
+The fix was made by adding custom val handler for bool type to convert it properly while parsing the query to MySQL driver
 ({CORTEZA_COMMIT_BASE}1febba3[`1febba3`]).
+* Fixed the import modal not being properly closed once an item was imported.
+The fix was made by making sure that the modal is closed as soon as an import is finished
+({CORTEZA_PULL_BASE}735[`735`]).

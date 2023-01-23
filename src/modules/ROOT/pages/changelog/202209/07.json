@@ -1,0 +1,47 @@
+{
+  "meta": {
+    "releasedOn": "2023.01.31"
+  },
+  "added": [
+    {
+      "what": [
+        "support for casting numbers to float inside workflow expressions via the float function."
+      ],
+      "why": [
+        "to simplify type casting by using a function instead of an intermediate workflow expression variable."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/38b6cb35e703377cce14b507be601e176face8a2"
+      ]
+    }
+  ],
+  "changed": [
+    {
+      "what": [
+        ""
+      ],
+      "why": [
+        ""
+      ],
+      "how": [
+        ""
+      ],
+      "refs": [
+        ""
+      ]
+    }
+  ],
+  "fixed": [
+    {
+      "what": [
+        ""
+      ],
+      "how": [
+        ""
+      ],
+      "refs": [
+        ""
+      ]
+    }
+  ]
+}

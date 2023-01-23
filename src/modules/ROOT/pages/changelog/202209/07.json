@@ -1,0 +1,165 @@
+{
+  "meta": {
+    "releasedOn": "2023.02.10"
+  },
+  "added": [
+    {
+      "what": [
+        "support for casting numbers to float inside workflow expressions via the `float` function."
+      ],
+      "why": [
+        "to simplify type casting by using a function instead of an intermediate workflow expression variable."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/38b6cb35e703377cce14b507be601e176face8a2"
+      ]
+    },
+    {
+      "what": [
+        "ability to toggle block border."
+      ],
+      "why": [
+        "to make better distinction between blocks when they are not shown as a cards."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/pull/860/commits/6308bdfebb0b22cc5073de817cf7ba233690f213"
+      ]
+    },
+    {
+      "what": [
+        "general UI/UX improvements."
+      ],
+      "why": [
+        "to make some invalid configurations impossible, better overview of some resources and prepare styles and layouts for future releases."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/80117c09f099ff8806a3608ba8548abf80b3c726",
+        "https://github.com/cortezaproject/corteza/commit/ef7e8649a5e97f7a14988d037f08351eefa6f986",
+        "https://github.com/cortezaproject/corteza/commit/9acc1099279b2f1e4aadee9f46d2315a919a2feb"
+      ]
+    }
+  ],
+  "changed": [
+    {
+      "what": [
+        "making the name property required when creating templates, dal connections, workflows, auth clients, and sensitivity levels."
+      ],
+      "why": [
+        "because we were able to create a resource without any data entered, and with this change now we have a requirement and you cannot create a resource without data entered."
+      ],
+      "how": [
+        "by adding validations to prevent creating one of the listed resources without adding a name."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/38a02d5b95e0467e129a8c48992fa3e4f373300a"
+      ]
+    },
+    {
+      "what": [
+        "the usage of chart.js on admin dashboard with e-charts."
+      ],
+      "why": [
+        "to remove all places where we used to use chart.js since we transitioned to apache e-charts."
+      ],
+      "how": [
+        "by replacing the chart on admin dashboard with e-charts"
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/7daafa11e1e72aa5e75ba0a8505a58f09ab02b73"
+      ]
+    }
+  ],
+  "fixed": [
+    {
+      "what": [
+        "not being able to use a record organizer on a record page."
+      ],
+      "how": [
+        "by properly fetching once the record object becomes available and providing the reference record so values can be prefilled."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/23984995ae0dccc82c12a930e46e6c9353eb9366"
+      ]
+    },
+    {
+      "what": [
+        "PSQL ID column datatype from `BIGINT` to numeric to enable support for {PRODUCT_NAME} ID  uint64 data type."
+      ],
+      "how": [
+        "by changing the datatype for {PRODUCT_NAME}ID in the PostgreSQL database from bigint to numeric."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/pull/830/commits/3a0df06ac9935dda0885b702d645563ef4df6f67"
+      ]
+    },
+    {
+      "what": [
+        "authenticated role being overwritten on server restart if the role was being modified."
+      ],
+      "how": [
+        "by adding a check in the provision logic to skip base roles & RBAC rules if they were already provisioned."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/88204f7725d452b83ca6073425c8708b7f929710"
+      ]
+    },
+    {
+      "what": [
+        "integration gateway filter table not showing all the available data when fetched."
+      ],
+      "how": [
+        "by adding a processing flag to integration gateway filter table so it properly triggered the refresh when filters change."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/cfe7e5072091c144e2fab7a0bd8092e5dc8f262d"
+      ]
+    },
+    {
+      "what": [
+        "discovery settings field picker not parsing saved values."
+      ],
+      "how": [
+        "by migrating discovery settings to support multi-language, and updated module discovery config struct to support multi lang result."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/724804c493703a2dca897fa9bcc5227d69a117dd",
+        "https://github.com/cortezaproject/corteza/commit/e020f7453a6b9c20fdd2c2c1c370ad3de2e857d2"
+      ]
+    },
+    {
+      "what": [
+        "record list filter for date not showing any records if you have date only field, and you set the filter to be equal to the correct day.",
+        "Also, when configuring time only and past values filer, the configuration was only taking the hour in consideration, because even if the minutes were set in the past it was saying invalid form as long as the hour was not changed too.",
+        "Fixed the error `Could not load record list: pq: cannot cast type time with time zone to timestamp with time zone` when having time only value and when you tried to filter with a time filter."
+      ],
+      "how": [
+        "by updating the record list filter builder with the correct query entry for time only and date only."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/pull/847/commits/727a7e5115cd4b97d725b469f7d34b43b633892f"
+      ]
+    },
+    {
+      "what": [
+        "the record revision date-time type being shown as kind.datetime.label."
+      ],
+      "how": [
+        "by updating the type section translation on the record revision configurator to display the fields as camel case, which is the case for the date-time on the translation itself."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/pull/863/commits/04f10a5fb167f9eed6c2b68fefffe1c05b0ccfcd"
+      ]
+    },
+    {
+      "what": [
+        "exporting a workflow without a handle resulting in having a name json.json"
+      ],
+      "how": [
+        "by falling back to workflow name and sanitizing the file name for any illegal characters before saving it."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/96f8bc55c2736f8847e7320e96ceba7310ddb1af"
+      ]
+    }
+  ]
+}

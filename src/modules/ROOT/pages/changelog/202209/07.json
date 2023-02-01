@@ -18,16 +18,30 @@
   "changed": [
     {
       "what": [
-        ""
+        "making name property required when creating templates, dal connections, workflows, auth clients and sensitivity levels."
       ],
       "why": [
-        ""
+        "because we were able to create a resource without any data entered, and with this change now we have a requirement and you cannot create a resource without data entered."
       ],
       "how": [
-        ""
+        "by adding validations to prevent creating one of the listed resources without adding a name."
       ],
       "refs": [
-        ""
+        "https://github.com/cortezaproject/corteza/commit/38a02d5b95e0467e129a8c48992fa3e4f373300a"
+      ]
+    },
+    {
+      "what": [
+        "the usage of chart.js on admin dashboard with e-charts."
+      ],
+      "why": [
+        "to remove all places where we used to use chart.js since we transitioned to apache e-charts."
+      ],
+      "how": [
+        "The chart is now in line with other charts in {PRODUCT_NAME}, the date tooltips are now also correctly displayed."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/7daafa11e1e72aa5e75ba0a8505a58f09ab02b73"
       ]
     }
   ],

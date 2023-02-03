@@ -100,6 +100,14 @@ Filters for multi-value fields look precisely the same as they would for regular
 | selects = 'a2'
 | The filter returns the records where either one of the multi-value select options equals `a2`.
 
+| [#query-mv-example-6]#<<query-mv-example-6,Filter for concrete users>>#
+| 'A' IN users
+| The filter returns record/s where either one of the multi-value select options contains `A`.
+
+| [#query-mv-example-7]#<<query-mv-example-7,Filter out concrete users>>#
+| 'A' NOT IN users
+| The filter returns record/s where either one of the multi-value select options doesn't contain `A`.
+
 |===
 
 == Sorting
@@ -157,10 +165,7 @@ Returns year from the given timestamp.
 |
 The function returns the date formatted by the provided format.
 
-[NOTE]
-====
-*DevNote* add a format reference.
-====
+Reference to xref:expr/datetime-formatting.adoc[date and time formatting]
 
 | [#ql-util-fnc-date]#<<ql-util-fnc-date,`DATE`>>#
 |

@@ -1,6 +1,6 @@
 {
   "meta": {
-    "releasedOn": "2023.01.31"
+    "releasedOn": "2023.02.07"
   },
   "added": [
     {
@@ -43,18 +43,33 @@
       "refs": [
         "https://github.com/cortezaproject/corteza/commit/7daafa11e1e72aa5e75ba0a8505a58f09ab02b73"
       ]
+    },
+    {
+      "what": [
+        "the record organizer now gets filtered based on the key field and key value."
+      ],
+      "why": [
+        "to avoid putting the knowledge on how to set up the pre-filter and make the record organizer work on the user."
+      ],
+      "how": [
+        "by generating a filter based on the key field and value and `AND-ing` it with the pre-filter."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/23984995ae0dccc82c12a930e46e6c9353eb9366"
+      ]
     }
   ],
   "fixed": [
     {
       "what": [
-        ""
+        "record organizer did not properly load when used on record pages while using ${recordID} in pre-filter.",
+        "If used on a record page, the values also now get properly prefilled."
       ],
       "how": [
-        ""
+        "by properly fetching once the record object becomes available and providing the reference record so values can be prefilled."
       ],
       "refs": [
-        ""
+        "https://github.com/cortezaproject/corteza/commit/23984995ae0dccc82c12a930e46e6c9353eb9366"
       ]
     }
   ]

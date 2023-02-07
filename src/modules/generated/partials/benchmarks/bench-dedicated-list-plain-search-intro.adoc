@@ -1,0 +1,7 @@
+The scenario benchmarks fetching the first page of records without any other sorting/filtering parameters.
+The page size is 20 records.
+
+[IMPORTANT]
+====
+The scenario excludes both the total record count and the complete paging navigation.
+====

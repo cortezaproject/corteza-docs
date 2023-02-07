@@ -71,6 +71,39 @@
       "refs": [
         "https://github.com/cortezaproject/corteza/commit/23984995ae0dccc82c12a930e46e6c9353eb9366"
       ]
+    },
+    {
+      "what": [
+        "{PRODUCT_NAME}ID datatype in PostgreSQL database."
+      ],
+      "how": [
+        "by changing the datatype for {PRODUCT_NAME}ID in the PostgreSQL database from bigint to numeric."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/pull/830/commits/3a0df06ac9935dda0885b702d645563ef4df6f67"
+      ]
+    },
+    {
+      "what": [
+        "authenticated role being overwritten on server restart if the role was being modified."
+      ],
+      "how": [
+        "by adding a check in the provision logic to skip base roles & RBAC rules if they were already provisioned."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/88204f7725d452b83ca6073425c8708b7f929710"
+      ]
+    },
+    {
+      "what": [
+        "integration gateway filter table was not properly refreshed in rare cases."
+      ],
+      "how": [
+        "by adding a spinner to the integration gateway filter table, so that it is properly refreshed when fetched."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/cfe7e5072091c144e2fab7a0bd8092e5dc8f262d"
+      ]
     }
   ]
 }

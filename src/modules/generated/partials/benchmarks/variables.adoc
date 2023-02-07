@@ -1,0 +1,14 @@
+:bench-classic: Benchmark for Shared Tables
+:bench-dedicated: Benchmark for Dedicated Tables
+:crud-operations: CRUD Operation
+:crud-create: Create
+:crud-lookup: Lookup
+:crud-update: Update
+:crud-delete: Delete
+:dimension-x: Number of Fields
+
+:list-filter: Filtering Records
+:list-sort: Sorting Records
+:list-plain: Listing Records
+:list-filter---sort: Filtering and Sorting Records
+:search: Searching

@@ -1,0 +1,1 @@
+include::generated:partial$benchmarks/bench-classic.gen.adoc[]

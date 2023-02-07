@@ -1,0 +1,24 @@
+The dedicated table benchmarks the optimized setup where module fields get their own dedicated table columns. You can apply standard database optimizations (such as indexing) to better suit your needs.
+This setup is intended for high volume modules since it can better utilize indexing and reduce the JSON encoding overhead.
+
+[NOTE]
+====
+This document should be used as a base to figure out what setup would work best for you.
+You can use the raw numbers of different scenarios to deduct your own conclusions on how well a specific setup would pan out for your use case.
+====
+
+.Testing notes:
+* A sub-select of columns specified indexes which affects both the CRUD and search operations.
+* All times are in MS with networking overhead excluded (the scripts were ran directly on the host server).
+* Each scenario used a dedicated DB table which was configured to define a dedicated column for each module field. The primary reason is consistent repeatability.
+* Records were created from a pre-defined dataset with randomly generated data using faker.js.
+* Benchmarks were ran on a dedicated cloud instance with minimal background processes.
+* The tests use Postgres as the database.
+
+.Testing observations:
+* We observed some random spikes under the max time which we couldn't quite explain. Our guess would indicate some background system task or potential throttling. Ideally, in future tests, such anomalies would be excluded or better handled.
+
+.Future plans:
+* Increase the amount of data points to better indicate the trend.
+* Include some projections to indicate how it would behave on larger datasets.
+* Provide memory profiling to indicate consumption and better suggest recommended system specs.

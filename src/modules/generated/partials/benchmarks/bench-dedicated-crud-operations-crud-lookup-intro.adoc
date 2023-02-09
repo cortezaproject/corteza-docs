@@ -1,1 +1,6 @@
 The scenario benchmarks lookup times into an already existing module with N pre-created records (where N is the record count in the following tables).
+
+[NOTE]
+====
+This benchmark looks up a single record from the module with N records pre-created before the scenario.
+====

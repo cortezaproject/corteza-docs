@@ -24,6 +24,19 @@
       "refs": [
         "https://github.com/cortezaproject/corteza/pull/860/commits/6308bdfebb0b22cc5073de817cf7ba233690f213"
       ]
+    },
+    {
+      "what": [
+        "general UI/UX improvements."
+      ],
+      "why": [
+        "to make some invalid configurations impossible, better overview of some resources and prepare styles and layouts for future releases."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/80117c09f099ff8806a3608ba8548abf80b3c726",
+        "https://github.com/cortezaproject/corteza/commit/ef7e8649a5e97f7a14988d037f08351eefa6f986",
+        "https://github.com/cortezaproject/corteza/commit/9acc1099279b2f1e4aadee9f46d2315a919a2feb"
+      ]
     }
   ],
   "changed": [
@@ -149,6 +162,17 @@
       ],
       "refs": [
         "https://github.com/cortezaproject/corteza/pull/863/commits/04f10a5fb167f9eed6c2b68fefffe1c05b0ccfcd"
+      ]
+    },
+    {
+      "what": [
+        "workflow export if handle wasn't defined."
+      ],
+      "how": [
+        "by falling back to workflow name and sanitizing the file name for any illegal characters before saving it."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/96f8bc55c2736f8847e7320e96ceba7310ddb1af"
       ]
     }
   ]

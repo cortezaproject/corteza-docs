@@ -128,6 +128,28 @@
         "https://github.com/cortezaproject/corteza/commit/724804c493703a2dca897fa9bcc5227d69a117dd",
         "https://github.com/cortezaproject/corteza/commit/e020f7453a6b9c20fdd2c2c1c370ad3de2e857d2"
       ]
+    },
+    {
+      "what": [
+        "record list filter builder for date only and time only filter types which was not working as expected."
+      ],
+      "how": [
+        "by updating the record list filter builder with the correct query entry for time only and date only."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/pull/847/commits/727a7e5115cd4b97d725b469f7d34b43b633892f"
+      ]
+    },
+    {
+      "what": [
+        "the record revision date-time type not showing correctly."
+      ],
+      "how": [
+        "by updating the type section translation on the record revision configurator to display the fields as camel case, which is the case for the date-time on the translation itself."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/pull/863/commits/04f10a5fb167f9eed6c2b68fefffe1c05b0ccfcd"
+      ]
     }
   ]
 }

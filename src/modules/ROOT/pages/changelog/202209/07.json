@@ -1,6 +1,6 @@
 {
   "meta": {
-    "releasedOn": "2023.02.07"
+    "releasedOn": "2023.02.10"
   },
   "added": [
     {
@@ -122,7 +122,7 @@
         "If you had any configuration set for discovery in a module, the module was not saving properly."
       ],
       "how": [
-        "by Migrating discovery settings to support multi-language, and updated module discovery config struct to support multi lang result."
+        "by migrating discovery settings to support multi-language, and updated module discovery config struct to support multi lang result."
       ],
       "refs": [
         "https://github.com/cortezaproject/corteza/commit/724804c493703a2dca897fa9bcc5227d69a117dd",

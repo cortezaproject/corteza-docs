@@ -13,6 +13,17 @@
       "refs": [
         "https://github.com/cortezaproject/corteza/commit/38b6cb35e703377cce14b507be601e176face8a2"
       ]
+    },
+    {
+      "what": [
+        "ability to toggle block border."
+      ],
+      "why": [
+        "to make better distinction between blocks when they are not shown as a cards."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/pull/860/commits/6308bdfebb0b22cc5073de817cf7ba233690f213"
+      ]
     }
   ],
   "changed": [
@@ -103,6 +114,19 @@
       ],
       "refs": [
         "https://github.com/cortezaproject/corteza/commit/cfe7e5072091c144e2fab7a0bd8092e5dc8f262d"
+      ]
+    },
+    {
+      "what": [
+        "saving issue with module discovery settings.",
+        "If you had any configuration set for discovery in a module, the module was not saving properly."
+      ],
+      "how": [
+        "by Migrating discovery settings to support multi-language, and updated module discovery config struct to support multi lang result."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/724804c493703a2dca897fa9bcc5227d69a117dd",
+        "https://github.com/cortezaproject/corteza/commit/e020f7453a6b9c20fdd2c2c1c370ad3de2e857d2"
       ]
     }
   ]

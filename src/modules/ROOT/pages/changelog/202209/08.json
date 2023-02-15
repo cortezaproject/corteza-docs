@@ -1,0 +1,103 @@
+{
+  "meta": {
+    "releasedOn": "2023.03.01"
+  },
+  "added": [
+    {
+      "what": [
+        "configuration option that hides record list filtering."
+      ],
+      "why": [
+        "to enable configurators to hide filtering on record lists."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/8ebd25c4b1596af467578848fe9d4eb295d84c80"
+      ]
+    },
+    {
+      "what": [
+        "the link to the reminder record, it was added in the reminder sidebar list/edit.",
+        "Enabled the ability to un-dismiss reminders.",
+        "Added a date input field to set the date and time of the reminder.",
+        "General UI/UX improvements for reminders."
+      ],
+      "why": [
+        "to make reminders more user friendly and easier to use by having the option to set reminder in more than 24h and to have the option to link a record to a reminder and also to un-dismiss a reminder if needed."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/abc8ad4a5f5ebff0c9b21d9af9dd25cf1e0f2fba",
+        "https://github.com/cortezaproject/corteza/pull/899/commits/91a86acf75d11626fbec716dde1ba2f2305bbd1c",
+        "https://github.com/cortezaproject/corteza/pull/899/commits/5a559d2be90f54db1806110b0231d27e872b530f",
+        "https://github.com/cortezaproject/corteza/pull/885/commits/6e1dca23d00d9d44ca1c7febd06d49b28de94d99",
+        "https://github.com/cortezaproject/corteza/pull/885/commits/86452eed40176a83bbc24f12ebae66c0f3f3a04e",
+        "https://github.com/cortezaproject/corteza/pull/885/commits/178e64dc1ea190e42eed530eaccd791854c057f1"
+      ]
+    }
+  ],
+  "fixed": [
+    {
+      "what": [
+        "multi-value date time filtering using contains and not contains."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/pull/903/commits"
+      ]
+    },
+    {
+      "what": [
+        "select field translations not being shown unless the module is saved."
+      ],
+      "how": [
+        "by configuring the initial state to show select field translations even when the module is not saved."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/1706e5206470f7da9fb61830c730b8aca38d18f5"
+      ]
+    },
+    {
+      "what": [
+        "gauge charts not showing correct results when metrics functions were used."
+      ],
+      "how": [
+        "by setting the dimension field to deletedBy which produces at most one dataset, since the gauge only shows one value."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/pull/883/commits/1866097b4319156d9a3b732ad5d591852868354a"
+      ]
+    },
+    {
+      "what": [
+        "the permissions on system pages showing invalid roles.",
+        "If you selected one or more roles, then dropped your database and re-provisioned it, the previous selection was still active (because it's in local storage), but it was showing deny for all."
+      ],
+      "how": [
+        "by filtering out the invalid role IDs from the local storage."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/pull/886/commits/a19c7741e8d3dfd65e9b2118471d4ec7eecbeeb8"
+      ]
+    },
+    {
+      "what": [
+        "datasources not being saved when pressing the save datasources button in the datasources modal."
+      ],
+      "how": [
+        "by applying the save when the save button is pressed on the datasource modal."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/pull/889/commits/5833e051b0d7d2e744c068385bedb0b058d32b62"
+      ]
+    },
+    {
+      "what": [
+        "the record list filter not working when field name was having hyphen in the field name."
+      ],
+      "how": [
+        "by adding hyphen to allowed list while parsing the query."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/pull/897/commits/cadfd093648e542f6fbb9e399ac1f1f551af49b8"
+      ]
+    }
+  ]
+}

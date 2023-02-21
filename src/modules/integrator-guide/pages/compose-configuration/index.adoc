@@ -630,7 +630,7 @@ image::compose-configuration/page-builder-block-base.png[role="data-zoomable"]
 To reposition the page block, simply drag-and-drop it to the desired position.
 
 The page block may be placed anywhere on the x-axis, but its y-axis must connect with another page block or with the top of the page.
-If the position is not valid, or it overlays with another page block, they page builder may automatically adjust the surrounding page blocks to conform to the constraints.
+If the position is not valid, or it overlays with another page block, the page builder may automatically adjust the surrounding page blocks to conform to the constraints.
 
 image::compose-configuration/page-builder-block-base.png[role="data-zoomable"]
 image::compose-configuration/page-builder-block-repos.png[role="data-zoomable"]
@@ -645,6 +645,77 @@ image::compose-configuration/page-builder-block-resize.png[role="data-zoomable"]
 By placing a few extra blocks and changing their layout, you can create interesting home pages and dashboards like the CRM's.
 
 image::compose-configuration/page-builder-example.png[role="data-zoomable"]
+
+[#copying-list-pages]
+== Copying list pages
+
+The option to save a list page as copy allows us to create a new page that contains the same page blocks as another list page.
+This is very useful because instead of re-adding the same page blocks from another page, they can be copied simply by pressing a button.
+
+[IMPORTANT]
+====
+Only page lists can be copied. Record pages cannot be saved as copies.
+====
+
+To copy the contents of another list page, navigate to the page itself and click on the btn:[Save as copy].
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "compose-configuration/page-save-as-copy-button.png",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {
+    "x": 0,
+    "y": 535,
+    "w": 1920,
+    "h": 555
+  },
+  "focus": {
+    "x": 0,
+    "y": 1000,
+    "w": 1920,
+    "h": 60
+  },
+  "annotations": [{
+    "kind": "box",
+    "x": 1440,
+    "y": 1017,
+    "w": 165,
+    "h": 45
+  }]
+}
+----
+
+A new page with the same contents will be added to the list of pages.
+The structure of the new page's name will be `Copy of <name of the page it was copied from> (<number of copies>)`.
+For example, if the page that was copied from is called `Leads`, then the newly created page will be `Copy of Leads (1)`.
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "compose-configuration/copied-page.png",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {
+    "x": 0,
+    "y": 0,
+    "w": 315,
+    "h": 475
+  },
+  "annotations": [{
+    "kind": "box",
+    "x": 30,
+    "y": 370,
+    "w": 95,
+    "h": 15
+  }]
+}
+----
 
 [#field-expressions]
 == Field expressions

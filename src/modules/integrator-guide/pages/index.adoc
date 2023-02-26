@@ -76,7 +76,7 @@ Refer to xref:discovery/index.adoc[] page to learn how to configure and use {PRO
 
 [IMPORTANT]
 ====
-To enable PDF document rendering, you will need to run the https://thecodingmachine.github.io/gotenberg/[gotenberg] Docker container.
+To enable PDF document rendering, you will need to run the https://github.com/gotenberg/gotenberg[gotenberg] Docker container.
 
 Refer to the xref:devops-guide:pdf-renderer.adoc[DevOps guide] for details on how to set it up.
 ====

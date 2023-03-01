@@ -1,0 +1,42 @@
+include::ROOT:partial$variables.adoc[]
+
+= `2022.9.8`
+
+*Released on*: `2023.03.01`
+
+.[#2022_09_08-added]#<<2022_09_08-added,Added:>>#
+* Added configuration option that hides record list filtering.
+The change was added to enable configurators to hide filtering on record lists
+({CORTEZA_COMMIT_BASE}8ebd25c[`8ebd25c`]).
+
+.[#2022_09_08-changed]#<<2022_09_08-changed,Changed:>>#
+* Changed the link to the reminder record, it was added in the reminder sidebar list/edit.
+Enabled the ability to un-dismiss reminders.
+Added a date input field to set the date and time of the reminder.
+General UI/UX improvements for reminders.
+The change was made to make reminders more user friendly and easier to use by having the option to set reminder in more than 24h and to un-dismiss a reminder if needed.
+({CORTEZA_PULL_BASE}885[`885`]).
+
+.[#2022_09_08-fixed]#<<2022_09_08-fixed,Fixed:>>#
+* Fixed date multi value filtering using contains/not contains.
+The fix was made by adding explicit type casting for date time values to cast into jsonb format while parsing the record filter query
+({CORTEZA_PULL_BASE}903[`903`]).
+* Fixed select field translations not being shown unless the module is saved.
+The fix was made by updating the Select/dropdown configurator with a default initial state of the field options that are already saved
+({CORTEZA_COMMIT_BASE}1706e52[`1706e52`]).
+* Fixed gauge chart metric functions not showing correct results when report produced multiple data frames.
+The fix was made by setting the dimension field to deletedBy which produces at most one dataset, since the gauge only shows one value
+({CORTEZA_PULL_BASE}883[`883`]).
+* Fixed issue of role with invalid ID stored in the local storage from displaying of the permission pages.
+The fix was made by filtering out the invalid role IDs from the local storage
+({CORTEZA_PULL_BASE}886[`886`]).
+* Fixed datasources not being saved when pressing the save datasources button in the datasources modal.
+The fix was made by saving the datasources when the save button is pressed on the datasource modal, instead of saving only when report was saved.
+({CORTEZA_PULL_BASE}889[`889`]).
+* Fixed the record list filter not working when field name included a hyphen in the field name.
+The fix was made by adding '-' (hyphen) to the allowed list of characters in the record list filter(query)
+({CORTEZA_PULL_BASE}897[`897`]).
+
+
+.[#2022_09_08-important]#<<2022_09_08-important,Known bugs:>>#
+* Filtering records using date multi-value fields with a combination of "AND" and "Contains/Not contains" will produce an empty record list.

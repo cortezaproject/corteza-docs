@@ -34,7 +34,7 @@ The changes are tracked by introducing a revision number and providing a complet
 Only changes done from the `2022.9.0` version onwards are tracked.
 The pre-defined records are considered to be the first revision.
 ====
- 
+
 *Permission debugging*
 
 To simplify the access control configuration process for different user roles, we introduced a new *permission debugger*, which allows the administrators to check if the resulting access control equals the expected one.
@@ -45,6 +45,8 @@ The permission debugger is available in all of the permission configuration moda
 * The {PRODUCT_NAME} {APP_NAME_REPORTER}'s `date()` expression function changed to return the entire *date without time* (the previous version returned the day number), and added a new `day()` function to retrieve the day number.
 
 :leveloffset: +1
+
+include::08.gen.adoc[]
 
 include::07.gen.adoc[]
 

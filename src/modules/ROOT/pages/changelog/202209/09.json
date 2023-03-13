@@ -1,0 +1,134 @@
+{
+  "meta": {
+    "releasedOn": "2023.04.05"
+  },
+
+  "added": [
+    {
+      "what": [
+        "pagination on inline record lists when in view mode."
+      ],
+      "why": [
+        "to have consistency and better user experience when using inline record editing."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/e0ae50866eab7f362bc27e676bf052ce4d8b827c"
+      ]
+    }],
+
+  "changed": [
+    {
+      "what": [
+        "record import modal to allow users to map values to record and user fields."
+      ],
+      "why": [
+        "to allow users to map values to record and user fields when importing records."
+      ],
+      "how": [
+        "by removing the code that was preventing the users from mapping values to record and user fields."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/0cf81dc45832831da675b2484d0a41c853807802"
+      ]
+    },
+    {
+      "what": [
+        "workflow triggers to not automatically add constraints after an event type is selected."
+      ],
+      "why": [
+        "to prevent users from getting a console error when fetching workflow triggers without provided constraints."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/7a9802a1c74da0e58c6bf9e3b24767d80ab970e9"
+      ]
+    }
+  ],
+
+  "fixed": [
+    {
+      "what": [
+        "`Cannot read properties of undefined` error when trying to fetch workflow triggers without providing constraints."
+      ],
+      "why": [
+        "to prevent users from getting a console error when fetching workflow triggers without provided constraints."
+      ],
+      "how": [
+        "by adding a check to determine if a constant has a name.",
+        "Also, the automatic addition of constraints after an event type was selected is now removed."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/7a9802a1c74da0e58c6bf9e3b24767d80ab970e9"
+      ]
+    },
+    {
+      "what": [
+        "missing support for the STD aggregation function on MySQL databases.",
+        "The STD function was present in past versions."
+      ],
+      "how": [
+        "by adding an expression handler for the function and only allowing it for MySQL databases."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/3ec7d19fae01ddbc4d8effb733a4650dad912cfe"
+      ]
+    },
+    {
+      "what": [
+        "record lists raising `Could not load record list: can not change module on a record` when interacting with an imported namespace.",
+        "The issue was caused because the import logic didn't define any model constraints."
+      ],
+      "how": [
+        "by making the import logic apply model constraints when defining the model, as well as defining the record revisions model."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/a554e289cb6087e47f6fd76e61dde2bd53312dc4"
+      ]
+    },
+    {
+      "what": [
+        "future/past values not being selectable if DateTime field has future/past only values option applied."
+      ],
+      "how": [
+        "by disabling the future/past only option on record list filter."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/24a31971e85cc279ee7eaddfda1e1d98b2580eaa",
+        "https://github.com/cortezaproject/corteza/commit/ffbaba27e8bc7f09f43117da55b8716693aa187b"
+      ]
+    },
+    {
+      "what": [
+        "{APP_NAME_ADMIN} user view not showing any data when 'Confirm email address' was clicked."
+      ],
+      "how": [
+        "by refetching the user again on {APP_NAME_ADMIN} when the user is confirming the email address."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/e76fb09707239b8e8c7b430e1f829e4adb975894"
+      ]
+    },
+    {
+      "what": [
+        "field kind not being updated in modules after being selected."
+      ],
+      "how": [
+        "by updating the module field kind after it is selected."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/pull/1018/commits/53418299193eb6a4b4610527c7b5ecb399efa85e",
+        "https://github.com/cortezaproject/corteza/pull/1018/commits/de26f561a7f6b24b79136c49a84971ab55b9dac5"
+      ]
+    },
+    {
+      "what": [
+        "users not being able to update their records due to the “Could not update record: failed to complete transaction: Error 1366: Incorrect decimal value: `updated` for column `operation` at row 1” error."
+      ],
+      "how": [
+        "by changing the datatype and also by doing a rearrange of the columns of the record revisions table for consistency."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/b585dfbd4f931badef09384ae06058f6b2d0c65c"
+      ]
+    }
+  ]
+}

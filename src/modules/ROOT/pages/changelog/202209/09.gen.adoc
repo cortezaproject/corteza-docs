@@ -6,37 +6,40 @@ include::ROOT:partial$variables.adoc[]
 
 .[#2022_09_09-added]#<<2022_09_09-added,Added:>>#
 * Added pagination on inline record lists when in view mode.
-The change was added to have consistency and better user experience when users use the inline editing of records
+The change was added to have consistency and better user experience when using inline record editing
 ({CORTEZA_COMMIT_BASE}e0ae508[`e0ae508`]).
 
 .[#2022_09_09-changed]#<<2022_09_09-changed,Changed:>>#
 * Changed record import modal to allow users to map values to record and user fields.
 The change was made to allow users to map values to record and user fields when importing records.
-The change was made by enabling the code that was preventing the users of mapping values to record and user fields
+The change was made by removing the code that was preventing the users from mapping values to record and user fields
 ({CORTEZA_COMMIT_BASE}0cf81dc[`0cf81dc`]).
+* Changed workflow triggers to not automatically add constraints after an event type is selected.
+The change was made to prevent users from getting a console error when fetching workflow triggers without provided constraints
+({CORTEZA_COMMIT_BASE}7a9802a[`7a9802a`]).
 
 .[#2022_09_09-fixed]#<<2022_09_09-fixed,Fixed:>>#
+* Fixed `Cannot read properties of undefined` error when trying to fetch workflow triggers without providing constraints.
+The fix was made by adding a check to determine if a constant has a name
+Also, the automatic addition of constraints after an event type was selected is now removed
+({CORTEZA_COMMIT_BASE}7a9802a[`7a9802a`]).
 * Fixed missing support for the STD aggregation function on MySQL databases.
 The STD function was present in past versions.
 The fix was made by adding an expression handler for the function and only allowing it for MySQL databases
 ({CORTEZA_COMMIT_BASE}3ec7d19[`3ec7d19`]).
-* Fixed record lists raising Could not load record list: can not change module on a record when interacting with an imported namespace.
+* Fixed record lists raising `Could not load record list: can not change module on a record` when interacting with an imported namespace.
 The issue was caused because the import logic didn't define any model constraints.
 The fix was made by making the import logic apply model constraints when defining the model, as well as defining the record revisions model
 ({CORTEZA_COMMIT_BASE}a554e28[`a554e28`]).
-* Fixed error when trying to fetch incorrectly configured workflow triggers in {APP_NAME_ADMIN}.
-The fix was made by adding a check to determine if a constant has a name
-Also, the automatic addition of constraints after an event type was selected is removed
-({CORTEZA_COMMIT_BASE}7a9802a[`7a9802a`]).
 * Fixed future/past values not being selectable if DateTime field has future/past only values option applied.
 The fix was made by disabling the future/past only option on record list filter
 ({CORTEZA_COMMIT_BASE}24a3197[`24a3197`], {CORTEZA_COMMIT_BASE}ffbaba2[`ffbaba2`]).
-* Fixed {APP_NAME_ADMIN} user view not properly updated after 'Confirm email address' was clicked in {APP_NAME_ADMIN}.
-The fix was made by refetching the user on {APP_NAME_ADMIN} user patch
+* Fixed {APP_NAME_ADMIN} user view not showing any data when 'Confirm email address' was clicked.
+The fix was made by refetching the user again on {APP_NAME_ADMIN} when the user is confirming the email address
 ({CORTEZA_COMMIT_BASE}e76fb09[`e76fb09`]).
-* Fixed field kind not updating after being selected.
-The fix was made by updating the field kind after it is selected
+* Fixed field kind not being updated in modules after being selected.
+The fix was made by updating the module field kind after it is selected
 ({CORTEZA_PULL_BASE}1018[`1018`], {CORTEZA_PULL_BASE}1018[`1018`]).
-* Fixed record add or update error when dedicated record revisions table is configured.
-The fix was made by rearranging the order of the rel_resource, revision, and operation columns when custom dedicated record revision table is configured and changed the operation column datatype to text
+* Fixed users not being able to update their records due to the “Could not update record: failed to complete transaction: Error 1366: Incorrect decimal value: `updated` for column `operation` at row 1” error.
+The fix was made by changing the datatype and also by doing a rearrange of the columns of the record revisions table for consistency
 ({CORTEZA_COMMIT_BASE}b585dfb[`b585dfb`]).

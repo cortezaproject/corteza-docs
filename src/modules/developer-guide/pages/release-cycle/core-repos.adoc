@@ -19,10 +19,6 @@ GitHub provides a friendly system for this, so that shouldn't be an issue.
 
 All {PRODUCT_NAME} repositories utilize GitHub workflows and actions to release server binaries, web application bundles, docker images, or other output formats.
 
-== Building infrastructure
-
-All {PRODUCT_NAME} repositories utilize GitHub workflows and actions to release server binaries, web application bundles, docker images, or other output formats.
-
 == Versioning
 
 Bump the version of the NPM packages, following the https://calver.org/[CalVer] standard; for example, `2020.9-rc.1`.

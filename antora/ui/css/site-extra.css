@@ -187,7 +187,7 @@ body.DocSearch--active {
 .page-versions .version-menu-toggle,
 .article,
 .doc .admonitionblock td.content {
-  background-color: #F3F3F5 !important;
+  background-color: #F9FAFB !important;
 }
 
 aside.nav,
@@ -315,7 +315,7 @@ aside.nav,
 }
 
 .toc .toc-menu a {
-  border-left: 2px solid #E4E9EF;
+  border-left: 2px solid #F3F5F7;
 }
 
 .toc .toc-menu a.is-active {

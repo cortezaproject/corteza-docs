@@ -5,7 +5,7 @@
   "added": [
     {
       "what": [
-        "support for casting numbers to float inside workflow expressions via the float function."
+        "support for casting numbers to float inside workflow expressions via the `float function`."
       ],
       "why": [
         "to simplify type casting by using a function instead of an intermediate workflow expression variable."
@@ -42,7 +42,7 @@
   "changed": [
     {
       "what": [
-        "making name property required when creating templates, dal connections, workflows, auth clients and sensitivity levels."
+        "making the name property required when creating templates, dal connections, workflows, auth clients, and sensitivity levels."
       ],
       "why": [
         "because we were able to create a resource without any data entered, and with this change now we have a requirement and you cannot create a resource without data entered."
@@ -62,32 +62,17 @@
         "to remove all places where we used to use chart.js since we transitioned to apache e-charts."
       ],
       "how": [
-        "The chart is now in line with other charts in {PRODUCT_NAME}, the date tooltips are now also correctly displayed."
+        "by replacing chart on admin dashboard with e-charts"
       ],
       "refs": [
         "https://github.com/cortezaproject/corteza/commit/7daafa11e1e72aa5e75ba0a8505a58f09ab02b73"
-      ]
-    },
-    {
-      "what": [
-        "the record organizer now gets filtered based on the key field and key value."
-      ],
-      "why": [
-        "to avoid putting the knowledge on how to set up the pre-filter and make the record organizer work on the user."
-      ],
-      "how": [
-        "by generating a filter based on the key field and value and `AND-ing` it with the pre-filter."
-      ],
-      "refs": [
-        "https://github.com/cortezaproject/corteza/commit/23984995ae0dccc82c12a930e46e6c9353eb9366"
       ]
     }
   ],
   "fixed": [
     {
       "what": [
-        "record organizer did not properly load when used on record pages while using ${recordID} in pre-filter.",
-        "If used on a record page, the values also now get properly prefilled."
+        "record organizer failing to load on a record page"
       ],
       "how": [
         "by properly fetching once the record object becomes available and providing the reference record so values can be prefilled."
@@ -131,8 +116,7 @@
     },
     {
       "what": [
-        "saving issue with module discovery settings.",
-        "If you had any configuration set for discovery in a module, the module was not saving properly."
+        "discovery settings field picker not parsing saved values."
       ],
       "how": [
         "by migrating discovery settings to support multi-language, and updated module discovery config struct to support multi lang result."
@@ -144,7 +128,9 @@
     },
     {
       "what": [
-        "record list filter builder for date only and time only filter types which was not working as expected."
+        "record list filter for date not showing any records if you have date only field, and you set the filter to be equal to the correct day.",
+        "Also, when configuring time only and past values filer, the configuration was only taking the hour in consideration, because even if the minutes were set in the past it was say invalid form as long as the hour was not changed too.",
+        "Fixed the error `Could not load record list: pq: cannot cast type time with time zone to timestamp with time zone` when having time only value and when you tried to filter with a time filter."
       ],
       "how": [
         "by updating the record list filter builder with the correct query entry for time only and date only."
@@ -155,7 +141,7 @@
     },
     {
       "what": [
-        "the record revision date-time type not showing correctly."
+        "the record revision date-time type being shown as kind.datetime.label."
       ],
       "how": [
         "by updating the type section translation on the record revision configurator to display the fields as camel case, which is the case for the date-time on the translation itself."
@@ -166,7 +152,7 @@
     },
     {
       "what": [
-        "workflow export if handle wasn't defined."
+        "exporting a workflow without a handle resulting in having a name json.json"
       ],
       "how": [
         "by falling back to workflow name and sanitizing the file name for any illegal characters before saving it."

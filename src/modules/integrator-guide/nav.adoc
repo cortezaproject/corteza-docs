@@ -41,6 +41,7 @@
 **** xref:accessing-corteza/examples/compose-attachments.adoc[]
 
 ** xref:compose-configuration/index.adoc[]
+*** xref:compose-configuration/page-layouts.adoc[]
 *** xref:compose-configuration/record-revisions.adoc[]
 *** xref:compose-configuration/record-storage.adoc[]
 *** xref:compose-configuration/import-export.adoc[]

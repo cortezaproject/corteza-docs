@@ -5,7 +5,7 @@ include::ROOT:partial$variables.adoc[]
 *Released on*: `2023.02.10`
 
 .[#2022_09_07-added]#<<2022_09_07-added,Added:>>#
-* Added support for casting numbers to float inside workflow expressions via the float function.
+* Added support for casting numbers to float inside workflow expressions via the `float` function.
 The change was added to simplify type casting by using a function instead of an intermediate workflow expression variable
 ({CORTEZA_COMMIT_BASE}38b6cb3[`38b6cb3`]).
 * Added ability to toggle block border.
@@ -16,46 +16,39 @@ The change was added to make some invalid configurations impossible, better over
 ({CORTEZA_COMMIT_BASE}80117c0[`80117c0`], {CORTEZA_COMMIT_BASE}ef7e864[`ef7e864`], {CORTEZA_COMMIT_BASE}9acc109[`9acc109`]).
 
 .[#2022_09_07-changed]#<<2022_09_07-changed,Changed:>>#
-* Changed making name property required when creating templates, dal connections, workflows, auth clients and sensitivity levels.
+* Changed making the name property required when creating templates, dal connections, workflows, auth clients, and sensitivity levels.
 The change was made because we were able to create a resource without any data entered, and with this change now we have a requirement and you cannot create a resource without data entered.
 The change was made by adding validations to prevent creating one of the listed resources without adding a name
 ({CORTEZA_COMMIT_BASE}38a02d5[`38a02d5`]).
 * Changed the usage of chart.js on admin dashboard with e-charts.
 The change was made to remove all places where we used to use chart.js since we transitioned to apache e-charts.
-The change was made The chart is now in line with other charts in {PRODUCT_NAME}, the date tooltips are now also correctly displayed
+The change was made by replacing the chart on admin dashboard with e-charts
 ({CORTEZA_COMMIT_BASE}7daafa1[`7daafa1`]).
-* Changed the record organizer now gets filtered based on the key field and key value.
-The change was made to avoid putting the knowledge on how to set up the pre-filter and make the record organizer work on the user.
-The change was made by generating a filter based on the key field and value and `AND-ing` it with the pre-filter
-({CORTEZA_COMMIT_BASE}2398499[`2398499`]).
 
 .[#2022_09_07-fixed]#<<2022_09_07-fixed,Fixed:>>#
-* Fixed record organizer did not properly load when used on record pages while using ${recordID} in pre-filter.
-If used on a record page, the values also now get properly prefilled.
+* Fixed not being able to use a record organizer on a record page.
 The fix was made by properly fetching once the record object becomes available and providing the reference record so values can be prefilled
 ({CORTEZA_COMMIT_BASE}2398499[`2398499`]).
-* Fixed {PRODUCT_NAME}ID datatype in PostgreSQL database.
+* Fixed PSQL ID column datatype from `BIGINT` to numeric to enable support for {PRODUCT_NAME} ID  uint64 data type.
 The fix was made by changing the datatype for {PRODUCT_NAME}ID in the PostgreSQL database from bigint to numeric
 ({CORTEZA_PULL_BASE}830[`830`]).
 * Fixed authenticated role being overwritten on server restart if the role was being modified.
 The fix was made by adding a check in the provision logic to skip base roles & RBAC rules if they were already provisioned
 ({CORTEZA_COMMIT_BASE}88204f7[`88204f7`]).
-* Fixed integration gateway filter table was not properly refreshed in rare cases.
-The fix was made by adding a spinner to the integration gateway filter table, so that it is properly refreshed when fetched
+* Fixed integration gateway filter table not showing all the available data when fetched.
+The fix was made by adding a processing flag to integration gateway filter table so it properly triggered the refresh when filters change
 ({CORTEZA_COMMIT_BASE}cfe7e50[`cfe7e50`]).
-* Fixed saving issue with module discovery settings.
-If you had any configuration set for discovery in a module, the module was not saving properly.
+* Fixed discovery settings field picker not parsing saved values.
 The fix was made by migrating discovery settings to support multi-language, and updated module discovery config struct to support multi lang result
 ({CORTEZA_COMMIT_BASE}724804c[`724804c`], {CORTEZA_COMMIT_BASE}e020f74[`e020f74`]).
-* Fixed record list filter builder for date only and time only filter types which was not working as expected.
+* Fixed record list filter for date not showing any records if you have date only field, and you set the filter to be equal to the correct day.
+Also, when configuring time only and past values filer, the configuration was only taking the hour in consideration, because even if the minutes were set in the past it was saying invalid form as long as the hour was not changed too.
+Fixed the error `Could not load record list: pq: cannot cast type time with time zone to timestamp with time zone` when having time only value and when you tried to filter with a time filter.
 The fix was made by updating the record list filter builder with the correct query entry for time only and date only
 ({CORTEZA_PULL_BASE}847[`847`]).
-* Fixed the record revision date-time type not showing correctly.
+* Fixed the record revision date-time type being shown as kind.datetime.label.
 The fix was made by updating the type section translation on the record revision configurator to display the fields as camel case, which is the case for the date-time on the translation itself
 ({CORTEZA_PULL_BASE}863[`863`]).
-* Fixed workflow export if handle wasn't defined.
+* Fixed exporting a workflow without a handle resulting in having a name json.json
 The fix was made by falling back to workflow name and sanitizing the file name for any illegal characters before saving it
 ({CORTEZA_COMMIT_BASE}96f8bc5[`96f8bc5`]).
-* Fixed sidebar not displaying in mobile mode on some mobile clients.
-The fix was made by updating the condition to check for widths smaller than 1024 or evaluating the userAgent with a regex to check if it is any of the known mobile clients
-({CORTEZA_COMMIT_BASE}bc32070[`bc32070`]).

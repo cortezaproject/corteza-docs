@@ -83,7 +83,7 @@
     },
     {
       "what": [
-        "PSQL ID column datatype from `int8` to numeric to enable support for {PRODUCT_NAME} ID  uint64 data type."
+        "PSQL ID column datatype from `BIGINT` to numeric to enable support for {PRODUCT_NAME} ID  uint64 data type."
       ],
       "how": [
         "by changing the datatype for {PRODUCT_NAME}ID in the PostgreSQL database from bigint to numeric."
@@ -108,7 +108,7 @@
         "integration gateway filter table not showing all the available data when fetched."
       ],
       "how": [
-        "by adding a processing flag to integration filter table so it properly triggered the refresh when filters were fetched."
+        "by adding a processing flag to integration gateway filter table so it properly triggered the refresh when filters change."
       ],
       "refs": [
         "https://github.com/cortezaproject/corteza/commit/cfe7e5072091c144e2fab7a0bd8092e5dc8f262d"

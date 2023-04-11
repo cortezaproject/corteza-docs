@@ -1,0 +1,47 @@
+include::ROOT:partial$variables.adoc[]
+
+[#2023-3-x]
+= `2023.3`
+
+With {PRODUCT_NAME} `2022.9`, we continue to improve system stability, security, performance, as well as focusing on improving our user interfaces to make {PRODUCT_NAME} more enjoyable to both use and configure.
+
+*Page Layouts*
+
+*Page layouts* enable you to dynamically change the contents based on who is viewing what from where.
+
+You can define an arbitrary number and sequence of page layouts, providing more flexibility to customize the experience of your end-users.
+In addition to changing the layout when the user visits the page, you can also define their relation and allow users to navigate between them.
+
+*Conditional Fields*
+
+*Conditional fields* enable you to dynamically hide bits of information based on the contents of the page.
+This enables you to simplify your user interfaces and hide irrelevant information.
+
+*New Page Blocks*
+
+* *Navigation* page block allows you to define custom navigation inside your {APP_NAME_COMPOSE} applications.
+The navigation can be an addition to the pre-defined one or a complete replacement.
+* *Tabbed* page block allows you to _pack_ multiple page blocks into a single one, _hidden_ behind tabs.
+The tabbed page block enables you to condense user interfaces by _hiding_ common bits of information behind the same page block.
+
+*UI Touchups*
+
+User interfaces were a big focus for the `2023.3` release; improving user experience when configuring and interacting with your application, as well as laying the groundwork for future releases.
+
+.Administration:
+* Redesigned record list page block configuration modal to look nicer and more in line with our style guidelines.
+* Added support to attach icons to pages, enabling you to improve the look of your navigation.
+* Added support for copying, pasting, and cloning pages and page blocks to speedup dashboard designing.
+* Added a simplified way of re-designing authentication screens without the need to fiddle with the source templates.
+The admin webapp now allows you to inject custom CSS as well as change the background image.
+
+.End-User UI Touchups:
+* Added a basic chart drill-down option allowing you to filter record lists based on your interaction with the chart.
+* Added the ability to open records inside modal windows to better suite power users.
+* Added the ability for users open specific page blocks in a modal or as full screen.
+* Added support for users to navigate between records while inspecting a record.
+* Added support to bulk update specific record values.
+
+:leveloffset: +1
+
+:leveloffset: -1

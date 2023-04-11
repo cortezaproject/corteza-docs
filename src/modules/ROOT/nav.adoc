@@ -1,4 +1,5 @@
 * xref:changelog/index.adoc[]
+** xref:changelog/202303/index.adoc[]
 ** xref:changelog/202209/index.adoc[]
 ** xref:changelog/202203/index.adoc[]
 ** xref:changelog/202109/index.adoc[]

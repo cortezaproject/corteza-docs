@@ -186,10 +186,6 @@ corteza-server compose records synthetic rm --namespace crm --module lead
 A *record page* defines how the data is presented to the user when viewing, creating and editing records for that module.
 A record page consists of a series of page blocks that are defined with the <<page-builder,page builder>>.
 
-A record page is tied to the specified module, and to the record it is pointing to.
-
-This allows you to configure the page blocks to react to the currently viewed record for dynamic resource filtering.
-
 [IMPORTANT]
 ====
 In case your module does not define a record page, you are not able to create or update its records through the user interface.
@@ -197,10 +193,65 @@ In case your module does not define a record page, you are not able to create or
 You are still able to view its records, create the records using inline record lists, the API, or an xref:automation/index.adoc[automation].
 ====
 
-The record page can be created directly from the module edit screen by clicking on the btn:[Create record page] button or from the module list screen by clicking on the btn:[Create record page] next to a module.
+A record page is tied to the specified module, and to the record it is pointing to.
+This allows you to configure the page blocks to react to the currently viewed record for dynamic resource filtering.
 
-image:compose-configuration/create-record-page-1.png[width=49%]
-image:compose-configuration/create-record-page-2.png[width=49%]
+[TIP]
+====
+You can utilize xref:compose-configuration/page-layouts.adoc[page layouts] for even more flexibility on how users interact with the data.
+====
+
+The record page can be created directly from the module edit screen by clicking on the btn:[Create record page] button.
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "compose-configuration/create-record-page-1.png",
+    "alias": "record_page_create_module_edit",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {
+    "x": 0,
+    "y": 0,
+    "w": 1920,
+    "h": 1080
+  },
+  "annotations": [{
+    "x": 1462,
+    "y": 98,
+    "w": 193,
+    "h": 42
+  }]
+}
+----
+
+Alternatively, you can create missing record pages from the list of modules by clicking on the btn:[Create record page] button next to a module.
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "compose-configuration/create-record-page-2.png",
+    "alias": "record_page_create_module_list",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {
+    "x": 0,
+    "y": 0,
+    "w": 1920,
+    "h": 1080
+  },
+  "annotations": [{
+    "x": 1398,
+    "y": 372,
+    "w": 173,
+    "h": 31
+  }]
+}
+----
 
 [#config-charts]
 === Creating charts
@@ -242,6 +293,11 @@ They are general purpose and used to provide access to different record pages vi
 
 When configuring a new namespace, you are presented with an onboarding screen.
 From there you click on the btn:[Build Page] button in order to create your first page.
+
+[TIP]
+====
+You can utilize xref:compose-configuration/page-layouts.adoc[page layouts] for even more flexibility on how users interact with the data.
+====
 
 If you wish to add additional pages or you are configuring an already configured namespace, navigate to menu:Admin panel[Pages], and click on the btn:[New Page] button.
 From there you can click on the btn:[Page builder] button to enter the <<page-builder,page builder>>

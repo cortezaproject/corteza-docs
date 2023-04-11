@@ -47,6 +47,9 @@
 **** xref:miscellaneous/benchmark-dedicated.adoc[]
 
 ** xref:upgrade/index.adoc[]
+*** xref:upgrade/202303.adoc[]
+*** xref:upgrade/202209.adoc[]
+*** xref:upgrade/202203.adoc[]
 *** xref:upgrade/202109.adoc[]
 *** xref:upgrade/202103.adoc[]
 *** xref:upgrade/202012.adoc[]

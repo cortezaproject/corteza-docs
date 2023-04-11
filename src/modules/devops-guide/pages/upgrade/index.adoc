@@ -1,7 +1,7 @@
 include::ROOT:partial$variables.adoc[]
 
 = Upgrading {PRODUCT_NAME}
-:page-aliases: 2022.9@upgrade-guide:index.adoc
+:page-aliases: 2023.3@upgrade-guide:index.adoc
 
 This guide helps you upgrade your {PRODUCT_NAME} to the newest version in no time!
 

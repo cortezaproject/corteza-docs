@@ -1,5 +1,5 @@
 = Multi-image MySQL
-:page-aliases: 2022.9@offline-deployment/multi-mysql.adoc, 2022.9@offline-deployment/single-mysql.adoc
+:page-aliases: 2023.3@offline-deployment/multi-mysql.adoc, 2023.3@offline-deployment/single-mysql.adoc
 :page-noindex: true
 
 [NOTE]

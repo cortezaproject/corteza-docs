@@ -2,7 +2,7 @@ include::ROOT:partial$variables.adoc[]
 
 [#federation]
 = {PRODUCT_NAME} {APP_NAME_FEDERATION}
-:page-aliases: 2022.9@administrator-guide:federation/index.adoc
+:page-aliases: 2023.3@administrator-guide:federation/index.adoc
 
 [CAUTION]
 ====

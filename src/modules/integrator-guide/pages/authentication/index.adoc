@@ -1,7 +1,7 @@
 include::ROOT:partial$variables.adoc[]
 
 = Authentication
-:page-aliases: 2022.9@administrator-guide:authentication/index.adoc
+:page-aliases: 2023.3@administrator-guide:authentication/index.adoc
 :keywords: authentication, security, login, configure login
 :description: Learn how to configure the {PRODUCT_NAME} authentication flow
 

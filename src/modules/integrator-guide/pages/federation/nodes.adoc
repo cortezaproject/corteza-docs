@@ -1,7 +1,7 @@
 include::ROOT:partial$variables.adoc[]
 
 = Federated Nodes
-:page-aliases: 2022.9@administrator-guide:federation/nodes.adoc
+:page-aliases: 2023.3@administrator-guide:federation/nodes.adoc
 
 A *federated node* is a *{PRODUCT_NAME} instance* (server) with the {APP_NAME_FEDERATION} feature enabled.
 //Editor's note: what is a federated node? And a node for that matter? It may not be a thing everyone is familiar with.

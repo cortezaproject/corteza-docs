@@ -1,7 +1,7 @@
 include::ROOT:partial$variables.adoc[]
 
 = GitHub
-:page-aliases: 2022.9@administrator-guide:authentication/authentication-providers/github.adoc
+:page-aliases: 2023.3@administrator-guide:authentication/authentication-providers/github.adoc
 :page-noindex: true
 
 .To enable GitHub authentication, you need to retrieve your application credentials:

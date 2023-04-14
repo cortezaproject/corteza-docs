@@ -768,6 +768,153 @@ For example, if the page that was copied from is called `Leads`, then the newly 
 }
 ----
 
+== Configuring Page Icons
+
+Page icons can be set to list or record pages.
+This gives us the ability to further customize a page and easily distinguish it from other pages.
+
+To set the page icon, inside your namespace, navigate to the menu:admin panel[pages], and edit the page you wish to set the icon for.
+Find the page icon section under the page description and click on the btn:[edit] button.
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "compose-configuration/page-edit.png",
+    "alias": "base-set-icon",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {
+    "x": 450,
+    "y": 190,
+    "w": 1400,
+    "h": 600
+  },
+  "annotations": [{
+    "padding": "lg",
+    "x": 600,
+    "y": 400,
+    "w": 470,
+    "h": 60
+  }]
+}
+----
+
+A modal will open with two sub-sections: `Upload icon` and `Or add link to icon`.
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "compose-configuration/page-edit-configure-icon.png",
+    "alias": "page-edit-configure-icon-view-modal",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {},
+  "focus": {
+    "padding": "xs",
+    "x": 570,
+    "y": 40,
+    "w": 780,
+    "h": 330
+  }
+}
+----
+
+[NOTE]
+====
+The currently supported icon format is `.icon`.
+Svg image format isn't supported yet.
+====
+
+In the `Upload icon` sub-section you can drag and drop or click on the button and choose an icon.
+The uploaded icon can be previewed in the list of icons.
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "compose-configuration/page-edit-configure-icon.png",
+    "alias": "page-edit-configure-icon-upload-section",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {},
+  "focus": {
+    "x": 570,
+    "y": 40,
+    "w": 780,
+    "h": 330
+  },
+  "annotations": [{
+    "padding": "lg",
+    "x": 585,
+    "y": 108,
+    "w": 750,
+    "h": 60
+  }]
+}
+----
+
+In the `or add link to icon` sub-section you can add a link to an icon and preview it.
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "compose-configuration/page-edit-configure-icon.png",
+    "alias": "page-edit-configure-icon-add-link",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {},
+  "focus": {
+    "x": 570,
+    "y": 40,
+    "w": 780,
+    "h": 330
+  },
+  "annotations": [{
+    "padding": "lg",
+    "x": 585,
+    "y": 190,
+    "w": 750,
+    "h": 60
+  }]
+}
+----
+
+After uploading an icon, all of the available icons are shown at the bottom of the modal window.
+Select one (if not already selected) and click on the btn:[save] button.
+
+The page icon will be shown in the page edit screen and the sidebar navigation next to the page name.
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "compose-configuration/page-edit-configure-set-icon.png",
+    "alias": "page-edit-configure-set-icon-focus-sidebar-content",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {
+    "x": 0,
+    "y": 0,
+    "w": 750,
+    "h": 700
+  },
+  "annotations": [{
+    "x": 27,
+    "y": 280,
+    "w": 75,
+    "h": 30
+  }]
+}
+----
+
 [#field-expressions]
 == Field expressions
 

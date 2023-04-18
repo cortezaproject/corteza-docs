@@ -150,7 +150,7 @@ include::partial$handle-constraints.adoc[]
 
 |===
 
-[#generate-syhtetic-data]
+[#generate-synthetic-data]
 === Generate synthetic data for a module
 
 {PRODUCT_NAME} provides a tool to generate synthetic data for a module.
@@ -338,6 +338,57 @@ To *create a dropdown menu* (a sub-page or a nested page), drag and drop the pag
 image:compose-configuration/page-tree-base.png[width=49%]
 image:compose-configuration/page-tree-nest.png[width=49%]
 image:compose-configuration/page-tree-nest-view.png[]
+
+To always have sub-pages expanded, enable the checkbox under the `Other options` sub-section.
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "compose-configuration/page-edit-module-cases.png",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {
+    "x": 400,
+    "y": 250,
+    "w": 1400,
+    "h": 560
+  },
+  "annotations": [{
+    "x": 1125,
+    "y": 440,
+    "w": 270,
+    "h": 20
+  }]
+}
+----
+
+After enabling the option, sub-pages will be expanded in the public view of {PRODUCT_NAME}.
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "compose-configuration/public-page-case-expanded-sub-pages.png",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {
+    "x": 0,
+    "y": 0,
+    "w": 315,
+    "h": 475
+  },
+  "annotations": [{
+    "padding": "lg",
+    "x": 35,
+    "y": 330,
+    "w": 83,
+    "h": 5
+  }]
+}
+----
 
 [#module-field]
 == Module fields

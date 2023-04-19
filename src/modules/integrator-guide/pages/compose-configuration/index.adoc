@@ -864,3 +864,84 @@ You can use this to create context-aware validators.
 ----
 length(title) < 5
 ----
+
+== Page Block Magnification
+
+Page blocks have a magnification option that allows the user to inspect the details of the block in distraction-free mode.
+By default, block magnification is disabled.
+When set, blocks that have this configuration will have a zoom-in icon in the top right corner of the block, allowing the user to magnify the block upon clicking on the icon.
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "compose-configuration/magnification-icon.png",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {
+    "x": 0,
+    "y": 0,
+    "w": 1920,
+    "h": 1080
+  },
+  "annotations": [{
+    "kind": "box",
+    "padding": "lg",
+    "x": 1375,
+    "y": 87,
+    "w": 15,
+    "h": 15
+  }]
+}
+----
+
+=== Configuring Page Block Magnification
+
+To display the magnification icon and enable block magnification, navigate to the page builder, choose a block, and go to its general tab.
+There you will find the block magnification options as a select dropdown.
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "compose-configuration/enable-magnification.png",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {
+    "x": 0,
+    "y": 0,
+    "w": 1920,
+    "h": 1080
+  },
+  "annotations": [{
+    "kind": "box",
+    "x": 411,
+    "y": 502,
+    "w": 533,
+    "h": 66
+  }]
+}
+----
+
+Pick any of the two magnification options.
+Now, the magnification icon will be visible and users will be able to zoom in the specific block.
+
+.Page Block Magnification Options:
+[cols="1s,5a"]
+|===
+
+| [#magnification-modal]#<<magnification-modal,Modal>>#
+|
+The block magnification is in the form of a modal.
+
+image:compose-configuration/magnification-modal.png[role="data-zoomable"]
+
+| [#magnification-fullscreen]#<<magnification-fullscreen,Fullscreen>>#
+|
+The block magnification is in the form of a full-width and full-height modal.
+
+image:compose-configuration/magnification-fullscreen.png[role="data-zoomable"]
+
+|===

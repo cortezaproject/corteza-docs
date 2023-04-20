@@ -768,3 +768,210 @@ Defines the maximum zoom level of the map.
 Defines if the map should be prevented from being panned out or zoomed out of the current rectangular area of the map, specified by its longitude and latitude coordinates. This means that the map will only display the area within the bounds of the specified coordinates and prevent the user from panning or zooming out beyond those bounds.
 
 |===
+
+[#page-block-navigation]
+== Navigation
+
+The *navigation page block* allows you to define custom navigation inside your {PRODUCT_NAME} {APP_NAME_COMPOSE} applications applications. The navigation can be an addition to the pre-defined one or a complete replacement.
+
+image:compose-configuration/page-block-reference/config-navigation.png[...,49%,role="preview data-zoomable"]
+image:compose-configuration/page-block-reference/added-navigation.png[...,49%,role="preview data-zoomable"]
+
+.Additional configurations:
+[cols="2s,5a"]
+|===
+| [#page-block-navigation-appearance]#<<page-block-navigation-appearance,Appearance>>#
+|
+Defines the style of the navigation
+
+.Supported appearances:
+* Tabs +
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "compose-configuration/page-block-reference/added-navigation-tabs.png",
+    "alias": "compose-configuration-page-block-reference-added-navigation-tabs",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {
+    "x": 321,
+    "y": 0,
+    "h": 400,
+    "w": 1599
+  },
+  "annotations": []
+}
+----
+
+* Pill +
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "compose-configuration/page-block-reference/added-navigation-pills.png",
+    "alias": "compose-configuration-page-block-reference-added-navigation-pills",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {
+    "x": 321,
+    "y": 0,
+    "h": 400,
+    "w": 1599
+  },
+  "annotations": []
+}
+----
+
+* Small +
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "compose-configuration/page-block-reference/added-navigation-small.png",
+    "alias": "compose-configuration-page-block-reference-added-navigation-small",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {
+    "x": 321,
+    "y": 0,
+    "h": 400,
+    "w": 1599
+  },
+  "annotations": []
+}
+----
+
+| [#page-block-navigation-justify]#<<page-block-navigation-justify,Justify>>#
+|
+Sets equal width for all elements on the navigation
+
+.Options:
+* Justify +
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "compose-configuration/page-block-reference/added-navigation.png",
+    "alias": "compose-configuration-page-block-reference-added-navigation.png",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {
+    "x": 321,
+    "y": 0,
+    "h": 400,
+    "w": 1599
+  },
+  "annotations": []
+}
+----
+
+* None +
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "compose-configuration/page-block-reference/added-navigation-justify-none.png",
+    "alias": "compose-configuration-page-block-reference-added-navigation-justify-none",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {
+    "x": 321,
+    "y": 0,
+    "h": 400,
+    "w": 1599
+  },
+  "annotations": []
+}
+----
+
+
+| [#page-block-navigation-alignment]#<<page-block-navigation-alignment,Alignment>>#
+|
+Defines the text alignment of each navigation item
+
+.Supported alignments:
+* Left +
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "compose-configuration/page-block-reference/added-navigation-left.png",
+    "alias": "compose-configuration-page-block-reference-added-navigation-left",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {
+    "x": 321,
+    "y": 0,
+    "h": 400,
+    "w": 1599
+  },
+  "annotations": []
+}
+----
+
+* Center +
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "compose-configuration/page-block-reference/added-navigation-center.png",
+    "alias": "compose-configuration-page-block-reference-added-navigation-center",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {
+    "x": 321,
+    "y": 0,
+    "h": 400,
+    "w": 1599
+  },
+  "annotations": []
+}
+----
+
+* Right +
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "compose-configuration/page-block-reference/added-navigation-right.png",
+    "alias": "compose-configuration-page-block-reference-added-navigation-right",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {
+    "x": 321,
+    "y": 0,
+    "h": 400,
+    "w": 1599
+  },
+  "annotations": []
+}
+----
+
+| [#page-block-navigation-item-type]#<<page-block-navigation-item-type,Navigation item type>>#
+|
+Defines the functionality of a navigation item
+
+.Supported navigation item types:
+* Text: This type displays a navigation item as just test with no extra functionalities.
+* URL: This type of navigation item has a URL option. When clicked, it will redirect to the corresponding URL.
+* Compose page: This type of navigation item has a Compose page option. When clicked, it will redirect to the corresponding Compose page.
+* Dropdown: This type of navigation item has a dropdown option. When clicked, it will display a dropdown with the corresponding dropdown items.
+
+|===

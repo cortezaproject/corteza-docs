@@ -743,3 +743,28 @@ Defines the report the page bock will use when showing data.
 Defines the display element from the selected report the page block will use when showing data.
 
 |===
+
+[#page-block-geometry]
+== Geometry
+
+The *geometry page block* allows you to show a map with markers, lines and polygons from different geometry values of different record sources.
+
+image:compose-configuration/page-block-reference/config-geometry.png[...,49%,role="preview data-zoomable"]
+image:compose-configuration/page-block-reference/added-geometry.png[...,49%,role="preview data-zoomable"]
+
+.Additional configurations:
+[cols="2s,5a"]
+|===
+| [#page-block-zoom-min]#<<page-block-zoom-min,Zoom min>>#
+|
+Defines the minimum zoom level of the map.
+
+| [#page-block-zoom-max]#<<page-block-zoom-max,Zoom max>>#
+|
+Defines the maximum zoom level of the map.
+
+| [#page-block-zoom-lockbounds]#<<page-block-zoom-lockbounds,Lock bounds>>#
+|
+Defines if the map should be prevented from being panned out or zoomed out of the current rectangular area of the map, specified by its longitude and latitude coordinates. This means that the map will only display the area within the bounds of the specified coordinates and prevent the user from panning or zooming out beyond those bounds.
+
+|===

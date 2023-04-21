@@ -36,7 +36,7 @@ image-push:
 
 # Can be used to compile docs from current (HEAD) version
 dev:
-	docker run -it --rm --volume $(CURDIR):/antora --entrypoint /antora/dev-docker-entryfile.sh antora/antora
+	docker run -it --rm --volume $(CURDIR):/antora --entrypoint /antora/dev-docker-entryfile.sh antora/antora:2.3.4
 
 # Defines the environment required by DocSearch
 dev.search:

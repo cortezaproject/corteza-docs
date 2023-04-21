@@ -44,6 +44,7 @@
 *** xref:compose-configuration/page-layouts.adoc[]
 *** xref:compose-configuration/record-revisions.adoc[]
 *** xref:compose-configuration/record-storage.adoc[]
+*** xref:compose-configuration/record-modal.adoc[]
 *** xref:compose-configuration/import-export.adoc[]
 *** xref:compose-configuration/duplication-detection.adoc[]
 *** xref:compose-configuration/field-types.adoc[]

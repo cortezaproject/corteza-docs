@@ -3,7 +3,7 @@ include::ROOT:partial$variables.adoc[]
 [#2023-3-x]
 = `2023.3`
 
-With {PRODUCT_NAME} `2022.9`, we continue to improve system stability, security, performance, as well as focusing on improving our user interfaces to make {PRODUCT_NAME} more enjoyable to both use and configure.
+With {PRODUCT_NAME} `2023.3`, we continue to improve system stability, security, performance, as well as focusing on improving our user interfaces to make {PRODUCT_NAME} more enjoyable to both use and configure.
 
 *Page Layouts*
 

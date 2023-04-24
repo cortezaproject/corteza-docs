@@ -48,7 +48,8 @@ Basic connection parameters define *what connection* {PRODUCT_NAME} should use w
 [CAUTION]
 ====
 Changing the connection will reset the sensitivity level configuration on the module and fields if the sensitivity level is incompatible with the new connection.
-Refer to xref:compose-configuration/privacy.adoc[privacy settings] to learn more about sensitivity levels.
+// @todo add notes on module-level privacy
+// Refer to xref:compose-configuration/privacy.adoc[privacy settings] to learn more about sensitivity levels.
 ====
 
 [annotation,role="data-zoomable"]

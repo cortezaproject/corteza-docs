@@ -126,8 +126,8 @@ image::compose-configuration/module-create.png[role="data-zoomable"]
 .From the module editor screen you can:
 * Edit the module metadata,
 * edit <<module-fields,module fields>> for the given module,
-* edit xref:compose-configuration/record-storage.adoc[DAL connection parameters] and xref:compose-configuration/privacy.adoc[privacy settings] for the given module,
-* configure xref:compose-configuration/duplicate-detection.adoc[duplicate detection] for the given module,
+* edit xref:compose-configuration/record-storage.adoc[DAL connection parameters] and privacy settings for the given module,
+* configure xref:compose-configuration/duplication-detection.adoc[duplicate detection] for the given module,
 * configure xref:compose-configuration/record-revisions.adoc[record revisions] for the given module,
 * manage permissions for the given module by clicking on the btn:[Permissions] button,
 * manage module field permissions for the given module by clicking on the btn:[Field permissions] button.

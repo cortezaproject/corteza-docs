@@ -975,3 +975,49 @@ Defines the functionality of a navigation item
 * Dropdown: This type of navigation item has a dropdown option. When clicked, it will display a dropdown with the corresponding dropdown items.
 
 |===
+
+[#page-block-tabs]
+== Tabs
+
+The *tabs* page block allows the grouping of different page blocks to declutter and make it easier to navigate a page.
+
+image:compose-configuration/config-tabs.png[...,49%,role="preview data-zoomable"]
+image:compose-configuration/tabs-side.png[...,49%,role="preview data-zoomable"]
+
+.Configurator Options:
+[cols="2s,5a"]
+|===
+| [#page-block-tabs-add]#<<page-block-tabs-add,Add Tab>>#
+|
+Allows you to create a new tab.
+
+[NOTE]
+====
+Adding a page block to the tabbed page block removes it from the main page.
+====
+
+| [#page-block-tabs-title]#<<page-block-tabs-title,Title>>#
+|
+Determines the title of the tab.
+If not set, the title of the page block is used, and if that is not set, a generic name based on the kind of the page block is used.
+
+| [#page-block-tabs-edit]#<<page-block-tabs-edit,Edit>>#
+|
+Allows you to access the page block configurator of a tabbed block.
+
+| [#page-block-tabs-plus]#<<page-block-tabs-plus,Add Block>>#
+|
+Allows you to access the page block configurator of a tabbed block. 
+Allows you to add a new block that is immediately tabbed.
+Access this configuration by clicking on the btn:[+ add] button.
+
+| [#page-block-tabs-delete]#<<page-block-tabs-delete,Delete>>#
+|
+Allows you to delete a tabbed block.
+
+[NOTE]
+====
+When you delete a tabs block, tabbed blocks can be restored to the main page.
+====
+
+|===

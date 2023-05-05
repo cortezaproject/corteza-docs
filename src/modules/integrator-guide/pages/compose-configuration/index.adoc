@@ -1143,3 +1143,100 @@ The block magnification is in the form of a full-width and full-height modal.
 image:compose-configuration/magnification-fullscreen.png[role="data-zoomable"]
 
 |===
+
+
+== Page Block Refresh
+
+Page blocks have a refresh option to automatically renew their data without having to reload the entire page, this is useful for page blocks that display data that changes frequently, such as a list of new leads, an update to a chart, or a list of recent comments.
+
+[NOTE]
+====
+Automation, file, content, nylas, navigation, and geometry blocks do not have the refresh option.
+====
+
+=== Enabling Auto-Refresh
+
+When enabled, page blocks that have this configuration will automatically refresh based on an interval.
+To enable auto-refresh, navigate to the page builder, choose a block that supports refresh, and go to its general tab.
+There you will find the refresh option.
+
+.Page block general tab.
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "compose-configuration/page-block-general.png",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {},
+  "annotations": [
+    {
+      "x": 965,
+      "y": 335,
+      "w": 550,
+      "h": 100,
+      "kind": "box"
+    }
+  ]
+}
+----
+
+You'll want to enter a value expressed in seconds into the input above the *Show refresh button* toggle, click save and close, save the page and you should see the block start to refresh when your interval elapses.
+
+The lowest interval allowed is 5 seconds. 
+To turn auto-refresh off on a block, you need to set its value to 0.
+
+=== Enabling Manual Refresh
+
+To enable manual refresh, navigate to the page builder, choose a block that supports refresh, and go to its general tab.
+There you will find a toggle as highlighted below.
+Switch it on. 
+
+.Page block general tab.
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "compose-configuration/page-block-general.png",
+    "alias": "compose-configuration/page-block-general-manual-refresh",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {},
+  "annotations": [
+    {
+      "x": 965,
+      "y": 443,
+      "w": 195,
+      "h": 20,
+      "kind": "box"
+    }
+  ]
+}
+----
+
+When enabled, page blocks that have this configuration will have a refresh button in the top right corner of the page block,
+allowing the user to manually refresh the page block. 
+
+.Refresh icon on page blocks with manual refresh.
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "compose-configuration/pageblock-refreshicon.png",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {},
+  "annotations": [
+    {
+      "x": 1869,
+      "y": 83,
+      "w": 20,
+      "h": 20,
+      "kind": "box"
+    }
+  ]
+}
+----

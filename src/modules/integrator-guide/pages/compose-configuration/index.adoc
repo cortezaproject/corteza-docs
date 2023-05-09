@@ -697,6 +697,137 @@ By placing a few extra blocks and changing their layout, you can create interest
 
 image::compose-configuration/page-builder-example.png[role="data-zoomable"]
 
+== Page Block Duplication
+
+Page blocks can be duplicated, which makes it a breeze to reuse a page block.
+This saves you the hassle of having to recreate a page block every time you need to reuse one.
+
+=== Copying a page block
+
+A great use case for copying a page block is when you want to use it on a different page in the same namespace or even a different namespace!
+
+For copying, all you have to do is navigate to the page that holds the page block you are interested in, click the button highlighted below and the page block will be copied to your clipboard.
+In the image below, the title of the pages have been highlighted to indicate that they are different pages.
+
+.Copying a page block
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "compose-configuration/page-block-copy.png",
+    "w": 1920,
+    "h": 1080
+  },
+  "annotations": [
+    {
+      "x": 278,
+      "y": 19,
+      "w": 355,
+      "h": 31,
+      "kind": "box"
+    },
+    {
+      "x": 115,
+      "y": 373,
+      "w": 15,
+      "h": 16,
+      "kind": "box"
+    }
+  ]
+}
+----
+
+You can then navigate to any other page to reuse this page block as many times as you want by pasting it with kbd:[Ctrl+V] just as you would any other content on your clipboard.
+
+.Pasting a page block
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "compose-configuration/page-block-paste.png",
+    "w": 1920,
+    "h": 1080
+  },
+  "annotations": [
+    {
+      "x": 276,
+      "y": 10,
+      "w": 380,
+      "h": 50,
+      "kind": "box"
+    }
+  ]
+}
+----
+
+=== Cloning a page block
+
+Cloning a page block is similar to copying, but instead of copying the page block to your clipboard, it will be cloned on the same page.
+For example, if for any reason you would like to have a duplicate of a page block on a page, you can do that in the toolbar of the page block by clicking its clone button.
+
+Below, we have a page with a single block, and we want to clone it.
+All we have to do is click the clone button highlighted below. 
+
+.Cloning a page block
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "compose-configuration/page-block-dup.png",
+    "w": 1920,
+    "h": 1080
+  },
+  "annotations": [
+    {
+      "x": 278,
+      "y": 19,
+      "w": 355,
+      "h": 31,
+      "kind": "box"
+    },
+
+    {
+      "x": 72,
+      "y": 372,
+      "w": 20,
+      "h": 20,
+      "kind": "box"
+    }
+  ]
+}
+----
+
+After cloning the block, here is what the page now looks like with the cloned block.
+
+.Page with a cloned page block
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "compose-configuration/page-block-clone.png",
+    "w": 1920,
+    "h": 1080
+  },
+  "annotations": [
+    {
+      "x": 278,
+      "y": 19,
+      "w": 355,
+      "h": 31,
+      "kind": "box"
+    },
+    {
+      "x": 14,
+      "y": 410,
+      "w": 778,
+      "h": 137,
+      "padding": "lg",
+      "kind": "box"
+    }
+  ]
+}
+----
+
 [#copying-list-pages]
 == Copying list pages
 

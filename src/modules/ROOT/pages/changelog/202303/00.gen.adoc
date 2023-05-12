@@ -1,0 +1,196 @@
+include::ROOT:partial$variables.adoc[]
+
+= `2023.3.0`
+
+*Released on*: `2023.04.20`
+
+.[#2023_03_00-added]#<<2023_03_00-added,Added:>>#
+* Added support for page duplication in edit mode and page builder view.
+The change was added because this speeds up the development process of the project and allows users to copy/share content from one page to another
+({WEBAPP_COMPOSE_COMMIT_BASE}450[`450`], {LOCALE_COMMIT_BASE}47e06eb[`47e06eb`]).
+* Added support for personalized auth screen.
+The change was added to simplify styles of the auth pages without the need to alter the source templates
+Uploading the image will update the Auth background image, and the styles will supplement Auth screen's styles
+({_COMMIT_BASE}446[`446`]).
+* Added support for opening a record in a new tab or in a modal.
+The change was added to make editing of the records a bit more intuitive, since the user will remain on the record list page while doing the changes
+({_COMMIT_BASE}524[`524`], {_COMMIT_BASE}524[`524`]).
+* Added support for cloning and coping page blocks in page builders.
+The change was added to allow users to duplicate and re-use page blocks more easily
+({_COMMIT_BASE}582[`582`]).
+* Added support for viewing and undeleting a deleted single or multiple records in a record list.
+The change was added to allow users to view and restore deleted records
+({_COMMIT_BASE}740[`740`]).
+* Added support for a fully customizable navigation page block with multiple navigation item type and customizable options for the navigation list items.
+The change was added to have the ability to show one or two level of dynamic and static navigation
+({_COMMIT_BASE}41f1283[`41f1283`]).
+* Added support for conditional fields.
+The change was added to give users more control on how records are displayed
+({_COMMIT_BASE}770[`770`]).
+* Added support for navigating to the next or previous record when inside a record page for easier and faster toggling between the records.
+The change was added to allow users go over all their leads one by one without leaving the record page
+({_COMMIT_BASE}836[`836`]).
+* Added support for bulk record updates.
+The change was added to allow the users to update multiple records in a record list
+({_COMMIT_BASE}906[`906`], {_COMMIT_BASE}906[`906`], {_COMMIT_BASE}906[`906`], {_COMMIT_BASE}906[`906`], {_COMMIT_BASE}906[`906`]).
+* Added support for a new page block in {APP_NAME_COMPOSE} called tabs block where each tab is a different block.
+The change was added to make page block organizing much easier for users
+({_COMMIT_BASE}670[`670`], {_COMMIT_BASE}670[`670`]).
+* Added support for administrators to pre-define record list filters which can be applied to their record list if they are part of a specific role.
+The filters are grouped by roles, allowing more flexibility as to who sees what.
+The change was added to allow users to quickly apply filter to the record list
+({_COMMIT_BASE}921[`921`], {_COMMIT_BASE}921[`921`], {_COMMIT_BASE}921[`921`]).
+* Added support for geo location capture and ability to set or prefill current location while on a map.
+The change was added to improve the user experience and the location accuracy of the users
+Now instead of manually entering their coordinates, they can just use the `find me` button and the coordinates will be updated
+({_COMMIT_BASE}955[`955`], {_COMMIT_BASE}955[`955`], {_COMMIT_BASE}955[`955`], {_COMMIT_BASE}955[`955`]).
+* Added support for uploading an icon for specific page for the sidebar.
+The change was added to allow the user to further customize a page
+({_COMMIT_BASE}72d4471[`72d4471`]).
+* Added support for geo address search functionality on the geometry module field editor/viewer.
+The change was added to give users access to address search functionality when on the geometry module field editor/viewer
+({_COMMIT_BASE}968[`968`], {_COMMIT_BASE}968[`968`], {_COMMIT_BASE}968[`968`], {_COMMIT_BASE}968[`968`]).
+* Added support to open record selector fields in a modal.
+The change was added to make viewing of records a bit more intuitive, since the user will remain on the record list page while opening a record selector pointing to another module
+({_COMMIT_BASE}997[`997`]).
+* Added support to reference a record from a record selector field pointing out to another module.
+The change was added to give the user an ability to view the referenced record selector on the initial record page
+({_COMMIT_BASE}d5cb466[`d5cb466`]).
+* Added support for opening a calendar event source in a modal, new tab or in the same tab according to the user configuration.
+The change was added to allow the user to open the event source records without going away from the calendar block
+({_COMMIT_BASE}1104[`1104`]).
+* Added support for radar and scatter type charts.
+The change was added to give users more options when displaying data with charts
+({_COMMIT_BASE}1148[`1148`], {_COMMIT_BASE}1148[`1148`], {_COMMIT_BASE}1148[`1148`]).
+* Added support for uploading ico files in record lists and file page blocks
+({_COMMIT_BASE}1072[`1072`]).
+* Added the ability for users to disable the navigation sidebar within {APP_NAME_COMPOSE} namespace public pages.
+The option is available under the `hide sidebar on namespace public pages` checkbox in the namespace edit screen.
+The change was added because we wanted to provide the option of disabling built-in navigation in favour of re-defining it with the new navigation page block
+({_COMMIT_BASE}41ed9ed[`41ed9ed`]).
+* Added auto-refreshing and manual refreshing feature to page blocks excluding, Content, Record and File Blocks.
+An icon now appears on blocks when you enable the refresh feature.
+That icon is clickable even though refresh will happen automatically based on the duration you have set.
+The change was added because users do not have to refresh the entire page to see new content on blocks and to give users more control over refreshing when auto-refreshing is not needed
+({JS_COMMIT_BASE}73[`73`], {_COMMIT_BASE}760[`760`]).
+* Added geometry page block to render a map with data points collected from record sources.
+The geometry page block can show either points, lines or polygons based on the configured record feed sources.
+The change was added to enable the users with better visual representation of their data
+({_COMMIT_BASE}538[`538`]).
+* Added new style configuration for the file page block and file record field.
+Users can now change the height, width, borders, margins and the background color of their file attachment.
+The change was added to provide users with more customization and styling option on viewing images
+({_COMMIT_BASE}533[`533`]).
+* Added an option to magnify certain page blocks when viewing a public {APP_NAME_COMPOSE} page.
+A select dropdown has been added in the general tab of page block configuration modal for calendar, chart, content, comments, file, iframe, record list, report, and record revisions page blocks.
+The user can select between Fullwidth or Modal select option, and when enabled, the user will see a magnify icon at the top of the block.
+The change was added to help users finding the info they are looking for much faster and easier with the option to magnify certain page blocks
+({_COMMIT_BASE}576[`576`]).
+* Added a spinner to indicate when an action in template editor is submitted.
+The change was added to have an UI consistency, because it was difficult to tell when your changes were being submitted
+({_COMMIT_BASE}708[`708`]).
+* Added a module field description when configuring a record list page block to inform the users that if no fields are selected, the default values will be shown
+({_COMMIT_BASE}751[`751`]).
+* Added ability to serve data as response in an integration gateway route by adding a route description field.
+The change was added to give an endpoint response greater extensibility to integration gateway as different data can be returned
+({_COMMIT_BASE}775[`775`], {_COMMIT_BASE}775[`775`], {_COMMIT_BASE}775[`775`], {_COMMIT_BASE}775[`775`], {_COMMIT_BASE}775[`775`]).
+* Added Route description field, Filters sorting, Profiler hits purging and Integration gateway settings
+({_COMMIT_BASE}775[`775`], {_COMMIT_BASE}775[`775`]).
+* Added `BETWEEN` and `NOT BETWEEN` operator support for single value fields (number and date-time module fields).
+The change was added to extend record filtering support for range filtering of numeric and date-time for single value field
+({_COMMIT_BASE}813[`813`]).
+* Added ability to drill down charts, by clicking on a data entry inside the chart.
+Based on the configuration it can either filter an existing record list on the page that is showing the records from the same module as the chart or open a new record list in a modal.
+The change was added to make it easier for users to filter record lists based on chart data, in order to view the details of said data
+({_COMMIT_BASE}877[`877`]).
+* Added functionality to generate user avatars and enable users to upload and manage their profile photos.
+The change was added to provide users with greater flexibility and customization options for their profile avatars, while also allowing admins to manage avatars on behalf of users
+({_COMMIT_BASE}887[`887`]).
+* Added drag-and-drop expression sorting in workflows expression step.
+The change was added to allow the user the ability to sort the existing expressions for a more intuitive and faster workflow implementation
+({_COMMIT_BASE}1081[`1081`]).
+* Added `Auto` grouping and timeline to radar and scatter type charts.
+The change was added to give users more options when displaying data with charts
+({_COMMIT_BASE}1148[`1148`]).
+* Added extended record duplicate detection configuration to support multi value matching criteria and value checking algorithms.
+The change was added to extend support for record duplicate detection with multiple fields in single rule with various detection algorithm and muli-value matching criteria
+({_COMMIT_BASE}617[`617`], {_COMMIT_BASE}617[`617`]).
+* Added new file configurator option to preview image in modal and option to download.
+Images on the file base are centered now by default.
+The change was added to center the images on the filebase for better user experience
+({_COMMIT_BASE}937[`937`], {_COMMIT_BASE}937[`937`]).
+
+.[#2023_03_00-changed]#<<2023_03_00-changed,Changed:>>#
+* Changed the requirement to provide a handle when creating a resource is now optional.
+The change is applied in {APP_NAME_COMPOSE}, {APP_NAME_ADMIN}, {APP_NAME_REPORTER}, and {APP_NAME_WORKFLOW}
+The change was made because providing a handle shouldn't be a necessity.
+The resource can be created without it.
+The change was made by removing the requirement for the handle to be provided
+({WEBAPP_COMPOSE_COMMIT_BASE}cd86e85[`cd86e85`], {WEBAPP_REPORTER_COMMIT_BASE}cf21c47[`cf21c47`], {WEBAPP_ADMIN_COMMIT_BASE}456c896[`456c896`], {WEBAPP_WORKFLOW_COMMIT_BASE}9b88af0[`9b88af0`], {LOCALE_COMMIT_BASE}24b0dda[`24b0dda`], {VUE_COMMIT_BASE}34f261a[`34f261a`], {JS_COMMIT_BASE}3a90a10[`3a90a10`]).
+* Changed the record revision table text to be saying `No record revisions found` when no revisions are present.
+The change was made to have a better user experience when there are no record revisions present.
+The change was made by adding an empty table with `No record revisions found` message in the record page builder
+({_COMMIT_BASE}758[`758`]).
+* Changed the Record ID field in module connection settings being able to be disabled.
+The change was made to prevent users from disabling Record ID field on system field mapping and to not show system fields that are not available.
+Also to allow users to easily enable or disable system fields based on their configuration.
+The change was made by updating system view configurator and system field mapping logic to prevent Record ID from being disabled
+({_COMMIT_BASE}523[`523`]).
+* Changed the name of a page when was copied multiply times was changed to show the copy and after that the name of the page and a counter in brackets.
+The change was made to improve user experience.
+If we copy a page 3-4 or more times, the naming gets confusing and too long.
+The change was made by filtering how many times a certain page with same name already exists and including 'copy of' prefix and number suffix
+Depending on the number of pages that match the same name, a counter is adjusted
+({_COMMIT_BASE}644[`644`]).
+* Changed workflow iterators to treat limit 0 parameter as no limit set.
+The change was made to make workflow iterators consistent with other searching/filtering interactions.
+The change was made by changing the limit in the code
+({_COMMIT_BASE}cc24e62[`cc24e62`]).
+* Changed the geometry multivalue map opening the default map location regardless which record location you press.
+Now the opened map changes according to the record's geo location.
+The change was made to prevent a confusion when different markers in multivalue fields were being opened on the map.
+This change aims to improve ux and usability of the geometry field.
+The change was made Leaflet map instance and zoom level was updated
+({_COMMIT_BASE}940[`940`]).
+* Changed the rotate and metric label field configuration for pie and doughnut charts by hiding the configuration since it was not needed.
+The change was made to have consistency since they were shown but not needed.
+Now they are hidden since we don't need them.
+The change was made updating the chart configurations to adjust existing rotate logic for the above-mentioned charts
+({_COMMIT_BASE}992[`992`]).
+* Changed the output format to become hidden if output relative value is selected in date field.
+The change was made to prevent confusion since when you have relative value, the output format is not taken into account.
+The change was made by updating the date and time configuration
+({_COMMIT_BASE}1019[`1019`]).
+* Changed the record toolbar back button to always bring you back to the page where you came from.
+The change was made to prevent users getting stuck in a loop and to allow them to go back to the previous page that they were onto
+({_COMMIT_BASE}1155[`1155`]).
+* Changed general ui/ux improvements:
+* A configuration option on charts to disable or enable animation in order to allow users more control over chart configuration options
+* The warning message for unsaved changes before navigating to another page in order to prevent losing unsaved changes by unintentionally navigating to another page
+* Support for inline editing in record lists in order to allow user to easily edit a record by just hovering on the field and pressing on the edit button
+* Option to allow duplicate values for single and multi value user, record and select fields, so that users can have more control over their selections and whether they will be allowing duplicate values or not
+* Support for managing namespace button on compose sidebar in order to allow the users the ability to go in namespace settings directly from the compose sidebar
+* The color of the button for confirming the action to accept a privacy request in order to match the same color pattern as the colors when confirming/denying the action to reject a privacy request
+* Long page titles being cut off
+* The location of the attachment modal in order to enable previewing of attachments in private pages
+* The overlapping between zoom button on the geometry page block with the page block edit group buttons so that the page block edit group button is clickable on geometry page blocks
+* Uninformative internal error error message on the user profile change password interface so that users can understand better of what and why the error was caused
+* The usage of chartjs on admin dashboard with e-charts so that all places where we used to use chartjs since we transitioned to apache e-charts can be removed
+* The description of handle/namespace slug so that we can have consistency across our system and to be more user friendly
+* The `NaN items` with `0 items` when no resources are present so that we can have consistency, since on every other place when there are no items, we display them as zero
+({_COMMIT_BASE}806[`806`], {_COMMIT_BASE}780[`780`], {_COMMIT_BASE}956[`956`], {_COMMIT_BASE}1136[`1136`], {_COMMIT_BASE}1129[`1129`], {_COMMIT_BASE}8379518[`8379518`], {_COMMIT_BASE}1069[`1069`], {_COMMIT_BASE}6ade044[`6ade044`], {_COMMIT_BASE}821[`821`], {_COMMIT_BASE}73a29b6[`73a29b6`], {_COMMIT_BASE}390a14e[`390a14e`], {_COMMIT_BASE}993[`993`], {_COMMIT_BASE}999[`999`]).
+
+.[#2023_03_00-fixed]#<<2023_03_00-fixed,Fixed:>>#
+* Fixed discovery not displaying any search result when namespace with module filters was selected.
+The fix was made by adding minimum string match criteria to match exact string match for search results
+({_COMMIT_BASE}e2c374c[`e2c374c`]).
+* Fixed {APP_NAME_COMPOSE} Gauge chart not displaying the correct results when post processing function was used because the post processing function was not taken into consideration.
+The fix was made by adding a post processing method to Gauge Chart {APP_NAME_COMPOSE} type
+({_COMMIT_BASE}865[`865`]).
+* Fixed the integration gateway route search filtering in administration area not returning any result if the whole name was not entered.
+The fix was made by fixing the way filtering works on integration routes search
+({SERVER_COMMIT_BASE}e551b73[`e551b73`]).
+* Fixed the deleted status on application programming interface gateway route update getting preserved.
+Previously if you edited a deleted route, the route got restored, now this is improved.
+The fix was made by changing the part of application programming interface gateway service that handles route updates
+({_COMMIT_BASE}16257e9[`16257e9`]).

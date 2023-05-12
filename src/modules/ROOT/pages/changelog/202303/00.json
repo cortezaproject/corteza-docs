@@ -1,0 +1,655 @@
+{
+  "meta": {
+    "releasedOn": "2023.04.20"
+  },
+
+  "important": [
+    {
+      "what": [
+      "Namespace import/export has some edge cases which prevent it from being exported.",
+      "Namely, when you reference a deleted module from a page and try to export the namespace."
+      ]
+    }
+  ],
+
+  "added": [
+    {
+      "what": [
+        "support for page duplication in edit mode and page builder view."
+      ],
+      "why": [
+        "because this speeds up the development process of the project and allows users to copy/share content from one page to another."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza-webapp-compose/pull/450/commits/9ea064c57552bb3c173302d6a4111e3889f92115",
+        "https://github.com/cortezaproject/corteza-locale/commit/47e06ebb251d87f3ff058e3a42dc7b26ef425ad5"
+      ]
+    },
+    {
+      "what": [
+        "support for personalized auth screen."
+      ],
+      "why": [
+        "to simplify styles of the auth pages without the need to alter the source templates.",
+        "Uploading the image will update the Auth background image, and the styles will supplement Auth screen's styles."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/pull/446/commits/86d348700ad53aa9272d40bff97d0fdba03ee76e"
+      ]
+    },
+    {
+      "what": [
+        "support for opening a record in a new tab or in a modal."
+      ],
+      "why": [
+        "to make editing of the records a bit more intuitive, since the user will remain on the record list page while doing the changes."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/pull/524/commits/2647e3b8d72afa31e79457f3cd985ae0b7fa31fc",
+        "https://github.com/cortezaproject/corteza/pull/524/commits/950d305a5a8fb79ee84599989a399af7d028f599"
+      ]
+    },
+    {
+      "what": [
+        "support for cloning and coping page blocks in page builders."
+      ],
+      "why": [
+        "to allow users to duplicate and re-use page blocks more easily."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/pull/582/commits/7f377109d0b46ade1b04857569622829f917321b"
+      ]
+    },
+    {
+      "what": [
+        "support for viewing and undeleting a deleted single or multiple records in a record list."
+      ],
+      "why": [
+        "to allow users to view and restore deleted records."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/pull/740/commits/101c1c7e3026285052c9a731684c2cb278047144"
+      ]
+    },
+    {
+      "what": [
+        "support for a fully customizable navigation page block with multiple navigation item type and customizable options for the navigation list items."
+      ],
+      "why": [
+        "to have the ability to show one or two level of dynamic and static navigation."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/41f1283e9d393393c651b8ac5a28cae09733f1fd"
+      ]
+    },
+    {
+      "what": [
+        "support for conditional fields."
+      ],
+      "why": [
+        "to give users more control on how records are displayed."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/pull/770/commits/1d286aff83f012e33cabc3456ffa175f7c105eb7"
+      ]
+    },
+    {
+      "what": [
+        "support for navigating to the next or previous record when inside a record page for easier and faster toggling between the records."       
+      ],
+      "why": [
+        "to allow users go over all their leads one by one without leaving the record page."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/pull/836/commits/ce79e8233d40894657c00e806fa50589c2724c92"
+      ]
+    },
+    {
+      "what": [
+        "support for bulk record updates."
+      ],
+      "why": [
+        "to allow the users to update multiple records in a record list."
+      ],
+      "how": [
+        "by selecting the records they want to update and opening the bulk record modal by clicking on the edit button.",
+        "Further on, the field that needs updating can be selected and we can give it a new value and it will be saved across all the concerned records, thus bulk updating them."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/pull/906/commits/97a9cd877ab11917dac9f031db36cbd8f4d215b3",
+        "https://github.com/cortezaproject/corteza/pull/906/commits/717e95b22efefc329198dd4689b0321273813cf8",
+        "https://github.com/cortezaproject/corteza/pull/906/commits/f8a3da0bdf40e010fde9902cc2954a6d5973b75d",
+        "https://github.com/cortezaproject/corteza/pull/906/commits/656bea5636f690cdf2697349695011734f24bf49",
+        "https://github.com/cortezaproject/corteza/pull/906/commits/508e8bab92d6eb2ca6fce17c807d4a33d79ae9ad"
+      ]
+    },
+    {
+      "what": [
+        "support for a new page block in {APP_NAME_COMPOSE} called tabs block where each tab is a different block."
+      ],
+      "why": [
+        "to make page block organizing much easier for users."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/pull/670/commits/c6f88e2679efe78e5319665ea754c19d7b2ed138",
+        "https://github.com/cortezaproject/corteza/pull/670/commits/a4308e8d88cdda2f13e3f19231b7815d6812d79e"
+      ]
+    },
+    {
+      "what": [
+        "support for administrators to pre-define record list filters which can be applied to their record list if they are part of a specific role.",
+        "The filters are grouped by roles, allowing more flexibility as to who sees what."
+      ],
+      "why": [
+        "to allow users to quickly apply filter to the record list."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/pull/921/commits/63f1647f7ba545f4811b6d20a960d14c095aa52b",
+        "https://github.com/cortezaproject/corteza/pull/921/commits/1815e1daa8a4d52bf57d4bb1ebdbdbdbc1587344",
+        "https://github.com/cortezaproject/corteza/pull/921/commits/24cbb818b7e944578692ca59e9d61f1f6e711c10"
+      ]
+    },
+    {
+      "what": [
+        "support for geo location capture and ability to set or prefill current location while on a map."
+      ],
+      "why": [
+        "to improve the user experience and the location accuracy of the users.",
+        "Now instead of manually entering their coordinates, they can just use the `find me` button and the coordinates will be updated."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/pull/955/commits/1628845eccbbcaf8f939efdd1241e7dd147da8b4",
+        "https://github.com/cortezaproject/corteza/pull/955/commits/de0f2ef3d103256a0ddff0fe03acd892e4ebce2f",
+        "https://github.com/cortezaproject/corteza/pull/955/commits/6a01e35f06b848867a14b35b6e7649c0e358ba06",
+        "https://github.com/cortezaproject/corteza/pull/955/commits/2e45899fad36d9495f8ff8625eb4929230e53604"
+      ]
+    },
+    {
+      "what": [
+        "support for uploading an icon for specific page for the sidebar."
+      ],
+      "why": [
+        "to allow the user to further customize a page."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/72d44713f26cd4d6cfc10a0b4a35abf00ea9394e"
+      ]
+    },
+    {
+      "what": [
+        "support for geo address search functionality on the geometry module field editor/viewer."
+      ],
+      "why": [
+        "to give users access to address search functionality when on the geometry module field editor/viewer."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/pull/968/commits/c72c2b9073e7d86e66cc8424698f21949ac17b5b",
+        "https://github.com/cortezaproject/corteza/pull/968/commits/248cef2b75365e4b4d7068e12fe8460889ab934c",
+        "https://github.com/cortezaproject/corteza/pull/968/commits/2e5735bd1c576413a3889d1824e06286b21a3647",
+        "https://github.com/cortezaproject/corteza/pull/968/commits/986202b497de76f5afcb96c052e053ea724593a7"
+      ]
+    },
+    {
+      "what": [
+        "support to open record selector fields in a modal."
+      ],
+      "why": [
+        "to make viewing of records a bit more intuitive, since the user will remain on the record list page while opening a record selector pointing to another module."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/pull/997/commits/041ed6be9b7b0fa6a60aba778027dd3fb2bc742a"
+      ]
+    },
+    {
+      "what": [
+        "support to reference a record from a record selector field pointing out to another module."
+      ],
+      "why": [
+        "to give the user an ability to view the referenced record selector on the initial record page."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/d5cb4660a7152651697804e2518a06ab047ab796"
+      ]
+    },
+    {
+      "what": [
+        "support for opening a calendar event source in a modal, new tab or in the same tab according to the user configuration."
+      ],
+      "why": [
+        "to allow the user to open the event source records without going away from the calendar block."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/pull/1104/commits/4e49034f5e52aae797295c25582e13716dbc8b8e"
+      ]
+    },
+    {
+      "what": [
+        "support for radar and scatter type charts."
+      ],
+      "why": [
+        "to give users more options when displaying data with charts."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/pull/1148/commits/df6eaace7f1038f035564d7ff91d52ce4f7480b5",
+        "https://github.com/cortezaproject/corteza/pull/1148/commits/68f570073a1f3844f65f3fe2c89be2efb582fd94",
+        "https://github.com/cortezaproject/corteza/pull/1148/commits/aa5027811fe239550e702e88f7764f909b53e1bd"
+      ]
+    },
+    {
+      "what": [
+        "support for uploading .ico files in record lists and file page blocks."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/pull/1072/commits/ffd49d378375488706a4920e6ea164a8586d905d"
+      ]
+    },
+    {
+      "what": [
+        "the ability for users to disable the navigation sidebar within {APP_NAME_COMPOSE} namespace public pages.",
+        "The option is available under the `hide sidebar on namespace public pages` checkbox in the namespace edit screen."
+      ],
+      "why": [
+        "because we wanted to provide the option of disabling built-in navigation in favour of re-defining it with the new navigation page block."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/41ed9ed6ba8ab474cca7a512f04601ebf0ee4ecd"
+      ]
+    },
+    {
+      "what": [
+        "auto-refreshing and manual refreshing feature to page blocks excluding, Content, Record and File Blocks.",
+        "An icon now appears on blocks when you enable the refresh feature.",
+        "That icon is clickable even though refresh will happen automatically based on the duration you have set."
+      ],
+      "why": [
+        "because users do not have to refresh the entire page to see new content on blocks and to give users more control over refreshing when auto-refreshing is not needed."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza-js/pull/73/commits/1a77d99e54697f1bbe29622688996dc05a8c06c4",
+        "https://github.com/cortezaproject/corteza/pull/760/commits/954419bac6c3d19e3c5c46adf93d908528ad18df"
+      ]
+    },
+    {
+      "what": [
+        "geometry page block to render a map with data points collected from record sources.",
+        "The geometry page block can show either points, lines or polygons based on the configured record feed sources."
+      ],
+      "why": [
+        "to enable the users with better visual representation of their data."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/pull/538/commits/82249fa67ea5d31656001d9f358d6e6abf5539a2" 
+      ]
+    },
+    {
+      "what": [
+        "new style configuration for the file page block and file record field.",
+        "Users can now change the height, width, borders, margins and the background color of their file attachment."
+      ],
+      "why": [
+        "to provide users with more customization and styling option on viewing images."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/pull/533/commits/ccd90d74d4945e96d21281c68bfe9f18bc394844"
+      ]
+    },
+    {
+      "what": [
+        "an option to magnify certain page blocks when viewing a public {APP_NAME_COMPOSE} page.",
+        "A select dropdown has been added in the general tab of page block configuration modal for calendar, chart, content, comments, file, iframe, record list, report, and record revisions page blocks.",
+        "The user can select between Fullwidth or Modal select option, and when enabled, the user will see a magnify icon at the top of the block."
+      ],
+      "why": [
+        "to help users finding the info they are looking for much faster and easier with the option to magnify certain page blocks."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/pull/576/commits/1a836ddf2c0c9e5892b791ba201032d5d8a37365"
+      ]
+    },
+    {
+      "what": [
+        "a spinner to indicate when an action in template editor is submitted."
+      ],
+      "why": [
+        "to have an UI consistency, because it was difficult to tell when your changes were being submitted."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/pull/708/commits/7a4a0dfc87756194f66365f1aad26b1447b4b2b5"
+      ]
+    },
+    {
+      "what": [
+        "a module field description when configuring a record list page block to inform the users that if no fields are selected, the default values will be shown."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/pull/751/commits/b4d5c7fd7cdef17c847717e2944fc669c213204d"
+      ]
+    },
+    {
+      "what": [
+        "ability to serve data as response in an integration gateway route by adding a route description field."
+      ],
+      "why": [
+        "to give an endpoint response greater extensibility to integration gateway as different data can be returned."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/pull/775/commits/b250b9329fc05bc6da2f65fb8632b3b2bda937dc",
+        "https://github.com/cortezaproject/corteza/pull/775/commits/921d4988c75159bc25a6296255327d8c99c762f8",
+        "https://github.com/cortezaproject/corteza/pull/775/commits/6c423084b336d35367c733457d41a138f2d2d5c0",
+        "https://github.com/cortezaproject/corteza/pull/775/commits/31ca5d6c297ec1569f01d72a9389a5590e3486b9",
+        "https://github.com/cortezaproject/corteza/pull/775/commits/11dccaea9f299895e5637929c02e1b0dfb518bcd"
+      ]
+    },
+    {
+      "what": [
+        "Route description field, Filters sorting, Profiler hits purging and Integration gateway settings."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/pull/775/commits/a64f4c18b3d428bb207ab9f7f95c5a42324a9bab",
+        "https://github.com/cortezaproject/corteza/pull/775/commits/352865b4fb9aab5d0a1697bca88987f06d4e913e"
+      ]
+    },
+    {
+      "what": [
+        "`BETWEEN` and `NOT BETWEEN` operator support for single value fields (number and date-time module fields)."
+      ],
+      "why": [
+        "to extend record filtering support for range filtering of numeric and date-time for single value field."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/pull/813/commits/2027409b0d8875a48fd0017264ba03f5535733ec"
+      ]
+    },
+    {
+      "what": [
+        "ability to drill down charts, by clicking on a data entry inside the chart.",
+        "Based on the configuration it can either filter an existing record list on the page that is showing the records from the same module as the chart or open a new record list in a modal."
+      ],
+      "why": [
+        "to make it easier for users to filter record lists based on chart data, in order to view the details of said data."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/pull/877/commits/cfc4ab7424ed1a131bb34cfaed8c4ca18eef1b07"
+      ]
+    },
+    {
+      "what": [
+        "functionality to generate user avatars and enable users to upload and manage their profile photos."
+      ],
+      "why": [
+        "to provide users with greater flexibility and customization options for their profile avatars, while also allowing admins to manage avatars on behalf of users."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/pull/887/commits/e24b391e5b1dc539855122534a4394a6868c4afd"
+      ]
+    },
+    {
+      "what": [
+        "drag-and-drop expression sorting in workflows expression step."
+      ],
+      "why": [
+        "to allow the user the ability to sort the existing expressions for a more intuitive and faster workflow implementation."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/pull/1081/commits/7d7155d68e72b74575c976e9e46b508364bf8534"
+      ]
+    },
+    {
+      "what": [
+        "`Auto` grouping and timeline to radar and scatter type charts."
+      ],
+      "why": [
+        "to give users more options when displaying data with charts."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/pull/1148/commits/70cd9b8e87cac48d073bee7afc6197a4ed5adeb0"
+      ]
+    },
+    {
+      "what": [
+        "extended record duplicate detection configuration to support multi value matching criteria and value checking algorithms."
+      ],
+      "why": [
+        "to extend support for record duplicate detection with multiple fields in single rule with various detection algorithm and muli-value matching criteria."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/pull/617/commits/5f4d02ac8400ec2963ffba8bfcb19a13de1ebb5a",
+        "https://github.com/cortezaproject/corteza/pull/617/commits/e7fa07cfae7d66f92da933f7c4666a2d8f30fd4e"
+      ]
+    },
+    {
+      "what": [
+        "new file configurator option to preview image in modal and option to download.",
+        "Images on the file base are centered now by default."
+      ],
+      "why": [
+        "to center the images on the filebase for better user experience."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/pull/937/commits/b3b1bf8f14c26b96396e80aaa8a7c7084f11bc8d",
+        "https://github.com/cortezaproject/corteza/pull/937/commits/24a0a857f4d9f392ae63091481fa07c52d68513b"
+      ]
+    }
+  ],
+
+  "changed": [
+    {
+      "what": [
+        "the requirement to provide a handle when creating a resource is now optional.",
+        "The change is applied in {APP_NAME_COMPOSE}, {APP_NAME_ADMIN}, {APP_NAME_REPORTER}, and {APP_NAME_WORKFLOW}"
+      ],
+      "why": [
+        "because providing a handle shouldn't be a necessity.",
+        "The resource can be created without it."
+      ],
+      "how": [
+        "by removing the requirement for the handle to be provided."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza-webapp-compose/commit/cd86e854b76866eeb67d33753b1b736be0d1957a", 
+        "https://github.com/cortezaproject/corteza-webapp-reporter/commit/cf21c47c17c1b76eefc461543236abdf04277cb0", 
+        "https://github.com/cortezaproject/corteza-webapp-admin/commit/456c896adaa7e3423c81d05a541f044b5acc9cc8", 
+        "https://github.com/cortezaproject/corteza-webapp-workflow/commit/9b88af07260977ea744cce8ff7f54185ad9bd5d3", 
+        "https://github.com/cortezaproject/corteza-locale/commit/24b0dda5d434b8f8f0df55d98d6695171533d81c", 
+        "https://github.com/cortezaproject/corteza-vue/commit/34f261acc5297654eb372b8e804a7fd37e7b0d0e", 
+        "https://github.com/cortezaproject/corteza-js/commit/3a90a1002074e31017b2ae22e5d74404283ea3e2" 
+      ]
+    },
+    {
+      "what": [
+        "the record revision table text to be saying `No record revisions found` when no revisions are present."
+      ],
+      "why": [
+        "to have a better user experience when there are no record revisions present."
+      ],
+      "how": [
+        "by adding an empty table with `No record revisions found` message in the record page builder."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/pull/758/commits/2357851caa1b16a43b27fdfc379cfd92c7dcef7b"
+      ]
+    },
+    {
+      "what": [
+        "the Record ID field in module connection settings being able to be disabled."        
+      ],
+      "why": [
+        "to prevent users from disabling Record ID field on system field mapping and to not show system fields that are not available.",
+        "Also to allow users to easily enable or disable system fields based on their configuration."
+      ],
+      "how": [
+        "by updating system view configurator and system field mapping logic to prevent Record ID from being disabled."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/pull/523/commits/07d41dcd8c1f40abf17f90868953eeb3603e0809" 
+      ]
+    },
+    {
+      "what": [
+        "the name of a page when was copied multiply times was changed to show the copy and after that the name of the page and a counter in brackets."
+      ],
+      "why": [
+        "to improve user experience.",
+        "If we copy a page 3-4 or more times, the naming gets confusing and too long."
+      ],
+      "how": [
+        "by filtering how many times a certain page with same name already exists and including 'copy of' prefix and number suffix.",
+        "Depending on the number of pages that match the same name, a counter is adjusted."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/pull/644/commits/cbaca62b474fac5e9a19e9c500104fb93bf0ac9d" 
+      ]
+    },
+    {
+      "what": [
+        "workflow iterators to treat limit 0 parameter as no limit set."
+      ],
+      "why": [
+        "to make workflow iterators consistent with other searching/filtering interactions."
+      ],
+      "how": [
+        "by changing the limit in the code."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/cc24e622a" 
+      ]
+    },
+    {
+      "what": [
+        "the geometry multivalue map opening the default map location regardless which record location you press.",
+        "Now the opened map changes according to the record's geo location."
+      ],
+      "why": [
+        "to prevent a confusion when different markers in multivalue fields were being opened on the map.",
+        "This change aims to improve ux and usability of the geometry field."
+      ],
+      "how": [
+        "Leaflet map instance and zoom level was updated."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/pull/940/commits/79979c158bd058d0fbcf8e8503c872fbcaf0a0f6"
+      ]
+    },
+    {
+      "what": [
+        "the rotate and metric label field configuration for pie and doughnut charts by hiding the configuration since it was not needed."
+      ],
+      "why": [
+        "to have consistency since they were shown but not needed.",
+        "Now they are hidden since we don't need them."
+      ],
+      "how": [
+        "updating the chart configurations to adjust existing rotate logic for the above-mentioned charts."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/pull/992/commits/d73c93f348cf3f6afcd4b66a3bb8d1c72dab430a"
+      ]
+    },
+    {
+      "what": [
+        "the output format to become hidden if output relative value is selected in date field."
+      ],
+      "why": [
+        "to prevent confusion since when you have relative value, the output format is not taken into account."
+      ],
+      "how": [
+        "by updating the date and time configuration."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/pull/1019/commits/5950383e4bba96531ae8f98ed14bcfe27afcf3a1"
+      ]
+    },
+    {
+      "what": [
+        "the record toolbar back button to always bring you back to the page where you came from."
+      ],
+      "why": [
+        "to prevent users getting stuck in a loop and to allow them to go back to the previous page that they were onto."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/pull/1155/commits/6bd146d6ec8ea7c836b9a7f2b3a4db15362dbc6e"
+      ]
+    },
+    {
+      "what": [
+        "general ui/ux improvements:",
+        "* A configuration option on charts to disable or enable animation in order to allow users more control over chart configuration options.",
+        "* The warning message for unsaved changes before navigating to another page in order to prevent losing unsaved changes by unintentionally navigating to another page.",
+        "* Support for inline editing in record lists in order to allow user to easily edit a record by just hovering on the field and pressing on the edit button.",
+        "* Option to allow duplicate values for single and multi value user, record and select fields, so that users can have more control over their selections and whether they will be allowing duplicate values or not.",
+        "* Support for managing namespace button on compose sidebar in order to allow the users the ability to go in namespace settings directly from the compose sidebar.",
+        "* The color of the button for confirming the action to accept a privacy request in order to match the same color pattern as the colors when confirming/denying the action to reject a privacy request.",
+        "* Long page titles being cut off.",
+        "* The location of the attachment modal in order to enable previewing of attachments in private pages.",
+        "* The overlapping between zoom button on the geometry page block with the page block edit group buttons so that the page block edit group button is clickable on geometry page blocks.",
+        "* Uninformative internal error error message on the user profile change password interface so that users can understand better of what and why the error was caused.",
+        "* The usage of chart.js on admin dashboard with e-charts so that all places where we used to use chart.js since we transitioned to apache e-charts can be removed.",
+        "* The description of handle/namespace slug so that we can have consistency across our system and to be more user friendly.",
+        "* The `NaN items` with `0 items` when no resources are present so that we can have consistency, since on every other place when there are no items, we display them as zero."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/pull/806/commits/f9cc910e5a769538c83fa96acb53f04af0f9efe8",
+        "https://github.com/cortezaproject/corteza/pull/780/commits/a5d66312d4b6cc6505d883a5e3eebbc638a9ae71",
+        "https://github.com/cortezaproject/corteza/pull/956/commits/363afde876a22b454dc324b870902c5a9f70bb84",
+        "https://github.com/cortezaproject/corteza/pull/1136/commits/9a2bc8c31aa6623a4f525711722ea09e24bfb3f2",
+        "https://github.com/cortezaproject/corteza/pull/1129/commits/32826ff2bdd526b042583fc83554a15fa9e5172b",
+        "https://github.com/cortezaproject/corteza/commit/8379518",
+        "https://github.com/cortezaproject/corteza/pull/1069/commits/583a4e8b994497049adc17fb064dfca4806cd6f8",
+        "https://github.com/cortezaproject/corteza/commit/6ade04484397285d541a2da1ff88e497c98717fb",
+        "https://github.com/cortezaproject/corteza/pull/821/commits/5717d8e480a4ec96f256c420cc4b2228b28c1e9c",
+        "https://github.com/cortezaproject/corteza/commit/73a29b6b9",
+        "https://github.com/cortezaproject/corteza/commit/390a14ea73b7e0836fccd735a648baa3c42b730d",
+        "https://github.com/cortezaproject/corteza/pull/993/commits/b94b3a7b07f9d83768b0a8dedc49c6bfaf984970",
+        "https://github.com/cortezaproject/corteza/pull/999/commits/b7e2d598687dfd92adc2eb15ec9ed6aee7245e84"
+      ]
+    }
+  ],
+
+  "fixed": [
+    {
+      "what": [
+        "discovery not displaying any search result when namespace with module filters was selected."
+      ],
+      "how": [
+        "by adding minimum string match criteria to match exact string match for search results."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/e2c374c106f13455811fce83bde2ed654e8e964a"
+      ]
+    },
+    {
+      "what": [
+        "{APP_NAME_COMPOSE} Gauge chart not displaying the correct results when post processing function was used because the post processing function was not taken into consideration."
+      ],
+      "how": [
+        "by adding a post processing method to Gauge Chart {APP_NAME_COMPOSE} type."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/pull/865/commits/07acfa78df43d56fc4db27659561a0ad06cc49b7"
+      ]
+    },
+    {
+      "what": [
+        "the integration gateway route search filtering in administration area not returning any result if the whole name was not entered."
+      ],
+      "how": [
+        "by fixing the way filtering works on integration routes search."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza-server/commit/e551b735be59229bfdadba11ab7ae7ab525f84af"
+      ]
+    },
+    {
+      "what": [
+        "the deleted status on application programming interface gateway route update getting preserved.",
+        "Previously if you edited a deleted route, the route got restored, now this is improved."
+      ],
+      "how": [
+        "by changing the part of application programming interface gateway service that handles route updates."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/16257e9d4b49dea0038a9ddb4372b5f3ec949915"
+      ]
+    }
+  ]
+}

@@ -5,7 +5,7 @@
 
   "important": [
     {
-      "what": [
+      "note": [
       "Namespace import/export has some edge cases which prevent it from being exported.",
       "Namely, when you reference a deleted module from a page and try to export the namespace."
       ]
@@ -21,7 +21,7 @@
         "because this speeds up the development process of the project and allows users to copy/share content from one page to another."
       ],
       "refs": [
-        "https://github.com/cortezaproject/corteza-webapp-compose/pull/450/commits/9ea064c57552bb3c173302d6a4111e3889f92115",
+        "https://github.com/cortezaproject/corteza-webapp-compose/pull/450",
         "https://github.com/cortezaproject/corteza-locale/commit/47e06ebb251d87f3ff058e3a42dc7b26ef425ad5"
       ]
     },
@@ -34,7 +34,7 @@
         "Uploading the image will update the Auth background image, and the styles will supplement Auth screen's styles."
       ],
       "refs": [
-        "https://github.com/cortezaproject/corteza/pull/446/commits/86d348700ad53aa9272d40bff97d0fdba03ee76e"
+        "https://github.com/cortezaproject/corteza/pull/446"
       ]
     },
     {
@@ -45,8 +45,8 @@
         "to make editing of the records a bit more intuitive, since the user will remain on the record list page while doing the changes."
       ],
       "refs": [
-        "https://github.com/cortezaproject/corteza/pull/524/commits/2647e3b8d72afa31e79457f3cd985ae0b7fa31fc",
-        "https://github.com/cortezaproject/corteza/pull/524/commits/950d305a5a8fb79ee84599989a399af7d028f599"
+        "https://github.com/cortezaproject/corteza/pull/524",
+        "https://github.com/cortezaproject/corteza/pull/524"
       ]
     },
     {
@@ -57,7 +57,7 @@
         "to allow users to duplicate and re-use page blocks more easily."
       ],
       "refs": [
-        "https://github.com/cortezaproject/corteza/pull/582/commits/7f377109d0b46ade1b04857569622829f917321b"
+        "https://github.com/cortezaproject/corteza/pull/582"
       ]
     },
     {
@@ -68,7 +68,7 @@
         "to allow users to view and restore deleted records."
       ],
       "refs": [
-        "https://github.com/cortezaproject/corteza/pull/740/commits/101c1c7e3026285052c9a731684c2cb278047144"
+        "https://github.com/cortezaproject/corteza/pull/740"
       ]
     },
     {
@@ -90,7 +90,7 @@
         "to give users more control on how records are displayed."
       ],
       "refs": [
-        "https://github.com/cortezaproject/corteza/pull/770/commits/1d286aff83f012e33cabc3456ffa175f7c105eb7"
+        "https://github.com/cortezaproject/corteza/pull/770"
       ]
     },
     {
@@ -101,7 +101,7 @@
         "to allow users go over all their leads one by one without leaving the record page."
       ],
       "refs": [
-        "https://github.com/cortezaproject/corteza/pull/836/commits/ce79e8233d40894657c00e806fa50589c2724c92"
+        "https://github.com/cortezaproject/corteza/pull/836"
       ]
     },
     {
@@ -116,11 +116,11 @@
         "Further on, the field that needs updating can be selected and we can give it a new value and it will be saved across all the concerned records, thus bulk updating them."
       ],
       "refs": [
-        "https://github.com/cortezaproject/corteza/pull/906/commits/97a9cd877ab11917dac9f031db36cbd8f4d215b3",
-        "https://github.com/cortezaproject/corteza/pull/906/commits/717e95b22efefc329198dd4689b0321273813cf8",
-        "https://github.com/cortezaproject/corteza/pull/906/commits/f8a3da0bdf40e010fde9902cc2954a6d5973b75d",
-        "https://github.com/cortezaproject/corteza/pull/906/commits/656bea5636f690cdf2697349695011734f24bf49",
-        "https://github.com/cortezaproject/corteza/pull/906/commits/508e8bab92d6eb2ca6fce17c807d4a33d79ae9ad"
+        "https://github.com/cortezaproject/corteza/pull/906",
+        "https://github.com/cortezaproject/corteza/pull/906",
+        "https://github.com/cortezaproject/corteza/pull/906",
+        "https://github.com/cortezaproject/corteza/pull/906",
+        "https://github.com/cortezaproject/corteza/pull/906"
       ]
     },
     {
@@ -131,8 +131,8 @@
         "to make page block organizing much easier for users."
       ],
       "refs": [
-        "https://github.com/cortezaproject/corteza/pull/670/commits/c6f88e2679efe78e5319665ea754c19d7b2ed138",
-        "https://github.com/cortezaproject/corteza/pull/670/commits/a4308e8d88cdda2f13e3f19231b7815d6812d79e"
+        "https://github.com/cortezaproject/corteza/pull/670",
+        "https://github.com/cortezaproject/corteza/pull/670"
       ]
     },
     {
@@ -144,9 +144,9 @@
         "to allow users to quickly apply filter to the record list."
       ],
       "refs": [
-        "https://github.com/cortezaproject/corteza/pull/921/commits/63f1647f7ba545f4811b6d20a960d14c095aa52b",
-        "https://github.com/cortezaproject/corteza/pull/921/commits/1815e1daa8a4d52bf57d4bb1ebdbdbdbc1587344",
-        "https://github.com/cortezaproject/corteza/pull/921/commits/24cbb818b7e944578692ca59e9d61f1f6e711c10"
+        "https://github.com/cortezaproject/corteza/pull/921",
+        "https://github.com/cortezaproject/corteza/pull/921",
+        "https://github.com/cortezaproject/corteza/pull/921"
       ]
     },
     {
@@ -158,10 +158,10 @@
         "Now instead of manually entering their coordinates, they can just use the `find me` button and the coordinates will be updated."
       ],
       "refs": [
-        "https://github.com/cortezaproject/corteza/pull/955/commits/1628845eccbbcaf8f939efdd1241e7dd147da8b4",
-        "https://github.com/cortezaproject/corteza/pull/955/commits/de0f2ef3d103256a0ddff0fe03acd892e4ebce2f",
-        "https://github.com/cortezaproject/corteza/pull/955/commits/6a01e35f06b848867a14b35b6e7649c0e358ba06",
-        "https://github.com/cortezaproject/corteza/pull/955/commits/2e45899fad36d9495f8ff8625eb4929230e53604"
+        "https://github.com/cortezaproject/corteza/pull/955",
+        "https://github.com/cortezaproject/corteza/pull/955",
+        "https://github.com/cortezaproject/corteza/pull/955",
+        "https://github.com/cortezaproject/corteza/pull/955"
       ]
     },
     {
@@ -183,10 +183,10 @@
         "to give users access to address search functionality when on the geometry module field editor/viewer."
       ],
       "refs": [
-        "https://github.com/cortezaproject/corteza/pull/968/commits/c72c2b9073e7d86e66cc8424698f21949ac17b5b",
-        "https://github.com/cortezaproject/corteza/pull/968/commits/248cef2b75365e4b4d7068e12fe8460889ab934c",
-        "https://github.com/cortezaproject/corteza/pull/968/commits/2e5735bd1c576413a3889d1824e06286b21a3647",
-        "https://github.com/cortezaproject/corteza/pull/968/commits/986202b497de76f5afcb96c052e053ea724593a7"
+        "https://github.com/cortezaproject/corteza/pull/968",
+        "https://github.com/cortezaproject/corteza/pull/968",
+        "https://github.com/cortezaproject/corteza/pull/968",
+        "https://github.com/cortezaproject/corteza/pull/968"
       ]
     },
     {
@@ -197,7 +197,7 @@
         "to make viewing of records a bit more intuitive, since the user will remain on the record list page while opening a record selector pointing to another module."
       ],
       "refs": [
-        "https://github.com/cortezaproject/corteza/pull/997/commits/041ed6be9b7b0fa6a60aba778027dd3fb2bc742a"
+        "https://github.com/cortezaproject/corteza/pull/997"
       ]
     },
     {
@@ -219,7 +219,7 @@
         "to allow the user to open the event source records without going away from the calendar block."
       ],
       "refs": [
-        "https://github.com/cortezaproject/corteza/pull/1104/commits/4e49034f5e52aae797295c25582e13716dbc8b8e"
+        "https://github.com/cortezaproject/corteza/pull/1104"
       ]
     },
     {
@@ -230,9 +230,9 @@
         "to give users more options when displaying data with charts."
       ],
       "refs": [
-        "https://github.com/cortezaproject/corteza/pull/1148/commits/df6eaace7f1038f035564d7ff91d52ce4f7480b5",
-        "https://github.com/cortezaproject/corteza/pull/1148/commits/68f570073a1f3844f65f3fe2c89be2efb582fd94",
-        "https://github.com/cortezaproject/corteza/pull/1148/commits/aa5027811fe239550e702e88f7764f909b53e1bd"
+        "https://github.com/cortezaproject/corteza/pull/1148",
+        "https://github.com/cortezaproject/corteza/pull/1148",
+        "https://github.com/cortezaproject/corteza/pull/1148"
       ]
     },
     {
@@ -240,7 +240,7 @@
         "support for uploading .ico files in record lists and file page blocks."
       ],
       "refs": [
-        "https://github.com/cortezaproject/corteza/pull/1072/commits/ffd49d378375488706a4920e6ea164a8586d905d"
+        "https://github.com/cortezaproject/corteza/pull/1072"
       ]
     },
     {
@@ -265,8 +265,8 @@
         "because users do not have to refresh the entire page to see new content on blocks and to give users more control over refreshing when auto-refreshing is not needed."
       ],
       "refs": [
-        "https://github.com/cortezaproject/corteza-js/pull/73/commits/1a77d99e54697f1bbe29622688996dc05a8c06c4",
-        "https://github.com/cortezaproject/corteza/pull/760/commits/954419bac6c3d19e3c5c46adf93d908528ad18df"
+        "https://github.com/cortezaproject/corteza-js/pull/73",
+        "https://github.com/cortezaproject/corteza/pull/760"
       ]
     },
     {
@@ -278,7 +278,7 @@
         "to enable the users with better visual representation of their data."
       ],
       "refs": [
-        "https://github.com/cortezaproject/corteza/pull/538/commits/82249fa67ea5d31656001d9f358d6e6abf5539a2" 
+        "https://github.com/cortezaproject/corteza/pull/538" 
       ]
     },
     {
@@ -290,7 +290,7 @@
         "to provide users with more customization and styling option on viewing images."
       ],
       "refs": [
-        "https://github.com/cortezaproject/corteza/pull/533/commits/ccd90d74d4945e96d21281c68bfe9f18bc394844"
+        "https://github.com/cortezaproject/corteza/pull/533"
       ]
     },
     {
@@ -303,7 +303,7 @@
         "to help users finding the info they are looking for much faster and easier with the option to magnify certain page blocks."
       ],
       "refs": [
-        "https://github.com/cortezaproject/corteza/pull/576/commits/1a836ddf2c0c9e5892b791ba201032d5d8a37365"
+        "https://github.com/cortezaproject/corteza/pull/576"
       ]
     },
     {
@@ -314,7 +314,7 @@
         "to have an UI consistency, because it was difficult to tell when your changes were being submitted."
       ],
       "refs": [
-        "https://github.com/cortezaproject/corteza/pull/708/commits/7a4a0dfc87756194f66365f1aad26b1447b4b2b5"
+        "https://github.com/cortezaproject/corteza/pull/708"
       ]
     },
     {
@@ -322,7 +322,7 @@
         "a module field description when configuring a record list page block to inform the users that if no fields are selected, the default values will be shown."
       ],
       "refs": [
-        "https://github.com/cortezaproject/corteza/pull/751/commits/b4d5c7fd7cdef17c847717e2944fc669c213204d"
+        "https://github.com/cortezaproject/corteza/pull/751"
       ]
     },
     {
@@ -333,11 +333,11 @@
         "to give an endpoint response greater extensibility to integration gateway as different data can be returned."
       ],
       "refs": [
-        "https://github.com/cortezaproject/corteza/pull/775/commits/b250b9329fc05bc6da2f65fb8632b3b2bda937dc",
-        "https://github.com/cortezaproject/corteza/pull/775/commits/921d4988c75159bc25a6296255327d8c99c762f8",
-        "https://github.com/cortezaproject/corteza/pull/775/commits/6c423084b336d35367c733457d41a138f2d2d5c0",
-        "https://github.com/cortezaproject/corteza/pull/775/commits/31ca5d6c297ec1569f01d72a9389a5590e3486b9",
-        "https://github.com/cortezaproject/corteza/pull/775/commits/11dccaea9f299895e5637929c02e1b0dfb518bcd"
+        "https://github.com/cortezaproject/corteza/pull/775",
+        "https://github.com/cortezaproject/corteza/pull/775",
+        "https://github.com/cortezaproject/corteza/pull/775",
+        "https://github.com/cortezaproject/corteza/pull/775",
+        "https://github.com/cortezaproject/corteza/pull/775"
       ]
     },
     {
@@ -345,8 +345,8 @@
         "Route description field, Filters sorting, Profiler hits purging and Integration gateway settings."
       ],
       "refs": [
-        "https://github.com/cortezaproject/corteza/pull/775/commits/a64f4c18b3d428bb207ab9f7f95c5a42324a9bab",
-        "https://github.com/cortezaproject/corteza/pull/775/commits/352865b4fb9aab5d0a1697bca88987f06d4e913e"
+        "https://github.com/cortezaproject/corteza/pull/775",
+        "https://github.com/cortezaproject/corteza/pull/775"
       ]
     },
     {
@@ -357,7 +357,7 @@
         "to extend record filtering support for range filtering of numeric and date-time for single value field."
       ],
       "refs": [
-        "https://github.com/cortezaproject/corteza/pull/813/commits/2027409b0d8875a48fd0017264ba03f5535733ec"
+        "https://github.com/cortezaproject/corteza/pull/813"
       ]
     },
     {
@@ -369,7 +369,7 @@
         "to make it easier for users to filter record lists based on chart data, in order to view the details of said data."
       ],
       "refs": [
-        "https://github.com/cortezaproject/corteza/pull/877/commits/cfc4ab7424ed1a131bb34cfaed8c4ca18eef1b07"
+        "https://github.com/cortezaproject/corteza/pull/877"
       ]
     },
     {
@@ -380,7 +380,7 @@
         "to provide users with greater flexibility and customization options for their profile avatars, while also allowing admins to manage avatars on behalf of users."
       ],
       "refs": [
-        "https://github.com/cortezaproject/corteza/pull/887/commits/e24b391e5b1dc539855122534a4394a6868c4afd"
+        "https://github.com/cortezaproject/corteza/pull/887"
       ]
     },
     {
@@ -391,7 +391,7 @@
         "to allow the user the ability to sort the existing expressions for a more intuitive and faster workflow implementation."
       ],
       "refs": [
-        "https://github.com/cortezaproject/corteza/pull/1081/commits/7d7155d68e72b74575c976e9e46b508364bf8534"
+        "https://github.com/cortezaproject/corteza/pull/1081"
       ]
     },
     {
@@ -402,7 +402,7 @@
         "to give users more options when displaying data with charts."
       ],
       "refs": [
-        "https://github.com/cortezaproject/corteza/pull/1148/commits/70cd9b8e87cac48d073bee7afc6197a4ed5adeb0"
+        "https://github.com/cortezaproject/corteza/pull/1148"
       ]
     },
     {
@@ -413,8 +413,8 @@
         "to extend support for record duplicate detection with multiple fields in single rule with various detection algorithm and muli-value matching criteria."
       ],
       "refs": [
-        "https://github.com/cortezaproject/corteza/pull/617/commits/5f4d02ac8400ec2963ffba8bfcb19a13de1ebb5a",
-        "https://github.com/cortezaproject/corteza/pull/617/commits/e7fa07cfae7d66f92da933f7c4666a2d8f30fd4e"
+        "https://github.com/cortezaproject/corteza/pull/617",
+        "https://github.com/cortezaproject/corteza/pull/617"
       ]
     },
     {
@@ -426,8 +426,8 @@
         "to center the images on the filebase for better user experience."
       ],
       "refs": [
-        "https://github.com/cortezaproject/corteza/pull/937/commits/b3b1bf8f14c26b96396e80aaa8a7c7084f11bc8d",
-        "https://github.com/cortezaproject/corteza/pull/937/commits/24a0a857f4d9f392ae63091481fa07c52d68513b"
+        "https://github.com/cortezaproject/corteza/pull/937",
+        "https://github.com/cortezaproject/corteza/pull/937"
       ]
     }
   ],
@@ -466,7 +466,7 @@
         "by adding an empty table with `No record revisions found` message in the record page builder."
       ],
       "refs": [
-        "https://github.com/cortezaproject/corteza/pull/758/commits/2357851caa1b16a43b27fdfc379cfd92c7dcef7b"
+        "https://github.com/cortezaproject/corteza/pull/758"
       ]
     },
     {
@@ -481,7 +481,7 @@
         "by updating system view configurator and system field mapping logic to prevent Record ID from being disabled."
       ],
       "refs": [
-        "https://github.com/cortezaproject/corteza/pull/523/commits/07d41dcd8c1f40abf17f90868953eeb3603e0809" 
+        "https://github.com/cortezaproject/corteza/pull/523" 
       ]
     },
     {
@@ -497,7 +497,7 @@
         "Depending on the number of pages that match the same name, a counter is adjusted."
       ],
       "refs": [
-        "https://github.com/cortezaproject/corteza/pull/644/commits/cbaca62b474fac5e9a19e9c500104fb93bf0ac9d" 
+        "https://github.com/cortezaproject/corteza/pull/644" 
       ]
     },
     {
@@ -527,7 +527,7 @@
         "Leaflet map instance and zoom level was updated."
       ],
       "refs": [
-        "https://github.com/cortezaproject/corteza/pull/940/commits/79979c158bd058d0fbcf8e8503c872fbcaf0a0f6"
+        "https://github.com/cortezaproject/corteza/pull/940"
       ]
     },
     {
@@ -542,7 +542,7 @@
         "updating the chart configurations to adjust existing rotate logic for the above-mentioned charts."
       ],
       "refs": [
-        "https://github.com/cortezaproject/corteza/pull/992/commits/d73c93f348cf3f6afcd4b66a3bb8d1c72dab430a"
+        "https://github.com/cortezaproject/corteza/pull/992"
       ]
     },
     {
@@ -556,7 +556,7 @@
         "by updating the date and time configuration."
       ],
       "refs": [
-        "https://github.com/cortezaproject/corteza/pull/1019/commits/5950383e4bba96531ae8f98ed14bcfe27afcf3a1"
+        "https://github.com/cortezaproject/corteza/pull/1019"
       ]
     },
     {
@@ -567,7 +567,7 @@
         "to prevent users getting stuck in a loop and to allow them to go back to the previous page that they were onto."
       ],
       "refs": [
-        "https://github.com/cortezaproject/corteza/pull/1155/commits/6bd146d6ec8ea7c836b9a7f2b3a4db15362dbc6e"
+        "https://github.com/cortezaproject/corteza/pull/1155"
       ]
     },
     {
@@ -588,19 +588,19 @@
         "* The `NaN items` with `0 items` when no resources are present so that we can have consistency, since on every other place when there are no items, we display them as zero."
       ],
       "refs": [
-        "https://github.com/cortezaproject/corteza/pull/806/commits/f9cc910e5a769538c83fa96acb53f04af0f9efe8",
-        "https://github.com/cortezaproject/corteza/pull/780/commits/a5d66312d4b6cc6505d883a5e3eebbc638a9ae71",
-        "https://github.com/cortezaproject/corteza/pull/956/commits/363afde876a22b454dc324b870902c5a9f70bb84",
-        "https://github.com/cortezaproject/corteza/pull/1136/commits/9a2bc8c31aa6623a4f525711722ea09e24bfb3f2",
-        "https://github.com/cortezaproject/corteza/pull/1129/commits/32826ff2bdd526b042583fc83554a15fa9e5172b",
+        "https://github.com/cortezaproject/corteza/pull/806",
+        "https://github.com/cortezaproject/corteza/pull/780",
+        "https://github.com/cortezaproject/corteza/pull/956",
+        "https://github.com/cortezaproject/corteza/pull/1136",
+        "https://github.com/cortezaproject/corteza/pull/1129",
         "https://github.com/cortezaproject/corteza/commit/8379518",
-        "https://github.com/cortezaproject/corteza/pull/1069/commits/583a4e8b994497049adc17fb064dfca4806cd6f8",
+        "https://github.com/cortezaproject/corteza/pull/1069",
         "https://github.com/cortezaproject/corteza/commit/6ade04484397285d541a2da1ff88e497c98717fb",
-        "https://github.com/cortezaproject/corteza/pull/821/commits/5717d8e480a4ec96f256c420cc4b2228b28c1e9c",
+        "https://github.com/cortezaproject/corteza/pull/821",
         "https://github.com/cortezaproject/corteza/commit/73a29b6b9",
         "https://github.com/cortezaproject/corteza/commit/390a14ea73b7e0836fccd735a648baa3c42b730d",
-        "https://github.com/cortezaproject/corteza/pull/993/commits/b94b3a7b07f9d83768b0a8dedc49c6bfaf984970",
-        "https://github.com/cortezaproject/corteza/pull/999/commits/b7e2d598687dfd92adc2eb15ec9ed6aee7245e84"
+        "https://github.com/cortezaproject/corteza/pull/993",
+        "https://github.com/cortezaproject/corteza/pull/999"
       ]
     }
   ],
@@ -625,7 +625,7 @@
         "by adding a post processing method to Gauge Chart {APP_NAME_COMPOSE} type."
       ],
       "refs": [
-        "https://github.com/cortezaproject/corteza/pull/865/commits/07acfa78df43d56fc4db27659561a0ad06cc49b7"
+        "https://github.com/cortezaproject/corteza/pull/865"
       ]
     },
     {

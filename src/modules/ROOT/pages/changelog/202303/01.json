@@ -1,0 +1,224 @@
+{
+  "meta": {
+    "releasedOn": "2023.05.18"
+  },
+  "added": [
+    {
+      "what": [
+        "ability to drill down metrics, by clicking on a data entry inside the metrics block.",
+        "Based on the configuration it can either filter an existing record list on the page, that is showing the records from the same module as the metric, or open a new record list in a modal."
+      ],
+      "why": [
+        "to make it easier for users to filter record lists based on metrics data, in order to view the details of said data."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/pull/1184"
+      ]
+    },
+    {
+      "what": [
+        "support for opening geometry and record organizer page block records in a modal."
+      ],
+      "why": [
+        "to give users the ability to open records in a modal without leaving the page that they are on."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/pull/1177"
+      ]
+    },
+    {
+      "what": [
+        "support for error handling message inside workflows by letting configurators access the context of the error message."
+      ],
+      "why": [
+        "to give user more freedom in defining error handling and to know where and on which step the error occurred."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/pull/1088"
+      ]
+    },
+    {
+      "what": [
+        "http prefixes to all URL input values across {PRODUCT_NAME} if it is not provided by the user."
+      ],
+      "why": [
+        "to make it easier for users to define URLs with leaving out the http:// part."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/pull/1188"
+      ]
+    }
+  ],
+  "changed": [
+    {
+      "what": [
+        "record selector value resolution fetching per page block instead of per field so no redundant fetches are done."
+      ],
+      "why": [
+        "to improve performance on slower connections/systems."
+      ],
+      "how": [
+        "by moving it to per page block instead of per field as it was previously."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/pull/1176"
+      ]
+    },
+    {
+      "what": [
+        "the sidebar of {APP_NAME_COMPOSE} and {APP_NAME_REPORTER} to be scrollable just on items and the search bar and public/admin page button to be always on top."
+      ],
+      "why": [
+        "to improve the accessibility of the the search bar and the buttons for public and admin page."        
+      ],
+      "how": [
+        "by making the sidebar components stick to top."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/pull/1189"
+      ]
+    }
+  ],
+  "fixed": [
+    {
+      "what": [
+        "charts and reporter elements utilizing aggregation erroring out.",
+        "The issue was caused because the sqlserver driver does not yet support offloading of aggregation steps."
+      ],
+      "how": [
+        "by keeping aggregation on the application level until a few blockers are resolved."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/f9312750b5db014c1776be636842652bef6916cd"
+      ]
+    },
+    {
+      "what": [
+        "failing provision step reporting a malformed SQL statement.",
+        "The issue was caused by the provision function which utilized raw SQL with is not compatible with the sqlserver."
+      ],
+      "how": [
+        "by skipping that provision on sqlserver because it does not need to exist for that driver.",
+        "The driver was introduced with the structure change so it is unneeded."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/1d4ab0bc51405c7fdf91c72afbbdff5dd18e3889"
+      ]
+    },
+    {
+      "what": [
+        "failing a fresh provision on an sqlserver database driver with an SQL typecasting error."
+      ],
+      "how": [
+        "by correctly handling and defaulting setting timestamp values."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/7675e5db3b39c2702c11828c75b98833e48d236b"
+      ]
+    },
+    {
+      "what": [
+        "tabs block titles getting erased once you add a new block to the list."
+      ],
+      "how": [
+        "by not updating the title when creating a block."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/pull/1170"
+      ]
+    },
+    {
+      "what": [
+        "data and time input boxes not being responsive and resulting in being cut off on smaller screens."
+      ],
+      "how": [
+        "by updating the date and time module field responsiveness."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/pull/1156"
+      ]
+    },
+    {
+      "what": [
+        "hash and query URL trim on URL input record field trimming the part before the hash and query instead of after it."
+      ],
+      "how": [
+        "by changing the order of trimming methods to match their corresponding labels."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/pull/1173"
+      ]
+    },
+    {
+      "what": [
+        "hovering on record event on calendar agenda not showing the cursor as pointer."
+      ],
+      "how": [
+        "by changing the cursor from text selector to pointer."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/pull/1179"
+      ]
+    },
+    {
+      "what": [
+        "workflow dry run process not stopping on server timeout/error."
+      ],
+      "how": [
+        "by resetting the state and refreshing the trigger label so the spinner disappears."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/pull/1195"
+      ]
+    },
+    {
+      "what": [
+        "webapp page titles not shown on small screens."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/pull/1175"
+      ]
+    },
+    {
+      "what": [
+        "not being able to cancel more than one privacy request consecutively in {APP_NAME_PRIVACY}."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/a559569053a4cbb9f56cfd3e37a7110827a528c8"
+      ]
+    },
+    {
+      "what": [
+        "record organizer not showing any data for a multi value fields."
+      ],
+      "how": [
+        "by removing sort on label and description field."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/pull/1176"
+      ]
+    },
+    {
+      "what": [
+        "record selector of a record selector showing the record field as an ID instead of text."
+      ],
+      "how": [
+        "by properly resolving multiple record values"
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/pull/1176"
+      ]
+    },
+    {
+      "what": [
+        "metrics block data not being consistent in page builder mode when configurator is updated."
+      ],
+      "how": [
+        "by updating the metric base component with a listener that refreshes the metric base when the configurator is updated."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/pull/1207"
+      ]
+    }
+  ]
+}

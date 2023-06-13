@@ -16,7 +16,7 @@
     },
     {
       "what": [
-        "the option to set a record list filter as a preset filter for a user."
+        "the option to set a record list filter as a preset filter for a user. The filter can be applied using the 'Filters' dropdown menu."
       ],
       "why": [
         "to give the user the ability to filter items in a record list before the list is loaded."
@@ -27,45 +27,23 @@
     },
     {
       "what": [
-        "menu with 'more' options (delete, un-delete and permissions) to resources in {APP_NAME_COMPOSE}, {APP_NAME_ADMIN}, {APP_NAME_REPORTER}, {APP_NAME_WORKFLOW}."
+        "menu with 'more' options (delete, un-delete, and permissions) to resource lists in {APP_NAME_COMPOSE}, {APP_NAME_ADMIN}, {APP_NAME_REPORTER}, and {APP_NAME_WORKFLOW}."
       ],
       "why": [
-        "so the user doesn't have to scroll horizontally to access all resource button/options."
+        "so the user doesn't have to scroll horizontally to access all resource options."
       ],
       "refs": [
         "https://github.com/cortezaproject/corteza/commit/46f5455bd0ae67b9de2159f9d04b054a711832e1"
-      ]
-    },
-    {
-      "what": [
-        "page layouts to namespace export resources."
-      ],
-      "refs": [
-        "https://github.com/cortezaproject/corteza/commit/4ad121747d136f76aa8701f07840c9b75c4aef37"
       ]
     }
   ],
   "changed": [
     {
       "what": [
-        "{APP_NAME_ADMIN} role and user picker with vue-select."
+        "the way reminders in {APP_NAME_COMPOSE} look and behave. The new interface provides an easier way for the user to work with reminders"
       ],
       "why": [
-        "to be consistent with the rest of the pickers used in {PRODUCT_NAME}."
-      ],
-      "how": [
-        "by adding vue-select to role and member picker components."
-      ],
-      "refs": [
-        "https://github.com/cortezaproject/corteza/pull/1194"
-      ]
-    },
-    {
-      "what": [
-        "the implementation for reminders in {APP_NAME_ADMIN}."
-      ],
-      "why": [
-        "to be consistent with the rest of the {PRODUCT_NAME} UI and improve the UE."
+        "to be consistent with the rest of the {PRODUCT_NAME} UI and improve the UX."
       ],
       "refs": [
         "https://github.com/cortezaproject/corteza/pull/1239"
@@ -73,7 +51,7 @@
     },
     {
       "what": [
-        "the feedback email domain from `crust.tech` to `cortezaproject.org`."
+        "the feedback email domain in the page header of every {PRODUCT_NAME} web application from `crust.tech` to `cortezaproject.org`."
       ],
       "refs": [
         "https://github.com/cortezaproject/corteza/commit/0072a4bf4004f667bc98c6543392c265e4c3991e"
@@ -81,7 +59,7 @@
     },
     {
       "what": [
-        "discarded the snoozed flag when the reminded at flag is changed in reminders."
+        "discarded the snoozed option in a reminder if a change was made to it."
       ],
       "refs": [
         "https://github.com/cortezaproject/corteza/commit/256dd59b83f146b302b44eb808649570f326f37c"
@@ -89,7 +67,7 @@
     },
     {
       "what": [
-        "the format of displaying the total number of record list items."
+        "the format of displaying the total number of record list items. If we label N as number of records, then the new format would be N items to N records."
       ],
       "refs": [
         "https://github.com/cortezaproject/corteza/commit/0fcbec0b9a6ec652d206a7fbad7639c36f50c10b"
@@ -97,10 +75,10 @@
     },
     {
       "what": [
-        "block magnify query param."
+        "the block magnify query param that keeps  track of which block is magnified (zoomed in)."
       ],
       "why": [
-        "to ensure that any future code implementations don't collide with this functionality."
+        "to ensure that any future code implementations don't collide with the block magnify query param."
       ],
       "refs": [
         "https://github.com/cortezaproject/corteza/commit/5fde4c99ee6e5a9c9d95e5bf9a3f5623a41743ce"
@@ -124,7 +102,7 @@
         "{APP_NAME_COMPOSE} broken public icon url for page, namespace, and custom app icons after changing the Auth JWT secret."
       ],
       "how": [
-        "by adding exception for the namespace icons, and page/icon attachments."
+        "by adding an exception for the namespace icons, page, and icon attachments."
       ],
       "refs": [
         "https://github.com/cortezaproject/corteza/pull/1219"
@@ -132,10 +110,7 @@
     },
     {
       "what": [
-        "available and selected fields not scrollable in safari due to set max height in the item picker component."
-      ],
-      "how": [
-        "by setting a height instead of max height"
+        "available and selected fields not scrollable in safari due to set max height in the item picker component. This issue was present in {APP_NAME_COMPOSE} and {APP_NAME_PRIVACY}."
       ],
       "refs": [
         "https://github.com/cortezaproject/corteza/pull/1221"
@@ -151,7 +126,7 @@
     },
     {
       "what": [
-        "text expander functionality in {APP_NAME_PRIVACY} error step."
+        "the functionality to expand text in the description field used in {APP_NAME_WORKFLOW}'s error step."
       ],
       "refs": [
         "https://github.com/cortezaproject/corteza/commit/84215c0edf87b52b0bcb07fe632107b48e48d582"
@@ -159,7 +134,7 @@
     },
     {
       "what": [
-        "automation sessions list sorting in {APP_NAME_ADMIN}."
+        "automation sessions list sorting parameter in {APP_NAME_ADMIN}. The parameter was excepting the incorrect type of value."
       ],
       "refs": [
         "https://github.com/cortezaproject/corteza/pull/1141"
@@ -167,7 +142,7 @@
     },
     {
       "what": [
-        "copy of page layout in {APP_NAME_COMPOSE}."
+        "copy of page layout in {APP_NAME_COMPOSE}. A page with layout couldn't be copied because of duplicate page handle value."
       ],
       "refs": [
         "https://github.com/cortezaproject/corteza/pull/1230"
@@ -175,7 +150,7 @@
     },
     {
       "what": [
-        "page block visibility after being removed from Tabs configuration."
+        "page block visibility after being removed from Tabs configuration. If a block was added to Tabs configuration and removed afterwards, the  block wouldn't be shown in the page builder anymore."
       ],
       "refs": [
         "https://github.com/cortezaproject/corteza/commit/c9390153b5363fd2c061e31ce01485172f7f311c"
@@ -207,7 +182,7 @@
     },
     {
       "what": [
-        "missing sessionID param in automation session search."
+        "missing sessionID parameter in automation session search. The sessionID value wasn't taken into consideration when filtering an automation session list."
       ],
       "refs": [
         "https://github.com/cortezaproject/corteza/commit/37035984aed08d1c30c90c59a8aeb9d6d2449e31"
@@ -215,7 +190,7 @@
     },
     {
       "what": [
-        "SMTP_FROM header in env vars."
+        "the value of the SMTP_FROM variable in the server .env variables. The variable wasn't taken into consideration is a value was added to it."
       ],
       "refs": [
         "https://github.com/cortezaproject/corteza/commit/d2b389bebccce9eb932f57b2ec39e69b0bf7b506"
@@ -227,6 +202,17 @@
       ],
       "refs": [
         "https://github.com/cortezaproject/corteza/commit/ed0ac43b75addf86b05b5e2c2b15c648915fe00d"
+      ]
+    },
+    {
+      "what": [
+        "page layout resources when exporting namespace configuration."
+      ],
+      "why": [
+        "the page layout resources weren't added in the initial implementation."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/4ad121747d136f76aa8701f07840c9b75c4aef37"
       ]
     }
   ]

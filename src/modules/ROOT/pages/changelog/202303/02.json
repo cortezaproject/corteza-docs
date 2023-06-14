@@ -5,7 +5,7 @@
   "added": [
     {
       "what": [
-        "option for transparent color in the color picker used in {APP_NAME_COMPOSE}, {APP_NAME_ADMIN}, {APP_NAME_REPORTER}."
+        "option for transparent color in the color picker used in {APP_NAME_ADMIN}, and {APP_NAME_REPORTER}."
       ],
       "why": [
         "to give users more configuration options when selecting color or background color for an element."
@@ -84,6 +84,15 @@
       "refs": [
         "https://github.com/cortezaproject/corteza/commit/5fde4c99ee6e5a9c9d95e5bf9a3f5623a41743ce"
       ]
+    },
+    {
+      "what": [
+        "the value of the `SMTP_FROM` variable in the server `.env` variables.",
+        "The variable wasn't taken into consideration is a value was added to it in the server `.env` file."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/d2b389bebccce9eb932f57b2ec39e69b0bf7b506"
+      ]
     }
   ],
   "fixed": [
@@ -154,8 +163,7 @@
     },
     {
       "what": [
-        "page block visibility after being removed from Tabs configuration.",
-        "If a block was added to Tabs configuration and removed afterwards, the  block wouldn't be shown in the page builder anymore."
+        "page blocks disappearing from the page builder after being removed from tabs configuration."
       ],
       "refs": [
         "https://github.com/cortezaproject/corteza/commit/c9390153b5363fd2c061e31ce01485172f7f311c"
@@ -187,20 +195,11 @@
     },
     {
       "what": [
-        "missing sessionID parameter in automation session search.",
+        "missing `sessionID` parameter in automation session search.",
         "The sessionID value wasn't taken into consideration when filtering an automation session list."
       ],
       "refs": [
         "https://github.com/cortezaproject/corteza/commit/37035984aed08d1c30c90c59a8aeb9d6d2449e31"
-      ]
-    },
-    {
-      "what": [
-        "the value of the `SMTP_FROM` variable in the server `.env` variables.",
-        "The variable wasn't taken into consideration is a value was added to it in the server `.env` file."
-      ],
-      "refs": [
-        "https://github.com/cortezaproject/corteza/commit/d2b389bebccce9eb932f57b2ec39e69b0bf7b506"
       ]
     },
     {

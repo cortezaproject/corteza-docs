@@ -220,6 +220,14 @@
       "refs": [
         "https://github.com/cortezaproject/corteza/commit/4ad121747d136f76aa8701f07840c9b75c4aef37"
       ]
+    },
+    {
+      "what": [
+        "error preventing user from being able to add a non numeric value to gauge chart dimension labels in {APP_NAME_COMPOSE}."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/pull/1257/commits/f9b966178a6f2eb3a180daf17a65e0e20ccbb220"
+      ]
     }
   ]
 }

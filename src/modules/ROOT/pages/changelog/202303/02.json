@@ -88,7 +88,7 @@
     {
       "what": [
         "the value of the `SMTP_FROM` variable in the server `.env` variables.",
-        "The variable wasn't taken into consideration is a value was added to it in the server `.env` file."
+        "The variable wasn't taken into consideration if a value was added to it in the server `.env` file."
       ],
       "refs": [
         "https://github.com/cortezaproject/corteza/commit/d2b389bebccce9eb932f57b2ec39e69b0bf7b506"
@@ -226,7 +226,7 @@
         "error preventing user from being able to add a non numeric value to gauge chart dimension labels in {APP_NAME_COMPOSE}."
       ],
       "refs": [
-        "https://github.com/cortezaproject/corteza/pull/1257/commits/f9b966178a6f2eb3a180daf17a65e0e20ccbb220"
+        "https://github.com/cortezaproject/corteza/commit/f9b966178a6f2eb3a180daf17a65e0e20ccbb220"
       ]
     }
   ]

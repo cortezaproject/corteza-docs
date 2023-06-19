@@ -36,6 +36,28 @@
       "refs": [
         "https://github.com/cortezaproject/corteza/commit/46f5455bd0ae67b9de2159f9d04b054a711832e1"
       ]
+    },
+    {
+      "what": [
+        "a stale data error in case resources like a workflow are updated whilst a different user is editing the old version of the same workflow."
+      ],
+      "why": [
+        "to help reduce configuration errors due to multiple people editing the same resource at the same time."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/2529cf337c991cc13a2a2e15f2e84b5a8abab4a0"
+      ]
+    },
+    {
+      "what": [
+        "button to select all records in a record list and preform the actions edit, delete, un-delete as well as executing workflows."
+      ],
+      "why": [
+        "to provide the user with an easier way to edit, delete, un-delete, and execute workflows on multiple records."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/89f621c035d65a4d85387d077a299481120b6c0c"
+      ]
     }
   ],
   "changed": [
@@ -95,6 +117,17 @@
       ],
       "refs": [
         "https://github.com/cortezaproject/corteza/commit/d2b389bebccce9eb932f57b2ec39e69b0bf7b506"
+      ]
+    },
+    {
+      "what": [
+        "default workflow and trigger action severity to `notice` to keep it consistent with other resources in {APP_NAME_ADMIN}."
+      ],
+      "why": [
+        "to make create, update, delete, and undelete actions visible in the default production ruleset of the actionlog."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/31f7e14c84f9cdb29fed9f0f48ae0a1b27d62a68"
       ]
     }
   ],
@@ -218,7 +251,7 @@
         "error for not included page layout resources when exporting namespace configuration."
       ],
       "how": [
-        "by adding the page layout resources to the namespace configuration."
+        "by including page layouts to the namespace export logic."
       ],
       "refs": [
         "https://github.com/cortezaproject/corteza/commit/4ad121747d136f76aa8701f07840c9b75c4aef37"
@@ -230,6 +263,14 @@
       ],
       "refs": [
         "https://github.com/cortezaproject/corteza/commit/f9b966178a6f2eb3a180daf17a65e0e20ccbb220"
+      ]
+    },
+    {
+      "what": [
+        "the setting of workflow and trigger IDs after creating action log events."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/03806a20ab5eaf94dc9a2a8949d707a28f5c3127"
       ]
     }
   ]

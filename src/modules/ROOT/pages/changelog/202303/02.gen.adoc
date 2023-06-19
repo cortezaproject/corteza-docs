@@ -15,11 +15,11 @@ The change was added to give the user the ability to pick a pre-configured filte
 * Added menu with 'more' options (delete, un-delete, and permissions) to resource lists in {APP_NAME_COMPOSE}, {APP_NAME_ADMIN}, {APP_NAME_REPORTER}, and {APP_NAME_WORKFLOW}.
 The change was added so the user doesn't have to scroll horizontally to access all resource options
 ({CORTEZA_COMMIT_BASE}46f5455[`46f5455`]).
-* Added a stale data error in case resources like a workflow are updated whilst a different user is editing the old version of the same workflow.
+* Added a stale data error in case resources like workflows are updated whilst a different user is editing the same resource.
 The change was added to help reduce configuration errors due to multiple people editing the same resource at the same time
 ({CORTEZA_COMMIT_BASE}2529cf3[`2529cf3`]).
 * Added button to select all records in a record list and preform the actions edit, delete, un-delete as well as executing workflows.
-The change was added to provide the user with an easier way to edit, delete, un-delete, and execute workflows on multiple records
+The change was added to provide the user with an easier way to edit, delete, un-delete, and execute workflows on records across multiple pages
 ({CORTEZA_COMMIT_BASE}89f621c[`89f621c`]).
 
 .[#2023_03_02-changed]#<<2023_03_02-changed,Changed:>>#

@@ -1,52 +1,52 @@
 {
   "meta": {
-    "releasedOn": "2023.05.30"
+    "releasedOn": "2023.06.27"
   },
   "added": [
     {
       "what": [
-        "a stale data error in case a workflow was updated whilst a different user is editing the old version of the same workflow."
+        "."
       ],
       "why": [
-        "to help reduce configuration errors due to multiple people editing the same resource at the same time."
+        "."
       ],
       "refs": [
-        "https://github.com/cortezaproject/corteza/commit/2529cf337c991cc13a2a2e15f2e84b5a8abab4a0",
-        "https://github.com/cortezaproject/corteza/commit/03806a20ab5eaf94dc9a2a8949d707a28f5c3127"
+        "",
+        ""
       ]
     },
     {
       "what": [
-        "button to select all records in a record list and preform the actions edit, delete, un-delete as well as executing workflows."
+        "."
       ],
       "why": [
-        "to provide the user with an easier way to edit, delete, un-delete and execute workflows on multiple records."
+        "."
       ],
       "refs": [
-        "https://github.com/cortezaproject/corteza/commit/89f621c035d65a4d85387d077a299481120b6c0c"
+        ""
       ]
     }
   ],
   "changed": [
     {
       "what": [
-        "default workflow and trigger action severity to `notice` to keep it consistent with other resources in {APP_NAME_ADMIN}."
+        "."
       ],
       "why": [
-        "to make create, update, delete, and undelete actions visible in the default production ruleset of the actionlog."
+        "."
       ],
       "refs": [
-        "https://github.com/cortezaproject/corteza/commit/31f7e14c84f9cdb29fed9f0f48ae0a1b27d62a68"
+        ""
       ]
     }
   ],
   "fixed": [
     {
       "what": [
-        "known concurrent map read/write issues for Integration Gateway profiler and workflow pre-processing."
+        "."
       ],
       "refs": [
-        "https://github.com/cortezaproject/corteza/commit/37035984aed08d1c30c90c59a8aeb9d6d2449e31"
+        ""
       ]
     }
   ]

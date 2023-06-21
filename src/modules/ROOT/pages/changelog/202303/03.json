@@ -5,13 +5,13 @@
   "added": [
     {
       "what": [
-        "A warning message that notifies the user if they try to leave a page with unsaved changes on it."
+        "a warning message that notifies the user if they try to leave a page with unsaved changes on it."
       ],
       "why": [
-        "To prevent loosing changes that have't been saved yet."
+        "to prevent loosing changes that have't been saved yet."
       ],
       "refs": [
-        ""
+        "https://github.com/cortezaproject/corteza/pull/1051"
       ]
     }
   ],
@@ -24,7 +24,7 @@
         "previously a value wasn't provided, whereas now it is."
       ],
       "refs": [
-        ""
+        "https://github.com/cortezaproject/corteza/pull/1244"
       ]
     },
     {
@@ -35,9 +35,9 @@
         "* The styles in file page block so when a gallery of images is viewed, the positioning of each image won't be on top of the previous image's name."
       ],
       "refs": [
-        "",
-        "",
-        ""
+        "https://github.com/cortezaproject/corteza/pull/1254",
+        "https://github.com/cortezaproject/corteza/pull/1255",
+        "https://github.com/cortezaproject/corteza/pull/1244"
       ]
     }
   ],
@@ -47,7 +47,7 @@
         "not being able to view a map if the value for latitude or longitude isn't provided."
       ],
       "refs": [
-        ""
+        "https://github.com/cortezaproject/corteza/pull/1032"
       ]
     }
   ]

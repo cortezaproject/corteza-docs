@@ -5,22 +5,10 @@
   "added": [
     {
       "what": [
-        "."
+        "A warning message that notifies the user if they try to leave a page with unsaved changes on it."
       ],
       "why": [
-        "."
-      ],
-      "refs": [
-        "",
-        ""
-      ]
-    },
-    {
-      "what": [
-        "."
-      ],
-      "why": [
-        "."
+        "To prevent loosing changes that have't been saved yet."
       ],
       "refs": [
         ""
@@ -30,12 +18,25 @@
   "changed": [
     {
       "what": [
-        "."
+        "the provided parameter in the url of a page for selecting one or more records in a record list in {APP_NAME_COMPOSE}."
       ],
       "why": [
-        "."
+        "previously a value wasn't provided, whereas now it is."
       ],
       "refs": [
+        ""
+      ]
+    },
+    {
+      "what": [
+        "general UI/UX improvements:",
+        "* Hid the button for editing a namespace from the public view in the sidebar when the option to show that namespace isn't visible.",
+        "* Highlighted the row of a translation when viewing subtitle/description namespace translations as it's done everywhere.",
+        "* The styles in file page block so when a gallery of images is viewed, the positioning of each image won't be on top of the previous image's name."
+      ],
+      "refs": [
+        "",
+        "",
         ""
       ]
     }
@@ -43,7 +44,7 @@
   "fixed": [
     {
       "what": [
-        "."
+        "not being able to view a map if the value for latitude or longitude isn't provided."
       ],
       "refs": [
         ""

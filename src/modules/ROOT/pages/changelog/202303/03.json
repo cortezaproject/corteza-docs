@@ -73,7 +73,7 @@
     },
     {
       "what": [
-        "the labels updated at and deleted at were not showing after an {APP_NAME_ADMIN} application resource was updated or deleted.",
+        "the labels updated at and deleted at were not showing after an {APP_NAME_ADMIN} application was updated or deleted.",
         "The labels provide additional information as to what types of changes have happened to a resource."
       ],
       "refs": [

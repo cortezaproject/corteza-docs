@@ -8,7 +8,7 @@
         "a warning message that notifies the user if they try to leave a page with unsaved changes on it."
       ],
       "why": [
-        "to prevent loosing changes that have't been saved yet."
+        "to prevent losing changes that haven't been saved yet."
       ],
       "refs": [
         "https://github.com/cortezaproject/corteza/pull/1051"
@@ -16,7 +16,8 @@
     },
     {
       "what": [
-        "the option to add custom styles to all of the web applications. The styles can be added via the user settings in {APP_NAME_ADMIN}."
+        "the option to add custom styles to all of the web applications.",
+        "The styles can be added via the user settings in {APP_NAME_ADMIN}."
       ],
       "why": [
         "to provide the user with more freedom to style the applications as they see fit."
@@ -27,17 +28,6 @@
     }
   ],
   "changed": [
-    {
-      "what": [
-        "the provided parameter in the url of a page for selecting one or more records in a record list in {APP_NAME_COMPOSE}."
-      ],
-      "why": [
-        "previously a value wasn't provided, whereas now it is."
-      ],
-      "refs": [
-        "https://github.com/cortezaproject/corteza/pull/1244"
-      ]
-    },
     {
       "what": [
         "general UI/UX improvements:",
@@ -59,7 +49,7 @@
   "fixed": [
     {
       "what": [
-        "not being able to view a map if the value for latitude or longitude isn't provided."
+        "not being able to view a map if the value for latitude or longitude isn't provided in the map configuration."
       ],
       "refs": [
         "https://github.com/cortezaproject/corteza/pull/1032"
@@ -67,7 +57,7 @@
     },
     {
       "what": [
-        "error in console whe trying to add a module constraint without providing a value."
+        "error in console when trying to add a module constraint without providing a value."
       ],
       "refs": [
         "https://github.com/cortezaproject/corteza/pull/1281"
@@ -75,7 +65,7 @@
     },
     {
       "what": [
-        "unsaved changes detection error being triggered after a namespace has been saved and you want to visit it."
+        "unsaved changes warning triggered after a namespace has been saved and you want to visit it."
       ],
       "refs": [
         "https://github.com/cortezaproject/corteza/commit/aa7cdf28e24263c858ad891b1cf0912596e278da"
@@ -83,7 +73,8 @@
     },
     {
       "what": [
-        "the labels updated At and deleted At not showing if a {APP_NAME_ADMIN} application is updated or deleted."
+        "the labels updated at and deleted at were not showing after an {APP_NAME_ADMIN} application resource was updated or deleted.",
+        "The labels provide additional information as to what types of changes have happened to a resource."
       ],
       "refs": [
         "https://github.com/cortezaproject/corteza/commit/ce541cde67318b278d9fc88b230176ac49ff332c"

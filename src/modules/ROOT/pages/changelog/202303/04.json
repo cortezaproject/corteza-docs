@@ -1,0 +1,67 @@
+{
+  "meta": {
+    "releasedOn": "2023.07.11"
+  },
+  "added": [
+    {
+      "what": [
+        "a button to edit a single field in a record without having to open the record."
+      ],
+      "why": [
+        "to give the user the ability to easily edit a field in a record without having to open it."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/pull/1282"
+      ]
+    }
+  ],
+  "changed": [
+    {
+      "what": [
+        "role un-delete operation to dispatch role update events on the eventbuss."
+      ],
+      "why": [
+        "to keep it consistent with other resource operations."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/6558efcaf197cb4d95c624559068386362ba6013"
+      ]
+    },
+    {
+      "what": [
+        "general UI/UX improvements:",
+        "* ."
+      ],
+      "refs": [
+        ""
+      ]
+    }
+  ],
+  "fixed": [
+    {
+      "what": [
+        "not being able to view a record in a modal after viewing the same record or a different record in a modal."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/1cd5c224f561737bc6ed9c7712bc929f596bab92"
+      ]
+    },
+    {
+      "what": [
+        "input parameter handling for the integration gateway proxy filter.",
+        "It fixes the input parameters in a way that the scope of the whole api gateway pipeline can be used in the proxy filter."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/1e82fc034a05a9e2b03c3ee3ccce5227ce73157a"
+      ]
+    },
+    {
+      "what": [
+        "the wrong prioritizing/ordering of records when a record list was filtered by the operator 'Not equal'."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/pull/1300"
+      ]
+    }
+  ]
+}

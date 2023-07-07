@@ -13,6 +13,28 @@
       "refs": [
         "https://github.com/cortezaproject/corteza/pull/1282"
       ]
+    },
+    {
+      "what": [
+        "the options to zoom and download a file from a page or record."
+      ],
+      "why": [
+        "to give the user the flexability to preview and download files in modules and pages."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/pull/1310"
+      ]
+    },
+    {
+      "what": [
+        "the options to display a select module field values as a list with checkboxes from which the user can pick one or multiple values depending on the configuration."
+      ],
+      "why": [
+        "to provide the user with another way to  view and pick a select module field value/values."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/pull/1301"
+      ]
     }
   ],
   "changed": [
@@ -30,10 +52,10 @@
     {
       "what": [
         "general UI/UX improvements:",
-        "* ."
+        "* Added the option to display a checkbox using a toggle switch."
       ],
       "refs": [
-        ""
+        "https://github.com/cortezaproject/corteza/pull/1286"
       ]
     }
   ],
@@ -61,6 +83,14 @@
       ],
       "refs": [
         "https://github.com/cortezaproject/corteza/pull/1300"
+      ]
+    },
+    {
+      "what": [
+        "change detection message triggering after changes to namespace logo, subtitle and description are saved."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/pull/1298"
       ]
     }
   ]

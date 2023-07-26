@@ -44,6 +44,8 @@ The admin webapp now allows you to inject custom CSS as well as change the backg
 
 :leveloffset: +1
 
+include::04.gen.adoc[]
+
 include::03.gen.adoc[]
 
 include::02.gen.adoc[]

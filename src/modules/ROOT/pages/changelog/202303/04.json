@@ -5,7 +5,7 @@
   "added": [
     {
       "what": [
-        "a button that allows the user to edit a record value without having to open the record"
+        "a button that allows the user to edit record values directly from the record list without having to open the record"
       ],
       "why": [
         "to give the user the ability to easily edit a single field in a record."
@@ -16,10 +16,10 @@
     },
     {
       "what": [
-        "the options to zoom in and download a file from a page or record."
+        "options to zoom in and download a file from a page or record."
       ],
       "why": [
-        "to give the user the flexability to preview and download files in modules and pages."
+        "to give the user the flexibility to preview and download files in modules and pages."
       ],
       "refs": [
         "https://github.com/cortezaproject/corteza/pull/1310"
@@ -27,7 +27,7 @@
     },
     {
       "what": [
-        "the options to display select module field values as a list with checkboxes from which the user can pick one or multiple values depending on the configuration."
+        "new ways of displaying Select module fields allowing you to show configured options as check boxes or radio buttons."
       ],
       "why": [
         "to provide the user with an additional option to view and pick a select module field value/values."
@@ -38,10 +38,10 @@
     },
     {
       "what": [
-        "the ability to set a record field value as title to its record page."
+        "the ability to set a record value as record page title."
       ],
       "why": [
-        "to give the user the freedom to customize a record page name using a value of a field."
+        "to give the user the freedom to customize a record page name using record values."
       ],
       "refs": [
         "https://github.com/cortezaproject/corteza/pull/1332"
@@ -51,7 +51,7 @@
   "changed": [
     {
       "what": [
-        "role un-delete operation to dispatch role update events on the eventbuss."
+        "role un-delete operation to dispatch role update events on the event buss."
       ],
       "why": [
         "to keep it consistent with other resource operations."
@@ -62,10 +62,10 @@
     },
     {
       "what": [
-        "the Corteza flow of allowing/not allowing a user to access a untrusted auth client."
+        "the {PRODUCT_NAME} authentication flow to skip unneeded screens and get the user directly to the requested web application as soon as possible."
       ],
       "why": [
-        "to improve the auth client flow and UI."
+        "to improve the authentication user interface and experience."
       ],
       "refs": [
         "https://github.com/cortezaproject/corteza/pull/1284"
@@ -75,7 +75,7 @@
       "what": [
         "general UI/UX improvements:",
         "* Added the option to display a checkbox using a toggle switch.",
-        "* The position of the 'more' options menu in compose chart, module and namespace list to be always visible on hover even if the list of resource isn't scrolled to the furthest right."
+        "* The position of the 'more' options menu in compose chart, module, and namespace list to be always visible on hover even if the list of resource isn't scrolled to the furthest right."
       ],
       "refs": [
         "https://github.com/cortezaproject/corteza/pull/1286",
@@ -95,7 +95,7 @@
     {
       "what": [
         "input parameter handling for the integration gateway proxy filter.",
-        "It fixes the input parameters in a way that the scope of the whole api gateway pipeline can be used in the proxy filter."
+        "Now, the entire integration gateway pipeline scope can be used in the proxy filter."
       ],
       "refs": [
         "https://github.com/cortezaproject/corteza/commit/1e82fc034a05a9e2b03c3ee3ccce5227ce73157a"
@@ -103,7 +103,7 @@
     },
     {
       "what": [
-        "the wrong prioritizing/ordering of records when a record list was filtered by the operator 'Not equal'."
+        "the wrong record ordering when filtering the record list with the `Not equal` operator."
       ],
       "refs": [
         "https://github.com/cortezaproject/corteza/pull/1300"
@@ -111,7 +111,8 @@
     },
     {
       "what": [
-        "change detection message triggering after changes to namespace logo, subtitle and description are saved."
+        "the {APP_NAME_COMPOSE} namespace changed alert prompt only when we're leaving the page and unsaved changes are present.",
+        "Before, it the alert would prompt after saving changes when creating or updating a namespace."
       ],
       "refs": [
         "https://github.com/cortezaproject/corteza/pull/1298"
@@ -119,7 +120,7 @@
     },
     {
       "what": [
-        "list of role members not shown when viewing/editing a role."
+        "role members not showing when viewing or editing a role."
       ],
       "refs": [
         "https://github.com/cortezaproject/corteza/pull/1296"
@@ -127,7 +128,7 @@
     },
     {
       "what": [
-        "not being able to see list of roles or go back to it using the trackpad after viewing/editing a role."
+        "an error preventing users from navigating back to the role list after viewing/editing a contextual role."
       ],
       "refs": [
         "https://github.com/cortezaproject/corteza/pull/1307"
@@ -135,7 +136,7 @@
     },
     {
       "what": [
-        "wrong number of records was displayed when configuring which record to export from a record list."
+        "record list export not including all of the active filters which resulted in inconsistent output."
       ],
       "refs": [
         "https://github.com/cortezaproject/corteza/pull/1318"
@@ -146,15 +147,16 @@
         "not being able to zoom in metric value in metric block on initial configuration."
       ],
       "refs": [
-        "https://github.com/cortezaproject/corteza/pull/1291"
+        
       ]
     },
     {
       "what": [
-        "not being able to zoom in any page block on initial configuration."
+        "not being able to zoom-in any page block on initial configuration."
       ],
       "refs": [
-        "https://github.com/cortezaproject/corteza/pull/1289"
+        "https://github.com/cortezaproject/corteza/pull/1289",
+        "https://github.com/cortezaproject/corteza/pull/1291"
       ]
     },
     {

@@ -15,11 +15,11 @@ The change was added to provide the user with more freedom to style the applicat
 
 .[#2023_03_03-changed]#<<2023_03_03-changed,Changed:>>#
 * Changed general UI/UX improvements:
-* Hid the button for editing a namespace from the public view in the sidebar when the option to show that namespace isn't visible
-* Highlighted the row of a translation when viewing subtitle/description namespace translations as it's done everywhere
-* The styles in file page block so when a gallery of images is viewed, the positioning of each image won't be on top of the previous image's name
-* The color of the sidebar text items and the functionality to show the text item on hover
-* Overlapping of the 'more' menu in a record list in {APP_NAME_COMPOSE}
+** Hid the button for editing a namespace from the public view in the sidebar when the option to show that namespace isn't visible
+** Highlighted the row of a translation when viewing subtitle/description namespace translations as it's done everywhere
+** The styles in file page block so when a gallery of images is viewed, the positioning of each image won't be on top of the previous image's name
+** The color of the sidebar text items and the functionality to show the text item on hover
+** Overlapping of the 'more' menu in a record list in {APP_NAME_COMPOSE}
 ({CORTEZA_PULL_BASE}1254[`1254`], {CORTEZA_PULL_BASE}1255[`1255`], {CORTEZA_PULL_BASE}1244[`1244`], {CORTEZA_PULL_BASE}1274[`1274`], {CORTEZA_COMMIT_BASE}5fa587f[`5fa587f`]).
 
 .[#2023_03_03-fixed]#<<2023_03_03-fixed,Fixed:>>#

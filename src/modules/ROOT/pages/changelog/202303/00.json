@@ -573,19 +573,19 @@
     {
       "what": [
         "general ui/ux improvements:",
-        "* A configuration option on charts to disable or enable animation in order to allow users more control over chart configuration options.",
-        "* The warning message for unsaved changes before navigating to another page in order to prevent losing unsaved changes by unintentionally navigating to another page.",
-        "* Support for inline editing in record lists in order to allow user to easily edit a record by just hovering on the field and pressing on the edit button.",
-        "* Option to allow duplicate values for single and multi value user, record and select fields, so that users can have more control over their selections and whether they will be allowing duplicate values or not.",
-        "* Support for managing namespace button on compose sidebar in order to allow the users the ability to go in namespace settings directly from the compose sidebar.",
-        "* The color of the button for confirming the action to accept a privacy request in order to match the same color pattern as the colors when confirming/denying the action to reject a privacy request.",
-        "* Long page titles being cut off.",
-        "* The location of the attachment modal in order to enable previewing of attachments in private pages.",
-        "* The overlapping between zoom button on the geometry page block with the page block edit group buttons so that the page block edit group button is clickable on geometry page blocks.",
-        "* Uninformative internal error error message on the user profile change password interface so that users can understand better of what and why the error was caused.",
-        "* The usage of chart.js on admin dashboard with e-charts so that all places where we used to use chart.js since we transitioned to apache e-charts can be removed.",
-        "* The description of handle/namespace slug so that we can have consistency across our system and to be more user friendly.",
-        "* The `NaN items` with `0 items` when no resources are present so that we can have consistency, since on every other place when there are no items, we display them as zero."
+        "** A configuration option on charts to disable or enable animation in order to allow users more control over chart configuration options.",
+        "** The warning message for unsaved changes before navigating to another page in order to prevent losing unsaved changes by unintentionally navigating to another page.",
+        "** Support for inline editing in record lists in order to allow user to easily edit a record by just hovering on the field and pressing on the edit button.",
+        "** Option to allow duplicate values for single and multi value user, record and select fields, so that users can have more control over their selections and whether they will be allowing duplicate values or not.",
+        "** Support for managing namespace button on compose sidebar in order to allow the users the ability to go in namespace settings directly from the compose sidebar.",
+        "** The color of the button for confirming the action to accept a privacy request in order to match the same color pattern as the colors when confirming/denying the action to reject a privacy request.",
+        "** Long page titles being cut off.",
+        "** The location of the attachment modal in order to enable previewing of attachments in private pages.",
+        "** The overlapping between zoom button on the geometry page block with the page block edit group buttons so that the page block edit group button is clickable on geometry page blocks.",
+        "** Uninformative internal error error message on the user profile change password interface so that users can understand better of what and why the error was caused.",
+        "** The usage of chart.js on admin dashboard with e-charts so that all places where we used to use chart.js since we transitioned to apache e-charts can be removed.",
+        "** The description of handle/namespace slug so that we can have consistency across our system and to be more user friendly.",
+        "** The `NaN items` with `0 items` when no resources are present so that we can have consistency, since on every other place when there are no items, we display them as zero."
       ],
       "refs": [
         "https://github.com/cortezaproject/corteza/pull/806",

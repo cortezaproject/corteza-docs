@@ -74,8 +74,8 @@
     {
       "what": [
         "general UI/UX improvements:",
-        "* Added the option to display a checkbox using a toggle switch.",
-        "* The position of the 'more' options menu in compose chart, module, and namespace list to be always visible on hover even if the list of resource isn't scrolled to the furthest right."
+        "** Added the option to display a checkbox using a toggle switch.",
+        "** The position of the 'more' options menu in compose chart, module, and namespace list to be always visible on hover even if the list of resource isn't scrolled to the furthest right."
       ],
       "refs": [
         "https://github.com/cortezaproject/corteza/pull/1286",

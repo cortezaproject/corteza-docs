@@ -26,8 +26,8 @@ The change was made to keep it consistent with other resource operations
 The change was made to improve the authentication user interface and experience
 ({CORTEZA_PULL_BASE}1284[`1284`]).
 * Changed general UI/UX improvements:
-* Added the option to display a checkbox using a toggle switch
-* The position of the 'more' options menu in compose chart, module, and namespace list to be always visible on hover even if the list of resource isn't scrolled to the furthest right
+** Added the option to display a checkbox using a toggle switch
+** The position of the 'more' options menu in compose chart, module, and namespace list to be always visible on hover even if the list of resource isn't scrolled to the furthest right
 ({CORTEZA_PULL_BASE}1286[`1286`], {CORTEZA_PULL_BASE}1331[`1331`]).
 
 .[#2023_03_04-fixed]#<<2023_03_04-fixed,Fixed:>>#

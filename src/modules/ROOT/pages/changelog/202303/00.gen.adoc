@@ -172,19 +172,19 @@ The change was made by updating the date and time configuration
 The change was made to prevent users getting stuck in a loop and to allow them to go back to the previous page that they were onto
 ({CORTEZA_PULL_BASE}1155[`1155`]).
 * Changed general ui/ux improvements:
-* A configuration option on charts to disable or enable animation in order to allow users more control over chart configuration options
-* The warning message for unsaved changes before navigating to another page in order to prevent losing unsaved changes by unintentionally navigating to another page
-* Support for inline editing in record lists in order to allow user to easily edit a record by just hovering on the field and pressing on the edit button
-* Option to allow duplicate values for single and multi value user, record and select fields, so that users can have more control over their selections and whether they will be allowing duplicate values or not
-* Support for managing namespace button on compose sidebar in order to allow the users the ability to go in namespace settings directly from the compose sidebar
-* The color of the button for confirming the action to accept a privacy request in order to match the same color pattern as the colors when confirming/denying the action to reject a privacy request
-* Long page titles being cut off
-* The location of the attachment modal in order to enable previewing of attachments in private pages
-* The overlapping between zoom button on the geometry page block with the page block edit group buttons so that the page block edit group button is clickable on geometry page blocks
-* Uninformative internal error error message on the user profile change password interface so that users can understand better of what and why the error was caused
-* The usage of chartjs on admin dashboard with e-charts so that all places where we used to use chartjs since we transitioned to apache e-charts can be removed
-* The description of handle/namespace slug so that we can have consistency across our system and to be more user friendly
-* The `NaN items` with `0 items` when no resources are present so that we can have consistency, since on every other place when there are no items, we display them as zero
+** A configuration option on charts to disable or enable animation in order to allow users more control over chart configuration options
+** The warning message for unsaved changes before navigating to another page in order to prevent losing unsaved changes by unintentionally navigating to another page
+** Support for inline editing in record lists in order to allow user to easily edit a record by just hovering on the field and pressing on the edit button
+** Option to allow duplicate values for single and multi value user, record and select fields, so that users can have more control over their selections and whether they will be allowing duplicate values or not
+** Support for managing namespace button on compose sidebar in order to allow the users the ability to go in namespace settings directly from the compose sidebar
+** The color of the button for confirming the action to accept a privacy request in order to match the same color pattern as the colors when confirming/denying the action to reject a privacy request
+** Long page titles being cut off
+** The location of the attachment modal in order to enable previewing of attachments in private pages
+** The overlapping between zoom button on the geometry page block with the page block edit group buttons so that the page block edit group button is clickable on geometry page blocks
+** Uninformative internal error error message on the user profile change password interface so that users can understand better of what and why the error was caused
+** The usage of chartjs on admin dashboard with e-charts so that all places where we used to use chartjs since we transitioned to apache e-charts can be removed
+** The description of handle/namespace slug so that we can have consistency across our system and to be more user friendly
+** The `NaN items` with `0 items` when no resources are present so that we can have consistency, since on every other place when there are no items, we display them as zero
 ({CORTEZA_PULL_BASE}806[`806`], {CORTEZA_PULL_BASE}780[`780`], {CORTEZA_PULL_BASE}956[`956`], {CORTEZA_PULL_BASE}1136[`1136`], {CORTEZA_PULL_BASE}1129[`1129`], {CORTEZA_COMMIT_BASE}8379518[`8379518`], {CORTEZA_PULL_BASE}1069[`1069`], {CORTEZA_COMMIT_BASE}6ade044[`6ade044`], {CORTEZA_PULL_BASE}821[`821`], {CORTEZA_COMMIT_BASE}73a29b6[`73a29b6`], {CORTEZA_COMMIT_BASE}390a14e[`390a14e`], {CORTEZA_PULL_BASE}993[`993`], {CORTEZA_PULL_BASE}999[`999`]).
 
 .[#2023_03_00-fixed]#<<2023_03_00-fixed,Fixed:>>#

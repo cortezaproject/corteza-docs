@@ -1,0 +1,70 @@
+{
+  "meta": {
+    "releasedOn": "2023.08.11"
+  },
+  "added": [
+    {
+      "what": [
+        "the option to configure whether a module field and its value should be displayed in one or two lines."
+      ],
+      "why": [
+        "to provide the user with the option to set the position of a field and its value."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/pull/1339"
+      ]
+    }
+  ],
+  
+  "changed": [
+    {
+      "what": [
+        "."
+      ],
+      "why": [
+        "."
+      ],
+      "how": [
+        "."
+      ],
+      "refs": [
+        ""
+      ]
+    },
+    {
+      "what": [
+        "general ui/ux improvements:",
+        "** Adjust the element styles in the topbar of all web applications to improve the UI for current and older browser versions."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/db740f7f28c78cb9b38e6c5918bca6807363b53a"
+      ]
+    }
+  ],
+  "fixed": [
+    {
+      "what": [
+        "overflowing of long texts in {APP_NAME_COMPOSE}."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/895796a4758479ada793228667ea9b1b4618b749"
+      ]
+    },
+    {
+      "what": [
+        "compose sub-pages not being shown when configuring a navigation page block."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/pull/1359"
+      ]
+    },
+    {
+      "what": [
+        "module field labels shown underneath delete button when bulk editing a value."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/6f6df66d6f8dd28b29d581cbbf5443c4864294d4"
+      ]
+    }
+  ]
+}

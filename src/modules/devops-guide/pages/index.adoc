@@ -249,6 +249,11 @@ Omit if you won't use persistent storage.
 include::example$deploy/local-pgsql/docker-compose.yaml[]
 ----
 
+[NOTE]
+====
+Supported PostgreSQL versions 13, 14, 15
+====
+
 === Configure .env
 
 .Your configuration should look like this:
@@ -354,6 +359,11 @@ If you wish to use or are using something else, feel free to skip this section.
 ----
 include::example$deploy/prod-proxy-nginx/docker-compose.yaml[]
 ----
+
+[NOTE]
+====
+Supported PostgreSQL versions 13, 14, 15
+====
 
 .Your `custom.conf` should look like this:
 [source,yaml]

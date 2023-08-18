@@ -12,6 +12,7 @@ services:
     # MySQL Database
     # See https://hub.docker.com/r/percona/percona-server for details
     image: percona:8.0
+    command: --sort_buffer_size=512K
     restart: always
     environment:
       MYSQL_DATABASE: dbname

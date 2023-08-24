@@ -5,13 +5,24 @@
   "added": [
     {
       "what": [
-        "the option to configure whether a module field and its value should be displayed in one or two lines."
+        "option to configure whether module field value is on the same row as it's label."
       ],
       "why": [
-        "to provide the user with the option to set the position of a field and its value."
+        "to provide the user with the option to set the position of a field value."
       ],
       "refs": [
         "https://github.com/cortezaproject/corteza/pull/1339"
+      ]
+    },
+    {
+      "what": [
+        "case sensitive search in a record list if MySQL database is used."
+      ],
+      "why": [
+        "to make searching of records easier by returning similar results to the searching criteria."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/pull/1355"
       ]
     }
   ],
@@ -19,16 +30,24 @@
   "changed": [
     {
       "what": [
-        "."
+        "the visibility of the inline record editor option in a record list to hidden if a module isn't provided."
       ],
       "why": [
-        "."
-      ],
-      "how": [
-        "."
+        "to not confuse the user that the option is available and can be used."
       ],
       "refs": [
-        ""
+        "https://github.com/cortezaproject/corteza/commit/b96ea0ea236eec6903c881529bbcbc9e393220ab"
+      ]
+    },
+    {
+      "what": [
+        "loading of page resources when switching between pages."
+      ],
+      "why": [
+        "to prevent loading page resources for a page that isn't currently selected."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/638ba17c89a03b99588241e3969edd04d3ef1a75"
       ]
     },
     {
@@ -64,6 +83,70 @@
       ],
       "refs": [
         "https://github.com/cortezaproject/corteza/commit/6f6df66d6f8dd28b29d581cbbf5443c4864294d4"
+      ]
+    },
+    {
+      "what": [
+        "drill-down option in metric page block not working if the metric label wasn't provided."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/95ae09e80c35ec24f21379a246f9c3c8e2654a5e"
+      ]
+    },
+    {
+      "what": [
+        "removing of unnecessary resources in device memory after switching from one page to another in {APP_NAME_COMPOSE}."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/95cf245daafc521fc25e0f3bb20b5e2e9ed1b94a"
+      ]
+    },
+    {
+      "what": [
+        "not being able to save a page after any page block is removed from a tabs page block."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/5addb87b3b339493e2c9788aca0b42a879264663"
+      ]
+    },
+    {
+      "what": [
+        "visibility of conditional field in a record."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/e081faab821509d7c3f4efbbf707b872e923d08c"
+      ]
+    },
+    {
+      "what": [
+        "flow for creating a record from a modal."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/ac9bc740adaf15b6e3823509232fa991329a3fa0"
+      ]
+    },
+    {
+      "what": [
+        "option for hiding sidebar after creating a namespace in {APP_NAME_COMPOSE}."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/ac9bc740adaf15b6e3823509232fa991329a3fa0"
+      ]
+    },
+    {
+      "what": [
+        "error for stale data showing if a report data source is misconfigured in {APP_NAME_REPORTER}."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/773beaf4105deb57f3bfb9204d9013c329a36eed"
+      ]
+    },
+    {
+      "what": [
+        "not being able to search for a record by record id in a record list using 'Like', 'Not like', and 'Not equal' conditions."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/pull/1354"
       ]
     }
   ]

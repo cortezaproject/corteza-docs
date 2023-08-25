@@ -1,11 +1,11 @@
 {
   "meta": {
-    "releasedOn": "2023.08.11"
+    "releasedOn": "2023.08.24"
   },
   "added": [
     {
       "what": [
-        "option to configure whether module field value is on the same row as it's label."
+        "the option to configure whether module field value is on the same row as its label in the record configurator."
       ],
       "why": [
         "to provide the user with the option to set the position of a field value."
@@ -16,7 +16,7 @@
     },
     {
       "what": [
-        "case sensitive search in a record list if MySQL database is used."
+        "case insensitive search in a record list if MySQL database is used."
       ],
       "why": [
         "to make searching of records easier by returning similar results to the searching criteria."
@@ -30,18 +30,7 @@
   "changed": [
     {
       "what": [
-        "the visibility of the inline record editor option in a record list to hidden if a module isn't provided."
-      ],
-      "why": [
-        "to not confuse the user that the option is available and can be used."
-      ],
-      "refs": [
-        "https://github.com/cortezaproject/corteza/commit/b96ea0ea236eec6903c881529bbcbc9e393220ab"
-      ]
-    },
-    {
-      "what": [
-        "loading of page resources when switching between pages."
+        "loading of page resources when switching between pages. Previously, after switching from one page to another, the previous page's resources continued to be fetched. Currently, when the same is done, only the current page's resources are fetched."
       ],
       "why": [
         "to prevent loading page resources for a page that isn't currently selected."
@@ -63,7 +52,7 @@
   "fixed": [
     {
       "what": [
-        "overflowing of long texts in {APP_NAME_COMPOSE}."
+        "long texts to no longer overflow in {APP_NAME_COMPOSE}."
       ],
       "refs": [
         "https://github.com/cortezaproject/corteza/commit/895796a4758479ada793228667ea9b1b4618b749"
@@ -87,7 +76,7 @@
     },
     {
       "what": [
-        "drill-down option in metric page block not working if the metric label wasn't provided."
+        "drill-down option in the metric page block not working if the metric label wasn't provided."
       ],
       "refs": [
         "https://github.com/cortezaproject/corteza/commit/95ae09e80c35ec24f21379a246f9c3c8e2654a5e"
@@ -95,7 +84,7 @@
     },
     {
       "what": [
-        "removing of unnecessary resources in device memory after switching from one page to another in {APP_NAME_COMPOSE}."
+        "memory leak issue for {APP_NAME_COMPOSE} when switching between different pages.."
       ],
       "refs": [
         "https://github.com/cortezaproject/corteza/commit/95cf245daafc521fc25e0f3bb20b5e2e9ed1b94a"
@@ -103,7 +92,7 @@
     },
     {
       "what": [
-        "not being able to save a page after any page block is removed from a tabs page block."
+        "not being able to save a page after removing a page block from a tabs page block."
       ],
       "refs": [
         "https://github.com/cortezaproject/corteza/commit/5addb87b3b339493e2c9788aca0b42a879264663"
@@ -111,7 +100,7 @@
     },
     {
       "what": [
-        "visibility of conditional field in a record."
+        "conditional field being displayed even if its condition says the opposite."
       ],
       "refs": [
         "https://github.com/cortezaproject/corteza/commit/e081faab821509d7c3f4efbbf707b872e923d08c"
@@ -119,7 +108,7 @@
     },
     {
       "what": [
-        "flow for creating a record from a modal."
+        "flow for creating a record in a modal. Previously, the user wasn't able to create a record in the modal because the page for creating a record was opened behind the modal. Now, the same view opens in the modal and the user can create a record from there."
       ],
       "refs": [
         "https://github.com/cortezaproject/corteza/commit/ac9bc740adaf15b6e3823509232fa991329a3fa0"
@@ -127,7 +116,7 @@
     },
     {
       "what": [
-        "option for hiding sidebar after creating a namespace in {APP_NAME_COMPOSE}."
+        "option for hiding sidebar after creating a namespace in {APP_NAME_COMPOSE}. By default, the sidebar is pinned and that makes it visible even if the option to hide it is enabled."
       ],
       "refs": [
         "https://github.com/cortezaproject/corteza/commit/ac9bc740adaf15b6e3823509232fa991329a3fa0"
@@ -155,6 +144,17 @@
       ],
       "refs": [
         "https://github.com/cortezaproject/corteza/commit/56264e1305e7b864d71823d5a8839f2d41e9ea54"
+      ]
+    },
+    {
+      "what": [
+        "the visibility of the inline record editor option in a record list to hidden if a module isn't provided."
+      ],
+      "why": [
+        "to not confuse the user that the option is available and can be used."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/b96ea0ea236eec6903c881529bbcbc9e393220ab"
       ]
     }
   ]

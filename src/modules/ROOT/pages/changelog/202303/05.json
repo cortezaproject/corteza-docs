@@ -148,6 +148,14 @@
       "refs": [
         "https://github.com/cortezaproject/corteza/pull/1354"
       ]
+    },
+    {
+      "what": [
+        "not being able to edit a workflow expression after clicking on a browser tab/window."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/56264e1305e7b864d71823d5a8839f2d41e9ea54"
+      ]
     }
   ]
 }

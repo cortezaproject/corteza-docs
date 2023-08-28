@@ -5,10 +5,10 @@
   "added": [
     {
       "what": [
-        "page navigation to stop loading previous resources in case we've navigated to a new page."
+        "the option to configure whether module field value is on the same row as its label in the page block."
       ],
       "why": [
-        "this change reduces the amount of needless processing since the old resources would be discarded right away."
+        "to provide the user with the option to set the position of a field value."
       ],
       "refs": [
         "https://github.com/cortezaproject/corteza/pull/1339"
@@ -30,10 +30,10 @@
   "changed": [
     {
       "what": [
-        "loading of page resources when switching between pages. Previously, after switching from one page to another, the previous page's resources continued to be fetched. Currently, when the same is done, only the current page's resources are fetched."
+        "page navigation to stop loading previous resources in case we've navigated to a new page."
       ],
       "why": [
-        "to prevent loading page resources for a page that isn't currently selected."
+        "this change reduces the amount of needless processing since the old resources would be discarded right away."
       ],
       "refs": [
         "https://github.com/cortezaproject/corteza/commit/638ba17c89a03b99588241e3969edd04d3ef1a75"
@@ -108,7 +108,8 @@
     },
     {
       "what": [
-        "not being able to create a record in a modal because the view opens behind the modal."
+        "not being able to create a record in a modal because the view opens behind the modal.",
+        "Now, the view opens in the modal and a record can be created in it."
       ],
       "refs": [
         "https://github.com/cortezaproject/corteza/commit/ac9bc740adaf15b6e3823509232fa991329a3fa0"
@@ -116,7 +117,7 @@
     },
     {
       "what": [
-        "namespace sidebar not being hidden/show correctly when creating a new namespace because it's pinned."
+        "namespace sidebar not being hidden/show correctly when creating a new namespace because it was pinned."
       ],
       "refs": [
         "https://github.com/cortezaproject/corteza/commit/ac9bc740adaf15b6e3823509232fa991329a3fa0"

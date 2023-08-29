@@ -33,7 +33,7 @@
         "page navigation to stop loading previous resources in case we've navigated to a new page."
       ],
       "why": [
-        "this change reduces the amount of needless processing since the old resources would be discarded right away."
+        "to reduce the amount of needless processing since the old resources would be discarded right away."
       ],
       "refs": [
         "https://github.com/cortezaproject/corteza/commit/638ba17c89a03b99588241e3969edd04d3ef1a75"

@@ -41,7 +41,6 @@ include::generated:partial$resource-events.gen.adoc[]
 * `after('delete')`
 
 .On events:
-* `on('manual')`
 * `on('formSubmitError')`
 
 === ui:compose:admin-record-page
@@ -55,11 +54,4 @@ include::generated:partial$resource-events.gen.adoc[]
 * `after('delete')`
 
 .On events:
-* `on('manual')`
 * `on('formSubmitError')`
-
-=== ui:compose
-
-==== Events
-.On events:
-* `on('manual')`

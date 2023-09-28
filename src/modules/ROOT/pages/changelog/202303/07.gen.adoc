@@ -1,0 +1,43 @@
+include::ROOT:partial$variables.adoc[]
+
+= `2023.3.7`
+
+*Released on*: `2023.10.04`
+
+.[#2023_03_07-added]#<<2023_03_07-added,Added:>>#
+* Added the option to delete a preset filter from filter preset dropdown in a record list for administrator roles.
+The change was added to provide all administrator role users with the option to permanently delete a preset filter
+({CORTEZA_PULL_BASE}1449[`1449`]).
+* Added the option to sort the system fields (`ownedBy`, `createdBy`, `updatedBy`, and `deletedBy`) as well as user and record fields and in record lists.
+The change was added to make sorting/viewing data easier for the user
+({CORTEZA_PULL_BASE}1449[`1449`]).
+
+.[#2023_03_07-changed]#<<2023_03_07-changed,Changed:>>#
+* Changed option to clone a page layout by adding two sub options - for cloning a page with page block reference and for cloning a page without page block reference.
+When cloning by reference, configuration changes that are made to the original page's blocks are also reflected to the copied page's page blocks.
+And when cloning without reference, the changes made to the original page's blocks are not reflected to the copied page's page blocks.
+The change was made to provide the user with the option to choose whether the copied page's block configuration should be shared among pages
+({CORTEZA_PULL_BASE}1444[`1444`]).
+* Changed the UI for uploading a namespace by showing a spinner while data is being processed and hiding the name and handle field of the namespace instead of showing the spinner and fields at the same time.
+The change was made to be consistent with the UI in {PRODUCT_NAME}
+({CORTEZA_COMMIT_BASE}c997655[`c997655`]).
+* Changed the handle field for a user to not be required when updating the resource in {APP_NAME_ADMIN}
+({CORTEZA_COMMIT_BASE}ed377a7[`ed377a7`]).
+* Changed general ui/ux improvements:
+** Added additional information on how to write conditions for hiding or showing for a page layout in the page layout configurator
+** Updated the edit icon in page tree to match the same edit icon used everywhere in {PRODUCT_NAME}
+** Standardize permissions button in {APP_NAME_ADMIN} and {APP_NAME_COMPOSE}
+({CORTEZA_COMMIT_BASE}d2cc2c8[`d2cc2c8`], {CORTEZA_COMMIT_BASE}d5f8faa[`d5f8faa`], {CORTEZA_COMMIT_BASE}86c12cc[`86c12cc`]).
+
+.[#2023_03_07-fixed]#<<2023_03_07-fixed,Fixed:>>#
+* Fixed non-record page blocks not being refreshed in a modal after a record has been added or edited
+({CORTEZA_PULL_BASE}1444[`1444`]).
+* Fixed the `refresh all record values` prompt in workflows not updating record values when workflow is executed
+({CORTEZA_PULL_BASE}1445[`1445`]).
+* Fixed page content not being shown when creating record in magnified modal
+({CORTEZA_COMMIT_BASE}55dfcb8[`55dfcb8`]).
+* Fixed page blocks not being refreshed with the correct data after a record has been updated
+({CORTEZA_COMMIT_BASE}8c6c3b8[`8c6c3b8`]).
+* Fixed record fetching not returning all available pages in case RBAC rules would filter out a larger chunk.
+The fix was made by tracking both included and excluded records and adjusting termination logic accordingly
+({CORTEZA_COMMIT_BASE}8e03ea5[`8e03ea5`]).

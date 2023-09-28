@@ -1,0 +1,122 @@
+{
+  "meta": {
+    "releasedOn": "2023.10.04"
+  },
+  "added": [
+    {
+      "what": [
+        "the option to delete a preset filter from filter preset dropdown in a record list for administrator roles."
+      ],
+      "why": [
+        "to provide all administrator role users with the option to permanently delete a preset filter."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/pull/1449/commits/e7c9c857dc9c848edc75ddb5475745f4cef02e14"
+      ]
+    },
+    {
+      "what": [
+        "the option to sort the system fields (`ownedBy`, `createdBy`, `updatedBy`, and `deletedBy`) as well as user and record fields and in record lists."
+      ],
+      "why": [
+        "to make sorting/viewing data easier for the user."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/pull/1449/commits/e73119a888474ef397f837cea854d29b15cf2035"
+      ]
+    }
+  ],
+  
+  "changed": [
+    {
+      "what": [
+        "option to clone a page layout by adding two sub options - for cloning a page with page block reference and for cloning a page without page block reference.",
+        "When cloning by reference, configuration changes that are made to the original page's blocks are also reflected to the copied page's page blocks.",
+        "And when cloning without reference, the changes made to the original page's blocks are not reflected to the copied page's page blocks."
+      ],
+      "why": [
+        "to provide the user with the option to choose whether the copied page's block configuration should be shared among pages."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/pull/1444/commits/d64ed2b456cb0ee8cb064af817af48e06ad27c9b"
+      ]
+    },
+    {
+      "what": [
+        "the UI for uploading a namespace by showing a spinner while data is being processed and hiding the name and handle field of the namespace instead of showing the spinner and fields at the same time."
+      ],
+      "why": [
+        "to be consistent with the UI in {PRODUCT_NAME}."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/c997655b961965ee607907c54fd68ba10686fcbd"
+      ]
+    },
+    {
+      "what": [
+        "the handle field for a user to not be required when updating the resource in {APP_NAME_ADMIN}."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/ed377a7d2b792bd56497a18e7a5e0517e149afd7"
+      ]
+    },
+    {
+      "what": [
+        "general ui/ux improvements:",
+        "** Added additional information on how to write conditions for hiding or showing for a page layout in the page layout configurator.",
+        "** Updated the edit icon in page tree to match the same edit icon used everywhere in {PRODUCT_NAME}.",
+        "** Standardize permissions button in {APP_NAME_ADMIN} and {APP_NAME_COMPOSE}."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/d2cc2c8dc3ada68b19093ac99097734a9dd0ac85",
+        "https://github.com/cortezaproject/corteza/commit/d5f8faac5a19fa4a11a9509e7783e95773a5772b",
+        "https://github.com/cortezaproject/corteza/commit/86c12cc57cb83dc48a69ee36ea35c06a81e88f08"
+      ]
+    }
+  ],
+  "fixed": [
+    {
+      "what": [
+        "non-record page blocks not being refreshed in a modal after a record has been added or edited."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/pull/1444/commits/a544780753080173aad1bf03437eec836826c636"
+      ]
+    },
+    {
+      "what": [
+        "the `refresh all record values` prompt in workflows not updating record values when workflow is executed."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/pull/1445"
+      ]
+    },
+    {
+      "what": [
+        "page content not being shown when creating record in magnified modal."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/55dfcb8ab763a59b95fae13e434db00244f36561"
+      ]
+    },
+    {
+      "what": [
+        "page blocks not being refreshed with the correct data after a record has been updated."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/8c6c3b8cd9af1327d2fb868b0c5a0b9703f78df2"
+      ]
+    },
+    {
+      "what": [
+        "record fetching not returning all available pages in case RBAC rules would filter out a larger chunk."
+      ],
+      "how": [
+        "by tracking both included and excluded records and adjusting termination logic accordingly."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/8e03ea56ef17b6332d6bb841da5ca5965966b78f"
+      ]
+    }
+  ]
+}

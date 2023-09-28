@@ -54,6 +54,14 @@
     },
     {
       "what": [
+        "the handle field for a user to not be required when updating the resource in {APP_NAME_ADMIN}."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/ed377a7d2b792bd56497a18e7a5e0517e149afd7"
+      ]
+    },
+    {
+      "what": [
         "general ui/ux improvements:",
         "** Added additional information on how to write conditions for hiding or showing for a page layout in the page layout configurator.",
         "** Updated the edit icon in page tree to match the same edit icon used everywhere in Corteza."
@@ -95,17 +103,6 @@
       ],
       "refs": [
         "https://github.com/cortezaproject/corteza/commit/8c6c3b8cd9af1327d2fb868b0c5a0b9703f78df2"
-      ]
-    },
-    {
-      "what": [
-        "record fetching not returning all available pages in case RBAC rules would filter out a larger chunk."
-      ],
-      "how": [
-        "by tracking both included and excluded records and adjusting termination logic accordingly."
-      ],
-      "refs": [
-        "https://github.com/cortezaproject/corteza/commit/8e03ea56ef17b6332d6bb841da5ca5965966b78f"
       ]
     }
   ]

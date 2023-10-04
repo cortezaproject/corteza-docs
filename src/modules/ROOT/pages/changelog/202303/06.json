@@ -5,10 +5,10 @@
   "added": [
     {
       "what": [
-        "splice function in workflows that can change the contents of an array by removing or replacing existing elements of different types like strings, numbers, etc. and/or adding new elements in place."
+        "splice function in workflows that can change the contents of an `array` by removing or replacing existing elements of different variable types and/or adding new elements in place."
       ],
       "why": [
-        "to provide the option to easily add/remove elements from an array."
+        "to provide the option to easily add or remove elements from an `array`."
       ],
       "refs": [
         "https://github.com/cortezaproject/corteza/commit/7bc36eb46f57cf1d8a271319f04c8ed5158eb7a7"
@@ -64,7 +64,7 @@
     },
     {
       "what": [
-        "prefilter in progress bar page block not returning any data if records are filtered by record id."
+        "prefilter in progress bar page block not returning any data if records are filtered by `recordID`."
       ],
       "refs": [
         "https://github.com/cortezaproject/corteza/pull/1414"
@@ -72,7 +72,7 @@
     },
     {
       "what": [
-        "being redirected to list of namespaces/pages/modules instead of the previous page after clicking on the btn:[Save and close] button when creating/editing a namespace/page/module."
+        "being redirected to list of namespace/pages/modules instead of the previous page after clicking on the btn:[Save and close] button when creating or editing a namespace/page/module."
       ],
       "refs": [
         "https://github.com/cortezaproject/corteza/pull/1387",
@@ -97,7 +97,7 @@
     },
     {
       "what": [
-        "triggering of unsaved changes message when trying to leave the Compose settings page in {APP_NAME_ADMIN} after making changes to the user interface settings."
+        "triggering of unsaved changes message when trying to leave the {APP_NAME_COMPOSE} settings page in {APP_NAME_ADMIN} after saving the changes to the user interface settings."
       ],
       "refs": [
         "https://github.com/cortezaproject/corteza/pull/1429"

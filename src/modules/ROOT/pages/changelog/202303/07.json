@@ -64,11 +64,13 @@
       "what": [
         "general ui/ux improvements:",
         "** Added additional information on how to write conditions for hiding or showing for a page layout in the page layout configurator.",
-        "** Updated the edit icon in page tree to match the same edit icon used everywhere in Corteza."
+        "** Updated the edit icon in page tree to match the same edit icon used everywhere in Corteza.",
+        "** Standardize permissions button in {APP_NAME_ADMIN} and {APP_NAME_COMPOSE}."
       ],
       "refs": [
         "https://github.com/cortezaproject/corteza/commit/d2cc2c8dc3ada68b19093ac99097734a9dd0ac85",
-        "https://github.com/cortezaproject/corteza/commit/d5f8faac5a19fa4a11a9509e7783e95773a5772b"
+        "https://github.com/cortezaproject/corteza/commit/d5f8faac5a19fa4a11a9509e7783e95773a5772b",
+        "https://github.com/cortezaproject/corteza/commit/86c12cc57cb83dc48a69ee36ea35c06a81e88f08"
       ]
     }
   ],
@@ -103,6 +105,17 @@
       ],
       "refs": [
         "https://github.com/cortezaproject/corteza/commit/8c6c3b8cd9af1327d2fb868b0c5a0b9703f78df2"
+      ]
+    },
+    {
+      "what": [
+        "record fetching not returning all available pages in case RBAC rules would filter out a larger chunk."
+      ],
+      "how": [
+        "by tracking both included and excluded records and adjusting termination logic accordingly."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/8e03ea56ef17b6332d6bb841da5ca5965966b78f"
       ]
     }
   ]

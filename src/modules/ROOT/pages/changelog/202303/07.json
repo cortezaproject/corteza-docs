@@ -1,14 +1,14 @@
 {
   "meta": {
-    "releasedOn": "2023.09.28"
+    "releasedOn": "2023.10.04"
   },
   "added": [
     {
       "what": [
-        "the option to delete a preset filter from filter preset dropdown in a record list."
+        "the option to delete a preset filter from filter preset dropdown in a record list for administrator roles."
       ],
       "why": [
-        "to provide the user with the option to delete a preset filter."
+        "to provide all administrator role users with the option to permanently delete a preset filter."
       ],
       "refs": [
         "https://github.com/cortezaproject/corteza/pull/1449/commits/e7c9c857dc9c848edc75ddb5475745f4cef02e14"
@@ -16,7 +16,7 @@
     },
     {
       "what": [
-        "the option to sort the system fields `ownedBy`, `createdBy`, `updatedBy`, `deletedBy` and the fields user and record in a record list."
+        "the option to sort the system fields (`ownedBy`, `createdBy`, `updatedBy`, and `deletedBy`) as well as user and record fields and in record lists."
       ],
       "why": [
         "to make sorting/viewing data easier for the user."
@@ -31,8 +31,8 @@
     {
       "what": [
         "option to clone a page layout by adding two sub options - for cloning a page with page block reference and for cloning a page without page block reference.",
-        "In the first case, configuration changes that are made to the original page's blocks are also reflected to the copied page's page blocks.",
-        "As for the other option, the changes made to the original page's blocks are not reflected to the copied page's page blocks."
+        "When cloning by reference, configuration changes that are made to the original page's blocks are also reflected to the copied page's page blocks.",
+        "And when cloning without reference, the changes made to the original page's blocks are not reflected to the copied page's page blocks."
       ],
       "why": [
         "to provide the user with the option to choose whether the copied page's block configuration should be shared among pages."
@@ -46,7 +46,7 @@
         "the UI for uploading a namespace by showing a spinner while data is being processed and hiding the name and handle field of the namespace instead of showing the spinner and fields at the same time."
       ],
       "why": [
-        "to be consistent with the UI in Corteza."
+        "to be consistent with the UI in {PRODUCT_NAME}."
       ],
       "refs": [
         "https://github.com/cortezaproject/corteza/commit/c997655b961965ee607907c54fd68ba10686fcbd"
@@ -64,7 +64,7 @@
       "what": [
         "general ui/ux improvements:",
         "** Added additional information on how to write conditions for hiding or showing for a page layout in the page layout configurator.",
-        "** Updated the edit icon in page tree to match the same edit icon used everywhere in Corteza.",
+        "** Updated the edit icon in page tree to match the same edit icon used everywhere in {PRODUCT_NAME}.",
         "** Standardize permissions button in {APP_NAME_ADMIN} and {APP_NAME_COMPOSE}."
       ],
       "refs": [

@@ -5,7 +5,7 @@
   "added": [
     {
       "what": [
-        "splice function in workflows that can change the contents of an `array` by removing or replacing existing elements of different variable types and/or adding new elements in place."
+        "splice function in workflows that can change the contents of an `array` by removing or replacing existing elements of different types like `strings`, `numbers`, `booleans`, `objects`, `arrays` and/or adding new elements in place."
       ],
       "why": [
         "to provide the option to easily add or remove elements from an `array`."

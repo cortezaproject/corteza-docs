@@ -5,8 +5,8 @@ include::ROOT:partial$variables.adoc[]
 *Released on*: `2023.09.13`
 
 .[#2023_03_06-added]#<<2023_03_06-added,Added:>>#
-* Added splice function in workflows that can change the contents of an array by removing or replacing existing elements of different types like strings, numbers, etc. and/or adding new elements in place.
-The change was added to provide the option to easily add/remove elements from an array
+* Added splice function in workflows that can change the contents of an `array` by removing or replacing existing elements of different types like `strings`, `numbers`, `booleans`, `objects`, `arrays` and/or adding new elements in place.
+The change was added to provide the option to easily add or remove elements from an `array`
 ({CORTEZA_COMMIT_BASE}7bc36eb[`7bc36eb`]).
 * Added the option to fetch data for a geometry page block when clicking on the refresh button in the page block or after a set by the user amount of time.
 The change was added to provide the option to easily fetch data for the page block
@@ -25,15 +25,15 @@ The change was added to provide the option of viewing permissions of a resource 
 .[#2023_03_06-fixed]#<<2023_03_06-fixed,Fixed:>>#
 * Fixed invalid username and password combination error on sign up caused when trying to create a user with a handle that already exists
 ({CORTEZA_PULL_BASE}1413[`1413`]).
-* Fixed prefilter in progress bar page block not returning any data if records are filtered by record id
+* Fixed prefilter in progress bar page block not returning any data if records are filtered by `recordID`
 ({CORTEZA_PULL_BASE}1414[`1414`]).
-* Fixed being redirected to list of namespaces/pages/modules instead of the previous page after clicking on the btn:[Save and close] button when creating/editing a namespace/page/module
+* Fixed being redirected to list of namespace/pages/modules instead of the previous page after clicking on the btn:[Save and close] button when creating or editing a namespace/page/module
 ({CORTEZA_PULL_BASE}1387[`1387`], {CORTEZA_COMMIT_BASE}abe1eb6[`abe1eb6`]).
 * Fixed side menu with reports not opening in {APP_NAME_REPORTER} when hovering over its 'opening' bars icon
 ({CORTEZA_PULL_BASE}1425[`1425`]).
 * Fixed incorrect number of pages shown when the full page navigation and show total number of records options are enabled in a record list
 ({CORTEZA_PULL_BASE}1417[`1417`]).
-* Fixed triggering of unsaved changes message when trying to leave the Compose settings page in {APP_NAME_ADMIN} after making changes to the user interface settings
+* Fixed triggering of unsaved changes message when trying to leave the {APP_NAME_COMPOSE} settings page in {APP_NAME_ADMIN} after saving the changes to the user interface settings
 ({CORTEZA_PULL_BASE}1429[`1429`]).
 * Fixed missing page layout permissions for authenticated and administrator roles.
 The fix was made by adding the permissions to the roles

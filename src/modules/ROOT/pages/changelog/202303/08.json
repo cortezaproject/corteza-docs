@@ -1,0 +1,63 @@
+{
+  "meta": {
+    "releasedOn": "2023.10.18"
+  },
+  "added": [
+    {
+      "what": [
+        "new envoy to record import endpoints."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/399f9a7cc490dc8849ae285568a1e86d9c78703d"
+      ]
+    }
+  ],
+
+  "fixed": [
+    {
+      "what": [
+        "record import not importing anything with no reported errors."
+      ],
+      "how": [
+        "by fixing the file management to correctly report rows and counts.",
+        "The issue was caused because the state wasn't reset correctly after performing a _preflight_ to analyze and count records."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/532e1ac46beee6b254ade1aa4c1c4dcfea9f5c17"
+      ]
+    },
+    {
+      "what": [
+        "removing of page block causing undefined property error in page block parent component."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/pull/1476"
+      ]
+    },
+    {
+      "what": [
+        "opening list of workflows in automation page block configurator triggering duplicate identification keys error.",
+        "The keys are used for keeping track of workflow updates."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/28d4d0d1b1a345e9445a6a34a5e8d63ed1d5134b"
+      ]
+    },
+    {
+      "what": [
+        "metric element not respecting its format configuration in {APP_NAME_REPORTER}."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/issues/1421"
+      ]
+    },
+    {
+      "what": [
+        "page layout expression not being evaluated when switching between viewing and editing a record."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/pull/1475"
+      ]
+    }
+  ]
+}

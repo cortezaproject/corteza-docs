@@ -2,10 +2,14 @@
   "meta": {
     "releasedOn": "2023.10.18"
   },
-  "added": [
+
+  "changed": [
     {
       "what": [
-        "new envoy to record import endpoints."
+        "record import endpoints by replacing the old endpoints with new ones."
+      ],
+      "why": [
+        "to optimize the process of importing records by making it more stable, efficient and capable of handling large amounts of record imports."
       ],
       "refs": [
         "https://github.com/cortezaproject/corteza/commit/399f9a7cc490dc8849ae285568a1e86d9c78703d"
@@ -36,8 +40,7 @@
     },
     {
       "what": [
-        "opening list of workflows in automation page block configurator triggering duplicate identification keys error.",
-        "The keys are used for keeping track of workflow updates."
+        "opening list of workflows in automation page block configurator triggering duplicate identification keys error."
       ],
       "refs": [
         "https://github.com/cortezaproject/corteza/commit/28d4d0d1b1a345e9445a6a34a5e8d63ed1d5134b"
@@ -53,7 +56,7 @@
     },
     {
       "what": [
-        "page layout expression not being evaluated when switching between viewing and editing a record."
+        "page layout expression not being evaluated correctly when switching between viewing and editing a record."
       ],
       "refs": [
         "https://github.com/cortezaproject/corteza/pull/1475"

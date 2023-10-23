@@ -48,7 +48,7 @@
     },
     {
       "what": [
-        "metric element not respecting set format but being displayed as integer in {APP_NAME_REPORTER}."
+        "metric element not respecting its format configuration and displaying as default integer in {APP_NAME_REPORTER}."
       ],
       "refs": [
         "https://github.com/cortezaproject/corteza/issues/1421"
@@ -56,7 +56,8 @@
     },
     {
       "what": [
-        "page layout expression not being evaluated when switching between viewing and editing a record."
+        "page layout expressions not being evaluated when switching from editing to viewing a record.",
+        "This fix also addressed the issue of record object not being present on initial load."
       ],
       "refs": [
         "https://github.com/cortezaproject/corteza/pull/1475"

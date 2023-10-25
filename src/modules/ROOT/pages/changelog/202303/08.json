@@ -51,7 +51,7 @@
         "metric element not respecting its format configuration and displaying as default integer in {APP_NAME_REPORTER}."
       ],
       "refs": [
-        "https://github.com/cortezaproject/corteza/issues/1421"
+        "https://github.com/cortezaproject/corteza/pull/1421"
       ]
     },
     {

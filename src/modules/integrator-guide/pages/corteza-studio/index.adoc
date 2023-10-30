@@ -1,0 +1,137 @@
+include::ROOT:partial$variables.adoc[]
+
+= Corteza Studio
+
+:description: Corteza Studio allows users to customize Corteza web applications styling according to their preferences.
+Corteza Studio allows users to customize Corteza web applications styling according to their preferences. 
+
+[NOTE]
+====
+For Corteza Studio, to function properly, you need to have dart-sass binaries installed in your system and 
+`HTTP_WEBAPP_ENABLED` enviroment variable set to `true`.
+If you haven't installed it, refer to the <<installing-dart-sass, Installing Dart Sass>> section below.
+====
+
+=== Customizing Corteza Web Applications
+
+To customize your Corteza web application, navigate to menu:User Interface[Settings].
+
+There are two ways of customizing your corteza web applications style:
+
+:sectnums:
+==== Branding
+Under menu:User Interface[Settings] branding section.
+
+image::corteza-studio/branding-section.png[role="data-zoomable"]
+
+A screen showing you all of the available Corteza-specific branding color configuration options.
+
+.From there you can:
+* Click on the rounded color inputs, which will pop up a modal window with a color picker.
+* Here, you can either pick a color from the predefined options or input your own custom color.
+* Finally, click the btn:[Save and close] button to save your input changes.
+
+image::corteza-studio/choosing-color.png[role="data-zoomable"]
+
+After making your branding color changes, click the btn:[Submit] button. This action will save your input changes and automatically refresh your admin web application with the updated branding color.
+
+==== Custom CSS Editor
+Under menu:User Interface[Settings] Custom CSS section.
+
+image::corteza-studio/custom-css.png[role="data-zoomable"]
+
+Custom CSS editor supports both sass and css syntax.
+
+In this section, you can add your Sass or CSS code that specifically targets your web application(s). Afterward, simply click the btn:[Submit] button to save your input changes. This action will save your input changes and automatically refresh your web application with the updated styling.
+
+image::corteza-studio/custom-css-values.png[role="data-zoomable"]
+
+
+====
+Please note that the Custom CSS editor stylesheet code takes precedence over the configuration of branding section variables.
+====
+
+
+== Installing  Dart Sass 
+[[installing-dart-sass]]
+=== Development Enviroment
+To use Corteza, you must install Dart Sass in your development environment. 
+Follow the instructions below based on your operating system:
+
+*linux*
+[source, bash]
+----
+# Using Homebrew
+brew install sass/sass/sass
+
+# Using Snap
+sudo snap install dart-sass
+----
+
+*macOS*
+[source, bash]
+----
+brew install sass/sass/sass
+----
+
+*windows*
+[source, bash]
+----
+# Using Chocolatey
+choco install sass
+
+# Using Scoop
+scoop install sass
+----
+
+Alternatively, you can download Dart Sass binaries directly from https://github.com/sass/dart-sass/releases[dart-sass release page].
+
+[NOTE]
+====
+When using prebuilt binaries, make sure to add Dart Sass to your system's PATH.
+====
+
+=== Production Enviroment
+In a production environment, especially when deploying with CI/CD pipelines or Docker, you can ensure that Dart Sass is available using the following methods:
+
+:sectnums:
+==== CI/CD deployment on GitHub pages
+To install Dart Sass for CI/CD deployment on GitHub Pages, include the following step in your workflow file:
+
+[source, yaml]
+----
+- name: Install Dart Sass
+  run: sudo snap install dart-sass
+----
+
+==== Docker deployment
+To install Dart Sass for Docker, include the following step in your Dockerfile:
+
+[source, Dockerfile]
+----
+# Replace the image with your deplyment Docker image
+FROM ubuntu:20.04
+
+RUN apt-get -y update \
+ && apt-get -y install \
+    ca-certificates \
+    curl \
+ && rm -rf /var/lib/apt/lists/*
+
+WORKDIR /usr/local
+
+# Replace the SASS_VERSION with the version you want to install
+ARG SASS_VERSION=1.67.0
+ARG SASS_URL="https://github.com/sass/dart-sass/releases/download/${SASS_VERSION}/dart-sass-${SASS_VERSION}-linux-x64.tar.gz"
+
+RUN curl -OL $SASS_URL
+
+# Extract the release (if it's an archive)
+RUN tar -xzf dart-sass-${SASS_VERSION}-linux-x64.tar.gz
+
+# Clean up downloaded files (optional)
+RUN rm -rf dart-sass-${SASS_VERSION}-linux-x64.tar.gz
+
+ENV PATH=$PATH:/usr/local/dart-sass
+
+----

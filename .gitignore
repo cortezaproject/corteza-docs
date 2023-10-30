@@ -6,3 +6,6 @@
 dev
 .idea
 node_modules
+.DS_Store
+.swp
+settings.json

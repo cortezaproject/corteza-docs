@@ -1,0 +1,99 @@
+include::ROOT:partial$variables.adoc[]
+
+= Installing  Dart Sass 
+
+== Development Enviroment
+ 
+Follow the instructions below to install dart-sass binaries based on your operating system:
+
+[cols="2s,5a"]
+|===
+| [#scss-local-linux]#<<scss-local-linux,Installing on Linux>>#
+|
+[source, bash]
+----
+# Using Homebrew.
+brew install sass/sass/sass
+
+# Using Snap
+sudo snap install dart-sass
+----
+
+| [#scss-local-macOS]#<<scss-local-macOS,Installing on MacOS>>#
+|
+[source, bash]
+----
+brew install sass/sass/sass
+----
+
+| [#scss-local-windows]#<<scss-local-windows,Installing on Windows>>#
+|
+[source, bash]
+----
+# Using Chocolatey
+choco install sass
+
+# Using Scoop
+scoop install sass
+----
+
+|===
+
+Alternatively, you can download Dart Sass binaries directly from the https://github.com/sass/dart-sass/releases[dart-sass release page].
+
+[IMPORTANT]
+====
+When using prebuilt binaries, make sure to add Dart Sass to your system's PATH.
+====
+
+== Build Enviroment
+
+In a build environment, especially when deploying with CI/CD pipelines or Docker, you can ensure that Dart Sass is available using the following methods:
+
+[cols="2s,5a"]
+|===
+| [#scss-deployment-github-pages]#<<scss-deployment-github-pages,CI/CD deployment on GitHub pages>>#
+|
+
+To install Dart Sass for CI/CD deployment on GitHub Pages, include the following step in your workflow file:
+
+[source, bash]
+----
+- name: Install Dart Sass
+  run: sudo snap install dart-sass
+----
+
+| [#scss-deployment-docker]#<<scss-deployment-docker, Docker deployment>>#
+|
+To install Dart Sass for Docker, include the following step in your Dockerfile:
+
+[source, Dockerfile]
+----
+# Replace the image with your deplyment Docker image
+FROM ubuntu:20.04
+
+RUN apt-get -y update \
+ && apt-get -y install \
+    ca-certificates \
+    curl \
+ && rm -rf /var/lib/apt/lists/*
+
+WORKDIR /usr/local
+
+# Replace the SASS_VERSION with the version you want to install
+ARG SASS_VERSION=1.67.0
+ARG SASS_URL="https://github.com/sass/dart-sass/releases/download/${SASS_VERSION}/dart-sass-${SASS_VERSION}-linux-x64.tar.gz"
+
+RUN curl -OL $SASS_URL
+
+# Extract the release (if it's an archive)
+RUN tar -xzf dart-sass-${SASS_VERSION}-linux-x64.tar.gz
+
+# Clean up downloaded files (optional)
+RUN rm -rf dart-sass-${SASS_VERSION}-linux-x64.tar.gz
+
+ENV PATH=$PATH:/usr/local/dart-sass
+
+----
+
+|===

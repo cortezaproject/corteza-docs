@@ -19,6 +19,7 @@
 ** xref:sink-route.adoc[]
 ** xref:pdf-renderer.adoc[]
 ** xref:server-plugins/index.adoc[]
+** xref:installing-sass/index.adoc[]
 
 ** References
 *** System Configuration

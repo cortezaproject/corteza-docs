@@ -13,6 +13,108 @@ To store records into a different connection, you'll xref:dal-connections/index.
 By default, *{PRODUCT_NAME} stores* all records (along with their values) into a *single table*, which should suffice for *most basic use-cases*.
 If your use case doesn't require storing records in dedicated storage, feel free to skip this section.
 
+[IMPORTANT]
+====
+The schema changes, suggested by {PRODUCT_NAME}, may not be the most optimal and may change through future releases.
+Prefer to make necessary database alterations manually if you prefer to have full control over what happens.
+====
+
+When you customize the record storage, in cases where the used database can not store records for this module (to exemplify; the table or column does not exist), {PRODUCT_NAME} suggests a set of changes you can make to properly store the data.
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "compose-configuration/dal-module/schema-alterations-base.png",
+    "alias": "compose-configuration-dal-module-schema-alterations-base",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {
+    "x": 340,
+    "y": 0,
+    "h": 490,
+    "w": 1230
+  },
+  "focus": {
+    "x": 400,
+    "y": 40,
+    "h": 400,
+    "w": 1120
+  },
+  "annotations": []
+}
+----
+
+You can either resolve these alterations directly via {PRODUCT_NAME} using the suggested change by clicking on the btn:[Resolve] or btn:[Automatically Resolve] button.
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "compose-configuration/dal-module/schema-alterations-base.png",
+    "alias": "compose-configuration-dal-module-schema-alterations-apply",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {
+    "x": 340,
+    "y": 0,
+    "h": 490,
+    "w": 1230
+  },
+  "focus": {
+    "x": 400,
+    "y": 40,
+    "h": 400,
+    "w": 1120
+  },
+  "annotations": [{
+    "x": 1375,
+    "y": 147,
+    "h": 27,
+    "w": 65
+  }, {
+    "x": 1353,
+    "y": 405,
+    "h": 30,
+    "w": 160
+  }]
+}
+----
+
+Alternatively, you can do the changes directly in the database and dismiss the alteration by clicking on the btn:[Dismiss] button.
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "compose-configuration/dal-module/schema-alterations-base.png",
+    "alias": "compose-configuration-dal-module-schema-alterations-dismiss",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {
+    "x": 340,
+    "y": 0,
+    "h": 490,
+    "w": 1230
+  },
+  "focus": {
+    "x": 400,
+    "y": 40,
+    "h": 400,
+    "w": 1120
+  },
+  "annotations": [{
+    "x": 1447,
+    "y": 147,
+    "h": 27,
+    "w": 65
+  }]
+}
+----
+
 == Configuration
 
 The record storage configuration options are available in the *module edit page* under the btn:[data store] tab.

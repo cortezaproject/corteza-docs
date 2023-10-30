@@ -1,0 +1,103 @@
+include::ROOT:partial$variables.adoc[]
+
+= {PRODUCT_NAME} Studio
+:description: {PRODUCT_NAME} Studio allows users to customize {PRODUCT_NAME} web applications styling according to their preferences.
+
+{PRODUCT_NAME} Studio allows users to customize {PRODUCT_NAME} web applications styling according to their preferences. 
+
+[IMPORTANT]
+====
+For {PRODUCT_NAME} Studio, to function properly, you need to xref:devops-guide:installing-sass/index.adoc[Install dart-sass binaries] in your system and 
+`HTTP_WEBAPP_ENABLED` enviroment variable set to `true`.
+====
+
+== Customizing {PRODUCT_NAME} Web Applications
+
+There are two ways of customizing your {PRODUCT_NAME} web applications style:
+
+=== Branding
+
+In the admin area, navigate to the menu:User Interface[Settings] branding section.
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "corteza-studio/branding-section.png",
+    "alias": "corteza-studio-branding-section",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {
+    "x": 535,
+    "y": 200,
+    "w": 1180,
+    "h": 750
+  },
+  "annotations": []
+}
+----
+
+A screen showing you all of the available {PRODUCT_NAME}-specific branding color configuration options.
+
+.From there you can:
+* Click on the *variable's* rounded color input, which will pop up a modal window with a color picker.
+* Pick a color then click the btn:[Save and close ] button to save your input variable color changes.
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "corteza-studio/choose-color.png",
+    "alias": "corteza-studio-choose-color",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {
+    "x": 450,
+    "y": 200,
+    "w": 1180,
+    "h": 780
+  },
+  "annotations": []
+}
+----
+
+After making your branding color changes, click the btn:[Submit] button. This action will save your input changes and automatically refresh your admin web application with the updated branding color.
+
+=== Custom CSS Editor
+
+In the admin area, navigate to the menu:User Interface[Settings] Custom CSS section.
+
+[NOTE]
+====
+Custom CSS editor supports both SASS and CSS syntax enabling you to customize your {PRODUCT_NAME} web application(s) styling using your preferred stylesheet language.
+====
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "corteza-studio/custom-css.png",
+    "alias": "corteza-studio-custom-css-editor",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {
+    "x": 535,
+    "y": 110,
+    "w": 1180,
+    "h": 480
+  },
+  "annotations": []
+}
+----
+
+In this section, you can add your stylesheet code that specifically targets your web application(s).
+Afterward, simply click the btn:[Submit] button to save your input changes.
+This action will save your input changes and automatically refresh your web application with the updated styling.
+
+[CAUTION]
+====
+Please note that the Custom CSS editor stylesheet code takes precedence over the configuration of branding section variables.
+====

@@ -56,6 +56,8 @@
 // **** xref:compose-configuration/examples/page-blocks/index.adoc[]
 // **** xref:compose-configuration/examples/field-expressions.adoc[]
 
+** xref:corteza-studio/index.adoc[]
+
 ** xref:dal-connections/index.adoc[]
 *** xref:dal-connections/connection-management.adoc[]
 *** xref:dal-connections/troubleshooting.adoc[]

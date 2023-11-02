@@ -2,7 +2,7 @@ include::ROOT:partial$variables.adoc[]
 include::ROOT:partial$icons.adoc[]
 
 = Workflows
-:page-aliases: 2023.3@automation/workflows/delaying-scheduling.adoc
+:page-aliases: 2023.9@automation/workflows/delaying-scheduling.adoc
 :keywords: automation, automate business logic, workflows, bpmn, diagram
 :description: Lean how to use workflows for visual business logic configuration based on a simplified BPMN model
 

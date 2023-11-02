@@ -1,7 +1,7 @@
 include::ROOT:partial$variables.adoc[]
 
 = Processing Record Selection
-:page-aliases: 2023.3@workflows/record-selection.adoc
+:page-aliases: 2023.9@workflows/record-selection.adoc
 :keywords: automation, process record selection
 :description: Learn how to process record selection using workflows
 

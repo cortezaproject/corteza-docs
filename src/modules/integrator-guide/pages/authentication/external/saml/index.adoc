@@ -2,7 +2,7 @@ include::ROOT:partial$variables.adoc[]
 
 [#saml]
 = SAML
-:page-aliases: 2023.3@administrator-guide:authentication/authentication-providers/saml.adoc  2023.3@integrator-guide:authentication/external/saml.adoc
+:page-aliases: 2023.9@administrator-guide:authentication/authentication-providers/saml.adoc  2023.9@integrator-guide:authentication/external/saml.adoc
 :page-noindex: true
 
 To enable SAML authentication, you need to exchange credentials from your identity provider (IdP in the following text).

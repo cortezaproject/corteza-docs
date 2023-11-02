@@ -1,7 +1,7 @@
 include::ROOT:partial$variables.adoc[]
 
 = Facebook
-:page-aliases: 2023.3@administrator-guide:authentication/authentication-providers/facebook.adoc
+:page-aliases: 2023.9@administrator-guide:authentication/authentication-providers/facebook.adoc
 :page-noindex: true
 
 .To enable Facebook authentication, you need to retrieve your application credentials:

@@ -1,7 +1,7 @@
 include::ROOT:partial$variables.adoc[]
 
 = DevOps Guide
-:page-aliases: 2023.3@prerequisites.adoc
+:page-aliases: 2023.9@prerequisites.adoc
 :description: Learn how to setup and maintain {PRODUCT_NAME}
 :keywords: Dev-Pps, DevOps, setup, configure, deploy, maintenance
 

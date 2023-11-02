@@ -1,7 +1,7 @@
 include::ROOT:partial$variables.adoc[]
 
 = {APP_AUTOMATION} Server configuration
-:page-aliases: 2023.3@configuration/corredor.adoc
+:page-aliases: 2023.9@configuration/corredor.adoc
 :description: {APP_AUTOMATION} server configuration outlines all of the different configuration options that you can define inside your `.env` file to control the behavior.
 :keywords: dev-ops, configuration, config, {APP_AUTOMATION} server
 

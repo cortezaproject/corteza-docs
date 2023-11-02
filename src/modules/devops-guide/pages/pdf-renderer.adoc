@@ -1,7 +1,7 @@
 include::ROOT:partial$variables.adoc[]
 
 = PDF Renderer
-:page-aliases: 2023.3@extension-requirements/pdf-renderer.adoc
+:page-aliases: 2023.9@extension-requirements/pdf-renderer.adoc
 
 To enable PDF rendering, you need to set up https://github.com/gotenberg/gotenberg[Gotenberg].
 Gotenberg exposes an API to a headless browser that can convert various formats into PDF documents.

@@ -1,7 +1,7 @@
 include::ROOT:partial$variables.adoc[]
 
 = CLI Reference
-:page-aliases: 2023.3@maintenance/cli-reference.adoc
+:page-aliases: 2023.9@maintenance/cli-reference.adoc
 :description: {PRODUCT_NAME} command-line interface tool allows you to quickly interact with different parts of the system -- from changing the settings to assigning roles to users.
 :keywords: dev-ops, devops, cli, command-line interface, maintenance
 

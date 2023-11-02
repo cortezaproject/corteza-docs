@@ -1,7 +1,7 @@
 include::ROOT:partial$variables.adoc[]
 
 = Importing Resource Translations
-:page-aliases: 2023.3@cli/resource-translation-import.adoc
+:page-aliases: 2023.9@cli/resource-translation-import.adoc
 
 [IMPORTANT]
 ====

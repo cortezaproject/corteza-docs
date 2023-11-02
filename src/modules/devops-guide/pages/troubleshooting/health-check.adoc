@@ -1,7 +1,7 @@
 include::ROOT:partial$variables.adoc[]
 
 = Health Check
-:page-aliases: 2023.3@maintenance/health-check.adoc
+:page-aliases: 2023.9@maintenance/health-check.adoc
 :description: A health check is a series of steps you should take to verify that everything is set up and working correctly.
 :keywords: dev-ops, DevOps, CLI, health check, maintenance
 

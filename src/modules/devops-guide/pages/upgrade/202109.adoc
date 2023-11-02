@@ -1,7 +1,7 @@
 include::ROOT:partial$variables.adoc[]
 
 = Upgrading to 2021.9
-:page-aliases: 2023.3@upgrade-guide:202109.adoc
+:page-aliases: 2023.9@upgrade-guide:202109.adoc
 
 == Docker Image Changes
 

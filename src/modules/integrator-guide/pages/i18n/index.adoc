@@ -1,7 +1,7 @@
 include::ROOT:partial$variables.adoc[]
 
 = Internationalisation
-:page-aliases: 2023.3@personalization/i18n.adoc
+:page-aliases: 2023.9@personalization/i18n.adoc
 :keywords: i18n, internationalization, translate
 :description: Learn how to internationalize {PRODUCT_NAME}
 

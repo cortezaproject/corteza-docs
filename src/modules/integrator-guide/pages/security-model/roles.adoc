@@ -1,7 +1,7 @@
 include::ROOT:partial$variables.adoc[]
 
 = Role Management
-:page-aliases: 2023.3@administrator-guide:roles.adoc
+:page-aliases: 2023.9@administrator-guide:roles.adoc
 :keywords: security model, roles, role management
 :description: Learn how to create and manage the roles your users can be part of
 

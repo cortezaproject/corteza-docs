@@ -1,7 +1,7 @@
 include::ROOT:partial$variables.adoc[]
 
 = Multi-factor Authentication
-:page-aliases: 2023.3@administrator-guide:authentication/mfa.adoc
+:page-aliases: 2023.9@administrator-guide:authentication/mfa.adoc
 :keywords: authentication, mfa, multi factor authentication
 :description: Learn how to configure multi factor authentication
 

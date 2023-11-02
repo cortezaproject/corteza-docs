@@ -1,7 +1,7 @@
 include::ROOT:partial$variables.adoc[]
 
 = Upgrading to 2022.9
-:page-aliases: 2023.3@upgrade-guide:202209.adoc
+:page-aliases: 2023.9@upgrade-guide:202209.adoc
 
 
 The `2022.9` upgrade does not require any additional interactions from the system administrator.

@@ -1,0 +1,31 @@
+include::ROOT:partial$variables.adoc[]
+
+[#2023-9-x]
+= `2023.9`
+
+With {PRODUCT_NAME} `2023.9`, we focus primarily on user interface and customization -- both the user interface and data storage flexibility making {PRODUCT_NAME} easier to configure for a wide range of applications.
+
+*{PRODUCT_NAME} Studio*
+
+*{PRODUCT_NAME} studio* enables you to style user interfaces for all of our applications.
+It enables simple tweaks like changing the colorscheme or large modifications like swapping out the entire stylesheet.
+*{PRODUCT_NAME} studio* enables you to modify {PRODUCT_NAME} applications to better fit your brand guidelines.
+
+*DAL Schema Alterations*
+
+*DAL schema alterations* simplify the process of configuring custom storage solutions for your data.
+When we reworked our storage layer, we made it possible to store your records in dedicated tables or even databases.
+With `2023.9` we introduce an automated mechanism to alter the storage location for it to support the module definition.
+
+*UI Touchups*
+
+User interfaces were a big focus for the `2023.9` release; improving user experience when configuring and interacting with your application, as well as laying the groundwork for future releases.
+
+.Administration:
+* Added tooltips to hint how to improve performance.
+
+:leveloffset: +1
+
+include::00.gen.adoc[]
+
+:leveloffset: -1

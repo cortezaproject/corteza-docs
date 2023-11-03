@@ -1,5 +1,5 @@
 = Multi-Image PostgreSQL
-:page-aliases: 2022.9@online-deployment/multi-pgsql.adoc, 2022.9@online-deployment/single-pgsql.adoc
+:page-aliases: 2023.3@online-deployment/multi-pgsql.adoc, 2023.3@online-deployment/single-pgsql.adoc
 :page-noindex: true
 
 [NOTE]

@@ -31,6 +31,9 @@ jobs:
           cd corteza/lib/js
           yarn add typescript@4.7.4
           yarn add typedoc@0.23.17
+          LATEST=$(git tag -l | grep 2023.3 | sort | tail -n 1) && \
+            git checkout ${LATEST} && \
+            npx typedoc --name "Corteza JS 2023.3" --hideGenerator --skipErrorChecking --out corteza-api-docs/corteza-js/2023.3 src/api-clients/index.ts
           LATEST=$(git tag -l | grep 2022.9 | sort | tail -n 1) && \
             git checkout ${LATEST} && \
             npx typedoc --name "Corteza JS 2022.9" --hideGenerator --skipErrorChecking --out corteza-api-docs/corteza-js/2022.9 src/api-clients/index.ts
@@ -43,7 +46,10 @@ jobs:
       - name: Build corteza-server api docs
         run: |
           cd corteza/server
-          mkdir -p ../lib/js/corteza-api-docs/corteza-server/{2022.9,2022.3,2021.9}
+          mkdir -p ../lib/js/corteza-api-docs/corteza-server/{2023.3,2022.9,2022.3,2021.9}
+          LATEST=$(git tag -l | grep 2023.3 | sort | tail -n 1) && \
+            git checkout ${LATEST} && \
+            cp -r docs/* ../lib/js/corteza-api-docs/corteza-server/2023.3
           LATEST=$(git tag -l | grep 2022.9 | sort | tail -n 1) && \
             git checkout ${LATEST} && \
             cp -r docs/* ../lib/js/corteza-api-docs/corteza-server/2022.9

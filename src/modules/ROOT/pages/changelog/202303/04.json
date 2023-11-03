@@ -1,0 +1,181 @@
+{
+  "meta": {
+    "releasedOn": "2023.07.20"
+  },
+  "added": [
+    {
+      "what": [
+        "a button that allows the user to edit record values in a record block without having to open the record in edit mode."
+      ],
+      "why": [
+        "to give the user the ability to easily edit a single field when viewing a record."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/pull/1282"
+      ]
+    },
+    {
+      "what": [
+        "options to zoom in and download a file from a record."
+      ],
+      "why": [
+        "to give the user the flexibility to preview and download files when viewing a record."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/pull/1310"
+      ]
+    },
+    {
+      "what": [
+        "new ways of displaying Select module fields allowing you to show configured options as check boxes or radio buttons."
+      ],
+      "why": [
+        "to provide the user with an additional ways to view for the Select field value/values."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/pull/1301"
+      ]
+    },
+    {
+      "what": [
+        "the ability to use a record value in a record page title."
+      ],
+      "why": [
+        "to give the user the freedom to customize a record page title using record values."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/pull/1332"
+      ]
+    },
+    {
+      "what": [
+        "the option to display a checkbox as a toggle switch."
+      ],
+      "why": [
+        "to give the user another way of interacting with the checkbox field."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/pull/1286"
+      ]
+    }
+  ],
+  "changed": [
+    {
+      "what": [
+        "role un-delete operation to dispatch role update events on the event bus."
+      ],
+      "why": [
+        "to keep it consistent with other resource operations."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/6558efcaf197cb4d95c624559068386362ba6013"
+      ]
+    },
+    {
+      "what": [
+        "the {PRODUCT_NAME} authentication flow to skip unneeded screens and get the user directly to the requested web application as soon as possible."
+      ],
+      "why": [
+        "to improve the authentication user interface and experience."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/pull/1284"
+      ]
+    }
+  ],
+  "fixed": [
+    {
+      "what": [
+        "input parameter handling for the integration gateway proxy filter.",
+        "Now, the entire integration gateway pipeline scope can be used in the proxy filter."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/1e82fc034a05a9e2b03c3ee3ccce5227ce73157a"
+      ]
+    },
+    {
+      "what": [
+        "wrong condition priority when filtering the record list with the `Not equal` operator."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/pull/1300"
+      ]
+    },
+    {
+      "what": [
+        "the {APP_NAME_COMPOSE} namespace changed alert prompt only when we're leaving the page and unsaved changes are present.",
+        "Before, it the alert would prompt after saving changes when creating or updating a namespace."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/pull/1298"
+      ]
+    },
+    {
+      "what": [
+        "role members not showing when viewing or editing a role."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/pull/1296"
+      ]
+    },
+    {
+      "what": [
+        "an error preventing users from navigating back to the role list after viewing/editing a contextual role."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/pull/1307"
+      ]
+    },
+    {
+      "what": [
+        "record list export not including all of the active filters which resulted in inconsistent output."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/pull/1318"
+      ]
+    },
+    {
+      "what": [
+        "not being able to magnify unsaved page blocks."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/pull/1289",
+        "https://github.com/cortezaproject/corteza/pull/1291"
+      ]
+    },
+    {
+      "what": [
+        "module field select translations not being saved when configuring the field."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/311c87988208dd6661829ae0dfe2f133b90cd3b2"
+      ]
+    },
+    {
+      "what": [
+        "module field validations for unique values not being saved when configuring the field."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/295defc9a9eadbe2b150d0c9e0c93cf799fd5dd9"
+      ]
+    },
+    {
+      "what": [
+        "date and time value not being saved when creating an auth client."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/pull/1337/commits/dd46dd3b82b7cfdcbb5d27aa54572638059768d8",
+        "https://github.com/cortezaproject/corteza/commit/3ed432e7fae6c0df02f15094da5dbf33e6ef5647",
+        "https://github.com/cortezaproject/corteza/commit/bd0a94160c4c925d4c3a931fbd7866de1c01a402"
+      ]
+    },
+    {
+      "what": [
+        "the position of the actions menu (three dots) in compose chart, module, and namespace list to be always visible on hover even if the list column isn't visible"
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/pull/1331"
+      ]
+    }
+  ]
+}

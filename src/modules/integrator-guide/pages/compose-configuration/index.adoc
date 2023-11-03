@@ -126,8 +126,8 @@ image::compose-configuration/module-create.png[role="data-zoomable"]
 .From the module editor screen you can:
 * Edit the module metadata,
 * edit <<module-fields,module fields>> for the given module,
-* edit xref:compose-configuration/record-storage.adoc[DAL connection parameters] and xref:compose-configuration/privacy.adoc[privacy settings] for the given module,
-* configure xref:compose-configuration/duplicate-detection.adoc[duplicate detection] for the given module,
+* edit xref:compose-configuration/record-storage.adoc[DAL connection parameters] and privacy settings for the given module,
+* configure xref:compose-configuration/duplication-detection.adoc[duplicate detection] for the given module,
 * configure xref:compose-configuration/record-revisions.adoc[record revisions] for the given module,
 * manage permissions for the given module by clicking on the btn:[Permissions] button,
 * manage module field permissions for the given module by clicking on the btn:[Field permissions] button.
@@ -150,7 +150,7 @@ include::partial$handle-constraints.adoc[]
 
 |===
 
-[#generate-syhtetic-data]
+[#generate-synthetic-data]
 === Generate synthetic data for a module
 
 {PRODUCT_NAME} provides a tool to generate synthetic data for a module.
@@ -186,10 +186,6 @@ corteza-server compose records synthetic rm --namespace crm --module lead
 A *record page* defines how the data is presented to the user when viewing, creating and editing records for that module.
 A record page consists of a series of page blocks that are defined with the <<page-builder,page builder>>.
 
-A record page is tied to the specified module, and to the record it is pointing to.
-
-This allows you to configure the page blocks to react to the currently viewed record for dynamic resource filtering.
-
 [IMPORTANT]
 ====
 In case your module does not define a record page, you are not able to create or update its records through the user interface.
@@ -197,10 +193,65 @@ In case your module does not define a record page, you are not able to create or
 You are still able to view its records, create the records using inline record lists, the API, or an xref:automation/index.adoc[automation].
 ====
 
-The record page can be created directly from the module edit screen by clicking on the btn:[Create record page] button or from the module list screen by clicking on the btn:[Create record page] next to a module.
+A record page is tied to the specified module, and to the record it is pointing to.
+This allows you to configure the page blocks to react to the currently viewed record for dynamic resource filtering.
 
-image:compose-configuration/create-record-page-1.png[width=49%]
-image:compose-configuration/create-record-page-2.png[width=49%]
+[TIP]
+====
+You can utilize xref:compose-configuration/page-layouts.adoc[page layouts] for even more flexibility on how users interact with the data.
+====
+
+The record page can be created directly from the module edit screen by clicking on the btn:[Create record page] button.
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "compose-configuration/create-record-page-1.png",
+    "alias": "record_page_create_module_edit",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {
+    "x": 0,
+    "y": 0,
+    "w": 1920,
+    "h": 1080
+  },
+  "annotations": [{
+    "x": 1462,
+    "y": 98,
+    "w": 193,
+    "h": 42
+  }]
+}
+----
+
+Alternatively, you can create missing record pages from the list of modules by clicking on the btn:[Create record page] button next to a module.
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "compose-configuration/create-record-page-2.png",
+    "alias": "record_page_create_module_list",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {
+    "x": 0,
+    "y": 0,
+    "w": 1920,
+    "h": 1080
+  },
+  "annotations": [{
+    "x": 1398,
+    "y": 372,
+    "w": 173,
+    "h": 31
+  }]
+}
+----
 
 [#config-charts]
 === Creating charts
@@ -243,6 +294,11 @@ They are general purpose and used to provide access to different record pages vi
 When configuring a new namespace, you are presented with an onboarding screen.
 From there you click on the btn:[Build Page] button in order to create your first page.
 
+[TIP]
+====
+You can utilize xref:compose-configuration/page-layouts.adoc[page layouts] for even more flexibility on how users interact with the data.
+====
+
 If you wish to add additional pages or you are configuring an already configured namespace, navigate to menu:Admin panel[Pages], and click on the btn:[New Page] button.
 From there you can click on the btn:[Page builder] button to enter the <<page-builder,page builder>>
 
@@ -282,6 +338,57 @@ To *create a dropdown menu* (a sub-page or a nested page), drag and drop the pag
 image:compose-configuration/page-tree-base.png[width=49%]
 image:compose-configuration/page-tree-nest.png[width=49%]
 image:compose-configuration/page-tree-nest-view.png[]
+
+To always have sub-pages expanded, enable the checkbox under the `Other options` sub-section.
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "compose-configuration/page-edit-module-cases.png",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {
+    "x": 400,
+    "y": 250,
+    "w": 1400,
+    "h": 560
+  },
+  "annotations": [{
+    "x": 1125,
+    "y": 440,
+    "w": 270,
+    "h": 20
+  }]
+}
+----
+
+After enabling the option, sub-pages will be expanded in the public view of {PRODUCT_NAME}.
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "compose-configuration/public-page-case-expanded-sub-pages.png",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {
+    "x": 0,
+    "y": 0,
+    "w": 315,
+    "h": 475
+  },
+  "annotations": [{
+    "padding": "lg",
+    "x": 35,
+    "y": 330,
+    "w": 83,
+    "h": 5
+  }]
+}
+----
 
 [#module-field]
 == Module fields
@@ -574,7 +681,7 @@ image::compose-configuration/page-builder-block-base.png[role="data-zoomable"]
 To reposition the page block, simply drag-and-drop it to the desired position.
 
 The page block may be placed anywhere on the x-axis, but its y-axis must connect with another page block or with the top of the page.
-If the position is not valid, or it overlays with another page block, they page builder may automatically adjust the surrounding page blocks to conform to the constraints.
+If the position is not valid, or it overlays with another page block, the page builder may automatically adjust the surrounding page blocks to conform to the constraints.
 
 image::compose-configuration/page-builder-block-base.png[role="data-zoomable"]
 image::compose-configuration/page-builder-block-repos.png[role="data-zoomable"]
@@ -589,6 +696,224 @@ image::compose-configuration/page-builder-block-resize.png[role="data-zoomable"]
 By placing a few extra blocks and changing their layout, you can create interesting home pages and dashboards like the CRM's.
 
 image::compose-configuration/page-builder-example.png[role="data-zoomable"]
+
+[#copying-list-pages]
+== Copying list pages
+
+The option to save a list page as copy allows us to create a new page that contains the same page blocks as another list page.
+This is very useful because instead of re-adding the same page blocks from another page, they can be copied simply by pressing a button.
+
+[IMPORTANT]
+====
+Only page lists can be copied. Record pages cannot be saved as copies.
+====
+
+To copy the contents of another list page, navigate to the page itself and click on the btn:[Save as copy].
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "compose-configuration/page-save-as-copy-button.png",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {
+    "x": 0,
+    "y": 535,
+    "w": 1920,
+    "h": 555
+  },
+  "focus": {
+    "x": 0,
+    "y": 1000,
+    "w": 1920,
+    "h": 60
+  },
+  "annotations": [{
+    "kind": "box",
+    "x": 1440,
+    "y": 1017,
+    "w": 165,
+    "h": 45
+  }]
+}
+----
+
+A new page with the same contents will be added to the list of pages.
+The structure of the new page's name will be `Copy of <name of the page it was copied from> (<number of copies>)`.
+For example, if the page that was copied from is called `Leads`, then the newly created page will be `Copy of Leads (1)`.
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "compose-configuration/copied-page.png",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {
+    "x": 0,
+    "y": 0,
+    "w": 315,
+    "h": 475
+  },
+  "annotations": [{
+    "kind": "box",
+    "x": 30,
+    "y": 370,
+    "w": 95,
+    "h": 15
+  }]
+}
+----
+
+== Configuring Page Icons
+
+Page icons can be set to list or record pages.
+This gives us the ability to further customize a page and easily distinguish it from other pages.
+
+To set the page icon, inside your namespace, navigate to the menu:admin panel[pages], and edit the page you wish to set the icon for.
+Find the page icon section under the page description and click on the btn:[edit] button.
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "compose-configuration/page-edit.png",
+    "alias": "base-set-icon",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {
+    "x": 450,
+    "y": 190,
+    "w": 1400,
+    "h": 600
+  },
+  "annotations": [{
+    "padding": "lg",
+    "x": 600,
+    "y": 400,
+    "w": 470,
+    "h": 60
+  }]
+}
+----
+
+A modal will open with two sub-sections: `Upload icon` and `Or add link to icon`.
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "compose-configuration/page-edit-configure-icon.png",
+    "alias": "page-edit-configure-icon-view-modal",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {},
+  "focus": {
+    "padding": "xs",
+    "x": 570,
+    "y": 40,
+    "w": 780,
+    "h": 330
+  }
+}
+----
+
+[NOTE]
+====
+The currently supported icon format is `.icon`.
+Svg image format isn't supported yet.
+====
+
+In the `Upload icon` sub-section you can drag and drop or click on the button and choose an icon.
+The uploaded icon can be previewed in the list of icons.
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "compose-configuration/page-edit-configure-icon.png",
+    "alias": "page-edit-configure-icon-upload-section",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {},
+  "focus": {
+    "x": 570,
+    "y": 40,
+    "w": 780,
+    "h": 330
+  },
+  "annotations": [{
+    "padding": "lg",
+    "x": 585,
+    "y": 108,
+    "w": 750,
+    "h": 60
+  }]
+}
+----
+
+In the `or add link to icon` sub-section you can add a link to an icon and preview it.
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "compose-configuration/page-edit-configure-icon.png",
+    "alias": "page-edit-configure-icon-add-link",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {},
+  "focus": {
+    "x": 570,
+    "y": 40,
+    "w": 780,
+    "h": 330
+  },
+  "annotations": [{
+    "padding": "lg",
+    "x": 585,
+    "y": 190,
+    "w": 750,
+    "h": 60
+  }]
+}
+----
+
+After uploading an icon, all of the available icons are shown at the bottom of the modal window.
+Select one (if not already selected) and click on the btn:[save] button.
+
+The page icon will be shown in the page edit screen and the sidebar navigation next to the page name.
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "compose-configuration/page-edit-configure-set-icon.png",
+    "alias": "page-edit-configure-set-icon-focus-sidebar-content",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {
+    "x": 0,
+    "y": 0,
+    "w": 750,
+    "h": 700
+  },
+  "annotations": [{
+    "x": 27,
+    "y": 280,
+    "w": 75,
+    "h": 30
+  }]
+}
+----
 
 [#field-expressions]
 == Field expressions
@@ -736,4 +1061,182 @@ You can use this to create context-aware validators.
 [source]
 ----
 length(title) < 5
+----
+
+== Page Block Magnification
+
+Page blocks have a magnification option that allows the user to inspect the details of the block in distraction-free mode.
+By default, block magnification is disabled.
+When set, blocks that have this configuration will have a zoom-in icon in the top right corner of the block, allowing the user to magnify the block upon clicking on the icon.
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "compose-configuration/magnification-icon.png",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {
+    "x": 0,
+    "y": 0,
+    "w": 1920,
+    "h": 1080
+  },
+  "annotations": [{
+    "kind": "box",
+    "padding": "lg",
+    "x": 1375,
+    "y": 87,
+    "w": 15,
+    "h": 15
+  }]
+}
+----
+
+=== Configuring Page Block Magnification
+
+To display the magnification icon and enable block magnification, navigate to the page builder, choose a block, and go to its general tab.
+There you will find the block magnification options as a select dropdown.
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "compose-configuration/enable-magnification.png",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {
+    "x": 0,
+    "y": 0,
+    "w": 1920,
+    "h": 1080
+  },
+  "annotations": [{
+    "kind": "box",
+    "x": 411,
+    "y": 502,
+    "w": 533,
+    "h": 66
+  }]
+}
+----
+
+Pick any of the two magnification options.
+Now, the magnification icon will be visible and users will be able to zoom in the specific block.
+
+.Page Block Magnification Options:
+[cols="1s,5a"]
+|===
+
+| [#magnification-modal]#<<magnification-modal,Modal>>#
+|
+The block magnification is in the form of a modal.
+
+image:compose-configuration/magnification-modal.png[role="data-zoomable"]
+
+| [#magnification-fullscreen]#<<magnification-fullscreen,Fullscreen>>#
+|
+The block magnification is in the form of a full-width and full-height modal.
+
+image:compose-configuration/magnification-fullscreen.png[role="data-zoomable"]
+
+|===
+
+
+== Page Block Refresh
+
+Page blocks have a refresh option to automatically renew their data without having to reload the entire page, this is useful for page blocks that display data that changes frequently, such as a list of new leads, an update to a chart, or a list of recent comments.
+
+[NOTE]
+====
+Automation, file, content, nylas, navigation, and geometry blocks do not have the refresh option.
+====
+
+=== Enabling Auto-Refresh
+
+When enabled, page blocks that have this configuration will automatically refresh based on an interval.
+To enable auto-refresh, navigate to the page builder, choose a block that supports refresh, and go to its general tab.
+There you will find the refresh option.
+
+.Page block general tab.
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "compose-configuration/page-block-general.png",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {},
+  "annotations": [
+    {
+      "x": 965,
+      "y": 335,
+      "w": 550,
+      "h": 100,
+      "kind": "box"
+    }
+  ]
+}
+----
+
+You'll want to enter a value expressed in seconds into the input above the *Show refresh button* toggle, click save and close, save the page and you should see the block start to refresh when your interval elapses.
+
+The lowest interval allowed is 5 seconds. 
+To turn auto-refresh off on a block, you need to set its value to 0.
+
+=== Enabling Manual Refresh
+
+To enable manual refresh, navigate to the page builder, choose a block that supports refresh, and go to its general tab.
+There you will find a toggle as highlighted below.
+Switch it on. 
+
+.Page block general tab.
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "compose-configuration/page-block-general.png",
+    "alias": "compose-configuration/page-block-general-manual-refresh",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {},
+  "annotations": [
+    {
+      "x": 965,
+      "y": 443,
+      "w": 195,
+      "h": 20,
+      "kind": "box"
+    }
+  ]
+}
+----
+
+When enabled, page blocks that have this configuration will have a refresh button in the top right corner of the page block,
+allowing the user to manually refresh the page block. 
+
+.Refresh icon on page blocks with manual refresh.
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "compose-configuration/pageblock-refreshicon.png",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {},
+  "annotations": [
+    {
+      "x": 1869,
+      "y": 83,
+      "w": 20,
+      "h": 20,
+      "kind": "box"
+    }
+  ]
+}
 ----

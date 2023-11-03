@@ -40,10 +40,12 @@
 :CORTEZA_PULL_BASE: https://github.com/cortezaproject/corteza/pull/
 :CORTEZA_COMMIT_BASE: https://github.com/cortezaproject/corteza/commit/
 :SERVER_COMMIT_BASE: https://github.com/cortezaproject/corteza-server/commit/
+:SERVER_PULL_BASE: https://github.com/cortezaproject/corteza-server/pull/
 :SERVER_DISCOVERY_COMMIT_BASE: https://github.com/cortezaproject/corteza-server-discovery/commit/
 :SERVER_CORREDOR_COMMIT_BASE: https://github.com/cortezaproject/corteza-server-corredor/commit/
 :LOCALE_COMMIT_BASE: https://github.com/cortezaproject/corteza-locale/commit/
 :WEBAPP_COMPOSE_COMMIT_BASE: https://github.com/cortezaproject/corteza-webapp-compose/commit/
+:WEBAPP_COMPOSE_PULL_BASE: https://github.com/cortezaproject/corteza-webapp-compose/pull/
 :WEBAPP_ONE_COMMIT_BASE: https://github.com/cortezaproject/corteza-webapp-one/commit/
 :WEBAPP_ADMIN_COMMIT_BASE: https://github.com/cortezaproject/corteza-webapp-admin/commit/
 :WEBAPP_WORKFLOW_COMMIT_BASE: https://github.com/cortezaproject/corteza-webapp-workflow/commit/
@@ -52,6 +54,7 @@
 :WEBAPP_PRIVACY_COMMIT_BASE: https://github.com/cortezaproject/corteza-webapp-privacy/commit/
 :WEBAPP_JS_COMMIT_BASE: https://github.com/cortezaproject/corteza-js/commit/
 :JS_COMMIT_BASE: https://github.com/cortezaproject/corteza-js/commit/
+:JS_PULL_BASE: https://github.com/cortezaproject/corteza-js/pull/
 :WEBAPP_VUE_COMMIT_BASE: https://github.com/cortezaproject/corteza-vue/commit/
 :VUE_COMMIT_BASE: https://github.com/cortezaproject/corteza-vue/commit/
 :LOCALE_COMMIT_BASE: https://github.com/cortezaproject/corteza-locale/commit/

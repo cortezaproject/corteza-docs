@@ -1,0 +1,118 @@
+{
+  "meta": {
+    "releasedOn": "2023.09.13"
+  },
+  "added": [
+    {
+      "what": [
+        "splice function in workflows that can change the contents of an `array` by removing or replacing existing elements of different types like `strings`, `numbers`, `booleans`, `objects`, `arrays` and/or adding new elements in place."
+      ],
+      "why": [
+        "to provide the option to easily add or remove elements from an `array`."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/7bc36eb46f57cf1d8a271319f04c8ed5158eb7a7"
+      ]
+    },
+    {
+      "what": [
+        "the option to fetch data for a geometry page block when clicking on the refresh button in the page block or after a set by the user amount of time."
+      ],
+      "why": [
+        "to provide the option to easily fetch data for the page block."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/f189c4384edb2115777b7ec191a0ed2e8cebaaab"
+      ]
+    },
+    {
+      "what": [
+        "a dropdown to look up the permissions of a concrete module, page or page layout."
+      ],
+      "why": [
+        "to provide the option of viewing permissions of a resource without having to visit it."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/7fdc854255dc1f44a2fd2e6f04ab2dd1000b58c3"
+      ]
+    }
+  ],
+  
+  "changed": [
+    {
+      "what": [
+        "general ui/ux improvements:",
+        "** Fixated the save button in {APP_NAME_ADMIN}'s permissions list so user doesn't have to scroll to the bottom to save their changes.",
+        "** Removed additional padding on the top of a record page block field when it is being edited and not aligned horizontally.",
+        "** Hide the option to show time values in a generic chart if such value aren't used in the chart."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/d9249036a80ea68767a99658d82ddd1e90ffb4cc",
+        "https://github.com/cortezaproject/corteza/commit/65b6db343c531f5c56783f6eb1a976dc6c105c02",
+        "https://github.com/cortezaproject/corteza/commit/fd5afbb5dfcc316ef93b43ddd62bbdadedd34466"
+      ]
+    }
+  ],
+  "fixed": [
+    {
+      "what": [
+        "invalid username and password combination error on sign up caused when trying to create a user with a handle that already exists."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/pull/1413"
+      ]
+    },
+    {
+      "what": [
+        "prefilter in progress bar page block not returning any data if records are filtered by `recordID`."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/pull/1414"
+      ]
+    },
+    {
+      "what": [
+        "being redirected to list of namespace/pages/modules instead of the previous page after clicking on the btn:[Save and close] button when creating or editing a namespace/page/module."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/pull/1387",
+        "https://github.com/cortezaproject/corteza/commit/abe1eb6a4d1ead3190017df851c821b8ff89c840"
+      ]
+    },
+    {
+      "what": [
+        "side menu with reports not opening in {APP_NAME_REPORTER} when hovering over its 'opening' bars icon."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/pull/1425"
+      ]
+    },
+    {
+      "what": [
+        "incorrect number of pages shown when the full page navigation and show total number of records options are enabled in a record list."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/pull/1417"
+      ]
+    },
+    {
+      "what": [
+        "triggering of unsaved changes message when trying to leave the {APP_NAME_COMPOSE} settings page in {APP_NAME_ADMIN} after saving the changes to the user interface settings."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/pull/1429"
+      ]
+    },
+    {
+      "what": [
+        "missing page layout permissions for authenticated and administrator roles."
+      ],
+      "how": [
+        "by adding the permissions to the roles."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/2c7e972a7f378f70852bd8ead8ceace4d887fc94"
+      ]
+    }
+  ]
+}

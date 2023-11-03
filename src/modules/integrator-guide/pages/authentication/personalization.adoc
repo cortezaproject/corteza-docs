@@ -1,7 +1,7 @@
 include::ROOT:partial$variables.adoc[]
 
 = Personalize Authentication Screens
-:page-aliases: 2022.9@personalization/auth.adoc
+:page-aliases: 2023.3@personalization/auth.adoc
 :keywords: authentication, personalize screens, customize screens
 :description: Learn how to personalize {PRODUCT_NAME}'s authentication screens to match your brand
 

@@ -1,0 +1,50 @@
+include::ROOT:partial$variables.adoc[]
+
+= `2023.3.5`
+
+*Released on*: `2023.08.24`
+
+.[#2023_03_05-added]#<<2023_03_05-added,Added:>>#
+* Added the option to configure whether module field value is on the same row as its label in the page block.
+The change was added to provide the user with the option to set the position of a field value
+({CORTEZA_PULL_BASE}1339[`1339`]).
+* Added case insensitive search in a record list if MySQL database is used.
+The change was added to make searching of records easier by returning similar results to the searching criteria
+({CORTEZA_PULL_BASE}1355[`1355`]).
+
+.[#2023_03_05-changed]#<<2023_03_05-changed,Changed:>>#
+* Changed page navigation to stop loading previous resources in case we've navigated to a new page.
+The change was made to reduce the amount of needless processing since the old resources would be discarded right away
+({CORTEZA_COMMIT_BASE}638ba17[`638ba17`]).
+* Changed general ui/ux improvements:
+** Adjust the element styles in the topbar of all web applications to improve the UI for current and older browser versions
+({CORTEZA_COMMIT_BASE}db740f7[`db740f7`]).
+
+.[#2023_03_05-fixed]#<<2023_03_05-fixed,Fixed:>>#
+* Fixed long texts to no longer overflow in {APP_NAME_COMPOSE}
+({CORTEZA_COMMIT_BASE}895796a[`895796a`]).
+* Fixed compose sub-pages not being shown when configuring a navigation page block
+({CORTEZA_PULL_BASE}1359[`1359`]).
+* Fixed module field labels shown underneath delete button when bulk editing a value
+({CORTEZA_COMMIT_BASE}6f6df66[`6f6df66`]).
+* Fixed drill-down option in the metric page block not working if the metric label wasn't provided
+({CORTEZA_COMMIT_BASE}95ae09e[`95ae09e`]).
+* Fixed memory leak issue for {APP_NAME_COMPOSE} when switching between different pages
+({CORTEZA_COMMIT_BASE}95cf245[`95cf245`]).
+* Fixed not being able to save a page after removing a page block from a tabs page block
+({CORTEZA_COMMIT_BASE}5addb87[`5addb87`]).
+* Fixed conditional fields being displayed when viewing records even though their condition evaluates to `false`
+({CORTEZA_COMMIT_BASE}e081faa[`e081faa`]).
+* Fixed not being able to create a record in a modal because the view opens behind the modal
+Now, the view opens in the modal and a record can be created in it
+({CORTEZA_COMMIT_BASE}ac9bc74[`ac9bc74`]).
+* Fixed namespace sidebar not being hidden/show correctly when creating a new namespace because it was pinned
+({CORTEZA_COMMIT_BASE}ac9bc74[`ac9bc74`]).
+* Fixed error for stale data showing if a report data source is misconfigured in {APP_NAME_REPORTER}
+({CORTEZA_COMMIT_BASE}773beaf[`773beaf`]).
+* Fixed not being able to search for a record by record id in a record list using 'Like', 'Not like', and 'Not equal' conditions
+({CORTEZA_PULL_BASE}1354[`1354`]).
+* Fixed not being able to edit a workflow expression after clicking on a browser tab/window
+({CORTEZA_COMMIT_BASE}56264e1[`56264e1`]).
+* Fixed the visibility of the inline record editor option in a record list to hidden if a module isn't provided
+({CORTEZA_COMMIT_BASE}b96ea0e[`b96ea0e`]).

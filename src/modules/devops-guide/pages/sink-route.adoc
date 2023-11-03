@@ -1,7 +1,7 @@
 include::ROOT:partial$variables.adoc[]
 
 = Sink Routes
-:page-aliases: 2022.9@extension-requirements/sink-route.adoc
+:page-aliases: 2023.3@extension-requirements/sink-route.adoc
 :description: {PRODUCT_NAME} allows you to detect incoming HTTP requests via automation scripts.
 :keywords: dev-ops, DevOps, webhook, automation scripts
 

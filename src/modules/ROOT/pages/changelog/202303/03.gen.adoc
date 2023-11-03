@@ -1,0 +1,34 @@
+include::ROOT:partial$variables.adoc[]
+
+= `2023.3.3`
+
+*Released on*: `2023.06.28`
+
+.[#2023_03_03-added]#<<2023_03_03-added,Added:>>#
+* Added a warning message that notifies the user if they try to leave a page with unsaved changes on it.
+The change was added to prevent losing changes that haven't been saved yet
+({CORTEZA_PULL_BASE}1051[`1051`]).
+* Added the option to add custom styles to all of the web applications.
+The styles can be added via the user settings in {APP_NAME_ADMIN}.
+The change was added to provide the user with more freedom to style the applications as they see fit
+({CORTEZA_PULL_BASE}1262[`1262`]).
+
+.[#2023_03_03-changed]#<<2023_03_03-changed,Changed:>>#
+* Changed general UI/UX improvements:
+** Hid the button for editing a namespace from the public view in the sidebar when the option to show that namespace isn't visible
+** Highlighted the row of a translation when viewing subtitle/description namespace translations as it's done everywhere
+** The styles in file page block so when a gallery of images is viewed, the positioning of each image won't be on top of the previous image's name
+** The color of the sidebar text items and the functionality to show the text item on hover
+** Overlapping of the 'more' menu in a record list in {APP_NAME_COMPOSE}
+({CORTEZA_PULL_BASE}1254[`1254`], {CORTEZA_PULL_BASE}1255[`1255`], {CORTEZA_PULL_BASE}1244[`1244`], {CORTEZA_PULL_BASE}1274[`1274`], {CORTEZA_COMMIT_BASE}5fa587f[`5fa587f`]).
+
+.[#2023_03_03-fixed]#<<2023_03_03-fixed,Fixed:>>#
+* Fixed not being able to view a map if the value for latitude or longitude isn't provided in the map configuration
+({CORTEZA_PULL_BASE}1032[`1032`]).
+* Fixed error in console when trying to add a module constraint without providing a value
+({CORTEZA_PULL_BASE}1281[`1281`]).
+* Fixed unsaved changes warning triggered after a namespace has been saved and you want to visit it
+({CORTEZA_COMMIT_BASE}aa7cdf2[`aa7cdf2`]).
+* Fixed the labels updated at and deleted at not showing after an {APP_NAME_ADMIN} application was updated or deleted
+The labels provide additional information as to what types of changes have happened to a resource
+({CORTEZA_COMMIT_BASE}ce541cd[`ce541cd`]).

@@ -44,7 +44,7 @@ Any resizing should be done by the annotation plugin.
 
 | Height
 |
-The width *must be* `1080` pixels.
+The height *must be* `1080` pixels.
 Any resizing should be done by the annotation plugin.
 
 | Device pixel ratio

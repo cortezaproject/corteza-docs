@@ -21,7 +21,8 @@ services:
   db:
     # PostgreSQL Database
     # See https://hub.docker.com/_/postgres for details
-    image: postgres:13
+    # Support for postgres 13, 14 and 15 is available in the latest version of Corteza
+    image: postgres:15
     networks: [ internal ]
     restart: always
     healthcheck: { test: ["CMD-SHELL", "pg_isready -U corteza"], interval: 10s, timeout: 5s, retries: 5 }

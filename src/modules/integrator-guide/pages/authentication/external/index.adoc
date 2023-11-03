@@ -1,7 +1,7 @@
 include::ROOT:partial$variables.adoc[]
 
 = External Authentication Providers
-:page-aliases: 2022.9@administrator-guide:authentication/authentication-providers/index.adoc
+:page-aliases: 2023.3@administrator-guide:authentication/authentication-providers/index.adoc
 :keywords: authentication, external providers, external authentication providers
 :description: Lean how to use external services to authenticate your users
 
@@ -49,7 +49,7 @@ include::github.adoc[]
 
 include::linkedin.adoc[]
 
-include::saml.adoc[]
+include::saml/index.adoc[]
 
 :leveloffset: -1
 

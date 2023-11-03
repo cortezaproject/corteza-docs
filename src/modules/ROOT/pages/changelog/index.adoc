@@ -6,11 +6,10 @@ The format is based on https://keepachangelog.com/en/1.0.0/[Keep a Changelog], a
 
 :leveloffset: +1
 
-include::202209/index.adoc[]
+include::202303/index.adoc[]
 
 :leveloffset: -1
 
 == Older releases
 
 Refer to the xref:changelog/archive/index.adoc[archive] for older {PRODUCT_NAME} releases.
-

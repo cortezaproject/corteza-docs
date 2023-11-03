@@ -1,0 +1,84 @@
+{
+  "meta": {
+    "releasedOn": "2023.06.28"
+  },
+  "added": [
+    {
+      "what": [
+        "a warning message that notifies the user if they try to leave a page with unsaved changes on it."
+      ],
+      "why": [
+        "to prevent losing changes that haven't been saved yet."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/pull/1051"
+      ]
+    },
+    {
+      "what": [
+        "the option to add custom styles to all of the web applications.",
+        "The styles can be added via the user settings in {APP_NAME_ADMIN}."
+      ],
+      "why": [
+        "to provide the user with more freedom to style the applications as they see fit."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/pull/1262"
+      ]
+    }
+  ],
+  "changed": [
+    {
+      "what": [
+        "general UI/UX improvements:",
+        "** Hid the button for editing a namespace from the public view in the sidebar when the option to show that namespace isn't visible.",
+        "** Highlighted the row of a translation when viewing subtitle/description namespace translations as it's done everywhere.",
+        "** The styles in file page block so when a gallery of images is viewed, the positioning of each image won't be on top of the previous image's name.",
+        "** The color of the sidebar text items and the functionality to show the text item on hover.",
+        "** Overlapping of the 'more' menu in a record list in {APP_NAME_COMPOSE}."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/pull/1254",
+        "https://github.com/cortezaproject/corteza/pull/1255",
+        "https://github.com/cortezaproject/corteza/pull/1244",
+        "https://github.com/cortezaproject/corteza/pull/1274",
+        "https://github.com/cortezaproject/corteza/commit/5fa587fad20d024fee5e85a0bf533e89001429cd"
+      ]
+    }
+  ],
+  "fixed": [
+    {
+      "what": [
+        "not being able to view a map if the value for latitude or longitude isn't provided in the map configuration."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/pull/1032"
+      ]
+    },
+    {
+      "what": [
+        "error in console when trying to add a module constraint without providing a value."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/pull/1281"
+      ]
+    },
+    {
+      "what": [
+        "unsaved changes warning triggered after a namespace has been saved and you want to visit it."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/aa7cdf28e24263c858ad891b1cf0912596e278da"
+      ]
+    },
+    {
+      "what": [
+        "the labels updated at and deleted at not showing after an {APP_NAME_ADMIN} application was updated or deleted.",
+        "The labels provide additional information as to what types of changes have happened to a resource."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/ce541cde67318b278d9fc88b230176ac49ff332c"
+      ]
+    }
+  ]
+}

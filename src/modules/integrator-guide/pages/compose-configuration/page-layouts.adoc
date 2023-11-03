@@ -1,0 +1,396 @@
+include::ROOT:partial$variables.adoc[]
+
+= Page Layouts
+
+Page layouts enable you to dynamically change the contents of the page based on who is viewing what and from where.
+
+{PRODUCT_NAME} provides a flexible mechanism of defining what layouts are available, which is shown when, and how they interact with each other.
+The entire system and their interaction is defined using simple expressions, constraints, and actions.
+
+.Example use-cases:
+* User onboarding through multiple pages where each page focuses on a single bit of information such as contact information, billing data, and payment methods.
+* Show different amount of data based on the role or device type.
+
+[NOTE]
+====
+.Planed feature improvements:
+* Expand the supported set of actions,
+* allow users to _fork_ predefined layouts and create personal ones,
+* allow interactions to span through multiple different pages; currently a _layout session_ exists while you're on a specific page.
+====
+
+== Configuring Page Layouts
+
+Page layouts can be managed at the bottom of the page editor.
+
+While in your {APP_NAME_COMPOSE} namespace, navigate to the menu:admin page[pages], and click on the btn:[edit] button next to the page you wish to edit.
+The user interface available under compose page editor.
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "compose-configuration/multi-page-views/page_new.png",
+    "alias": "page_new",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {
+    "x": 320,
+    "y": 0,
+    "w": 1600,
+    "h": 1080
+  },
+  "annotations": [{
+    "x": 576,
+    "y": 481,
+    "w": 1092,
+    "h": 190
+  }]
+}
+----
+
+By default, when you create a page, you'll get a _primary_ page layout.
+To add additional layouts, click on the btn:[Add layout] button.
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "compose-configuration/multi-page-views/page_layout_new.png",
+    "alias": "page_layout_new",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {
+    "x": 0,
+    "y": 0,
+    "w": 1920,
+    "h": 1080
+  },
+  "focus": {
+    "x": 574,
+    "y": 481,
+    "w": 1092,
+    "h": 237
+  },
+  "annotations": [{
+    "x": 622,
+    "y": 644,
+    "w": 109,
+    "h": 31
+  }]
+}
+----
+
+Click on the configuration button to define when the layout may be visible and what buttons and actions are available.
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "compose-configuration/multi-page-views/page_new.png",
+    "alias": "page_new_config",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {
+    "x": 0,
+    "y": 0,
+    "w": 1920,
+    "h": 1080
+  },
+  "focus": {
+    "x": 574,
+    "y": 481,
+    "w": 1092,
+    "h": 237
+  },
+  "annotations": [{
+    "x": 1433,
+    "y": 553,
+    "w": 48,
+    "h": 38
+  }]
+}
+----
+
+The <<visibility-condition,condition>> is an expression that determines if the layout can be shown or not.
+Visibility conditions are simple expressions that evaluate into a `true` (show) or `false` (hide).
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "compose-configuration/multi-page-views/page_layout_config.png",
+    "alias": "page_layout_config_expr",
+    "w": 1920,
+    "h": 1080
+  },
+  "focus": {
+    "x": 400,
+    "y": 40,
+    "w": 1120,
+    "h": 700
+  },
+  "view": {
+    "x": 0,
+    "y": 0,
+    "w": 1920,
+    "h": 1080
+  },
+  "annotations": [{
+    "x": 406,
+    "y": 147,
+    "w": 1106,
+    "h": 63
+  }]
+}
+----
+
+Roles define a list of roles for which this page layout will be visible for.
+If a user is not a member of a specific role, the layout is not visible regardless of the expression.
+
+[IMPORTANT]
+====
+This is not the same as hiding them behind RBAC.
+Users will still be able to access these layouts via the API, but the {APP_NAME_COMPOSE} layout manager will not consider them.
+====
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "compose-configuration/multi-page-views/page_layout_config.png",
+    "alias": "page_layout_config_roles",
+    "w": 1920,
+    "h": 1080
+  },
+  "focus": {
+    "x": 400,
+    "y": 40,
+    "w": 1120,
+    "h": 700
+  },
+  "view": {
+    "x": 0,
+    "y": 0,
+    "w": 1920,
+    "h": 1080
+  },
+  "annotations": [{
+    "x": 406,
+    "y": 230,
+    "w": 1106,
+    "h": 63
+  }]
+}
+----
+
+The record toolbar section defines what buttons (default actions) the specific page layout may use.
+Controlling these buttons is useful when we want to define a series of page layouts and just the last one should have the option to submit the form.
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "compose-configuration/multi-page-views/page_layout_config.png",
+    "alias": "page_layout_config_toolbar",
+    "w": 1920,
+    "h": 1080
+  },
+  "focus": {
+    "x": 400,
+    "y": 40,
+    "w": 1120,
+    "h": 700
+  },
+  "view": {
+    "x": 0,
+    "y": 0,
+    "w": 1920,
+    "h": 1080
+  },
+  "annotations": [{
+    "x": 406,
+    "y": 332,
+    "w": 1106,
+    "h": 190
+  }]
+}
+----
+
+Under actions, you can define additional operations you want to perform through via the specific page layout.
+
+[NOTE]
+====
+Currently, the only supported action is to navigate to a different layout.
+New actions are in the pipelines.
+====
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "compose-configuration/multi-page-views/page_layout_actions.png",
+    "alias": "page_layout_actions_actions",
+    "w": 1920,
+    "h": 1080
+  },
+  "focus": {
+    "x": 400,
+    "y": 40,
+    "w": 1120,
+    "h": 746
+  },
+  "view": {
+    "x": 0,
+    "y": 0,
+    "w": 1920,
+    "h": 1080
+  },
+  "annotations": [{
+    "x": 406,
+    "y": 542,
+    "w": 1106,
+    "h": 137
+  }]
+}
+----
+
+== Building Page Layouts
+
+The contents of page layouts are defined in the page layout builder.
+The builder has the same look and feel as the previous page builder.
+
+In the list of pages, click on the btn:[page builder] button.
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "compose-configuration/multi-page-views/page_tree.png",
+    "alias": "page_tree",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {
+    "x": 0,
+    "y": 0,
+    "w": 1920,
+    "h": 1080
+  },
+  "annotations": [{
+    "x": 1298,
+    "y": 197,
+    "h": 205,
+    "w": 122
+  }]
+}
+----
+
+Alternatively, if you're editing a page, you can navigate to the page builder from there.
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "compose-configuration/multi-page-views/page_new.png",
+    "alias": "page_new_builder",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {
+    "x": 0,
+    "y": 0,
+    "w": 1920,
+    "h": 1080
+  },
+  "focus": {
+    "x": 574,
+    "y": 481,
+    "w": 1092,
+    "h": 237
+  },
+  "annotations": [{
+    "x": 1480,
+    "y": 553,
+    "w": 48,
+    "h": 38
+  }]
+}
+----
+
+== Display Evaluation Logic
+
+When a user navigates to a page, the page layout manager needs to determine what page layout should be presented.
+
+.The layout manager uses the following logic to determine what page layout to show:
+. Filter out any page layouts which can't te accessed by the user's set of roles,
+. filter out any page layouts where the visibility expression returns `false`,
+. if the remaining set of layouts is *not empty*, use the first layout,
+. if the remaining set of layouts is *empty*, use the first layout with no expression,
+. if no page layout matches this flow, the user is redirected to where they came from.
+
+[#visibility-condition]
+== Visibility Conditions
+
+Visibility conditions are expressions which determine if a page layout can be shown to the user.
+A page layout is showable if the visibility condition returns a truthy value (`true` or any other value JavaScript considers truthy).
+
+Refer to the xref:expr/index.adoc[expressions page] for details on the syntax.
+
+=== Variable Reference
+
+.A list of available variables:
+[cols="1s,5a"]
+|===
+| [#eval-var-user]#<<eval-var-user,user>>#
+| The variable contains the current authenticated user object.
+
+| [#eval-var-record]#<<eval-var-record,record>>#
+| The variable contains the current record object.
+`null` if no record available.
+
+| [#eval-var-screen.width]#<<eval-var-screen.width,screen.width>>#
+| The variable defines the current screen width in pixels.
+
+| [#eval-var-screen.height]#<<eval-var-screen.height,screen.height>>#
+| The variable defines the current screen height in pixels.
+
+| [#eval-var-screen.userAgent]#<<eval-var-screen.userAgent,screen.userAgent>>#
+| The variable defines the current browser user agent.
+
+| [#eval-var-screen.breakpoint]#<<eval-var-screen.breakpoint,screen.breakpoint>>#
+| The variable defines the current breakpoint.
+The breakpoint is the same as the ones the responsive layouts use.
+
+| [#eval-var-oldLayout]#<<eval-var-oldLayout,oldLayout>>#
+| The variable defines the previous layout the user was on.
+`null` if this is the first layout.
+
+| [#eval-var-layout]#<<eval-var-layout,layout>>#
+| The variable defines the current layout the user is on.
+
+| [#eval-var-isView]#<<eval-var-isView,isView>>#
+| The variable defines if the interface is in view mode.
+
+| [#eval-var-isCreate]#<<eval-var-isCreate,isCreate>>#
+| The variable defines if the interface is in create mode.
+
+| [#eval-var-isEdit]#<<eval-var-isEdit,isEdit>>#
+| The variable defines if the interface is in edit mode.
+|===
+
+// == Page Layout Actions
+
+// In addition to customizing the look of your pages, page layout actions enable you to customize the behavior.
+// Actions are presented as buttons on the toolbar of the page.
+
+// .A list of available actions:
+// [cols="1s,5a"]
+// |===
+// | [#action-goto]#<<action-goto,user>>#
+// | The variable contains the current authenticated user object.
+
+// |===

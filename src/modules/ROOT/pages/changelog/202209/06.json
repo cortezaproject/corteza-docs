@@ -1,0 +1,173 @@
+{
+  "meta": {
+    "releasedOn": "2023.01.18"
+  },
+
+  "changed": [
+    {
+      "what": [
+        "workflow iterators to iterate all entries when the limit is set to 0."
+      ],
+      "why": [
+        "to make workflow iterators more consistent with other resource searching operations."
+      ],
+      "how": [
+        "by changing the internal logic to rely on parameter presence rather then value."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/fc259ca62"
+      ]
+    },
+    {
+      "what": [
+        "error message when trying to delete a sensitivity level that's in use to be more informative on what is wrong."
+      ],
+      "why": [
+        "to make error messages more consistent and user friendly."
+      ],
+      "how": [
+        "by adding additional validation before the sensitivity level is deleted."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/56e55439d"
+      ]
+    },
+    {
+      "what": [
+        "the requirement to provide a handle when creating a role is now removed and the handle is now optional."
+      ],
+      "why": [
+        "because providing a handle shouldn't be a necessity and resources can be created without it"
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/fd55cce9b"
+      ]
+    }
+  ],
+
+  "fixed": [
+    {
+      "what": [
+        "invalid record revision history for multi value fields.",
+        "The first value appeared duplicated, the last value was omitted, and when a value was removed the value was no longer visible in the old version."
+      ],
+      "how": [
+        "by converting the delta into a table correctly."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/b203224df"
+      ]
+    },
+    {
+      "what": [
+        "the attachment modal not being visible in the admin area of compose."     
+      ],
+      "how": [
+        "by moving the attachment modal from Public/Pages/View to Namespace/View."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/ea1c1fa7889b3efb83e94127fcaad4ac44e56a2b" 
+      ]
+    },
+    {
+      "what": [
+        "missing error exception for change password handler."
+      ],
+      "how": [
+        "by properly handling and serving the error message."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/82c70b366"
+      ]
+    },
+    {
+      "what": [
+        "being unable to export an user that had a suspended or deleted role assigned to it."        
+      ],
+      "how": [
+        "the export logic was resolving unresolved resources on the fly and it was not excluded and this edge case caused the server to panic."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/14326713e"
+      ]
+    },
+    {
+      "what": [
+        "missing support for filtering, sorting, and paging over federation nodes."        
+      ],
+      "how": [
+        "by enabling filtering, sorting, and paging for federation nodes."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/22f49b031"
+      ]
+    },
+    {
+      "what": [
+        "hiding of calendar in calendar block when switching from page builder to view page and vice versa.",
+        "When we had couple calendars with records or events configured, the event configured calendars were hidden and no info was displayed."
+      ],
+      "how": [
+        "by replacing throttle with async/await in the CalendarBase component."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/4124f8fee4db4e546f836ff2ab9b2222cbb5c666"
+      ]
+    },
+    {
+      "what": [
+        "querying record list not showing any result if the record list does not have any fields selected in the block configuration."        
+      ],
+      "how": [
+        "by making sure a record list with default fields uses those instead of the selected ones to search from."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/0f03f9c06381f5e63dd70d85c65c70c294babcdc"
+      ]
+    },
+    {
+      "what": [
+        "filtering for multi-value number field with contains or not contains criteria which was not retuning any values back."
+      ],
+      "how": [
+        "by making sure to convert numbers into string format while building a query for the selected filter."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/7185611647d9960bcaf7153f5b5726f3f584fbfa"
+      ]
+    },
+    {
+      "what": [
+        "when record list records per page was set to 0, the pagination information was not displayed properly."
+      ],
+      "how": [
+        "by adding a check for this case where the pagination information is generated."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/045da2eaa472952409abfacc1b8142515a02f0d2"
+      ]
+    },
+    {
+      "what": [
+        "not being able to filter checkbox module fields from the record list filter interface."
+      ],
+      "how": [
+        "by adding custom val handler for bool type to convert it properly while parsing the query to MySQL driver."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/1febba3ebd53fa4ee38d3b7fc49a28859e605633"
+      ]
+   },
+    {
+     "what": [
+        "the import modal not being properly closed once an item was imported."
+      ],
+      "how": [
+        "by making sure that the modal is closed as soon as an import is finished."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/pull/735/commits/9931190db6eb928b8e9ebe9819d9c22e58d42f7c"
+      ]
+    }
+  ]
+}

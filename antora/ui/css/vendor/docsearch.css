@@ -1,16 +1,16 @@
 :root {
   /* Corteza color palette */
-  --white: #FFF;
-  --black: #000;
+  --white: #FFFFFF;
+  --black:#162425;
   --primary: #0B344E;
   --secondary: #758D9B;
   --success: #43AA8B;
-  --warning: #F5D380;
-  --danger: #E24646;
-  --light: #E4E9EF;
+  --warning: #E2A046;
+  --danger: #E54122;
+  --light: #F3F5F7;
   --light-opaque: #23485f0D;
   --dark: #162425;
-  --gray-200: #F3F3F5;
+  --gray-200: #F9FAFB;
 
   /* DocSearch variables */
   --docsearch-primary-color: var(--primary);

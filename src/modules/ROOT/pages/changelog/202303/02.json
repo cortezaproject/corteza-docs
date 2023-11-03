@@ -1,0 +1,277 @@
+{
+  "meta": {
+    "releasedOn": "2023.06.08"
+  },
+  "added": [
+    {
+      "what": [
+        "option for transparent color in the color picker used in {APP_NAME_ADMIN}, and {APP_NAME_REPORTER}."
+      ],
+      "why": [
+        "to give users more configuration options when selecting color or background color for an element."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/pull/1211"
+      ]
+    },
+    {
+      "what": [
+        "the option to set a record list filter as a preset filter for a user.",
+        "The filter can be applied using the 'Filters' dropdown menu."
+      ],
+      "why": [
+        "to give the user the ability to pick a pre-configured filter."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/pull/1227/commits/aa28be29cba69efce55028fa08c3a6c9a45ccc3d"
+      ]
+    },
+    {
+      "what": [
+        "menu with 'more' options (delete, un-delete, and permissions) to resource lists in {APP_NAME_COMPOSE}, {APP_NAME_ADMIN}, {APP_NAME_REPORTER}, and {APP_NAME_WORKFLOW}."
+      ],
+      "why": [
+        "so the user doesn't have to scroll horizontally to access all resource options."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/46f5455bd0ae67b9de2159f9d04b054a711832e1"
+      ]
+    },
+    {
+      "what": [
+        "a stale data error in case resources like workflows are updated whilst a different user is editing the same resource."
+      ],
+      "why": [
+        "to help reduce configuration errors due to multiple people editing the same resource at the same time."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/2529cf337c991cc13a2a2e15f2e84b5a8abab4a0"
+      ]
+    },
+    {
+      "what": [
+        "button to select all records in a record list and preform the actions edit, delete, un-delete as well as executing workflows."
+      ],
+      "why": [
+        "to provide the user with an easier way to edit, delete, un-delete, and execute workflows on records across multiple pages."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/89f621c035d65a4d85387d077a299481120b6c0c"
+      ]
+    }
+  ],
+  "changed": [
+    {
+      "what": [
+        "the way reminders in {APP_NAME_COMPOSE} look and behave which provides an easier way for the user to work with."
+      ],
+      "why": [
+        "to be consistent with the rest of the {PRODUCT_NAME} UI and improve the UX."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/pull/1239"
+      ]
+    },
+    {
+      "what": [
+        "the feedback email domain in the page header of every {PRODUCT_NAME} web application from `crust.tech` to `cortezaproject.org`."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/0072a4bf4004f667bc98c6543392c265e4c3991e"
+      ]
+    },
+    {
+      "what": [
+        "reminders to clear out the snooze count after editing and modifying when the reminder should prompt."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/256dd59b83f146b302b44eb808649570f326f37c"
+      ]
+    },
+    {
+      "what": [
+        "the format of displaying the total number of record list items - if N is number of records, then the new format would be N items to N records."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/0fcbec0b9a6ec652d206a7fbad7639c36f50c10b"
+      ]
+    },
+    {
+      "what": [
+        "the block magnify query param that keeps track of which block is magnified (zoomed in)."
+      ],
+      "why": [
+        "to ensure that any future code implementations don't collide with the block magnify query param."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/5fde4c99ee6e5a9c9d95e5bf9a3f5623a41743ce"
+      ]
+    },
+    {
+      "what": [
+        "the value of the `SMTP_FROM` variable in the server `.env` variables.",
+        "Previously if a value was set in the `.env` file, it wasn't respected."
+      ],
+      "why": [
+        "to give developers the option to configure SMTP setting not only from the UI but also though the `.env` file."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/d2b389bebccce9eb932f57b2ec39e69b0bf7b506"
+      ]
+    },
+    {
+      "what": [
+        "default workflow and trigger action severity to `notice` to keep it consistent with other resources in {APP_NAME_ADMIN}."
+      ],
+      "why": [
+        "to make create, update, delete, and undelete actions visible in the default production ruleset of the actionlog."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/31f7e14c84f9cdb29fed9f0f48ae0a1b27d62a68"
+      ]
+    }
+  ],
+  "fixed": [
+    {
+      "what": [
+        "multiline privacy request comments displaying as inline comments."
+      ],
+      "how": [
+        "by adding support for multiline comments in privacy requests."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/pull/1214"
+      ]
+    },
+    {
+      "what": [
+        "{APP_NAME_COMPOSE} broken public icon url for page, namespace, and custom app icons after changing the Auth JWT secret."
+      ],
+      "how": [
+        "by adding an exception for the namespace icons, page, and icon attachments."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/pull/1219"
+      ]
+    },
+    {
+      "what": [
+        "available and selected fields not scrollable in safari due to set max height in the item picker component.",
+        "This issue was present in {APP_NAME_COMPOSE} and {APP_NAME_PRIVACY}."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/pull/1221"
+      ]
+    },
+    {
+      "what": [
+        "funnel chart labels being hidden after hovering over them."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/pull/1222"
+      ]
+    },
+    {
+      "what": [
+        "the functionality to expand text in the description field used in {APP_NAME_WORKFLOW}'s error step."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/84215c0edf87b52b0bcb07fe632107b48e48d582"
+      ]
+    },
+    {
+      "what": [
+        "automation sessions list sorting parameter in {APP_NAME_ADMIN}.",
+        "The parameter was excepting the incorrect type of value."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/pull/1141"
+      ]
+    },
+    {
+      "what": [
+        "copy of page layout in {APP_NAME_COMPOSE}.",
+        "A page with layout couldn't be copied because of duplicate page handle value."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/pull/1230"
+      ]
+    },
+    {
+      "what": [
+        "page blocks disappearing from the page builder after being removed from tabs configuration."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/c9390153b5363fd2c061e31ce01485172f7f311c"
+      ]
+    },
+    {
+      "what": [
+        "connection map not showing in {APP_NAME_PRIVACY} on mobile devices."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/ca12cc90cd64ccca5394d052cf3f79ec7df730eb"
+      ]
+    },
+    {
+      "what": [
+        "overflowing text in the Record Organizer component."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/f09f1fa6d0d1cf428745b8c35b2e8ccbe994e63b"
+      ]
+    },
+    {
+      "what": [
+        "known concurrent map read/write issues for Integration Gateway profiler and workflow pre-processing."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/37035984aed08d1c30c90c59a8aeb9d6d2449e31"
+      ]
+    },
+    {
+      "what": [
+        "missing `sessionID` parameter in automation session search.",
+        "The sessionID value wasn't taken into consideration when filtering an automation session list."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/37035984aed08d1c30c90c59a8aeb9d6d2449e31"
+      ]
+    },
+    {
+      "what": [
+        "compose page not being accessible unless the sub pages option is enabled."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/ed0ac43b75addf86b05b5e2c2b15c648915fe00d"
+      ]
+    },
+    {
+      "what": [
+        "error for not included page layout resources when exporting namespace configuration."
+      ],
+      "how": [
+        "by including page layouts to the namespace export logic."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/4ad121747d136f76aa8701f07840c9b75c4aef37"
+      ]
+    },
+    {
+      "what": [
+        "error preventing user from being able to add a non numeric value to gauge chart dimension labels in {APP_NAME_COMPOSE}."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/f9b966178a6f2eb3a180daf17a65e0e20ccbb220"
+      ]
+    },
+    {
+      "what": [
+        "the setting of workflow and trigger IDs after creating action log events."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/03806a20ab5eaf94dc9a2a8949d707a28f5c3127"
+      ]
+    }
+  ]
+}

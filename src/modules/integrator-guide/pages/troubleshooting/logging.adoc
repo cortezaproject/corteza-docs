@@ -1,7 +1,7 @@
 include::ROOT:partial$variables.adoc[]
 
 = Logging
-:page-aliases: 2022.9@administrator-guide:logging.adoc
+:page-aliases: 2023.3@administrator-guide:logging.adoc
 
 {PRODUCT_NAME} logs most of the operations that have occurred in the system in the *action log*.
 The *action log* user interface provides an overview of events such as users that have registered or logged in, records that have been created, and templates that have been rendered.

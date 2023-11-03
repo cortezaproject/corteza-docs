@@ -376,7 +376,7 @@ The identifier input supports value placeholders which help reduce the required 
 
 include::partial$dal-model-ident-placeholders.adoc[]
 
-To exemplify; the following identifier `compose_records_{{namespace}}_{{module}}` could produce the identifier of `compose_records_crm_lead`.
+To exemplify; the following identifier `compose_records_{\{namespace}}_{\{module}}` could produce the identifier of `compose_records_crm_lead`.
 
 | [#connection-config-conn-type]#<<connection-config-conn-type,Connection and parameter type>>#
 |

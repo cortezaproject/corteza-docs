@@ -1,0 +1,56 @@
+include::ROOT:partial$variables.adoc[]
+
+= `2023.3.4`
+
+*Released on*: `2023.07.20`
+
+.[#2023_03_04-added]#<<2023_03_04-added,Added:>>#
+* Added a button that allows the user to edit record values in a record block without having to open the record in edit mode.
+The change was added to give the user the ability to easily edit a single field when viewing a record
+({CORTEZA_PULL_BASE}1282[`1282`]).
+* Added options to zoom in and download a file from a record.
+The change was added to give the user the flexibility to preview and download files when viewing a record
+({CORTEZA_PULL_BASE}1310[`1310`]).
+* Added new ways of displaying Select module fields allowing you to show configured options as check boxes or radio buttons.
+The change was added to provide the user with an additional ways to view for the Select field value/values
+({CORTEZA_PULL_BASE}1301[`1301`]).
+* Added the ability to use a record value in a record page title.
+The change was added to give the user the freedom to customize a record page title using record values
+({CORTEZA_PULL_BASE}1332[`1332`]).
+* Added the option to display a checkbox as a toggle switch.
+The change was added to give the user another way of interacting with the checkbox field
+({CORTEZA_PULL_BASE}1286[`1286`]).
+
+.[#2023_03_04-changed]#<<2023_03_04-changed,Changed:>>#
+* Changed role un-delete operation to dispatch role update events on the event bus.
+The change was made to keep it consistent with other resource operations
+({CORTEZA_COMMIT_BASE}6558efc[`6558efc`]).
+* Changed the {PRODUCT_NAME} authentication flow to skip unneeded screens and get the user directly to the requested web application as soon as possible.
+The change was made to improve the authentication user interface and experience
+({CORTEZA_PULL_BASE}1284[`1284`]).
+
+.[#2023_03_04-fixed]#<<2023_03_04-fixed,Fixed:>>#
+* Fixed input parameter handling for the integration gateway proxy filter
+Now, the entire integration gateway pipeline scope can be used in the proxy filter
+({CORTEZA_COMMIT_BASE}1e82fc0[`1e82fc0`]).
+* Fixed wrong condition priority when filtering the record list with the `Not equal` operator
+({CORTEZA_PULL_BASE}1300[`1300`]).
+* Fixed the {APP_NAME_COMPOSE} namespace changed alert prompt only when we're leaving the page and unsaved changes are present
+Before, it the alert would prompt after saving changes when creating or updating a namespace
+({CORTEZA_PULL_BASE}1298[`1298`]).
+* Fixed role members not showing when viewing or editing a role
+({CORTEZA_PULL_BASE}1296[`1296`]).
+* Fixed an error preventing users from navigating back to the role list after viewing/editing a contextual role
+({CORTEZA_PULL_BASE}1307[`1307`]).
+* Fixed record list export not including all of the active filters which resulted in inconsistent output
+({CORTEZA_PULL_BASE}1318[`1318`]).
+* Fixed not being able to magnify unsaved page blocks
+({CORTEZA_PULL_BASE}1289[`1289`], {CORTEZA_PULL_BASE}1291[`1291`]).
+* Fixed module field select translations not being saved when configuring the field
+({CORTEZA_COMMIT_BASE}311c879[`311c879`]).
+* Fixed module field validations for unique values not being saved when configuring the field
+({CORTEZA_COMMIT_BASE}295defc[`295defc`]).
+* Fixed date and time value not being saved when creating an auth client
+({CORTEZA_PULL_BASE}1337[`1337`], {CORTEZA_COMMIT_BASE}3ed432e[`3ed432e`], {CORTEZA_COMMIT_BASE}bd0a941[`bd0a941`]).
+* Fixed the position of the actions menu (three dots) in compose chart, module, and namespace list to be always visible on hover even if the list column isn't visible
+({CORTEZA_PULL_BASE}1331[`1331`]).

@@ -1,0 +1,85 @@
+include::ROOT:partial$variables.adoc[]
+
+= `2023.3.2`
+
+*Released on*: `2023.06.08`
+
+.[#2023_03_02-added]#<<2023_03_02-added,Added:>>#
+* Added option for transparent color in the color picker used in {APP_NAME_ADMIN}, and {APP_NAME_REPORTER}.
+The change was added to give users more configuration options when selecting color or background color for an element
+({CORTEZA_PULL_BASE}1211[`1211`]).
+* Added the option to set a record list filter as a preset filter for a user.
+The filter can be applied using the 'Filters' dropdown menu.
+The change was added to give the user the ability to pick a pre-configured filter
+({CORTEZA_PULL_BASE}1227[`1227`]).
+* Added menu with 'more' options (delete, un-delete, and permissions) to resource lists in {APP_NAME_COMPOSE}, {APP_NAME_ADMIN}, {APP_NAME_REPORTER}, and {APP_NAME_WORKFLOW}.
+The change was added so the user doesn't have to scroll horizontally to access all resource options
+({CORTEZA_COMMIT_BASE}46f5455[`46f5455`]).
+* Added a stale data error in case resources like workflows are updated whilst a different user is editing the same resource.
+The change was added to help reduce configuration errors due to multiple people editing the same resource at the same time
+({CORTEZA_COMMIT_BASE}2529cf3[`2529cf3`]).
+* Added button to select all records in a record list and preform the actions edit, delete, un-delete as well as executing workflows.
+The change was added to provide the user with an easier way to edit, delete, un-delete, and execute workflows on records across multiple pages
+({CORTEZA_COMMIT_BASE}89f621c[`89f621c`]).
+
+.[#2023_03_02-changed]#<<2023_03_02-changed,Changed:>>#
+* Changed the way reminders in {APP_NAME_COMPOSE} look and behave which provides an easier way for the user to work with.
+The change was made to be consistent with the rest of the {PRODUCT_NAME} UI and improve the UX
+({CORTEZA_PULL_BASE}1239[`1239`]).
+* Changed the feedback email domain in the page header of every {PRODUCT_NAME} web application from `crusttech` to `cortezaprojectorg`
+({CORTEZA_COMMIT_BASE}0072a4b[`0072a4b`]).
+* Changed reminders to clear out the snooze count after editing and modifying when the reminder should prompt
+({CORTEZA_COMMIT_BASE}256dd59[`256dd59`]).
+* Changed the format of displaying the total number of record list items - if N is number of records, then the new format would be N items to N records
+({CORTEZA_COMMIT_BASE}0fcbec0[`0fcbec0`]).
+* Changed the block magnify query param that keeps track of which block is magnified (zoomed in).
+The change was made to ensure that any future code implementations don't collide with the block magnify query param
+({CORTEZA_COMMIT_BASE}5fde4c9[`5fde4c9`]).
+* Changed the value of the `SMTP_FROM` variable in the server `.env` variables.
+Previously if a value was set in the `.env` file, it wasn't respected.
+The change was made to give developers the option to configure SMTP setting not only from the UI but also though the `env` file
+({CORTEZA_COMMIT_BASE}d2b389b[`d2b389b`]).
+* Changed default workflow and trigger action severity to `notice` to keep it consistent with other resources in {APP_NAME_ADMIN}.
+The change was made to make create, update, delete, and undelete actions visible in the default production ruleset of the actionlog
+({CORTEZA_COMMIT_BASE}31f7e14[`31f7e14`]).
+
+.[#2023_03_02-fixed]#<<2023_03_02-fixed,Fixed:>>#
+* Fixed multiline privacy request comments displaying as inline comments.
+The fix was made by adding support for multiline comments in privacy requests
+({CORTEZA_PULL_BASE}1214[`1214`]).
+* Fixed {APP_NAME_COMPOSE} broken public icon url for page, namespace, and custom app icons after changing the Auth JWT secret.
+The fix was made by adding an exception for the namespace icons, page, and icon attachments
+({CORTEZA_PULL_BASE}1219[`1219`]).
+* Fixed available and selected fields not scrollable in safari due to set max height in the item picker component
+This issue was present in {APP_NAME_COMPOSE} and {APP_NAME_PRIVACY}
+({CORTEZA_PULL_BASE}1221[`1221`]).
+* Fixed funnel chart labels being hidden after hovering over them
+({CORTEZA_PULL_BASE}1222[`1222`]).
+* Fixed the functionality to expand text in the description field used in {APP_NAME_WORKFLOW}'s error step
+({CORTEZA_COMMIT_BASE}84215c0[`84215c0`]).
+* Fixed automation sessions list sorting parameter in {APP_NAME_ADMIN}
+The parameter was excepting the incorrect type of value
+({CORTEZA_PULL_BASE}1141[`1141`]).
+* Fixed copy of page layout in {APP_NAME_COMPOSE}
+A page with layout couldn't be copied because of duplicate page handle value
+({CORTEZA_PULL_BASE}1230[`1230`]).
+* Fixed page blocks disappearing from the page builder after being removed from tabs configuration
+({CORTEZA_COMMIT_BASE}c939015[`c939015`]).
+* Fixed connection map not showing in {APP_NAME_PRIVACY} on mobile devices
+({CORTEZA_COMMIT_BASE}ca12cc9[`ca12cc9`]).
+* Fixed overflowing text in the Record Organizer component
+({CORTEZA_COMMIT_BASE}f09f1fa[`f09f1fa`]).
+* Fixed known concurrent map read/write issues for Integration Gateway profiler and workflow pre-processing
+({CORTEZA_COMMIT_BASE}3703598[`3703598`]).
+* Fixed missing `sessionID` parameter in automation session search
+The sessionID value wasn't taken into consideration when filtering an automation session list
+({CORTEZA_COMMIT_BASE}3703598[`3703598`]).
+* Fixed compose page not being accessible unless the sub pages option is enabled
+({CORTEZA_COMMIT_BASE}ed0ac43[`ed0ac43`]).
+* Fixed error for not included page layout resources when exporting namespace configuration.
+The fix was made by including page layouts to the namespace export logic
+({CORTEZA_COMMIT_BASE}4ad1217[`4ad1217`]).
+* Fixed error preventing user from being able to add a non numeric value to gauge chart dimension labels in {APP_NAME_COMPOSE}
+({CORTEZA_COMMIT_BASE}f9b9661[`f9b9661`]).
+* Fixed the setting of workflow and trigger IDs after creating action log events
+({CORTEZA_COMMIT_BASE}03806a2[`03806a2`]).

@@ -1,0 +1,16 @@
+include::ROOT:partial$variables.adoc[]
+
+= Upgrading to 2023.3
+:page-aliases: 2023.3@upgrade-guide:202303.adoc
+
+== After the Upgrade
+
+{PRODUCT_NAME} `2023.3` introduces a new resource - `corteza:compose:page-layout`.
+As with most other resources, it introduces new RBAC rules.
+
+Re-visit your security model setup and adjust your RBAC rules to incorporate the new resource.
+
+[CAUTION]
+====
+If a specific role does not have read access to a specific page layout, that layout will not be shown and some pages may appear empty (due to no page layouts being available).
+====

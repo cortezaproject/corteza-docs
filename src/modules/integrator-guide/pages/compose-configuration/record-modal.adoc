@@ -1,0 +1,39 @@
+= Opening Records in Modal Windows
+
+Record list, Calendar and Record page blocks have an option to open records in a modal window.
+By default, records are opened in a new page.
+When set, this option allows users to inspect specific records, while staying on the original page.
+
+== Configuring the Option
+
+To enable the option of opening records in a modal, navigate to the page builder, choose the record list block and go to its record list tab.
+Scroll down to the Records section and you will find the option in the "On record click" select dropdown.
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "compose-configuration/enabling-record-in-modal.png",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {
+    "x": 0,
+    "y": 0,
+    "w": 1920,
+    "h": 1080
+  },
+  "annotations": [{
+    "kind": "box",
+    "x": 407,
+    "y": 460,
+    "w": 538,
+    "h": 64
+  }]
+}
+----
+
+Select the "Open record in a modal" option.
+Now, when you go to the public page that displays the record list and click on any record inside the list, it will open inside a modal.
+
+image:compose-configuration/displaying-record-in-modal.png[Opening Record in a Modal, role="data-zoomable"]

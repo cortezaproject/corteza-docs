@@ -1,0 +1,72 @@
+include::ROOT:partial$variables.adoc[]
+
+= `2023.3.1`
+
+*Released on*: `2023.05.18`
+
+.[#2023_03_01-added]#<<2023_03_01-added,Added:>>#
+* Added ability to drill down metrics, by clicking on a data entry inside the metrics block.
+Based on the configuration it can either filter an existing record list on the page, that is showing the records from the same module as the metric, or open a new record list in a modal.
+The change was added to make it easier for users to filter record lists based on metrics data, in order to view the details of said data
+({CORTEZA_PULL_BASE}1184[`1184`]).
+* Added support for opening geometry and record organizer page block records in a modal.
+The change was added to give users the ability to open records in a modal without leaving the page that they are on
+({CORTEZA_PULL_BASE}1177[`1177`]).
+* Added support for error handling message inside workflows by letting configurators access the context of the error message.
+The change was added to give user more freedom in defining error handling and to know where and on which step the error occurred
+({CORTEZA_PULL_BASE}1088[`1088`]).
+* Added http prefixes to all URL input values across {PRODUCT_NAME} if it is not provided by the user.
+The change was added to make it easier for users to define URLs with leaving out the http:// part
+({CORTEZA_PULL_BASE}1188[`1188`]).
+
+.[#2023_03_01-changed]#<<2023_03_01-changed,Changed:>>#
+* Changed record selector value resolution fetching per page block instead of per field so no redundant fetches are done.
+The change was made to improve performance on slower connections/systems.
+The change was made by moving it to per page block instead of per field as it was previously
+({CORTEZA_PULL_BASE}1176[`1176`]).
+* Changed the sidebar of {APP_NAME_COMPOSE} and {APP_NAME_REPORTER} to be scrollable just on items and the search bar and public/admin page button to be always on top.
+The change was made to improve the accessibility of the the search bar and the buttons for public and admin page.
+The change was made by making the sidebar components stick to top
+({CORTEZA_PULL_BASE}1189[`1189`]).
+
+.[#2023_03_01-fixed]#<<2023_03_01-fixed,Fixed:>>#
+* Fixed charts and reporter elements utilizing aggregation erroring out.
+The issue was caused because the sqlserver driver does not yet support offloading of aggregation steps.
+The fix was made by keeping aggregation on the application level until a few blockers are resolved
+({CORTEZA_COMMIT_BASE}f931275[`f931275`]).
+* Fixed failing provision step reporting a malformed SQL statement.
+The issue was caused by the provision function which utilized raw SQL with is not compatible with the sqlserver.
+The fix was made by skipping that provision on sqlserver because it does not need to exist for that driver
+The driver was introduced with the structure change so it is unneeded
+({CORTEZA_COMMIT_BASE}1d4ab0b[`1d4ab0b`]).
+* Fixed failing a fresh provision on an sqlserver database driver with an SQL typecasting error.
+The fix was made by correctly handling and defaulting setting timestamp values
+({CORTEZA_COMMIT_BASE}7675e5d[`7675e5d`]).
+* Fixed tabs block titles getting erased once you add a new block to the list.
+The fix was made by not updating the title when creating a block
+({CORTEZA_PULL_BASE}1170[`1170`]).
+* Fixed data and time input boxes not being responsive and resulting in being cut off on smaller screens.
+The fix was made by updating the date and time module field responsiveness
+({CORTEZA_PULL_BASE}1156[`1156`]).
+* Fixed hash and query URL trim on URL input record field trimming the part before the hash and query instead of after it.
+The fix was made by changing the order of trimming methods to match their corresponding labels
+({CORTEZA_PULL_BASE}1173[`1173`]).
+* Fixed hovering on record event on calendar agenda not showing the cursor as pointer.
+The fix was made by changing the cursor from text selector to pointer
+({CORTEZA_PULL_BASE}1179[`1179`]).
+* Fixed workflow dry run process not stopping on server timeout/error.
+The fix was made by resetting the state and refreshing the trigger label so the spinner disappears
+({CORTEZA_PULL_BASE}1195[`1195`]).
+* Fixed webapp page titles not shown on small screens
+({CORTEZA_PULL_BASE}1175[`1175`]).
+* Fixed not being able to cancel more than one privacy request consecutively in {APP_NAME_PRIVACY}
+({CORTEZA_COMMIT_BASE}a559569[`a559569`]).
+* Fixed record organizer not showing any data for a multi value fields.
+The fix was made by removing sort on label and description field
+({CORTEZA_PULL_BASE}1176[`1176`]).
+* Fixed record selector of a record selector showing the record field as an ID instead of text.
+The fix was made by properly resolving multiple record values
+({CORTEZA_PULL_BASE}1176[`1176`]).
+* Fixed metrics block data not being consistent in page builder mode when configurator is updated.
+The fix was made by updating the metric base component with a listener that refreshes the metric base when the configurator is updated
+({CORTEZA_PULL_BASE}1207[`1207`]).

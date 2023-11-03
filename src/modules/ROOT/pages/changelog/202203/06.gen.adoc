@@ -6,29 +6,29 @@ include::ROOT:partial$variables.adoc[]
 
 .[#2022_03_06-changed]#<<2022_03_06-changed,Changed:>>#
 * Changed password constraints which saved their values as strings to save them as numbers.
-Additionally, the labels of the two fields were reworded to match the style of the other inputs in the password constraints section..
+Additionally, the labels of the two fields were reworded to match the style of the other inputs in the password constraints section.
 The change was made because the password constraints were saved as strings; with this change, the constraints will be saved as numbers.
-The change was made by '.number' was appended to the password constraint's input model.
+The change was made 'number' was appended to the password constraint's input model
 ({LOCALE_COMMIT_BASE}1b8e02c[`1b8e02c`], {LOCALE_COMMIT_BASE}1d8eb4b[`1d8eb4b`], {WEBAPP_ADMIN_COMMIT_BASE}9fd49e1[`9fd49e1`], {WEBAPP_ADMIN_COMMIT_BASE}53d8619[`53d8619`], {SERVER_COMMIT_BASE}651993b[`651993b`], {SERVER_COMMIT_BASE}4c4f1df[`4c4f1df`]).
 
 .[#2022_03_06-fixed]#<<2022_03_06-fixed,Fixed:>>#
-* Fixed geometry values not being saved when changed manually in inputs..
-The fix was made by by correctly detecting changes on the geometry value since it uses a more complex structure then the rest of the inputs.
+* Fixed geometry values not being saved when changed manually in inputs.
+The fix was made by correctly detecting changes on the geometry value since it uses a more complex structure then the rest of the inputs
 ({WEBAPP_COMPOSE_COMMIT_BASE}1c220ec[`1c220ec`]).
-* Fixed record export filter not interpolating placeholders such as `${userID}` which lead to non functional exports..
-The fix was made by by adding evaluation to the record export filter to correctly evaluate and interpolate placeholders.
+* Fixed record export filter not interpolating placeholders such as `${userID}` which lead to non functional exports.
+The fix was made by adding evaluation to the record export filter to correctly evaluate and interpolate placeholders
 ({WEBAPP_COMPOSE_COMMIT_BASE}ee123ea[`ee123ea`]).
 * Fixed file uploads being rejected when specifying what MIME types are allowed or not.
-The issue occurred due to additional meta tags provided by the files or the underlying libraries..
-The fix was made by by reworking how MIME types are validated by switching from comparing MIME type labels to a more robust library which was already used for detecting MIME types.
+The issue occurred due to additional meta tags provided by the files or the underlying libraries.
+The fix was made by reworking how MIME types are validated by switching from comparing MIME type labels to a more robust library which was already used for detecting MIME types
 ({SERVER_COMMIT_BASE}84e2ff1[`84e2ff1`]).
-* Fixed corredor server was crashing on startup due to nil pointer error..
-The fix was made by by adding nil check for Vars methods so it does not cause any unexpected error, if nil value is used.
+* Fixed corredor server was crashing on startup due to nil pointer error.
+The fix was made by adding nil check for Vars methods so it does not cause any unexpected error, if nil value is used
 ({SERVER_COMMIT_BASE}9ad5b36[`9ad5b36`]).
-* Fixed getting stuck on sign up page on error..
-The fix was made by by redirecting back to sign up page with respective error message.
+* Fixed getting stuck on sign up page on error.
+The fix was made by redirecting back to sign up page with respective error message
 ({SERVER_COMMIT_BASE}be1e035[`be1e035`]).
 * Fixed automation button resource translations not preserving between page refreshes.
-The issue was caused due to improper indexing as well as missing code to apply resource translations to record list selection buttons..
-The fix was made by correcting resource translation indexing to start with `0` instead of `1` as well as adding missing code to correctly apply resource translations to record list selection buttons.
+The issue was caused due to improper indexing as well as missing code to apply resource translations to record list selection buttons.
+The fix was made correcting resource translation indexing to start with `0` instead of `1` as well as adding missing code to correctly apply resource translations to record list selection buttons
 ({WEBAPP_COMPOSE_COMMIT_BASE}34827c5[`34827c5`], {SERVER_COMMIT_BASE}04eb3cd[`04eb3cd`]).

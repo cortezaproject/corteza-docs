@@ -1,4 +1,4 @@
-= Workfing with Records
+= Working with Records
 :attachment-path: ../../../_attachments/automation/workflows/examples/record/
 :page-noindex: true
 

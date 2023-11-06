@@ -1,0 +1,241 @@
+{
+  "meta": {
+    "releasedOn": "2023.11.08"
+  },
+
+  "added": [
+    {
+      "what": [
+        "a btn:[Back] button to navigate to previous page block modal when viewing or editing a tabbed page block."
+      ],
+      "why": [
+        "to provide the user with an easier way to go back in a modal."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/pull/1448"
+      ]
+    },
+    {
+      "what": [
+        "an option in the record list configurator for admins to enable end users to pick the number of records to be shown in a record list.",
+        "After the option is enabled, the user can select a number from the record list dropdown."
+      ],
+      "why": [
+        "to allow end users to configure how many records per page are to be shown."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/pull/1450"
+      ]
+    },
+    {
+      "what": [
+        "a delete button in the page icon configurator modal with which a user can remove an uploaded icon."
+      ],
+      "why": [
+        "to provide the option to remove an uploaded icon."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/pull/1379"
+      ]
+    },
+    {
+      "what": [
+        "a btn:[Save as copy] button to create a copy of a module or chart."
+      ],
+      "why": [
+        "to allow users to easily copy the functionality of a module or chart."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/pull/1468"
+      ]
+    },
+    {
+      "what": [
+        "an option to create a custom color scheme in the chart color scheme dropdown."
+      ],
+      "why": [
+        "to give the user the freedom to make a custom color scheme."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/pull/1467"
+      ]
+    },
+    {
+      "what": [
+        "buttons for removing and modifying a tabbed page block next to the block name."
+      ],
+      "why": [
+        "to provide an easier way of editing or deleting a tabbed page block."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/pull/1416"
+      ]
+    },
+    {
+      "what": [
+        "unsaved changes warning message when modifying a record and trying to navigate to a different page."
+      ],
+      "why": [
+        "to prevent losing changes that haven't been saved yet."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/pull/1367"
+      ]
+    },
+    {
+      "what": [
+        "support for {PRODUCT_NAME} to automatically manage and change the underlying database when storing records."
+      ],
+      "why": [
+        "to simplify the process of using dedicated and customized storage locations for your records since manual intervention, for most cases, is no longer needed."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/bc923209f4745cf5ddfcd4987d926da5029670c6",
+        "https://github.com/cortezaproject/corteza/commit/0695eb71188c2d0c27b5186fd29120574a9a8534",
+        "https://github.com/cortezaproject/corteza/commit/4224ba9828c6d5bdc75aa618573fb99cac147062",
+        "https://github.com/cortezaproject/corteza/commit/b86f67cf6ff413912aa5dff6bd7f160f71b4de6e",
+        "https://github.com/cortezaproject/corteza/commit/1eb360f43e60bfbb149e6e4e64364c3ad1ad6b15",
+        "https://github.com/cortezaproject/corteza/commit/2bcf86ef3c1d28a2965b8d0947fa86c2b256cae8"
+      ]
+    },
+    {
+      "what": [
+        "an option to create a custom button for a record page in its page layout configurator that will be present when viewing the page layout."
+      ],
+      "why": [
+        "to provide the user with the option to create a custom button."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/pull/1484"
+      ]
+    },
+    {
+      "what": [
+        "an icon containing an exclamation mark to a page block toolbar indicating that the concrete page block is used in another page layout."
+      ],
+      "why": [
+        "to mark a page block that is already used in another page layout."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/pull/1495"
+      ]
+    },
+    {
+      "what": [
+        "the option to change the default colors of {PRODUCT_NAME} applications in {APP_NAME_ADMIN}."
+      ],
+      "why": [
+        "to provide the user with more freedom to style {PRODUCT_NAME}."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/pull/1469"
+      ]
+    },
+    {
+      "what": [
+        "a rounded circle icon that marks a configuration option as performance impacting."
+      ],
+      "why": [
+        "to mark which features would impact the performance of an application."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/pull/1490"
+      ]
+    },
+    {
+      "what": [
+        "a spinner to delete and un-delete buttons while a resource is being deleted or un-deleted."
+      ],
+      "why": [
+        "to show the user the current state of the delete or un-delete process."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/pull/1464"
+      ]
+    }
+  ],
+
+  "changed": [
+    {
+      "what": [
+        "the {PRODUCT_NAME} {APP_NAME_COMPOSE} admin page navigation to keep the user on the page builder or page edit whenever switching pages as well as keeping the user on show all records when switching modules."
+      ],
+      "why": [
+        "to provide a more intuitive way to navigate between {APP_NAME_COMPOSE} resources."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/pull/1457"
+      ]
+    },
+    {
+      "what": [
+        "the form structure to better support mobile users in {APP_NAME_ADMIN}."
+      ],
+      "why": [
+        "to provide a better UI and UX for mobile users."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/pull/1253"
+      ]
+    },
+    {
+      "what": [
+        "page blocks to refresh in case the underlying data was modified by a different page block on the same page."
+      ],
+      "why": [
+        "to keep all page blocks showing related data in sync."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/pull/1435"
+      ]
+    },
+    {
+      "what": [
+        "general ui/ux improvements:",
+        "** Improved header button layout for topbar navigation and resource list items.",
+        "** Adjusted position of btn:[x] button in search bar to always appear on the right side.",
+        "** Added a standardized submit button across all web applications to make UI consistent and code maintaining easier.",
+        "** Unnecessary vertical and horizontal scrolling of resource list parent component in {APP_NAME_ADMIN}.",
+        "** Header buttons in resource editing view were partially/completely hidden if more than two were displayed in {APP_NAME_ADMIN}.",
+        "** Longer labels in resource editing view appeared under their input fields in {APP_NAME_ADMIN}."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/pull/1489",
+        "https://github.com/cortezaproject/corteza/commit/dcc541d953d61172797117cddc929d327023fa0a",
+        "https://github.com/cortezaproject/corteza/pull/1451",
+        "https://github.com/cortezaproject/corteza/pull/1253"
+      ]
+    }
+  ],
+
+  "fixed": [
+    {
+      "what": [
+        "namespace export erroring out with an invalid reference error whenever we're referring to deleted resources."
+      ],
+      "how": [
+        "by ignoring missing references and exporting/importing regardless of missing references.",
+        "This should be expanded and improved upon in a future release."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/dc54b55e552651ed7c4fb10fc98b31da61b6694b"
+      ]
+    },
+    {
+      "what": [
+        "nothing happening when trying to copy a page block."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/a7331b05218223264ef1b41b2ad899a6a737b329"
+      ]
+    },
+    {
+      "what": [
+        "triggering of unsaved changes message after user wants to delete a modified resource like a page, namespace, module or chart."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/pull/1466"
+      ]
+    }
+  ]
+}

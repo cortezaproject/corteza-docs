@@ -17,10 +17,11 @@
     },
     {
       "what": [
-        "dropdown field in the record list configurator with which an admin can set the number of records to be shown per record list page."
+        "an option in the record list configurator for admins to enable end users to pick the number of records to be shown in a record list.",
+        "After the option is enabled, the user can select a number from the record list dropdown."
       ],
       "why": [
-        "to allow admin users to configure how many records per page are to be shown."
+        "to allow end users to configure how many records per page are to be shown."
       ],
       "refs": [
         "https://github.com/cortezaproject/corteza/pull/1450"
@@ -143,7 +144,7 @@
     },
     {
       "what": [
-        "a spinner to the delete and un-delete buttons while a resource is being deleted or un-deleted."
+        "a spinner to delete and un-delete buttons while a resource is being deleted or un-deleted."
       ],
       "why": [
         "to show the user the current state of the delete or un-delete process."
@@ -157,8 +158,7 @@
   "changed": [
     {
       "what": [
-        "the navigation flow when switching between different {APP_NAME_COMPOSE} resources using the sidebar navigation menu.",
-        "Previously, when trying to switch from one page's builder mode to another, you were redirected to the edit mode of the page instead of the page builder."
+        "the {PRODUCT_NAME} {APP_NAME_COMPOSE} admin page navigation to keep the user on the page builder whenever switching pages (when in the page builder)."
       ],
       "why": [
         "to provide a more intuitive way to navigate between {APP_NAME_COMPOSE} resources."

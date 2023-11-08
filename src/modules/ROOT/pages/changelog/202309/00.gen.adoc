@@ -2,6 +2,75 @@ include::ROOT:partial$variables.adoc[]
 
 = `2023.9.0`
 
-*Released on*: `2023.04.20`
+*Released on*: `2023.11.08`
 
-@todo :)
+.[#2023_09_00-added]#<<2023_09_00-added,Added:>>#
+* Added a btn:[Back] button to navigate to previous page block modal when viewing or editing a tabbed page block.
+The change was added to provide the user with an easier way to go back in a modal
+({CORTEZA_PULL_BASE}1448[`1448`]).
+* Added an option in the record list configurator for admins to enable end users to pick the number of records to be shown in a record list.
+After the option is enabled, the user can select a number from the record list dropdown.
+The change was added to allow end users to configure how many records per page are to be shown
+({CORTEZA_PULL_BASE}1450[`1450`]).
+* Added a delete button in the page icon configurator modal with which a user can remove an uploaded icon.
+The change was added to provide the option to remove an uploaded icon
+({CORTEZA_PULL_BASE}1379[`1379`]).
+* Added a btn:[Save as copy] button to create a copy of a module or chart.
+The change was added to allow users to easily copy the functionality of a module or chart
+({CORTEZA_PULL_BASE}1468[`1468`]).
+* Added an option to create a custom color scheme in the chart color scheme dropdown.
+The change was added to give the user the freedom to make a custom color scheme
+({CORTEZA_PULL_BASE}1467[`1467`]).
+* Added buttons for removing and modifying a tabbed page block next to the block name.
+The change was added to provide an easier way of editing or deleting a tabbed page block
+({CORTEZA_PULL_BASE}1416[`1416`]).
+* Added unsaved changes warning message when modifying a record and trying to navigate to a different page.
+The change was added to prevent losing changes that haven't been saved yet
+({CORTEZA_PULL_BASE}1367[`1367`]).
+* Added support for {PRODUCT_NAME} to automatically manage and change the underlying database when storing records.
+The change was added to simplify the process of using dedicated and customized storage locations for your records since manual intervention, for most cases, is no longer needed
+({CORTEZA_COMMIT_BASE}bc92320[`bc92320`], {CORTEZA_COMMIT_BASE}0695eb7[`0695eb7`], {CORTEZA_COMMIT_BASE}4224ba9[`4224ba9`], {CORTEZA_COMMIT_BASE}b86f67c[`b86f67c`], {CORTEZA_COMMIT_BASE}1eb360f[`1eb360f`], {CORTEZA_COMMIT_BASE}2bcf86e[`2bcf86e`]).
+* Added an option to create a custom button for a record page in its page layout configurator that will be present when viewing the page layout.
+The change was added to provide the user with the option to create a custom button
+({CORTEZA_PULL_BASE}1484[`1484`]).
+* Added an icon containing an exclamation mark to a page block toolbar indicating that the concrete page block is used in another page layout.
+The change was added to mark a page block that is already used in another page layout
+({CORTEZA_PULL_BASE}1495[`1495`]).
+* Added the option to change the default colors of {PRODUCT_NAME} applications in {APP_NAME_ADMIN}.
+The change was added to provide the user with more freedom to style {PRODUCT_NAME}
+({CORTEZA_PULL_BASE}1469[`1469`]).
+* Added a rounded circle icon that marks a configuration option as performance impacting.
+The change was added to mark which features would impact the performance of an application
+({CORTEZA_PULL_BASE}1490[`1490`]).
+* Added a spinner to delete and un-delete buttons while a resource is being deleted or un-deleted.
+The change was added to show the user the current state of the delete or un-delete process
+({CORTEZA_PULL_BASE}1464[`1464`]).
+
+.[#2023_09_00-changed]#<<2023_09_00-changed,Changed:>>#
+* Changed the {PRODUCT_NAME} {APP_NAME_COMPOSE} admin page navigation to keep the user on the page builder or page edit whenever switching pages as well as keeping the user on show all records when switching modules.
+The change was made to provide a more intuitive way to navigate between {APP_NAME_COMPOSE} resources
+({CORTEZA_PULL_BASE}1457[`1457`]).
+* Changed the form structure to better support mobile users in {APP_NAME_ADMIN}.
+The change was made to provide a better UI and UX for mobile users
+({CORTEZA_PULL_BASE}1253[`1253`]).
+* Changed page blocks to refresh in case the underlying data was modified by a different page block on the same page.
+The change was made to keep all page blocks showing related data in sync
+({CORTEZA_PULL_BASE}1435[`1435`]).
+* Changed general ui/ux improvements:
+** Improved header button layout for topbar navigation and resource list items
+** Adjusted position of btn:[x] button in search bar to always appear on the right side
+** Added a standardized submit button across all web applications to make UI consistent and code maintaining easier
+** Unnecessary vertical and horizontal scrolling of resource list parent component in {APP_NAME_ADMIN}
+** Header buttons in resource editing view were partially/completely hidden if more than two were displayed in {APP_NAME_ADMIN}
+** Longer labels in resource editing view appeared under their input fields in {APP_NAME_ADMIN}
+({CORTEZA_PULL_BASE}1489[`1489`], {CORTEZA_COMMIT_BASE}dcc541d[`dcc541d`], {CORTEZA_PULL_BASE}1451[`1451`], {CORTEZA_PULL_BASE}1253[`1253`]).
+
+.[#2023_09_00-fixed]#<<2023_09_00-fixed,Fixed:>>#
+* Fixed namespace export erroring out with an invalid reference error whenever we're referring to deleted resources.
+The fix was made by ignoring missing references and exporting/importing regardless of missing references
+This should be expanded and improved upon in a future release
+({CORTEZA_COMMIT_BASE}dc54b55[`dc54b55`]).
+* Fixed nothing happening when trying to copy a page block
+({CORTEZA_COMMIT_BASE}a7331b0[`a7331b0`]).
+* Fixed triggering of unsaved changes message after user wants to delete a modified resource like a page, namespace, module or chart
+({CORTEZA_PULL_BASE}1466[`1466`]).

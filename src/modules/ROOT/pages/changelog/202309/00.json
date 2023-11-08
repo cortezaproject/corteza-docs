@@ -1,6 +1,6 @@
 {
   "meta": {
-    "releasedOn": "2023.11.07"
+    "releasedOn": "2023.11.08"
   },
 
   "added": [
@@ -158,7 +158,7 @@
   "changed": [
     {
       "what": [
-        "the {PRODUCT_NAME} {APP_NAME_COMPOSE} admin page navigation to keep the user on the page builder whenever switching pages (when in the page builder)."
+        "the {PRODUCT_NAME} {APP_NAME_COMPOSE} admin page navigation to keep the user on the page builder or page edit whenever switching pages as well as keeping the user on show all records when switching modules."
       ],
       "why": [
         "to provide a more intuitive way to navigate between {APP_NAME_COMPOSE} resources."

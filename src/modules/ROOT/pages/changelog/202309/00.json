@@ -2,6 +2,15 @@
   "meta": {
     "releasedOn": "2023.11.08"
   },
+  "important": [
+    {
+      "note": [
+        "Creating a new module with record revision enabled bugs out the UI and makes it unusable.",
+        "This is planned to be patched out by `2023.9.1`.",
+        "Please refrain from making such modules until patched out."
+      ]
+    }
+  ],
 
   "added": [
     {

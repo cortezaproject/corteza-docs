@@ -1,0 +1,14 @@
+include::ROOT:partial$variables.adoc[]
+
+= `2023.9.1`
+
+*Released on*: `2023.xx.yy`
+
+[IMPORTANT]
+====
+.[#2023_09_01-important]#<<2023_09_01-important,Important upgrade notes:>>#
+* [PostgreSQL] After upgrade, if your server fails to start with `could not start Corteza: could not activate compose services: cannot set alterations for default schema` follow these instructions.
+The issue was caused by a typo in system to database type mapping/matching.
+To resolve this, we need to cleanup the incorrectly assessed schema alterations for `compose_record_revisions` table in the `dal_schema_alterations`.
+The simplest way is to run (standard caution procedures apply) `delete from dal_schema_alterations where resource_type = 'corteza::system:revision';` directly in your PostgreSQL database.
+====

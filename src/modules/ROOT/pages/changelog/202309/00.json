@@ -5,6 +5,12 @@
   "important": [
     {
       "note": [
+        "[PostgreSQL] When upgrading or restarting the server, if any module utilizes record revisions, the server will fail to start with `could not start Corteza: could not activate compose services: cannot set alterations for default schema`.",
+        "The issue will be resolved with 2023.9.1."
+      ]
+    },
+    {
+      "note": [
         "Creating a new module with record revision enabled bugs out the UI and makes it unusable.",
         "This is planned to be patched out by `2023.9.1`.",
         "Please refrain from making such modules until patched out."

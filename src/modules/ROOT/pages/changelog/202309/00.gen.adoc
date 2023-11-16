@@ -4,16 +4,6 @@ include::ROOT:partial$variables.adoc[]
 
 *Released on*: `2023.11.08`
 
-[IMPORTANT]
-====
-.[#2023_09_00-important]#<<2023_09_00-important,Important upgrade notes:>>#
-* [PostgreSQL] When upgrading or restarting the server, if any module utilizes record revisions, the server will fail to start with `could not start Corteza: could not activate compose services: cannot set alterations for default schema`.
-The issue will be resolved with 2023.9.1..
-* Creating a new module with record revision enabled bugs out the UI and makes it unusable.
-This is planned to be patched out by `2023.9.1`.
-Please refrain from making such modules until patched out..
-====
-
 .[#2023_09_00-added]#<<2023_09_00-added,Added:>>#
 * Added a btn:[Back] button to navigate to previous page block modal when viewing or editing a tabbed page block.
 The change was added to provide the user with an easier way to go back in a modal

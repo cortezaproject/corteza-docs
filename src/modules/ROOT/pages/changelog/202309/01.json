@@ -45,7 +45,7 @@
   "fixed": [
     {
       "what": [
-        "undefined property error in the developer console after adding a tabs page block without providing a tab in the configuration."
+        "misconfigured tabs page block broke how the tabs block was shown."
       ],
       "refs": [
         "https://github.com/cortezaproject/corteza/pull/1569"
@@ -69,7 +69,7 @@
     },
     {
       "what": [
-        "adding a translation to the field inputs `hint view` and `description view` toggles the visibility of `hint edit` and `description edit` input fields."
+        "module fields hint and description toggled on for edit modes when updating field translations."
       ],
       "refs": [
         "https://github.com/cortezaproject/corteza/pull/1578"
@@ -77,9 +77,7 @@
     },
     {
       "what": [
-        "duplication of field names error in the developer console when trying to add a new field to a module.",
-        "Fixed undefined property error in the developer console when trying to configure a field to have a default value and a multi value.",
-        "Fixed not being able to change the location of a multi value geometry field when selecting a location on the map in a record."
+        "adding of a new value when trying to edit an existing geometry value via map in a record."
       ],
       "refs": [
         "https://github.com/cortezaproject/corteza/pull/1577"

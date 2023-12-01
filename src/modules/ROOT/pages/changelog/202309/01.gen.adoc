@@ -1,0 +1,30 @@
+include::ROOT:partial$variables.adoc[]
+
+= `2023.9.1`
+
+*Released on*: `2023.12.01`
+
+.[#2023_09_01-added]#<<2023_09_01-added,Added:>>#
+* Added the options to clone and copy a page block within a tabbed page block.
+The change was added to provide an easier way to clone and copy tabbed page blocks
+({CORTEZA_PULL_BASE}1527[`1527`]).
+* Added a dropdown to select the number of items to be displayed per page in a list of resources.
+The change was added to provide the user with the option to select how many resources can be displayed per page
+({CORTEZA_PULL_BASE}1534[`1534`]).
+
+.[#2023_09_01-changed]#<<2023_09_01-changed,Changed:>>#
+* Changed the error message to be more verbose when user includes invalid or missing record input required values in a workflow function.
+The change was made to provide a clearer message on what and where the issue is
+({CORTEZA_PULL_BASE}1571[`1571`]).
+
+.[#2023_09_01-fixed]#<<2023_09_01-fixed,Fixed:>>#
+* Fixed misconfigured tabs page block broke how the tabs block was shown
+({CORTEZA_PULL_BASE}1569[`1569`]).
+* Fixed triggering of unsaved changes message after user adds an additional metric to generic chart and saves the chart
+({CORTEZA_PULL_BASE}1572[`1572`]).
+* Fixed module field label and description shown on the same line when viewing a record on a public page
+({CORTEZA_PULL_BASE}1576[`1576`]).
+* Fixed module fields hint and description toggled on for edit modes when updating field translations
+({CORTEZA_PULL_BASE}1578[`1578`]).
+* Fixed adding of a new value when trying to edit an existing geometry value via map in a record
+({CORTEZA_PULL_BASE}1577[`1577`]).

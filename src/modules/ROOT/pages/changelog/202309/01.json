@@ -1,0 +1,87 @@
+{
+  "meta": {
+    "releasedOn": "2023.12.01"
+  },
+
+  "added": [
+    {
+      "what": [
+        "the options to clone and copy a page block within a tabbed page block."
+      ],
+      "why": [
+        "to provide an easier way to clone and copy tabbed page blocks."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/pull/1527"
+      ]
+    },
+    {
+      "what": [
+        "a dropdown to select the number of items to be displayed per page in a list of resources."
+      ],
+      "why": [
+        "to provide the user with the option to select how many resources can be displayed per page."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/pull/1534"
+      ]
+    }
+  ],
+
+  "changed": [
+    {
+      "what": [
+        "the error message to be more verbose when user includes invalid or missing record input required values in a workflow function."
+      ],
+      "why": [
+        "to provide a clearer message on what and where the issue is."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/pull/1571"
+      ]
+    }
+  ],
+
+  "fixed": [
+    {
+      "what": [
+        "misconfigured tabs page block broke how the tabs block was shown."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/pull/1569"
+      ]
+    },
+    {
+      "what": [
+        "triggering of unsaved changes message after user adds an additional metric to generic chart and saves the chart."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/pull/1572"
+      ]
+    },
+    {
+      "what": [
+        "module field label and description shown on the same line when viewing a record on a public page."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/pull/1576"
+      ]
+    },
+    {
+      "what": [
+        "module fields hint and description toggled on for edit modes when updating field translations."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/pull/1578"
+      ]
+    },
+    {
+      "what": [
+        "adding of a new value when trying to edit an existing geometry value via map in a record."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/pull/1577"
+      ]
+    }
+  ]
+}

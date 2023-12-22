@@ -1,0 +1,37 @@
+include::ROOT:partial$variables.adoc[]
+
+= `2023.9.2`
+
+*Released on*: `2023.12.22`
+
+.[#2023_09_02-added]#<<2023_09_02-added,Added:>>#
+* Added the options to `export`, `enable`, `disable`, a workflow using the actions menu in {APP_NAME_WORKFLOW}.
+The change was added to provide the user with an easier way to interact with a workflow without having to open it
+({CORTEZA_PULL_BASE}1583[`1583`]).
+* Added interpolation to block titles and descriptions, IFrame block url, Automation block button labels, Content block body and metric block transformation functions.
+The change was added to allow the user to use record and other variables in relevant places
+({CORTEZA_PULL_BASE}1590[`1590`]).
+
+.[#2023_09_02-changed]#<<2023_09_02-changed,Changed:>>#
+* Changed error message when saving a record with a workflow to include meta data about the issue.
+The change was made to provide the user with more information about the issue and how to resolve it
+({CORTEZA_PULL_BASE}1571[`1571`]).
+* Changed default module duplication detection rules to be empty instead of populated with an empty constraint.
+The change was made to improve performance for all modules and improve UX readability
+({CORTEZA_PULL_BASE}1586[`1586`]).
+
+.[#2023_09_02-fixed]#<<2023_09_02-fixed,Fixed:>>#
+* Fixed charts breaking when `y-axis` or `both` timeline chart options are selected while minimum and/or maximum y-axis values are set
+({CORTEZA_PULL_BASE}1584[`1584`]).
+* Fixed not able to export a namespace because it contains reference of deleted resource translations
+({CORTEZA_COMMIT_BASE}1d54026[`1d54026`]).
+* Fixed DAL schema alterations generating incorrect attribute identifiers when attempting to alter to column.
+The fix was made taking attribute store codec into account when generating DDL queries
+({CORTEZA_COMMIT_BASE}3e1d7bd[`3e1d7bd`]).
+* Fixed record revisions not saving after resolving DAL schema alterations involving the corresponding record revision schema.
+The fix was made by properly presenting, processing, and reloading all relevant models
+({CORTEZA_COMMIT_BASE}33821dd[`33821dd`]).
+* Fixed changing module field store encoding type breaking the module from storing or presenting any data
+({CORTEZA_COMMIT_BASE}33821dd[`33821dd`]).
+* Fixed drill down filter linked to a record list not being overwritten when a new drill down filter is added
+({CORTEZA_COMMIT_BASE}33821dd[`33821dd`]).

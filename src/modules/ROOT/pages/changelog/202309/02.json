@@ -6,7 +6,7 @@
   "added": [
     {
       "what": [
-        "the options to `export`, `enable`, `disable`, `delete`, and `un-delete` a workflow using the actions menu in {APP_NAME_WORKFLOW}."
+        "the options to `export`, `enable`, `disable`, a workflow using the actions menu in {APP_NAME_WORKFLOW}."
       ],
       "why": [
         "to provide the user with an easier way to interact with a workflow without having to open it."
@@ -14,19 +14,41 @@
       "refs": [
         "https://github.com/cortezaproject/corteza/pull/1583"
       ]
+    },
+    {
+      "what": [
+        "interpolation to block titles and descriptions, IFrame block url, Automation block button labels, Content block body and metric block transformation functions."
+      ],
+      "why": [
+        "to allow the user to use record and other variables in relevant places."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/pull/1590"
+      ]
     }
   ],
 
   "changed": [
     {
       "what": [
-        "."
+        "error message when saving a record with a workflow to include meta data about the issue."
       ],
       "why": [
-        "."
+        "to provide the user with more information about the issue and how to resolve it."
       ],
       "refs": [
         "https://github.com/cortezaproject/corteza/pull/1571"
+      ]
+    },
+    {
+      "what": [
+        "default module duplication detection rules to be empty instead of populated with an empty constraint."
+      ],
+      "why": [
+        "to improve performance for all modules and improve UX readability."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/pull/1586"
       ]
     }
   ],
@@ -34,13 +56,12 @@
   "fixed": [
     {
       "what": [
-        "x is not a function error in the developer console when `y-axis` or `both` timeline chart option is selected while minimum and/or maximum y-axis values are set."
+        "charts breaking when `y-axis` or `both` timeline chart options are selected while minimum and/or maximum y-axis values are set."
       ],
       "refs": [
         "https://github.com/cortezaproject/corteza/pull/1584"
       ]
     },
-    // Edit
     {
       "what": [
         "not able to export a namespace because it contains reference of deleted resource translations."
@@ -79,10 +100,9 @@
         "https://github.com/cortezaproject/corteza/commit/33821ddd9f6a11297a71923feb3950460e7694b0"
       ]
     },
-    // Edit
     {
       "what": [
-        "duplication of custom filter in a record list when drill down is enabled for a chart and user clicks on that chart."
+        "drill down filter linked to a record list not being overwritten when a new drill down filter is added."
       ],
       "refs": [
         "https://github.com/cortezaproject/corteza/commit/33821ddd9f6a11297a71923feb3950460e7694b0"

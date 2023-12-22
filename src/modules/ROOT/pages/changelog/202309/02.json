@@ -1,0 +1,92 @@
+{
+  "meta": {
+    "releasedOn": "2023.12.22"
+  },
+
+  "added": [
+    {
+      "what": [
+        "the options to `export`, `enable`, `disable`, `delete`, and `un-delete` a workflow using the actions menu in {APP_NAME_WORKFLOW}."
+      ],
+      "why": [
+        "to provide the user with an easier way to interact with a workflow without having to open it."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/pull/1583"
+      ]
+    }
+  ],
+
+  "changed": [
+    {
+      "what": [
+        "."
+      ],
+      "why": [
+        "."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/pull/1571"
+      ]
+    }
+  ],
+
+  "fixed": [
+    {
+      "what": [
+        "x is not a function error in the developer console when `y-axis` or `both` timeline chart option is selected while minimum and/or maximum y-axis values are set."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/pull/1584"
+      ]
+    },
+    // Edit
+    {
+      "what": [
+        "not able to export a namespace because it contains reference of deleted resource translations."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/1d5402678d16589d656fc2624c00befd6fd04078"
+      ]
+    },
+    {
+      "what": [
+        "DAL schema alterations generating incorrect attribute identifiers when attempting to alter to column."
+      ],
+      "how": [
+        "taking attribute store codec into account when generating DDL queries."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/3e1d7bd42b8037b66c7c07bd7e161176a64f8b0d"
+      ]
+    },
+    {
+      "what": [
+        "record revisions not saving after resolving DAL schema alterations involving the corresponding record revision schema."
+      ],
+      "how": [
+        "by properly presenting, processing, and reloading all relevant models."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/33821ddd9f6a11297a71923feb3950460e7694b0"
+      ]
+    },
+    {
+      "what": [
+        "changing module field store encoding type breaking the module from storing or presenting any data."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/33821ddd9f6a11297a71923feb3950460e7694b0"
+      ]
+    },
+    // Edit
+    {
+      "what": [
+        "duplication of custom filter in a record list when drill down is enabled for a chart and user clicks on that chart."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/33821ddd9f6a11297a71923feb3950460e7694b0"
+      ]
+    }
+  ]
+}

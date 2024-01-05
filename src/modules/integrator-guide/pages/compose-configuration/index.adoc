@@ -1240,3 +1240,40 @@ allowing the user to manually refresh the page block.
   ]
 }
 ----
+
+== Field Conditions
+  Fields in a module can be displayed conditionally.
+
+=== Rendering a field conditionally
+You can choose when a field is displayed.
+You can configure this option in a record page.
+Edit the record page of a desired module, in the *Field Conditions* section of the record block's configurator you'll find applicable fields that can be configured.
+Click on the btn:[Add] and input the expression that should be evaluated to conditionally display a field.
+
+.Field conditions in record page configurator.
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "compose-configuration/cond_fields_config.png",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {},
+  "annotations": [
+    {
+      "x": 407,
+      "y": 797,
+      "w": 1090,
+      "h": 148,
+      "kind": "box"
+    }
+  ]
+}
+----
+
+Supposing we want to show the last name field only if the first name is the name "John" for a module.
+
+image:compose-configuration/cond_fields_firstname.png[role="data-zoomable"]
+
+image:compose-configuration/cond_fields_lastname.png[role="data-zoomable"]

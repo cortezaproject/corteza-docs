@@ -1,0 +1,230 @@
+{
+  "meta": {
+    "releasedOn": "2024.02.14"
+  },
+
+
+  "added": [
+    {
+      "what": [
+        "the ability to export record fields."
+      ],
+      "why": [
+        "to allow users to easily export record fields."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/3ed3b1ebb828b78f4ac834acdf7e6a100729dc80"
+      ]
+    },
+    {
+      "what": [
+        "light and dark themes as well as the ability to set custom colors for theming variables.",
+        "Added the option to set a branding color when configuring a page block, record field or reporter metric."
+      ],
+      "why": [
+        "to provide the user with more freedom to customize {PRODUCT_NAME}."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/pull/1579",
+        "https://github.com/cortezaproject/corteza/pull/1671"
+      ]
+    },
+    {
+      "what": [
+        "missing `Manage schema alterations` translations in {APP_NAME_ADMIN}'s System component permissions."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/82f21b7007353c9dfcae4d61bc218f37aff28960"
+      ]
+    },
+    {
+      "what": [
+        "generic optimisations to the workflow execution engine, ID generation, and access control evaluation."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/49e72cbc0ab34c307f00aee5cce08a2f160f095e"
+      ]
+    }
+  ],
+
+  "changed": [
+    {
+      "what": [
+        "the color of the alert for deleting a record from turquaz to yellow."
+      ],
+      "why": [
+        "to better fit the {PRODUCT_NAME} UI."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/pull/1634"
+      ]
+    },
+    {
+      "what": [
+        "delimiter class for multi value fields to show values into new lines instead of spaces."
+      ],
+      "why": [
+        "to be consistent with the rest of {PRODUCT_NAME} UI."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/d82c5e6400b470e89a31c1668c7b9347c19d34dd"
+      ]
+    },
+    {
+      "what": [
+        "how sorting looks across webapps to match the UI in {APP_NAME_COMPOSE}."
+      ],
+      "why": [
+        "to standardize how sorting looks in all webapps."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/pull/1634"
+      ]
+    }
+  ],
+
+  "removed": [
+    {
+      "what": [
+        "social feed block from {APP_NAME_COMPOSE} block selector."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/e9bf3d0b74ebb9ddb03c7dbb3e73b07d2b318d7b"
+      ]
+    },
+    {
+      "what": [
+        "deprecated code from messagebus."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/0346f90a0c05d26ee5a8e7a84534e6ad9ac98270"
+      ]
+    }
+  ],
+
+  "fixed": [
+    {
+      "what": [
+        "mapObject undefined error in the developer console in {APP_NAME_REPORTER} when navigating to another page."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/db2bdf3246815845cf6cc23d91d3ca6313c727cf"
+      ]
+    },
+    {
+      "what": [
+        "hardcoded year value on server."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/3bb5dd96ccbc6c3350429e5b5a8e26d7de672e4a"
+      ]
+    },
+    {
+      "what": [
+        "search bar changing its width while it's being used."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/9629b836b46a6126ce6a852c7ff00f3af69510be"
+      ]
+    },
+    {
+      "what": [
+        "not being abel to create records that have a single digit record selector field."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/c11165e19d3a82cf85e648119ffde799b30ec553"
+      ]
+    },
+    {
+      "what": [
+        "newly added sub-workflows failing to execute with a not found error."
+      ],
+      "how": [
+        "by properly updating internal indexes."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/405ab13643e9d8eaa76fead35a478b842908b1a8"
+      ]
+    },
+    {
+      "what": [
+        "undefined namespaceID when viewing list of namespaces."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/pull/1603/commits/f23bc335549125e26aceb6b110de454a18ff36fe"
+      ]
+    },
+    {
+      "what": [
+        "permissions modal not properly evaluating already selected roles/users."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/pull/1603/commits/eef8615b11a913358b85824ef3a1766df838eafa"
+      ]
+    },
+    {
+      "what": [
+        "incorrect evaluation of {APP_NAME_COMPOSE} permissions."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/pull/1603/commits/c4b6f90f60e6f07b5556cb25eaa8b7f795c07694"
+      ]
+    },
+    {
+      "what": [
+        "unnecessary triggering of unsaved changes when a field is empty and hasn't been edited."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/d614a00c271d2566214a897d0e2fb990d23b6589"
+      ]
+    },
+    {
+      "what": [
+        "not being able to switch aggregation operation when defining new metric."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/f6d3702d330b77d54c5a21f1318b5f49cce85d7c"
+      ]
+    },
+    {
+      "what": [
+        "page layout switching to default configuration after preforming toolbar actions for a record."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/pull/1655/commits/eaa796a45cc9d32d62adc6ecb03b1c2f31f1c529"
+      ]
+    },
+    {
+      "what": [
+        "unable to save a record if it's present in multiple layouts and inline editing of record list is enabled."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/pull/1655/commits/d7c1a7d8a7fe6e65d5f24b5e874942edab9b292b"
+      ]
+    },
+    {
+      "what": [
+        "{APP_NAME_COMPOSE} permissions set in {APP_NAME_ADMIN} not displayed correctly in the {APP_NAME_COMPOSE} app."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/pull/1633"
+      ]
+    },
+    {
+      "what": [
+        "invalid prop console error when editing a user or record field."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/pull/1675"
+      ]
+    },
+    {
+      "what": [
+        "`created at` field showing `0` instead of user id in {APP_NAME_ADMIN} for `federation node`, `workflows`, `message queues`, and `auth clients` resources."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/96f7da81c7f63f0b187a3da9c528041ae9668007"
+      ]
+    }
+  ]
+}

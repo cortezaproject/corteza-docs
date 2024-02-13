@@ -10,7 +10,7 @@
         "the ability to export record fields."
       ],
       "why": [
-        "to allow users to easily export a record field."
+        "to allow users to easily export record fields."
       ],
       "refs": [
         "https://github.com/cortezaproject/corteza/commit/3ed3b1ebb828b78f4ac834acdf7e6a100729dc80"
@@ -39,7 +39,7 @@
     },
     {
       "what": [
-        "optimization improvements for workflows."
+        "generic optimisations to the workflow execution engine, ID generation, and access control evaluation."
       ],
       "refs": [
         "https://github.com/cortezaproject/corteza/commit/49e72cbc0ab34c307f00aee5cce08a2f160f095e"

@@ -7,7 +7,7 @@
   "added": [
     {
       "what": [
-        "the ability to export a record field."
+        "the ability to export record fields."
       ],
       "why": [
         "to allow users to easily export a record field."
@@ -22,7 +22,7 @@
         "Added the option to set a branding color when configuring a page block, record field or reporter metric."
       ],
       "why": [
-        "to allow provide the user with more freedom to customize {PRODUCT_NAME}."
+        "to provide the user with more freedom to customize {PRODUCT_NAME}."
       ],
       "refs": [
         "https://github.com/cortezaproject/corteza/pull/1579",
@@ -35,6 +35,14 @@
       ],
       "refs": [
         "https://github.com/cortezaproject/corteza/commit/82f21b7007353c9dfcae4d61bc218f37aff28960"
+      ]
+    },
+    {
+      "what": [
+        "optimization improvements for workflows."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/49e72cbc0ab34c307f00aee5cce08a2f160f095e"
       ]
     }
   ],
@@ -49,17 +57,6 @@
       ],
       "refs": [
         "https://github.com/cortezaproject/corteza/pull/1634"
-      ]
-    },
-    {
-      "what": [
-        "the default time it take to load applications in {APP_NAME_ONE}."
-      ],
-      "why": [
-        "to make sure applications have been fetched and shown."
-      ],
-      "refs": [
-        "https://github.com/cortezaproject/corteza/commit/8c2eec7f7c111c5319dfa89688561ac9966e80db"
       ]
     },
     {
@@ -82,28 +79,6 @@
       ],
       "refs": [
         "https://github.com/cortezaproject/corteza/pull/1634"
-      ]
-    },
-    {
-      "what": [
-        "the way:",
-        "- permissions are evaluated",
-        "- workflows are executed",
-        "- expressions evaluation and objects are assignment",
-        "- state is managed and manipulated",
-        "- stack trace management and storage are executed",
-        "- IDs are generated in workflows"
-      ],
-      "why": [
-        "to optimized the performance of workflows."
-      ],
-      "refs": [
-        "https://github.com/cortezaproject/corteza/commit/5fdfd7f107db4d974dae5eb17b8469577096c3d2",
-        "https://github.com/cortezaproject/corteza/commit/8031e2093a3e107a9b501be3e5bc8b88322e8bfb",
-        "https://github.com/cortezaproject/corteza/commit/7bafd82dde1eba1a18a16b8b7ccc408ce816eb44",
-        "https://github.com/cortezaproject/corteza/commit/9cb5d05c342e3479a093609a665208ae8837f400",
-        "https://github.com/cortezaproject/corteza/commit/74a54da6f1b729fcdbf4868bc0377c2fc2251846",
-        "https://github.com/cortezaproject/corteza/commit/01aaddad581ace8f31291ca2567bce51238553b1"
       ]
     }
   ],

@@ -1,0 +1,68 @@
+include::ROOT:partial$variables.adoc[]
+
+= `2023.9.3`
+
+*Released on*: `2024.02.13`
+
+.[#2023_09_03-added]#<<2023_09_03-added,Added:>>#
+* Added the ability to export record fields.
+The change was added to allow users to easily export record fields
+({CORTEZA_COMMIT_BASE}3ed3b1e[`3ed3b1e`]).
+* Added light and dark themes as well as the ability to set custom colors for theming variables.
+Added the option to set a branding color when configuring a page block, record field or reporter metric.
+The change was added to provide the user with more freedom to customize {PRODUCT_NAME}
+({CORTEZA_PULL_BASE}1579[`1579`], {CORTEZA_PULL_BASE}1671[`1671`]).
+* Added missing `Manage schema alterations` translations in {APP_NAME_ADMIN}'s System component permissions
+({CORTEZA_COMMIT_BASE}82f21b7[`82f21b7`]).
+* Added generic optimisations to the workflow execution engine, ID generation, and access control evaluation
+({CORTEZA_COMMIT_BASE}49e72cb[`49e72cb`]).
+
+.[#2023_09_03-changed]#<<2023_09_03-changed,Changed:>>#
+* Changed the color of the alert for deleting a record from turquaz to yellow.
+The change was made to better fit the {PRODUCT_NAME} UI
+({CORTEZA_PULL_BASE}1634[`1634`]).
+* Changed delimiter class for multi value fields to show values into new lines instead of spaces.
+The change was made to be consistent with the rest of {PRODUCT_NAME} UI
+({CORTEZA_COMMIT_BASE}d82c5e6[`d82c5e6`]).
+* Changed how sorting looks across webapps to match the UI in {APP_NAME_COMPOSE}.
+The change was made to standardize how sorting looks in all webapps
+({CORTEZA_PULL_BASE}1634[`1634`]).
+
+.[#2023_09_03-removed]#<<2023_09_03-removed,Removed:>>#
+* Removed social feed block from {APP_NAME_COMPOSE} block selector
+({CORTEZA_COMMIT_BASE}e9bf3d0[`e9bf3d0`]).
+* Removed deprecated code from messagebus
+({CORTEZA_COMMIT_BASE}0346f90[`0346f90`]).
+
+.[#2023_09_03-fixed]#<<2023_09_03-fixed,Fixed:>>#
+* Fixed mapObject undefined error in the developer console in {APP_NAME_REPORTER} when navigating to another page
+({CORTEZA_COMMIT_BASE}db2bdf3[`db2bdf3`]).
+* Fixed hardcoded year value on server
+({CORTEZA_COMMIT_BASE}3bb5dd9[`3bb5dd9`]).
+* Fixed search bar changing its width while it's being used
+({CORTEZA_COMMIT_BASE}9629b83[`9629b83`]).
+* Fixed not being abel to create records that have a single digit record selector field
+({CORTEZA_COMMIT_BASE}c11165e[`c11165e`]).
+* Fixed newly added sub-workflows failing to execute with a not found error.
+The fix was made by properly updating internal indexes
+({CORTEZA_COMMIT_BASE}405ab13[`405ab13`]).
+* Fixed undefined namespaceID when viewing list of namespaces
+({CORTEZA_PULL_BASE}1603[`1603`]).
+* Fixed permissions modal not properly evaluating already selected roles/users
+({CORTEZA_PULL_BASE}1603[`1603`]).
+* Fixed incorrect evaluation of {APP_NAME_COMPOSE} permissions
+({CORTEZA_PULL_BASE}1603[`1603`]).
+* Fixed unnecessary triggering of unsaved changes when a field is empty and hasn't been edited
+({CORTEZA_COMMIT_BASE}d614a00[`d614a00`]).
+* Fixed not being able to switch aggregation operation when defining new metric
+({CORTEZA_COMMIT_BASE}f6d3702[`f6d3702`]).
+* Fixed page layout switching to default configuration after preforming toolbar actions for a record
+({CORTEZA_PULL_BASE}1655[`1655`]).
+* Fixed unable to save a record if it's present in multiple layouts and inline editing of record list is enabled
+({CORTEZA_PULL_BASE}1655[`1655`]).
+* Fixed {APP_NAME_COMPOSE} permissions set in {APP_NAME_ADMIN} not displayed correctly in the {APP_NAME_COMPOSE} app
+({CORTEZA_PULL_BASE}1633[`1633`]).
+* Fixed invalid prop console error when editing a user or record field
+({CORTEZA_PULL_BASE}1675[`1675`]).
+* Fixed `created at` field showing `0` instead of user id in {APP_NAME_ADMIN} for `federation node`, `workflows`, `message queues`, and `auth clients` resources
+({CORTEZA_COMMIT_BASE}96f7da8[`96f7da8`]).

@@ -1,0 +1,18 @@
+include::ROOT:partial$variables.adoc[]
+
+= Generating Code
+
+To generate documentation you need two commands (at some point we'll deprecate the legacy one):
+
+```bash
+DOCS_DIR=../path/to/docs/repo make codegen
+```
+
+```bash
+make codegen-legacy && ~/go/bin/corteza-codegen -d ../path/to/docs/repo
+```
+
+[NOTE]
+====
+The second command is sub optimal, but at this point I'm not entirely sure how to do it in one go (how to pass the `-d` flag to the called command).
+====

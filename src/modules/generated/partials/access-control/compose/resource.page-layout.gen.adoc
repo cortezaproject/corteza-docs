@@ -1,0 +1,23 @@
+= page-layout
+
+[cols="1s,5a,5a"]
+|===
+| Operation| Description | Default
+
+
+| [#rbac-page-layout-read]#<<rbac-page-layout-read,read>>#
+| read
+| Deny
+
+
+| [#rbac-page-layout-update]#<<rbac-page-layout-update,update>>#
+| update
+| Deny
+
+
+| [#rbac-page-layout-delete]#<<rbac-page-layout-delete,delete>>#
+| delete
+| Deny
+
+
+|===

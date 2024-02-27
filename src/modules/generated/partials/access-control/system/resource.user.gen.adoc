@@ -45,4 +45,9 @@
 | Deny
 
 
+| [#rbac-user-credentials.manage]#<<rbac-user-credentials.manage,credentials.manage>>#
+| Manage user's credentials
+| Deny
+
+
 |===

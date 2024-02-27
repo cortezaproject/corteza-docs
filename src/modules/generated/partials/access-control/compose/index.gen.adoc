@@ -4,6 +4,8 @@
 
 include::./component.gen.adoc[]
 
+include::./resource.attachment.gen.adoc[]
+
 include::./resource.chart.gen.adoc[]
 
 include::./resource.module.gen.adoc[]
@@ -14,7 +16,11 @@ include::./resource.namespace.gen.adoc[]
 
 include::./resource.page.gen.adoc[]
 
+include::./resource.page-layout.gen.adoc[]
+
 include::./resource.record.gen.adoc[]
+
+include::./resource.record-revision.gen.adoc[]
 
 
 :leveloffset: -1

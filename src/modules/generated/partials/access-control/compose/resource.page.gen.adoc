@@ -20,4 +20,14 @@
 | Deny
 
 
+| [#rbac-page-page-layout.create]#<<rbac-page-page-layout.create,page-layout.create>>#
+| Create page layout on namespace
+| Deny
+
+
+| [#rbac-page-page-layouts.search]#<<rbac-page-page-layouts.search,page-layouts.search>>#
+| List, search or filter page layouts on namespace
+| Deny
+
+
 |===

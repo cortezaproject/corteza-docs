@@ -20,4 +20,19 @@
 | Deny
 
 
+| [#rbac-record-undelete]#<<rbac-record-undelete,undelete>>#
+| undelete
+| Deny
+
+
+| [#rbac-record-owner.manage]#<<rbac-record-owner.manage,owner.manage>>#
+| owner.manage
+| Deny
+
+
+| [#rbac-record-revisions.search]#<<rbac-record-revisions.search,revisions.search>>#
+| revisions.search
+| Deny
+
+
 |===

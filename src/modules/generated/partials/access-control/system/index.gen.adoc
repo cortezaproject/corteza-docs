@@ -4,21 +4,53 @@
 
 include::./component.gen.adoc[]
 
-include::./resource.apigw-route.gen.adoc[]
+include::./resource.attachment.gen.adoc[]
 
 include::./resource.application.gen.adoc[]
 
+include::./resource.apigw-route.gen.adoc[]
+
+include::./resource.apigw-filter.gen.adoc[]
+
 include::./resource.auth-client.gen.adoc[]
+
+include::./resource.auth-confirmed-client.gen.adoc[]
+
+include::./resource.auth-session.gen.adoc[]
+
+include::./resource.auth-oa2token.gen.adoc[]
+
+include::./resource.credential.gen.adoc[]
+
+include::./resource.data-privacy-request.gen.adoc[]
+
+include::./resource.data-privacy-request-comment.gen.adoc[]
 
 include::./resource.queue.gen.adoc[]
 
+include::./resource.queue-message.gen.adoc[]
+
+include::./resource.reminder.gen.adoc[]
+
 include::./resource.report.gen.adoc[]
 
+include::./resource.resource-translation.gen.adoc[]
+
 include::./resource.role.gen.adoc[]
+
+include::./resource.role-member.gen.adoc[]
+
+include::./resource.settings.gen.adoc[]
 
 include::./resource.template.gen.adoc[]
 
 include::./resource.user.gen.adoc[]
+
+include::./resource.dal-connection.gen.adoc[]
+
+include::./resource.dal-sensitivity-level.gen.adoc[]
+
+include::./resource.dal-schema-alteration.gen.adoc[]
 
 
 :leveloffset: -1

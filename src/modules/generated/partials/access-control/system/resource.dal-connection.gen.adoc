@@ -1,0 +1,28 @@
+= dal-connection
+
+[cols="1s,5a,5a"]
+|===
+| Operation| Description | Default
+
+
+| [#rbac-dal-connection-read]#<<rbac-dal-connection-read,read>>#
+| Read connection
+| Deny
+
+
+| [#rbac-dal-connection-update]#<<rbac-dal-connection-update,update>>#
+| Update connection
+| Deny
+
+
+| [#rbac-dal-connection-delete]#<<rbac-dal-connection-delete,delete>>#
+| Delete connection
+| Deny
+
+
+| [#rbac-dal-connection-dal-config.manage]#<<rbac-dal-connection-dal-config.manage,dal-config.manage>>#
+| Manage DAL configuration
+| Deny
+
+
+|===

@@ -6,6 +6,10 @@ include::./component.gen.adoc[]
 
 include::./resource.workflow.gen.adoc[]
 
+include::./resource.session.gen.adoc[]
+
+include::./resource.trigger.gen.adoc[]
+
 
 :leveloffset: -1
 

@@ -55,6 +55,21 @@
 | Deny
 
 
+| [#rbac-system-dal-connection.create]#<<rbac-system-dal-connection.create,dal-connection.create>>#
+| Create DAL connections
+| Deny
+
+
+| [#rbac-system-dal-connections.search]#<<rbac-system-dal-connections.search,dal-connections.search>>#
+| List, search or filter DAL connections
+| Deny
+
+
+| [#rbac-system-dal-sensitivity-level.manage]#<<rbac-system-dal-sensitivity-level.manage,dal-sensitivity-level.manage>>#
+| Can manage DAL sensitivity levels
+| Deny
+
+
 | [#rbac-system-application.create]#<<rbac-system-application.create,application.create>>#
 | Create applications
 | Deny
@@ -122,6 +137,21 @@
 
 | [#rbac-system-resource-translations.manage]#<<rbac-system-resource-translations.manage,resource-translations.manage>>#
 | List, search, create, or update resource translations
+| Deny
+
+
+| [#rbac-system-dal-schema-alterations.manage]#<<rbac-system-dal-schema-alterations.manage,dal-schema-alterations.manage>>#
+| List, search, apply, or dismiss DAL alterations
+| Deny
+
+
+| [#rbac-system-data-privacy-request.create]#<<rbac-system-data-privacy-request.create,data-privacy-request.create>>#
+| Create data privacy requests
+| Deny
+
+
+| [#rbac-system-data-privacy-requests.search]#<<rbac-system-data-privacy-requests.search,data-privacy-requests.search>>#
+| List, search or filter data privacy requests
 | Deny
 
 

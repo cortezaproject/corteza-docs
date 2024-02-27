@@ -6,9 +6,13 @@ include::./component.gen.adoc[]
 
 include::./resource.node.gen.adoc[]
 
+include::./resource.node-sync.gen.adoc[]
+
 include::./resource.exposed-module.gen.adoc[]
 
 include::./resource.shared-module.gen.adoc[]
+
+include::./resource.module-mapping.gen.adoc[]
 
 
 :leveloffset: -1

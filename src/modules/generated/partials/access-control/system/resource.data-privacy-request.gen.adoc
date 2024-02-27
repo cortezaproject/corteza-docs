@@ -1,0 +1,18 @@
+= data-privacy-request
+
+[cols="1s,5a,5a"]
+|===
+| Operation| Description | Default
+
+
+| [#rbac-data-privacy-request-read]#<<rbac-data-privacy-request-read,read>>#
+| Read data privacy request
+| Deny
+
+
+| [#rbac-data-privacy-request-approve]#<<rbac-data-privacy-request-approve,approve>>#
+| Approve/Reject data privacy request
+| Deny
+
+
+|===

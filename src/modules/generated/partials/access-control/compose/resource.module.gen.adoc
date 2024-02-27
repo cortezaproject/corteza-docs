@@ -25,6 +25,11 @@
 | Deny
 
 
+| [#rbac-module-owned-record.create]#<<rbac-module-owned-record.create,owned-record.create>>#
+| Create record with custom owner
+| Deny
+
+
 | [#rbac-module-records.search]#<<rbac-module-records.search,records.search>>#
 | List, search or filter records
 | Deny

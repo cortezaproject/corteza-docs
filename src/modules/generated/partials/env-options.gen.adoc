@@ -129,6 +129,40 @@ When empty path is set (default value), embedded files are used.
 
 Base URL (prefix) for all routes (<baseUrl>/auth, <baseUrl>/api, ...)
 
+== *DOMAIN*
+
+=== Type
+
+`string`
+
+
+=== Default
+
+[source]
+----
+localhost
+----
+=== Description
+
+Domain for the HTTP server.
+
+== *DOMAIN_WEBAPP*
+
+=== Type
+
+`string`
+
+
+=== Default
+
+[source]
+----
+localhost
+----
+=== Description
+
+Domain for the HTTP webapp.
+
 == *HTTP_ENABLE_DEBUG_ROUTE*
 
 === Type
@@ -528,12 +562,6 @@ The SMTP `from` email parameter
 `string`
 
 
-=== Default
-
-[source]
-----
-localhost
-----
 === Description
 
 The SMTP server hostname.
@@ -737,7 +765,7 @@ Outbound request timeout
 ----
 === Description
 
-Access token lifetime
+Lifetime of the access token. Should be shorter than lifetime of the refresh token.
 
 == *AUTH_ASSETS_PATH*
 
@@ -863,23 +891,6 @@ Enable this for debugging or when developing auth templates.
 
 Should be disabled in production where templates do not change between server restarts.
 
-== *AUTH_JWT_EXPIRY*
-
-=== Type
-
-`time.Duration`
-
-
-=== Default
-
-[source]
-----
-720h
-----
-=== Description
-
-Expiration time for the auth JWT tokens.
-
 == *AUTH_EXTERNAL_COOKIE_SECRET*
 
 === Type
@@ -927,6 +938,41 @@ Redirect URL to be sent with OAuth2 authentication request to provider
 
 How often are expired sessions and tokens purged from the database
 
+== *AUTH_JWT_ALGORITHM*
+
+=== Type
+
+`string`
+
+
+=== Default
+
+[source]
+----
+HS512
+----
+=== Description
+
+Algoritm to be use for JWT signature.
+
+Supported valus:
+ - HS256, HS384, HS512
+ - PS256, PS384, PS512,
+ - RS256, RS384, RS512
+
+Provide shared secret string for HS256, HS384, HS512 and full private key or path to the file PS* and RS* algorithms.
+
+== *AUTH_JWT_KEY*
+
+=== Type
+
+`string`
+
+
+=== Description
+
+Raw private key or absolute or relative path to the file containing one.
+
 == *AUTH_LOG_ENABLED*
 
 === Type
@@ -955,6 +1001,20 @@ Disabling password security can be useful for development environments as it rem
 Password security *should be enabled* on production environments to avoid security incidents
 ====
 
+== *AUTH_PROVISION_SUPER_USER*
+
+=== Type
+
+`string`
+
+
+=== Description
+
+When set, Corteza creates one or more users with the configured values using provided email as a password.
+It skips existing (email, handle). All new users are assigned to all bypass roles.
+
+When set in production, Corteza stops and reports an error
+
 == *AUTH_OAUTH2_REFRESH_TOKEN_LIFETIME*
 
 === Type
@@ -970,7 +1030,9 @@ Password security *should be enabled* on production environments to avoid securi
 ----
 === Description
 
-Refresh token lifetime
+Lifetime of the refresh token. Should be much longer than lifetime of the access token.
+
+Refresh tokens are used to exchange expired access tokens with new ones.
 
 == *AUTH_REQUEST_RATE_LIMIT*
 
@@ -1017,6 +1079,7 @@ How many requests from a cerain IP address are allowed in a time window
 === Description
 
 Secret used for signing JWT tokens.
+Value is used only when HS256, HS384 or HS512 algorithm is used.
 
 [IMPORTANT]
 ====
@@ -1089,7 +1152,15 @@ Defaults to true when HTTPS is used. Corteza will try to guess the this setting 
 ----
 === Description
 
-How long do we keep the temporary session
+Maximum time user is allowed to stay idle when logged in without "remember-me" option and before session is expired.
+
+Recomended value is between an hour and a day.
+
+[IMPORTANT]
+====
+This affects only profile (/auth) pages. Using applications (admin, compose, ...) does not prolong the session.
+====
+
 
 == *AUTH_SESSION_PERM_LIFETIME*
 
@@ -1106,7 +1177,9 @@ How long do we keep the temporary session
 ----
 === Description
 
-How long do we keep the permanent session
+Duration of the session in /auth lasts when user logs-in with "remember-me" option.
+
+If set to 0, "remember-me" option is removed.
 = Connection to Corredor
 
 == *CORREDOR_ADDR*
@@ -1499,7 +1572,9 @@ Log locale related events and actions
 
 === Description
 
-One or more paths to locale config and translation files, separated by colon
+	One or more paths to locale config and translation files, separated by colon
+
+	When with LOCALE_DEVELOPMENT_MODE=true, default value for path is ../../locale
 
 == *LOCALE_QUERY_STRING_PARAM*
 
@@ -1530,7 +1605,7 @@ This parameter is ignored if only one language is enabled
 
 === Description
 
-When enabled, Corteza all
+When enabled, an editor for resource translations is enabled in UI
 = log
 
 == *LOG_DEBUG*
@@ -1542,7 +1617,7 @@ When enabled, Corteza all
 
 === Description
 
-Disables JSON format for logging and enables more human-readable output with colors.
+Disables json format for logging and enables more human-readable output with colors.
 
 Disable for production.
 
@@ -1761,29 +1836,6 @@ var/store
 === Description
 
 Location where uploaded files are stored.
-= Plugins
-
-== *PLUGINS_ENABLED*
-
-=== Type
-
-`bool`
-
-
-=== Description
-
-Enable plugins
-
-== *PLUGINS_PATHS*
-
-=== Type
-
-`string`
-
-
-=== Description
-
-List of colon seperated paths or patterns where plugins could be found
 = Provisioning
 
 == *PROVISION_ALWAYS*
@@ -1813,11 +1865,6 @@ provision/*
 === Description
 
 Colon seperated paths to config files for provisioning.
-
-
-=== Description
-
-Enable extra logging // fixme add some more description
 = Sentry monitoring
 
 == *SENTRY_DSN*
@@ -1918,6 +1965,17 @@ Sample rate for event submission (0.0 - 1.0. defaults to 1.0)
 === Description
 
 Set reported Server name.
+
+== *SENTRY_WEBAPP_DSN*
+
+=== Type
+
+`string`
+
+
+=== Description
+
+Set to enable Sentry client for webapp.
 = Rendering engine
 
 == *TEMPLATE_RENDERER_GOTENBERG_ADDRESS*
@@ -2159,6 +2217,17 @@ Registers enabled and valid workflows and executes them when triggered
 === Description
 
 Enables execution stack trace construction
+
+== *WORKFLOW_STACK_TRACE_FULL*
+
+=== Type
+
+`bool`
+
+
+=== Description
+
+Forces the stack trace to record all steps
 = Discovery
 
 == *DISCOVERY_BASE_URL*
@@ -2204,3 +2273,78 @@ Enable discovery related activity info
 === Description
 
 Enable discovery endpoints
+= attachment
+
+== *AVATAR_INITIALS_BACKGROUND_COLOR*
+
+=== Type
+
+`string`
+
+
+=== Default
+
+[source]
+----
+#F3F3F3
+----
+=== Description
+
+Avatar initials background color
+
+== *AVATAR_INITIALS_COLOR*
+
+=== Type
+
+`string`
+
+
+=== Default
+
+[source]
+----
+#162425
+----
+=== Description
+
+Avatar initials text color
+
+== *AVATAR_INITIALS_FONT_PATH*
+
+=== Type
+
+`string`
+
+
+=== Default
+
+[source]
+----
+fonts/Poppins-Regular.ttf
+----
+=== Description
+
+Avatar initials font file path
+
+== *ATTACHMENT_AVATAR_MAX_FILE_SIZE*
+
+=== Type
+
+`int64`
+
+
+=== Description
+
+Avatar image maximum upload size, default value is 1MB
+= webapp
+
+== *WEBAPP_SCSS_DIR_PATH*
+
+=== Type
+
+`string`
+
+
+=== Description
+
+Path to custom SCSS source files directory

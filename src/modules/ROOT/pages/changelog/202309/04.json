@@ -9,7 +9,7 @@
         "asterisk color of record field from blue to red."
       ],
       "why": [
-        "to make the required fields stand out."
+        "to make required fields stand out."
       ],
       "refs": [
         "https://github.com/cortezaproject/corteza/commit/65832b461c7bb88df4648242f102b4a45ad512ca"
@@ -28,7 +28,7 @@
     },
     {
       "what": [
-        "unnecessary showing of stale data warning when viewing a record page."
+        "unnecessary showing of stale data warning in {APP_NAME_COMPOSE} while editing and loading a record."
       ],
       "refs": [
         "https://github.com/cortezaproject/corteza/commit/070e7516bd72b3f1e340dfeb9890ffb8808e84f4"
@@ -47,7 +47,7 @@
     },
     {
       "what": [
-        "page layout loading multiple times and always redirecting to the current layout after a record was saved."
+        "not being able to view current page layout because latest record changes conflict layout view permission."
       ],
       "refs": [
         "https://github.com/cortezaproject/corteza/commit/57a307ef076e4d372e27313beccd8c2ff69857c7"

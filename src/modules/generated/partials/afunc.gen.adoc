@@ -4,6 +4,7 @@
 // the code is regenerated.
 //
 // Definitions file that controls how this file is generated:
+//  - automation/automation/apigw_body_handler.yaml
 //  - automation/automation/corredor_handler.yaml
 //  - automation/automation/email_handler.yaml
 //  - automation/automation/http_request_handler.yaml
@@ -22,8 +23,27 @@
 //  - system/automation/roles_handler.yaml
 //  - system/automation/templates_handler.yaml
 //  - system/automation/users_handler.yaml
+//  - system/automation/valuestore_handler.yaml
 
 
+= `apigwBody`
+
+[cols="2m,4a,3a"]
+|===
+| Name | Description | I/O
+
+| [#fnc-apigwbody-read]#<<fnc-apigwbody-read,Read request body from integration gateway>>#
+| 
+|
+.Parameters:
+* #*# `request`
+(
+   `HttpRequest`,)
+
+.Results:
+* body (`String`)
+
+|===
 = `corredor`
 
 [cols="2m,4a,3a"]
@@ -303,7 +323,6 @@
 * #*# `scope`
 (
    `Any`,
-   `String`,
    `Reader`,)
 * #*# `source`
 (
@@ -312,6 +331,7 @@
 .Results:
 * resultString (`String`)
 * resultInt (`Integer`)
+* resultBool (`Boolean`)
 * resultAny (`Any`)
 
 |===
@@ -457,8 +477,8 @@
 |===
 | Name | Description | I/O
 
-| [#fnc-attachment-lookup]#<<fnc-attachment-lookup,Compose record lookup>>#
-| Find specific record by ID
+| [#fnc-attachment-lookup]#<<fnc-attachment-lookup,Attachment lookup>>#
+| Find specific attachment by ID
 |
 .Parameters:
 * #*# `attachment`
@@ -478,6 +498,9 @@
 * #*# `resource`
 (
    `ComposeRecord`,)
+* `fieldName`
+(
+   `String`,)
 * #*# `content`
 (
    `String`,
@@ -610,9 +633,9 @@
 * `query`
 (
    `String`,)
-* `labels`
+* `meta`
 (
-   `KV`,)
+   `Meta`,)
 * `deleted`
 (
    `UnsignedInteger`,)
@@ -635,6 +658,9 @@
 .Results:
 * records (`ComposeRecord`)
 * Total records found (`UnsignedInteger`)
+* nextPage (`String`)
+* prevPage (`String`)
+* pageNavigation (`Array`)
 
 | [#fnc-records-first]#<<fnc-records-first,Compose record lookup (first created)>>#
 | 
@@ -727,6 +753,16 @@
 | 
 |
 .Parameters:
+* `Module to set record type`
+(
+   `ID`,
+   `Handle`,
+   `ComposeModule`,)
+* `namespace`
+(
+   `ID`,
+   `Handle`,
+   `ComposeNamespace`,)
 * #*# `record`
 (
    `ID`,
@@ -1354,5 +1390,23 @@
    `Handle`,
    `String`,
    `User`,)
+
+|===
+= `valuestore`
+
+[cols="2m,4a,3a"]
+|===
+| Name | Description | I/O
+
+| [#fnc-valuestore-env]#<<fnc-valuestore-env,Get ENV variable>>#
+| Get ENV variable for the specified key. If the key doesn't correspond to any value, nil is returned
+|
+.Parameters:
+* #*# `key`
+(
+   `String`,)
+
+.Results:
+* value (`Any`)
 
 |===

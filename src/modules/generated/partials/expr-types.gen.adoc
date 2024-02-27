@@ -69,7 +69,7 @@
    moduleID (ID)
    namespaceID (ID)
    values (ComposeRecordValues)
-   labels (KV)
+   meta (Meta)
    ownedBy (ID)
    createdAt (DateTime)
    createdBy (ID)
@@ -79,7 +79,6 @@
    deletedBy (ID)
 }
 ----
-
 
 
 | [#objref-httprequest]#<<objref-httprequest,HttpRequest>>#
@@ -95,6 +94,7 @@
    PostForm (KVV)
 }
 ----
+
 
 | [#objref-queuemessage]#<<objref-queuemessage,QueueMessage>>#
 |
@@ -161,23 +161,6 @@
 {
    short (String)
    description (String)
-}
-----
-
-| [#objref-url]#<<objref-url,Url>>#
-|
-[source]
-----
-{
-   Scheme (String)
-   Opaque (String)
-   Host (String)
-   Path (String)
-   RawPath (String)
-   ForceQuery (Boolean)
-   RawQuery (String)
-   Fragment (String)
-   RawFragment (String)
 }
 ----
 

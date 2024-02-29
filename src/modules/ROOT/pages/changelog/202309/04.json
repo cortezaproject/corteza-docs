@@ -47,7 +47,7 @@
     },
     {
       "what": [
-        "not being able to view current page layout because latest record changes conflict layout view permission."
+        "not being able to evaluate a page and redirect to the correct layout after saving a record."
       ],
       "refs": [
         "https://github.com/cortezaproject/corteza/commit/57a307ef076e4d372e27313beccd8c2ff69857c7"

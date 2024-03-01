@@ -20,6 +20,10 @@ The fix was made by allowing alterations to be logged for the default schema but
 * Fixed warning message for no matching layout after saving a record that conflicts with visibility condition of that layout
 In some cases, the user wasn't able to access any layout or was redirected to the list of namespaces
 ({CORTEZA_COMMIT_BASE}57a307e[`57a307e`]).
+* Fixed select inputs that were using the api for search (User, Workflow) did't work properly
+({CORTEZA_COMMIT_BASE}01bd594[`01bd594`]).
+* Fixed user list endpoint with empty userID parameter throwing an error on PostgreSQL
+({CORTEZA_COMMIT_BASE}566ff41[`566ff41`]).
 
 .[#2023_09_04-security]#<<2023_09_04-security,Security:>>#
 * Addressed security vulnerabilities caused by dependencies across all web applications.

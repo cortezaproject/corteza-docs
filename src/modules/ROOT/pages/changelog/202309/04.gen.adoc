@@ -1,0 +1,27 @@
+include::ROOT:partial$variables.adoc[]
+
+= `2023.9.4`
+
+*Released on*: `2024.02.26`
+
+.[#2023_09_04-changed]#<<2023_09_04-changed,Changed:>>#
+* Changed asterisk color of record field from blue to red.
+The change was made to make required fields stand out
+({CORTEZA_COMMIT_BASE}65832b4[`65832b4`]).
+
+.[#2023_09_04-fixed]#<<2023_09_04-fixed,Fixed:>>#
+* Fixed incorrect value applying to date and time record field when trying to remove an already set value
+({CORTEZA_COMMIT_BASE}6fe0b8a[`6fe0b8a`]).
+* Fixed unnecessary showing of stale data warning in {APP_NAME_COMPOSE} while editing and loading a record
+({CORTEZA_COMMIT_BASE}070e751[`070e751`]).
+* Fixed {PRODUCT_NAME} refusing to start when upgrading with alterations to the default {APP_NAME_COMPOSE} records schema.
+The fix was made by allowing alterations to be logged for the default schema but continue blocking them from being applied
+({CORTEZA_COMMIT_BASE}b389d50[`b389d50`]).
+* Fixed warning message for no matching layout after saving a record that conflicts with visibility condition of that layout
+In some cases, the user wasn't able to access any layout or was redirected to the list of namespaces
+({CORTEZA_COMMIT_BASE}57a307e[`57a307e`]).
+
+.[#2023_09_04-security]#<<2023_09_04-security,Security:>>#
+* Addressed security vulnerabilities caused by dependencies across all web applications.
+This was done by upgrading packages to a more stable versions and removing unused dependencies causing vulnerabilities
+({CORTEZA_COMMIT_BASE}5f890d9[`5f890d9`]).

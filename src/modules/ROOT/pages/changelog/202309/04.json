@@ -1,0 +1,72 @@
+{
+  "meta": {
+    "releasedOn": "2024.02.26"
+  },
+
+  "changed": [
+    {
+      "what": [
+        "asterisk color of record field from blue to red."
+      ],
+      "why": [
+        "to make required fields stand out."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/65832b461c7bb88df4648242f102b4a45ad512ca"
+      ]
+    }
+  ],
+
+  "fixed": [
+    {
+      "what": [
+        "incorrect value applying to date and time record field when trying to remove an already set value."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/6fe0b8ae83121d5e4d93ddb6a5b7b1778b8730d9"
+      ]
+    },
+    {
+      "what": [
+        "unnecessary showing of stale data warning in {APP_NAME_COMPOSE} while editing and loading a record."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/070e7516bd72b3f1e340dfeb9890ffb8808e84f4"
+      ]
+    },
+    {
+      "what": [
+        "{PRODUCT_NAME} refusing to start when upgrading with alterations to the default {APP_NAME_COMPOSE} records schema."
+      ],
+      "how": [
+        "by allowing alterations to be logged for the default schema but continue blocking them from being applied."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/b389d5039d868be4573af012a813e7ef8bc90f81"
+      ]
+    },
+    {
+      "what": [
+        "warning message for no matching layout after saving a record that conflicts with visibility condition of that layout.",
+        "In some cases, the user wasn't able to access any layout or was redirected to the list of namespaces."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/57a307ef076e4d372e27313beccd8c2ff69857c7"
+      ]
+    }
+  ],
+
+  "security": [
+    {
+      "what": [
+        "Addressed security vulnerabilities caused by dependencies across all web applications."
+      ],
+      "how": [
+        "This was done by upgrading packages to a more stable versions and removing unused dependencies causing vulnerabilities."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/5f890d90d709fe4ea33b013455d0d08713cb80e4"
+      ]
+    }
+  ]
+}

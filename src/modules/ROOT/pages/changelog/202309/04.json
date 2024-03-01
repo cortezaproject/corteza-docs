@@ -47,7 +47,8 @@
     },
     {
       "what": [
-        "not being able to evaluate a page and redirect to the correct layout after saving a record."
+        "warning message for no matching layout after saving a record that conflicts with visibility condition of that layout.",
+        "In some cases, the user wasn't able to access any layout or was redirected to the list of namespaces."
       ],
       "refs": [
         "https://github.com/cortezaproject/corteza/commit/57a307ef076e4d372e27313beccd8c2ff69857c7"

@@ -3,21 +3,15 @@
     "releasedOn": "2024.02.26"
   },
 
-  "changed": [
+  "fixed": [
     {
       "what": [
-        "asterisk color of record field from blue to red."
-      ],
-      "why": [
-        "to make required fields stand out."
+        "required fields asterisk not being displayed next to the label of the field in record blocks."
       ],
       "refs": [
         "https://github.com/cortezaproject/corteza/commit/65832b461c7bb88df4648242f102b4a45ad512ca"
       ]
-    }
-  ],
-
-  "fixed": [
+    },
     {
       "what": [
         "incorrect value applying to date and time record field when trying to remove an already set value."

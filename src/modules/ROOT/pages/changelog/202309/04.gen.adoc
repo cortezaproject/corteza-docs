@@ -4,12 +4,9 @@ include::ROOT:partial$variables.adoc[]
 
 *Released on*: `2024.02.26`
 
-.[#2023_09_04-changed]#<<2023_09_04-changed,Changed:>>#
-* Changed asterisk color of record field from blue to red.
-The change was made to make required fields stand out
-({CORTEZA_COMMIT_BASE}65832b4[`65832b4`]).
-
 .[#2023_09_04-fixed]#<<2023_09_04-fixed,Fixed:>>#
+* Fixed required fields asterisk not being displayed next to the label of the field in record blocks
+({CORTEZA_COMMIT_BASE}65832b4[`65832b4`]).
 * Fixed incorrect value applying to date and time record field when trying to remove an already set value
 ({CORTEZA_COMMIT_BASE}6fe0b8a[`6fe0b8a`]).
 * Fixed unnecessary showing of stale data warning in {APP_NAME_COMPOSE} while editing and loading a record

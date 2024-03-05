@@ -3,7 +3,29 @@
     "releasedOn": "2024.02.26"
   },
 
+  "added": [
+    {
+      "what": [
+        "the close button to all workflow prompts."
+      ],
+      "why": [
+        "to allow users to cancel workflows/prompts."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/3708ca9f3285a5aae81b534d40fc71c8647501ea"
+      ]
+    }
+  ],
+
   "fixed": [
+    {
+      "what": [
+        "workflow record selector prompt dropdown appearing behind the prompt, rendering it unusable."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/27e142c1a64aab374c04ae8e26c6a49326c656fd"
+      ]
+    },
     {
       "what": [
         "required fields asterisk not being displayed next to the label of the field in record blocks."

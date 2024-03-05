@@ -4,7 +4,14 @@ include::ROOT:partial$variables.adoc[]
 
 *Released on*: `2024.02.26`
 
+.[#2023_09_04-added]#<<2023_09_04-added,Added:>>#
+* Added the close button to all workflow prompts.
+The change was added to allow users to cancel workflows/prompts
+({CORTEZA_COMMIT_BASE}3708ca9[`3708ca9`]).
+
 .[#2023_09_04-fixed]#<<2023_09_04-fixed,Fixed:>>#
+* Fixed workflow record selector prompt dropdown appearing behind the prompt, rendering it unusable
+({CORTEZA_COMMIT_BASE}27e142c[`27e142c`]).
 * Fixed required fields asterisk not being displayed next to the label of the field in record blocks
 ({CORTEZA_COMMIT_BASE}65832b4[`65832b4`]).
 * Fixed incorrect value applying to date and time record field when trying to remove an already set value

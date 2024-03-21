@@ -6,7 +6,7 @@
   "added": [
     {
       "what": [
-        "the option to access user information like username, handle, email, etc. in pages, charts, and record fields."
+        "the option to access user information from link:https://docs.cortezaproject.org/corteza-docs/2023.9/integrator-guide/expr/type-reference.html#objref-user[User values] in pages, charts, and record fields."
       ],
       "why": [
         "to provide an easier way for the user to access their user data."
@@ -67,7 +67,7 @@
     },
     {
       "what": [
-        "not being able to add a record in a duplicated CRM namespace."
+        "not being able to add a record in a duplicated CRM namespace because page layout wasn't created when the namespace was cloned."
       ],
       "refs": [
         "https://github.com/cortezaproject/corteza/pull/1717"

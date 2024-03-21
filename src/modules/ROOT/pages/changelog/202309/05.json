@@ -1,0 +1,110 @@
+{
+  "meta": {
+    "releasedOn": "2024.03.21"
+  },
+
+  "added": [
+    {
+      "what": [
+        "the option to access user information like username, handle, email, etc. in pages, charts, and record fields."
+      ],
+      "why": [
+        "to provide an easier way for the user to access their user data."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/pull/1735"
+      ]
+    },
+    {
+      "what": [
+        "support for User and Record fields to be exported/imported on the record list page block."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/7fc4ca921"
+      ]
+    },
+    {
+      "what": [
+        "the option to open a link/route/record page in a new tab using {APP_NAME_WORKFLOW} prompts."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/pull/1726"
+      ]
+    }
+  ],
+
+  "changed": [
+    {
+      "what": [
+        "the flow of updating values in fields and page blocks to fetch the latest values after an update."
+      ],
+      "why": [
+        "to ensure fields and blocks are always up to date."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/pull/1634"
+      ]
+    }
+  ],
+
+  "fixed": [
+    {
+      "what": [
+        "not being able to upload `.png` file to an application in {APP_NAME_ADMIN}."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/0456fe4f3e2e127dbccc76d131bbd3d706829133"
+      ]
+    },
+    {
+      "what": [
+        "not being able to make a copy of predefined CRM namespace."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/55a827a2cbd908f5d5bb573a85d145dfba7fa7f1",
+        "https://github.com/cortezaproject/corteza/pull/1729"
+      ]
+    },
+    {
+      "what": [
+        "not being able to add a record in a duplicated CRM namespace."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/pull/1717"
+      ]
+    },
+    {
+      "what": [
+        "workflow session list throwing internal errors when using postgres database."
+      ],
+      "how": [
+        "properly omitting invalid/blank slices in filters."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/74031ca69ea2b64a4ed0047cd5ba55ff16b29baa"
+      ]
+    },
+    {
+      "what": [
+        "prompt submissions always being treated as `Untyped` by running a type resolution step before applying to the scope."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/772d03e91"
+      ]
+    }
+  ],
+
+  "removed": [
+    {
+      "what": [
+        "Nylass page block."
+      ],
+      "why": [
+        "because Nylass stopped using the functionality implemented in {PRODUCT_NAME}."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/77169cfc6d74ae96b8865f8e60d153ac359512f4"
+      ]
+    }
+  ]
+}

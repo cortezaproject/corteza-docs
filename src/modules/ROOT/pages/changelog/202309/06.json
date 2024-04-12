@@ -1,0 +1,19 @@
+{
+  "meta": {
+    "releasedOn": "2024.03.21"
+  },
+
+  "added": [
+    {
+      "what": [
+        "a backoff delay to object storage file system access in case the underlying storage is not synchronous."
+      ],
+      "why": [
+        "improve robustness on asynchronous systems."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/eb7c39fee"
+      ]
+    }
+  ]
+}

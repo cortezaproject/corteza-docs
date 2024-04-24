@@ -1,0 +1,108 @@
+{
+  "meta": {
+    "releasedOn": "2024.04.25"
+  },
+
+  "added": [
+    {
+      "what": [
+        "`id` system field to user information in {APP_NAME_ADMIN}."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/d81809c891e0ded695372cc4aeedbe27e147e4ee",
+        "https://github.com/cortezaproject/corteza/commit/14b704f1ebe01cba1a82bf5c45d01f0ced3fc28c"
+      ]
+    },
+    {
+      "what": [
+        "`cancel` status filter to automation session list in {APP_NAME_ADMIN}."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/c0d43dfb5a5bd7b0d4f250273561c12b3cf9f272"
+      ]
+    }
+  ],
+
+  "fixed": [
+    {
+      "what": [
+        "not being able to filter data by `userID` when viewing a record in a record list using the drill down option."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/8d2ccea51ea74c56e5187f1aa4a0a944407a32ff"
+      ]
+    },
+    {
+      "what": [
+        "not being able to see all users assigned to a role in {APP_NAME_ADMIN}."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/9cc3a9cd06022f77c186deaa3b971055bb843ee2"
+      ]
+    },
+    {
+      "what": [
+        "record page not loading when navigating to a new record from the create record view."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/9c07c903c8f32d92c9dac43fb9090c345af92f5a"
+      ]
+    },
+    {
+      "what": [
+        "not being able to set the SMTP password in {APP_NAME_ADMIN} because it was removed mistakenly."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/96a7fd61d4296aca9ade1a1a3dc62acd17b57c17"
+      ]
+    },
+    {
+      "what": [
+        "not being able to use drill down on `select`, `record`, and `user` fields."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/cf8de0f84548c0dbc8580d7aba82caf6be9cedae"
+      ]
+    },
+    {
+      "what": [
+        "double fetching of record list configuration after drill down data is updated."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/5a4f9344be485738bb2c4d550ea84cf99dd3c0ba"
+      ]
+    },
+    {
+      "what": [
+        "multi-line option not working for module text fields."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/pull/1770"
+      ]
+    },
+    {
+      "what": [
+        "duplicate field name causing module configuration issues."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/pull/1773"
+      ]
+    },
+    {
+      "what": [
+        "workflow not redirecting the user to the next record after saving the current record."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/pull/1775"
+      ]
+    },
+    {
+      "what": [
+        "record id shown instead of label by default."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/pull/1776"
+      ]
+    }
+  ]
+}

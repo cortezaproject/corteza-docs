@@ -1,0 +1,33 @@
+include::ROOT:partial$variables.adoc[]
+
+= `2023.9.6`
+
+*Released on*: `2024.04.25`
+
+.[#2023_09_06-added]#<<2023_09_06-added,Added:>>#
+* Added `id` system field to user information in {APP_NAME_ADMIN}
+({CORTEZA_COMMIT_BASE}d81809c[`d81809c`], {CORTEZA_COMMIT_BASE}14b704f[`14b704f`]).
+* Added `cancel` status filter to automation session list in {APP_NAME_ADMIN}
+({CORTEZA_COMMIT_BASE}c0d43df[`c0d43df`]).
+
+.[#2023_09_06-fixed]#<<2023_09_06-fixed,Fixed:>>#
+* Fixed not being able to filter data by `userID` when viewing a record in a record list using the drill down option
+({CORTEZA_COMMIT_BASE}8d2ccea[`8d2ccea`]).
+* Fixed not being able to see all users assigned to a role in {APP_NAME_ADMIN}
+({CORTEZA_COMMIT_BASE}9cc3a9c[`9cc3a9c`]).
+* Fixed record page not loading when navigating to a new record from the create record view
+({CORTEZA_COMMIT_BASE}9c07c90[`9c07c90`]).
+* Fixed not being able to set the SMTP password in {APP_NAME_ADMIN} because it was removed mistakenly
+({CORTEZA_COMMIT_BASE}96a7fd6[`96a7fd6`]).
+* Fixed not being able to use drill down on `select`, `record`, and `user` fields
+({CORTEZA_COMMIT_BASE}cf8de0f[`cf8de0f`]).
+* Fixed double fetching of record list configuration after drill down data is updated
+({CORTEZA_COMMIT_BASE}5a4f934[`5a4f934`]).
+* Fixed multi-line option not working for module text fields
+({CORTEZA_PULL_BASE}1770[`1770`]).
+* Fixed duplicate field name causing module configuration issues
+({CORTEZA_PULL_BASE}1773[`1773`]).
+* Fixed workflow not redirecting the user to the next record after saving the current record
+({CORTEZA_PULL_BASE}1775[`1775`]).
+* Fixed record id shown instead of label by default
+({CORTEZA_PULL_BASE}1776[`1776`]).

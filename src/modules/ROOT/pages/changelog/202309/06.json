@@ -50,7 +50,7 @@
     },
     {
       "what": [
-        "not being able to set smtp password in {APP_NAME_ADMIN} because it was removed mistakenly."
+        "not being able to set the SMTP password in {APP_NAME_ADMIN} because it was removed mistakenly."
       ],
       "refs": [
         "https://github.com/cortezaproject/corteza/commit/96a7fd61d4296aca9ade1a1a3dc62acd17b57c17"
@@ -58,7 +58,7 @@
     },
     {
       "what": [
-        "not being bale to use drill down on `select`, `record`, and `user` fields."
+        "not being able to use drill down on `select`, `record`, and `user` fields."
       ],
       "refs": [
         "https://github.com/cortezaproject/corteza/commit/cf8de0f84548c0dbc8580d7aba82caf6be9cedae"
@@ -90,7 +90,7 @@
     },
     {
       "what": [
-        "workflow not redirecting user to next record after saving the previous."
+        "workflow not redirecting the user to the next record after saving the current record."
       ],
       "refs": [
         "https://github.com/cortezaproject/corteza/pull/1775"

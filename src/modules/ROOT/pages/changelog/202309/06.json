@@ -23,6 +23,31 @@
     }
   ],
 
+  "changed": [
+    {
+      "what": [
+        "the updating mechanism of charts to trigger when the user creates and updates a chart."
+      ],
+      "why": [
+        "to keep chart up to date with its latest configuration."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/ad95e6a3873bac1f3e690bc750fb75b7274a3808"
+      ]
+    },
+    {
+      "what": [
+        "chart tooltip structure to be consistent in {APP_NAME_COMPOSE} and {APP_NAME_REPORTER}."
+      ],
+      "why": [
+        "to implement a standard across all web applications that use charts."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/91a7a592eabae87b11e04362cd07b3123db34a51"
+      ]
+    }
+  ],
+
   "fixed": [
     {
       "what": [
@@ -102,6 +127,39 @@
       ],
       "refs": [
         "https://github.com/cortezaproject/corteza/pull/1776"
+      ]
+    },
+    {
+      "what": [
+        "incorrect boolean labels and value shown in charts.",
+        "Fixed metric label in tooltips to show the field `title` instead of the field `name`"
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/447e6fada3596c5def379a569adb0b2b0538d18b"
+      ]
+    },
+    {
+      "what": [
+        "incorrect record shown when workflow function for fetching the first or the last record is used."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/7b29b80163fa523c677fc29de3c523f47bcaadcd"
+      ]
+    },
+    {
+      "what": [
+        "incorrect redirecting to record view when a workflow prompt is used."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/e766b4be2c8116ebf428663b1849a189dd286593"
+      ]
+    },
+    {
+      "what": [
+        "redirecting between record view and record edit mode in {APP_NAME_COMPOSE}."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/60376b71c2712eb7a9b6625c316de14d64f71ba1"
       ]
     }
   ]

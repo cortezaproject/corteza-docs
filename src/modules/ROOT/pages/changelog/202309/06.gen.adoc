@@ -10,6 +10,14 @@ include::ROOT:partial$variables.adoc[]
 * Added `cancel` status filter to automation session list in {APP_NAME_ADMIN}
 ({CORTEZA_COMMIT_BASE}c0d43df[`c0d43df`]).
 
+.[#2023_09_06-changed]#<<2023_09_06-changed,Changed:>>#
+* Changed the updating mechanism of charts to trigger when the user creates and updates a chart.
+The change was made to keep chart up to date with its latest configuration
+({CORTEZA_COMMIT_BASE}ad95e6a[`ad95e6a`]).
+* Changed chart tooltip structure to be consistent in {APP_NAME_COMPOSE} and {APP_NAME_REPORTER}.
+The change was made to implement a standard across all web applications that use charts
+({CORTEZA_COMMIT_BASE}91a7a59[`91a7a59`]).
+
 .[#2023_09_06-fixed]#<<2023_09_06-fixed,Fixed:>>#
 * Fixed not being able to filter data by `userID` when viewing a record in a record list using the drill down option
 ({CORTEZA_COMMIT_BASE}8d2ccea[`8d2ccea`]).
@@ -31,3 +39,12 @@ include::ROOT:partial$variables.adoc[]
 ({CORTEZA_PULL_BASE}1775[`1775`]).
 * Fixed record id shown instead of label by default
 ({CORTEZA_PULL_BASE}1776[`1776`]).
+* Fixed incorrect boolean labels and value shown in charts
+Fixed metric label in tooltips to show the field `title` instead of the field `name`
+({CORTEZA_COMMIT_BASE}447e6fa[`447e6fa`]).
+* Fixed incorrect record shown when workflow function for fetching the first or the last record is used
+({CORTEZA_COMMIT_BASE}7b29b80[`7b29b80`]).
+* Fixed incorrect redirecting to record view when a workflow prompt is used
+({CORTEZA_COMMIT_BASE}e766b4b[`e766b4b`]).
+* Fixed redirecting between record view and record edit mode in {APP_NAME_COMPOSE}
+({CORTEZA_COMMIT_BASE}60376b7[`60376b7`]).

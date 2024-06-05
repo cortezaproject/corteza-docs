@@ -766,7 +766,7 @@ Cloning a page block is similar to copying, but instead of copying the page bloc
 For example, if for any reason you would like to have a duplicate of a page block on a page, you can do that in the toolbar of the page block by clicking its clone button.
 
 Below, we have a page with a single block, and we want to clone it.
-All we have to do is click the clone button highlighted below. 
+All we have to do is click the clone button highlighted below.
 
 .Cloning a page block
 [annotation,role="data-zoomable"]
@@ -1282,7 +1282,7 @@ Page blocks have a refresh option to automatically renew their data without havi
 
 [NOTE]
 ====
-Automation, file, content, nylas, navigation, and geometry blocks do not have the refresh option.
+Automation, file, content and navigation blocks do not have the refresh option.
 ====
 
 === Enabling Auto-Refresh
@@ -1315,14 +1315,14 @@ There you will find the refresh option.
 
 You'll want to enter a value expressed in seconds into the input above the *Show refresh button* toggle, click save and close, save the page and you should see the block start to refresh when your interval elapses.
 
-The lowest interval allowed is 5 seconds. 
+The lowest interval allowed is 5 seconds.
 To turn auto-refresh off on a block, you need to set its value to 0.
 
 === Enabling Manual Refresh
 
 To enable manual refresh, navigate to the page builder, choose a block that supports refresh, and go to its general tab.
 There you will find a toggle as highlighted below.
-Switch it on. 
+Switch it on.
 
 .Page block general tab.
 [annotation,role="data-zoomable"]
@@ -1348,7 +1348,7 @@ Switch it on.
 ----
 
 When enabled, page blocks that have this configuration will have a refresh button in the top right corner of the page block,
-allowing the user to manually refresh the page block. 
+allowing the user to manually refresh the page block.
 
 .Refresh icon on page blocks with manual refresh.
 [annotation,role="data-zoomable"]

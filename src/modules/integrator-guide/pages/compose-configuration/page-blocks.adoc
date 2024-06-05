@@ -205,7 +205,7 @@ Make sure to keep any *iframe embedding limitation* in mind.
 == Metric
 
 The *metric page block* allows you to display a calculated numerical value based on the data in your namespace.
-This is usually an indicator important to your process. 
+This is usually an indicator important to your process.
 It may be information such as the total finances in your sales pipeline or the current number of open accounts.
 
 [annotation,role="data-zoomable"]
@@ -744,13 +744,13 @@ Defines the display element from the selected report the page block will use whe
 
 |===
 
-[#page-block-geometry]
-== Geometry
+[#page-block-map]
+== Map
 
-The *geometry page block* allows you to show a map with markers, lines and polygons from different geometry values of different record sources.
+The *map page block* allows you to show a map with markers, lines and polygons from different Location field values of different record sources.
 
-image:compose-configuration/page-block-reference/config-geometry.png[...,49%,role="preview data-zoomable"]
-image:compose-configuration/page-block-reference/added-geometry.png[...,49%,role="preview data-zoomable"]
+image:compose-configuration/page-block-reference/config-map.png[...,49%,role="preview data-zoomable"]
+image:compose-configuration/page-block-reference/added-map.png[...,49%,role="preview data-zoomable"]
 
 .Additional configurations:
 [cols="2s,5a"]

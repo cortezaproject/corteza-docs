@@ -1,0 +1,45 @@
+include::ROOT:partial$variables.adoc[]
+
+= `2023.9.7`
+
+*Released on*: `2024.06.14`
+
+.[#2023_09_07-added]#<<2023_09_07-added,Added:>>#
+* Added the option to stack values of multiple number fields in {APP_NAME_REPORTER} chart
+({CORTEZA_PULL_BASE}1780[`1780`]).
+* Added the option to clone a report in {APP_NAME_REPORTER}
+({CORTEZA_PULL_BASE}1748[`1748`]).
+* Added the option to provide an `id` attribute to a page block in {APP_NAME_COMPOSE}.
+The change was added to provide the user with the option to select and customize a page block
+({CORTEZA_PULL_BASE}1811[`1811`]).
+* Added the option to link a record page module field and record list module field in record configurator
+({CORTEZA_PULL_BASE}1811[`1811`]).
+
+.[#2023_09_07-changed]#<<2023_09_07-changed,Changed:>>#
+* Changed the topbar icon for redirecting the user to the list of namespaces to a button with text `Menu`
+({CORTEZA_COMMIT_BASE}ad95e6a[`ad95e6a`]).
+* Changed general ui/ux improvements:
+** A configuration option on charts to disable or enable animation in order to allow users more control over chart configuration options
+({CORTEZA_PULL_BASE}806[`806`]).
+
+.[#2023_09_07-removed]#<<2023_09_07-removed,Removed:>>#
+* Removed welcome tour in {APP_NAME_ONE}
+({CORTEZA_PULL_BASE}1811[`1811`]).
+
+.[#2023_09_07-fixed]#<<2023_09_07-fixed,Fixed:>>#
+* Fixed list of filters partially hidden behind the left navigation when no buttons are shown in a record list
+({CORTEZA_COMMIT_BASE}719b421[`719b421`]).
+* Fixed not able to login via multi factor authentication because of an internal error in the multi factor authentication code
+({CORTEZA_PULL_BASE}1802[`1802`]).
+* Fixed record list filter closing after deleting its last item
+({CORTEZA_PULL_BASE}1811[`1811`]).
+* Fixed chart tooltip not hiding after cursor is moved away from the chart
+({CORTEZA_PULL_BASE}1811[`1811`]).
+* Fixed module field unique value constraints not being respected when adding/modifying a record
+({CORTEZA_PULL_BASE}1434[`1434`]).
+* Fixed false fetching of the value 20 from a record when using a workflow to retrieve an empty date time field
+({CORTEZA_COMMIT_BASE}fd7b018[`fd7b018`]).
+* Fixed not being able to use the buttons in a record if the user tries to create a record without adding value to a required field
+({CORTEZA_PULL_BASE}1811[`1811`]).
+* Fixed bottom part of page being cut off for iOS devices on all applications
+({CORTEZA_PULL_BASE}1520[`1520`]).

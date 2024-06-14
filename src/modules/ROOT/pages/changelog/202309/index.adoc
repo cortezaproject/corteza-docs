@@ -26,6 +26,8 @@ User interfaces were a big focus for the `2023.9` release; improving user experi
 
 :leveloffset: +1
 
+include::07.gen.adoc[]
+
 include::06.gen.adoc[]
 
 include::05.gen.adoc[]

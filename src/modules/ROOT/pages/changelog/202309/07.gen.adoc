@@ -24,7 +24,7 @@ The change was added to automatically populate fields when adding a related reco
 ({CORTEZA_COMMIT_BASE}ad95e6a[`ad95e6a`]).
 
 .[#2023_09_07-removed]#<<2023_09_07-removed,Removed:>>#
-* Removed welcome tour in {APP_NAME_ONE}
+* Removed welcome tour in {APP_NAME_SHELL}
 ({CORTEZA_PULL_BASE}1811[`1811`]).
 
 .[#2023_09_07-fixed]#<<2023_09_07-fixed,Fixed:>>#

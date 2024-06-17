@@ -9,18 +9,19 @@ include::ROOT:partial$variables.adoc[]
 ({CORTEZA_PULL_BASE}1780[`1780`]).
 * Added the option to clone a report in {APP_NAME_REPORTER}
 ({CORTEZA_PULL_BASE}1748[`1748`]).
-* Added the option to provide an `id` attribute to a page block in {APP_NAME_COMPOSE}.
-The change was added to provide the user with the option to select and customize a page block
+* Added the option to provide an `id` and `class` attributes to a page block in {APP_NAME_COMPOSE}.
+These can be referenced in {PRODUCT_NAME} Studio for styling
+The change was added to provide more ways for selecting and customizing a page block
 ({CORTEZA_PULL_BASE}1811[`1811`]).
-* Added the option to link a record page module field and record list module field in record configurator
+* Added the option to link a record page module field and record list module field in record configurator.
+The change was added to automatically populate fields when adding a related record
 ({CORTEZA_PULL_BASE}1811[`1811`]).
+* Added the option to provide prefix, suffix, digit formatting, and accounting number format in charts and number module fields
+({CORTEZA_PULL_BASE}1820[`1820`], {CORTEZA_COMMIT_BASE}c73b843[`c73b843`]).
 
 .[#2023_09_07-changed]#<<2023_09_07-changed,Changed:>>#
-* Changed the topbar icon for redirecting the user to the list of namespaces to a button with text `Menu`
+* Changed the topbar icon for redirecting the user to the list of applications to a button with text `Menu`
 ({CORTEZA_COMMIT_BASE}ad95e6a[`ad95e6a`]).
-* Changed general ui/ux improvements:
-** A configuration option on charts to disable or enable animation in order to allow users more control over chart configuration options
-({CORTEZA_PULL_BASE}806[`806`]).
 
 .[#2023_09_07-removed]#<<2023_09_07-removed,Removed:>>#
 * Removed welcome tour in {APP_NAME_ONE}
@@ -39,7 +40,7 @@ The change was added to provide the user with the option to select and customize
 ({CORTEZA_PULL_BASE}1434[`1434`]).
 * Fixed false fetching of the value 20 from a record when using a workflow to retrieve an empty date time field
 ({CORTEZA_COMMIT_BASE}fd7b018[`fd7b018`]).
-* Fixed not being able to use the buttons in a record if the user tries to create a record without adding value to a required field
+* Fixed record toolbar buttons being disabled after the user tries to create a record without adding value to a required field
 ({CORTEZA_PULL_BASE}1811[`1811`]).
 * Fixed bottom part of page being cut off for iOS devices on all applications
 ({CORTEZA_PULL_BASE}1520[`1520`]).

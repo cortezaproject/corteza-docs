@@ -22,7 +22,8 @@
     },
     {
       "what": [
-        "the option to provide an `id` and/or `class` attribute to a page block in {APP_NAME_COMPOSE}."
+        "the option to provide an `id` and `class` attributes to a page block in {APP_NAME_COMPOSE}.",
+        "These can be referenced in {PRODUCT_NAME} Studio for styling"
       ],
       "why": [
         "to provide more ways for selecting and customizing a page block."

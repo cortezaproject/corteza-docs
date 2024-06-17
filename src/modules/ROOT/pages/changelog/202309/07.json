@@ -22,10 +22,11 @@
     },
     {
       "what": [
-        "the option to provide an `id` attribute to a page block in {APP_NAME_COMPOSE}."
+        "the option to provide an `id` and `class` attributes to a page block in {APP_NAME_COMPOSE}.",
+        "These can be referenced in {PRODUCT_NAME} Studio for styling"
       ],
       "why": [
-        "to provide the user with the option to select and customize a page block."
+        "to provide more ways for selecting and customizing a page block."
       ],
       "refs": [
         "https://github.com/cortezaproject/corteza/pull/1811/commits/3ccbda19e6af6967a80589bdc1cd53f5f5ceb786"
@@ -35,8 +36,20 @@
       "what": [
         "the option to link a record page module field and record list module field in record configurator."
       ],
+      "why": [
+        "to automatically populate fields when adding a related record."
+      ],
       "refs": [
         "https://github.com/cortezaproject/corteza/pull/1811/commits/344d661acdadaacdcae22b18abc17a6e980850f3"
+      ]
+    },
+    {
+      "what": [
+        "the option to provide prefix, suffix, digit formatting, and accounting number format in charts and number module fields."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/pull/1820",
+        "https://github.com/cortezaproject/corteza/commit/c73b84369ded6a9a8b74da105ef004eb9b0d8dc1"
       ]
     }
   ],
@@ -44,19 +57,10 @@
   "changed": [
     {
       "what": [
-        "the topbar icon for redirecting the user to the list of namespaces to a button with text `Menu`."
+        "the topbar icon for redirecting the user to the list of applications to a button with text `Menu`."
       ],
       "refs": [
         "https://github.com/cortezaproject/corteza/commit/ad95e6a3873bac1f3e690bc750fb75b7274a3808"
-      ]
-    },
-    {
-      "what": [
-        "general ui/ux improvements:",
-        "** A configuration option on charts to disable or enable animation in order to allow users more control over chart configuration options."
-      ],
-      "refs": [
-        "https://github.com/cortezaproject/corteza/pull/806"
       ]
     }
   ],
@@ -112,7 +116,7 @@
     },
     {
       "what": [
-        "not being able to use the buttons in a record if the user tries to create a record without adding value to a required field."
+        "record toolbar buttons being disabled after the user tries to create a record without adding value to a required field."
       ],
       "refs": [
         "https://github.com/cortezaproject/corteza/pull/1811/commits/f3108cfb51a782b960b081dd4c370bca0e8c2fea"

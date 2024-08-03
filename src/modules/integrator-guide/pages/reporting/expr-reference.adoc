@@ -543,7 +543,7 @@ Casts the value to an integer.
 Casts the value to a timestamp.
 
 .[#expr-date-date-sig]#<<expr-date-date-sig,Signatures:>>#
-* `date(<Ant>)` => `<DateTime>`
+* `date(<Any>)` => `<DateTime>`
 
 .[#expr-date-date-ex-a]#<<expr-date-date-ex-a,Expression examples:>>#
 * `date(some_field)`

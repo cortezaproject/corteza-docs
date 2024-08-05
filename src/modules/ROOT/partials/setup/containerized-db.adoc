@@ -51,3 +51,59 @@ export PGSQL_PORT=5432;
 ----
 DB_DSN="postgres://corteza:corteza@localhost:$PGSQL_PORT/corteza?sslmode=disable"
 ----
+
+== SQLServer
+
+[NOTE]
+====
+This is a draft so these instructions don't get lost; will refine at a later stage.
+====
+
+Use one of the following images:
+
+* `SQLServer 2022`: mcr.microsoft.com/mssql/server:2022-latest
+* `SQLServer 2017`: mcr.microsoft.com/mssql/server:2017-latest
+* `SQLServer 2019`: mcr.microsoft.com/mssql/server:2019-CU10-ubuntu-20.04
+
+
+.Example docker-compose for all three images:
+[source,yaml]
+----
+  mssql_2022:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    restart: on-failure
+    ports: [ "127.0.0.1:1433:1433" ]
+    volumes:
+      - "dbdata_mssql_2022:/var/opt/mssql"
+    environment:
+        - ACCEPT_EULA=Y
+        - SA_PASSWORD=SUPERSECRET123
+
+  mssql_2017:
+    image: mcr.microsoft.com/mssql/server:2017-latest
+    restart: on-failure
+    ports: [ "127.0.0.1:1433:1433" ]
+    volumes:
+      - "dbdata_mssql_2017:/var/opt/mssql"
+    environment:
+        - ACCEPT_EULA=Y
+        - SA_PASSWORD=SUPERSECRET123
+
+  mssql_2019:
+    image: mcr.microsoft.com/mssql/server:2019-CU10-ubuntu-20.04
+    restart: on-failure
+    ports: [ "127.0.0.1:1433:1433" ]
+    volumes:
+      - "dbdata_mssql_2019:/var/opt/mssql"
+    environment:
+        - ACCEPT_EULA=Y
+        - SA_PASSWORD=SUPERSECRET123
+----
+
+.To setup the database, perform the following steps:
+. `docker compose exec -it mssql_2022 sh`
+. /opt/mssql-tools/bin/sqlcmd -S localhost -U sa -P "SUPERSECRET123"
+. `CREATE DATABASE corteza;`
+. `GO`
+
+Example DB DSN: `sqlserver://sa:SUPERSECRET123@localhost:1433?database=corteza`

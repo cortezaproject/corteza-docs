@@ -23,7 +23,7 @@
         "page blocks not respecting current position after being moved."
       ],
       "refs": [
-        "https://github.com/cortezaproject/corteza/issues/1896"
+        "https://github.com/cortezaproject/corteza/pull/1896"
       ]
     },
     {
@@ -31,7 +31,7 @@
         "importing an existing record as '.csv' creates a new record instead of updating the existing one."
       ],
       "refs": [
-        "https://github.com/cortezaproject/corteza/issues/1886"
+        "https://github.com/cortezaproject/corteza/pull/1886"
       ]
     },
     {
@@ -47,7 +47,7 @@
         "allowing duplicate values for 'user' and 'record' multi value fields not working."
       ],
       "refs": [
-        "https://github.com/cortezaproject/corteza/issues/1882"
+        "https://github.com/cortezaproject/corteza/pull/1882"
       ]
     },
     {
@@ -55,7 +55,7 @@
         "not being able to sort date time fields due to Postgres database limitation."
       ],
       "refs": [
-        "https://github.com/cortezaproject/corteza/issues/1843"
+        "https://github.com/cortezaproject/corteza/pull/1843"
       ]
     },
     {

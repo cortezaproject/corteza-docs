@@ -1,0 +1,102 @@
+{
+  "meta": {
+    "releasedOn": "2024.08.30"
+  },
+
+  "added": [
+    {
+      "what": [
+        "the option to write custom javascript code in {APP_NAME_ADMIN}."
+      ],
+      "why": [
+        "to provide the user with the ability to add custom javascript code."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/pull/1887"
+      ]
+    }
+  ],
+
+  "fixed": [
+    {
+      "what": [
+        "page blocks not respecting current position after being moved."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/pull/1896"
+      ]
+    },
+    {
+      "what": [
+        "importing an existing record as '.csv' creates a new record instead of updating the existing one."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/pull/1886"
+      ]
+    },
+    {
+      "what": [
+        "user field values shown as 'undefined' instead of their original value."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/7c177080ab7ffb0f390adb720ad7df2fb81f1043"
+      ]
+    },
+    {
+      "what": [
+        "allowing duplicate values for 'user' and 'record' multi value fields not working."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/pull/1882"
+      ]
+    },
+    {
+      "what": [
+        "not being able to sort date time fields due to Postgres database limitation."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/pull/1843"
+      ]
+    },
+    {
+      "what": [
+        "showing of empty options in select field if that field doesn't have a label set."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/pull/1866"
+      ]
+    },
+    {
+      "what": [
+        "not being able to access user data in {APP_NAME_COMPOSE} added from a workflow."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/pull/1883"
+      ]
+    },
+    {
+      "what": [
+        "multiple value fields not shown in charts."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/pull/1895"
+      ]
+    },
+    {
+      "what": [
+        "incorrect updating of date and time only field values when editing a record."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/3b2d5b616c81c2eab4bdc5d97b99ef0f5639fd53"
+      ]
+    },
+    {
+      "what": [
+        "not being able to update a required field if the user doesn't have read permissions for the field."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/pull/1892"
+      ]
+    }
+  ]
+}

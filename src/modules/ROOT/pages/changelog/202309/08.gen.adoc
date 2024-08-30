@@ -1,0 +1,32 @@
+include::ROOT:partial$variables.adoc[]
+
+= `2023.9.8`
+
+*Released on*: `2024.08.30`
+
+.[#2023_09_08-added]#<<2023_09_08-added,Added:>>#
+* Added the option to write custom javascript code in {APP_NAME_ADMIN}.
+The change was added to provide the user with the ability to add custom javascript code
+({CORTEZA_PULL_BASE}1887[`1887`]).
+
+.[#2023_09_08-fixed]#<<2023_09_08-fixed,Fixed:>>#
+* Fixed page blocks not respecting current position after being moved
+({CORTEZA_PULL_BASE}1896[`1896`]).
+* Fixed importing an existing record as 'csv' creates a new record instead of updating the existing one
+({CORTEZA_PULL_BASE}1886[`1886`]).
+* Fixed user field values shown as 'undefined' instead of their original value
+({CORTEZA_COMMIT_BASE}7c17708[`7c17708`]).
+* Fixed allowing duplicate values for 'user' and 'record' multi value fields not working
+({CORTEZA_PULL_BASE}1882[`1882`]).
+* Fixed not being able to sort date time fields due to Postgres database limitation
+({CORTEZA_PULL_BASE}1843[`1843`]).
+* Fixed showing of empty options in select field if that field doesn't have a label set
+({CORTEZA_PULL_BASE}1866[`1866`]).
+* Fixed not being able to access user data in {APP_NAME_COMPOSE} added from a workflow
+({CORTEZA_PULL_BASE}1883[`1883`]).
+* Fixed multiple value fields not shown in charts
+({CORTEZA_PULL_BASE}1895[`1895`]).
+* Fixed incorrect updating of date and time only field values when editing a record
+({CORTEZA_COMMIT_BASE}3b2d5b6[`3b2d5b6`]).
+* Fixed not being able to update a required field if the user doesn't have read permissions for the field
+({CORTEZA_PULL_BASE}1892[`1892`]).

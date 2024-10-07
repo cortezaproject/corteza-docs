@@ -1,0 +1,91 @@
+{
+  "meta": {
+    "releasedOn": "2024.10.7"
+  },
+
+  "added": [
+    {
+      "what": [
+        "the privacy app to default deploy."
+      ],
+      "why": [
+        "to make all the apps deploy by default."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/ea97ea498660d4c601dcc330794e6bad1566685b",
+        "https://github.com/cortezaproject/corteza/commit/938f65d8fa1d6dd60e70442c7b55c88b7465cb00"
+      ]
+    }
+  ],
+
+  "fixed": [
+    {
+      "what": [
+        "the ability to customize auth templates."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/pull/1906"
+      ]
+    },
+    {
+      "what": [
+        "datepicker calendar being contained in record block if the layout was horizontal."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/f9823a6c5db468c7b07b6026b09ab13f898e204b"
+      ]
+    },
+    {
+      "what": [
+        "user preffered language selected in the profile page not being respected."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/pull/1900"
+      ]
+    },
+    {
+      "what": [
+        "role pickers not being limited to 20 roles and add search functionality."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/pull/1910"
+      ]
+    },
+    {
+      "what": [
+        "roleID param not being respected in roleList enpdoint."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/550db9f7aee7b8ca15110099dd9cbbd078ec5d17"
+      ]
+    },
+    {
+      "what": [
+        "resetting the active record list filter through UI."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/fc3d64d4483693c4f66bb1fc779c0e92330fc6da"
+      ]
+    },
+    {
+      "what": [
+        "namespaceID being repeated twice as id in HTML template."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/26270f215f02622a167deea8c4d0b2af18192757"
+      ]
+    },
+    {
+      "what": [
+        "other smaller UI/UX issues."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/0c08742a409d8711bffe8cc1ead292ce7d7c93a6",
+        "https://github.com/cortezaproject/corteza/commit/19249f345d8dd2a37396c95b78711a4bf66417a5",
+        "https://github.com/cortezaproject/corteza/commit/1218ef941918efb4b4b374f4c9d8d5cdf54d6ddb",
+        "https://github.com/cortezaproject/corteza/commit/08787130b8d011d9a8a356461a4b16b2285368c3",
+        "https://github.com/cortezaproject/corteza/commit/eb197996e68330e155e8fbb126284c6db5cf1bc9",
+      ]
+    }
+  ]
+}

@@ -34,7 +34,26 @@ out = coalesce(null, 0, 1, 2)
 
 The `isEmpty` function returns `true` if the value is empty.
 
-What classifies as empty differs from type to type @todo.
+What classifies as empty differs from type to type, check table below.
+
+[cols="1,1,1"]
+|===
+|Type |Value |Result
+
+.2+|**Array**|[]|true
+|~undefined~|true
+|**Array**|~undefined~|true
+|**Any**|~undefined~|false
+|**Any**|[]|true
+|**Vars**|~undefined~|true
+|**Boolean**|~undefined~|true
+|**DateTime**|~undefined~|true
+|**Float**|~undefined~|true
+|**Integer**|~undefined~|true
+|**UnsignedInteger**|~undefined~|true
+|**String**|~undefined~|true
+|**User**|~undefined~|false
+|===
 
 .Examples:
 [cols="1a,1a,1a"]

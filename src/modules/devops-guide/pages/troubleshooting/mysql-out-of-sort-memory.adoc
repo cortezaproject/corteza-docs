@@ -1,0 +1,48 @@
+include::ROOT:partial$variables.adoc[]
+
+= MySQL: Out of Sort Memory
+
+The `ERROR 1038 (HY001): Out of sort memory, consider increasing server sort buffer size` error occurs when we've allocated insufficient memory to the database.
+When this occurs, you'll need to allocate additional memory.
+
+The exact amount depends on your needs, so we suggest you investigate system performance and determine if the resources are sufficient or not.
+
+[CAUTION]
+====
+As of now, this error might not be caught and presented as a standard error.
+We'll look for a fix which would let us present this error as a standard error popup.
+====
+
+== Spotting the Error
+
+Whenever this error would occur, you'll be unable to investigate some system resource, such as {APP_NAME_COMPOSE} records, pages, and users.
+
+== Docker Compose
+
+When you're running the database with Docker Compose, you'll need to update the service configuration and include the `--sort_buffer_size` command.
+In the following example, we set the sort buffer to `1024KB`.
+
+.Example with updated configuration.
+[yaml]
+---
+version: '3.5'
+
+services:
+  server:
+    // ...
+
+  db:
+    image: mysql:8-debian
+    command: --sort_buffer_size=1024K
+    networks: [ internal ]
+    environment:
+      // ...
+    restart: on-failure
+    // ...
+
+volumes:
+  // ...
+
+networks:
+  // ...
+---

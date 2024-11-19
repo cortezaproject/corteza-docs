@@ -11,6 +11,7 @@
 *** xref:troubleshooting/health-check.adoc[]
 *** xref:troubleshooting/logging.adoc[]
 *** xref:troubleshooting/web-console.adoc[]
+*** xref:troubleshooting/mysql-out-of-sort-memory.adoc[]
 
 ** xref:access-control/index.adoc[]
 ** xref:discovery/index.adoc[]

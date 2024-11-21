@@ -1,0 +1,189 @@
+{
+  "meta": {
+    "releasedOn": "2024.11.21"
+  },
+
+  "added": [
+    {
+      "what": [
+        "the privacy app to default deploy."
+      ],
+      "why": [
+        "to make all the apps deploy by default."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/ea97ea498660d4c601dcc330794e6bad1566685b",
+        "https://github.com/cortezaproject/corteza/commit/938f65d8fa1d6dd60e70442c7b55c88b7465cb00"
+      ]
+    },
+    {
+      "what": [
+        "additional SQLServer column types to DAL schema validation."
+      ],
+      "why": [
+        "to support NVARCHAR columns."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/d6a2be331407bd188ffa09e1c355fcb3b718fc41"
+      ]
+    },
+    {
+      "what": [
+        "panic recovery to workflow execution state handling."
+      ],
+      "why": [
+        "to prevent {PRODUCT_NAME} from crashing when the state change handler encounters edge cases.",
+        "If {PRODUCT_NAME} recovers from a panic, the reason is logged to the console."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/2287894203d5345b0e5913ab1bbbe816209cb33b"
+      ]
+    },
+    {
+      "what": [
+        "CSV export of report table data."
+      ],
+      "why": [
+        "to allow users to easily report table data."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/172a78d299853f4f8dc30cb3bd322a8e82ca3b7d"
+      ]
+    }
+  ],
+
+  "changed": [
+    {
+      "what": [
+        "renamed number precision to scale in UI."
+      ],
+      "why": [
+        "to better represent the functionality, since scale is the correct term."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/9f7f2b8b6c6329f5d76a3bd54d5e8a2ec615e4d4"
+      ]
+    }
+  ],
+
+  "fixed": [
+    {
+      "what": [
+        "the ability to customize auth templates."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/pull/1906"
+      ]
+    },
+    {
+      "what": [
+        "datepicker calendar being contained in record block if the layout was horizontal."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/f9823a6c5db468c7b07b6026b09ab13f898e204b"
+      ]
+    },
+    {
+      "what": [
+        "user preferred language selected in the profile page not being respected."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/pull/1900"
+      ]
+    },
+    {
+      "what": [
+        "role pickers not being limited to 20 roles and add search functionality."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/pull/1910"
+      ]
+    },
+    {
+      "what": [
+        "roleID param not being respected in roleList endpoint."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/550db9f7aee7b8ca15110099dd9cbbd078ec5d17"
+      ]
+    },
+    {
+      "what": [
+        "resetting the active record list filter through UI."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/fc3d64d4483693c4f66bb1fc779c0e92330fc6da"
+      ]
+    },
+    {
+      "what": [
+        "namespaceID being repeated twice as id in HTML template."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/26270f215f02622a167deea8c4d0b2af18192757"
+      ]
+    },
+    {
+      "what": [
+        "the search in the main application menu."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/fb83a8fac83f631e41c714b9345304528194d282"
+      ]
+    },
+    {
+      "what": [
+        "the tab icon not being used in default auth templates."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/19931042f41cc9694f7765e0fa5b4f401cc758b3"
+      ]
+    },
+    {
+      "what": [
+        "refetching the reference record when record selector value changes."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/0bf54d0ce431355f0763d8e3a79235cc5824a862"
+      ]
+    },
+    {
+      "what": [
+        "the RecordValue datetime casting in workflows.",
+        "NOTE: make sure to check if your workflows are working as expected when upgrading."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/031374e88bf4c86f8789c554ddfe2e93abb2266b"
+      ]
+    },
+    {
+      "what": [
+        "other smaller UI/UX issues."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/0c08742a409d8711bffe8cc1ead292ce7d7c93a6",
+        "https://github.com/cortezaproject/corteza/commit/19249f345d8dd2a37396c95b78711a4bf66417a5",
+        "https://github.com/cortezaproject/corteza/commit/1218ef941918efb4b4b374f4c9d8d5cdf54d6ddb",
+        "https://github.com/cortezaproject/corteza/commit/08787130b8d011d9a8a356461a4b16b2285368c3",
+        "https://github.com/cortezaproject/corteza/commit/eb197996e68330e155e8fbb126284c6db5cf1bc9",
+        "https://github.com/cortezaproject/corteza/commit/77a9a8af3ec7e195cf58cdbf1ee5f3e707ce2c9f"
+      ]
+    },
+    {
+      "what": [
+        "workflow execution stack trace management to not include empty stack frames."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/6c671983f8744e6571f8272141fac7796ccdab36"
+      ]
+    },
+    {
+      "what": [
+        "workflow record prompts not being searchable if queryFields were not defined. It now defaults to the labelField like the compose record selector."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/2f3358e6ea2c59c8cda40a9ad2d0e3673421e1fc"
+      ]
+    }
+  ]
+}

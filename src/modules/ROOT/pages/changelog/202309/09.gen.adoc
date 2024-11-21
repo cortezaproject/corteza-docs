@@ -5,8 +5,8 @@ include::ROOT:partial$variables.adoc[]
 *Released on*: `2024.11.21`
 
 .[#2023_09_09-added]#<<2023_09_09-added,Added:>>#
-* Added the privacy app to default deploy.
-The change was added to make all the apps deploy by default
+* Added the privacy app to be included in the default deployment.
+The change was added to ensure all apps are deployed by default
 ({CORTEZA_COMMIT_BASE}ea97ea4[`ea97ea4`], {CORTEZA_COMMIT_BASE}938f65d[`938f65d`]).
 * Added additional SQLServer column types to DAL schema validation.
 The change was added to support NVARCHAR columns
@@ -15,42 +15,42 @@ The change was added to support NVARCHAR columns
 The change was added to prevent {PRODUCT_NAME} from crashing when the state change handler encounters edge cases
 If {PRODUCT_NAME} recovers from a panic, the reason is logged to the console
 ({CORTEZA_COMMIT_BASE}2287894[`2287894`]).
-* Added CSV export of report table data.
-The change was added to allow users to easily report table data
+* Added CSV export functionality for report table data.
+The change was added to allow users to easily export report table data
 ({CORTEZA_COMMIT_BASE}172a78d[`172a78d`]).
 
 .[#2023_09_09-changed]#<<2023_09_09-changed,Changed:>>#
-* Changed renamed number precision to scale in UI.
-The change was made to better represent the functionality, since scale is the correct term
+* Changed precision to scale in the Number field.
+The change was made to better represent the functionality, as scale is the correct term
 ({CORTEZA_COMMIT_BASE}9f7f2b8[`9f7f2b8`]).
 
 .[#2023_09_09-fixed]#<<2023_09_09-fixed,Fixed:>>#
-* Fixed the ability to customize auth templates
+* Fixed the ability to customize authentication templates
 ({CORTEZA_PULL_BASE}1906[`1906`]).
-* Fixed datepicker calendar being contained in record block if the layout was horizontal
+* Fixed datepicker calendar being contained within the record block if the layout was horizontal
 ({CORTEZA_COMMIT_BASE}f9823a6[`f9823a6`]).
-* Fixed user preferred language selected in the profile page not being respected
+* Fixed user preferred language selection in the profile page not being respected
 ({CORTEZA_PULL_BASE}1900[`1900`]).
-* Fixed role pickers not being limited to 20 roles and add search functionality
+* Fixed role pickers not being limited to 20 roles and added search functionality
 ({CORTEZA_PULL_BASE}1910[`1910`]).
-* Fixed roleID param not being respected in roleList endpoint
+* Fixed roleID parameter not being respected in the roleList endpoint
 ({CORTEZA_COMMIT_BASE}550db9f[`550db9f`]).
-* Fixed resetting the active record list filter through UI
+* Fixed resetting the active record list filter through the UI
 ({CORTEZA_COMMIT_BASE}fc3d64d[`fc3d64d`]).
-* Fixed namespaceID being repeated twice as id in HTML template
+* Fixed namespaceID being repeated twice as id in the HTML template
 ({CORTEZA_COMMIT_BASE}26270f2[`26270f2`]).
-* Fixed the search in the main application menu
+* Fixed the search functionality in the main application menu
 ({CORTEZA_COMMIT_BASE}fb83a8f[`fb83a8f`]).
-* Fixed the tab icon not being used in default auth templates
+* Fixed the browser tab icon not being used in default authentication templates
 ({CORTEZA_COMMIT_BASE}1993104[`1993104`]).
-* Fixed refetching the reference record when record selector value changes
+* Fixed refetching the reference record when the record selector value changes
 ({CORTEZA_COMMIT_BASE}0bf54d0[`0bf54d0`]).
 * Fixed the RecordValue datetime casting in workflows
-NOTE: make sure to check if your workflows are working as expected when upgrading
+NOTE: Ensure your workflows are functioning as expected after upgrading
 ({CORTEZA_COMMIT_BASE}031374e[`031374e`]).
-* Fixed other smaller UI/UX issues
+* Fixed various smaller UI/UX issues
 ({CORTEZA_COMMIT_BASE}0c08742[`0c08742`], {CORTEZA_COMMIT_BASE}19249f3[`19249f3`], {CORTEZA_COMMIT_BASE}1218ef9[`1218ef9`], {CORTEZA_COMMIT_BASE}0878713[`0878713`], {CORTEZA_COMMIT_BASE}eb19799[`eb19799`], {CORTEZA_COMMIT_BASE}77a9a8a[`77a9a8a`]).
-* Fixed workflow execution stack trace management to not include empty stack frames
+* Fixed workflow execution stack trace management to exclude empty stack frames
 ({CORTEZA_COMMIT_BASE}6c67198[`6c67198`]).
 * Fixed workflow record prompts not being searchable if queryFields were not defined It now defaults to the labelField like the compose record selector
 ({CORTEZA_COMMIT_BASE}2f3358e[`2f3358e`]).

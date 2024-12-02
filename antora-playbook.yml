@@ -25,7 +25,7 @@ asciidoc:
     experimental: true
     doctype: book
     collapsible: true
-    page-latest: '2023.9'
+    page-latest: '2024.9'
     kroki-fetch-diagram: true
   extensions:
     - asciidoctor-kroki

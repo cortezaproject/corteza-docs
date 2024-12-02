@@ -1,0 +1,60 @@
+include::ROOT:partial$variables.adoc[]
+
+= `2024.9.0`
+
+*Released on*: `2024.12.02`
+
+.[#2024_09_00-added]#<<2024_09_00-added,Added:>>#
+* Added the ability to open records directly in edit mode.
+The change was added to streamline record editing by bypassing the view mode
+({CORTEZA_COMMIT_BASE}18243a4[`18243a4`]).
+* Added multiple methods for adding new records.
+The change was added to enhance flexibility by supporting addition in the same tab, a new tab, or a modal
+({CORTEZA_COMMIT_BASE}c0fd421[`c0fd421`]).
+* Added the option to specify text field wrapping in record lists.
+The change was added to provide better control over text display in record lists
+({CORTEZA_COMMIT_BASE}005f698[`005f698`]).
+* Added visibility conditions for page blocks.
+The change was added to allow dynamic control over when page blocks are displayed
+({CORTEZA_COMMIT_BASE}77c1838[`77c1838`]).
+* Added autocompletion in expression editors, workflow text editors, and the branding CSS editor.
+The change was added to simplify editing by providing suggestions during input
+({CORTEZA_COMMIT_BASE}5e2f280[`5e2f280`]).
+* Added the ability to add new records from Record Selector editor fields.
+The change was added to improve efficiency by enabling direct record creation from the Record Selector
+({CORTEZA_COMMIT_BASE}5f94d59[`5f94d59`]).
+* Added the ability to configure record list filters using the record filter UI.
+The change was added to provide a more intuitive method for setting up record list filters
+({CORTEZA_COMMIT_BASE}3ebb8ac[`3ebb8ac`]).
+* Added the ability to configure field wrapping in record blocks.
+The change was added to allow users to control whether fields in record blocks wrap or remain on a single line
+({CORTEZA_COMMIT_BASE}a1e1b2d[`a1e1b2d`]).
+* Added tables in the rich text editor.
+The change was added to enable the use of tables for structured content in rich text
+({CORTEZA_COMMIT_BASE}0322717[`0322717`]).
+* Added the ability to disable save notifications on record pages.
+The change was added to provide a cleaner user experience by hiding save notifications when saving records
+({CORTEZA_COMMIT_BASE}b744202[`b744202`]).
+* Added inline filtering for record list blocks based on record values.
+The change was added to simplify filtering by allowing users to filter lists without manually typing values
+({CORTEZA_COMMIT_BASE}a3b9b9a[`a3b9b9a`]).
+* Added live filters for chart blocks.
+The change was added to allow users to filter charts directly without needing to edit them
+({CORTEZA_COMMIT_BASE}bd28b34[`bd28b34`]).
+* Added permissions for exporting namespaces, modules, and charts.
+The change was added to control who has the ability to export data.
+NOTE: Review and adjust permissions after upgrading..
+
+.[#2024_09_00-changed]#<<2024_09_00-changed,Changed:>>#
+* Changed the user experience for record list filters
+({CORTEZA_COMMIT_BASE}73b12d6[`73b12d6`]).
+* Changed general UI/UX enhancements:
+** Updated styles for simple lists (eg, module fields, select options)
+** Standardized cancel buttons in modals
+** Standardized restore and suspend button styles
+** Unified confirmation button components
+({CORTEZA_COMMIT_BASE}38c145d[`38c145d`], {CORTEZA_COMMIT_BASE}57c2cd5[`57c2cd5`], {CORTEZA_COMMIT_BASE}a1d116b[`a1d116b`], {CORTEZA_COMMIT_BASE}97b966e[`97b966e`]).
+
+.[#2024_09_00-removed]#<<2024_09_00-removed,Removed:>>#
+* Removed CRM and Service Solution apps from the default deployment
+({CORTEZA_COMMIT_BASE}a036786[`a036786`]).

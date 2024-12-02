@@ -1,0 +1,186 @@
+{
+  "meta": {
+    "releasedOn": "2024.12.02"
+  },
+
+  "added": [
+    {
+      "what": [
+        "the ability to open records directly in edit mode."
+      ],
+      "why": [
+        "to streamline record editing by bypassing the view mode."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/18243a40928049e15aedd0888f6a7a94dc76a172"
+      ]
+    },
+    {
+      "what": [
+        "multiple methods for adding new records."
+      ],
+      "why": [
+        "to enhance flexibility by supporting addition in the same tab, a new tab, or a modal."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/c0fd4219a868bec4122226ebe1a7ae88802a2581"
+      ]
+    },
+    {
+      "what": [
+        "the option to specify text field wrapping in record lists."
+      ],
+      "why": [
+        "to provide better control over text display in record lists."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/005f698d598d7c902b98aa7eb712fb7c60f3e6d7"
+      ]
+    },
+    {
+      "what": [
+        "visibility conditions for page blocks."
+      ],
+      "why": [
+        "to allow dynamic control over when page blocks are displayed."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/77c183875b2465d46f69763607a01cc1171a70ab"
+      ]
+    },
+    {
+      "what": [
+        "autocompletion in expression editors, workflow text editors, and the branding CSS editor."
+      ],
+      "why": [
+        "to simplify editing by providing suggestions during input."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/5e2f2800d693e06f295850d56395b945785bfb0d"
+      ]
+    },
+    {
+      "what": [
+        "the ability to add new records from Record Selector editor fields."
+      ],
+      "why": [
+        "to improve efficiency by enabling direct record creation from the Record Selector."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/5f94d59b4af07a6b880da2d23697c5aa6a86ab2a"
+      ]
+    },
+    {
+      "what": [
+        "the ability to configure record list filters using the record filter UI."
+      ],
+      "why": [
+        "to provide a more intuitive method for setting up record list filters."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/3ebb8ac7a9e8e4a405564735ff642f89459828d4"
+      ]
+    },
+    {
+      "what": [
+        "the ability to configure field wrapping in record blocks."
+      ],
+      "why": [
+        "to allow users to control whether fields in record blocks wrap or remain on a single line."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/a1e1b2d565c63d47f9fa603f09d350d82f40583a"
+      ]
+    },
+    {
+      "what": [
+        "tables in the rich text editor."
+      ],
+      "why": [
+        "to enable the use of tables for structured content in rich text."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/0322717a3317c58f48db8ba873290cc5129e3056"
+      ]
+    },
+    {
+      "what": [
+        "the ability to disable save notifications on record pages."
+      ],
+      "why": [
+        "to provide a cleaner user experience by hiding save notifications when saving records."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/b7442025d33c50bacd6c7814ceed431489739ceb"
+      ]
+    },
+    {
+      "what": [
+        "inline filtering for record list blocks based on record values."
+      ],
+      "why": [
+        "to simplify filtering by allowing users to filter lists without manually typing values."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/a3b9b9a2b37f457a6e7ea50d11ab5ecbec1f8fd0"
+      ]
+    },
+    {
+      "what": [
+        "live filters for chart blocks."
+      ],
+      "why": [
+        "to allow users to filter charts directly without needing to edit them."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/bd28b34ad45ed6f2cc3b21648fd546ee3ee76762"
+      ]
+    },
+    {
+      "what": [
+        "permissions for exporting namespaces, modules, and charts."
+      ],
+      "why": [
+        "to control who has the ability to export data.",
+        "NOTE: Review and adjust permissions after upgrading."
+      ]
+    }
+  ],
+
+  "changed": [
+    {
+      "what": [
+        "the user experience for record list filters."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/73b12d687288e139d92473e688cac5bf4592d175"
+      ]
+    },
+    {
+      "what": [
+        "general UI/UX enhancements:",
+        "** Updated styles for simple lists (e.g., module fields, select options).",
+        "** Standardized cancel buttons in modals.",
+        "** Standardized restore and suspend button styles.",
+        "** Unified confirmation button components."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/38c145d6c17627a825729685362e087038c3ae59",
+        "https://github.com/cortezaproject/corteza/commit/57c2cd5ed2c3c5a9fa4717f780659f54065de54c",
+        "https://github.com/cortezaproject/corteza/commit/a1d116b05e6f8671117642113bb06e711ac76c3c",
+        "https://github.com/cortezaproject/corteza/commit/97b966eee7d88f55784f0bded82ffe87db31e82b"
+      ]
+    }
+  ],
+
+  "removed": [
+    {
+      "what": [
+        "CRM and Service Solution apps from the default deployment."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/a036786d7e6735ee7eb7a3b9e330ef720e862c2d"
+      ]
+    }
+  ]
+}

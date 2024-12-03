@@ -1,6 +1,6 @@
 name: corteza-docs
 title: Corteza Guides
-version: '2023.9'
+version: '2024.9'
 nav:
   - modules/integrator-guide/nav.adoc
   - modules/end-user-guide/nav.adoc

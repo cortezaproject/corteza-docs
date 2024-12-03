@@ -1,7 +1,7 @@
 include::ROOT:partial$variables.adoc[]
 
 = Health Check
-:page-aliases: 2023.9@maintenance/health-check.adoc
+:page-aliases: 2024.9@maintenance/health-check.adoc
 :description: A health check is a series of steps you should take to verify that everything is set up and working correctly.
 :keywords: dev-ops, DevOps, CLI, health check, maintenance
 
@@ -31,9 +31,9 @@ Alternatively, you can run the `docker-compose ps` command to check the health f
 
 [source]
 ----
-       Name                      Command                  State                Ports         
+       Name                      Command                  State                Ports
 ---------------------------------------------------------------------------------------------
-my-corteza_db_1       /docker-entrypoint.sh mysqld     Up (healthy)   3306/tcp, 33060/tcp    
+my-corteza_db_1       /docker-entrypoint.sh mysqld     Up (healthy)   3306/tcp, 33060/tcp
 my-corteza_server_1   ./bin/corteza-server serve-api   Up (healthy)   127.0.0.1:18080->80/tcp
 ----
 

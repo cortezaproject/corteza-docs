@@ -3,8 +3,10 @@ include::ROOT:partial$variables.adoc[]
 [#2024-9-x]
 = `2024.9`
 
-we’ve focused on enhancing the core functionality of {PRODUCT_NAME} by introducing new options for greater customization.
+With {PRODUCT_NAME} `2024.9`, we’ve focused on enhancing the core functionality of {PRODUCT_NAME} by introducing new options for greater customization.
+
 We’ve also streamlined low-code development with the addition of intelligent code suggestions for expression inputs, available in both Compose and Workflows.
+
 Looking ahead, we plan to expand these features with even more robust suggestions.
 
 :leveloffset: +1

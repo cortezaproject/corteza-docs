@@ -1,0 +1,67 @@
+include::ROOT:partial$variables.adoc[]
+
+= Optimize RBAC System Resource Usage
+
+{PRODUCT_NAME} access control, from version xref:ROOT:changelog/202409/index.adoc[] forth, allows system administrators to control system resource usage.
+Prior versions, to provide best performance possible, pulled the entire access control model to memory which proved to be ineffective for a subset of use-cases.
+Refer to the xref:devops-guide:references/configuration/server.adoc[] for details on available configuration options.
+
+[IMPORTANT]
+====
+Refer to the <<#most-common-scenarios>> section to determine if this makes sense for you.
+====
+
+== How it Works
+
+The original implementation held the entire security context in an in-memory index.
+The index is now split up into the following components:
+
+* `The in-memory index` which holds a portion (or the entire) security context in-memory.
+* `The counter` which holds some metadata regarding system access and what resources make the most sense to keep in memory.
+* `The service` which ties all the new pieces together, combining the in-memory and database-stored security context.
+* `Service performance logger` which stores some metadata regarding system access, index hits, index misses, and timings.
+
+[NOTE]
+====
+To avoid preserving previously held resources which are no longer used, the counter applies a decay factor.
+====
+
+Whenever the service determines the in memory state needs to re-evaluate, it looks up the counters' state to determine what is used the most.
+
+== Monitoring
+
+To monitor your system, we recommend inspecting both system resource utilization along with inspecting the `/system/stats/` endpoint.
+
+.The `/system/stats/` endpoint reports the following parameters:
+* `cacheHits` reports the total number of access evaluation requests pulled from the index.
+* `cacheMisses` reports the total number of access evaluation requests pulled from the database.
+* `cacheUpdates` reports the total number of cache updates.
+* `avgDbTiming` reports the average cache miss timing in nanoseconds (includes both preparing the query and parsing results).
+* `minDbTiming` reports the minimum cache miss timing in nanoseconds (includes both preparing the query and parsing results).
+* `maxDbTiming` reports the maximum cache miss timing in nanoseconds (includes both preparing the query and parsing results).
+* `avgIndexTiming` reports the average cache hit timing in nanoseconds.
+* `minIndexTiming` reports the minimum cache hit timing in nanoseconds.
+* `maxIndexTiming` reports the maximum cache hit timing in nanoseconds.
+* `indexSize` reports the current index size.
+* `lastHits` reports the last 500 index hits.
+* `lastMisses` reports the last 500 index misses.
+* `lastDbTimings` reports the last 500 cache miss timings.
+* `lastIndexTimings` reports the last 500 cache hit timings.
+* `counters` reports the current counter states.
+
+[#most-common-scenarios]
+== Most Common Scenarios
+
+=== Low-Power Server
+
+In case you're running {PRODUCT_NAME} on a server with heavily limited resources (primarily focusing on RAM), consider limiting the index size or turning in memory indexing all together.
+
+[NOTE]
+====
+To disable in memory indexing, set `RBAC_MAX_INDEX_SIZE=0`
+====
+
+=== Large Number of RBAC Rules
+
+In case you're not doing role composition or you're implementing role hierarchy/access on a more granular approach, your system might programmatically assigning roles and rules to all or most {PRODUCT_NAME} {APP_NAME_COMPOSE}.
+If that's the case, you might want to limit the in memory index size based on your system.

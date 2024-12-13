@@ -13,6 +13,8 @@
 *** xref:troubleshooting/web-console.adoc[]
 
 ** xref:access-control/index.adoc[]
+*** xref:access-control/optimize-rbac-system-resource-usage.adoc[]
+
 ** xref:discovery/index.adoc[]
 ** xref:i18n/index.adoc[]
 ** xref:email-relay.adoc[]

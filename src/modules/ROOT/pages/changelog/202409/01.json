@@ -1,0 +1,20 @@
+{
+  "meta": {
+    "releasedOn": "2024.12.02"
+  },
+
+  "added": [],
+
+  "changed": [
+    {
+      "what": [
+        "LIMIT_RECORD_COUNT_PER_NAMESPACE to LIMIT_RECORD_COUNT_PER_MODULE which check number of records in the given module over namespace"
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/6c60464d1"
+      ]
+    }
+  ],
+
+  "removed": []
+}

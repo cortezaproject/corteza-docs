@@ -10,6 +10,17 @@ Static translations are button labels, system page titles, and error messages.
 
 Refer to xref:i18n/resource.adoc[resource translations] to learn how to translate configurable content.
 
+== Enabling languages
+
+The list of enabled languages is defined by the `LOCALE_LANGUAGES` environment variable.
+Use a single language code or a comma-separated list of language codes.
+
+.An example configuration that uses English, German, and Italian languages:
+[source]
+----
+LOCALE_LANGUAGES="en,de,it"
+----
+
 == Modify static translations
 
 === Fork the corteza-locale repository

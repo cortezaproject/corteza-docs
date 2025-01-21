@@ -128,6 +128,8 @@ If you want to define multiple languages, you need to separate them with a comma
 LOCALE_LANGUAGES="en,de,it"
 ----
 
+To enable translations for your {PRODUCT_NAME} {APP_NAME_COMPOSE} custom content, you have to set `LOCALE_RESOURCE_TRANSLATIONS_ENABLED=true`.
+
 == Development Environment
 
 {PRODUCT_NAME} provides some helpful utilities for debugging and general translations, which can be enabled with the following `.env` variables.

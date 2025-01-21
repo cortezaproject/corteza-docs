@@ -70,7 +70,7 @@ On the data privacy console, click on btn:[incoming privacy button].
 {
   "image": {
     "rel": "data-privacy/incoming-privacy.png",
-    "alias": "incomimg-privacy",
+    "alias": "incoming-privacy",
     "w": 1920,
     "h": 1080
   },

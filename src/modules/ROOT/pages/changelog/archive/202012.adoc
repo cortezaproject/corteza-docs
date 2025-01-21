@@ -9,11 +9,11 @@ include::partial$variables.adoc[]
 * Central importing and exporting subsystem "Envoy" with capabilities to resolve conflicts, dependencies and tak in various data formats.
 * Provisioning (based on Envoy) now allows full customization of content to be provisioned.
 * Field value expressions (formula fields, custom validators).
-* Resource labels (key-value meta data for filtering and tagging resource with arbitraty strings).
+* Resource labels (key-value meta data for filtering and tagging resource with arbitrary strings).
 * Frontend web applications can now be served directly from server (reduces number of containers).
 * API documentation (now as OpenAPI 3) is now served directly from server.
 * Upgrade to go v1.15.
-* Simplified architecture and internal cross-service comm (no more support for spearated builds for system, messaging and compose).
+* Simplified architecture and internal cross-service comm (no more support for separated builds for system, messaging and compose).
 * Error creation and handling now allows more verbosity and detail in dev and production mode.
 * Cleanup codegen tools and unified all codegen under one package and single strategy.
 * Replaced rebuild-on-change dev tool (`realize`) with gin (`github.com/codegangsta/gin`).

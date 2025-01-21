@@ -90,7 +90,7 @@ IP and port for the HTTP server.
 === Description
 
 When webapps are enabled (HTTP_WEBAPP_ENABLED) this is moved to '/api' if not explicitly set otherwise.
-API base URL is internaly prefixed with baseUrl
+API base URL is internally prefixed with baseUrl
 
 == *HTTP_API_ENABLED*
 
@@ -293,7 +293,7 @@ Username for the metrics endpoint.
 
 Is SSL termination enabled in ingres, proxy or load balancer that is in front of Corteza?
 By default, Corteza checks for presence of LETSENCRYPT_HOST environmental variable.
-This DOES NOT enable SSL termination in Cortreza!
+This DOES NOT enable SSL termination in Corteza!
 
 == *HTTP_ERROR_TRACING*
 
@@ -373,7 +373,7 @@ Username for the web console endpoint.
 ----
 === Description
 
-Webapp base URL is internaly prefixed with baseUrl
+Webapp base URL is internally prefixed with baseUrl
 
 == *HTTP_WEBAPP_ENABLED*
 
@@ -874,7 +874,7 @@ corteza-webapp
 Handle for OAuth2 client used for automatic redirect from /auth/oauth2/go endpoint.
 
 This simplifies configuration for OAuth2 flow for Corteza Web applications as it removes
-the need to suply redirection URL and client ID (oauth2/go endpoint does that internally)
+the need to supply redirection URL and client ID (oauth2/go endpoint does that internally)
 
 
 == *AUTH_DEVELOPMENT_MODE*
@@ -953,9 +953,9 @@ HS512
 ----
 === Description
 
-Algoritm to be use for JWT signature.
+Algorithm to be use for JWT signature.
 
-Supported valus:
+Supported values:
  - HS256, HS384, HS512
  - PS256, PS384, PS512,
  - RS256, RS384, RS512
@@ -1049,7 +1049,7 @@ Refresh tokens are used to exchange expired access tokens with new ones.
 ----
 === Description
 
-How many requests from a cerain IP address are allowed in a time window.
+How many requests from a certain IP address are allowed in a time window.
 Set to zero to disable
 
 == *AUTH_REQUEST_RATE_WINDOW_LENGTH*
@@ -1067,7 +1067,7 @@ Set to zero to disable
 ----
 === Description
 
-How many requests from a cerain IP address are allowed in a time window
+How many requests from a certain IP address are allowed in a time window
 
 == *AUTH_JWT_SECRET*
 
@@ -1154,7 +1154,7 @@ Defaults to true when HTTPS is used. Corteza will try to guess the this setting 
 
 Maximum time user is allowed to stay idle when logged in without "remember-me" option and before session is expired.
 
-Recomended value is between an hour and a day.
+Recommended value is between an hour and a day.
 
 [IMPORTANT]
 ====
@@ -1266,7 +1266,7 @@ Max delay for backoff on connection.
 
 === Description
 
-Max message size that can be recived.
+Max message size that can be received.
 
 == *CORREDOR_RUN_AS_ENABLED*
 
@@ -1546,7 +1546,7 @@ en
 ----
 === Description
 
-List of compa delimited languages (language tags) to enable.
+List of comma delimited languages (language tags) to enable.
 In case when an enabled language can not be loaded, error is logged.
 
 When loading language configurations (config.xml) from the configured path(s).
@@ -1931,7 +1931,7 @@ Set reported environment.
 
 === Description
 
-Maximum number of bredcrumbs.
+Maximum number of breadcrumbs.
 
 == *SENTRY_RELEASE*
 

@@ -2,7 +2,7 @@ include::ROOT:partial$variables.adoc[]
 
 = Installing  Dart Sass 
 
-== Development Enviroment
+== Development Environment
  
 Follow the instructions below to install dart-sass binaries based on your operating system:
 
@@ -46,7 +46,7 @@ Alternatively, you can download Dart Sass binaries directly from the https://git
 When using prebuilt binaries, make sure to add Dart Sass to your system's PATH.
 ====
 
-== Build Enviroment
+== Build Environment
 
 In a build environment, especially when deploying with CI/CD pipelines or Docker, you can ensure that Dart Sass is available using the following methods:
 
@@ -69,7 +69,7 @@ To install Dart Sass for Docker, include the following step in your Dockerfile:
 
 [source, Dockerfile]
 ----
-# Replace the image with your deplyment Docker image
+# Replace the image with your deployment Docker image
 FROM ubuntu:20.04
 
 RUN apt-get -y update \

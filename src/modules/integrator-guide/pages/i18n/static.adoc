@@ -52,7 +52,7 @@ Refer to the xref:devops-guide:i18n/index.adoc[DevOps guide] for details.
 <1> The directory must be named with the language tag of the contents.
 The language tag must follow the https://en.wikipedia.org/wiki/IETF_language_tag[BCP-47] standard.
 <2> The directory must be named the same as the repository in which it will be used in.
-To examplify; translations used by {PRODUCT_NAME} {APP_NAME_COMPOSE} is named as `corteza-webapp-compose`.
+To exemplify; translations used by {PRODUCT_NAME} {APP_NAME_COMPOSE} is named as `corteza-webapp-compose`.
 <3> The file contains a series of translations that are grouped in a locale namespace.
 
 [CAUTION]

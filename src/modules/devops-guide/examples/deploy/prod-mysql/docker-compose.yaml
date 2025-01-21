@@ -10,7 +10,7 @@ services:
     # Uncomment to use local fs for data persistence
     volumes: [ "./data/server:/data" ]
     environment:
-      # This two are needed only if you are using NginX Lets-Encrypt companion
+      # These two are needed only if you are using NginX Lets-Encrypt companion
       # (see docs.cortezaproject.org for details)
       # VIRTUAL_HOST helps NginX proxy route traffic for specific virtual host to this container
       VIRTUAL_HOST:     ${DOMAIN}

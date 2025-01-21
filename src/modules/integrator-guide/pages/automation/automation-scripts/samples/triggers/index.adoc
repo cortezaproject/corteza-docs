@@ -92,7 +92,7 @@ triggers ({ at }) {
 
 [source,js]
 ----
-// When POST request on a certain path is recieved
+// When POST request on a certain path is received
 triggers ({ on }) {
   return on('request')
     .where('request.path', '/some/path/here')

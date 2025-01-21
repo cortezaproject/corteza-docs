@@ -24,7 +24,7 @@ The navigation can be an addition to the pre-defined one or a complete replaceme
 * *Tabbed* page block allows you to _pack_ multiple page blocks into a single one, _hidden_ behind tabs.
 The tabbed page block enables you to condense user interfaces by _hiding_ common bits of information behind the same page block.
 
-*UI Touchups*
+*UI Touch-ups*
 
 User interfaces were a big focus for the `2023.3` release; improving user experience when configuring and interacting with your application, as well as laying the groundwork for future releases.
 
@@ -35,7 +35,7 @@ User interfaces were a big focus for the `2023.3` release; improving user experi
 * Added a simplified way of re-designing authentication screens without the need to fiddle with the source templates.
 The admin webapp now allows you to inject custom CSS as well as change the background image.
 
-.End-User UI Touchups:
+.End-User UI Touch-ups:
 * Added a basic chart drill-down option allowing you to filter record lists based on your interaction with the chart.
 * Added the ability to open records inside modal windows to better suite power users.
 * Added the ability for users open specific page blocks in a modal or as full screen.

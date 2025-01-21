@@ -36,10 +36,10 @@ Peter Grlica (https://github.com/petergrlica[GH]).
 
 .[#2021_9_5-fixed]#<<2021_9_5-fixed,Fixed:>>#
 * Translatable content (modules, names, pages, namespaces) is now sent with current language ({WEBAPP_COMPOSE_COMMIT_BASE}5bd3bd37[`5bd3bd37`]).
-* Improve slow performance in some casses with wf-loops by increesing workflow session state flushing from 10 to 1000 ({SERVER_COMMIT_BASE}486a5752[`486a5752`]).
-* Prevent table display elements from crashing if an empty join frame is recieved ({WEBAPP_REPORTER_COMMIT_BASE}f244b7b2[`f244b7b2`]).
+* Improve slow performance in some cases with wf-loops by increasing workflow session state flushing from 10 to 1000 ({SERVER_COMMIT_BASE}486a5752[`486a5752`]).
+* Prevent table display elements from crashing if an empty join frame is received ({WEBAPP_REPORTER_COMMIT_BASE}f244b7b2[`f244b7b2`]).
 * Fixed improper report route bindings ({WEBAPP_REPORTER_COMMIT_BASE}d250827b[`d250827b`]).
-* Added missing type definition to the report filter perser registry ({SERVER_COMMIT_BASE}08ef5ab10[`08ef5ab10`]).
+* Added missing type definition to the report filter parser registry ({SERVER_COMMIT_BASE}08ef5ab10[`08ef5ab10`]).
 * Fixed panicking report filter marshaling when invalid ({SERVER_COMMIT_BASE}59ef8da1a[`59ef8da1a`]).
 * Fixed improper handling of automation page blocks which define buttons with no references ({SERVER_COMMIT_BASE}047b647af[`047b647af`]).
 * Prevent text from exiting container in EditorToolbox ({WEBAPP_ADMIN_COMMIT_BASE}147dcd7[`147dcd7`]).

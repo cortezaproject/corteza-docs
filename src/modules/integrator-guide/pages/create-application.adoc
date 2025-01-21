@@ -212,7 +212,7 @@ After completing the form with the application's details, click the btn:[submit]
 
 == Enabling Visibility of the Application 
 
-To enable visiblity of an application, locate and click on the btn:[Listed] checkbox on the edit application page.
+To enable visibility of an application, locate and click on the btn:[Listed] checkbox on the edit application page.
 
 [annotation,role="data-zoomable"]
 ----

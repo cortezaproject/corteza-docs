@@ -524,11 +524,11 @@ We characterise three main kinds of iterators:
 
 [#iterator-kind-condition]#<<iterator-kind-condition,Condition iterators>>#::
   A condition iterator repeats for as long as the condition you've provided results as truthy.
-  To examplify; a condition of `counter < 10` would make the iterator repeat for as long as the counter is below 10.
+  To exemplify; a condition of `counter < 10` would make the iterator repeat for as long as the counter is below 10.
 
 [#iterator-kind-item]#<<iterator-kind-item,Item iterators>>#::
   An item iterator traverses the provided set of items from start to finish.
-  To examplify; we pass in 10 records, therefore the iterator repeats 10 times, once for each record in the provided set.
+  To exemplify; we pass in 10 records, therefore the iterator repeats 10 times, once for each record in the provided set.
 
 [TIP]
 ====

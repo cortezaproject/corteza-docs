@@ -72,7 +72,7 @@
     },
     {
       "what": [
-        "select inputs that were using the api for search (User, Workflow) did't work properly."
+        "select inputs that were using the api for search (User, Workflow) didn't work properly."
       ],
       "refs": [
         "https://github.com/cortezaproject/corteza/commit/01bd594118f306d959ec3493428f80c709f9c9df"

@@ -45,7 +45,7 @@ The codegen generates REST API request handlers and request parsing.
 The documentation is generated using the https://github.com/cortezaproject/openapi3-converter/tree/develop[openapi3-converter] tool, not codegen.
 ====
 
-.YAML defintions:
+.YAML definitions:
 * `*/rest.yaml`
 
 .Template files:
@@ -56,7 +56,7 @@ The documentation is generated using the https://github.com/cortezaproject/opena
 
 The codegen generates common type set receivers and generic boilerplate logic for features such as resource labels.
 
-.YAML defintions:
+.YAML definitions:
 * `\*/*/types.yaml`
 
 .Template files:
@@ -69,7 +69,7 @@ The codegen generates common type set receivers and generic boilerplate logic fo
 The codegen generates the available service actions along with the properties and errors.
 These actions are primarily used for the action log.
 
-.YAML defintions:
+.YAML definitions:
 * `*/services/*_actions.yaml`
 
 .Template files:
@@ -80,7 +80,7 @@ These actions are primarily used for the action log.
 The codegen generates the available events that the system can emit from different services.
 These events are primarily used by the event bus for automation.
 
-.YAML defintions:
+.YAML definitions:
 * `*/service/event/events.yaml`
 
 .Template files:
@@ -93,7 +93,7 @@ These events are primarily used by the event bus for automation.
 The codegen generates the entire store interface.
 In the case of RDBMS, the implementation is also generated.
 
-.YAML defintions:
+.YAML definitions:
 * `store/*.yaml`
 
 .Template files:
@@ -108,7 +108,7 @@ In the case of RDBMS, the implementation is also generated.
 The codegen generates all of the defined options accessible from the `.env` file variables.
 The options may define defaults as well as any preprocessing.
 
-.YAML defintions:
+.YAML definitions:
 * `pkg/options/*.yaml`
 
 .Template files:
@@ -120,7 +120,7 @@ The options may define defaults as well as any preprocessing.
 The codegen generates the definitions and wrappers for function handlers.
 You must still define the core logic of the handler manually.
 
-.YAML defintions:
+.YAML definitions:
 * `*/automation/*_handler.yaml`
 
 .Template files:
@@ -131,7 +131,7 @@ You must still define the core logic of the handler manually.
 The codegen generates the expression types and casting rules.
 The more complex types (such as `ComposeRecord`) custom casting and operations may be defined manually.
 
-.YAML defintions:
+.YAML definitions:
 * `\*/*/expr_types.yaml`
 
 .Template files:

@@ -2,7 +2,7 @@ include::ROOT:partial$variables.adoc[]
 
 = C3
 
-{PRODUCT_NAME} Component Catalogue (C3) is a tool for building UI components in an insulated environment, making it easier to develope independent components.
+{PRODUCT_NAME} Component Catalogue (C3) is a tool for building UI components in an insulated environment, making it easier to develop independent components.
 
 C3 was inspired by Storybook with the main difference of "hooking into" components instead of defining stories to outline the functionality.
 
@@ -59,7 +59,7 @@ image::web-applications/c3-example-submit-button.png[]
 === Define the config file
 
 The `.c3.js` config file should be named after the component itself.
-To examplify; the `Button.vue` component should define the `Button.c3.js` configuration file.
+To exemplify; the `Button.vue` component should define the `Button.c3.js` configuration file.
 
 .The configuration file reference:
 [source,js]

@@ -11,7 +11,7 @@ services:
     environment:
       # VIRTUAL_HOST helps NginX proxy route traffic for specific virtual host to
       # this container
-      # This value is also picked up by initial boot auto-configuration procedure
+      # This value is also picked up by initial boot autoconfiguration procedure
       # If this is changed, make sure you change settings accordingly
       VIRTUAL_HOST: ${DOMAIN}
       # This is needed only if you are using NginX Lets-Encrypt companion

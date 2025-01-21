@@ -15,7 +15,7 @@ include::ROOT:partial$variables.adoc[]
 .To import the namespace:
 . go to menu:{PRODUCT_NAME} {APP_NAME_COMPOSE}[],
 . click on the btn:[Import] button for the top-left corner,
-. drag'n drop the `.zip` file into the file drop area.
+. drag'n'drop the `.zip` file into the file drop area.
 
 [CAUTION]
 ====

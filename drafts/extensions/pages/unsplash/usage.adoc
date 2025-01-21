@@ -8,7 +8,7 @@ import Unsplash from 'unsplash/lib/'
 // Next step is to initialize the Unsplash client with the `accessKey` and `secret`
 const unsplashClient = new UnsplashClient(accessKey, secret)
 
-// The client is now ready to accept querries, for example
+// The client is now ready to accept queries, for example
 const images = await unsplashClient.search({ query: 'Example', perPage: 10, page: 1 })
 ----
 

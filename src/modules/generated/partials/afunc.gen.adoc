@@ -785,7 +785,7 @@
 * #*# `Metrics for records report`
 (
    `String`,)
-* #*# `Dimensons for records report`
+* #*# `Dimensions for records report`
 (
    `String`,)
 * #*# `Filter for records report`

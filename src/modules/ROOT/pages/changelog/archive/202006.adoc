@@ -40,8 +40,8 @@ include::partial$variables.adoc[]
 .Changes:
 * Ported to TypeScript.
 * Added ability to bundle (via webpack) frontend scripts on the fly.
-* Scripts (code) is no longer transferd over the wire but stored on filesystem accessible by {PRODUCT_NAME}.
-* Restructured scripts (wraped in a method) to allow (unit) testing.
+* Scripts (code) is no longer transferrd over the wire but stored on filesystem accessible by {PRODUCT_NAME}.
+* Restructured scripts (wrapped in a method) to allow (unit) testing.
 * Added ability to install dependencies (through yarn) on the fly.
 * Improved ability to capture log output from scripts.
 * Added ability to load (3rd party) scripts as extensions and overload them if needed.

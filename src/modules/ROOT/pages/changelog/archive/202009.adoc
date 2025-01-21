@@ -20,7 +20,7 @@ include::partial$variables.adoc[]
 * Various record input sanitization fixes.
 * Optimize database transaction settings and use.
 * Add health check service & API endpoints.
-* Compose config importer/exporter fixed & improved (fields, charts, moduel resolving).
+* Compose config importer/exporter fixed & improved (fields, charts, module resolving).
 * More flexible actionlog configuration, added logging policies.
 * Fix page reordering on the root node.
 * Upgrade all provisioned config, "Service Cloud" renamed to "Case Management".

@@ -15,7 +15,7 @@ Record lists allow you to enable record selection, allowing you to perform autom
 . add a trigger with a resource of either `Compose Page` or `Compose Record`,
 
 The workflow receives a `selected` scope variable which defines a list of selected record IDs.
-To examplify; the `selected` scope variable may contain a list of `[ '1111', '2222', ..., 'nnnn' ]`.
+To exemplify; the `selected` scope variable may contain a list of `[ '1111', '2222', ..., 'nnnn' ]`.
 
 You can use an item iterator to traverse through the list of selected records.
 From there you can use functions and expressions to implement your feature.

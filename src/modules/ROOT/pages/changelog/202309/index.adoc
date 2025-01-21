@@ -17,7 +17,7 @@ It enables simple tweaks like changing the colorscheme or large modifications li
 When we reworked our storage layer, we made it possible to store your records in dedicated tables or even databases.
 With `2023.9` we introduce an automated mechanism to alter the storage location for it to support the module definition.
 
-*UI Touchups*
+*UI Touch-ups*
 
 User interfaces were a big focus for the `2023.9` release; improving user experience when configuring and interacting with your application, as well as laying the groundwork for future releases.
 

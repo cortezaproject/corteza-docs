@@ -103,7 +103,7 @@ They firstly present the *key point* of the block, followed by a more *detailed 
     [Description here].
 ----
 
-To examplify:
+To exemplify:
 [source,adoc]
 ----
 == Corteza documentation structure

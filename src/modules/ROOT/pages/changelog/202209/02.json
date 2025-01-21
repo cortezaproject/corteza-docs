@@ -212,7 +212,7 @@
     {
       "what": [
         "broken filter and codegen definition for workflow filters which resulted in generating broken filter functionality.",
-        "Filtering subworkflows with subWorkflow `2 flag` in workflowList was not returning any subworkflows."
+        "Filtering sub-workflows with subWorkflow `2 flag` in workflowList was not returning any sub-workflows."
       ],
       "how": [
         "by properly applying conditions when sub-workflow filter was used."
@@ -420,7 +420,7 @@
         "external auth providers not being re-fetched after updating user password."
       ],
       "how": [
-        "by refetching the external auth providers after updating."
+        "by re-fetching the external auth providers after updating."
       ],
       "refs": [
         "https://github.com/cortezaproject/corteza-webapp-admin/commit/07de6a6cddcc5626d4473406b8ff6f7455110d47"

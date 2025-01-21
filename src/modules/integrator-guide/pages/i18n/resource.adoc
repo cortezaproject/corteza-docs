@@ -27,6 +27,8 @@ Generally, only the resources accessible by end-users support resource translati
 
 The resource translations user interface can be accessed by clicking on the *language* {ICON_I18N} button when editing the resource that supports this feature.
 
+To enable this, set `LOCALE_RESOURCE_TRANSLATIONS_ENABLED=true` as an environment variable.
+Resources translations can currently only use the languages defined in the `LOCALE_LANGUAGES` environment variable.
 
 [annotation,role="data-zoomable"]
 ----

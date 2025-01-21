@@ -145,7 +145,7 @@ See xref:automation/automation-scripts/samples/server-scripts/index.adoc[server 
 
 Execution arguments (the `args` parameter of the `exec` function) contain the core data that your logic is able to work with.
 The data differs based on the event that triggered the automation script.
-To examplify; user related events define what user is involved, while record related events define the involved record and the module.
+To exemplify; user related events define what user is involved, while record related events define the involved record and the module.
 
 [NOTE]
 ====
@@ -491,7 +491,7 @@ triggers ({ after }) {
 ====
 
 The invoking user is a person who performs an action that triggers the script execution.
-To examplify; you press a button, therefore you are the invoking user.
+To exemplify; you press a button, therefore you are the invoking user.
 
 By specifying the invoking user, the automation script may access some resources that the actual invoking user may not have access to, such as personal client information.
 
@@ -523,7 +523,7 @@ It is a good idea to create a new system user the purpose of which is that of sc
 === Allowing and denying script execution
 
 Security context lets you prevent specific users from performing specific operations. Each user is attributed a role that specifies the degree of control they can operate with.
-To examplify; you can prevent regular users from signing documents or sending quotes.
+To exemplify; you can prevent regular users from signing documents or sending quotes.
 
 .Use these properties when defining the context:
 * `allow` specifies which roles are permitted to access the automation script,

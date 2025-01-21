@@ -23,7 +23,7 @@ Refer to the official documentation for technical details.
 In later texts, we alias the above string and its variations with `expression`.
 ====
 
-.To examplify:
+.To exemplify:
 [source]
 ----
 lead.values.totalCost / 10
@@ -31,7 +31,7 @@ lead.values.totalCost / 10
 
 You can expand the expression by applying additional constructs such as addition and division.
 
-.To examplify:
+.To exemplify:
 [source]
 ----
 average(min(lead.values.a, lead.values.b), abs(lead.values.c))
@@ -87,7 +87,7 @@ myKV = { "a": "value-of-a" }
 myB = myKV.b // throws an error: unknown parameter myKV.b
 ----
 
-.Use the https://en.wikipedia.org/wiki/%3F:[ternay operator] to make a simple one-line test expression.
+.Use the https://en.wikipedia.org/wiki/%3F:[ternary operator] to make a simple one-line test expression.
 [source]
 ----
 myB = has(myKV, "b") ? myKV.b : "b does not exist"

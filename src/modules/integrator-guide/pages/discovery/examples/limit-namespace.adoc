@@ -112,7 +112,7 @@ Select the *discoverer* role (the role assigned to the {APP_NAME_DISCOVERY} inde
 }
 ----
 
-After the {APP_NAME_DISCOVERY} indexer reindexes your instance, the search results become limited to the discovery namespace for which the access is allowed.
+After the {APP_NAME_DISCOVERY} indexer re-indexes your instance, the search results become limited to the discovery namespace for which the access is allowed.
 
 [IMPORTANT]
 ====

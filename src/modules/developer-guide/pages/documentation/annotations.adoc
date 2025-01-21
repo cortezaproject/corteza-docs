@@ -152,7 +152,7 @@ The `rel` parameter follows the same rules as https://docs.antora.org/antora/2.0
 ====
 If you are planning on using the same image multiple times with different annotations, make sure that you define an `alias` parameter to the `image`.
 
-.To examplify:
+.To exemplify:
 ```
 [annotation,role="data-zoomable"]
 ----
@@ -268,7 +268,7 @@ To crop an image adjust the the `view` property.
 | The height of the resulting image (the area you wish to show).
 |===
 
-To examplify, lets remove the header and navigation from the following image.
+To exemplify, lets remove the header and navigation from the following image.
 
 image::documentation/example-crop-base.png[role="data-zoomable"]
 
@@ -313,7 +313,7 @@ image::documentation/example-crop-base.png[role="data-zoomable"]
 
 === Cropping and annotating images
 
-To examplify, lets only include the second subject of the following image (the top-right square).
+To exemplify, lets only include the second subject of the following image (the top-right square).
 
 image::documentation/annotation-canvas.png[width=500px,role="data-zoomable"]
 
@@ -347,7 +347,7 @@ To define the focus on the image, adjust the `focus` property.
 | The un blurred buffer around the focused area.
 |===
 
-To examplify, lets focus on the Admin Area application on the app selector.
+To exemplify, lets focus on the Admin Area application on the app selector.
 
 image::documentation/example-focus.png[role="data-zoomable"]
 
@@ -360,7 +360,7 @@ include::partial$documentation/focus.adoc[]
 
 === Focusing and annotating images
 
-To examplify, lets focus on the Admin Area application on the app selector with an annotation.
+To exemplify, lets focus on the Admin Area application on the app selector with an annotation.
 
 image::documentation/example-focus.png[role="data-zoomable"]
 

@@ -72,7 +72,7 @@ Page navigation need to be generated and cursors for each page collected.
 Same for total item count.
 
 We've extended {PRODUCT_NAME} REST API and added two new flags:
-include page navigation (`incPageNavgitation`) and include total number of items (`incTotal`).
+include page navigation (`incPageNavigation`) and include total number of items (`incTotal`).
 
 When any of these two is enabled, {PRODUCT_NAME} walks through *entire* matching dataset of records counts it and/or collects pointers to pages.
 

@@ -45,7 +45,7 @@ Case Details::
 Updates::
     This is where all the updates related to the case are kept.
     It can be anything from receiving updates from the clients to us contacting the client and gives you a clear picture of what is going on.
-    It is posiible to add a new update by clicking on the "Add Update to this Case" button.
+    It is possible to add a new update by clicking on the "Add Update to this Case" button.
     Case status changes automatically when you create an update.
 
 Knowledge Base::

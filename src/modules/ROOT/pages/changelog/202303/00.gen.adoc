@@ -120,7 +120,7 @@ The change was added to allow the user the ability to sort the existing expressi
 The change was added to give users more options when displaying data with charts
 ({CORTEZA_PULL_BASE}1148[`1148`]).
 * Added extended record duplicate detection configuration to support multi value matching criteria and value checking algorithms.
-The change was added to extend support for record duplicate detection with multiple fields in single rule with various detection algorithm and muli-value matching criteria
+The change was added to extend support for record duplicate detection with multiple fields in single rule with various detection algorithm and multi-value matching criteria
 ({CORTEZA_PULL_BASE}617[`617`], {CORTEZA_PULL_BASE}617[`617`]).
 * Added new file configurator option to preview image in modal and option to download.
 Images on the file base are centered now by default.
@@ -153,9 +153,9 @@ Depending on the number of pages that match the same name, a counter is adjusted
 The change was made to make workflow iterators consistent with other searching/filtering interactions.
 The change was made by changing the limit in the code
 ({CORTEZA_COMMIT_BASE}cc24e62[`cc24e62`]).
-* Changed the geometry multivalue map opening the default map location regardless which record location you press.
+* Changed the geometry multi-value map opening the default map location regardless which record location you press.
 Now the opened map changes according to the record's geo location.
-The change was made to prevent a confusion when different markers in multivalue fields were being opened on the map.
+The change was made to prevent a confusion when different markers in multi-value fields were being opened on the map.
 This change aims to improve ux and usability of the geometry field.
 The change was made Leaflet map instance and zoom level was updated
 ({CORTEZA_PULL_BASE}940[`940`]).

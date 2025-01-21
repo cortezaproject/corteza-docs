@@ -10,7 +10,7 @@ import PexelsClient from 'pexels/lib/'
 // Next step is to initialize the Pexels client with the `apiKey`
 const pexelsClient = new PexelsClient(apiKey)
 
-// The client is now ready to accept querries, for example
+// The client is now ready to accept queries, for example
 const images = await pexelsClient.searchPhotos({ query: 'Example', perPage: 10, page: 1 })
 ----
 

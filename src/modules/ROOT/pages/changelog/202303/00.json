@@ -410,7 +410,7 @@
         "extended record duplicate detection configuration to support multi value matching criteria and value checking algorithms."
       ],
       "why": [
-        "to extend support for record duplicate detection with multiple fields in single rule with various detection algorithm and muli-value matching criteria."
+        "to extend support for record duplicate detection with multiple fields in single rule with various detection algorithm and multi-value matching criteria."
       ],
       "refs": [
         "https://github.com/cortezaproject/corteza/pull/617",
@@ -516,11 +516,11 @@
     },
     {
       "what": [
-        "the geometry multivalue map opening the default map location regardless which record location you press.",
+        "the geometry multi-value map opening the default map location regardless which record location you press.",
         "Now the opened map changes according to the record's geo location."
       ],
       "why": [
-        "to prevent a confusion when different markers in multivalue fields were being opened on the map.",
+        "to prevent a confusion when different markers in multi-value fields were being opened on the map.",
         "This change aims to improve ux and usability of the geometry field."
       ],
       "how": [

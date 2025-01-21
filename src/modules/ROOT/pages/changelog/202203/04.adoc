@@ -7,7 +7,7 @@ include::ROOT:partial$variables.adoc[]
 .[#2022_3_4-added]#<<2022_3_4-added,Added:>>#
 * Added a new option to the record list which forces the viewed records to be opened in a new tab instead of the current window.
 The feature was added to remove the need to navigate back and forth, re-apply filters when users are working on multiple records from a record list ({LOCALE_COMMIT_BASE}25e7090[`25e7090`], {WEBAPP_COMPOSE_COMMIT_BASE}f7191e5[`f7191e5`], {WEBAPP_JS_COMMIT_BASE}98fc48e[`98fc48e`]).
-* Added a new link to parent option to the `Record` module field which dictates wether the input value will be pre-filled with the parent's record ID.
+* Added a new link to parent option to the `Record` module field which dictates whether the input value will be pre-filled with the parent's record ID.
 The feature was added to allow some cases from not pre-populating the input, such as a module with a record field which points to itself ({LOCALE_COMMIT_BASE}059ebf8[`059ebf8`], {WEBAPP_COMPOSE_COMMIT_BASE}a79a852[`a79a852`], {WEBAPP_JS_COMMIT_BASE}0e9de63[`0e9de63`]).
 * Added support for resource translations on {APP_NAME_COMPOSE} funnel and gauge charts.
 The feature allows the user to translate funnel and gauge chart step labels ({WEBAPP_COMPOSE_COMMIT_BASE}9f61346[`9f61346`]).

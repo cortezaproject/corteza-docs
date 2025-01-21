@@ -68,8 +68,8 @@ curl -X GET "$BASE_URL/compose/namespace/$NAMESPACE_ID/module/$MODULE_ID/record/
 
 == Filtering Records With Missing Values
 
-A record value can have two states -- *existing* and *nonexisting*.
-When the value is *nonexisting*, it is `NULL`.
+A record value can have two states -- *existing* and *non-existing*.
+When the value is *non-existing*, it is `NULL`.
 
 To exemplify; a checkbox field can either be `true`, `false`, and `NULL`, therefore we three values are recognized instead of two.
 

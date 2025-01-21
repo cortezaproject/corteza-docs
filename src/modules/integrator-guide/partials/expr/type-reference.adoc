@@ -58,7 +58,7 @@ Identical to <<datatype-kv,`KV`>> but used for complex structures.
 
 *Is primitive*: `yes`
 
-A `Boolean` indicates wether a variable is truthy (`true`) or faulty (`false`).
+A `Boolean` indicates whether a variable is truthy (`true`) or faulty (`false`).
 
 .Initialization patterns:
 [cols="2m,2m,4a"]

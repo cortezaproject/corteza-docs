@@ -8,7 +8,7 @@ Entitlements are types of customer support, such as *phone support* or *email su
 You can set up entitlements to help support agents determine whether a customer is eligible for support or not.
 
 Entitlements are related to an account and a product.
-For a fixed amount of time (defined by the start and end date), they are entitelled to certain services provided by the seller.
+For a fixed amount of time (defined by the start and end date), they are entitled to certain services provided by the seller.
 
 An entitlement can be created either manually, or <<account-add-entitlement,from an account>>.
 

@@ -101,7 +101,7 @@
         "{APP_NAME_ADMIN} user view not showing any data when 'Confirm email address' was clicked."
       ],
       "how": [
-        "by refetching the user again on {APP_NAME_ADMIN} when the user is confirming the email address."
+        "by re-fetching the user again on {APP_NAME_ADMIN} when the user is confirming the email address."
       ],
       "refs": [
         "https://github.com/cortezaproject/corteza/commit/e76fb09707239b8e8c7b430e1f829e4adb975894"

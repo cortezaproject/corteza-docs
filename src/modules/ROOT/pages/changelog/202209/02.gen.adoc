@@ -77,7 +77,7 @@ This fix ensures proper module ID is used (one from the module field options)whe
 The fix was made By using module-id from module field options and not field's module ID
 ({SERVER_COMMIT_BASE}a8d2fef[`a8d2fef`]).
 * Fixed broken filter and codegen definition for workflow filters which resulted in generating broken filter functionality.
-Filtering subworkflows with subWorkflow `2 flag` in workflowList was not returning any subworkflows.
+Filtering sub-workflows with subWorkflow `2 flag` in workflowList was not returning any sub-workflows.
 The fix was made by properly applying conditions when sub-workflow filter was used
 ({SERVER_COMMIT_BASE}5b2ba54[`5b2ba54`]).
 * Fixed missing dal connection translation by converting its error meta key reference to kebab-case.
@@ -137,7 +137,7 @@ The fix was made by only showing those buttons when editing a user
 The fix was made by properly applying the permissions obtained from the API user object in the webapp User class and correctly updating the form's state based on the email validation
 ({JS_COMMIT_BASE}d585399[`d585399`], {WEBAPP_ADMIN_COMMIT_BASE}99775e1[`99775e1`]).
 * Fixed external auth providers not being re-fetched after updating user password.
-The fix was made by refetching the external auth providers after updating
+The fix was made by re-fetching the external auth providers after updating
 ({WEBAPP_ADMIN_COMMIT_BASE}07de6a6[`07de6a6`]).
 * Fixed gauge chart step name not displaying when value was larger than the largest step.
 The fix was made by setting the default step name to the largest, since if we find another step where the value currently is, we will use that one instead

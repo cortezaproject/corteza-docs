@@ -8,7 +8,7 @@ include::ROOT:partial$variables.adoc[]
 [IMPORTANT]
 ====
 For {PRODUCT_NAME} Studio, to function properly, you need to xref:devops-guide:installing-sass/index.adoc[Install dart-sass binaries] in your system and 
-`HTTP_WEBAPP_ENABLED` enviroment variable set to `true`.
+`HTTP_WEBAPP_ENABLED` environment variable set to `true`.
 ====
 
 == Customizing {PRODUCT_NAME} Web Applications

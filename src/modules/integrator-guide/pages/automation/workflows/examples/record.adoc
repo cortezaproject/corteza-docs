@@ -1,4 +1,4 @@
-= Workfing with Records
+= Working with Records
 :attachment-path: ../../../_attachments/automation/workflows/examples/record/
 :page-noindex: true
 
@@ -74,7 +74,7 @@ When creating the record you need to call the `compose record create` function, 
 Only the highlighted portion performs the create/update check; the rest is boilerplate to get it to the desired state.
 ====
 
-If you need to call one or the other on-the-fyly, you can use the following approach.
+If you need to call one or the other on-the-fly, you can use the following approach.
 You can use the `record.recordID != "0"` to determine if the record needs to be updated -- the default `recordID` value is `"0"`.
 
 .The screenshot outlines a basic example of checking for existence.

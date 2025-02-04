@@ -1,9 +1,55 @@
 {
   "meta": {
-    "releasedOn": "2024.12.02"
+    "releasedOn": "2025.2.05"
   },
 
-  "added": [],
+  "added": [
+    {
+      "what": [
+        "a way to capture an image from the camera in the file field."
+      ],
+      "why": [
+        "to allow users to upload images from their camera."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/6fbb075108c59b4c1ea92227724563452ade0307"
+      ]
+    },
+    {
+      "what": [
+        "option to display select values as badges."
+      ],
+      "why": [
+        "to allow users to color select values for better visibility."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/65be1135fb724db52b783c62433e7a8302e174d7"
+      ]
+    },
+    {
+      "what": [
+        "<namespace.handle>-body, <page.handle>-body and <page-layout.handle>-body classes to the body element when user is in a namespace, page or page layout.",
+        "Also added <page.handle>-modal and <page-layout>-modal class to record modals."
+      ],
+      "why": [
+        "to provide an easy way to target the body element of the current namespace, page or page layout."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/93cb166e3e7f536bd799ecda8c8b443a0153b792"
+      ]
+    },
+    {
+      "what": [
+        "option to configure the ability to add a new field in bulk/inline record editing."
+      ],
+      "why": [
+        "to allow users to personalize their editing experience."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/d256af5c11fc17b8b35db6325098829a0ff0b282"
+      ]
+    }
+  ],
 
   "changed": [
     {
@@ -13,8 +59,83 @@
       "refs": [
         "https://github.com/cortezaproject/corteza/commit/6c60464d1"
       ]
+    },
+    {
+      "what": [
+        "sidebar menu button to open on click instead of hover."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/86a3ed9e6870a4da43679034a991913d889460a1"
+      ]
     }
   ],
 
-  "removed": []
+  "removed": [],
+
+  "fixed": [
+    {
+      "what": [
+        "record validation warnings not being shown."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/f81850170e69503f1417ddeeb6989b852aa2422f"
+      ]
+    },
+    {
+      "what": [
+        "record list filters with multiple groups not working as displayed."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/31d38a227db129965752b422ff5bb91767ddf9ce"
+      ]
+    },
+    {
+      "what": [
+        "clicking 'Select all' in field selectors adding all fields instead of only the ones that match the query."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/7eb367a743591175a664ea695bd424218aaa1738"
+      ]
+    },
+    {
+      "what": [
+        "magnify block button not being hidden if another block is already magnified."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/2d65d84fd1c8017fc56389fdaa1be1d4b1060418"
+      ]
+    },
+    {
+      "what": [
+        "field spacing in record blocks to match previous versions."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/cec755762b93a38a659596f5ed5064f9edb4b63c"
+      ]
+    },
+    {
+      "what": [
+        "dropdown buttons that open links not being clickable as links."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/3e65091fa829ccaabedd022e2be14f49652b4dbe"
+      ]
+    },
+    {
+      "what": [
+        "default translation inconsistencies."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/pull/2073"
+      ]
+    },
+    {
+      "what": [
+        "calendar event text color not being contrasted based on event color."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/bf5e5b8c90e314e19059ad8ddc691956c915be71"
+      ]
+    }
+  ]
 }

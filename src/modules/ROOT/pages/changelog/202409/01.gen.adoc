@@ -1,0 +1,44 @@
+include::ROOT:partial$variables.adoc[]
+
+= `2024.9.1`
+
+*Released on*: `2025.2.05`
+
+.[#2024_09_01-added]#<<2024_09_01-added,Added:>>#
+* Added a way to capture an image from the camera in the file field.
+The change was added to allow users to upload images from their camera
+({CORTEZA_COMMIT_BASE}6fbb075[`6fbb075`]).
+* Added option to display select values as badges.
+The change was added to allow users to color select values for better visibility
+({CORTEZA_COMMIT_BASE}65be113[`65be113`]).
+* Added <namespace.handle>-body, <page.handle>-body and <page-layout.handle>-body classes to the body element when user is in a namespace, page or page layout.
+Also added <page.handle>-modal and <page-layout>-modal class to record modals.
+The change was added to provide an easy way to target the body element of the current namespace, page or page layout
+({CORTEZA_COMMIT_BASE}93cb166[`93cb166`]).
+* Added option to configure the ability to add a new field in bulk/inline record editing.
+The change was added to allow users to personalize their editing experience
+({CORTEZA_COMMIT_BASE}d256af5[`d256af5`]).
+
+.[#2024_09_01-changed]#<<2024_09_01-changed,Changed:>>#
+* Changed LIMIT_RECORD_COUNT_PER_NAMESPACE to LIMIT_RECORD_COUNT_PER_MODULE which check number of records in the given module over namespace
+({CORTEZA_COMMIT_BASE}6c60464[`6c60464`]).
+* Changed sidebar menu button to open on click instead of hover
+({CORTEZA_COMMIT_BASE}86a3ed9[`86a3ed9`]).
+
+.[#2024_09_01-fixed]#<<2024_09_01-fixed,Fixed:>>#
+* Fixed record validation warnings not being shown
+({CORTEZA_COMMIT_BASE}f818501[`f818501`]).
+* Fixed record list filters with multiple groups not working as displayed
+({CORTEZA_COMMIT_BASE}31d38a2[`31d38a2`]).
+* Fixed clicking 'Select all' in field selectors adding all fields instead of only the ones that match the query
+({CORTEZA_COMMIT_BASE}7eb367a[`7eb367a`]).
+* Fixed magnify block button not being hidden if another block is already magnified
+({CORTEZA_COMMIT_BASE}2d65d84[`2d65d84`]).
+* Fixed field spacing in record blocks to match previous versions
+({CORTEZA_COMMIT_BASE}cec7557[`cec7557`]).
+* Fixed dropdown buttons that open links not being clickable as links
+({CORTEZA_COMMIT_BASE}3e65091[`3e65091`]).
+* Fixed default translation inconsistencies
+({CORTEZA_PULL_BASE}2073[`2073`]).
+* Fixed calendar event text color not being contrasted based on event color
+({CORTEZA_COMMIT_BASE}bf5e5b8[`bf5e5b8`]).

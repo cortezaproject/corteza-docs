@@ -136,6 +136,15 @@
       "refs": [
         "https://github.com/cortezaproject/corteza/commit/bf5e5b8c90e314e19059ad8ddc691956c915be71"
       ]
+    },
+    {
+      "what": [
+        "broken paging when used in combination with RBAC on specific resources in the given list."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/691de53ec20abe1885d00f32b44eb7e5e153e217",
+        "https://github.com/cortezaproject/corteza/commit/b4e4d8877db774363735fd39fe2edba7497e1c26"
+      ]
     }
   ]
 }

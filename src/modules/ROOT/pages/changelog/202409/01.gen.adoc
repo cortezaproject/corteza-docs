@@ -42,3 +42,5 @@ The change was added to allow users to personalize their editing experience
 ({CORTEZA_PULL_BASE}2073[`2073`]).
 * Fixed calendar event text color not being contrasted based on event color
 ({CORTEZA_COMMIT_BASE}bf5e5b8[`bf5e5b8`]).
+* Fixed broken paging when used in combination with RBAC on specific resources in the given list
+({CORTEZA_COMMIT_BASE}691de53[`691de53`], {CORTEZA_COMMIT_BASE}b4e4d88[`b4e4d88`]).

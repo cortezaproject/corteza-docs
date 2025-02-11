@@ -13,4 +13,6 @@ Looking ahead, we plan to expand these features with even more robust suggestion
 
 include::00.gen.adoc[]
 
+include::01.gen.adoc[]
+
 :leveloffset: -1

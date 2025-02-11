@@ -2,7 +2,7 @@ include::ROOT:partial$variables.adoc[]
 
 = `2024.9.1`
 
-*Released on*: `2025.2.05`
+*Released on*: `2025.2.11`
 
 .[#2024_09_01-added]#<<2024_09_01-added,Added:>>#
 * Added a way to capture an image from the camera in the file field.

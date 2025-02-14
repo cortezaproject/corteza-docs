@@ -1,6 +1,6 @@
 {
   "meta": {
-    "releasedOn": "2025.2.11"
+    "releasedOn": "2025.2.14"
   },
 
   "added": [
@@ -66,6 +66,14 @@
       ],
       "refs": [
         "https://github.com/cortezaproject/corteza/commit/86a3ed9e6870a4da43679034a991913d889460a1"
+      ]
+    },
+    {
+      "what": [
+        "default primary color and branding for corteza (including icon and logo)"
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/ac1d5de64b6ce9b28ed4f39e7e3c8520c9b2228c"
       ]
     }
   ],
@@ -144,6 +152,14 @@
       "refs": [
         "https://github.com/cortezaproject/corteza/commit/691de53ec20abe1885d00f32b44eb7e5e153e217",
         "https://github.com/cortezaproject/corteza/commit/b4e4d8877db774363735fd39fe2edba7497e1c26"
+      ]
+    },
+    {
+      "what": [
+        "Corteza themes not properly setting contrasted colors for ui elements (dark text on dark background instead of light text on dark background)."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/5bc444f9df8353613caffdf0df582661ab9fbb91"
       ]
     }
   ]

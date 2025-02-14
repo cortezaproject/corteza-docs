@@ -2,7 +2,7 @@ include::ROOT:partial$variables.adoc[]
 
 = `2024.9.1`
 
-*Released on*: `2025.2.11`
+*Released on*: `2025.2.14`
 
 .[#2024_09_01-added]#<<2024_09_01-added,Added:>>#
 * Added a way to capture an image from the camera in the file field.
@@ -24,6 +24,8 @@ The change was added to allow users to personalize their editing experience
 ({CORTEZA_COMMIT_BASE}6c60464[`6c60464`]).
 * Changed sidebar menu button to open on click instead of hover
 ({CORTEZA_COMMIT_BASE}86a3ed9[`86a3ed9`]).
+* Changed default primary color and branding for corteza (including icon and logo)
+({CORTEZA_COMMIT_BASE}ac1d5de[`ac1d5de`]).
 
 .[#2024_09_01-fixed]#<<2024_09_01-fixed,Fixed:>>#
 * Fixed record validation warnings not being shown
@@ -44,3 +46,5 @@ The change was added to allow users to personalize their editing experience
 ({CORTEZA_COMMIT_BASE}bf5e5b8[`bf5e5b8`]).
 * Fixed broken paging when used in combination with RBAC on specific resources in the given list
 ({CORTEZA_COMMIT_BASE}691de53[`691de53`], {CORTEZA_COMMIT_BASE}b4e4d88[`b4e4d88`]).
+* Fixed Corteza themes not properly setting contrasted colors for ui elements (dark text on dark background instead of light text on dark background)
+({CORTEZA_COMMIT_BASE}5bc444f[`5bc444f`]).

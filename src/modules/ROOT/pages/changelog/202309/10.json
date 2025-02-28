@@ -1,0 +1,20 @@
+{
+  "meta": {
+    "releasedOn": "2025.03.10"
+  },
+
+  "added": [],
+
+  "changed": [],
+
+  "fixed": [
+    {
+      "what": [
+        "{PRODUCT_NAME_COMPOSE} Record create/update functions failing to execute when using `set(...)` to assign Record values."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/0a4cf13c4"
+      ]
+    }
+  ]
+}

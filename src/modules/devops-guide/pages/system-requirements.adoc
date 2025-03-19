@@ -46,7 +46,7 @@ The reverse proxy is responsible for traffic forwarding to {PRODUCT_NAME} servic
 Most of the popular HTTP servers support this.
 ====
 
-The documentation provides configurations guides for https://github.com/nginxproxy/nginx-proxy[Nginx Reverse Proxy] and the https://github.com/JrCs/docker-letsencrypt-nginx-proxy-companion[LetsEncrypt nginx-proxy companion].
+The documentation provides configurations guides for https://github.com/nginx-proxy/nginx-proxy[Nginx Reverse Proxy] and the https://github.com/JrCs/docker-letsencrypt-nginx-proxy-companion[LetsEncrypt nginx-proxy companion].
 
 [NOTE]
 ====

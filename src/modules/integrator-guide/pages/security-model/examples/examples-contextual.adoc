@@ -11,7 +11,7 @@ Assign this role when the current user is the resource owner.
 
 [source]
 ----
-subjectID == ownerID
+userID == ownerID
 ----
 
 | Resource owner but not the creator
@@ -20,7 +20,7 @@ Assign this role when the current user is the resource owner but not the origina
 
 [source]
 ----
-subjectID == ownerID && subjectID != creatorID
+userID == ownerID && userID != creatorID
 ----
 
 | Mentioned in the multi-value module field
@@ -29,7 +29,7 @@ Assign this role when the current user is mentioned in the `editor` multi-value 
 
 [source]
 ----
-has(record.values.editor, subjectID)
+has(resource.values.editor, userID)
 ----
 
 | Record owner with a specific record state
@@ -38,7 +38,7 @@ Assign this role when the current user is the record owner and the value of the 
 
 [source]
 ----
-subjectID == ownerID && !record.values.published
+userID == ownerID && !resource.values.published
 ----
 
 |===

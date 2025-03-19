@@ -12,7 +12,7 @@ In case you wish to learn more about low-code app development, refer to the xref
 
 The core {PRODUCT_NAME} codebase is located in the {GIT_MONOREPO_LINK}[`corteza` monorepo].
 The monorepo includes the server, the web applications, NPM packages, and Discovery.
-{PRODUCT_NAME} {APP_AUTOMATION} can be found in it's own {GIT_REPO_LINK_PREFIX}corteza-server-corredor[repository]
+{PRODUCT_NAME} {APP_AUTOMATION} can be found in it's own {GIT_REPO_LINK_PREFIX}-server-corredor[repository]
 
 == Component diagram
 

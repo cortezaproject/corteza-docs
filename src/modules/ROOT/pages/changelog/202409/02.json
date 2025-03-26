@@ -1,0 +1,22 @@
+{
+  "meta": {
+    "releasedOn": "2025.2.14"
+  },
+
+  "added": [],
+
+  "changed": [],
+
+  "removed": [],
+
+  "fixed": [
+    {
+      "what": [
+        "{PRODUCT_NAME} not being able to connect to case-sensitive MSSQL database connections"
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/ac5d8f6c7"
+      ]
+    }
+  ]
+}

@@ -32,7 +32,7 @@ new = push(arr, 1)
 }
 ----
 
-// 
+//
 
 |
 [source,json]
@@ -55,7 +55,7 @@ new = push(arr, 1, 2, 3)
 }
 ----
 
-// 
+//
 
 |
 [source,json]
@@ -112,7 +112,7 @@ last = pop(arr)
 }
 ----
 
-// 
+//
 
 |
 [source,json]
@@ -141,13 +141,13 @@ When `Any` type is used the value will be `null`.
 When other type is used, the value will be the zero value of that type.
 ====
 
-// 
+//
 
 |
 [source,json]
 ----
 {
-  
+
 }
 ----
 |
@@ -203,7 +203,7 @@ first = shift(arr)
 }
 ----
 
-// 
+//
 
 |
 [source,json]
@@ -232,13 +232,13 @@ When `Any` type is used the value will be `null`.
 When other type is used, the value will be the zero value of that type.
 ====
 
-// 
+//
 
 |
 [source,json]
 ----
 {
-  
+
 }
 ----
 |
@@ -294,7 +294,7 @@ nm = count(arr, "a")
 }
 ----
 
-// 
+//
 
 |
 [source,json]
@@ -317,7 +317,7 @@ nm = count(arr, "a", "b")
 }
 ----
 
-// 
+//
 
 |
 [source,json]
@@ -377,7 +377,7 @@ out = has(arr, "a")
 }
 ----
 
-// 
+//
 
 |
 [source,json]
@@ -400,7 +400,7 @@ out = has(arr, "/", "b")
 }
 ----
 
-// 
+//
 
 |
 [source,json]
@@ -423,7 +423,7 @@ out = has(arr, "a", "b", "c")
 }
 ----
 
-// 
+//
 
 |
 [source,json]
@@ -479,7 +479,7 @@ out = hasAll(arr, "a")
 }
 ----
 
-// 
+//
 
 |
 [source,json]
@@ -502,7 +502,7 @@ out = hasAll(arr, "/", "b")
 }
 ----
 
-// 
+//
 
 |
 [source,json]
@@ -525,7 +525,7 @@ out = hasAll(arr, "a", "b", "c")
 }
 ----
 
-// 
+//
 
 |
 [source,json]
@@ -580,7 +580,7 @@ index = find(arr, "a")
 }
 ----
 
-// 
+//
 
 |
 [source,json]
@@ -603,7 +603,7 @@ index = find(arr, "b")
 }
 ----
 
-// 
+//
 
 |
 [source,json]
@@ -659,7 +659,7 @@ sorted = sort(arr, false)
 }
 ----
 
-// 
+//
 
 |
 [source,json]
@@ -681,4 +681,65 @@ sorted = sort(arr, true)
   "sorted": ["c", "b", "a"]
 }
 ----
+|===
+
+== `splice(array, start, end)`
+
+The `splice` function returns a new array with elements from the start index up to (but not including) the end index.
+
+*The original array remains unchanged.*
+
+.Examples:
+[cols="1a,1a,1a"]
+|===
+|State |Expression |Result
+
+|
+[source,json]
+----
+{
+  "arr": ["1", "2", "3"]
+}
+----
+|
+[source]
+----
+new = splice(arr, 0, 1)
+----
+|
+[source,json]
+----
+{
+  "arr": ["1", "2", "3"],
+  "new": ["1"]
+}
+----
+
+//
+
+|
+[source,json]
+----
+{
+  "arr": [4, 5, 6, 7]
+}
+----
+|
+[source]
+----
+new = splice(arr, 1, -1)
+----
+|
+[source,json]
+----
+{
+  "arr": [4, 5, 6, 7],
+  "new": [5, 6, 7]
+}
+----
+
+[NOTE]
+====
+If `end` is negative, it will return all elements from the start index to the end of the array.
+====
 |===

@@ -107,6 +107,8 @@
 ***** xref:automation/automation-scripts/samples/triggers/index.adoc[]
 ***** xref:automation/automation-scripts/samples/server-scripts/index.adoc[]
 ***** xref:automation/automation-scripts/samples/client-scripts/index.adoc[]
+**** Examples
+***** xref:automation/automation-scripts/examples/local-setup.adoc[]
 
 ** xref:api-gw/index.adoc[]
 *** xref:api-gw/profiler.adoc[]

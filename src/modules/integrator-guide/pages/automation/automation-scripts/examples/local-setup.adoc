@@ -1,0 +1,80 @@
+include::ROOT:partial$variables.adoc[]
+
+= Local Docker Compose Setup
+
+== File Structure
+
+.Your file structure should look like this:
+[source]
+----
+📁 my-corteza
+  📄 .env
+  📄 docker-compose.yaml
+  📁 custom-extensions
+----
+
+== Config Files
+
+.\.env:
+[source,env]
+----
+DOMAIN=localhost:18091
+VERSION=2023.9.9
+
+DB_DSN=postgres://corteza:corteza@db:5432/corteza?sslmode=disable
+
+HTTP_WEBAPP_ENABLED=true
+ACTIONLOG_ENABLED=false
+
+CORREDOR_ENABLED=true
+CORREDOR_EXT_SEARCH_PATHS=/extensions
+CORREDOR_EXEC_CSERVERS_API_HOST=server:80/api
+CORREDOR_LOG_ENABLED=true
+CORREDOR_LOG_PRETTY=true
+CORREDOR_LOG_LEVEL=info
+CORREDOR_EXEC_CSERVERS_API_BASEURL_TEMPLATE="server:80/api/{service}"
+CORREDOR_ADDR=corredor:53051
+----
+
+.docker-compose.yaml
+[source,yaml]
+----
+version: '3.5'
+
+services:
+  server:
+    image: cortezaproject/corteza:${VERSION}
+    restart: always
+    env_file: [ .env ]
+    platform: linux/amd64
+    depends_on: [ db ]
+    ports: [ "127.0.0.1:18091:80" ]
+    networks: [ internal ]
+    volumes:
+      - "./dd/server:/data"
+
+  db:
+    image: postgres:15
+    restart: always
+    platform: linux/amd64
+    healthcheck: { test: ["CMD-SHELL", "pg_isready -U corteza"], interval: 10s, timeout: 5s, retries: 5 }
+    volumes:
+      - "dbdata:/var/lib/postgresql/data"
+    networks: [ internal ]
+    environment:
+      POSTGRES_USER:     corteza
+      POSTGRES_PASSWORD: corteza
+
+  corredor:
+    env_file: [ .env ]
+    image: cortezaproject/corteza-server-corredor:${VERSION}
+    restart: on-failure
+    networks: [ internal ]
+    volumes:
+      - "./custom-extensions:/extensions"
+
+volumes:
+  dbdata:
+
+networks: { internal: {} }
+----

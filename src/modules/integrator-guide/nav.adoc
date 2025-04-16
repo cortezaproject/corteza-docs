@@ -109,6 +109,7 @@
 ***** xref:automation/automation-scripts/samples/client-scripts/index.adoc[]
 **** Examples
 ***** xref:automation/automation-scripts/examples/local-setup.adoc[]
+***** xref:automation/automation-scripts/examples/explicit-server-script.adoc[]
 
 ** xref:api-gw/index.adoc[]
 *** xref:api-gw/profiler.adoc[]

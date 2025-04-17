@@ -1,21 +1,221 @@
 {
   "meta": {
-    "releasedOn": "2025.2.14"
+    "releasedOn": "2025.4.17"
   },
 
-  "added": [],
+  "added": [
+    {
+      "what": [
+        "automatic logout functionality based on user inactivity."
+      ],
+      "why": [
+        "to improve security by automatically logging out inactive users."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/8fda0ae07a5246340bcdfc81c35000da2306b216",
+        "https://github.com/cortezaproject/corteza/commit/881b69617b0399d614ee94c53f6c555f463c434b"
+      ]
+    },
+    {
+      "what": [
+        "autocompletion to layout title/visibility and record conditional fields."
+      ],
+      "why": [
+        "to improve the user experience when creating or modifying page layouts and record conditions."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/857457d7c8093b3b3764a0ca8af28d22d5d89b8e"
+      ]
+    },
+    {
+      "what": [
+        "step highlighting feature to workflow dry run functionality."
+      ],
+      "why": [
+        "to provide better visual feedback during workflow development and debugging."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/1dee838ac6d13a7ba618a73bfa3ecaa3a3c24fc4"
+      ]
+    }
+  ],
 
-  "changed": [],
+  "changed": [
+    {
+      "what": [
+        "inline actions to be shown on hover of table row or record block instead of cell/field."
+      ],
+      "why": [
+        "to provide a more consistent user experience and improve visibility of available actions."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/412d98bdc035901f9ce9c7de66642bfe31e78501"
+      ]
+    },
+    {
+      "what": [
+        "ace editor theming to use CSS variables more extensively."
+      ],
+      "why": [
+        "to ensure consistent styling across different themes and improve visual appearance."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/58e649b31ce7e39ee74c4a80f4d20e1ddd04c0aa"
+      ]
+    },
+    {
+      "what": [
+        "Node.js to version 22 and updated related frontend dependencies."
+      ],
+      "why": [
+        "to improve security and performance with the latest stable versions."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/619fcaf51101aae69e25ef0aafe50aee3bfaec3f"
+      ]
+    },
+    {
+      "what": [
+        "Go version from 1.19 to 1.24.1 and updated backend dependencies."
+      ],
+      "why": [
+        "to leverage the latest improvements and security features in the Go programming language."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/c17ab3d19b3ac26e32ca6eda1e48ae7cffa8cf68"
+      ]
+    }
+  ],
 
-  "removed": [],
+  "removed": [
+    {
+      "what": [
+        "Nylas integration."
+      ],
+      "why": [
+        "to simplify the codebase and remove unused functionality."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/e0364563f38fb7aa7ce85fd6f37fe6e254eee952"
+      ]
+    }
+  ],
 
   "fixed": [
     {
       "what": [
-        "{PRODUCT_NAME} not being able to connect to case-sensitive MSSQL database connections"
+        "JSONL export for multi-value fields."
       ],
       "refs": [
-        "https://github.com/cortezaproject/corteza/commit/ac5d8f6c7"
+        "https://github.com/cortezaproject/corteza/commit/bbd61668ead0f2b9a979b9bd7a8f2d257bd55e64"
+      ]
+    },
+    {
+      "what": [
+        "navigation between page builder and specific page layouts."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/27eba7b5e9af2e4ed44c83cf2d5e8ffdbe0c3db3"
+      ]
+    },
+    {
+      "what": [
+        "block condition not being preserved when cloning a block."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/1af09480dff7c96aa23c834ef4e04c0dc5f0e0e2"
+      ]
+    },
+    {
+      "what": [
+        "report block not automatically refetching on record or prompt changes."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/9bb5d21e84ecc56ff6d09f8ee5ec0bcb6343c37a"
+      ]
+    },
+    {
+      "what": [
+        "layout, block, and field condition handling for record pages."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/c33dbbabe3cb1c01a15e39a8cd2a04f5a5bccbee",
+        "https://github.com/cortezaproject/corteza/commit/198640e89ac08ca73e4b0cd0a7ac34fb3d03ae48"
+      ]
+    },
+    {
+      "what": [
+        "missing access check in reminder search functionality."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/249a3f4bb5a1dce4cb9654aeb3db75c42eb68bca"
+      ]
+    },
+    {
+      "what": [
+        "session error buffer size to prevent deadlocks."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/b7f5d5a067b48ec94c80ea293b7a9e4e55f0c631"
+      ]
+    },
+    {
+      "what": [
+        "multi-value record assignment in record handling, serialization, and filtering."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/c26fb3716f70c5b6752fd18aaef01f2bb673c55d",
+        "https://github.com/cortezaproject/corteza/commit/5f47b57a77cae0fe86ca0ae1d97ac29eada39661",
+        "https://github.com/cortezaproject/corteza/commit/864702e506f6ec3dfa8d1eff6ed6d3b98683fbcb"
+      ]
+    },
+    {
+      "what": [
+        "record values serialization for bulk updates to properly handle arrays."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/8305c7ee25d17fa2f909c40ba8c82bffb3c48cdb"
+      ]
+    },
+    {
+      "what": [
+        "case sensitivity issues when querying MSSQL database."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/ac5d8f6c776ccd4fc53ccdbc12de1b9a7f6a72cc"
+      ]
+    },
+    {
+      "what": [
+        "workflow dry run cancellation and processing issues."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/1dee838ac6d13a7ba618a73bfa3ecaa3a3c24fc4",
+        "https://github.com/cortezaproject/corteza/commit/f1efbab0d2de2d0af9ebe0a4d40a73c9e7dc5329"
+      ]
+    },
+    {
+      "what": [
+        "inline filtering with multi-value fields."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/51f2c4b22f4f70cdbb43adf45e2fbfa5d055b3f0"
+      ]
+    },
+    {
+      "what": [
+        "ace editor suggestions being initialized even when autocomplete was disabled."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/55a921f42cbbbbf0dbaa8c78e26cc01f8cfd71e8"
+      ]
+    },
+    {
+      "what": [
+        "styling issues with pill tabs when used without block card title."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/5d1b4485e5e7022b14fd2bd4d4842d1dfdf94a3e"
       ]
     }
   ]

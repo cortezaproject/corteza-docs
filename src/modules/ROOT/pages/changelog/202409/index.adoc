@@ -11,8 +11,8 @@ Looking ahead, we plan to expand these features with even more robust suggestion
 
 :leveloffset: +1
 
-include::00.gen.adoc[]
-
+include::02.gen.adoc[]
 include::01.gen.adoc[]
+include::00.gen.adoc[]
 
 :leveloffset: -1

@@ -1,0 +1,65 @@
+include::ROOT:partial$variables.adoc[]
+
+= `2024.9.2`
+
+*Released on*: `2025.4.17`
+
+.[#2024_09_02-added]#<<2024_09_02-added,Added:>>#
+* Added automatic logout functionality based on user inactivity.
+The change was added to improve security by automatically logging out inactive users
+({CORTEZA_COMMIT_BASE}8fda0ae[`8fda0ae`], {CORTEZA_COMMIT_BASE}881b696[`881b696`]).
+* Added autocompletion to layout title/visibility and record conditional fields.
+The change was added to improve the user experience when creating or modifying page layouts and record conditions
+({CORTEZA_COMMIT_BASE}857457d[`857457d`]).
+* Added step highlighting feature to workflow dry run functionality.
+The change was added to provide better visual feedback during workflow development and debugging
+({CORTEZA_COMMIT_BASE}1dee838[`1dee838`]).
+
+.[#2024_09_02-changed]#<<2024_09_02-changed,Changed:>>#
+* Changed inline actions to be shown on hover of table row or record block instead of cell/field.
+The change was made to provide a more consistent user experience and improve visibility of available actions
+({CORTEZA_COMMIT_BASE}412d98b[`412d98b`]).
+* Changed ace editor theming to use CSS variables more extensively.
+The change was made to ensure consistent styling across different themes and improve visual appearance
+({CORTEZA_COMMIT_BASE}58e649b[`58e649b`]).
+* Changed Node.js to version 22 and updated related frontend dependencies.
+The change was made to improve security and performance with the latest stable versions
+({CORTEZA_COMMIT_BASE}619fcaf[`619fcaf`]).
+* Changed Go version from 1.19 to 1.24.1 and updated backend dependencies.
+The change was made to leverage the latest improvements and security features in the Go programming language
+({CORTEZA_COMMIT_BASE}c17ab3d[`c17ab3d`]).
+
+.[#2024_09_02-removed]#<<2024_09_02-removed,Removed:>>#
+* Removed Nylas integration.
+The removal was made to simplify the codebase and remove unused functionality
+({CORTEZA_COMMIT_BASE}e036456[`e036456`]).
+
+.[#2024_09_02-fixed]#<<2024_09_02-fixed,Fixed:>>#
+* Fixed JSONL export for multi-value fields
+({CORTEZA_COMMIT_BASE}bbd6166[`bbd6166`]).
+* Fixed navigation between page builder and specific page layouts
+({CORTEZA_COMMIT_BASE}27eba7b[`27eba7b`]).
+* Fixed block condition not being preserved when cloning a block
+({CORTEZA_COMMIT_BASE}1af0948[`1af0948`]).
+* Fixed report block not automatically refetching on record or prompt changes
+({CORTEZA_COMMIT_BASE}9bb5d21[`9bb5d21`]).
+* Fixed layout, block, and field condition handling for record pages
+({CORTEZA_COMMIT_BASE}c33dbba[`c33dbba`], {CORTEZA_COMMIT_BASE}198640e[`198640e`]).
+* Fixed missing access check in reminder search functionality
+({CORTEZA_COMMIT_BASE}249a3f4[`249a3f4`]).
+* Fixed session error buffer size to prevent deadlocks
+({CORTEZA_COMMIT_BASE}b7f5d5a[`b7f5d5a`]).
+* Fixed multi-value record assignment in record handling, serialization, and filtering
+({CORTEZA_COMMIT_BASE}c26fb37[`c26fb37`], {CORTEZA_COMMIT_BASE}5f47b57[`5f47b57`], {CORTEZA_COMMIT_BASE}864702e[`864702e`]).
+* Fixed record values serialization for bulk updates to properly handle arrays
+({CORTEZA_COMMIT_BASE}8305c7e[`8305c7e`]).
+* Fixed case sensitivity issues when querying MSSQL database
+({CORTEZA_COMMIT_BASE}ac5d8f6[`ac5d8f6`]).
+* Fixed workflow dry run cancellation and processing issues
+({CORTEZA_COMMIT_BASE}1dee838[`1dee838`], {CORTEZA_COMMIT_BASE}f1efbab[`f1efbab`]).
+* Fixed inline filtering with multi-value fields
+({CORTEZA_COMMIT_BASE}51f2c4b[`51f2c4b`]).
+* Fixed ace editor suggestions being initialized even when autocomplete was disabled
+({CORTEZA_COMMIT_BASE}55a921f[`55a921f`]).
+* Fixed styling issues with pill tabs when used without block card title
+({CORTEZA_COMMIT_BASE}5d1b448[`5d1b448`]).

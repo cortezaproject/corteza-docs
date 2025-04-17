@@ -17,7 +17,7 @@ Binary data is handled using minIO and stored either locally or on a supported c
 
 [CAUTION]
 ====
-{PRODUCT_NAME} server runs on GO 1.16.
+{PRODUCT_NAME} server runs on GO 1.24.1.
 This guide assumes that your GO development environment is already set up on the correct version.
 ====
 

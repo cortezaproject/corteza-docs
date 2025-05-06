@@ -1,0 +1,134 @@
+include::ROOT:partial$variables.adoc[]
+
+= Notifications
+:attachment-path: ../../../_attachments/automation/workflows/examples/
+:page-noindex: true
+
+
+{PRODUCT_NAME} provides a flexible notification system that allows you to send notifications for any event that is supported by workflow triggers.
+
+That gives you complete control over:
+
+* When notifications are sent
+* Who receives them
+* What information they contain
+
+[IMPORTANT]
+====
+Make sure that the user invoking the workflow has the permission to assign notifications to users (menu:Admin Area[System > Permissions > `Allow notification assignment])
+====
+
+== Enabling notifications
+
+First head to the Admin Area and navigate to the menu:User Interface[Settings] and scroll down to the Topbar section.
+
+Make sure the `Hide notifications` is not ticked.
+
+image::automation/workflows/examples/notifications/notifications-settings.png[role="data-zoomable"]
+
+The notifications will be displayed in the topbar of the application.
+
+image::automation/workflows/examples/notifications/notifications-topbar.png[role="data-zoomable"]
+
+== Sending a simple Notification
+
+To send a simple notification, you can use the `Send simple notification` function inside a workflow.
+The function will send a notification to the recipient with the title and description provided.
+
+It has the following parameters:
+
+* `recipient` - The recipient of the notification.
+* `title` - The title of the notification.
+* `description` - The description of the notification.
+
+image::automation/workflows/examples/notifications/notifications-simple-workflow.png[role="data-zoomable"]
+
+After executing the workflow, the notification will appear in the `Notification Sidebar` accessed from the topbar.
+
+image::automation/workflows/examples/notifications/notifications-simple.png[role="data-zoomable"]
+
+the link:{attachment-path}send-simple-notification.json[source code] for the workflow example.
+
+****
+.Workflow step details:
+[%collapsible.result]
+====
+1. *(1) Test trigger*:
+** *resource*: `System`
+** *event*: `onManual`
+** *enabled*: checked
+2. *(2) Send simple notification*:
+** *recipient*:
+**** *value type*: constant
+**** *value*: `test-user`
+** *title*:
+**** *value type*: constant
+**** *value*: `Simple notification`
+** *description*:
+**** *value type*: constant
+**** *value*: `This is a simple notification`
+3. *(3) Done*:
+====
+****
+
+== Sending a record notification
+
+To send a record notification, you can use the `Send record notification` function inside a workflow.
+The function will send a notification to the recipient with the title and description provided.
+If the notification is clicked, it will open the record in the mode specified (modal, new tab, current tab).
+
+It has the following parameters:
+
+* `recipient` - The recipient of the notification.
+* `title` - The title of the notification.
+* `description` - The description of the notification.
+* `namespace` - The namespace of the record.
+* `module` - The module of the record.
+* `record` - The record.
+* `openMode` - The mode in which the record will be opened (modal, new tab, current tab).
+* `edit` - If true, the record will be opened in edit mode.
+
+image::automation/workflows/examples/notifications/notifications-record-workflow.png[role="data-zoomable"]
+
+After executing the workflow, the notification will appear in the `Notification Sidebar` accessed from the topbar.
+
+image::automation/workflows/examples/notifications/notifications-record.png[role="data-zoomable"]
+
+the link:{attachment-path}send-record-notification.json[source code] for the workflow example.
+
+****
+.Workflow step details:
+[%collapsible.result]
+====
+1. *(1) Test trigger*:
+** *resource*: `System`
+** *event*: `onManual`
+** *enabled*: checked
+2. *(2) Send record notification*:
+** *recipient*:
+**** *value type*: constant
+**** *value*: `test-user`
+** *title*:
+**** *value type*: constant
+**** *value*: `Record notification`
+** *description*:
+**** *value type*: constant
+**** *value*: `This is a record notification`
+** *namespace*:
+**** *value type*: constant
+**** *value*: `test-namespace`
+** *module*:
+**** *value type*: constant
+**** *value*: `test-module`
+** *record*:
+**** *value type*: constant
+**** *value*: `123`
+** *openMode*:
+**** *value type*: constant
+**** *value*: `modal`
+** *edit*:
+**** *value type*: constant
+**** *value*: `false`
+3. *(3) Done*:
+====
+****

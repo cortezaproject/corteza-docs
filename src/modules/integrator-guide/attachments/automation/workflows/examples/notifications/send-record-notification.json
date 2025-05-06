@@ -1,0 +1,117 @@
+{
+  "workflows": [
+    {
+      "handle": "send-record-notification",
+      "enabled": true,
+      "meta": {
+        "name": "Send Record Notification",
+        "description": "Sends a record notification to the recipient",
+        "visual": null
+      },
+      "keepSessions": 0,
+      "steps": [
+        {
+          "stepID": "4",
+          "kind": "function",
+          "ref": "notificationSendRecord",
+          "arguments": [
+            {
+              "target": "recipient",
+              "value": "413621405880745985",
+              "type": "ID"
+            },
+            {
+              "target": "title",
+              "value": "Record notification",
+              "type": "String"
+            },
+            {
+              "target": "description",
+              "value": "This is a record notification",
+              "type": "String"
+            },
+            {
+              "target": "module",
+              "value": "test-module",
+              "type": "Handle"
+            },
+            {
+              "target": "namespace",
+              "value": "test-namespace",
+              "type": "Handle"
+            },
+            {
+              "target": "record",
+              "value": "123",
+              "type": "ID"
+            },
+            {
+              "target": "openMode",
+              "value": "modal",
+              "type": "String"
+            }
+          ],
+          "results": [],
+          "meta": {
+            "name": "",
+            "description": "",
+            "visual": {
+              "defaultName": true,
+              "id": "4",
+              "parent": "1",
+              "value": "Send record notification",
+              "xywh": [
+                2432,
+                2032,
+                200,
+                80
+              ]
+            }
+          }
+        }
+      ],
+      "paths": [],
+      "triggers": [
+        {
+          "resourceType": "system",
+          "eventType": "onManual",
+          "constraints": [],
+          "enabled": true,
+          "stepID": "4",
+          "meta": {
+            "description": "",
+            "visual": {
+              "defaultName": true,
+              "edges": [
+                {
+                  "childID": "4",
+                  "meta": {
+                    "description": "",
+                    "label": "",
+                    "visual": {
+                      "id": "5",
+                      "parent": "1",
+                      "points": [],
+                      "style": "exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;",
+                      "value": null
+                    }
+                  },
+                  "parentID": "3"
+                }
+              ],
+              "id": "3",
+              "parent": "1",
+              "value": "System - onManual",
+              "xywh": [
+                2128,
+                2032,
+                200,
+                80
+              ]
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,97 @@
+{
+  "workflows": [
+    {
+      "handle": "send_simple_notification",
+      "enabled": true,
+      "meta": {
+        "name": "Send Simple Notification",
+        "description": "Sends a simple notification to the recipient",
+        "visual": null
+      },
+      "keepSessions": 0,
+      "steps": [
+        {
+          "stepID": "4",
+          "kind": "function",
+          "ref": "notificationSend",
+          "arguments": [
+            {
+              "target": "recipient",
+              "value": "test-user",
+              "type": "Handle"
+            },
+            {
+              "target": "title",
+              "value": "Simple notification",
+              "type": "String"
+            },
+            {
+              "target": "description",
+              "value": "This is a simple notification",
+              "type": "String"
+            }
+          ],
+          "results": [],
+          "meta": {
+            "name": "",
+            "description": "",
+            "visual": {
+              "defaultName": true,
+              "id": "4",
+              "parent": "1",
+              "value": "Send simple notification",
+              "xywh": [
+                2336,
+                2040,
+                200,
+                80
+              ]
+            }
+          }
+        }
+      ],
+      "paths": [],
+      "triggers": [
+        {
+          "resourceType": "system",
+          "eventType": "onManual",
+          "constraints": [],
+          "enabled": true,
+          "stepID": "4",
+          "meta": {
+            "description": "",
+            "visual": {
+              "defaultName": true,
+              "edges": [
+                {
+                  "childID": "4",
+                  "meta": {
+                    "description": "",
+                    "label": "",
+                    "visual": {
+                      "id": "5",
+                      "parent": "1",
+                      "points": [],
+                      "style": "exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;",
+                      "value": null
+                    }
+                  },
+                  "parentID": "3"
+                }
+              ],
+              "id": "3",
+              "parent": "1",
+              "value": "System - onManual",
+              "xywh": [
+                2056,
+                2040,
+                200,
+                80
+              ]
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

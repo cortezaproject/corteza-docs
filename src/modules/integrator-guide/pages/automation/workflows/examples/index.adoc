@@ -22,4 +22,6 @@ include::./execution-timeout.adoc[]
 
 include::./messagebus-read-write.adoc[]
 
+include::./notifications.adoc[]
+
 :leveloffset: -1

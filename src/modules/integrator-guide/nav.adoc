@@ -92,6 +92,7 @@
 ***** xref:automation/workflows/examples/dynamic-config.adoc[]
 ***** xref:automation/workflows/examples/execution-timeout.adoc[]
 ***** xref:automation/workflows/examples/messagebus-read-write.adoc[]
+***** xref:automation/workflows/examples/notifications.adoc[]
 
 *** xref:automation/automation-scripts/index.adoc[]
 **** xref:automation/automation-scripts/node-modules.adoc[]

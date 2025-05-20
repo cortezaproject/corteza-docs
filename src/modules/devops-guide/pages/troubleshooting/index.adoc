@@ -171,3 +171,8 @@ could not send email: dial tcp [::1]:25: connect: connection refused
 == Changes to the Default Auth-Client Settings Seem not to have been Applied
 
 Restarting the server is required when an admin modifies default authentication client settings, such as client secret or redirect URIs, because those changes are not applied immediately.
+
+== Discovery failing to start
+
+If your {APP_NAME_DISCOVERY} is not working, try restarting the `discovery` service.
+There is a known issue with order of execution and health check reporting which may cause the service to fail for you.

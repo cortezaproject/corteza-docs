@@ -40,6 +40,8 @@
 *** xref:examples/deploy-online/index.adoc[]
 **** xref:examples/deploy-online/multi-mysql.adoc[]
 **** xref:examples/deploy-online/multi-pgsql.adoc[]
+**** xref:examples/deploy-online/multi-discovery-pgsql.adoc[]
+
 // **** xref:examples/deploy-online/single-mysql.adoc[]
 // **** xref:examples/deploy-online/single-pgsql.adoc[]
 

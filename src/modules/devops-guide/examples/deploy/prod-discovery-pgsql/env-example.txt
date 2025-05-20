@@ -1,40 +1,36 @@
 ########################################################################################################################
 # General settings
-DOMAIN=your-demo.example.tld
-VERSION=2023.3
 
-########################################################################################################################
-# Database connection
+DOMAIN=corteza.mydomain.org
+VERSION=2024.9.3
 
 DB_DSN=postgres://corteza:corteza@db:5432/corteza?sslmode=disable
 
 ########################################################################################################################
 # Server settings
 
-# Serve Corteza webapps alongside API
 HTTP_WEBAPP_ENABLED=true
+HTTP_WEBAPP_LIST="compose,admin,workflow,reporter,discovery"
+AUTH_JWT_SECRET=supersecurejwtsecret
+LOG_LEVEL=debug
 
 ########################################################################################################################
-# Server Discovery configs
+# Discovery settings
 
-DISCOVERY_ENABLED=true
-DISCOVERY_DEBUG=true
-DISCOVERY_CORTEZA_DOMAIN=https://your-demo.example.tld
-DISCOVERY_BASE_URL=//discovery.your-demo.example.tld
-CORTEZA_SERVER_BASE_URL=http://server:80
-
-ES_ADDRESS=http://es:9200
-ES_INDEX_INTERVAL=300
-HTTP_ADDR=0.0.0.0:80
-
-# Corteza Discovery indexer configuration
+DISCOVERY_ENABLED="true"
+DISCOVERY_BASE_URL="https://corteza-discovery.mydomain.org"
 DISCOVERY_INDEXER_ENABLED=true
-DISCOVERY_INDEXER_PRIVATE_INDEX_CLIENT_KEY=${PRIVATE_KEY_EXAMPLE}
-DISCOVERY_INDEXER_PRIVATE_INDEX_CLIENT_SECRET=${SECRET_EXAMPLE}
-
-# Corteza Discovery searcher configuration
 DISCOVERY_SEARCHER_ENABLED=true
-DISCOVERY_SEARCHER_CLIENT_KEY=${CLIENT_KEY_EXAMPLE}
-DISCOVERY_SEARCHER_CLIENT_SECRET=${CLIENT_SECRET_EXAMPLE}
-DISCOVERY_SEARCHER_JWT_SECRET=${JWT_SECRET_EXAMPLE}
-DISCOVERY_SEARCHER_ALLOWED_ROLE=${ROLE_ALLOWED_EXAMPLE}
+DISCOVERY_SEARCHER_JWT_SECRET=supersecurejwtsecret
+
+DOMAIN_DISCOVERY=corteza-discovery.mydomain.org
+DISCOVERY_CORTEZA_DOMAIN=https://corteza.mydomain.org
+
+DISCOVERY_INDEXER_PRIVATE_INDEX_CLIENT_KEY="111111111111111111"
+DISCOVERY_INDEXER_PRIVATE_INDEX_CLIENT_SECRET="supersecretsupersecretsupersecret"
+DISCOVERY_INDEXER_PROTECTED_INDEX_CLIENT_KEY="111111111111111111"
+DISCOVERY_INDEXER_PROTECTED_INDEX_CLIENT_SECRET="supersecretsupersecretsupersecret"
+DISCOVERY_INDEXER_PUBLIC_INDEX_CLIENT_KEY="111111111111111111"
+DISCOVERY_INDEXER_PUBLIC_INDEX_CLIENT_SECRET="supersecretsupersecretsupersecret"
+DISCOVERY_SEARCHER_CLIENT_KEY="111111111111111111"
+DISCOVERY_SEARCHER_CLIENT_SECRET="supersecretsupersecretsupersecret"

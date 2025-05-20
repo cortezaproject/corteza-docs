@@ -1,11 +1,213 @@
+include::ROOT:partial$variables.adoc[]
+
 = Multi-image Discovery with PostgreSQL
 :page-noindex: true
 
 [NOTE]
 ====
 Currently Corteza Discovery is tested on a running production servers in combination with PostgreSQL database, but should work with the latest MySQL versions.
-Beside the `server` and `db` containers, there should be also the indexer (`es`) and the searcher (`discovery`) running.
+Beside the `server` and `db` containers, there should be also the indexer (`opensearch-node`) and the searcher (`discovery`) running.
 ====
+
+[CAUTION]
+====
+If your {APP_NAME_DISCOVERY} is not working, try restarting the `discovery` service.
+There is a known issue with order of execution and health check reporting which may cause the service to fail for you.
+====
+
+== Preparing {PRODUCT_NAME}
+
+{PRODUCT_NAME} {APP_NAME_DISCOVERY} is a stand alone application, independent from the rest of the {PRODUCT_NAME} system.
+In order to make {APP_NAME_DISCOVERY} functional, you must *grant access* by creating an *auth client* along with *a user* and *a role*.
+
+[IMPORTANT]
+====
+Access control defines what data the {APP_NAME_DISCOVERY} indexer has access to; more in the <<index-configuration,index configuration>> sections.
+====
+
+=== Indexer Role
+
+Firstly define a new role for the {APP_NAME_DISCOVERY} indexer to use.
+Open the {PRODUCT_NAME} {APP_NAME_ADMIN} web application and navigate to menu:system[roles].
+Click on the btn:[new] button, fill in the parameters and click on the btn:[submit] button.
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "discovery/role.png",
+    "alias": "discovery-role",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {
+    "x": 320,
+    "y": 0,
+    "w": 1600,
+    "h": 1080
+  },
+  "focus": {
+    "x": 586,
+    "y": 71,
+    "w": 1070,
+    "h": 392
+  },
+  "annotations": []
+}
+----
+
+[#indexer-user]
+=== Indexer User
+
+Next, define a new user that the {APP_NAME_DISCOVERY} indexer should identify as.
+In the {PRODUCT_NAME} {APP_NAME_ADMIN} web application navigate to menu:system[users].
+Click on the btn:[new] button and fill in the parameters and click on the btn:[submit] button.
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "discovery/user.png",
+    "alias": "discovery-user",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {
+    "x": 320,
+    "y": 0,
+    "w": 1600,
+    "h": 1080
+  },
+  "focus": {
+    "x": 586,
+    "y": 70,
+    "h": 324,
+    "w": 1070
+  },
+  "annotations": []
+}
+----
+
+After you save the user, assign them the role you've created earlier.
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "discovery/user.png",
+    "alias": "discovery-user-membership",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {
+    "x": 320,
+    "y": 0,
+    "w": 1600,
+    "h": 1080
+  },
+  "focus": {
+    "x": 586,
+    "y": 436,
+    "h": 203,
+    "w": 1070
+  },
+  "annotations": []
+}
+----
+
+=== Indexer Auth Client
+
+Lastly, define an auth client that the {APP_NAME_DISCOVERY} indexer should use to authenticate with {PRODUCT_NAME}.
+
+[NOTE]
+====
+Since authentication between two systems is being performed, you should to use the `client_credentials` grant type.
+====
+
+In the {PRODUCT_NAME} {APP_NAME_ADMIN} web application navigate to menu:system[auth clients].
+Click on the btn:[new] button and fill in the basic parameters; make sure you select the `client_credentials` grant type and check the `allow client access to Corteza Discovery API on behalf of user`.
+Select the previously created user in the `impersonate user` input and click on the btn:[submit] button.
+
+[NOTE]
+====
+It is recommended you define a new auth client for a new external application instead of reusing existing ones.
+====
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "discovery/auth-client.png",
+    "alias": "discovery-auth-client",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {
+    "x": 320,
+    "y": 0,
+    "w": 1600,
+    "h": 1080
+  },
+  "annotations": [{
+    "kind": "box-note",
+    "padding": "sm",
+    "x": 855,
+    "y": 366,
+    "h": 16,
+    "w": 547
+  }, {
+    "kind": "box-note",
+    "padding": "sm",
+    "x": 855,
+    "y": 618,
+    "h": 16,
+    "w": 547
+  }, {
+    "kind": "box-note",
+    "x": 855,
+    "y": 748,
+    "h": 40,
+    "w": 800
+  }]
+}
+----
+
+Copy the *client ID* and *client secret* from the auth client and keep them safe for later use.
+The clientID is located in the URL address bar, and the client secret is in the field labeled as such
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "discovery/auth-client-credentials.png",
+    "alias": "discovery-auth-client-credentials",
+    "w": 2123,
+    "h": 1210
+  },
+  "view": {
+    "x": 1,
+    "y": 38,
+    "w": 2087,
+    "h": 1170
+  },
+  "annotations": [{
+    "kind": "box-note",
+    "padding": "sm",
+    "x": 456,
+    "y": 47,
+    "w": 147,
+    "h": 15
+  }, {
+    "kind": "box-note",
+    "x": 678,
+    "y": 363,
+    "w": 1056,
+    "h": 38
+  }]
+}
+----
+
+== Configuration Files
 
 .`docker-compose.yaml`
 [source,yaml]
@@ -18,3 +220,5 @@ include::example$deploy/prod-discovery-pgsql/docker-compose.yaml[]
 ----
 include::example$deploy/prod-discovery-pgsql/env-example.txt[]
 ----
+
+[#integration-configuration]

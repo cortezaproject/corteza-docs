@@ -28,8 +28,8 @@ Access control defines what data the {APP_NAME_DISCOVERY} indexer has access to;
 === Indexer Role
 
 Firstly define a new role for the {APP_NAME_DISCOVERY} indexer to use.
-Open the {PRODUCT_NAME} {APP_NAME_ADMIN} web application and navigate to menu:system[roles].
-Click on the btn:[new] button, fill in the parameters and click on the btn:[submit] button.
+Open the {PRODUCT_NAME} {APP_NAME_ADMIN} web application and navigate to menu:system[Roles].
+Click on the btn:[New] button, fill in the parameters and click on the btn:[Submit] button.
 
 [annotation,role="data-zoomable"]
 ----
@@ -41,18 +41,11 @@ Click on the btn:[new] button, fill in the parameters and click on the btn:[subm
     "h": 1080
   },
   "view": {
-    "x": 320,
-    "y": 0,
-    "w": 1600,
-    "h": 1080
+    "x": 432,
+    "y": 61,
+    "w": 1376,
+    "h": 835
   },
-  "focus": {
-    "x": 586,
-    "y": 71,
-    "w": 1070,
-    "h": 392
-  },
-  "annotations": []
 }
 ----
 
@@ -60,8 +53,8 @@ Click on the btn:[new] button, fill in the parameters and click on the btn:[subm
 === Indexer User
 
 Next, define a new user that the {APP_NAME_DISCOVERY} indexer should identify as.
-In the {PRODUCT_NAME} {APP_NAME_ADMIN} web application navigate to menu:system[users].
-Click on the btn:[new] button and fill in the parameters and click on the btn:[submit] button.
+In the {PRODUCT_NAME} {APP_NAME_ADMIN} web application navigate to menu:system[Users].
+Click on the btn:[New] button and fill in the parameters and click on the btn:[Submit] button.
 
 [annotation,role="data-zoomable"]
 ----
@@ -73,12 +66,6 @@ Click on the btn:[new] button and fill in the parameters and click on the btn:[s
     "h": 1080
   },
   "view": {
-    "x": 320,
-    "y": 0,
-    "w": 1600,
-    "h": 1080
-  },
-  "focus": {
     "x": 586,
     "y": 70,
     "h": 324,
@@ -94,22 +81,16 @@ After you save the user, assign them the role you've created earlier.
 ----
 {
   "image": {
-    "rel": "discovery/user.png",
+    "rel": "discovery/user-membership.png",
     "alias": "discovery-user-membership",
     "w": 1920,
     "h": 1080
   },
   "view": {
-    "x": 320,
-    "y": 0,
-    "w": 1600,
-    "h": 1080
-  },
-  "focus": {
-    "x": 586,
-    "y": 436,
-    "h": 203,
-    "w": 1070
+    "x": 372,
+    "y": 319,
+    "w": 1156,
+    "h": 245
   },
   "annotations": []
 }
@@ -124,9 +105,9 @@ Lastly, define an auth client that the {APP_NAME_DISCOVERY} indexer should use t
 Since authentication between two systems is being performed, you should to use the `client_credentials` grant type.
 ====
 
-In the {PRODUCT_NAME} {APP_NAME_ADMIN} web application navigate to menu:system[auth clients].
-Click on the btn:[new] button and fill in the basic parameters; make sure you select the `client_credentials` grant type and check the `allow client access to Corteza Discovery API on behalf of user`.
-Select the previously created user in the `impersonate user` input and click on the btn:[submit] button.
+In the {PRODUCT_NAME} {APP_NAME_ADMIN} web application navigate to menu:system[Auth Clients].
+Click on the btn:[New] button and fill in the basic parameters; make sure you select the `client_credentials` grant type and check the `allow client access to Corteza Discovery API on behalf of user`.
+Select the previously created user in the `impersonate user` input and click on the btn:[Submit] button.
 
 [NOTE]
 ====
@@ -139,70 +120,35 @@ It is recommended you define a new auth client for a new external application in
   "image": {
     "rel": "discovery/auth-client.png",
     "alias": "discovery-auth-client",
-    "w": 1920,
-    "h": 1080
+    "w": 1916,
+    "h": 985
   },
   "view": {
-    "x": 320,
-    "y": 0,
-    "w": 1600,
-    "h": 1080
+    "x": 527,
+    "y": 104,
+    "w": 1151,
+    "h": 732
   },
   "annotations": [{
     "kind": "box-note",
     "padding": "sm",
-    "x": 855,
-    "y": 366,
-    "h": 16,
-    "w": 547
+    "x": 562,
+    "y": 508,
+    "w": 455,
+    "h": 51,
   }, {
     "kind": "box-note",
     "padding": "sm",
-    "x": 855,
-    "y": 618,
-    "h": 16,
-    "w": 547
+    "x": 1117,
+    "y": 531,
+    "w": 500,
+    "h": 27
   }, {
     "kind": "box-note",
-    "x": 855,
-    "y": 748,
-    "h": 40,
-    "w": 800
-  }]
-}
-----
-
-Copy the *client ID* and *client secret* from the auth client and keep them safe for later use.
-The clientID is located in the URL address bar, and the client secret is in the field labeled as such
-
-[annotation,role="data-zoomable"]
-----
-{
-  "image": {
-    "rel": "discovery/auth-client-credentials.png",
-    "alias": "discovery-auth-client-credentials",
-    "w": 2123,
-    "h": 1210
-  },
-  "view": {
-    "x": 1,
-    "y": 38,
-    "w": 2087,
-    "h": 1170
-  },
-  "annotations": [{
-    "kind": "box-note",
-    "padding": "sm",
-    "x": 456,
-    "y": 47,
-    "w": 147,
-    "h": 15
-  }, {
-    "kind": "box-note",
-    "x": 678,
-    "y": 363,
-    "w": 1056,
-    "h": 38
+    "x": 565,
+    "y": 727,
+    "w": 550,
+    "h": 102
   }]
 }
 ----

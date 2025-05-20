@@ -64,7 +64,7 @@ Mozilla/5.0 (X11; Linux x86_64; rv:89.0) Gecko/20100101 Firefox/89.0
 |===
 
 *Add a ruler extension* to simplify the process of figuring out the pixel position of specific elements on the page.
-I (the writer) use https://chrome.google.com/webstore/detail/smart-page-ruler/nmibbjghlmdiafjolcphdggihcbcedmg/related?hl=en[Smart Page Ruler] as I've found it to be the best and simplest to use from the offerings at the time of writing.
+I (the writer) use https://chromewebstore.google.com/detail/better-ruler/ilcnadaaninblgbekoaihdhoiecaflie[Better Ruler] as I've found it to be the best and simplest to use from the offerings at the time of writing.
 
 If you do not wish or can not find an appropriate extension for your browser, you may determine positions manually as long as you follow the brand guidelines and you are consistent.
 

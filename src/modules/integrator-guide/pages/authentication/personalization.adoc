@@ -27,11 +27,16 @@ The development tools include automatic template reloading and developer UI.
 | The `AUTH_ASSETS_PATH` variable defines where the system should read the modified authentication interfaces from.
 Point the `AUTH_ASSETS_PATH` variable to the directory that contains the modified assets.
 To exemplify; `AUTH_ASSETS_PATH=/opt/deploy/corteza/auth-assets`.
+
+| [#env-assets]#<<env-assets,`HTTP_SERVER_ASSETS_PATH`>>#
+| The `HTTP_SERVER_ASSETS_PATH` variable defines where the system should read the modified icon and logo files.
+Point the `HTTP_SERVER_ASSETS_PATH` variable to the directory that contains `icon.svg` and `logo.svg` files.
+To exemplify; `HTTP_SERVER_ASSETS_PATH=/opt/deploy/corteza/auth-assets`.
 |===
 
 [NOTE]
 ====
-The path for the `AUTH_ASSETS_PATH` variable can be absolute or relative to the `corteza-server` binary.
+The path for the `AUTH_ASSETS_PATH` and `HTTP_SERVER_ASSETS_PATH` variables can be absolute or relative to the `corteza-server` binary.
 ====
 
 === Export Current Assets
@@ -40,7 +45,7 @@ To export the current authentication assets, run the `auth assets export` comman
 
 [NOTE]
 ====
-Alternatively, you can download the assets from https://github.com/cortezaproject/corteza-server/tree/{{VERSION}}/auth/assets[here].
+Alternatively, you can download the assets from https://github.com/cortezaproject/corteza/tree/{{VERSION}}/server/auth/assets[here].
 ====
 
 [source]
@@ -135,6 +140,20 @@ If you wish to define reusable components, you can define additional template fi
 === Change Scenarios
 
 Scenarios can be changed in the `templates/scenarios.yaml` while {PRODUCT_NAME} is running in development mode.
+
+=== Customizing the Icon and Logo
+
+The icon and logo files are embedded in the authentication screens.
+To change the icon and logo you must define the <<env-assets,`HTTP_SERVER_ASSETS_PATH`>> `.env` variable.
+The path must point to the directory that contains the `icon.svg` and `logo.svg` files.
+
+The default assets are located in the `server/assets/src` directory or you can download them from https://github.com/cortezaproject/corteza/tree/{{VERSION}}/server/assets/src[here].
+
+[IMPORTANT]
+====
+Make sure you also copy the `api-404.html`, `api-landing.html`, `logo.png` and `release-background.jpg` files to the `HTTP_SERVER_ASSETS_PATH` directory.
+Otherwise the files wont be available to the server.
+====
 
 === Styling
 

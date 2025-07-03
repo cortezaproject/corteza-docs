@@ -1,0 +1,87 @@
+include::ROOT:partial$variables.adoc[]
+
+= `2024.9.3`
+
+*Released on*: `2025.7.3`
+
+.[#2024_09_03-added]#<<2024_09_03-added,Added:>>#
+* Added compose record cloner function to workflows.
+The change was added to enable workflow-based record cloning functionality
+({CORTEZA_COMMIT_BASE}6cfe5d4[`6cfe5d4`]).
+* Added user and record resolution to record revisions.
+The change was added to provide better tracking and context for record changes
+({CORTEZA_COMMIT_BASE}6498dcd[`6498dcd`]).
+* Added notification feature to webapps, libraries, and server.
+The change was added to enhance user experience with real-time notifications
+({CORTEZA_COMMIT_BASE}22c5fef[`22c5fef`], {CORTEZA_COMMIT_BASE}c896eb6[`c896eb6`]).
+* Added record list summaries.
+The change was added to provide summary views for record lists
+({CORTEZA_COMMIT_BASE}432ccdb[`432ccdb`], {CORTEZA_COMMIT_BASE}ab0b54f[`ab0b54f`]).
+* Added file upload support via Integration Gateway.
+The change was added to enable file handling through integration workflows
+({CORTEZA_COMMIT_BASE}5412a9b[`5412a9b`], {CORTEZA_COMMIT_BASE}9486bea[`9486bea`], {CORTEZA_COMMIT_BASE}1038547[`1038547`]).
+* Added compose-record before/after organize triggers.
+The change was added to provide workflow hooks for record organization events
+({CORTEZA_COMMIT_BASE}844096f[`844096f`]).
+
+.[#2024_09_03-changed]#<<2024_09_03-changed,Changed:>>#
+* Changed compose tab titles to include record page title.
+The change was made to improve navigation and context awareness
+({CORTEZA_COMMIT_BASE}0d3f21e[`0d3f21e`]).
+* Changed MSSQL time data types from TIMESTAMPTZ and TIMETZ to DATETIMEOFFSET and TIME.
+The change was made to improve database compatibility and data handling
+({CORTEZA_COMMIT_BASE}5d32433[`5d32433`]).
+* Changed sidebar to be expanded by default.
+The change was made to improve user experience and navigation visibility
+({CORTEZA_COMMIT_BASE}de9d38d[`de9d38d`]).
+* Changed workflow prompt text to be configurable.
+The change was made to provide more flexibility in workflow user interactions
+({CORTEZA_COMMIT_BASE}7fc9379[`7fc9379`]).
+* Changed workflow trigger resource and event type labels to be more human readable.
+The change was made to improve user experience in workflow configuration
+({CORTEZA_COMMIT_BASE}39e940a[`39e940a`]).
+* Changed record import/export multi-value support implementation.
+The change was made to improve data handling for complex field types
+({CORTEZA_COMMIT_BASE}23079b7[`23079b7`], {CORTEZA_COMMIT_BASE}b1e5546[`b1e5546`]).
+* Changed discovery UI/UX with various improvements.
+The change was made to enhance the overall discovery experience and usability
+({CORTEZA_COMMIT_BASE}379c115[`379c115`], {CORTEZA_COMMIT_BASE}c8bf132[`c8bf132`], {CORTEZA_COMMIT_BASE}85e9df5[`85e9df5`], {CORTEZA_COMMIT_BASE}12230b2[`12230b2`], {CORTEZA_COMMIT_BASE}ef2ac81[`ef2ac81`], {CORTEZA_COMMIT_BASE}0796437[`0796437`], {CORTEZA_COMMIT_BASE}16dc4b2[`16dc4b2`]).
+
+.[#2024_09_03-removed]#<<2024_09_03-removed,Removed:>>#
+* Removed namespace and module types and hit counter from discovery.
+The removal was made to simplify the discovery interface and focus on relevant content
+({CORTEZA_COMMIT_BASE}0796437[`0796437`]).
+* Removed text highlighting from discovery.
+The removal was made to improve discovery performance and user experience
+({CORTEZA_COMMIT_BASE}16dc4b2[`16dc4b2`]).
+* Removed private tab from discovery settings.
+The removal was made to streamline the discovery configuration interface
+({CORTEZA_COMMIT_BASE}ef2ac81[`ef2ac81`]).
+
+.[#2024_09_03-fixed]#<<2024_09_03-fixed,Fixed:>>#
+* Fixed field editors not remounting when used in v-for loops
+({CORTEZA_COMMIT_BASE}47c5447[`47c5447`]).
+* Fixed record clone tests and workflow function
+({CORTEZA_COMMIT_BASE}3a0f7c1[`3a0f7c1`], {CORTEZA_COMMIT_BASE}ed2179e[`ed2179e`]).
+* Fixed Federation data sync and DAL issues
+({CORTEZA_COMMIT_BASE}125b299[`125b299`]).
+* Fixed integration gateway response postfilter UX crashing when opening filter multiple times
+({CORTEZA_COMMIT_BASE}f97765c[`f97765c`]).
+* Fixed trigger constraint name labels on workflow editor step preview
+({CORTEZA_COMMIT_BASE}69faec5[`69faec5`]).
+* Fixed empty field validators breaking UI
+({CORTEZA_COMMIT_BASE}3976b48[`3976b48`]).
+* Fixed Auth client impersonate user selector not working when user was not on current page
+({CORTEZA_COMMIT_BASE}4791fe4[`4791fe4`]).
+* Fixed discovery initial load filters and mappings
+({CORTEZA_COMMIT_BASE}1455019[`1455019`], {CORTEZA_COMMIT_BASE}29edd2c[`29edd2c`], {CORTEZA_COMMIT_BASE}9486bea[`9486bea`]).
+* Fixed dropdown items not triggering if not clicked on icon/text
+({CORTEZA_COMMIT_BASE}541edf0[`541edf0`]).
+* Fixed record organizer not prefilling group value when adding new record
+({CORTEZA_COMMIT_BASE}8c5d11f[`8c5d11f`]).
+* Fixed namespace sidebar not visible when creating first namespace
+({CORTEZA_COMMIT_BASE}aaa292f[`aaa292f`]).
+* Fixed edge cases with record stale data/reactivity when working with modals
+({CORTEZA_COMMIT_BASE}e561249[`e561249`]).
+* Fixed locales and language detection for calendar, date picker and date values
+({CORTEZA_COMMIT_BASE}b52e63c[`b52e63c`]).

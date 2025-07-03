@@ -1,0 +1,311 @@
+{
+  "meta": {
+    "releasedOn": "2025.7.3"
+  },
+
+  "added": [
+    {
+      "what": [
+        "compose record cloner function to workflows."
+      ],
+      "why": [
+        "to enable workflow-based record cloning functionality."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/6cfe5d43a"
+      ]
+    },
+    {
+      "what": [
+        "user and record resolution to record revisions."
+      ],
+      "why": [
+        "to provide better tracking and context for record changes."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/6498dcd56"
+      ]
+    },
+    {
+      "what": [
+        "notification feature to webapps, libraries, and server."
+      ],
+      "why": [
+        "to enhance user experience with real-time notifications."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/22c5fefa0",
+        "https://github.com/cortezaproject/corteza/commit/c896eb657"
+      ]
+    },
+    {
+      "what": [
+        "record list summaries."
+      ],
+      "why": [
+        "to provide summary views for record lists."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/432ccdbde",
+        "https://github.com/cortezaproject/corteza/commit/ab0b54fc8"
+      ]
+    },
+    {
+      "what": [
+        "file upload support via Integration Gateway."
+      ],
+      "why": [
+        "to enable file handling through integration workflows."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/5412a9bd6",
+        "https://github.com/cortezaproject/corteza/commit/9486beae6",
+        "https://github.com/cortezaproject/corteza/commit/1038547e7"
+      ]
+    },
+    {
+      "what": [
+        "compose-record before/after organize triggers."
+      ],
+      "why": [
+        "to provide workflow hooks for record organization events."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/844096f81"
+      ]
+    }
+  ],
+
+  "changed": [
+    {
+      "what": [
+        "compose tab titles to include record page title."
+      ],
+      "why": [
+        "to improve navigation and context awareness."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/0d3f21efa"
+      ]
+    },
+    {
+      "what": [
+        "MSSQL time data types from TIMESTAMPTZ and TIMETZ to DATETIMEOFFSET and TIME."
+      ],
+      "why": [
+        "to improve database compatibility and data handling."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/5d3243320"
+      ]
+    },
+    {
+      "what": [
+        "sidebar to be expanded by default."
+      ],
+      "why": [
+        "to improve user experience and navigation visibility."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/de9d38df4"
+      ]
+    },
+    {
+      "what": [
+        "workflow prompt text to be configurable."
+      ],
+      "why": [
+        "to provide more flexibility in workflow user interactions."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/7fc93791b"
+      ]
+    },
+    {
+      "what": [
+        "workflow trigger resource and event type labels to be more human readable."
+      ],
+      "why": [
+        "to improve user experience in workflow configuration."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/39e940a64"
+      ]
+    },
+    {
+      "what": [
+        "record import/export multi-value support implementation."
+      ],
+      "why": [
+        "to improve data handling for complex field types."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/23079b79e",
+        "https://github.com/cortezaproject/corteza/commit/b1e5546b7"
+      ]
+    },
+    {
+      "what": [
+        "discovery UI/UX with various improvements."
+      ],
+      "why": [
+        "to enhance the overall discovery experience and usability."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/379c11518",
+        "https://github.com/cortezaproject/corteza/commit/c8bf13289",
+        "https://github.com/cortezaproject/corteza/commit/85e9df585",
+        "https://github.com/cortezaproject/corteza/commit/12230b2eb",
+        "https://github.com/cortezaproject/corteza/commit/ef2ac8104",
+        "https://github.com/cortezaproject/corteza/commit/0796437b2",
+        "https://github.com/cortezaproject/corteza/commit/16dc4b2cd"
+      ]
+    }
+  ],
+
+  "removed": [
+    {
+      "what": [
+        "namespace and module types and hit counter from discovery."
+      ],
+      "why": [
+        "to simplify the discovery interface and focus on relevant content."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/0796437b2"
+      ]
+    },
+    {
+      "what": [
+        "text highlighting from discovery."
+      ],
+      "why": [
+        "to improve discovery performance and user experience."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/16dc4b2cd"
+      ]
+    },
+    {
+      "what": [
+        "private tab from discovery settings."
+      ],
+      "why": [
+        "to streamline the discovery configuration interface."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/ef2ac8104"
+      ]
+    }
+  ],
+
+  "fixed": [
+    {
+      "what": [
+        "field editors not remounting when used in v-for loops."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/47c5447c3"
+      ]
+    },
+    {
+      "what": [
+        "record clone tests and workflow function."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/3a0f7c1db",
+        "https://github.com/cortezaproject/corteza/commit/ed2179e0b"
+      ]
+    },
+    {
+      "what": [
+        "Federation data sync and DAL issues."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/125b299a0"
+      ]
+    },
+    {
+      "what": [
+        "integration gateway response postfilter UX crashing when opening filter multiple times."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/f97765c64"
+      ]
+    },
+    {
+      "what": [
+        "trigger constraint name labels on workflow editor step preview."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/69faec533"
+      ]
+    },
+    {
+      "what": [
+        "empty field validators breaking UI."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/3976b48a3"
+      ]
+    },
+    {
+      "what": [
+        "Auth client impersonate user selector not working when user was not on current page."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/4791fe4a3"
+      ]
+    },
+    {
+      "what": [
+        "discovery initial load filters and mappings."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/14550196d",
+        "https://github.com/cortezaproject/corteza/commit/29edd2c34",
+        "https://github.com/cortezaproject/corteza/commit/9486beae6"
+      ]
+    },
+    {
+      "what": [
+        "dropdown items not triggering if not clicked on icon/text."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/541edf003"
+      ]
+    },
+    {
+      "what": [
+        "record organizer not prefilling group value when adding new record."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/8c5d11f7b"
+      ]
+    },
+    {
+      "what": [
+        "namespace sidebar not visible when creating first namespace."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/aaa292fbd"
+      ]
+    },
+    {
+      "what": [
+        "edge cases with record stale data/reactivity when working with modals."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/e56124983"
+      ]
+    },
+    {
+      "what": [
+        "locales and language detection for calendar, date picker and date values."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/b52e63c35"
+      ]
+    }
+  ]
+}

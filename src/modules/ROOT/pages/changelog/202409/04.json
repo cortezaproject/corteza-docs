@@ -1,0 +1,21 @@
+{
+  "meta": {
+    "releasedOn": "2025.01.01"
+  },
+
+  "added": [
+    {
+      "what": [
+        "support for arbitrary environment variables for use in {APP_NAME_WORKFLOW}.",
+        "Any variable prefixed with `CORTEZA_ENV_TEST` will be available in the `get ENV variable` workflow function.",
+        "For example, `CORTEZA_ENV_TEST=\"Hello, World!\"` can be accessed as `CORTEZA_ENV_TEST`"
+      ],
+      "why": [
+        "to provide a better secret management and configuration flexibility."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/c1a48f9cda03f343a5900424440979c94aa5e3b5"
+      ]
+    }
+  ]
+}

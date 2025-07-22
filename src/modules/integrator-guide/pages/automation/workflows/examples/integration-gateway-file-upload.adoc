@@ -1,0 +1,95 @@
+include::ROOT:partial$variables.adoc[]
+
+= Uploading Files using Integration Gateway
+:attachment-path: ../../../_attachments/automation/workflows/examples/
+:page-noindex: true
+
+Integration gateways, in combination with {{APP_NAME_WORKFLOW}}, enable users to handle file uploads using `multipart/form-data`.
+
+.In this example we will:
+* create a workflow that extracts the uploaded file,
+* create an integration gateway endpoint.
+
+== Create a Workflow
+
+To create a workflow, firstly open up the {{APP_NAME_WORKFLOW}} and create a new workflow.
+The core workflow requires two pieces where the example adds a few extra steps to attach the file to a record.
+
+image:automation/workflows/examples/gateway-file-upload/workflow.png[role="data-zoomable"]
+
+.The workflow requires these two steps:
+* *System / on manual* trigger: this trigger allows integration gateway to execute a specific workflow.
+* *Read file from integration gateway* function:: this function extracts the file from the provided HTTP request:
+** The `request` argument receives an HTTP request; when used with integration gateways, the request is provided in the `request` variable.
+** the `name` argument specifies the multipart/form-data field name,
+** the `file` response argument provides a `Reader` of the file.
+
+image:automation/workflows/examples/gateway-file-upload/step-config.png[role="data-zoomable"]
+
+The `Reader` contains the contenst of the file and can be used as you see fit.
+
+== Create a new Integration Gateway Endpoint
+
+To create a new endpoint, navigate to the {{APP_NAME_ADMIN}} webapp and click on the "Integration Gateway" menu item, then click on the btn:[New Route] button.
+
+Provide the endpoint (the example uses `/fup` for file upload).
+Select `POST` for the method and make sure you mark the gateway as enabled.
+Click on the btn:[Submit] button to initialize the endpoint.
+
+In the new "filter list" section, use the following options:
+* *Prefilters*:
+** Optionally select and enable "Profiler" (this helps ensure the endpoint is being hit).
+
+image:automation/workflows/examples/gateway-file-upload/prefilter.png[role="data-zoomable"]
+
+* *Processing*:
+** Select and configure "Workflow processor" (use the workflow we've prepared in the previous step).
+
+image:automation/workflows/examples/gateway-file-upload/processing.png[role="data-zoomable"]
+
+* *Postfiltering*:
+** Add the "default JSON response" so we cann see response statuses and potential errors
+
+image:automation/workflows/examples/gateway-file-upload/postfilter.png[role="data-zoomable"]
+
+== Testing
+
+For testing, you can make a `POST` HTTP request to the {{API_DOMAIN}}/api/gateway/YOUR_ENDPOINT_HERE endpoint.
+You can use the following cURL template:
+
+[source,shell]
+----
+curl -v -X POST http://localhost:18080/api/gateway/fup \
+  -F "file=@/path/to/your/file.txt"
+----
+
+If successful, the response should look as follows:
+
+[source,txt]
+----
+* Host localhost:18091 was resolved.
+* IPv6: ::1
+* IPv4: 127.0.0.1
+*   Trying [::1]:18091...
+* connect to ::1 port 18091 from ::1 port 58275 failed: Connection refused
+*   Trying 127.0.0.1:18091...
+* Connected to localhost (127.0.0.1) port 18091
+> POST /api/gateway/fup HTTP/1.1
+> Host: localhost:18091
+> User-Agent: curl/8.7.1
+> Accept: */*
+> Content-Length: 206
+> Content-Type: multipart/form-data; boundary=------------------------Caf19XAT8xI5uYCDVXRkRz
+> 
+* upload completely sent off: 206 bytes
+< HTTP/1.1 202 Accepted
+< Content-Type: application/json
+< Vary: Origin
+< Vary: Origin
+< X-Request-Id: 4b9179be911f/FwhKqZfCsa-000622
+< Date: Tue, 22 Jul 2025 12:47:20 GMT
+< Content-Length: 2
+< 
+* Connection #0 to host localhost left intact
+{}%
+----

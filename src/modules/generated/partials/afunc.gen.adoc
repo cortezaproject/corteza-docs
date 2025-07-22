@@ -17,8 +17,10 @@
 //  - compose/automation/attachment_handler.yaml
 //  - compose/automation/modules_handler.yaml
 //  - compose/automation/namespaces_handler.yaml
+//  - compose/automation/notification_handler.yaml
 //  - compose/automation/records_handler.yaml
 //  - system/automation/actionlog_handler.yaml
+//  - system/automation/notification_handler.yaml
 //  - system/automation/rbac_handler.yaml
 //  - system/automation/roles_handler.yaml
 //  - system/automation/templates_handler.yaml
@@ -42,6 +44,22 @@
 
 .Results:
 * body (`String`)
+
+| [#fnc-apigwbody-readfile]#<<fnc-apigwbody-readfile,Read file from integration gateway>>#
+| 
+|
+.Parameters:
+* #*# `request`
+(
+   `HttpRequest`,)
+* #*# `name`
+(
+   `String`,)
+
+.Results:
+* file (`Reader`)
+* fileName (`String`)
+* exists (`Boolean`)
 
 |===
 = `corredor`
@@ -588,6 +606,46 @@
 * namespace (`ComposeNamespace`)
 
 |===
+= `notification`
+
+[cols="2m,4a,3a"]
+|===
+| Name | Description | I/O
+
+| [#fnc-notification-sendrecord]#<<fnc-notification-sendrecord,Send record notification>>#
+| Sends a notification that links to a specific record
+|
+.Parameters:
+* #*# `recipient`
+(
+   `ID`,
+   `Handle`,
+   `String`,)
+* #*# `title`
+(
+   `String`,)
+* `description`
+(
+   `String`,)
+* #*# `module`
+(
+   `ID`,
+   `Handle`,)
+* #*# `namespace`
+(
+   `ID`,
+   `Handle`,)
+* `record`
+(
+   `ID`,)
+* `openMode`
+(
+   `String`,)
+* `edit`
+(
+   `Boolean`,)
+
+|===
 = `records`
 
 [cols="2m,4a,3a"]
@@ -598,16 +656,16 @@
 | Find specific record by ID
 |
 .Parameters:
-* #*# `Module to set record type`
-(
-   `ID`,
-   `Handle`,
-   `ComposeModule`,)
 * #*# `namespace`
 (
    `ID`,
    `Handle`,
    `ComposeNamespace`,)
+* #*# `Module to set record type`
+(
+   `ID`,
+   `Handle`,
+   `ComposeModule`,)
 * #*# `record`
 (
    `ID`,
@@ -620,16 +678,16 @@
 | 
 |
 .Parameters:
-* #*# `Module to set record type`
-(
-   `ID`,
-   `Handle`,
-   `ComposeModule`,)
 * #*# `namespace`
 (
    `ID`,
    `Handle`,
    `ComposeNamespace`,)
+* #*# `Module to set record type`
+(
+   `ID`,
+   `Handle`,
+   `ComposeModule`,)
 * `query`
 (
    `String`,)
@@ -662,38 +720,38 @@
 * prevPage (`String`)
 * pageNavigation (`Array`)
 
-| [#fnc-records-first]#<<fnc-records-first,Compose record lookup (first created)>>#
+| [#fnc-records-first]#<<fnc-records-first,Compose record lookup (oldest)>>#
 | 
 |
 .Parameters:
-* #*# `Module to set record type`
-(
-   `ID`,
-   `Handle`,
-   `ComposeModule`,)
 * #*# `namespace`
 (
    `ID`,
    `Handle`,
    `ComposeNamespace`,)
+* #*# `Module to set record type`
+(
+   `ID`,
+   `Handle`,
+   `ComposeModule`,)
 
 .Results:
 * record (`ComposeRecord`)
 
-| [#fnc-records-last]#<<fnc-records-last,Compose record lookup (last created)>>#
+| [#fnc-records-last]#<<fnc-records-last,Compose record lookup (newest)>>#
 | 
 |
 .Parameters:
-* #*# `Module to set record type`
-(
-   `ID`,
-   `Handle`,
-   `ComposeModule`,)
 * #*# `namespace`
 (
    `ID`,
    `Handle`,
    `ComposeNamespace`,)
+* #*# `Module to set record type`
+(
+   `ID`,
+   `Handle`,
+   `ComposeModule`,)
 
 .Results:
 * record (`ComposeRecord`)
@@ -702,16 +760,16 @@
 | Creates new compose record instance without saving it
 |
 .Parameters:
-* #*# `Module to set record type`
-(
-   `ID`,
-   `Handle`,
-   `ComposeModule`,)
 * #*# `namespace`
 (
    `ID`,
    `Handle`,
    `ComposeNamespace`,)
+* #*# `Module to set record type`
+(
+   `ID`,
+   `Handle`,
+   `ComposeModule`,)
 
 .Results:
 * record (`ComposeRecord`)
@@ -772,20 +830,20 @@
 | Compose records report
 |
 .Parameters:
-* #*# `Module to set record type`
-(
-   `ID`,
-   `Handle`,
-   `ComposeModule`,)
 * #*# `namespace`
 (
    `ID`,
    `Handle`,
    `ComposeNamespace`,)
+* #*# `Module to set record type`
+(
+   `ID`,
+   `Handle`,
+   `ComposeModule`,)
 * #*# `Metrics for records report`
 (
    `String`,)
-* #*# `Dimensions for records report`
+* #*# `Dimensons for records report`
 (
    `String`,)
 * #*# `Filter for records report`
@@ -794,6 +852,28 @@
 
 .Results:
 * Complex structure holding complete records report (`Any`)
+
+| [#fnc-records-clone]#<<fnc-records-clone,Compose record cloner>>#
+| Creates a copy of an existing record
+|
+.Parameters:
+* #*# `namespace`
+(
+   `ID`,
+   `Handle`,
+   `ComposeNamespace`,)
+* #*# `Module to set record type`
+(
+   `ID`,
+   `Handle`,
+   `ComposeModule`,)
+* #*# `record`
+(
+   `ID`,
+   `ComposeRecord`,)
+
+.Results:
+* record (`ComposeRecord`)
 
 |===
 = `actionlog`
@@ -856,6 +936,29 @@
 * `meta`
 (
    `Vars`,)
+
+|===
+= `notification`
+
+[cols="2m,4a,3a"]
+|===
+| Name | Description | I/O
+
+| [#fnc-notification-send]#<<fnc-notification-send,Send simple notification>>#
+| Sends a simple notification with title and description to a user
+|
+.Parameters:
+* #*# `recipient`
+(
+   `ID`,
+   `Handle`,
+   `String`,)
+* #*# `title`
+(
+   `String`,)
+* `description`
+(
+   `String`,)
 
 |===
 = `rbac`
@@ -1399,7 +1502,31 @@
 | Name | Description | I/O
 
 | [#fnc-valuestore-env]#<<fnc-valuestore-env,Get ENV variable>>#
-| Get ENV variable for the specified key. If the key doesn't correspond to any value, nil is returned
+| Get ENV variable for the specified key. If the key doesn't correspond to any value, nil is returned.
+
+To avoid leaking sensitive information, this function only permits access to a pre-defined set of ENV variables.
+To extend the predefined list of ENV variables, any variable prefixed with `CORTEZA_ENV` is also accessible.
+These keys are case-insensitive. The prefix from custom ENV variables is preserved, meaning that `CORTEZA_ENV_TEST` remains `CORTEZA_ENV_TEST`.
+
+.List of predefined ENV variables:
+* `NAME`: Environment name.
+* `IS-DEVELOPMENT`: Denotes if the environment is set to `dev`. If you need more control, use `NAME` directly.
+* `IS-TEST`: Denotes if the environment is set to `test`. If you need more control, use `NAME` directly.
+* `IS-PRODUCTION`: Denotes if the environment is neither development or test. If you need more control, use `NAME` directly.`
+* `VERSION`: Denotes the Corteza version currently running.
+* `BUILD-TIME`: Denotes the build time of the currently running Corteza instance.
+* `AUTH.BASE-URL`: Denotes the base URL for the authentication service.
+* `AUTH.DOMAIN`: Denotes the domain for the authentication service.
+* `API.BASE-URL`: Denotes the base URL for the Corteza instance.
+* `API.DOMAIN`: Denotes the API domain for the Corteza instance.
+* `WEBAPP.BASE-URL`:  Denotes the base URL for the web applications.
+* `WEBAPP.DOMAIN`: Denotes the domain for the web applications.
+* `WEBAPP.BASE-URL.COMPOSE`: Denotes the base URL for the COMPOSE web application if it's enabled in the `HTTP_WEBAPP_LIST` ENV variable.
+* `WEBAPP.BASE-URL.ADMIN`: Denotes the base URL for the ADMIN web application if it's enabled in the `HTTP_WEBAPP_LIST` ENV variable.
+* `WEBAPP.BASE-URL.WORKFLOW`: Denotes the base URL for the WORKFLOW web application if it's enabled in the `HTTP_WEBAPP_LIST` ENV variable.
+* `WEBAPP.BASE-URL.REPORTER`: Denotes the base URL for the REPORTER web application if it's enabled in the `HTTP_WEBAPP_LIST` ENV variable.
+* `WEBAPP.BASE-URL.DISCOVERY`: Denotes the base URL for the DISCOVERY web application if it's enabled in the `HTTP_WEBAPP_LIST` ENV variable.
+
 |
 .Parameters:
 * #*# `key`

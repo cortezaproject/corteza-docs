@@ -24,4 +24,6 @@ include::./messagebus-read-write.adoc[]
 
 include::./notifications.adoc[]
 
+include::./integration-gateway-file-upload.adoc[]
+
 :leveloffset: -1

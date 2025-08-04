@@ -16,6 +16,175 @@
       "refs": [
         "https://github.com/cortezaproject/corteza/commit/c1a48f9cda03f343a5900424440979c94aa5e3b5"
       ]
+    },
+    {
+      "what": [
+        "support for configuring inline editable fields in record lists."
+      ],
+      "why": [
+        "to allow users to edit records directly from the list view."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/084cfd5e4"
+      ]
+    },
+    {
+      "what": [
+        "rich text support for calendar events."
+      ],
+      "why": [
+        "to enable formatted descriptions and notes in calendar events."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/1ddf8da6e"
+      ]
+    },
+    {
+      "what": [
+        "dual package exports to libraries for NestJS compatibility."
+      ],
+      "why": [
+        "to improve integration with NestJS projects."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/0eeb490a8"
+      ]
+    }
+  ],
+  "changed": [
+    {
+      "what": [
+        "record list and resource list search to be submittable."
+      ],
+      "why": [
+        "to improve usability and search experience."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/078c128f5"
+      ]
+    },
+    {
+      "what": [
+        "vertical tab blocks to be scrollable."
+      ],
+      "why": [
+        "to improve navigation in interfaces with many tabs."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/791c880de"
+      ]
+    },
+    {
+      "what": [
+        "go to location icon on maps."
+      ],
+      "why": [
+        "to provide a more intuitive or updated icon."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/6f0f2b2d6"
+      ]
+    },
+    {
+      "what": [
+        "workflow date/time prompts to use the system date/time picker."
+      ],
+      "why": [
+        "to standardize date/time inputs across the system."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/3fd68e164"
+      ]
+    }
+  ],
+  "fixed": [
+    {
+      "what": [
+        "page layout roles input broken if value corrupted."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/475a98a93"
+      ]
+    },
+    {
+      "what": [
+        "primary key drop for federation_nodes_sync in MySQL and MSSQL migrations."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/e96d7c874"
+      ]
+    },
+    {
+      "what": [
+        "page not rendering if block from layout is not found on page."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/2dae95a48"
+      ]
+    },
+    {
+      "what": [
+        "not being able to select from a dropdown prompt if modal was open."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/1978240bc"
+      ]
+    },
+    {
+      "what": [
+        "system fields causing problems when their fieldID was used as a key."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/21556f1a2"
+      ]
+    },
+    {
+      "what": [
+        "properly refetch inline editor related records on record save."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/98043e852"
+      ]
+    },
+    {
+      "what": [
+        "page title updating when opened in modal."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/46bc1a9ad"
+      ]
+    },
+    {
+      "what": [
+        "record field options not resetting when module or label field changes."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/736a53ae3"
+      ]
+    },
+    {
+      "what": [
+        "missing theme translation to topbar."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/0fc3591d4"
+      ]
+    },
+    {
+      "what": [
+        "permissions checks for Admin Area sidebar navigation routes."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/f36ee97bb"
+      ]
+    },
+    {
+      "what": [
+        "processing state to automation buttons with proper session pooling."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/19cddfcde"
+      ]
     }
   ]
 }

@@ -3,6 +3,14 @@
     "releasedOn": "2025.01.01"
   },
 
+  "important": [
+    {
+      "note": [
+        "Due to the precision and scale lapsus prior to this patch version, any dedicated Number column with custom scale parameter needs to be manually modified."
+      ]
+    }
+  ],
+
   "added": [
     {
       "what": [
@@ -98,6 +106,28 @@
     }
   ],
   "fixed": [
+    {
+      "what": [
+        "precision and scale lapsus between configuration screen and database modification.",
+        "The user interface was configuring scale which was interpreted as precision on the back-end.",
+        "The temporary solution fixes the precision to the maximum safe value of 15 and keeps the scale as configured."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/2f7974b1628f9fa33bfea8c818c0160c2b6d728d",
+        "https://github.com/cortezaproject/corteza/commit/51e632011c616159fffa6759b6e871c9a37c2aaf"
+      ]
+    },
+    {
+      "what": [
+        "record export ignoring filtering parameters and including all records in the given module."
+      ],
+      "how": [
+        "the query parameter was not provided to the data access layer and therefore everything was included."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/15793adcd5da7451ddd9d0b661a24c8e170d142d"
+      ]
+    },
     {
       "what": [
         "page layout roles input broken if value corrupted."

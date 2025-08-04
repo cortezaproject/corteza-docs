@@ -1,0 +1,72 @@
+include::ROOT:partial$variables.adoc[]
+
+= `2024.9.4`
+
+*Released on*: `2025.01.01`
+
+[IMPORTANT]
+====
+.[#2024_09_04-important]#<<2024_09_04-important,Important upgrade notes:>>#
+* Due to the precision and scale lapsus prior to this patch version, any dedicated Number column with custom scale parameter needs to be manually modified..
+====
+
+.[#2024_09_04-added]#<<2024_09_04-added,Added:>>#
+* Added support for arbitrary environment variables for use in {APP_NAME_WORKFLOW}.
+Any variable prefixed with `CORTEZA_ENV_TEST` will be available in the `get ENV variable` workflow function.
+For example, `CORTEZA_ENV_TEST="Hello, World!"` can be accessed as `CORTEZA_ENV_TEST`
+The change was added to provide a better secret management and configuration flexibility
+({CORTEZA_COMMIT_BASE}c1a48f9[`c1a48f9`]).
+* Added support for configuring inline editable fields in record lists.
+The change was added to allow users to edit records directly from the list view
+({CORTEZA_COMMIT_BASE}084cfd5[`084cfd5`]).
+* Added rich text support for calendar events.
+The change was added to enable formatted descriptions and notes in calendar events
+({CORTEZA_COMMIT_BASE}1ddf8da[`1ddf8da`]).
+* Added dual package exports to libraries for NestJS compatibility.
+The change was added to improve integration with NestJS projects
+({CORTEZA_COMMIT_BASE}0eeb490[`0eeb490`]).
+
+.[#2024_09_04-changed]#<<2024_09_04-changed,Changed:>>#
+* Changed record list and resource list search to be submittable.
+The change was made to improve usability and search experience
+({CORTEZA_COMMIT_BASE}078c128[`078c128`]).
+* Changed vertical tab blocks to be scrollable.
+The change was made to improve navigation in interfaces with many tabs
+({CORTEZA_COMMIT_BASE}791c880[`791c880`]).
+* Changed go to location icon on maps.
+The change was made to provide a more intuitive or updated icon
+({CORTEZA_COMMIT_BASE}6f0f2b2[`6f0f2b2`]).
+* Changed workflow date/time prompts to use the system date/time picker.
+The change was made to standardize date/time inputs across the system
+({CORTEZA_COMMIT_BASE}3fd68e1[`3fd68e1`]).
+
+.[#2024_09_04-fixed]#<<2024_09_04-fixed,Fixed:>>#
+* Fixed precision and scale lapsus between configuration screen and database modification
+The user interface was configuring scale which was interpreted as precision on the back-end
+The temporary solution fixes the precision to the maximum safe value of 15 and keeps the scale as configured
+({CORTEZA_COMMIT_BASE}2f7974b[`2f7974b`], {CORTEZA_COMMIT_BASE}51e6320[`51e6320`]).
+* Fixed record export ignoring filtering parameters and including all records in the given module.
+The fix was made the query parameter was not provided to the data access layer and therefore everything was included
+({CORTEZA_COMMIT_BASE}15793ad[`15793ad`]).
+* Fixed page layout roles input broken if value corrupted
+({CORTEZA_COMMIT_BASE}475a98a[`475a98a`]).
+* Fixed primary key drop for federation_nodes_sync in MySQL and MSSQL migrations
+({CORTEZA_COMMIT_BASE}e96d7c8[`e96d7c8`]).
+* Fixed page not rendering if block from layout is not found on page
+({CORTEZA_COMMIT_BASE}2dae95a[`2dae95a`]).
+* Fixed not being able to select from a dropdown prompt if modal was open
+({CORTEZA_COMMIT_BASE}1978240[`1978240`]).
+* Fixed system fields causing problems when their fieldID was used as a key
+({CORTEZA_COMMIT_BASE}21556f1[`21556f1`]).
+* Fixed properly refetch inline editor related records on record save
+({CORTEZA_COMMIT_BASE}98043e8[`98043e8`]).
+* Fixed page title updating when opened in modal
+({CORTEZA_COMMIT_BASE}46bc1a9[`46bc1a9`]).
+* Fixed record field options not resetting when module or label field changes
+({CORTEZA_COMMIT_BASE}736a53a[`736a53a`]).
+* Fixed missing theme translation to topbar
+({CORTEZA_COMMIT_BASE}0fc3591[`0fc3591`]).
+* Fixed permissions checks for Admin Area sidebar navigation routes
+({CORTEZA_COMMIT_BASE}f36ee97[`f36ee97`]).
+* Fixed processing state to automation buttons with proper session pooling
+({CORTEZA_COMMIT_BASE}19cddfc[`19cddfc`]).

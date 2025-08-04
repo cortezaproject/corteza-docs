@@ -176,3 +176,17 @@ Restarting the server is required when an admin modifies default authentication 
 
 If your {APP_NAME_DISCOVERY} is not working, try restarting the `discovery` service.
 There is a known issue with order of execution and health check reporting which may cause the service to fail for you.
+
+== `client does not support authorization_code flow` Error When Trying to Log in
+
+This error occurs because {PRODUCT_NAME} expects `authorization_code` but your authentication client may use `client_credentials` instead.
+If you're still able to access {PRODUCT_NAME}, go to the {APP_NAME_ADMIN} and update your default {PRODUCT_NAME} webapp client to use `authorization_code` (by default, the client's handle is `corteza-webapp`).
+
+If you're not able to access {PRODUCT_NAME}, run the following SQL query:
+
+[source,sql]
+----
+UPDATE auth_clients SET valid_grant = 'authorization_code' WHERE id = your-auth-client-id-here};
+----
+
+You might need to restart {PRODUCT_NAME} in order to reflect the changes.

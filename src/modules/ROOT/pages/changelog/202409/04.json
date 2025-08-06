@@ -207,14 +207,6 @@
       "refs": [
         "https://github.com/cortezaproject/corteza/commit/f36ee97bb"
       ]
-    },
-    {
-      "what": [
-        "processing state to automation buttons with proper session pooling."
-      ],
-      "refs": [
-        "https://github.com/cortezaproject/corteza/commit/19cddfcde"
-      ]
     }
   ]
 }

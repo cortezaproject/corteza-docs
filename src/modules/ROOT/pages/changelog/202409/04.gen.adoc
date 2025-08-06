@@ -68,5 +68,3 @@ The fix was made the query parameter was not provided to the data access layer a
 ({CORTEZA_COMMIT_BASE}0fc3591[`0fc3591`]).
 * Fixed permissions checks for Admin Area sidebar navigation routes
 ({CORTEZA_COMMIT_BASE}f36ee97[`f36ee97`]).
-* Fixed processing state to automation buttons with proper session pooling
-({CORTEZA_COMMIT_BASE}19cddfc[`19cddfc`]).

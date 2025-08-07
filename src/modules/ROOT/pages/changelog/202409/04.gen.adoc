@@ -2,7 +2,7 @@ include::ROOT:partial$variables.adoc[]
 
 = `2024.9.4`
 
-*Released on*: `2025.01.01`
+*Released on*: `2025.08.07`
 
 [IMPORTANT]
 ====

@@ -123,7 +123,45 @@ When initializing DateTime variables with unix timestamps inside workflows, you 
 *Is primitive*: `yes`
 
 A `Duration` variable contains a relative temporal value.
+
+[NOTE]
+====
+You can use any value parsable by Golang's https://pkg.go.dev/time#ParseDuration[ParseDuration function].
+====
+
 It is usually used in combination with <<datatype-datetime,DateTime>> values to calculate offsets.
+
+[#duration-units]
+.Available units:
+[cols="2a,2m,4m"]
+|===
+| Unit | Expression unit | Example
+
+| nanoseconds
+| ns
+| 10ns
+
+| microseconds
+| us
+| 10us
+
+| milliseconds
+| ms
+| 10ms
+
+| seconds
+| s
+| 10s
+
+| minutes
+| m
+| 10m
+
+| hours
+| h
+| 10h
+
+|===
 
 .Initialization patterns:
 [cols="2m,2m,4a"]
@@ -143,6 +181,14 @@ It is usually used in combination with <<datatype-datetime,DateTime>> values to 
 | Initializes a Duration variable to be 3 hours.
 
 |===
+
+[NOTE]
+====
+You may use multiple <<duration-units,duration units>> as long as they are in a descending order.
+
+* A valid example: `10m5s2ms`,
+* Invalid example: `2ms5s10m`.
+====
 
 [#datatype-float]
 = `Float`

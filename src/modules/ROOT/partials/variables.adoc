@@ -20,6 +20,7 @@
 :CLI_CMD_COMPOSE:    {CLI_CMD_PREFIX} compose
 
 :API_DOMAIN:                your-corteza-instance.tld
+:API_AUTH_BASE_URL:       https://api.{API_DOMAIN}/auth
 :API_SYSTEM_BASE_URL:       https://api.{API_DOMAIN}/system
 :API_COMPOSE_BASE_URL:      https://api.{API_DOMAIN}/compose
 :API_FEDERATION_BASE_URL:   https://api.{API_DOMAIN}/federation
@@ -27,6 +28,7 @@
 :APP_DOMAIN:             your-corteza-instance.tld
 :APP_MESSAGING_BASE_URL: https://{APP_DOMAIN}/messaging
 :APP_COMPOSE_BASE_URL:   https://{APP_DOMAIN}/compose
+:APP_ADMIN_BASE_URL:   https://{APP_DOMAIN}/admin
 
 :GIT_REPO_GROUP:                cortezaproject
 :GIT_REPO_PREFIX:               corteza

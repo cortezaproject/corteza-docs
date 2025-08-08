@@ -1,0 +1,551 @@
+include::ROOT:partial$variables.adoc[]
+
+[#saml-azure]
+= SAML {PRODUCT_NAME} Integration with Azure
+
+To enable SAML SSO on {PRODUCT_NAME} through Microsoft Azure, you need to create a new application on Azure as well as configure it on the {PRODUCT_NAME} {APP_NAME_ADMIN} web application.
+
+[CAUTION]
+====
+The values used in the screenshot and the table are for informational use only and should be changed to reflect your instance settings.
+====
+
+== Prerequisites
+
+[#prereq-certificates]
+=== Certificates
+
+{PRODUCT_NAME} requires you to provide a certificate and private key combination.
+You'll need to either provide an existing pair or generate a new one.
+
+.To generate the required parameters you can use the following commands:
+[source,shell]
+----
+# This generates a private key
+openssl genpkey -algorithm RSA -out private.key -pkeyopt rsa_keygen_bits:2048
+
+# This generates a self-signed certificate using the private key
+openssl req -new -x509 -key private.key -out certificate.crt -days 365
+
+# This packs everything into a .pfx file
+openssl pkcs12 -export -out certificate.pfx -inkey private.key -in certificate.crt
+----
+
+[IMPORTANT]
+====
+The `.pfx` file requires you to provide a password.
+Make sure you use something secure and note it down as you'll need it later.
+====
+
+== Configuring Microsoft Azure
+
+=== Creating an Azure Application
+
+Navigate to https://portal.azure.com/ and login to your Azure account (if you don't have an account, create one before continuing).
+On the home page, click on the btn:[Enterprise applications] button.
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "authentication/external/saml/azure/homepage.png",
+    "alias": "authentication-saml-azure-homepage",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {
+    "x": 0,
+    "y": 0,
+    "w": 1920,
+    "h": 1080
+  },
+  "annotations": [{
+    "kind": "box",
+    "x": 550,
+    "y": 113,
+    "h": 74,
+    "w": 70
+  }]
+}
+----
+
+On the list of applications (if your application doesn't already exist), click on the btn:[New application] button.
+If you've already created an application, you can skip the app creation step
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "authentication/external/saml/azure/enterprise-applications.png",
+    "alias": "authentication-saml-azure-enterprise-applications",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {
+    "x": 0,
+    "y": 0,
+    "w": 1920,
+    "h": 1080
+  },
+  "annotations": [{
+    "kind": "box",
+    "x": 293,
+    "y": 142,
+    "w": 116,
+    "h": 17
+  }]
+}
+----
+
+Click on the btn:[create your own application] and fill in the app name.
+Select the btn:[Integrate any other application you don't find in the gallery (non-gallery)] option and click on the btn:[create] button.
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "authentication/external/saml/azure/create-new-app.png",
+    "alias": "authentication-saml-azure-create-new-app",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {
+    "x": 0,
+    "y": 0,
+    "w": 1920,
+    "h": 1080
+  },
+  "annotations": [{
+    "kind": "box",
+    "x": 28,
+    "y": 143,
+    "w": 185,
+    "h": 17
+  }, {
+    "kind": "box",
+    "x": 1355,
+    "y": 242,
+    "w": 445,
+    "h": 24
+  }, {
+    "kind": "box",
+    "x": 1356,
+    "y": 365,
+    "w": 444,
+    "h": 18
+  }, {
+    "kind": "box",
+    "x": 1355,
+    "y": 1036,
+    "w": 80,
+    "h": 24
+  }]
+}
+----
+
+=== Configuring SAML
+
+On the overview page, click on the btn:[set up single sign on]
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "authentication/external/saml/azure/app-overview.png",
+    "alias": "authentication-saml-azure-app-overview",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {
+    "x": 0,
+    "y": 0,
+    "w": 1920,
+    "h": 1080
+  },
+  "annotations": [{
+    "kind": "box",
+    "x": 665,
+    "y": 439,
+    "w": 332,
+    "h": 132
+  }]
+}
+----
+
+Then click on the btn:[SAML] option which takes you to the SAML-base sign-on configuration screen.
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "authentication/external/saml/azure/sso-type-select.png",
+    "alias": "authentication-saml-azure-sso-type-select",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {
+    "x": 0,
+    "y": 0,
+    "w": 1920,
+    "h": 1080
+  },
+  "annotations": [{
+    "kind": "box",
+    "x": 645,
+    "y": 333,
+    "w": 332,
+    "h": 161
+  }]
+}
+----
+
+Under the "basic SAML configuration" section, click on the btn:[edit] button and insert the following:
+
+* *Identifier (Entry ID)*: `{API_AUTH_BASE_URL}/external/saml/metadata`
+* *Reply URL*: `{API_AUTH_BASE_URL}/external/saml/callback`
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "authentication/external/saml/azure/sso-config-basic-saml-configuration.png",
+    "alias": "authentication-saml-azure-sso-config-basic-saml-configuration",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {
+    "x": 0,
+    "y": 0,
+    "w": 1920,
+    "h": 1080
+  },
+  "annotations": [{
+    "kind": "box",
+    "x": 956,
+    "y": 362,
+    "h": 17,
+    "w": 47
+  }, {
+    "kind": "box",
+    "x": 956,
+    "y": 362,
+    "h": 17,
+    "w": 47
+  }, {
+    "kind": "box",
+    "x": 1093,
+    "y": 278,
+    "h": 24,
+    "w": 581
+  }, {
+    "kind": "box",
+    "x": 1093,
+    "y": 480,
+    "h": 24,
+    "w": 581
+  }, {
+    "kind": "box",
+    "x": 1093,
+    "y": 114,
+    "h": 16,
+    "w": 50
+  }]
+}
+----
+
+On the SAML-based sign-on config screen, on the "SAML Certificates" click on the btn:[edit] button and then on the btn:[Import Certificate] button.
+Provide the `.pfx` file <<prereq-certificates,we generated at the beginning>>.
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "authentication/external/saml/azure/sso-config-certificate-import.png",
+    "alias": "authentication-saml-azure-sso-config-certificate-import.png",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {
+    "x": 0,
+    "y": 0,
+    "w": 1920,
+    "h": 1080
+  },
+  "annotations": [{
+    "kind": "box",
+    "x": 957,
+    "y": 761,
+    "h": 16,
+    "w": 46
+  }, {
+    "kind": "box",
+    "x": 1290,
+    "y": 114,
+    "h": 17,
+    "w": 121
+  }, {
+    "kind": "box",
+    "x": 1204,
+    "y": 243,
+    "h": 23,
+    "w": 294
+  }, {
+    "kind": "box",
+    "x": 1204,
+    "y": 282,
+    "h": 24,
+    "w": 269
+  }, {
+    "kind": "box",
+    "x": 1086,
+    "y": 322,
+    "h": 24,
+    "w": 80
+  }]
+}
+----
+
+After the certificate is provided, click on the three vertical dots to expand the menu, then mark the certificate as active.
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "authentication/external/saml/azure/activate-certificate.png",
+    "alias": "authentication-saml-azure-activate-certificate.png",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {
+    "x": 0,
+    "y": 0,
+    "w": 1920,
+    "h": 1080
+  },
+  "annotations": [{
+    "kind": "box",
+    "x": 1870,
+    "y": 222,
+    "w": 26,
+    "h": 26
+  }, {
+    "kind": "box",
+    "x": 1696,
+    "y": 234,
+    "w": 194,
+    "h": 33
+  }]
+}
+----
+
+Click btn:[yes] on the watning popup to complete certificate activation.
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "authentication/external/saml/azure/activate-certificate-warning.png",
+    "alias": "authentication-saml-azure-activate-certificate-warning.png",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {
+    "x": 0,
+    "y": 0,
+    "w": 1920,
+    "h": 1080
+  },
+  "annotations": [{
+    "kind": "box",
+    "x": 1086,
+    "y": 239,
+    "h": 24,
+    "w": 80
+  }]
+}
+----
+
+== Configuring {PRODUCT_NAME}
+
+Navigate to {APP_DOMAIN} and log in to your {PRODUCT_NAME} instance.
+On the home page, click on the btn:[Admin Area] application.
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "authentication/external/saml/azure/corteza-homepage.png",
+    "alias": "authentication-saml-azure-corteza-homepage.png",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {
+    "x": 0,
+    "y": 0,
+    "w": 1920,
+    "h": 1080
+  },
+  "annotations": [{
+    "kind": "box",
+    "x": 529,
+    "y": 388,
+    "w": 207,
+    "h": 169
+  }]
+}
+----
+
+In the navigation drawer, click on the menu:System[Auth Settings] and navigate to the "External Authentication Providers" section.
+Locate the SAML provider and click on the wrench icon to open the configuration modal.
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "authentication/external/saml/azure/auth-settings.png",
+    "alias": "authentication-saml-azure-auth-settings.png",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {
+    "x": 0,
+    "y": 0,
+    "w": 1920,
+    "h": 1080
+  },
+  "annotations": [{
+    "kind": "box",
+    "y": 326,
+    "x": 15,
+    "w": 275,
+    "h": 33
+  }, {
+    "kind": "box",
+    "y": 549,
+    "x": 1609,
+    "w": 48,
+    "h": 56
+  }]
+}
+----
+
+Provide the following parameters:
+
+* *Name*: this is the label that is shown in the authentication screen (`Login with ...your name here...`).
+* *Certificate/public key*: copy-paste the contents of the `certificate.crt` file generated in the <<#prereq-certificates,prerequisites section>>.
+* *Certificate/private key*: copy-paste the contents of the `private.key` file generated in the <<#prereq-certificates,prerequisites section>>
+* *Requests/sign requests*: tick this box
+* *signature method*: `SHA256`
+* *Binding*: `HTTP POST`
+* *Identity provider/URL*: copy-paste the value stated under "App Federation Metadata Url"
+* *Name Field*: `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname`
+* *Handle Field*: `http://schemas.microsoft.com/identity/claims/objectidentifier`
+* *Identifier Field*: `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "authentication/external/saml/azure/saml-params-top.png",
+    "alias": "authentication-saml-azure-saml-params-top.png",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {
+    "x": 0,
+    "y": 0,
+    "w": 1920,
+    "h": 1080
+  },
+  "focus": {
+    "x": 571,
+    "y": 38,
+    "w": 778,
+    "h": 1004
+  },
+  "annotations": []
+}
+----
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "authentication/external/saml/azure/saml-params-bottom.png",
+    "alias": "authentication-saml-azure-saml-params-bottom.png",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {
+    "x": 0,
+    "y": 0,
+    "w": 1920,
+    "h": 1080
+  },
+  "focus": {
+    "x": 571,
+    "y": 38,
+    "w": 778,
+    "h": 1004
+  },
+  "annotations": []
+}
+----
+
+Click on the btn:[Ok] button and submit the external authentication provider changes.
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "authentication/external/saml/azure/confirm-modal.png",
+    "alias": "authentication-saml-azure-confirm-modal.png",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {
+    "x": 0,
+    "y": 0,
+    "w": 1920,
+    "h": 1080
+  },
+  "annotations": [{
+    "kind": "box",
+    "x": 1568,
+    "y": 935,
+    "w": 83,
+    "h": 31
+  }]
+}
+----
+
+
+== End Result
+
+Open a private window or a different browser, then navigate to your {PRODUCT_NAME} instance.
+If everything is configured correctly, you should see the new login option in the centre of the screen.
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "authentication/external/saml/azure/login-screen.png",
+    "alias": "authentication-saml-azure-login-screen.png",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {
+    "x": 0,
+    "y": 0,
+    "w": 1920,
+    "h": 1080
+  },
+  "annotations": [{
+    "kind": "box",
+    "x": 670,
+    "y": 663,
+    "w": 579,
+    "h": 42
+  }]
+}
+----

@@ -27,7 +27,7 @@ image::automation/workflows/examples/manual-timeout.png[role="data-zoomable"]
 *** `true`
 *** `true`
 3. *(3) Wait 10sec*:
-** *offset*: `10`
+** *offset*: `10s`
 4. *(4) Log context timeout*:
 ** *type*: `Log debug message`
 ** *arguments*:

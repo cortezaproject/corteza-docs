@@ -26,4 +26,6 @@ include::./notifications.adoc[]
 
 include::./integration-gateway-file-upload.adoc[]
 
+include::./attaching-files.adoc[]
+
 :leveloffset: -1

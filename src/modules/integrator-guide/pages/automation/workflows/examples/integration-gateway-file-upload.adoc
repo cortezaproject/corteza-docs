@@ -4,7 +4,7 @@ include::ROOT:partial$variables.adoc[]
 :attachment-path: ../../../_attachments/automation/workflows/examples/
 :page-noindex: true
 
-Integration gateways, in combination with {{APP_NAME_WORKFLOW}}, enable users to handle file uploads using `multipart/form-data`.
+Integration gateways, in combination with {APP_NAME_WORKFLOW}, enable users to handle file uploads using `multipart/form-data`.
 
 .In this example we will:
 * create a workflow that extracts the uploaded file,
@@ -12,7 +12,7 @@ Integration gateways, in combination with {{APP_NAME_WORKFLOW}}, enable users to
 
 == Create a Workflow
 
-To create a workflow, firstly open up the {{APP_NAME_WORKFLOW}} and create a new workflow.
+To create a workflow, firstly open up the {APP_NAME_WORKFLOW} and create a new workflow.
 The core workflow requires two pieces where the example adds a few extra steps to attach the file to a record.
 
 image:automation/workflows/examples/gateway-file-upload/workflow.png[role="data-zoomable"]
@@ -30,7 +30,7 @@ The `Reader` contains the contenst of the file and can be used as you see fit.
 
 == Create a new Integration Gateway Endpoint
 
-To create a new endpoint, navigate to the {{APP_NAME_ADMIN}} webapp and click on the "Integration Gateway" menu item, then click on the btn:[New Route] button.
+To create a new endpoint, navigate to the {APP_NAME_ADMIN} webapp and click on the "Integration Gateway" menu item, then click on the btn:[New Route] button.
 
 Provide the endpoint (the example uses `/fup` for file upload).
 Select `POST` for the method and make sure you mark the gateway as enabled.
@@ -54,7 +54,7 @@ image:automation/workflows/examples/gateway-file-upload/postfilter.png[role="dat
 
 == Testing
 
-For testing, you can make a `POST` HTTP request to the {{API_DOMAIN}}/api/gateway/YOUR_ENDPOINT_HERE endpoint.
+For testing, you can make a `POST` HTTP request to the {API_DOMAIN}/api/gateway/YOUR_ENDPOINT_HERE endpoint.
 You can use the following cURL template:
 
 [source,shell]

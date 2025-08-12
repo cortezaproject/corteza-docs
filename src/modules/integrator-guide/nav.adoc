@@ -95,6 +95,7 @@
 ***** xref:automation/workflows/examples/messagebus-read-write.adoc[]
 ***** xref:automation/workflows/examples/notifications.adoc[]
 ***** xref:automation/workflows/examples/integration-gateway-file-upload.adoc[]
+***** xref:automation/workflows/examples/attaching-files.adoc[]
 
 *** xref:automation/automation-scripts/index.adoc[]
 **** xref:automation/automation-scripts/node-modules.adoc[]

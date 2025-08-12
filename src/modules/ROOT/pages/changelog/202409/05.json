@@ -1,0 +1,16 @@
+{
+  "meta": {
+    "releasedOn": "2025.08.07"
+  },
+
+  "added": [
+    {
+      "what": [
+        "unified logging with the SAML sub-service."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/635a610da"
+      ]
+    }
+  ]
+}

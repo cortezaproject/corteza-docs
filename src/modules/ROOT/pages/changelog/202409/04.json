@@ -108,6 +108,15 @@
   "fixed": [
     {
       "what": [
+        "CSV export value duplication in case record 1 defines a field value and record 2 does not.",
+        "The issue occurred due to invalid cache invalidation."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/8173533cf4e001d48fa0435c4a2993e98bf9ef0f"
+      ]
+    },
+    {
+      "what": [
         "precision and scale lapsus between configuration screen and database modification.",
         "The user interface was configuring scale which was interpreted as precision on the back-end.",
         "The temporary solution fixes the precision to the maximum safe value of 15 and keeps the scale as configured."

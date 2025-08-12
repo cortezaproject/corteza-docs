@@ -41,6 +41,9 @@ The change was made to standardize date/time inputs across the system
 ({CORTEZA_COMMIT_BASE}3fd68e1[`3fd68e1`]).
 
 .[#2024_09_04-fixed]#<<2024_09_04-fixed,Fixed:>>#
+* Fixed CSV export value duplication in case record 1 defines a field value and record 2 does not
+The issue occurred due to invalid cache invalidation
+({CORTEZA_COMMIT_BASE}8173533[`8173533`]).
 * Fixed precision and scale lapsus between configuration screen and database modification
 The user interface was configuring scale which was interpreted as precision on the back-end
 The temporary solution fixes the precision to the maximum safe value of 15 and keeps the scale as configured

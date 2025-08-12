@@ -1,0 +1,9 @@
+include::ROOT:partial$variables.adoc[]
+
+= `2024.9.5`
+
+*Released on*: `2025.08.07`
+
+.[#2024_09_05-added]#<<2024_09_05-added,Added:>>#
+* Added unified logging with the SAML sub-service
+({CORTEZA_COMMIT_BASE}635a610[`635a610`]).

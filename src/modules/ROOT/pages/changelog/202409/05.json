@@ -12,5 +12,16 @@
         "https://github.com/cortezaproject/corteza/commit/635a610da"
       ]
     }
+  ],
+
+  "fixed": [
+    {
+      "what": [
+        "text alignment not preserving for rich-text editors such as Content page blocks"
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/37549c3ec4275b45248e29474feb0ae3a95dbeaa"
+      ]
+    }
   ]
 }

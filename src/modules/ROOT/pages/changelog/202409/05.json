@@ -22,6 +22,14 @@
       "refs": [
         "https://github.com/cortezaproject/corteza/commit/37549c3ec4275b45248e29474feb0ae3a95dbeaa"
       ]
+    },
+    {
+      "what": [
+        "integration gateway profiler requests failing to load due to a lapsus in cancellable API call"
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/9d5730561420686df60d6660043efa46e6dd55b2"
+      ]
     }
   ]
 }

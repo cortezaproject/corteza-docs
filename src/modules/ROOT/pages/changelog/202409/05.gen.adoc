@@ -7,3 +7,9 @@ include::ROOT:partial$variables.adoc[]
 .[#2024_09_05-added]#<<2024_09_05-added,Added:>>#
 * Added unified logging with the SAML sub-service
 ({CORTEZA_COMMIT_BASE}635a610[`635a610`]).
+
+.[#2024_09_05-fixed]#<<2024_09_05-fixed,Fixed:>>#
+* Fixed text alignment not preserving for rich-text editors such as Content page blocks
+({CORTEZA_COMMIT_BASE}37549c3[`37549c3`]).
+* Fixed integration gateway profiler requests failing to load due to a lapsus in cancellable API call
+({CORTEZA_COMMIT_BASE}9d57305[`9d57305`]).

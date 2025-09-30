@@ -2,14 +2,65 @@ include::ROOT:partial$variables.adoc[]
 
 = `2024.9.5`
 
-*Released on*: `2025.08.07`
+*Released on*: `2025.09.26`
 
 .[#2024_09_05-added]#<<2024_09_05-added,Added:>>#
 * Added unified logging with the SAML sub-service
-({CORTEZA_COMMIT_BASE}635a610[`635a610`]).
+({CORTEZA_COMMIT_BASE}dfd65e1[`dfd65e1`]).
+* Added proper display of values for nested record fields Particularly rich text values
+({CORTEZA_COMMIT_BASE}05e1dd7[`05e1dd7`]).
+* Added warning triangles to tabs with error fields and improved error/warning messages with field names
+({CORTEZA_COMMIT_BASE}64afdce[`64afdce`]).
+* Added edit module button to record pages, similar to page builder buttons
+({CORTEZA_COMMIT_BASE}684c777[`684c777`]).
+* Added geosearch to map block
+({CORTEZA_COMMIT_BASE}72ad897[`72ad897`]).
+* Added user mentions to rich text editor
+({CORTEZA_COMMIT_BASE}55c9371[`55c9371`]).
+* Added logger to SAML service
+({CORTEZA_COMMIT_BASE}dfd65e1[`dfd65e1`]).
+
+.[#2024_09_05-changed]#<<2024_09_05-changed,Changed:>>#
+* Changed comments block to be more chat like.
+The change was made to improve the user experience
+({CORTEZA_COMMIT_BASE}f115233[`f115233`]).
 
 .[#2024_09_05-fixed]#<<2024_09_05-fixed,Fixed:>>#
-* Fixed text alignment not preserving for rich-text editors such as Content page blocks
-({CORTEZA_COMMIT_BASE}37549c3[`37549c3`]).
+* Fixed text headings not preserving for rich-text editors such as Content page blocks
+({CORTEZA_COMMIT_BASE}f1ac620[`f1ac620`]).
 * Fixed integration gateway profiler requests failing to load due to a lapsus in cancellable API call
 ({CORTEZA_COMMIT_BASE}9d57305[`9d57305`]).
+* Fixed using system fields with between operator in record list filter
+({CORTEZA_COMMIT_BASE}0dd8c86[`0dd8c86`]).
+* Fixed record fields applying prefilters in record list filter
+({CORTEZA_COMMIT_BASE}0dd8c86[`0dd8c86`]).
+* Fixed reminders not being displayed on time without refreshing the page
+({CORTEZA_COMMIT_BASE}0ce8173[`0ce8173`]).
+* Fixed RbacResource type casting from string in workflows
+({CORTEZA_COMMIT_BASE}f3dde6b[`f3dde6b`]).
+* Fixed on hover preview of execute workflow and error handler steps
+({CORTEZA_COMMIT_BASE}22a093b[`22a093b`]).
+* Fixed nickname not being used for handle when creating a user via external auth
+({CORTEZA_COMMIT_BASE}59bd38c[`59bd38c`]).
+* Fixed reference record block not resolving its record values
+({CORTEZA_COMMIT_BASE}d77bc41[`d77bc41`]).
+* Fixed multi value delimiter option being displayed in record export if no multi value field is selected
+({CORTEZA_COMMIT_BASE}b9899f1[`b9899f1`]).
+* Fixed past/future values option being visible in time only fields configurator
+({CORTEZA_COMMIT_BASE}0a07e1a[`0a07e1a`]).
+* Fixed some prefilters not properly refreshing when related value changes
+({CORTEZA_COMMIT_BASE}58fa20b[`58fa20b`]).
+* Fixed reminder feed calendar translation
+({CORTEZA_COMMIT_BASE}ac05a59[`ac05a59`]).
+* Fixed record revisions to properly display multi value changes
+({CORTEZA_COMMIT_BASE}8bdc6f5[`8bdc6f5`]).
+* Fixed refetching record revisions when navigating from existing to new record from the same page
+({CORTEZA_COMMIT_BASE}d087a77[`d087a77`]).
+* Fixed save chart as image overlapping chart filter
+({CORTEZA_COMMIT_BASE}da12f68[`da12f68`]).
+* Fixed record date filter not respecting seconds
+({CORTEZA_COMMIT_BASE}0d08a45[`0d08a45`]).
+* Fixed totp alert translations in auth security screen
+({CORTEZA_COMMIT_BASE}1ec3a66[`1ec3a66`]).
+* Fixed profiler route hits list not fetching results
+({CORTEZA_COMMIT_BASE}a7b7b6f[`a7b7b6f`], {CORTEZA_COMMIT_BASE}9d57305[`9d57305`]).

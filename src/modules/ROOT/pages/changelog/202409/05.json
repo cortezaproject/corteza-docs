@@ -1,6 +1,6 @@
 {
   "meta": {
-    "releasedOn": "2025.08.07"
+    "releasedOn": "2025.09.26"
   },
 
   "added": [
@@ -11,13 +11,75 @@
       "refs": [
         "https://github.com/cortezaproject/corteza/commit/dfd65e1acb40192b6ddf5aee553d0a44462e15f1"
       ]
+    },
+    {
+      "what": [
+        "proper display of values for nested record fields. Particularly rich text values."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/05e1dd71c901f15bb5c83c605b2d4ab12d0acd9f"
+      ]
+    },
+    {
+      "what": [
+        "warning triangles to tabs with error fields and improved error/warning messages with field names."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/64afdce924689d5a1dcdde47b3f0e774cd300a34"
+      ]
+    },
+    {
+      "what": [
+        "edit module button to record pages, similar to page builder buttons."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/684c777898cf6af0df72e609bbec60df52c4bbc9"
+      ]
+    },
+    {
+      "what": [
+        "geosearch to map block."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/72ad8971f970d73287a9851a3c3f2aae8f04e3c7"
+      ]
+    },
+    {
+      "what": [
+        "user mentions to rich text editor."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/55c93718586ee7f6344f0a4b6b2583f5e1368893"
+      ]
+    },
+    {
+      "what": [
+        "logger to SAML service."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/dfd65e1acb40192b6ddf5aee553d0a44462e15f1"
+      ]
+    }
+  ],
+
+  "changed": [
+    {
+      "what": [
+        "comments block to be more chat like."
+      ],
+      "why": [
+        "to improve the user experience."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/f1152338976497c8520882c4f8d2a229be0baa7e"
+      ]
     }
   ],
 
   "fixed": [
     {
       "what": [
-        "text alignment not preserving for rich-text editors such as Content page blocks"
+        "text headings not preserving for rich-text editors such as Content page blocks."
       ],
       "refs": [
         "https://github.com/cortezaproject/corteza/commit/f1ac6208329752115bcc2298ed1df9da40c8c81e"
@@ -25,9 +87,146 @@
     },
     {
       "what": [
-        "integration gateway profiler requests failing to load due to a lapsus in cancellable API call"
+        "integration gateway profiler requests failing to load due to a lapsus in cancellable API call."
       ],
       "refs": [
+        "https://github.com/cortezaproject/corteza/commit/9d5730561420686df60d6660043efa46e6dd55b2"
+      ]
+    },
+    {
+      "what": [
+        "using system fields with between operator in record list filter."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/0dd8c86ecddc19e7dc2b82e77b046bb94faffb9b"
+      ]
+    },
+    {
+      "what": [
+        "record fields applying prefilters in record list filter."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/0dd8c86ecddc19e7dc2b82e77b046bb94faffb9b"
+      ]
+    },
+    {
+      "what": [
+        "reminders not being displayed on time without refreshing the page."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/0ce81737f1a7244cdf17710763783998d5c55a48"
+      ]
+    },
+    {
+      "what": [
+        "RbacResource type casting from string in workflows."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/f3dde6bda27de68c54cd344a22a71d86c26c772b"
+      ]
+    },
+    {
+      "what": [
+        "on hover preview of execute workflow and error handler steps."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/22a093bd9a42c26e8f8e806bd323960758511055"
+      ]
+    },
+    {
+      "what": [
+        "nickname not being used for handle when creating a user via external auth."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/59bd38c839c327a4c5340b8974694111034f192e"
+      ]
+    },
+    {
+      "what": [
+        "reference record block not resolving its record values."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/d77bc41407ee8064ec08a4ad16da55a5c64dbec7"
+      ]
+    },
+    {
+      "what": [
+        "multi value delimiter option being displayed in record export if no multi value field is selected."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/b9899f169dbd9e0e3c5dd62bd53e8849d013cbe3"
+      ]
+    },
+    {
+      "what": [
+        "past/future values option being visible in time only fields configurator."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/0a07e1af8fc4a6dc3cbd93404222986d9e2932f5"
+      ]
+    },
+    {
+      "what": [
+        "some prefilters not properly refreshing when related value changes."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/58fa20be93036fe05756c1daff324b2559e83662"
+      ]
+    },
+    {
+      "what": [
+        "reminder feed calendar translation."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/ac05a593051994f5026c9f4600699fb5da1613b9"
+      ]
+    },
+    {
+      "what": [
+        "record revisions to properly display multi value changes."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/8bdc6f5b006ba7f5ebe4851b805d12b38f02a480"
+      ]
+    },
+    {
+      "what": [
+        "refetching record revisions when navigating from existing to new record from the same page."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/d087a7788257582a133762a63bedeab404343f8b"
+      ]
+    },
+    {
+      "what": [
+        "save chart as image overlapping chart filter."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/da12f683f01f00dc63de3d0b576d7adb0d1779e0"
+      ]
+    },
+    {
+      "what": [
+        "record date filter not respecting seconds."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/0d08a4570763983f703f564ccf5cfb2de440dde8"
+      ]
+    },
+    {
+      "what": [
+        "totp alert translations in auth security screen."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/1ec3a66ccbc9ba698ccf3d413d71fbaaffe2c21f"
+      ]
+    },
+    {
+      "what": [
+        "profiler route hits list not fetching results."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/a7b7b6fc321ca19b3228a07c833d046d6820f004",
         "https://github.com/cortezaproject/corteza/commit/9d5730561420686df60d6660043efa46e6dd55b2"
       ]
     }

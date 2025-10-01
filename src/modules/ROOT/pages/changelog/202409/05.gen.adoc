@@ -2,7 +2,7 @@ include::ROOT:partial$variables.adoc[]
 
 = `2024.9.5`
 
-*Released on*: `2025.09.26`
+*Released on*: `2025.10.01`
 
 .[#2024_09_05-added]#<<2024_09_05-added,Added:>>#
 * Added unified logging with the SAML sub-service

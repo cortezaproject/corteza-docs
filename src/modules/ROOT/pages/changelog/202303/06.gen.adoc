@@ -12,7 +12,7 @@ The change was added to provide the option to easily add or remove elements from
 The change was added to provide the option to easily fetch data for the page block
 ({CORTEZA_COMMIT_BASE}f189c43[`f189c43`]).
 * Added a dropdown to look up the permissions of a concrete module, page or page layout.
-The change was added to provide the option of viewing permissions of a resource without having to visit it
+The change was added to provide the option of viewing the permissions of a resource without having to visit it
 ({CORTEZA_COMMIT_BASE}7fdc854[`7fdc854`]).
 
 .[#2023_03_06-changed]#<<2023_03_06-changed,Changed:>>#

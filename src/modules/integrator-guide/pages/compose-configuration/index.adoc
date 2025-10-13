@@ -39,10 +39,10 @@ To create a new namespace, navigate to your {PRODUCT_NAME} instance (for example
   },
   "view": {},
   "focus": {
-    "x": 400,
-    "y": 255,
-    "w": 266,
-    "h": 217
+    "x": 366,
+    "y": 283,
+    "w": 287,
+    "h": 235
   },
   "annotations": []
 }
@@ -219,10 +219,10 @@ The record page can be created directly from the module edit screen by clicking 
     "h": 1080
   },
   "annotations": [{
-    "x": 1462,
-    "y": 98,
+    "x": 1458,
+    "y": 95,
     "w": 193,
-    "h": 42
+    "h": 43
   }]
 }
 ----
@@ -245,9 +245,9 @@ Alternatively, you can create missing record pages from the list of modules by c
     "h": 1080
   },
   "annotations": [{
-    "x": 1398,
-    "y": 372,
-    "w": 173,
+    "x": 1432,
+    "y": 259,
+    "w": 144,
     "h": 31
   }]
 }
@@ -356,10 +356,10 @@ To always have sub-pages expanded, enable the checkbox under the `Other options`
     "h": 560
   },
   "annotations": [{
-    "x": 1125,
-    "y": 440,
-    "w": 270,
-    "h": 20
+    "x": 1136,
+    "y": 464,
+    "w": 266,
+    "h": 16
   }]
 }
 ----
@@ -720,17 +720,17 @@ In the image below, the title of the pages have been highlighted to indicate tha
   },
   "annotations": [
     {
-      "x": 278,
-      "y": 19,
-      "w": 355,
-      "h": 31,
+      "x": 339,
+      "y": 21,
+      "w": 276,
+      "h": 29,
       "kind": "box"
     },
     {
-      "x": 115,
-      "y": 373,
-      "w": 15,
-      "h": 16,
+      "x": 433,
+      "y": 319,
+      "w": 16,
+      "h": 18,
       "kind": "box"
     }
   ]
@@ -750,10 +750,10 @@ You can then navigate to any other page to reuse this page block as many times a
   },
   "annotations": [
     {
-      "x": 276,
-      "y": 10,
-      "w": 380,
-      "h": 50,
+      "x": 340,
+      "y": 21,
+      "w": 274,
+      "h": 29,
       "kind": "box"
     }
   ]
@@ -779,18 +779,18 @@ All we have to do is click the clone button highlighted below.
   },
   "annotations": [
     {
-      "x": 278,
-      "y": 19,
-      "w": 355,
-      "h": 31,
+      "x": 340,
+      "y": 22,
+      "w": 275,
+      "h": 28,
       "kind": "box"
     },
 
     {
-      "x": 72,
-      "y": 372,
-      "w": 20,
-      "h": 20,
+      "x": 392,
+      "y": 320,
+      "w": 16,
+      "h": 17,
       "kind": "box"
     }
   ]
@@ -810,17 +810,17 @@ After cloning the block, here is what the page now looks like with the cloned bl
   },
   "annotations": [
     {
-      "x": 278,
-      "y": 19,
-      "w": 355,
-      "h": 31,
+      "x": 340,
+      "y": 22,
+      "w": 275,
+      "h": 28,
       "kind": "box"
     },
     {
-      "x": 14,
-      "y": 410,
-      "w": 778,
-      "h": 137,
+      "x": 328,
+      "y": 358,
+      "w": 657,
+      "h": 144,
       "padding": "lg",
       "kind": "box"
     }
@@ -849,24 +849,24 @@ To copy the contents of another list page, navigate to the page itself and click
     "w": 1920,
     "h": 1080
   },
-  "view": {
-    "x": 0,
-    "y": 535,
-    "w": 1920,
-    "h": 555
+   "view": {
+    "x": 322,
+    "y": 1,
+    "w": 1597,
+    "h": 1078
   },
-  "focus": {
-    "x": 0,
-    "y": 1000,
-    "w": 1920,
-    "h": 60
+    "focus": {
+    "x": 322,
+    "y": 1008,
+    "w": 1597,
+    "h": 71
   },
   "annotations": [{
     "kind": "box",
-    "x": 1440,
-    "y": 1017,
-    "w": 165,
-    "h": 45
+    "x": 1504,
+    "y": 1021,
+    "w": 155,
+    "h": 44
   }]
 }
 ----
@@ -924,10 +924,10 @@ Find the page icon section under the page description and click on the btn:[edit
   },
   "annotations": [{
     "padding": "lg",
-    "x": 600,
-    "y": 400,
-    "w": 470,
-    "h": 60
+    "x": 590,
+    "y": 413,
+    "w": 513,
+    "h": 66
   }]
 }
 ----
@@ -1032,16 +1032,16 @@ The page icon will be shown in the page edit screen and the sidebar navigation n
     "h": 1080
   },
   "view": {
-    "x": 0,
-    "y": 0,
-    "w": 750,
-    "h": 700
+    "x": 1,
+    "y": 1,
+    "w": 784,
+    "h": 731
   },
   "annotations": [{
-    "x": 27,
-    "y": 280,
-    "w": 75,
-    "h": 30
+    "x": 21,
+    "y": 330,
+    "w": 144,
+    "h": 16
   }]
 }
 ----
@@ -1217,10 +1217,10 @@ When set, blocks that have this configuration will have a zoom-in icon in the to
   "annotations": [{
     "kind": "box",
     "padding": "lg",
-    "x": 1375,
-    "y": 87,
+    "x": 1115,
+    "y": 99,
     "w": 15,
-    "h": 15
+    "h": 14
   }]
 }
 ----
@@ -1303,10 +1303,10 @@ There you will find the refresh option.
   "view": {},
   "annotations": [
     {
-      "x": 965,
-      "y": 335,
-      "w": 550,
-      "h": 100,
+      "x": 407,
+      "y": 611,
+      "w": 530,
+      "h": 110,
       "kind": "box"
     }
   ]
@@ -1362,10 +1362,10 @@ allowing the user to manually refresh the page block.
   "view": {},
   "annotations": [
     {
-      "x": 1869,
-      "y": 83,
-      "w": 20,
-      "h": 20,
+      "x": 1115,
+      "y": 100,
+      "w": 14,
+      "h": 13,
       "kind": "box"
     }
   ]
@@ -1393,10 +1393,10 @@ Click on the btn:[Add] and input the expression that should be evaluated to cond
   "view": {},
   "annotations": [
     {
-      "x": 407,
-      "y": 797,
-      "w": 1090,
-      "h": 148,
+      "x": 391,
+      "y": 718,
+      "w": 1107,
+      "h": 227,
       "kind": "box"
     }
   ]

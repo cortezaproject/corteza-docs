@@ -27,6 +27,5 @@ asciidoc:
     collapsible: true
     kroki-fetch-diagram: true
   extensions:
-    - asciidoctor-kroki
     - ./lib/annotation-preprocessor/index.js
     - ./lib/collapsible-block-tree-processor.js

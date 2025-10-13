@@ -9,11 +9,11 @@ include::ROOT:partial$variables.adoc[]
 The change was added to allow users to upload images from their camera
 ({CORTEZA_COMMIT_BASE}6fbb075[`6fbb075`]).
 * Added option to display select values as badges.
-The change was added to allow users to color select values for better visibility
+The change was added to allow users to color-select values for better visibility
 ({CORTEZA_COMMIT_BASE}65be113[`65be113`]).
 * Added <namespace.handle>-body, <page.handle>-body and <page-layout.handle>-body classes to the body element when user is in a namespace, page or page layout.
 Also added <page.handle>-modal and <page-layout>-modal class to record modals.
-The change was added to provide an easy way to target the body element of the current namespace, page or page layout
+The change was added to provide an easy way to target the body element of the current namespace, page, or page layout
 ({CORTEZA_COMMIT_BASE}93cb166[`93cb166`]).
 * Added option to configure the ability to add a new field in bulk/inline record editing.
 The change was added to allow users to personalize their editing experience

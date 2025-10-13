@@ -3,14 +3,14 @@ include::ROOT:partial$variables.adoc[]
 [#2023-3-x]
 = `2023.3`
 
-With {PRODUCT_NAME} `2023.3`, we continue to improve system stability, security, performance, as well as focusing on improving our user interfaces to make {PRODUCT_NAME} more enjoyable to both use and configure.
+With {PRODUCT_NAME} `2023.3`, we continue to improve system stability, security, and performance, as well as focusing on improving our user interfaces to make {PRODUCT_NAME} more enjoyable to both use and configure.
 
 *Page Layouts*
 
 *Page layouts* enable you to dynamically change the contents based on who is viewing what from where.
 
 You can define an arbitrary number and sequence of page layouts, providing more flexibility to customize the experience of your end-users.
-In addition to changing the layout when the user visits the page, you can also define their relation and allow users to navigate between them.
+In addition to changing the layout when the user visits the page, you can also define their relationship and allow users to navigate between them.
 
 *Conditional Fields*
 

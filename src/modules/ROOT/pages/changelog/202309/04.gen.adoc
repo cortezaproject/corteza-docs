@@ -19,7 +19,7 @@ The change was added to allow users to cancel workflows/prompts
 * Fixed unnecessary showing of stale data warning in {APP_NAME_COMPOSE} while editing and loading a record
 ({CORTEZA_COMMIT_BASE}070e751[`070e751`]).
 * Fixed {PRODUCT_NAME} refusing to start when upgrading with alterations to the default {APP_NAME_COMPOSE} records schema.
-The fix was made by allowing alterations to be logged for the default schema but continue blocking them from being applied
+The fix was made by allowing alterations to be logged for the default schema, but continuing to block them from being applied
 ({CORTEZA_COMMIT_BASE}b389d50[`b389d50`]).
 * Fixed warning message for no matching layout after saving a record that conflicts with visibility condition of that layout
 In some cases, the user wasn't able to access any layout or was redirected to the list of namespaces
@@ -31,5 +31,5 @@ In some cases, the user wasn't able to access any layout or was redirected to th
 
 .[#2023_09_04-security]#<<2023_09_04-security,Security:>>#
 * Addressed security vulnerabilities caused by dependencies across all web applications.
-This was done by upgrading packages to a more stable versions and removing unused dependencies causing vulnerabilities
+This was done by upgrading packages to more stable versions and removing unused dependencies, causing vulnerabilities
 ({CORTEZA_COMMIT_BASE}5f890d9[`5f890d9`]).

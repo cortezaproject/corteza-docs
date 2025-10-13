@@ -12,7 +12,7 @@ The change was added to give the user the ability to easily edit a single field 
 The change was added to give the user the flexibility to preview and download files when viewing a record
 ({CORTEZA_PULL_BASE}1310[`1310`]).
 * Added new ways of displaying Select module fields allowing you to show configured options as check boxes or radio buttons.
-The change was added to provide the user with an additional ways to view for the Select field value/values
+The change was added to provide the user with an additional way to view the Select field value/values
 ({CORTEZA_PULL_BASE}1301[`1301`]).
 * Added the ability to use a record value in a record page title.
 The change was added to give the user the freedom to customize a record page title using record values
@@ -26,7 +26,7 @@ The change was added to give the user another way of interacting with the checkb
 The change was made to keep it consistent with other resource operations
 ({CORTEZA_COMMIT_BASE}6558efc[`6558efc`]).
 * Changed the {PRODUCT_NAME} authentication flow to skip unneeded screens and get the user directly to the requested web application as soon as possible.
-The change was made to improve the authentication user interface and experience
+The change was made to improve the user authentication interface and experience
 ({CORTEZA_PULL_BASE}1284[`1284`]).
 
 .[#2023_03_04-fixed]#<<2023_03_04-fixed,Fixed:>>#

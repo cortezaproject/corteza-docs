@@ -28,7 +28,7 @@ The change was added to provide an easier way of editing or deleting a tabbed pa
 The change was added to prevent losing changes that haven't been saved yet
 ({CORTEZA_PULL_BASE}1367[`1367`]).
 * Added support for {PRODUCT_NAME} to automatically manage and change the underlying database when storing records.
-The change was added to simplify the process of using dedicated and customized storage locations for your records since manual intervention, for most cases, is no longer needed
+The change was added to simplify the process of using dedicated and customized storage locations for your records, since manual intervention, for most cases, is no longer needed
 ({CORTEZA_COMMIT_BASE}bc92320[`bc92320`], {CORTEZA_COMMIT_BASE}0695eb7[`0695eb7`], {CORTEZA_COMMIT_BASE}4224ba9[`4224ba9`], {CORTEZA_COMMIT_BASE}b86f67c[`b86f67c`], {CORTEZA_COMMIT_BASE}1eb360f[`1eb360f`], {CORTEZA_COMMIT_BASE}2bcf86e[`2bcf86e`]).
 * Added an option to create a custom button for a record page in its page layout configurator that will be present when viewing the page layout.
 The change was added to provide the user with the option to create a custom button

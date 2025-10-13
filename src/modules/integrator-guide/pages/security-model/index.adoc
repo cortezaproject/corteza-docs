@@ -22,24 +22,24 @@ Locate the btn:[permissions] button in the user interface in order to manage the
     "w": 1920,
     "h": 1080
   },
-  "view": {
+    "view": {
     "x": 320,
     "y": 0,
     "h": 550,
     "w": 1600
   },
   "focus": {
-    "x": 1466,
-    "y": 80,
-    "h": 31,
-    "w": 206
+    "x": 1473,
+    "y": 78,
+    "w": 248,
+    "h": 36
   },
   "annotations": [{
     "kind": "box",
-    "x": 1536,
-    "y": 80,
-    "w": 134,
-    "h": 30
+    "x": 1606,
+    "y": 86,
+    "w": 115,
+    "h": 18
   }]
 }
 ----

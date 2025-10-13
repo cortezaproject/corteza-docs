@@ -6,26 +6,26 @@ include::ROOT:partial$variables.adoc[]
 
 .[#2022_09_04-added]#<<2022_09_04-added,Added:>>#
 * Added support for coalesce sorting on all supported store driver.
-The change was added to allow sorting of first non-NULL value among given columns into one column
+The change was added to allow sorting of the first non-NULL value among the given columns into one column
 ({CORTEZA_PULL_BASE}547[`547`]).
 * Added test SMTP server button for the admin email settings.
 The change was added to let administrators test SMTP configuration validity before deploying changes
 ({CORTEZA_PULL_BASE}539[`539`]).
 * Added nylas integration which allows you to easily connect {PRODUCT_NAME} with email, calendar, and contacts provider.
-A new page block on compose called Nylas was added, that can display Nylas components defined in the Nylas dashboard.
+A new page block on compose called Nylas was added, which can display Nylas components defined in the Nylas dashboard.
 The Nylas external provider was also added to the list in the Admin panel under System settings.
 The change was added to enable the integration with Nylas and support the use of its components inside {APP_NAME_COMPOSE}
 ({CORTEZA_PULL_BASE}539[`539`]).
 
 .[#2022_09_04-changed]#<<2022_09_04-changed,Changed:>>#
 * Changed the labels being displayed in metric page block instead of names.
-The change was made because we were incorrectly displaying the field names instead of its labels.
+The change was made because we were incorrectly displaying the field names instead of their labels.
 The change was made by changing the metric page block fields to show labels instead of names
 ({CORTEZA_PULL_BASE}586[`586`]).
 
 .[#2022_09_04-fixed]#<<2022_09_04-fixed,Fixed:>>#
 * Fixed the namespace, module, page, workflow, and reporter lists to properly sort the last change column.
-Previously the sorting was done on the updatedAt value and the value was shown as updatedAt or createdAt if the resource wasn't updated yet.
+Previously, the sorting was done on the updatedAt value, and the value was shown as updatedAt or createdAt if the resource wasn't updated yet.
 The fix was made by using the coalesce (`deletedAt`, `updatedAt`, `createdAt`) to sort based on all three columns, so that the value displayed matches the value that is being used to sort
 ({CORTEZA_PULL_BASE}547[`547`]).
 * Fixed invalid data ordering on {APP_NAME_COMPOSE} charts caused by improperly ordered data on the record report endpoint.

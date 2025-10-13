@@ -26,7 +26,7 @@ The change was made to improve performance for all modules and improve UX readab
 * Fixed not able to export a namespace because it contains reference of deleted resource translations
 ({CORTEZA_COMMIT_BASE}1d54026[`1d54026`]).
 * Fixed DAL schema alterations generating incorrect attribute identifiers when attempting to alter to column.
-The fix was made taking attribute store codec into account when generating DDL queries
+The fix was made, taking the attribute store codec into account when generating DDL queries
 ({CORTEZA_COMMIT_BASE}3e1d7bd[`3e1d7bd`]).
 * Fixed record revisions not saving after resolving DAL schema alterations involving the corresponding record revision schema.
 The fix was made by properly presenting, processing, and reloading all relevant models

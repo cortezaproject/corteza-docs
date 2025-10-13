@@ -23,7 +23,19 @@ The `Consumer` here should be `Eventbus`, since this is how the internal mechani
 ====
 
 .The screenshot shows the creation of the queue in UI.
-image::automation/workflows/examples/queue-create.png[role="data-zoomable"]
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "automation/workflows/examples/queue-create.png",
+    "alias": "automation-workflows-examples-queue-create.png",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {},
+  "annotations": []
+}
+----
 
 == Write to Queue
 
@@ -45,7 +57,24 @@ toJSON([
 ----
 
 .A screenshot of the add to queue workflow.
-image::automation/workflows/examples/queue-wf-add.png[role="data-zoomable"]
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "automation/workflows/examples/queue-wf-add.png",
+    "alias": "automation-workflows-examples-queue-wf-add.png",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {
+    "x": 164,
+    "y": 111,
+    "w": 251,
+    "h": 287
+  },
+    "annotations": []
+}
+----
 
 The link:{attachment-path}queue_add.json[source code] for the workflow example.
 
@@ -54,7 +83,24 @@ The link:{attachment-path}queue_add.json[source code] for the workflow example.
 Here we parse the queue payload and create a custom HTTP request to an outside, ie. Kafka (in our example an endpoint we will create for this purpose only).
 
 .An example of reading the data from queue.
-image::automation/workflows/examples/queue-wf-read.png[role="data-zoomable"]
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "automation/workflows/examples/queue-wf-read.png",
+    "alias": "automation-workflows-examples-queue-wf-read.png",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {
+    "x": 128,
+    "y": 75,
+    "w": 251,
+    "h": 720
+  },
+  "annotations": []
+}
+----
 
 The link:{attachment-path}queue_read.json[source code] for the workflow example.
 
@@ -72,7 +118,31 @@ image::automation/workflows/examples/queue-endpoint.png[role="data-zoomable"]
 This preview is for example only, a way to use the profiler to debug any sending payloads to production / external services.
 
 .Preview the request headers and other metadata.
-image::automation/workflows/examples/queue-profiler-1.png[role="data-zoomable"]
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "automation/workflows/examples/queue-profiler-1.png",
+    "alias": "automation-workflows-examples-queue-profiler-1.png",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {},
+  "annotations": []
+}
+----
 
 .Preview the request payload.
-image::automation/workflows/examples/queue-profiler-2.png[role="data-zoomable"]
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "automation/workflows/examples/queue-profiler-2.png",
+    "alias": "automation-workflows-examples-queue-profiler-2.png",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {},
+  "annotations": []
+}
+----

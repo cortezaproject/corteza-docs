@@ -26,11 +26,10 @@ The role management user interface resides in the xref:index.adoc#webapp-admin[{
   "view": {},
   "annotations": [{
     "kind": "box",
-    "padding": "xs",
-    "x": 16,
-    "y": 180,
-    "w": 288,
-    "h": 37
+    "x": 22,
+    "y": 238,
+    "w": 190,
+    "h": 14
   }]
 }
 ----
@@ -120,10 +119,10 @@ You can only define permissions for existing roles.
     "h": 1080
   },
   "view": {
-    "x": 321,
+    "x": 354,
     "y": 0,
-    "w": 1599,
-    "h": 660
+    "w": 1561,
+    "h": 707
   },
   "annotations": []
 }
@@ -147,18 +146,18 @@ You can only define permissions for existing roles.
     "h": 1080
   },
   "view": {
-    "x": 321,
+    "x": 354,
     "y": 0,
-    "w": 1599,
-    "h": 660
+    "w": 1561,
+    "h": 707
   },
   "annotations": [{
     "kind": "box",
     "padding": "sm",
-    "y": 499,
-    "x": 672,
-    "w": 86,
-    "h": 32
+    "y": 646,
+    "x": 635,
+    "w": 91,
+    "h": 34
   }]
 }
 ----
@@ -185,18 +184,18 @@ Instead of deleting roles, you can <<archiving-roles,archive the role>>.
     "h": 1080
   },
   "view": {
-    "x": 321,
-    "y": 0,
-    "w": 1599,
-    "h": 660
+    "x": 354,
+    "y": 1,
+    "w": 1565,
+    "h": 984
   },
   "annotations": [{
     "kind": "box",
     "padding": "sm",
-    "y": 499,
-    "x": 586,
-    "w": 77,
-    "h": 32
+    "x": 544,
+    "y": 646,
+    "w": 82,
+    "h": 34
   }]
 }
 ----
@@ -222,10 +221,10 @@ Instead of deleting roles, you can <<archiving-roles,archive the role>>.
   "view": {},
   "annotations": [{
     "kind": "box",
-    "x": 1498,
-    "y": 90,
-    "w": 165,
-    "h": 35
+    "x": 1572,
+    "y": 88,
+    "w": 148,
+    "h": 18
   }]
 }
 ----
@@ -243,10 +242,10 @@ Instead of deleting roles, you can <<archiving-roles,archive the role>>.
   "view": {},
   "annotations": [{
     "kind": "box",
-    "x": 710,
-    "y": 410,
-    "w": 500,
-    "h": 260
+    "x": 685,
+    "y": 412,
+    "w": 550,
+    "h": 256
   }]
 }
 ----

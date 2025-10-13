@@ -16,10 +16,10 @@ The connection management user interface resides in the {PRODUCT_NAME} {APP_NAME
   "view": {},
   "annotations": [{
     "kind": "box",
-    "x": 16,
-    "y": 577,
-    "h": 37,
-    "w": 288
+    "x": 20,
+    "y": 573,
+    "h": 13,
+    "w": 172
   }]
 }
 ----
@@ -40,6 +40,7 @@ The connection management user interface resides in the {PRODUCT_NAME} {APP_NAME
     "w": 1920,
     "h": 1080
   },
+  "view": {},
   "view": {
     "x": 352,
     "y": 0,
@@ -47,13 +48,12 @@ The connection management user interface resides in the {PRODUCT_NAME} {APP_NAME
     "h": 1080
   },
   "focus": {
-    "padding": "xs",
-    "x": 534,
-    "y": 450,
-    "w": 1204,
-    "h": 586
+    "x": 559,
+    "y": 400,
+    "w": 1108,
+    "h": 680
   },
-  "annotations": []
+    "annotations": []
 }
 ----
 
@@ -77,13 +77,12 @@ The list includes only external connections; the primary connection is available
     "h": 1080
   },
   "focus": {
-    "padding": "xs",
-    "x": 535,
-    "y": 106,
-    "w": 1202,
-    "h": 300
+    "x": 559,
+    "y": 80,
+    "w": 1108,
+    "h": 295
   },
-  "annotations": []
+    "annotations": []
 }
 ----
 ====
@@ -115,17 +114,16 @@ refer to the xref:dal-connections/index.adoc#configuration[connection configurat
     "h": 1080
   },
   "focus": {
-    "padding": "xs",
-    "x": 534,
-    "y": 450,
-    "w": 1204,
-    "h": 586
+    "x": 559,
+    "y": 400,
+    "w": 1108,
+    "h": 679
   },
   "annotations": [{
-    "x": 548,
-    "y": 515,
-    "h": 34,
-    "w": 160
+    "x": 576,
+    "y": 473,
+    "h": 41,
+    "w": 164
   }]
 }
 ----
@@ -157,17 +155,16 @@ refer to the xref:dal-connections/index.adoc#configuration[connection configurat
     "h": 1080
   },
   "focus": {
-    "padding": "xs",
-    "x": 534,
-    "y": 450,
-    "w": 1204,
-    "h": 586
+    "x": 559,
+    "y": 397,
+    "w": 1108,
+    "h": 682
   },
   "annotations": [{
-    "x": 1689,
-    "y": 658,
-    "h": 56,
-    "w": 55
+    "x": 559,
+    "y": 623,
+    "h": 49,
+    "w": 1108
   }]
 }
 ----

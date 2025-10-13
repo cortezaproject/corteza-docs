@@ -13,3 +13,7 @@ include::ROOT:partial$variables.adoc[]
 .[#2024_09_06-added]#<<2024_09_06-added,Added:>>#
 * Added user groups to support hierarchical access control
 ({CORTEZA_PULL_BASE}2179[`2179`]).
+
+.[#2024_09_06-fixed]#<<2024_09_06-fixed,Fixed:>>#
+* Fixed location field not importing during CSV import
+({CORTEZA_COMMIT_BASE}279e685[`279e685`]).

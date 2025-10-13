@@ -33,7 +33,7 @@ include::partial$variables.adoc[]
 ====
 Database tables (`\*\_settings`, `*_permissions`, `sys_*`) are renamed, merged and/or removed.
 Database schema upgrade is irreversible.
-Make sure you backup your data before doing an upgrade.
+Make sure you back up your data before doing an upgrade.
 ====
 
 .Contributors:

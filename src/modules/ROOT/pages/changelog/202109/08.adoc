@@ -22,7 +22,7 @@ include::ROOT:partial$variables.adoc[]
 . Reminders of other people showing up ({WEBAPP_COMPOSE_COMMIT_BASE}63b3efe[`63b3efe`]).
 . Translations of field configurators and calendars ({WEBAPP_COMPOSE_COMMIT_BASE}d4a379e[`d4a379e`], {WEBAPP_COMPOSE_COMMIT_BASE}5f00980[`5f00980`]).
 . Relative values with charts ({WEBAPP_JS_COMMIT_BASE}eb5c4c7[`eb5c4c7`], {WEBAPP_JS_COMMIT_BASE}025cfd5[`025cfd5`]).
-. Fix number of record to be exported in ExporterModal ({WEBAPP_COMPOSE_COMMIT_BASE}eb5c4c7[`eb5c4c7`], {WEBAPP_COMPOSE_COMMIT_BASE}5f36917[`5f36917`]).
+. Fix the number of records to be exported in ExporterModal ({WEBAPP_COMPOSE_COMMIT_BASE}eb5c4c7[`eb5c4c7`], {WEBAPP_COMPOSE_COMMIT_BASE}5f36917[`5f36917`]).
 . Add missing input string to integration gateway namespace for admin ({LOCALE_COMMIT_BASE}eb5c4c7[`eb5c4c7`], {LOCALE_COMMIT_BASE}64d27e1[`64d27e1`]).
 . Fixed cumulative funnel chart value calculations ({WEBAPP_JS_COMMIT_BASE}0fbce36[`0fbce36`]).
 . Fixed improper reporter funnel chart display due to invalid data type conversion ({WEBAPP_JS_COMMIT_BASE}c7ca7d1[`c7ca7d1`]).
@@ -31,4 +31,4 @@ include::ROOT:partial$variables.adoc[]
 . Strengthen reset-password flow with rate limiting and invalidation of existing tokens({WEBAPP_WORKFLOW_COMMIT_BASE}d2d0245d5[`d2d0245d5`]).
 . Improve attachment validation on size and type for compose uploads ({SERVER_COMMIT_BASE}6f19f00b2[`6f19f00b2`]).
 . Sanitize back-link on logout page (XSS) ({SERVER_COMMIT_BASE}8c0a62284[`8c0a62284`]).
-. Refactor delete all session of user from auth page ({SERVER_COMMIT_BASE}23a8b757ee[`23a8b757ee`]).
+. Refactor, delete all session of the user from the auth page ({SERVER_COMMIT_BASE}23a8b757ee[`23a8b757ee`]).

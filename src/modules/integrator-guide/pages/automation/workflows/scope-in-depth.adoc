@@ -32,7 +32,19 @@ Visually changing the order of the connectors doesn't affect the merging logic.
 ====
 
 .Let's take a look at an example;
-image::automation/workflows/scope-in-depth/gateway_scope_base.png[]
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "automation/workflows/scope-in-depth/gateway_scope_base.png",
+    "alias": "automation-workflows-scope-in-depth-gateway_scope_base.png",
+    "w": 1442,
+    "h": 684
+  },
+  "view": {},
+  "annotations": []
+}
+----
 
 .A couple of important steps can be seen in the above example:
 * *Setting the global scope* initializes the `global_v1` variable to be 1.
@@ -65,7 +77,19 @@ When the workflow execution reaches an iterator, a new scope is created based on
 When the iterator has finished executing, which means that all iterations are completed or the iteration was aborted, the iterator's scope is merged back into the parent scope (all changes and new variables in the iterator scope are reflected in the parent scope).
 
 .Let's take a look at an example:
-image::automation/workflows/scope-in-depth/loop_scope_base.png[]
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "automation/workflows/scope-in-depth/loop_scope_base.png",
+    "alias": "automation-workflows-scope-in-depth-loop_scope_base.png",
+    "w": 1043,
+    "h": 1084
+  },
+  "view": {},
+  "annotations": []
+}
+----
 
 .A couple of important steps can be seen in the above example:
 * *Setting the global scope* initializes the `global_v1` variable to be 1.

@@ -140,7 +140,19 @@ Initial settings are copied from the xref:devops-guide:references/configuration/
 Open your administration panel and navigate to menu:System[Email settings].
 
 .The screenshot shows the SMTP server settings in the administration panel under.
-image::email-settings/form.png[Screenshot of the configuration window.,role="data-zoomable"]
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "email-settings/form.png",
+    "alias": "email-settings-form.png",
+    "w": 1484,
+    "h": 1210
+  },
+  "view": {},
+  "annotations": []
+}
+----
 
 - Provide the required server name and port and optional username and password.
 Changes are applied immediately and do not require server restart.

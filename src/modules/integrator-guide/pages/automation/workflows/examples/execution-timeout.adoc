@@ -11,7 +11,24 @@ If your use-case requires you to define a timeout, you can implement this manual
 * Schedule a timeout after 10sec of execution,
 * repeat the iterator indefinitely.
 
-image::automation/workflows/examples/manual-timeout.png[role="data-zoomable"]
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "automation/workflows/examples/manual-timeout.png",
+    "alias": "automation-workflows-examples-manual-timeout.png",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {
+    "x": 92,
+    "y": 219,
+    "w": 1224,
+    "h": 647
+  },
+  "annotations": []
+}
+----
 
 ****
 .Workflow step details:

@@ -28,12 +28,12 @@ Inside the gateway, check if the `total` value is greater then `0`.
     "h": 1080
   },
   "view": {
-    "x": 325,
-    "y": 97,
-    "w": 718,
-    "h": 600
+    "x": 200,
+    "y": 77,
+    "w": 611,
+    "h": 537
   },
-  "annotations": []
+    "annotations": []
 }
 ----
 
@@ -54,12 +54,12 @@ Inside the gateway, check if the `count(items)` value is greater then `0`.
     "h": 1080
   },
   "view": {
-    "x": 325,
-    "y": 97,
-    "w": 718,
-    "h": 600
+    "x": 201,
+    "y": 77,
+    "w": 609,
+    "h": 535
   },
-  "annotations": []
+    "annotations": []
 }
 ----
 
@@ -88,17 +88,17 @@ You can use the `record.recordID != "0"` to determine if the record needs to be 
     "h": 1080
   },
   "view": {
-    "x": 413,
-    "y": 67,
-    "w": 837,
-    "h": 997
+    "x": 386,
+    "y": 84,
+    "w": 684,
+    "h": 899
   },
   "annotations": [{
     "kind": "box-note",
-    "x": 490,
-    "y": 824,
-    "w": 680,
-    "h": 201
+    "x": 424,
+    "y": 766,
+    "w": 614,
+    "h": 184
   }]
 }
 ----
@@ -119,19 +119,18 @@ To remove some record value, use an expression step to set the value in question
     "w": 1920,
     "h": 1080
   },
-  "view": {
-    "x": 740,
-    "y": 0,
-    "w": 1180,
-    "h": 482
+ "view": {
+    "x": 892,
+    "y": 1,
+    "w": 1027,
+    "h": 405
   },
   "annotations": [{
     "kind": "box-note",
-    "padding": "xs",
-    "x": 1420,
-    "y": 340,
-    "w": 490,
-    "h": 42
+    "x": 1476,
+    "y": 303,
+    "w": 430,
+    "h": 15
   }]
 }
 ----
@@ -161,18 +160,17 @@ You can use a constant such as `"something string"` or `42`.
     "h": 1080
   },
   "view": {
-    "x": 740,
-    "y": 0,
-    "w": 1180,
-    "h": 1003
+    "x": 892,
+    "y": 1,
+    "w": 1027,
+    "h": 840
   },
   "annotations": [{
     "kind": "box-note",
-    "padding": "xs",
-    "x": 1420,
-    "y": 340,
-    "w": 490,
-    "h": 576
+    "x": 1476,
+    "y": 304,
+    "w": 431,
+    "h": 494
   }]
 }
 ----

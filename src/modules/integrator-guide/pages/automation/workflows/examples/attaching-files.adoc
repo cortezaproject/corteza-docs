@@ -26,18 +26,18 @@ This example receives files via integration gateway.
     "h": 1080
   },
   "view": {
-    "x": 70,
-    "y": 63,
-    "w": 1321,
-    "h": 480
+    "x": 131,
+    "y": 160,
+    "w": 1186,
+    "h": 394
   },
   "focus": {
-    "x": 120,
-    "y": 323,
-    "w": 1221,
-    "h": 200
+    "x": 165,
+    "y": 338,
+    "w": 1103,
+    "h": 173
   },
-  "annotations": [{}]
+  "annotations": []
 }
 ----
 
@@ -54,10 +54,10 @@ Firstly, we need to prepare a new record using the "Compose Record Maker" functi
   },
   "view": {},
   "annotations": [{
-    "x": 230,
-    "y": 358,
-    "w": 200,
-    "h": 80
+    "x": 259,
+    "y": 388,
+    "w": 180,
+    "h": 73
   }]
 }
 ----
@@ -77,9 +77,9 @@ The attachment needs to specify the used module field name as well as the record
   "view": {},
   "annotations": [{
     "x": 510,
-    "y": 358,
-    "w": 200,
-    "h": 80
+    "y": 388,
+    "w": 180,
+    "h": 73
   }]
 }
 ----
@@ -97,10 +97,10 @@ Next, we need to reference the Attachment in the newly prepared record.
   },
   "view": {},
   "annotations": [{
-    "x": 790,
-    "y": 358,
-    "w": 200,
-    "h": 80
+    "x": 763,
+    "y": 388,
+    "w": 180,
+    "h": 73
   }]
 }
 ----
@@ -118,10 +118,10 @@ Lastly, we create the record.
   },
   "view": {},
   "annotations": [{
-    "x": 1070,
-    "y": 358,
-    "w": 200,
-    "h": 80
+    "x": 1014,
+    "y": 388,
+    "w": 180,
+    "h": 73
   }]
 }
 ----

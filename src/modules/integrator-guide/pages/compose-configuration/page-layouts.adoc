@@ -42,10 +42,10 @@ The user interface available under compose page editor.
     "h": 1080
   },
   "annotations": [{
-    "x": 576,
-    "y": 481,
-    "w": 1092,
-    "h": 190
+    "x": 590,
+    "y": 536,
+    "w": 1060,
+    "h": 181
   }]
 }
 ----
@@ -62,22 +62,17 @@ To add additional layouts, click on the btn:[Add layout] button.
     "w": 1920,
     "h": 1080
   },
-  "view": {
-    "x": 0,
-    "y": 0,
-    "w": 1920,
-    "h": 1080
-  },
+  "view": {},
   "focus": {
-    "x": 574,
-    "y": 481,
-    "w": 1092,
-    "h": 237
+    "x": 591,
+    "y": 536,
+    "w": 1058,
+    "h": 226
   },
   "annotations": [{
-    "x": 622,
-    "y": 644,
-    "w": 109,
+    "x": 606,
+    "y": 714,
+    "w": 64,
     "h": 31
   }]
 }
@@ -94,23 +89,18 @@ Click on the configuration button to define when the layout may be visible and w
     "w": 1920,
     "h": 1080
   },
-  "view": {
-    "x": 0,
-    "y": 0,
-    "w": 1920,
-    "h": 1080
-  },
+  "view": {},
   "focus": {
-    "x": 574,
-    "y": 481,
-    "w": 1092,
-    "h": 237
+    "x": 589,
+    "y": 536,
+    "w": 1060,
+    "h": 181
   },
   "annotations": [{
-    "x": 1433,
-    "y": 553,
-    "w": 48,
-    "h": 38
+    "x": 1397,
+    "y": 613,
+    "w": 47,
+    "h": 36
   }]
 }
 ----
@@ -127,23 +117,18 @@ Visibility conditions are simple expressions that evaluate into a `true` (show) 
     "w": 1920,
     "h": 1080
   },
-  "focus": {
-    "x": 400,
-    "y": 40,
-    "w": 1120,
-    "h": 700
+   "focus": {
+    "x": 391,
+    "y": 29,
+    "w": 1138,
+    "h": 952
   },
-  "view": {
-    "x": 0,
-    "y": 0,
-    "w": 1920,
-    "h": 1080
-  },
+  "view": {},
   "annotations": [{
-    "x": 406,
-    "y": 147,
+    "x": 407,
+    "y": 334,
     "w": 1106,
-    "h": 63
+    "h": 140
   }]
 }
 ----
@@ -167,20 +152,15 @@ Users will still be able to access these layouts via the API, but the {APP_NAME_
     "h": 1080
   },
   "focus": {
-    "x": 400,
-    "y": 40,
-    "w": 1120,
-    "h": 700
+    "x": 391,
+    "y": 29,
+    "w": 1137,
+    "h": 952
   },
-  "view": {
-    "x": 0,
-    "y": 0,
-    "w": 1920,
-    "h": 1080
-  },
+  "view": {},
   "annotations": [{
-    "x": 406,
-    "y": 230,
+    "x": 407,
+    "y": 500,
     "w": 1106,
     "h": 63
   }]
@@ -200,20 +180,15 @@ Controlling these buttons is useful when we want to define a series of page layo
     "h": 1080
   },
   "focus": {
-    "x": 400,
-    "y": 40,
-    "w": 1120,
-    "h": 700
+    "x": 391,
+    "y": 29,
+    "w": 1138,
+    "h": 952
   },
-  "view": {
-    "x": 0,
-    "y": 0,
-    "w": 1920,
-    "h": 1080
-  },
+  "view": {},
   "annotations": [{
-    "x": 406,
-    "y": 332,
+    "x": 407,
+    "y": 600,
     "w": 1106,
     "h": 190
   }]
@@ -237,23 +212,23 @@ New actions are in the pipelines.
     "w": 1920,
     "h": 1080
   },
-  "focus": {
-    "x": 400,
-    "y": 40,
-    "w": 1120,
-    "h": 746
-  },
   "view": {
     "x": 0,
     "y": 0,
     "w": 1920,
     "h": 1080
   },
+  "focus": {
+    "x": 391,
+    "y": 29,
+    "w": 1138,
+    "h": 1022
+  },
   "annotations": [{
-    "x": 406,
-    "y": 542,
-    "w": 1106,
-    "h": 137
+    "x": 407,
+    "y": 707,
+    "w": 1091,
+    "h": 264
   }]
 }
 ----
@@ -307,16 +282,16 @@ Alternatively, if you're editing a page, you can navigate to the page builder fr
     "h": 1080
   },
   "focus": {
-    "x": 574,
-    "y": 481,
-    "w": 1092,
-    "h": 237
+    "x": 591,
+    "y": 536,
+    "w": 1057,
+    "h": 178
   },
   "annotations": [{
-    "x": 1480,
-    "y": 553,
-    "w": 48,
-    "h": 38
+    "x": 1444,
+    "y": 611,
+    "w": 45,
+    "h": 39
   }]
 }
 ----

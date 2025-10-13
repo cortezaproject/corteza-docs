@@ -40,18 +40,18 @@ Resources translations can currently only use the languages defined in the `LOCA
     "h": 1080
   },
   "view": {},
-  "focus": {
-    "x": 1457,
-    "y": 67,
-    "w": 55,
-    "h": 42
+   "focus": {
+    "x": 1629,
+    "y": 19,
+    "w": 36,
+    "h": 32
   },
   "annotations": [{
     "kind": "box",
-    "x": 1457,
-    "y": 67,
-    "w": 55,
-    "h": 42
+    "x": 1629,
+    "y": 19,
+    "w": 36,
+    "h": 32
   }]
 }
 ----
@@ -69,10 +69,10 @@ When you click on the language {ICON_I18N} button, a popup presents the resource
   },
   "view": {},
   "focus": {
-    "x": 408,
-    "y": 50,
-    "w": 1106,
-    "h": 358
+    "x": 334,
+    "y": 32,
+    "w": 1252,
+    "h": 357
   },
   "annotations": []
 }
@@ -93,18 +93,18 @@ To add a new language, open up the resource translation editor user interface an
     "h": 1080
   },
   "view": {},
-  "focus": {
-    "x": 408,
-    "y": 50,
-    "w": 1106,
-    "h": 358
+   "focus": {
+    "x": 334,
+    "y": 32,
+    "w": 1251,
+    "h": 356
   },
   "annotations": [{
     "kind": "box",
-    "x": 1365,
-    "y": 104,
-    "w": 149,
-    "h": 137
+    "x": 339,
+    "y": 107,
+    "w": 175,
+    "h": 151
   }]
 }
 ----
@@ -127,19 +127,19 @@ Refer to the xref:devops-guide:i18n/index.adoc[DevOps guide] on how to register 
     "h": 1080
   },
   "view": {},
-  "focus": {
-    "x": 408,
-    "y": 50,
-    "w": 1106,
-    "h": 358
+   "focus": {
+    "x": 334,
+    "y": 32,
+    "w": 1252,
+    "h": 359
   },
   "annotations": [{
     "kind": "box",
     "padding": "lg",
-    "x": 1070,
-    "y": 160,
-    "w": 138,
-    "h": 160
+    "x": 1083,
+    "y": 116,
+    "w": 147,
+    "h": 172
   }]
 }
 ----

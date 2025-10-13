@@ -24,17 +24,23 @@ You can either *allow* or *force* users to receive their OTP (one-time-password)
   },
   "view": {},
   "focus": {
-    "x": 424,
-    "y": 376,
-    "w": 1070,
-    "h": 487
+    "x": 572,
+    "y": 330,
+    "w": 1080,
+    "h": 389
   },
   "annotations": [{
     "kind": "box",
-    "x": 605,
-    "y": 406,
-    "w": 387,
-    "h": 54
+    "x": 575,
+    "y": 333,
+    "w": 1029,
+    "h": 46
+  }, {
+    "kind": "box",
+    "x": 575,
+    "y": 535,
+    "w": 1029,
+    "h": 70
   }]
 }
 ----
@@ -50,17 +56,17 @@ You can either *allow* or *force* users to receive their OTP (one-time-password)
   },
   "view": {},
   "focus": {
-    "x": 424,
-    "y": 376,
-    "w": 1070,
-    "h": 487
+    "x": 575,
+    "y": 537,
+    "w": 1076,
+    "h": 340
   },
   "annotations": [{
     "kind": "box",
-    "x": 605,
-    "y": 556,
-    "w": 590,
-    "h": 54
+    "x": 575,
+    "y": 535,
+    "w": 1029,
+    "h": 70
   }]
 }
 ----
@@ -80,17 +86,17 @@ Navigate to the "multi-factor authentication" section and click on the btn:[enab
   },
   "view": {},
   "focus": {
-    "x": 426,
-    "y": 829,
-    "w": 1070,
-    "h": 150
+    "x": 575,
+    "y": 755,
+    "w": 1076,
+    "h": 135
   },
   "annotations": [{
     "kind": "box",
-    "x": 1414,
-    "y": 888,
-    "w": 80,
-    "h": 30
+    "x": 1570,
+    "y": 811,
+    "w": 82,
+    "h": 32
   }]
 }
 ----

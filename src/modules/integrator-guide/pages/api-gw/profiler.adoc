@@ -51,26 +51,26 @@ There is no filter sorting (via drag-drop functionality), so the only way for no
     "w": 1920,
     "h": 1080
   },
-    "view": {
-    "x": 320,
-    "y": 0,
-    "w": 1600,
-    "h": 1080
+  "view": {
+    "x": 289,
+    "y": 1,
+    "w": 1630,
+    "h": 1078
   },
   "annotations": [{
     "kind": "box-note",
     "padding": "sm",
-    "x": 588,
-    "y": 651,
-    "w": 111,
-    "h": 32
+    "x": 621,
+    "y": 754,
+    "w": 94,
+    "h": 27
   }, {
     "kind": "box-note",
     "padding": "sm",
-    "x": 589,
-    "y": 698,
-    "w": 185,
-    "h": 14
+    "x": 621,
+    "y": 851,
+    "w": 161,
+    "h": 11
   }]
 }
 ----
@@ -88,10 +88,10 @@ In the configuration modal window make sure the enabled option is checked and cl
   },
   "view": {},
   "focus": {
-    "x": 577,
-    "y": 51,
-    "w": 767,
-    "h": 148
+    "x": 600,
+    "y": 26,
+    "w": 720,
+    "h": 160
   }
 }
 ----
@@ -109,17 +109,17 @@ When the profiler prefilter is added you will see a new *requests list* at the b
   },
   "view": {},
   "focus": {
-    "x": 577,
-    "y": 544,
-    "h": 510,
-    "w": 1079
+    "x": 598,
+    "y": 578,
+    "w": 1000,
+    "h": 490
   },
   "annotations": [{
     "kind": "box",
-    "x": 564,
-    "y": 900,
-    "h": 166,
-    "w": 1105
+    "x": 598,
+    "y": 885,
+    "w": 1000,
+    "h": 182
   }]
 }
 ----
@@ -141,10 +141,10 @@ The requests list shows all HTTP requests for the particular integration gateway
   },
   "view": {},
   "focus": {
-    "x": 577,
-    "y": 490,
-    "w": 1087,
-    "h": 579
+    "x": 598,
+    "y": 418,
+    "w": 1000,
+    "h": 648
   }
 }
 ----
@@ -162,15 +162,15 @@ To inspect the details of a particular request, click on the btn:[edit] icon at 
   },
   "view": {},
   "focus": {
-    "x": 577,
-    "y": 490,
-    "w": 1087,
-    "h": 579
+    "x": 599,
+    "y": 419,
+    "w": 997,
+    "h": 647
   },
   "annotations": [{
     "kind": "box-note",
-    "x": 1650,
-    "y": 629,
+    "x": 1572,
+    "y": 583,
     "w": 13,
     "h": 13
   }]
@@ -190,10 +190,10 @@ At the very top of the page you see the *general information*, such as the reque
   },
   "view": {},
   "focus": {
-    "x": 585,
-    "y": 105,
-    "w": 530,
-    "h": 566
+    "x": 599,
+    "y": 73,
+    "w": 998,
+    "h": 448
   }
 }
 ----
@@ -211,10 +211,10 @@ Next up is the list of *request headers* provided with with the HTTP request.
   },
   "view": {},
   "focus": {
-    "x": 580,
-    "y": 127,
-    "w": 1077,
-    "h": 298
+    "x": 599,
+    "y": 410,
+    "w": 999,
+    "h": 230
   }
 }
 ----
@@ -232,10 +232,10 @@ Lastly the raw *request payload* provided with the HTTP request.
   },
   "view": {},
   "focus": {
-    "x": 586,
-    "y": 502,
-    "w": 1070,
-    "h": 559
+    "x": 598,
+    "y": 653,
+    "w": 999,
+    "h": 414
   }
 }
 ----
@@ -254,18 +254,19 @@ Navigate to menu:system[integration gateway] and click on the btn:[profiler] but
     "w": 1920,
     "h": 1080
   },
-  "view": {
-    "x": 320,
-    "y": 0,
-    "w": 1600,
-    "h": 600
+  "view": {},
+   "focus": {
+    "x": 605,
+    "y": 293,
+    "w": 999,
+    "h": 774
   },
   "annotations": [{
     "kind": "box-note",
-    "x": 1451,
-    "y": 80,
-    "w": 83,
-    "h": 30
+    "x": 735,
+    "y": 361,
+    "w": 79,
+    "h": 37
   }]
 }
 ----
@@ -282,10 +283,10 @@ A new screen appears showing you all registered integration gateway routes (only
     "h": 1080
   },
   "view": {
-    "x": 320,
-    "y": 0,
-    "w": 1600,
-    "h": 600
+    "x": 289,
+    "y": 1,
+    "w": 1630,
+    "h": 520
   }
 }
 ----
@@ -302,17 +303,16 @@ To inspect requests for a particular route, either click on the btn:[edit] icon 
     "h": 1080
   },
   "view": {
-    "x": 320,
-    "y": 0,
-    "w": 1600,
-    "h": 600
+    "x": 289,
+    "y": 1,
+    "w": 1630,
+    "h": 520
   },
-  "annotations": [{
-    "kind": "box-note",
-    "x": 1648,
-    "y": 243,
-    "w": 15,
-    "h": 15
+    "annotations": [{
+    "x": 1578,
+    "y": 274,
+    "w": 13,
+    "h": 13
   }]
 }
 ----

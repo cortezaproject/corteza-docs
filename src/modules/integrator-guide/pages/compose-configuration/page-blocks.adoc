@@ -19,17 +19,17 @@ The automation page block allows you to show xref:automation/index.adoc#automati
 {
   "image": {
     "rel": "compose-configuration/page-block-reference/config-automation.png",
-    "alias": "compose-configuration/page-block-reference/config-automation",
+    "alias": "compose-configuration-page-block-reference-config-automation",
     "w": 1920,
     "h": 1080
   },
-  "view": {},
-  "focus": {
-    "x": 410,
-    "y": 50,
-    "w": 1100,
-    "h": 957
+   "focus": {
+    "x": 334,
+    "y": 32,
+    "w": 1251,
+    "h": 976
   },
+  "view": {},
   "annotations": []
 }
 ----
@@ -89,18 +89,18 @@ Refer to xref:compose-configuration/index.adoc#charts[{APP_NAME_COMPOSE} configu
 {
   "image": {
     "rel": "compose-configuration/page-block-reference/config-chart.png",
-    "alias": "compose-configuration/page-block-reference/config-chart",
+    "alias": "compose-configuration-page-block-reference-config-chart",
     "w": 1920,
     "h": 1080
   },
   "view": {},
-  "focus": {
-    "x": 410,
-    "y": 50,
-    "w": 1100,
-    "h": 258
+   "focus": {
+    "x": 333,
+    "y": 32,
+    "w": 1252,
+    "h": 306
   },
-  "annotations": []
+    "annotations": []
 }
 ----
 
@@ -115,16 +115,16 @@ This can be an important announcement, a how-to guide, or any other piece of inf
 {
   "image": {
     "rel": "compose-configuration/page-block-reference/config-content.png",
-    "alias": "compose-configuration/page-block-reference/config-content",
+    "alias": "compose-configuration-page-block-reference-config-content",
     "w": 1920,
     "h": 1080
   },
   "view": {},
   "focus": {
-    "x": 410,
-    "y": 50,
-    "w": 1100,
-    "h": 497
+    "x": 334,
+    "y": 32,
+    "w": 1252,
+    "h": 474
   },
   "annotations": []
 }
@@ -140,16 +140,16 @@ The *file page block* allows you to upload static files such as a TOS, a work sc
 {
   "image": {
     "rel": "compose-configuration/page-block-reference/config-file.png",
-    "alias": "compose-configuration/page-block-reference/config-file",
+    "alias": "compose-configuration-page-block-reference-config-file",
     "w": 1920,
     "h": 1080
   },
   "view": {},
   "focus": {
-    "x": 410,
-    "y": 50,
-    "w": 1100,
-    "h": 352
+    "x": 334,
+    "y": 32,
+    "w": 1252,
+    "h": 435
   },
   "annotations": []
 }
@@ -186,16 +186,16 @@ Make sure to keep any *iframe embedding limitation* in mind.
 {
   "image": {
     "rel": "compose-configuration/page-block-reference/config-iframe.png",
-    "alias": "compose-configuration/page-block-reference/config-iframe",
+    "alias": "compose-configuration-page-block-reference-config-iframe",
     "w": 1920,
     "h": 1080
   },
   "view": {},
   "focus": {
-    "x": 410,
-    "y": 50,
-    "w": 1100,
-    "h": 259
+    "x": 334,
+    "y": 32,
+    "w": 1252,
+    "h": 469
   },
   "annotations": []
 }
@@ -213,16 +213,16 @@ It may be information such as the total finances in your sales pipeline or the c
 {
   "image": {
     "rel": "compose-configuration/page-block-reference/config-metric.png",
-    "alias": "compose-configuration/page-block-reference/config-metric",
+    "alias": "compose-configuration-page-block-reference-config-metric",
     "w": 1920,
     "h": 1080
   },
   "view": {},
   "focus": {
-    "x": 410,
-    "y": 50,
-    "w": 1100,
-    "h": 957
+    "x": 334,
+    "y": 32,
+    "w": 1251,
+    "h": 976
   },
   "annotations": []
 }
@@ -310,16 +310,16 @@ When using the search box on the record list, the system only includes the selec
 {
   "image": {
     "rel": "compose-configuration/page-block-reference/config-record-list.png",
-    "alias": "compose-configuration/page-block-reference/config-record-list",
+    "alias": "compose-configuration-page-block-reference-config-record-list",
     "w": 1920,
     "h": 1080
   },
   "view": {},
   "focus": {
-    "x": 410,
-    "y": 50,
-    "w": 1100,
-    "h": 957
+    "x": 334,
+    "y": 32,
+    "w": 1252,
+    "h": 977
   },
   "annotations": []
 }
@@ -335,16 +335,16 @@ Click the "Automation" tab to *select the automation scripts*.
 {
   "image": {
     "rel": "compose-configuration/page-block-reference/config-record-list-automation.png",
-    "alias": "compose-configuration/page-block-reference/config-record-list-automation",
+    "alias": "compose-configuration-page-block-reference-config-record-list-automation",
     "w": 1920,
     "h": 1080
   },
   "view": {},
   "focus": {
-    "x": 410,
-    "y": 50,
-    "w": 1100,
-    "h": 957
+    "x": 333,
+    "y": 32,
+    "w": 1253,
+    "h": 978
   },
   "annotations": []
 }
@@ -487,16 +487,16 @@ Add additional record organizer page blocks to define additional columns.
 {
   "image": {
     "rel": "compose-configuration/page-block-reference/config-ro.png",
-    "alias": "compose-configuration/page-block-reference/config-ro",
+    "alias": "compose-configuration-page-block-reference-config-ro",
     "w": 1920,
     "h": 1080
   },
   "view": {},
   "focus": {
-    "x": 410,
-    "y": 50,
-    "w": 1100,
-    "h": 856
+    "x": 334,
+    "y": 32,
+    "w": 1252,
+    "h": 977
   },
   "annotations": []
 }
@@ -549,18 +549,18 @@ The revision history is listed in ascending order, with the latest change at the
 {
   "image": {
     "rel": "compose-configuration/page-block-reference/config-record-revisions.png",
-    "alias": "compose-configuration/page-block-reference/config-record-revisions",
+    "alias": "compose-configuration-page-block-reference-config-record-revisions",
     "w": 1920,
     "h": 1080
   },
   "view": {},
   "focus": {
-    "x": 410,
-    "y": 50,
-    "w": 1100,
-    "h": 510
+    "x": 334,
+    "y": 32,
+    "w": 1252,
+    "h": 977
   },
-  "annotations": []
+    "annotations": []
 }
 ----
 
@@ -579,7 +579,7 @@ If the revisions are loaded on demand, the page block displays a btn:[show recor
 {
   "image": {
     "rel": "compose-configuration/page-block-reference/config-record-revisions-on-demand.png",
-    "alias": "compose-configuration/page-block-reference/config-record-revisions-on-demand",
+    "alias": "compose-configuration-page-block-reference-config-record-revisions-on-demand",
     "w": 1920,
     "h": 1080
   },
@@ -627,16 +627,16 @@ Record page blocks are available only on record pages.
 {
   "image": {
     "rel": "compose-configuration/page-block-reference/config-record.png",
-    "alias": "compose-configuration/page-block-reference/config-record",
+    "alias": "compose-configuration-page-block-reference-config-record",
     "w": 1920,
     "h": 1080
   },
   "view": {},
   "focus": {
-    "x": 410,
-    "y": 50,
-    "w": 1100,
-    "h": 865
+    "x": 334,
+    "y": 32,
+    "w": 1252,
+    "h": 977
   },
   "annotations": []
 }
@@ -667,7 +667,7 @@ Using a module field instead of a fixed value allows a social media feed to chan
 {
   "image": {
     "rel": "compose-configuration/page-block-reference/config-sf.png",
-    "alias": "compose-configuration/page-block-reference/config-sf",
+    "alias": "compose-configuration-page-block-reference-config-sf",
     "w": 1920,
     "h": 1080
   },

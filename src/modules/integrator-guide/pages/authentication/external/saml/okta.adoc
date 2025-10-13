@@ -177,7 +177,19 @@ On the optional feedback step, click on the btn:[finish] button to complete your
 After the application is created, you can preview it in the menu:Applications[Applications] side-menu.
 This is where you fulfil the user management as the created application needs to be connected to the users that will be using it.
 
-image::authentication/external/saml/okta/okta-application-preview.png[Screenshot of the app settings confirmation screen.,role="data-zoomable"]
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "authentication/external/saml/okta/okta-application-preview.png",
+    "alias": "authentication-external-saml-okta-okta-application-preview.png",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {},
+  "annotations": []
+}
+----
 
 === Okta SAML application settings
 

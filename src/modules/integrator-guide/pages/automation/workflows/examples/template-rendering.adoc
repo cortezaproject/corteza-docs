@@ -13,7 +13,24 @@ Create a workflow similar to the one below.
 Make sure to look at the step details of steps (2) and (3).
 
 .The screenshot outlines the workflow that renders an HTML template and sends it as an email.
-image::automation/workflows/examples/template-rendering/html-workflow.png[role="data-zoomable"]
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "automation/workflows/examples/template-rendering/html-workflow.png",
+    "alias": "automation-workflows-examples-template-rendering-html-workflow.png",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {
+    "x": 128,
+    "y": 256,
+    "w": 755,
+    "h": 142
+  },
+  "annotations": []
+}
+----
 
 The source code for the workflow can be found link:{attachment-path}template_rendering_html.json[here].
 
@@ -80,7 +97,24 @@ In order to render templates as PDF documents, you need to setup xref:devops-gui
 ====
 
 .The screenshot outlines the workflow that renders a PDF template and sends it as an email attachment.
-image::automation/workflows/examples/template-rendering/pdf-workflow.png[role="data-zoomable"]
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "automation/workflows/examples/template-rendering/pdf-workflow.png",
+    "alias": "automation-workflows-examples-template-rendering-pdf-workflow.png",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {
+    "x": 128,
+    "y": 255,
+    "w": 755,
+    "h": 324
+  },
+  "annotations": []
+}
+----
 
 The source code for the workflow can be found link:{attachment-path}template_rendering_pdf.json[here].
 

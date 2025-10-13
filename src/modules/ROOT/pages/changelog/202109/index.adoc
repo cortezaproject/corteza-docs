@@ -8,8 +8,8 @@ In addition, we've improved the overall design and user experience, improved the
 
 *Internationalization*
 
-With xref:2021.9@integrator-guide:personalization/i18n.adoc[internationalization], we add support for the translation of user interfaces, as well as locale specific date-time and number formatting.
-{PRODUCT_NAME} allows you to modify the built-in translations entirely as well as define translations for additional languages you might need or any custom web application modifications you might have performed.
+With xref:2021.9@integrator-guide:personalization/i18n.adoc[internationalization], we add support for the translation of user interfaces, as well as locale-specific date-time and number formatting.
+{PRODUCT_NAME} allows you to modify the built-in translations entirely, as well as define translations for additional languages you might need or any custom web application modifications you might have performed.
 You can also translate most of the user-provided configurations (such as namespaces and module fields), allowing you to configure your {APP_NAME_COMPOSE} applications to be accessible.
 
 [IMPORTANT]
@@ -59,7 +59,7 @@ xref:2021.9@integrator-guide:reporting/index.adoc[The reporter] provides a dedic
 |
 
 {PRODUCT_NAME} 2021.9 reworks the internals of our RBAC facility.
-From the access evaluation flow, to how rules are encoded.
+From the access evaluation flow to how rules are encoded.
 
 .When upgrading to `2021.9`:
 * {PRODUCT_NAME} will automatically scan all existing RBAC rules, remove any obsolete rules like messaging, sanitize existing (federation module renaming) and properly change change resource IDs.

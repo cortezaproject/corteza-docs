@@ -51,7 +51,7 @@ The xref:integrator-guide:index.adoc[] walks you *through the integration proces
 
 The Low-Code platform developer guide also covers xref:integrator-guide:authentication/index.adoc[] and xref:integrator-guide:security-model/index.adoc[]
 
-There are also a bunch of copy-pastable examples, and miscellaneous bits such as xref:integrator-guide:automation/automation-scripts/deploying.adoc[], xref:integrator-guide:automation/automation-scripts/debugging.adoc[automation script debugging] and tips for xref:integrator-guide:accessing-corteza/index.adoc[].
+There are also a bunch of copy-pastable examples, and miscellaneous bits such as xref:integrator-guide:automation/automation-scripts/deploying.adoc[], xref:integrator-guide:automation/automation-scripts/debugging.adoc[automation script debugging], and tips for xref:integrator-guide:accessing-corteza/index.adoc[].
 
 // == Core developers
 
@@ -60,7 +60,7 @@ There are also a bunch of copy-pastable examples, and miscellaneous bits such as
 // [NOTE]
 // ====
 // The platform developer guide should provide enough abstract overview to help you get started.
-// The guide is fairly... !complete so feel free to get in touch with us if you're stuck.
+// The guide is fairly... !complete, so feel free to get in touch with us if you're stuck.
 // ====
 
 // *DevNode* link the new messaging platform

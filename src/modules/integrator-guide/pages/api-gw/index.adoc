@@ -31,10 +31,10 @@ To define a new endpoint, navigate to your {PRODUCT_NAME} instance (for example 
   },
   "view": {},
   "focus": {
-    "x": 540,
-    "y": 510,
-    "w": 266,
-    "h": 218
+    "x": 669,
+    "y": 285,
+    "w": 282,
+    "h": 230
   },
   "annotations": []
 }

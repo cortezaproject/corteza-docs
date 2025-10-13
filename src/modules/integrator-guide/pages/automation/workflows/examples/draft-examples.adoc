@@ -6,7 +6,19 @@ include::ROOT:partial$variables.adoc[]
 
 The module used for the examples:
 
-image::automation/workflows/examples/drafts/module.png[role="data-zoomable"]
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "automation/workflows/examples/drafts/module.png",
+    "alias": "automation/workflows/examples/drafts/module.png",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {},
+  "annotations": []
+}
+----
 
 The link:{attachment-path}module.json[source code] for the module example.
 

@@ -42,11 +42,10 @@ The user management user interface resides in the xref:index.adoc#webapp-admin[{
   "view": {},
   "annotations": [{
     "kind": "box",
-    "padding": "xs",
-    "x": 16,
-    "y": 144,
-    "w": 288,
-    "h": 37
+    "x": 22,
+    "y": 195,
+    "w": 190,
+    "h": 14
   }]
 }
 ----
@@ -153,25 +152,20 @@ Permissions can only be defined for existing users.
     "w": 1920,
     "h": 1080
   },
-  "view": {
-    "x": 321,
-    "y": 0,
-    "w": 1599,
-    "h": 1080
-  },
+  "view": {},
   "focus": {
-    "x": 573,
-    "y": 130,
-    "w": 1093,
-    "h": 385
+    "x": 537,
+    "y": 140,
+    "w": 1184,
+    "h": 518
   },
   "annotations": [{
     "kind": "box",
     "padding": "sm",
-    "x": 669,
-    "y": 478,
-    "w": 94,
-    "h": 32
+    "x": 627,
+    "y": 624,
+    "w": 103,
+    "h": 34
   }]
 }
 ----
@@ -197,25 +191,20 @@ Instead of deleting users, you can temporarily <<suspending-users,suspend them>>
     "w": 1920,
     "h": 1080
   },
-  "view": {
-    "x": 321,
-    "y": 0,
-    "w": 1599,
-    "h": 1080
-  },
+  "view": {},
   "focus": {
-    "x": 573,
-    "y": 130,
-    "w": 1093,
-    "h": 385
+    "x": 537,
+    "y": 141,
+    "w": 1182,
+    "h": 517
   },
   "annotations": [{
     "kind": "box",
     "padding": "sm",
-    "x": 586,
-    "y": 478,
-    "w": 77,
-    "h": 32
+    "x": 537,
+    "y": 623,
+    "w": 82,
+    "h": 35
   }]
 }
 ----
@@ -242,23 +231,17 @@ Refer to xref:security-model/index.adoc[the security model] for more information
 ----
 {
   "image": {
-    "rel": "security-model/user-edit.png",
+    "rel": "security-model/user-edit-membership.png",
     "alias": "admin-webapp-users-assign",
     "w": 1920,
     "h": 1080
   },
-  "view": {
-    "x": 321,
-    "y": 0,
-    "w": 1599,
-    "h": 1080
-  },
+  "view": {},
   "focus": {
-    "x": 586,
-    "y": 557,
-    "w": 1069,
-    "h": 195
-  },
-  "annotations": []
+    "x": 614,
+    "y": 498,
+    "w": 969,
+    "h": 178
+  }
 }
 ----

@@ -107,7 +107,7 @@ Click on the btn:[submit] button to save the changes.
     "h": 1080
   },
   "view": {},
-    "focus": {
+  "focus": {
     "x": 563,
     "y": 505,
     "w": 1110,

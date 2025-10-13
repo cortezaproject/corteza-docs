@@ -19,10 +19,10 @@ Bill Ewanick (https://github.com/billewanick[GH])
 
 .[#2021_9_0-added]#<<2021_9_0-added,Added:>>#
 * Added support for internationalization of {PRODUCT_NAME} web applications (https://github.com/cortezaproject/corteza-server/pull/237[#237], {SERVER_COMMIT_BASE}31132570[`31132570`], {WEBAPP_COMPOSE_COMMIT_BASE}e4eb28b8[`e4eb28b8`], {WEBAPP_ONE_COMMIT_BASE}c3ff0ae1[`c3ff0ae1`]), as well as for some user-provided resources ({APP_NAME_COMPOSE} modules, namespaces, and pages) ({SERVER_COMMIT_BASE}46a7d94d[`46a7d94d`]).
-Locale specific number and date-time formatting are also included ({WEBAPP_JS_COMMIT_BASE}da9a450f[`da9a450f`]).
+Locale-specific number and date-time formatting are also included ({WEBAPP_JS_COMMIT_BASE}da9a450f[`da9a450f`]).
 //
 * Added a system-managed facility for defining and handling custom API endpoints (https://github.com/cortezaproject/corteza-server/pull/232[#232], {WEBAPP_ADMIN_COMMIT_BASE})652cc074[`652cc074`].
-The facility allows you to trivially define new API endpoints for webhooks or custom integrations needed by your business processes.
+The facility enables you to easily define new API endpoints for webhooks or custom integrations required by your business processes.
 The facility defines a tight integration with xref:integrator-guide:automation/workflows/index.adoc[] for request processing (https://github.com/cortezaproject/corteza-server/pull/245[#245]).
 //
 * Added a specialized facility for creating, managing, and running reports({SERVER_COMMIT_BASE}02b3e833[02b3e833]).
@@ -41,7 +41,7 @@ The data generator is invoked through the CLI @todo CLI ref.
 * Added support for entire {APP_NAME_COMPOSE} namespace duplication, import, and export directly from the {APP_NAME_COMPOSE} interface ({SERVER_COMMIT_BASE}000664ef[`000664ef`], {SERVER_COMMIT_BASE}533b534f[`533b534f`]).
 //
 * Extended authentication feature set; allowing authentication sessions to be manually revoked (https://github.com/cortezaproject/corteza-server/pull/254[#254], https://github.com/cortezaproject/corteza-server/pull/210[#210], {SERVER_COMMIT_BASE}1cb2e64d[`1cb2e64d`]), improved the users CLI commands with additional options ({SERVER_COMMIT_BASE}bed63c4f[`bed63c4f`], {SERVER_COMMIT_BASE}e4cd1f5b[`e4cd1f5b`]), and added the `client_credentials` and user impersonation ({SERVER_COMMIT_BASE}b245726c[`b245726c`], {SERVER_COMMIT_BASE}25e4d11f[`25e4d11f`]).
-The authentication clients user interface now provides a series of cURL examples for interacting with authentication clients ({WEBAPP_ADMIN_COMMIT_BASE}16ae4c22[`16ae4c22`]).
+The authentication client's user interface now provides a series of cURL examples for interacting with authentication clients ({WEBAPP_ADMIN_COMMIT_BASE}16ae4c22[`16ae4c22`]).
 //
 * Added support for SAML authentication providers (https://github.com/cortezaproject/corteza-server/pull/188[#188], {SERVER_COMMIT_BASE}aedb2aef[`aedb2aef`], {SERVER_COMMIT_BASE}670b1609[`670b1609`]).
 //
@@ -79,7 +79,7 @@ More notable changes:
 * Changed the file field preview to show the last uploaded attachment when the single image option is selected ({WEBAPP_COMPOSE_COMMIT_BASE}2d593af0[`2d593af0`]).
 //
 * Reworked the RBAC access control facility allowing greater flexibility with resource-specific rules, contextual roles ({SERVER_COMMIT_BASE}2f2c055e[`2f2c055e`]), and improved logging ({SERVER_COMMIT_BASE}922f4c31[`922f4c31`]).
-{PRODUCT_NAME} now defines a series of system users and roles which are used for system tasks, such as provisioning and federation.
+{PRODUCT_NAME} now defines a series of system users and roles that are used for system tasks, such as provisioning and federation.
 //
 * {APP_NAME_COMPOSE} module, module field, and record RBAC rule configuration buttons are now located under a single drop-down.
 //

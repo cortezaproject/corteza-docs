@@ -10,7 +10,7 @@ Some web applications don't show certain prompt types such as "redirect to recor
 * Added a print layout to assist with print to PDF browser features.
 This feature helps produce nicer output PDF document without the unneeded UI navigation and other resource management elements ({WEBAPP_COMPOSE_COMMIT_BASE}ed8ee8b[`#ed8ee8b`], {WEBAPP_ADMIN_COMMIT_BASE}d980c0b[`#d980c0b`], {WEBAPP_REPORTER_COMMIT_BASE}c71e1f0[`#c71e1f0`], {WEBAPP_WORKFLOW_COMMIT_BASE}f005b62[`#f005b62`], {WEBAPP_ONE_COMMIT_BASE}d582560[`d582560`]).
 * Added support for provisioning JSON system setting values when running the provisioning step.
-The support was added to allow provision YAML files configure record toolbar button visibility ({SERVER_COMMIT_BASE}05b97ee[`#05b97ee`]).
+The support was added to allow provision of YAML files to configure record toolbar button visibility ({SERVER_COMMIT_BASE}05b97ee[`#05b97ee`]).
 An example of this would be `compose.ui.record-toolbar: { "hideBack": true }`.
 
 .[#2022_3_3-changed]#<<2022_3_3-changed,Changed:>>#
@@ -56,10 +56,10 @@ The fix applies extra pre-processing and validations before the resource transla
 * Fixed custom field validation error messages not showing based on the user's language.
 The value validator now utilizes i18n capabilities to provide appropriate error messages ({SERVER_COMMIT_BASE}f9e9433[`#f9e9433`]).
 * Fixed improper RBAC rule correction migration procedure caused by an unrestricted data fetch overloading the database.
-The procedure now gradually fetches the required data thus avoiding the issue ({SERVER_COMMIT_BASE}f310442[`#f310442`]).
+The procedure now gradually fetches the required data, thus avoiding the issue ({SERVER_COMMIT_BASE}f310442[`#f310442`]).
 * Fixed failed workflow prompts from not being dismissible ({WEBAPP_VUE_COMMIT_BASE}ff3d0e6[`#ff3d0e6`]).
 
 .[#2022_3_3-development]#<<2022_3_3-development,Development:>>#
 * Including the web console bundle into the built corteza-server ({SERVER_COMMIT_BASE}54fffd0[`#54fffd0`]).
 * Defined a new resource utility structure which helps improve operation performance by performing smarter indexing strategies.
-The structure was applied to current RBAC access control service, the RBAC rule export and resource translations export services ({SERVER_COMMIT_BASE}0466ffe[`#0466ffe`], {SERVER_COMMIT_BASE}e7c1fe1[`#e7c1fe1`], {SERVER_COMMIT_BASE}a68ddf1[`#a68ddf1`], {SERVER_COMMIT_BASE}aef3171[`#aef3171`]).
+The structure was applied to the current RBAC access control service, the RBAC rule export and resource translations export services ({SERVER_COMMIT_BASE}0466ffe[`#0466ffe`], {SERVER_COMMIT_BASE}e7c1fe1[`#e7c1fe1`], {SERVER_COMMIT_BASE}a68ddf1[`#a68ddf1`], {SERVER_COMMIT_BASE}aef3171[`#aef3171`]).

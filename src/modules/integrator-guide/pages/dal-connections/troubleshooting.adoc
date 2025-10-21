@@ -15,24 +15,23 @@ In case the connection is miss configured or generally unable to connect to the 
     "w": 1920,
     "h": 1080
   },
-  "view": {
+    "view": {
     "x": 352,
     "y": 0,
     "w": 1568,
     "h": 1080
   },
   "focus": {
-    "x": 535,
-    "y": 379,
-    "w": 1200,
-    "h": 629
+    "x": 559,
+    "y": 383,
+    "w": 1107,
+    "h": 682
   },
   "annotations": [{
-    "x": 565,
-    "y": 436,
-    "w": 1144,
-    "h": 82
+    "x": 575,
+    "y": 461,
+    "w": 1077,
+    "h": 75
   }]
 }
 ----
-

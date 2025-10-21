@@ -60,10 +60,10 @@ You can create new and manage existing sensitivity levels from the list of sensi
   },
   "view": {},
   "annotations": [{
-    "x": 24,
-    "y": 574,
-    "w": 270,
-    "h": 16
+    "x": 21,
+    "y": 652,
+    "w": 172,
+    "h": 17
   }]
 }
 ----
@@ -80,18 +80,17 @@ To create a new sensitivity level, click on the btn:[new] button in the top righ
     "h": 1080
   },
   "view": {},
-  "focus": {
-    "padding": "xs",
-    "x": 330,
-    "y": 10,
-    "w": 1580,
-    "h": 1070
+   "focus": {
+    "x": 340,
+    "y": 1,
+    "w": 1597,
+    "h": 1078
   },
   "annotations": [{
-    "x": 1605,
-    "y": 80,
-    "w": 62,
-    "h": 30
+    "x": 583,
+    "y": 96,
+    "w": 197,
+    "h": 42
   }]
 }
 ----
@@ -139,10 +138,10 @@ To configure DAL connections with sensitivity levels, open the {PRODUCT_NAME} {A
   },
   "view": {},
   "annotations": [{
-    "x": 24,
-    "y": 536,
-    "w": 270,
-    "h": 16
+    "x": 20,
+    "y": 575,
+    "w": 173,
+    "h": 11
   }]
 }
 ----
@@ -167,10 +166,10 @@ From the list of DAL connections, click on the edit icon next to the one you wis
     "h": 1070
   },
   "annotations": [{
-    "x": 1631,
-    "y": 113,
-    "w": 17,
-    "h": 17
+    "x": 788,
+    "y": 102,
+    "w": 14,
+    "h": 14
   }]
 }
 ----
@@ -195,10 +194,10 @@ Locate the "highest sensitivity level" parameter and set it to the desired sensi
     "h": 1070
   },
   "annotations": [{
-    "x": 1135,
-    "y": 336,
+    "x": 1130,
+    "y": 368,
     "w": 520,
-    "h": 65
+    "h": 99
   }]
 }
 ----
@@ -225,25 +224,22 @@ Navigate to the btn:[privacy settings] tab and locate the "highest allowed sensi
     "h": 1080
   },
   "view": {},
-  "focus": {
-    "padding": "xs",
-    "x": 572,
-    "y": 89,
-    "w": 1093,
-    "h": 360
+    "focus": {
+    "x": 566,
+    "y": 80,
+    "w": 1107,
+    "h": 362
   },
   "annotations": [{
-    "padding": "sm",
-    "x": 585,
-    "y": 232,
-    "h": 85,
-    "w": 1070
+    "x": 582,
+    "y": 220,
+    "h": 84,
+    "w": 1076
   }, {
-    "padding": "sm",
-    "x": 1020,
-    "y": 170,
-    "w": 149,
-    "h": 40
+    "x": 1010,
+    "y": 171,
+    "w": 75,
+    "h": 29
   }]
 }
 ----
@@ -262,25 +258,22 @@ Navigate to the btn:[privacy] tab and locate the "sensitivity level" option.
     "h": 1080
   },
   "view": {},
-  "focus": {
-    "padding": "xs",
-    "x": 570,
-    "y": 40,
-    "w": 780,
-    "h": 383
+    "focus": {
+    "x": 561,
+    "y": 29,
+    "w": 798,
+    "h": 389
   },
   "annotations": [{
-    "padding": "sm",
-    "x": 581,
-    "y": 162,
-    "h": 66,
-    "w": 758
+    "x": 577,
+    "y": 155,
+    "h": 61,
+    "w": 765
   }, {
-    "padding": "sm",
-    "x": 1042,
-    "y": 100,
-    "w": 86,
-    "h": 40
+    "x": 886,
+    "y": 103,
+    "w": 76,
+    "h": 31
   }]
 }
 ----
@@ -317,23 +310,22 @@ The sensitive data usage disclosure input is available under the btn:[privacy se
     "h": 1080
   },
   "view": {},
-  "focus": {
-    "padding": "xs",
-    "x": 574,
-    "y": 90,
-    "w": 1091,
-    "h": 360
+    "focus": {
+    "x": 566,
+    "y": 81,
+    "w": 1107,
+    "h": 362
   },
   "annotations": [{
-    "x": 585,
-    "y": 338,
-    "h": 85,
-    "w": 1070
+    "x": 583,
+    "y": 322,
+    "h": 88,
+    "w": 1074
   }, {
-    "x": 1020,
-    "y": 170,
-    "w": 149,
-    "h": 40
+    "x": 1011,
+    "y": 169,
+    "w": 74,
+    "h": 31
   }]
 }
 ----
@@ -358,23 +350,22 @@ The sensitive data usage disclosure input is available under the btn:[privacy] t
     "h": 1080
   },
   "view": {},
-  "focus": {
-    "padding": "xs",
-    "x": 570,
-    "y": 40,
-    "w": 780,
-    "h": 383
+    "focus": {
+    "x": 561,
+    "y": 29,
+    "w": 798,
+    "h": 391
   },
   "annotations": [{
-    "x": 581,
-    "y": 244,
-    "h": 88,
-    "w": 758
+    "x": 578,
+    "y": 237,
+    "h": 87,
+    "w": 764
   }, {
-    "x": 1042,
-    "y": 100,
-    "w": 86,
-    "h": 40
+    "x": 887,
+    "y": 103,
+    "w": 76,
+    "h": 31
   }]
 }
 ----

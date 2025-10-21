@@ -27,13 +27,13 @@ Inside the gateway, check if the `total` value is greater then `0`.
     "w": 1920,
     "h": 1080
   },
-  "view": {
-    "x": 325,
-    "y": 97,
-    "w": 718,
-    "h": 600
+    "view": {
+    "x": 200,
+    "y": 77,
+    "w": 611,
+    "h": 537
   },
-  "annotations": []
+    "annotations": []
 }
 ----
 
@@ -53,13 +53,13 @@ Inside the gateway, check if the `count(items)` value is greater then `0`.
     "w": 1920,
     "h": 1080
   },
-  "view": {
-    "x": 325,
-    "y": 97,
-    "w": 718,
-    "h": 600
+    "view": {
+    "x": 201,
+    "y": 77,
+    "w": 609,
+    "h": 535
   },
-  "annotations": []
+    "annotations": []
 }
 ----
 
@@ -87,18 +87,18 @@ You can use the `record.recordID != "0"` to determine if the record needs to be 
     "w": 1920,
     "h": 1080
   },
-  "view": {
-    "x": 413,
-    "y": 67,
-    "w": 837,
-    "h": 997
+    "view": {
+    "x": 386,
+    "y": 84,
+    "w": 684,
+    "h": 899
   },
   "annotations": [{
     "kind": "box-note",
-    "x": 490,
-    "y": 824,
-    "w": 680,
-    "h": 201
+    "x": 424,
+    "y": 766,
+    "w": 614,
+    "h": 184
   }]
 }
 ----

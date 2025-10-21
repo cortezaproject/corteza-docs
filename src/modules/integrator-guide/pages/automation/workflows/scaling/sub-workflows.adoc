@@ -22,17 +22,17 @@ On the list of available workflows, there is an additional sub-workflow inclusio
     "w": 1920,
     "h": 1080
   },
-  "view": {
-    "x": 0,
-    "y": 0,
-    "h": 380,
-    "w": 1920
+    "view": {
+    "x": 411,
+    "y": 25,
+    "h": 386,
+    "w": 1099
   },
   "annotations": [{
-    "x": 425,
-    "y": 154,
-    "w": 292,
-    "h": 29
+    "x": 476,
+    "y": 139,
+    "w": 263,
+    "h": 26
   }]
 }
 ----
@@ -55,24 +55,23 @@ Any value passed in the `scope` argument will be available in the execution cont
     "w": 1920,
     "h": 1080
   },
-  "view": {
-    "x": 704,
-    "y": 0,
-    "w": 1216,
-    "h": 1080
+    "view": {
+    "x": 1244,
+    "y": 1,
+    "w": 675,
+    "h": 920
   },
   "focus": {
-    "padding": "xs",
-    "x": 1429,
-    "y": 10,
-    "w": 480,
-    "h": 1060
+    "x": 1476,
+    "y": 16,
+    "w": 431,
+    "h": 840
   },
   "annotations": [{
-    "x": 1431,
-    "y": 255,
-    "w": 480,
-    "h": 326
+    "x": 1481,
+    "y": 215,
+    "w": 429,
+    "h": 284
   }]
 }
 ----
@@ -100,24 +99,23 @@ There is no limit to the number of values you can access from the sub-workflow's
     "w": 1920,
     "h": 1080
   },
-  "view": {
-    "x": 704,
-    "y": 0,
-    "w": 1216,
-    "h": 1080
+    "view": {
+    "x": 1280,
+    "y": 1,
+    "w": 639,
+    "h": 975
   },
   "focus": {
-    "padding": "xs",
-    "x": 1429,
-    "y": 10,
-    "w": 480,
-    "h": 1060
+    "x": 1476,
+    "y": 17,
+    "w": 431,
+    "h": 841
   },
   "annotations": [{
-    "x": 1431,
-    "y": 646,
-    "w": 478,
-    "h": 358
+    "x": 1476,
+    "y": 549,
+    "w": 430,
+    "h": 311
   }]
 }
 ----
@@ -137,18 +135,17 @@ Tick the btn:[subworkflow] checkbox when configuring the workflow metadata.
     "h": 1080
   },
   "view": {},
-  "focus": {
-    "padding": "xs",
-    "x": 570,
-    "y": 38,
-    "w": 780,
-    "h": 611
+    "focus": {
+    "x": 601,
+    "y": 26,
+    "w": 718,
+    "h": 617
   },
   "annotations": [{
-    "x": 576,
-    "y": 522,
-    "w": 241,
-    "h": 38
+    "x": 614,
+    "y": 520,
+    "w": 217,
+    "h": 35
   }]
 }
 ----

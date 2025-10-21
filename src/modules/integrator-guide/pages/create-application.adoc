@@ -54,10 +54,10 @@ Locate and click on the menu:System[Applications] button.
   "view": {},
   "annotations": [{
     "kind": "box",
-    "x": 13,
-    "y": 179,
-    "w": 161,
-    "h": 24
+    "x": 22,
+    "y": 281,
+    "w": 190,
+    "h": 18
   }]
 }
 ----
@@ -96,10 +96,10 @@ Complete the form with the application's name and click the btn:[submit] button.
   "view": {},
   "annotations": [{
     "kind": "box",
-    "x": 1451,
-    "y": 216,
-    "w": 64,
-    "h": 25
+    "x": 1146,
+    "y": 568,
+    "w": 102,
+    "h": 18
   }]
 }
 ----
@@ -225,10 +225,10 @@ To enable visibility of an application, locate and click on the btn:[Listed] che
   "view": {},
   "annotations": [{
     "kind": "box",
-    "x": 798,
-    "y": 658,
-    "w": 66,
-    "h": 21
+    "x": 1146,
+    "y": 568,
+    "w": 102,
+    "h": 18
   }]
 }
 ----

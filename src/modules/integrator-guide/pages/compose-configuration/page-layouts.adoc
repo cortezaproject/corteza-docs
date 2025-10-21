@@ -212,23 +212,23 @@ New actions are in the pipelines.
     "w": 1920,
     "h": 1080
   },
-  "focus": {
-    "x": 400,
-    "y": 40,
-    "w": 1120,
-    "h": 746
-  },
   "view": {
     "x": 0,
     "y": 0,
     "w": 1920,
     "h": 1080
   },
+    "focus": {
+    "x": 391,
+    "y": 29,
+    "w": 1138,
+    "h": 1022
+  },
   "annotations": [{
-    "x": 406,
-    "y": 542,
-    "w": 1106,
-    "h": 137
+    "x": 407,
+    "y": 707,
+    "w": 1091,
+    "h": 264
   }]
 }
 ----
@@ -281,17 +281,17 @@ Alternatively, if you're editing a page, you can navigate to the page builder fr
     "w": 1920,
     "h": 1080
   },
-  "focus": {
-    "x": 574,
-    "y": 481,
-    "w": 1092,
-    "h": 237
+    "focus": {
+    "x": 591,
+    "y": 536,
+    "w": 1057,
+    "h": 178
   },
   "annotations": [{
-    "x": 1480,
-    "y": 553,
-    "w": 48,
-    "h": 38
+    "x": 1444,
+    "y": 611,
+    "w": 45,
+    "h": 39
   }]
 }
 ----

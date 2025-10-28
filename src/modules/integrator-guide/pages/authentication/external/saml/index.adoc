@@ -131,7 +131,20 @@ Open your administration panel and navigate to menu:system[settings].
 
 [#saml-admin-ui]
 .The screenshot shows the SAML settings in the administration panel under menu:system[settings].
-image::authentication/external/saml/admin-settings.png[Screenshot of the configuration window.,role="data-zoomable"]
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "authentication/external/saml/admin-settings.png",
+    "alias": "authentication-external-saml-admin-settings.png",
+    "w": 725,
+    "h": 1253
+  },
+  "view": {},
+   "annotations": []
+}
+----
 
 .Notes on the SAML configuration form:
 . If you disable your SAML IdP, all settings are kept in {PRODUCT_NAME}.
@@ -161,7 +174,20 @@ The above values follow the industry standard, but you should consult your IdP-s
 
 [#saml-login-ui]
 .The screenshot shows the login screen when SAML authentication is enabled.
-image::authentication/external/saml/login-screen.png[Screenshot of the login screen.,role="data-zoomable"]
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "authentication/external/saml/login-screen.png",
+    "alias": "authentication-external-saml-login-screen.png",
+    "w": 1766,
+    "h": 1370
+  },
+  "view": {},
+   "annotations": []
+}
+----
 
 When clicking on the appropriate button (in this case, this is btn:["Login with Example IdP"]), the user enters the SAML authentication flow where the service ({PRODUCT_NAME}) and the identity providers (IdP) exchange information.
 The user is automatically redirected back to {PRODUCT_NAME} after successful login on the IdP.

@@ -50,7 +50,21 @@ To create a new namespace, navigate to your {PRODUCT_NAME} instance (for example
 
 A new screen with a list of all namespaces will appear.
 
-image::compose-configuration/ns-create.png[role="data-zoomable"]
+
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "compose-configuration/ns-create.png",
+    "alias": "compose-configuration-ns-create.png",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {},
+   "annotations": []
+}
+----
 
 .From there you can:
 * create a new namespace by clicking on the btn:[Create new namespace] button,
@@ -59,7 +73,19 @@ image::compose-configuration/ns-create.png[role="data-zoomable"]
 
 Click on the btn:[Create new namespace] button, insert the required parameters, and click on the btn:[Save] or the btn:[Save and close] button in the bottom right corner.
 
-image::compose-configuration/ns-edit.png[role="data-zoomable"]
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "compose-configuration/ns-edit.png",
+    "alias": "compose-configuration-ns-edit.png",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {},
+   "annotations": []
+}
+----
 
 .Available namespace parameters:
 [cols="2s,5a"]
@@ -121,7 +147,19 @@ When configuring a new namespace, you are presented with an onboarding screen fr
 
 If you wish to add additional modules, or are configuring an already existing namespace, navigate to menu:Admin panel[Modules], and click on the btn:[New Module] button.
 
-image::compose-configuration/module-create.png[role="data-zoomable"]
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "compose-configuration/module-create.png",
+    "alias": "compose-configuration-module-create.png",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {},
+   "annotations": []
+}
+----
 
 .From the module editor screen you can:
 * Edit the module metadata,
@@ -268,7 +306,19 @@ If you're configuring a new namespace, you are presented with an onboarding scre
 
 If you wish to add additional charts or are configuring an already configured namespace, navigate to menu:Admin panel[Charts], then click on the btn:[New Chart] button.
 
-image::compose-configuration/chart-create.png[role="data-zoomable"]
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "compose-configuration/chart-create.png",
+    "alias": "compose-configuration-chart-create.png",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {},
+   "annotations": []
+}
+----
 
 .{PRODUCT_NAME} defines three chart categories:
 * <<chart-generic,Generic charts>> which include the usual line, bar, pie, and doughnut charts,
@@ -465,7 +515,19 @@ Check the "field value expression" checkbox and insert the formula into the new 
 
 Refer to the <<field-expressions,field expressions>> for more details.
 
-image::compose-configuration/field-value-expr.png[role="data-zoomable"]
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "compose-configuration/field-value-expr.png",
+    "alias": "compose-configuration-field-value-expr.png",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {},
+   "annotations": []
+}
+----
 
 | [#module-field-validation]#<<module-field-validation,Field validation>>#
 |
@@ -482,7 +544,19 @@ Click on the btn:[settings icon] next to the field type and navigate to the "Val
 
 Refer to the <<field-expressions,field expressions>> for more details.
 
-image::compose-configuration/field-validation.png[role="data-zoomable"]
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "compose-configuration/field-validation.png",
+    "alias": "compose-configuration-field-validation.png",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {},
+   "annotations": []
+}
+----
 
 |===
 
@@ -667,12 +741,36 @@ image:compose-configuration/page-resize-view.png[width="49%"]
 The page builder is used to define the pages' structure using *page blocks* and a drag-and-drop interface.
 Each page has a grid of 12 columns and is not limited vertically.
 
-image::compose-configuration/page-builder-empty.png[role="data-zoomable"]
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "compose-configuration/page-builder-empty.png",
+    "alias": "compose-configuration-page-builder-empty.png",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {},
+   "annotations": []
+}
+----
 
 Click on the btn:[+ Add block] button to open the page block picker where you can configure and add a new page block.
 The entire page block reference is available xref:compose-configuration/page-blocks.adoc[here].
 
-image::compose-configuration/page-builder-block-picker.png[role="data-zoomable"]
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "compose-configuration/page-builder-block-picker.png",
+    "alias": "compose-configuration-page-builder-block-picker.png",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {},
+   "annotations": []
+}
+----
 
 When you configure and save a page block it is added to the page.
 
@@ -695,7 +793,19 @@ image::compose-configuration/page-builder-block-resize.png[role="data-zoomable"]
 
 By placing a few extra blocks and changing their layout, you can create interesting home pages and dashboards like the CRM's.
 
-image::compose-configuration/page-builder-example.png[role="data-zoomable"]
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "compose-configuration/page-builder-example.png",
+    "alias": "compose-configuration-page-builder-example.png",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {},
+   "annotations": []
+}
+----
 
 == Page Block Duplication
 

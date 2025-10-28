@@ -18,7 +18,20 @@ Use the *email* function step {ICON_WORKFLOW_FUNCTION} to immediately send an em
 If you call the email function without specifying the `from` argument, the `SMTP_FROM` `.env` variable is used.
 
 .An example of a workflow set to send an email message:
-image::automation/workflows/email-send/email-direct-ex-1.png[role="data-zoomable"]
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "automation/workflows/email-send/email-direct-ex-1.png",
+    "alias": "automation-workflows-email-send-email-direct-ex-1.png",
+    "w": 642,
+    "h": 240
+  },
+  "view": {},
+   "annotations": []
+}
+----
 
 The source code for the workflow can be found link:{attachment-path}email_direct_send.json[here].
 
@@ -93,7 +106,20 @@ The *email builder* function step {ICON_WORKFLOW_FUNCTION} allows you to assembl
 The email builder allows you to further enrich the email message with additional parameters such as other recipients.
 
 .An example of a workflow made to construct an email message with the email builder.
-image::automation/workflows/email-send/email-builder-ex-1.png[role="data-zoomable"]
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "automation/workflows/email-send/email-builder-ex-1.png",
+    "alias": "automation-workflows-email-send-email-builder-ex-1.png",
+    "w": 561,
+    "h": 642
+  },
+  "view": {},
+   "annotations": []
+}
+----
 
 The source code for the workflow can be found link:{attachment-path}email_builder_send.json[here].
 

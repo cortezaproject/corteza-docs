@@ -119,19 +119,18 @@ To remove some record value, use an expression step to set the value in question
     "w": 1920,
     "h": 1080
   },
-  "view": {
-    "x": 740,
-    "y": 0,
-    "w": 1180,
-    "h": 482
+ "view": {
+    "x": 892,
+    "y": 1,
+    "w": 1027,
+    "h": 405
   },
   "annotations": [{
     "kind": "box-note",
-    "padding": "xs",
-    "x": 1420,
-    "y": 340,
-    "w": 490,
-    "h": 42
+    "x": 1476,
+    "y": 303,
+    "w": 430,
+    "h": 15
   }]
 }
 ----
@@ -160,19 +159,18 @@ You can use a constant such as `"something string"` or `42`.
     "w": 1920,
     "h": 1080
   },
-  "view": {
-    "x": 740,
-    "y": 0,
-    "w": 1180,
-    "h": 1003
+    "view": {
+    "x": 892,
+    "y": 1,
+    "w": 1027,
+    "h": 840
   },
   "annotations": [{
     "kind": "box-note",
-    "padding": "xs",
-    "x": 1420,
-    "y": 340,
-    "w": 490,
-    "h": 576
+    "x": 1476,
+    "y": 304,
+    "w": 431,
+    "h": 494
   }]
 }
 ----

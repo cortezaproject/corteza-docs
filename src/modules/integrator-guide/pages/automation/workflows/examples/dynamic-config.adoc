@@ -39,18 +39,18 @@ Inside your workflow, simply fetch the record from the `settings` module and con
     "w": 1920,
     "h": 1080
   },
-  "view": {
-    "x": 144,
-    "y": 164,
-    "w": 640,
-    "h": 398
+    "view": {
+    "x": 358,
+    "y": 183,
+    "w": 610,
+    "h": 395
   },
   "annotations": [{
     "kind": "box-note",
-    "x": 500,
-    "y": 242,
-    "w": 202,
-    "h": 80
+    "x": 679,
+    "y": 254,
+    "w": 183,
+    "h": 74
   }]
 }
 ----

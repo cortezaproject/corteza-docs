@@ -92,7 +92,26 @@ A label doesn't define any special constraints.
 include::partial$handle-constraints.adoc[]
 
 .The screenshot shows the newly created workflow where the modal window for the initial parameters is open.
-image::automation/workflows/edit.png[role="data-zoomable"]
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "automation/workflows/edit.png",
+    "alias": "automation-workflows-edit.png",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {},
+    "focus": {
+    "x": 601,
+    "y": 26,
+    "w": 718,
+    "h": 564
+  },
+   "annotations": []
+}
+----
 
 == About the workflow editor
 
@@ -585,10 +604,46 @@ The advised approach is less prone to errors such as infinite loops.
 Do not create a loop using connectors.
 
 .An example of a valid iterator body.
-image::automation/workflows/iterator-body-do.png[role="data-zoomable"]
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "automation/workflows/iterator-body-do.png",
+    "alias": "automation-workflows-iterator-body-do.png",
+    "w": 1920,
+    "h": 1080
+  },
+    "view": {
+    "x": 120,
+    "y": 107,
+    "w": 762,
+    "h": 435
+  },
+  "annotations": []
+}
+----
 
 .An example of an invalid iterator body.
-image::automation/workflows/iterator-body-dont.png[role="data-zoomable"]
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "automation/workflows/iterator-body-dont.png",
+    "alias": "automation-workflows-iterator-body-dont.png",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {
+    "x": 119,
+    "y": 107,
+    "w": 764,
+    "h": 327
+  },
+   "annotations": []
+}
+----
 
 ====
 
@@ -788,7 +843,25 @@ Only the first connector that meets the condition is evaluated.
 Connectors are evaluated in the order they were initially defined in.
 
 .An example of an exclusive gateway in action.
-image::automation/workflows/gateway-exclusive.png[role="data-zoomable"]
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "automation/workflows/gateway-exclusive.png",
+    "alias": "automation-workflows-gateway-exclusive.png",
+    "w": 1920,
+    "h": 1080
+  },
+    "view": {
+    "x": 120,
+    "y": 144,
+    "w": 835,
+    "h": 289
+  },
+   "annotations": []
+}
+----
 
 | [#step-gateway-inclusive]#<<step-gateway-inclusive,Inclusive>>#
 |
@@ -796,7 +869,25 @@ An *inclusive gateway* inclusive {ICON_WORKFLOW_GATEWAYINCLUSIVE} defines two or
 Any connector that meets the condition is evaluated.
 
 .An example of an inclusive gateway in action.
-image::automation/workflows/gateway-inclusive.png[role="data-zoomable"]
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "automation/workflows/gateway-inclusive.png",
+    "alias": "automation-workflows-gateway-inclusive.png",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {
+    "x": 83,
+    "y": 181,
+    "w": 909,
+    "h": 361
+  },
+   "annotations": []
+}
+----
 
 | [#step-gateway-fork]#<<step-gateway-fork,Fork>>#
 |

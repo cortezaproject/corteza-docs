@@ -14,14 +14,39 @@ When defining a "loose trigger" you can run into a situation where some events m
 An example of this is the case module in our CRM and in our Case Management.
 
 .Defining a trigger with these constraints:
-image::automation/workflows/best-practices/constraints-no.png[]
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "automation/workflows/best-practices/constraints-no.png",
+    "alias": "automation-workflows-best-practices-constraints-no.png",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {},
+   "annotations": []
+}
+----
 
 If the case was created in the CRM or in the Case Management, it causes the workflow to execute regardless.
 
 To fix this edge-case, you can define an extra constraint that checks the namespace.
 See the example below.
 
-image::automation/workflows/best-practices/constraints-yes.png[]
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "automation/workflows/best-practices/constraints-yes.png",
+    "alias": "automation-workflows-best-practices-constraints-yes.png",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {},
+   "annotations": []
+}
+----
 
 == One expression step may have multiple expressions
 
@@ -31,12 +56,48 @@ Use this to reduce the number of expression steps, but don't go overboard.
 If you wish to change the values of a contact and an account record, define only two expression steps where each focuses only on one record.
 
 .An over-engineered workflow example:
-image::automation/workflows/best-practices/compact-no.png[]
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "automation/workflows/best-practices/compact-no.png",
+    "alias": "automation-workflows-best-practices-compact-no.png",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {
+    "x": 121,
+    "y": 121,
+    "w": 936,
+    "h": 610
+  },
+    "annotations": []
+}
+----
 
 The above could easily be rewritten into the below form.
 
 .An appropriate workflow example:
-image::automation/workflows/best-practices/compact-yes.png[]
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "automation/workflows/best-practices/compact-yes.png",
+    "alias": "automation-workflows-best-practices-compact-yes.png",
+    "w": 1920,
+    "h": 1080
+  },
+    "view": {
+    "x": 85,
+    "y": 193,
+    "w": 1008,
+    "h": 142
+  },
+  "annotations": []
+}
+----
 
 == Most iterators are able to load and process data
 

@@ -24,11 +24,35 @@ First head to the Admin Area and navigate to the menu:User Interface[Settings] a
 
 Make sure the `Hide notifications` is not ticked.
 
-image::automation/workflows/examples/notifications/notifications-settings.png[role="data-zoomable"]
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "automation/workflows/examples/notifications/notifications-settings.png",
+    "alias": "automation-workflows-examples-notifications-notifications-settings.png",
+    "w": 1258,
+    "h": 657
+  },
+  "view": {},
+   "annotations": []
+}
+----
 
 The notifications will be displayed in the topbar of the application.
 
-image::automation/workflows/examples/notifications/notifications-topbar.png[role="data-zoomable"]
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "automation/workflows/examples/notifications/notifications-topbar.png",
+    "alias": "automation-workflows-examples-notifications-notifications-topbar.png",
+    "w": 154,
+    "h": 52
+  },
+  "view": {},
+   "annotations": []
+}
+----
 
 == Sending a simple Notification
 
@@ -41,11 +65,35 @@ It has the following parameters:
 * `title` - The title of the notification.
 * `description` - The description of the notification.
 
-image::automation/workflows/examples/notifications/notifications-simple-workflow.png[role="data-zoomable"]
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "automation/workflows/examples/notifications/notifications-simple-workflow.png",
+    "alias": "automation-workflows-examples-notifications-notifications-simple-workflow.png",
+    "w": 1918,
+    "h": 757
+  },
+    "view": {},
+   "annotations": []
+}
+----
 
 After executing the workflow, the notification will appear in the `Notification Sidebar` accessed from the topbar.
 
-image::automation/workflows/examples/notifications/notifications-simple.png[role="data-zoomable"]
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "automation/workflows/examples/notifications/notifications-simple.png",
+    "alias": "automation-workflows-examples-notifications-notifications-simple.png",
+    "w": 399,
+    "h": 414
+  },
+  "view": {},
+   "annotations": []
+}
+----
 
 the link:{attachment-path}send-simple-notification.json[source code] for the workflow example.
 
@@ -88,11 +136,35 @@ It has the following parameters:
 * `openMode` - The mode in which the record will be opened (modal, new tab, current tab).
 * `edit` - If true, the record will be opened in edit mode.
 
-image::automation/workflows/examples/notifications/notifications-record-workflow.png[role="data-zoomable"]
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "automation/workflows/examples/notifications/notifications-record-workflow.png",
+    "alias": "automation-workflows-examples-notifications-notifications-record-workflow.png",
+    "w": 1918,
+    "h": 873
+  },
+  "view": {},
+   "annotations": []
+}
+----
 
 After executing the workflow, the notification will appear in the `Notification Sidebar` accessed from the topbar.
 
-image::automation/workflows/examples/notifications/notifications-record.png[role="data-zoomable"]
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "automation/workflows/examples/notifications/notifications-record.png",
+    "alias": "automation-workflows-examples-notifications-notifications-record.png",
+    "w": 397,
+    "h": 373
+  },
+  "view": {},
+   "annotations": []
+}
+----
 
 the link:{attachment-path}send-record-notification.json[source code] for the workflow example.
 

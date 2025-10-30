@@ -1,12 +1,20 @@
 include::partial$variables.adoc[]
+:MAJOR_FRIENDLY: 2024.9
+:MAJOR_FILENAME: 202409
 
 = Changelog
 
 The format is based on https://keepachangelog.com/en/1.0.0/[Keep a Changelog], and this project adheres to https://calver.org/[Calendar Versioning].
 
+[NOTE]
+====
+This page isolates the changes to the latest major release `{MAJOR_FRIENDLY}`.
+Other versions can be accessed via the side-bar navigation or via the xref:changelog/archive/index.adoc[changelog archive].
+====
+
 :leveloffset: +1
 
-include::202409/index.adoc[]
+include::{MAJOR_FILENAME}/index.adoc[]
 
 :leveloffset: -1
 

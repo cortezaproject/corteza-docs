@@ -1,0 +1,279 @@
+= Access control functons
+
+[#isDescendantOf]
+== `isDescendantOf(userID, resourceOwnerID, paths ...string)`
+
+The `isDescendantOf` function checks if `userID` is strictly above `resourceOwnerID` in the organization tree.
+If `userID` and `resourceOwnerID` reside in the same user group, the evaluation results in `false`
+
+[IMPORTANT]
+====
+Since the result of this function depends on system state, the following examples make up input and output values.
+====
+
+.Examples:
+[cols="1a,1a,1a"]
+|===
+|State |Expression |Result
+
+|
+[source,json]
+----
+{}
+----
+|
+[source]
+----
+is = isDescendantOf(currentUser, resource.ownerID, "path 1")
+----
+|
+[source,json]
+----
+{
+  "is": false
+}
+----
+
+//
+
+|
+[source,json]
+----
+{}
+----
+|
+[source]
+----
+is = isDescendantOf(userA, userB)
+----
+|
+[source,json]
+----
+{
+  "is": true
+}
+----
+
+|===
+
+
+[#isDescendantOfC]
+== `isDescendantOfC(userID, resourceOwnerID, paths ...string)`
+
+The `isDescendantOfC` function is a shortcut for the `` standard path.
+The function evaluates to `true` if the `userID` is strictly above `resourceOwnerID` following the `` standard path.
+
+[IMPORTANT]
+====
+Since the result of this function depends on system state, the following examples make up input and output values.
+====
+
+.Examples:
+[cols="1a,1a,1a"]
+|===
+|State |Expression |Result
+
+|
+[source,json]
+----
+{}
+----
+|
+[source]
+----
+is = isDescendantOfC(currentUser, resource.ownerID)
+----
+|
+[source,json]
+----
+{
+  "is": false
+}
+----
+
+//
+
+|
+[source,json]
+----
+{}
+----
+|
+[source]
+----
+is = isDescendantOfC(userA, userB)
+----
+|
+[source,json]
+----
+{
+  "is": true
+}
+----
+
+|===
+[#isDescendantOfR]
+== `isDescendantOfR(userID, resourceOwnerID, paths ...string)`
+
+The `isDescendantOfR` function is a shortcut for the `` standard path.
+The function evaluates to `true` if the `userID` is strictly above `resourceOwnerID` following the `` standard path.
+
+[IMPORTANT]
+====
+Since the result of this function depends on system state, the following examples make up input and output values.
+====
+
+.Examples:
+[cols="1a,1a,1a"]
+|===
+|State |Expression |Result
+
+|
+[source,json]
+----
+{}
+----
+|
+[source]
+----
+is = isDescendantOfR(currentUser, resource.ownerID)
+----
+|
+[source,json]
+----
+{
+  "is": false
+}
+----
+
+//
+
+|
+[source,json]
+----
+{}
+----
+|
+[source]
+----
+is = isDescendantOfR(userA, userB)
+----
+|
+[source,json]
+----
+{
+  "is": true
+}
+----
+
+|===
+[#isDescendantOfU]
+== `isDescendantOfU(userID, resourceOwnerID, paths ...string)`
+
+The `isDescendantOfU` function is a shortcut for the `` standard path.
+The function evaluates to `true` if the `userID` is strictly above `resourceOwnerID` following the `` standard path.
+
+[IMPORTANT]
+====
+Since the result of this function depends on system state, the following examples make up input and output values.
+====
+
+.Examples:
+[cols="1a,1a,1a"]
+|===
+|State |Expression |Result
+
+|
+[source,json]
+----
+{}
+----
+|
+[source]
+----
+is = isDescendantOfU(currentUser, resource.ownerID)
+----
+|
+[source,json]
+----
+{
+  "is": false
+}
+----
+
+//
+
+|
+[source,json]
+----
+{}
+----
+|
+[source]
+----
+is = isDescendantOfU(userA, userB)
+----
+|
+[source,json]
+----
+{
+  "is": true
+}
+----
+
+|===
+[#isDescendantOfD]
+== `isDescendantOfD(userID, resourceOwnerID, paths ...string)`
+
+The `isDescendantOfD` function is a shortcut for the `` standard path.
+The function evaluates to `true` if the `userID` is strictly above `resourceOwnerID` following the `` standard path.
+
+[IMPORTANT]
+====
+Since the result of this function depends on system state, the following examples make up input and output values.
+====
+
+.Examples:
+[cols="1a,1a,1a"]
+|===
+|State |Expression |Result
+
+|
+[source,json]
+----
+{}
+----
+|
+[source]
+----
+is = isDescendantOfD(currentUser, resource.ownerID)
+----
+|
+[source,json]
+----
+{
+  "is": false
+}
+----
+
+//
+
+|
+[source,json]
+----
+{}
+----
+|
+[source]
+----
+is = isDescendantOfD(userA, userB)
+----
+|
+[source,json]
+----
+{
+  "is": true
+}
+----
+
+|===

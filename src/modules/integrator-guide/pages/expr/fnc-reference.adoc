@@ -14,6 +14,8 @@ include::partial$expr/fnc-datetime.adoc[]
 
 include::partial$expr/fnc-kv.adoc[]
 
+include::partial$expr/fnc-ac.adoc[]
+
 :leveloffset: -1
 
 

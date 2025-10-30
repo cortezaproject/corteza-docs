@@ -1,0 +1,223 @@
+include::ROOT:partial$variables.adoc[]
+
+= User Groups
+:keywords: user group, organization tree, org tree
+:description: Learn how to configure user groups and leverage hierarchical access control
+
+User groups provide a way to define a hierarchy between users, enabling hierarchy based access control.
+
+[CAUTION]
+====
+Make sure to get familiar with xref:security-model/index.adoc[access evaluation].
+====
+
+[IMPORTANT]
+====
+Each non-system user must belong to a user group.
+If you upgraded from an older version, all existing users are assigned to the default user group.
+
+When a new user signs up, the user is assigned to the user group defined by the auth client.
+
+When creating users through the admin webapp, automation, or via the API; you need to specify the user group manually.
+====
+
+== Configuring User Groups
+
+User groups are configured and managed in the {PRODUCT_NAME} {APP_NAME_ADMIN} webapp.
+
+In the {APP_NAME_ADMIN} webapp, navigate to the menu:System[User Groups] to see the list of currently defined user groups.
+Click on the btn:[New User Group] button in the top left corner to open up the editor.
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "security-model/user-groups/user-groups-list.png",
+    "alias": "security-model-user-groups-user-groups-list",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {},
+  "annotations": [{
+    "kind": "box",
+    "y": 256,
+    "x": 21,
+    "w": 113,
+    "h": 16
+  }, {
+    "kind": "box",
+    "y": 95,
+    "x": 581,
+    "w": 164,
+    "h": 44
+  }]
+}
+----
+
+Fill in the required fields and select the user groups this one reports to.
+Click on the btn:[Submit] button to create the user group.
+
+[NOTE]
+====
+Each user group may report to multiple user groups.
+Each user group may report to the same user group following paths with different names.
+
+You can specify the path name in the xref:expr/fnc-reference.adoc#isDescendantOf[`isDescendantOf`] function
+====
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "security-model/user-groups/user-group-basic-filled.png",
+    "alias": "security-model-user-groups-user-group-basic-filled",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {},
+  "focus": {
+    "x": 614,
+    "y": 81,
+    "w": 979,
+    "h": 548
+  },
+  "annotations": [{
+    "kind": "box",
+    "x": 1514,
+    "y": 597,
+    "w": 74,
+    "h": 28
+  }]
+}
+----
+
+After the user group is created, two new sections appear at the bottom of the page.
+You can assign users to the user group in the "User Group Members" section.
+
+[NOTE]
+====
+The user group of a particular user can also be changed from the user edit screen.
+Locate the "User group" drop down select to change the user group.
+
+Don't forget to save your changes by clicking on the btn:[Submit] button.
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "security-model/user-groups/user-edit.png",
+    "alias": "security-model-user-groups-user-edit",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {},
+  "focus": {
+    "x": 575,
+    "y": 127,
+    "h": 543,
+    "w": 1078
+  },
+  "annotations": [{
+    "kind": "box",
+    "x": 1129,
+    "y": 273,
+    "h": 63,
+    "w": 522
+  }, {
+    "kind": "box",
+    "x": 1568,
+    "y": 634,
+    "w": 83,
+    "h": 32
+  }]
+}
+----
+====
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "security-model/user-groups/user-group-bottom.png",
+    "alias": "security-model-user-groups-user-group-bottom-users",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {},
+  "focus": {
+    "x": 608,
+    "y": 647,
+    "w": 980,
+    "h": 186
+  },
+  "annotations": []
+}
+----
+
+You can assign roles to the user group in the "Role membership" section.
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "security-model/user-groups/user-group-bottom.png",
+    "alias": "security-model-user-groups-user-group-bottom-roles",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {},
+  "focus": {
+    "x": 608,
+    "y": 867,
+    "w": 980,
+    "h": 186
+  },
+  "annotations": []
+}
+----
+
+== Additions
+
+=== Auth Client Additions
+
+Auth clients now specify the default user group newly created users are assigned to.
+The default user group (provisioned by {PRODUCT_NAME}) is assigned to all existing auth clients.
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "security-model/user-groups/auth-client-default-user-group.png",
+    "alias": "security-model-user-groups-auth-client-default-user-group",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {},
+  "focus": {
+    "x": 567,
+    "y": 120,
+    "h": 948,
+    "w": 1093
+  },
+  "annotations": [{
+    "kind": "box",
+    "x": 575,
+    "y": 918,
+    "h": 64,
+    "w": 521
+  }]
+}
+----
+
+
+=== Contextual Role Expression
+
+Contextual roles now provide a set of expressions you can use to evaluate hierarchy.
+
+. xref:expr/fnc-reference.adoc#isDescendantOf[`isDescendantOf`]
+. xref:expr/fnc-reference.adoc#isDescendantOfC[`isDescendantOfC`]
+. xref:expr/fnc-reference.adoc#isDescendantOfR[`isDescendantOfR`]
+. xref:expr/fnc-reference.adoc#isDescendantOfU[`isDescendantOfU`]
+. xref:expr/fnc-reference.adoc#isDescendantOfD[`isDescendantOfD`]
+
+We suggest you create a new contextual role which enables users access resources in lower user groups.

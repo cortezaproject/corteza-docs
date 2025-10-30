@@ -1,0 +1,44 @@
+include::ROOT:partial$variables.adoc[]
+
+= Upgrading to 2024.9.5
+:page-aliases: 2024.9@upgrade-guide:2024095.adoc
+
+The newly added user groups requires database schema modifications that may not be backwards compatible.
+The `role_members` table receives a new `rel_resource` column which is generated based on the `rel_user` column.
+After the upgrade, you need to either delete the `rel_user` column or drop the requirement the `rel_user` column is populated.
+
+== Before the Upgrade
+
+Since the database schema will be modified, we recommend you create a backup just in case.
+
+== After the Upgrade
+
+=== Drop the deprecated column
+
+[source,sql]
+----
+ALTER TABLE role_members DROP COLUMN rel_user;
+----
+
+=== Make the column not required
+
+==== MySQL
+
+[source,sql]
+----
+ALTER TABLE role_members MODIFY rel_user NUMERIC NULL;
+----
+
+==== PostgreSQL
+
+[source,sql]
+----
+ALTER TABLE role_members ALTER COLUMN rel_user DROP NOT NULL;
+----
+
+==== SQL Server
+
+[source,sql]
+----
+ALTER TABLE role_members ALTER COLUMN rel_user NUMERIC NULL;
+----

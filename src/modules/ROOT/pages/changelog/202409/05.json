@@ -3,7 +3,28 @@
     "releasedOn": "2025.08.07"
   },
 
+  "important": [
+    {
+      "note": [
+        [
+          "The newly added user groups requires database schema modifications that may not be backwards compatible.",
+          "The `role_members` table receives a new `rel_resource` column which is generated based on the `rel_user` column.",
+          "After the upgrade, you need to either delete the `rel_user` column or drop the requirement the `rel_user` column is populated.",
+          "Refer to the upgrade guide for additional instructions."
+        ]
+      ]
+    }
+  ],
+
   "added": [
+    {
+      "what": [
+        "user groups to support hierarchical access control"
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/pull/2179"
+      ]
+    },
     {
       "what": [
         "unified logging with the SAML sub-service."

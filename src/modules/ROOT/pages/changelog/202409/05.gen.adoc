@@ -4,7 +4,15 @@ include::ROOT:partial$variables.adoc[]
 
 *Released on*: `2025.08.07`
 
+[IMPORTANT]
+====
+.[#2024_09_05-important]#<<2024_09_05-important,Important upgrade notes:>>#
+* The newly added user groups requires database schema modifications that may not be backwards compatible.,The `role_members` table receives a new `rel_resource` column which is generated based on the `rel_user` column.,After the upgrade, you need to either delete the `rel_user` column or drop the requirement the `rel_user` column is populated.,Refer to the upgrade guide for additional instructions..
+====
+
 .[#2024_09_05-added]#<<2024_09_05-added,Added:>>#
+* Added user groups to support hierarchical access control
+({CORTEZA_PULL_BASE}2179[`2179`]).
 * Added unified logging with the SAML sub-service
 ({CORTEZA_COMMIT_BASE}635a610[`635a610`]).
 

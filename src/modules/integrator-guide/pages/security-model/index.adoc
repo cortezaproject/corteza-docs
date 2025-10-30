@@ -47,9 +47,10 @@ Locate the btn:[permissions] button in the user interface in order to manage the
 Refer to xref:security-model/references/operations.adoc[] for the complete reference of available RBAC rules.
 ====
 
-{PRODUCT_NAME}'s RBAC facility uses a "flat design" which removes role hierarchy (two roles can not explicitly define a parent/child relationship).
-
-<<role-type-ctx,*Context role membership*>> allows you to dynamically assign users to roles based on the defined set of rules.
+[NOTE]
+====
+As of 2024.9.x, {PRODUCT_NAME} introduces user groups which you can use to implement hierarchical access.
+====
 
 [IMPORTANT]
 ====
@@ -58,15 +59,35 @@ While access control for specific records is supported, access control for parti
 You can bypass this limitation by using <<role-type-ctx,context role membership>> and module filed rules.
 ====
 
-== Access Evaluation Flow
-
-When access is evaluated, the system collects all users' roles and RBAC rules as a part of the security context.
-The order of rule evaluation is based on <<ac-role-importance,*role importance*>> and <<ac-resource-specificity,*resource specificity*>>.
+== Access Evaluation
 
 [CAUTION]
 ====
 If a user is a member of a bypass role, *all operations are permitted* without any restrictions.
 ====
+
+.Resulting access is based on two components:
+* Access evaluation based on the organization tree.
+* Access evaluation based on user-assigned roles and contextual roles.
+
+[IMPORTANT]
+====
+.The two components are merged using the following check-list.
+. If user-assigned roles result in explicit deny, the result is deny.
+. If user-assigned roles result in explicit allow, the result is allow.
+. If user group hierarchy result in explicit allow, the result is allow.
+. If user group hierarchy result in explicit deny, the result is deny.
+. The result is inherit.
+====
+
+=== Organization tree branch evaluation
+
+{PRODUCT_NAME} determines the organization tree branch where the requesting user's is at the very top.
+{PRODUCT_NAME} evaluates each node in the branch following the standard role evaluation.
+
+The evaluation results in *allow* if at least one node results in *allow* (allow-first).
+
+=== Role evaluation
 
 .Access evaluation flow:
 . If any rule defines an explicit *deny*, the evaluation results with *deny*.
@@ -75,7 +96,7 @@ If a user is a member of a bypass role, *all operations are permitted* without a
 . If the evaluation cannot find an explicit allow or deny rules, the evaluation results with *deny*.
 
 [#ac-role-importance]
-=== Role Importance
+==== Role Importance
 
 Role importance defines the order in which roles and their corresponding rules are evaluated.
 
@@ -89,7 +110,7 @@ Role importance defines the order in which roles and their corresponding rules a
 . anonymous roles.
 
 [#ac-resource-specificity]
-=== Resource Specificity
+==== Resource Specificity
 
 Resource specificity defines the order in which rules for the corresponding resources are evaluated.
 Resource specificity is defined based on _how specific  this rule is to this resource_.

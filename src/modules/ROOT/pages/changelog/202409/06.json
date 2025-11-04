@@ -25,5 +25,16 @@
         "https://github.com/cortezaproject/corteza/pull/2179"
       ]
     }
+  ],
+
+  "fixed": [
+    {
+      "what": [
+        "location field not importing during CSV import."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/279e68541"
+      ]
+    }
   ]
 }

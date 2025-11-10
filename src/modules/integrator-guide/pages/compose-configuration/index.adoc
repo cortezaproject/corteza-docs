@@ -774,22 +774,113 @@ The entire page block reference is available xref:compose-configuration/page-blo
 
 When you configure and save a page block it is added to the page.
 
-image::compose-configuration/page-builder-block-base.png[role="data-zoomable"]
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "compose-configuration/page-builder-block-base.png",
+    "alias": "compose-configuration-page-builder-block-base.png",
+    "w": 1920,
+    "h": 1080
+  },
+    "view": {
+    "x": 321,
+    "y": 2,
+    "w": 1598,
+    "h": 1004
+  },
+   "annotations": []
+}
+----
 
 To reposition the page block, simply drag-and-drop it to the desired position.
 
 The page block may be placed anywhere on the x-axis, but its y-axis must connect with another page block or with the top of the page.
 If the position is not valid, or it overlays with another page block, the page builder may automatically adjust the surrounding page blocks to conform to the constraints.
 
-image::compose-configuration/page-builder-block-base.png[role="data-zoomable"]
-image::compose-configuration/page-builder-block-repos.png[role="data-zoomable"]
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "compose-configuration/page-builder-block-base.png",
+    "alias": "compose-configuration-page-builder-block-base-2.png",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {
+    "x": 321,
+    "y": 1,
+    "w": 1598,
+    "h": 1004
+  },
+   "annotations": []
+}
+----
+
+
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "compose-configuration/page-builder-block-repos.png",
+    "alias": "compose-configuration-page-builder-block-repos.png",
+    "w": 1920,
+    "h": 1080
+  },
+    "view": {
+    "x": 321,
+    "y": 1,
+    "w": 1598,
+    "h": 1004
+  },
+  "annotations": []
+}
+----
 
 To resize the page block, simply grab the arrow in the bottom-right corner and resize to your needs.
 The page block may not exceed the maximum width of 12 columns.
 The height is not limited.
 
-image::compose-configuration/page-builder-block-base.png[role="data-zoomable"]
-image::compose-configuration/page-builder-block-resize.png[role="data-zoomable"]
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "compose-configuration/page-builder-block-base.png",
+    "alias": "compose-configuration-page-builder-block-base-3.png",
+    "w": 1920,
+    "h": 1080
+  },
+    "view": {
+    "x": 321,
+    "y": 1,
+    "w": 1598,
+    "h": 1004
+  },
+  "annotations": []
+}
+----
+
+
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "compose-configuration/page-builder-block-resize.png",
+    "alias": "compose-configuration-page-builder-block-resize.png",
+    "w": 1920,
+    "h": 1080
+  },
+    "view": {
+    "x": 321,
+    "y": 1,
+    "w": 1598,
+    "h": 1005
+  },
+   "annotations": []
+}
+----
 
 By placing a few extra blocks and changing their layout, you can create interesting home pages and dashboards like the CRM's.
 

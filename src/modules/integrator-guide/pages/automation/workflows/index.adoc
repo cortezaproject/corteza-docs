@@ -40,12 +40,11 @@ To create a workflow, navigate to your {PRODUCT_NAME} instance (for example http
   },
   "view": {},
   "focus": {
-    "x": 423,
-    "y": 96,
-    "w": 146,
-    "h": 42
-  },
-  "annotations": []
+    "x": 968,
+    "y": 285,
+    "w": 284,
+    "h": 232
+  }
 }
 ----
 
@@ -170,7 +169,29 @@ A single workflow can have multiple triggers and multiple termination steps.
 When you're satisfied with your workflow or wish to save your progress, click on the save button on the bottom of the screen, or use the kbd:[ctrl+s] shortcut.
 
 .The screenshot shows how to save the workflow.
-image::automation/workflows/save.svg[role="data-zoomable"]
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "automation/workflows/save.png",
+    "alias": "automation-workflows-save.png",
+    "w": 1920,
+    "h": 1080
+  },
+   "view": {
+    "x": 1,
+    "y": 327,
+    "w": 595,
+    "h": 752
+  },
+   "annotations": [{
+    "x": 65,
+    "y": 1034,
+    "w": 289,
+    "h": 39}]
+}
+----
 
 === Configuring the workflow
 

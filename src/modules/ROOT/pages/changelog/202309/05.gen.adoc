@@ -31,7 +31,7 @@ The removal was made because Nylass stopped using the functionality implemented 
 * Fixed not being able to add a record in a duplicated CRM namespace because page layout wasn't created when the namespace was cloned
 ({CORTEZA_PULL_BASE}1717[`1717`]).
 * Fixed workflow session list throwing internal errors when using postgres database.
-The fix was made properly omitting invalid/blank slices in filters
+The fix was made properly, omitting invalid/blank slices in filters
 ({CORTEZA_COMMIT_BASE}74031ca[`74031ca`]).
 * Fixed prompt submissions always being treated as `Untyped` by running a type resolution step before applying to the scope
 ({CORTEZA_COMMIT_BASE}772d03e[`772d03e`]).

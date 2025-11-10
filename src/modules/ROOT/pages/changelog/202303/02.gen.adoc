@@ -6,7 +6,7 @@ include::ROOT:partial$variables.adoc[]
 
 .[#2023_03_02-added]#<<2023_03_02-added,Added:>>#
 * Added option for transparent color in the color picker used in {APP_NAME_ADMIN}, and {APP_NAME_REPORTER}.
-The change was added to give users more configuration options when selecting color or background color for an element
+The change was added to give users more configuration options when selecting the color or background color for an element
 ({CORTEZA_PULL_BASE}1211[`1211`]).
 * Added the option to set a record list filter as a preset filter for a user.
 The filter can be applied using the 'Filters' dropdown menu.
@@ -36,8 +36,8 @@ The change was made to be consistent with the rest of the {PRODUCT_NAME} UI and 
 The change was made to ensure that any future code implementations don't collide with the block magnify query param
 ({CORTEZA_COMMIT_BASE}5fde4c9[`5fde4c9`]).
 * Changed the value of the `SMTP_FROM` variable in the server `.env` variables.
-Previously if a value was set in the `.env` file, it wasn't respected.
-The change was made to give developers the option to configure SMTP setting not only from the UI but also though the `env` file
+Previously, if a value was set in the `.env` file, it wasn't respected.
+The change was made to give developers the option to configure SMTP settings not only from the UI but also through the `env` file
 ({CORTEZA_COMMIT_BASE}d2b389b[`d2b389b`]).
 * Changed default workflow and trigger action severity to `notice` to keep it consistent with other resources in {APP_NAME_ADMIN}.
 The change was made to make create, update, delete, and undelete actions visible in the default production ruleset of the actionlog
@@ -58,10 +58,10 @@ This issue was present in {APP_NAME_COMPOSE} and {APP_NAME_PRIVACY}
 * Fixed the functionality to expand text in the description field used in {APP_NAME_WORKFLOW}'s error step
 ({CORTEZA_COMMIT_BASE}84215c0[`84215c0`]).
 * Fixed automation sessions list sorting parameter in {APP_NAME_ADMIN}
-The parameter was excepting the incorrect type of value
+The parameter was expecting the incorrect type of value
 ({CORTEZA_PULL_BASE}1141[`1141`]).
 * Fixed copy of page layout in {APP_NAME_COMPOSE}
-A page with layout couldn't be copied because of duplicate page handle value
+A page with a layout couldn't be copied because of a duplicate page handle value
 ({CORTEZA_PULL_BASE}1230[`1230`]).
 * Fixed page blocks disappearing from the page builder after being removed from tabs configuration
 ({CORTEZA_COMMIT_BASE}c939015[`c939015`]).

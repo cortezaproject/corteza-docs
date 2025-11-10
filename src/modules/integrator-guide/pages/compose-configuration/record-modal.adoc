@@ -25,10 +25,10 @@ Scroll down to the Records section and you will find the option in the "On recor
   },
   "annotations": [{
     "kind": "box",
-    "x": 407,
-    "y": 460,
-    "w": 538,
-    "h": 64
+    "x": 408,
+    "y": 400,
+    "w": 529,
+    "h": 63
   }]
 }
 ----

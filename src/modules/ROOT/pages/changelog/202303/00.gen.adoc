@@ -16,40 +16,40 @@ Namely, when you reference a deleted module from a page and try to export the na
 The change was added because this speeds up the development process of the project and allows users to copy/share content from one page to another
 ({WEBAPP_COMPOSE_PULL_BASE}450[`450`], {LOCALE_COMMIT_BASE}47e06eb[`47e06eb`]).
 * Added support for personalized auth screen.
-The change was added to simplify styles of the auth pages without the need to alter the source templates
-Uploading the image will update the Auth background image, and the styles will supplement Auth screen's styles
+The change was added to simplify the styles of the auth pages without the need to alter the source templates
+Uploading the image will update the Auth background image, and the styles will supplement the Auth screen's styles
 ({CORTEZA_PULL_BASE}446[`446`]).
 * Added support for opening a record in a new tab or in a modal.
-The change was added to make editing of the records a bit more intuitive, since the user will remain on the record list page while doing the changes
+The change was added to make editing of the records a bit more intuitive, since the user will remain on the record list page while making the changes
 ({CORTEZA_PULL_BASE}524[`524`], {CORTEZA_PULL_BASE}524[`524`]).
 * Added support for cloning and coping page blocks in page builders.
-The change was added to allow users to duplicate and re-use page blocks more easily
+The change was added to allow users to duplicate and reuse page blocks more easily
 ({CORTEZA_PULL_BASE}582[`582`]).
 * Added support for viewing and undeleting a deleted single or multiple records in a record list.
 The change was added to allow users to view and restore deleted records
 ({CORTEZA_PULL_BASE}740[`740`]).
 * Added support for a fully customizable navigation page block with multiple navigation item type and customizable options for the navigation list items.
-The change was added to have the ability to show one or two level of dynamic and static navigation
+The change was added to have the ability to show one or two levels of dynamic and static navigation
 ({CORTEZA_COMMIT_BASE}41f1283[`41f1283`]).
 * Added support for conditional fields.
-The change was added to give users more control on how records are displayed
+The change was added to give users more control over how records are displayed
 ({CORTEZA_PULL_BASE}770[`770`]).
 * Added support for navigating to the next or previous record when inside a record page for easier and faster toggling between the records.
-The change was added to allow users go over all their leads one by one without leaving the record page
+The change was added to allow users to go over all their leads one by one without leaving the record page
 ({CORTEZA_PULL_BASE}836[`836`]).
 * Added support for bulk record updates.
-The change was added to allow the users to update multiple records in a record list
+The change was added to allow users to update multiple records in a record list
 ({CORTEZA_PULL_BASE}906[`906`], {CORTEZA_PULL_BASE}906[`906`], {CORTEZA_PULL_BASE}906[`906`], {CORTEZA_PULL_BASE}906[`906`], {CORTEZA_PULL_BASE}906[`906`]).
 * Added support for a new page block in {APP_NAME_COMPOSE} called tabs block where each tab is a different block.
 The change was added to make page block organizing much easier for users
 ({CORTEZA_PULL_BASE}670[`670`], {CORTEZA_PULL_BASE}670[`670`]).
 * Added support for administrators to pre-define record list filters which can be applied to their record list if they are part of a specific role.
 The filters are grouped by roles, allowing more flexibility as to who sees what.
-The change was added to allow users to quickly apply filter to the record list
+The change was added to allow users to quickly apply a filter to the record list
 ({CORTEZA_PULL_BASE}921[`921`], {CORTEZA_PULL_BASE}921[`921`], {CORTEZA_PULL_BASE}921[`921`]).
 * Added support for geo location capture and ability to set or prefill current location while on a map.
 The change was added to improve the user experience and the location accuracy of the users
-Now instead of manually entering their coordinates, they can just use the `find me` button and the coordinates will be updated
+Now, instead of manually entering their coordinates, they can just use the `find me` button, and the coordinates will be updated
 ({CORTEZA_PULL_BASE}955[`955`], {CORTEZA_PULL_BASE}955[`955`], {CORTEZA_PULL_BASE}955[`955`], {CORTEZA_PULL_BASE}955[`955`]).
 * Added support for uploading an icon for specific page for the sidebar.
 The change was added to allow the user to further customize a page
@@ -61,7 +61,7 @@ The change was added to give users access to address search functionality when o
 The change was added to make viewing of records a bit more intuitive, since the user will remain on the record list page while opening a record selector pointing to another module
 ({CORTEZA_PULL_BASE}997[`997`]).
 * Added support to reference a record from a record selector field pointing out to another module.
-The change was added to give the user an ability to view the referenced record selector on the initial record page
+The change was added to give the user the ability to view the referenced record selector on the initial record page
 ({CORTEZA_COMMIT_BASE}d5cb466[`d5cb466`]).
 * Added support for opening a calendar event source in a modal, new tab or in the same tab according to the user configuration.
 The change was added to allow the user to open the event source records without going away from the calendar block
@@ -73,41 +73,41 @@ The change was added to give users more options when displaying data with charts
 ({CORTEZA_PULL_BASE}1072[`1072`]).
 * Added the ability for users to disable the navigation sidebar within {APP_NAME_COMPOSE} namespace public pages.
 The option is available under the `hide sidebar on namespace public pages` checkbox in the namespace edit screen.
-The change was added because we wanted to provide the option of disabling built-in navigation in favour of re-defining it with the new navigation page block
+The change was added because we wanted to provide the option of disabling built-in navigation in favour of redefining it with the new navigation page block
 ({CORTEZA_COMMIT_BASE}41ed9ed[`41ed9ed`]).
 * Added auto-refreshing and manual refreshing feature to page blocks excluding, Content, Record and File Blocks.
 An icon now appears on blocks when you enable the refresh feature.
-That icon is clickable even though refresh will happen automatically based on the duration you have set.
-The change was added because users do not have to refresh the entire page to see new content on blocks and to give users more control over refreshing when auto-refreshing is not needed
+That icon is clickable even though a refresh will happen automatically based on the duration you have set.
+The change was added because users do not have to refresh the entire page to see new content on blocks, and to give users more control over refreshing when auto-refreshing is not needed
 ({JS_PULL_BASE}73[`73`], {CORTEZA_PULL_BASE}760[`760`]).
 * Added geometry page block to render a map with data points collected from record sources.
-The geometry page block can show either points, lines or polygons based on the configured record feed sources.
-The change was added to enable the users with better visual representation of their data
+The geometry page block can show either points, lines, or polygons based on the configured record feed sources.
+The change was added to enable users to have a better visual representation of their data
 ({CORTEZA_PULL_BASE}538[`538`]).
 * Added new style configuration for the file page block and file record field.
-Users can now change the height, width, borders, margins and the background color of their file attachment.
-The change was added to provide users with more customization and styling option on viewing images
+Users can now change the height, width, borders, margins, and the background color of their file attachment.
+The change was added to provide users with more customization and styling options on viewing images
 ({CORTEZA_PULL_BASE}533[`533`]).
 * Added an option to magnify certain page blocks when viewing a public {APP_NAME_COMPOSE} page.
-A select dropdown has been added in the general tab of page block configuration modal for calendar, chart, content, comments, file, iframe, record list, report, and record revisions page blocks.
-The user can select between Fullwidth or Modal select option, and when enabled, the user will see a magnify icon at the top of the block.
-The change was added to help users finding the info they are looking for much faster and easier with the option to magnify certain page blocks
+A select dropdown has been added in the general tab of the page block configuration modal for calendar, chart, content, comments, file, iframe, record list, report, and record revisions page blocks.
+The user can select between Fullwidth or Modal select option, and when enabled, the user will see a magnifying glass icon at the top of the block.
+The change was added to help users find the info they are looking for much faster and easier, with the option to magnify certain page blocks
 ({CORTEZA_PULL_BASE}576[`576`]).
 * Added a spinner to indicate when an action in template editor is submitted.
-The change was added to have an UI consistency, because it was difficult to tell when your changes were being submitted
+The change was added to have UI consistency, because it was difficult to tell when your changes were being submitted
 ({CORTEZA_PULL_BASE}708[`708`]).
 * Added a module field description when configuring a record list page block to inform the users that if no fields are selected, the default values will be shown
 ({CORTEZA_PULL_BASE}751[`751`]).
 * Added ability to serve data as response in an integration gateway route by adding a route description field.
-The change was added to give an endpoint response greater extensibility to integration gateway as different data can be returned
+The change was added to give an endpoint response greater extensibility to the integration gateway, as different data can be returned
 ({CORTEZA_PULL_BASE}775[`775`], {CORTEZA_PULL_BASE}775[`775`], {CORTEZA_PULL_BASE}775[`775`], {CORTEZA_PULL_BASE}775[`775`], {CORTEZA_PULL_BASE}775[`775`]).
 * Added Route description field, Filters sorting, Profiler hits purging and Integration gateway settings
 ({CORTEZA_PULL_BASE}775[`775`], {CORTEZA_PULL_BASE}775[`775`]).
 * Added `BETWEEN` and `NOT BETWEEN` operator support for single value fields (number and date-time module fields).
-The change was added to extend record filtering support for range filtering of numeric and date-time for single value field
+The change was added to extend record filtering support for range filtering of numeric and date-time for a single value field
 ({CORTEZA_PULL_BASE}813[`813`]).
 * Added ability to drill down charts, by clicking on a data entry inside the chart.
-Based on the configuration it can either filter an existing record list on the page that is showing the records from the same module as the chart or open a new record list in a modal.
+Based on the configuration, it can either filter an existing record list on the page that is showing the records from the same module as the chart or open a new record list in a modal.
 The change was added to make it easier for users to filter record lists based on chart data, in order to view the details of said data
 ({CORTEZA_PULL_BASE}877[`877`]).
 * Added functionality to generate user avatars and enable users to upload and manage their profile photos.
@@ -120,11 +120,11 @@ The change was added to allow the user the ability to sort the existing expressi
 The change was added to give users more options when displaying data with charts
 ({CORTEZA_PULL_BASE}1148[`1148`]).
 * Added extended record duplicate detection configuration to support multi value matching criteria and value checking algorithms.
-The change was added to extend support for record duplicate detection with multiple fields in single rule with various detection algorithm and multi-value matching criteria
+The change was added to extend support for record duplicate detection with multiple fields in a single rule with various detection algorithms and multi-value matching criteria
 ({CORTEZA_PULL_BASE}617[`617`], {CORTEZA_PULL_BASE}617[`617`]).
 * Added new file configurator option to preview image in modal and option to download.
 Images on the file base are centered now by default.
-The change was added to center the images on the filebase for better user experience
+The change was added to center the images on the filebase for a better user experience
 ({CORTEZA_PULL_BASE}937[`937`], {CORTEZA_PULL_BASE}937[`937`]).
 
 .[#2023_03_00-changed]#<<2023_03_00-changed,Changed:>>#
@@ -136,17 +136,17 @@ The change was made by removing the requirement for the handle to be provided
 ({WEBAPP_COMPOSE_COMMIT_BASE}cd86e85[`cd86e85`], {WEBAPP_REPORTER_COMMIT_BASE}cf21c47[`cf21c47`], {WEBAPP_ADMIN_COMMIT_BASE}456c896[`456c896`], {WEBAPP_WORKFLOW_COMMIT_BASE}9b88af0[`9b88af0`], {LOCALE_COMMIT_BASE}24b0dda[`24b0dda`], {VUE_COMMIT_BASE}34f261a[`34f261a`], {JS_COMMIT_BASE}3a90a10[`3a90a10`]).
 * Changed the record revision table text to be saying `No record revisions found` when no revisions are present.
 The change was made to have a better user experience when there are no record revisions present.
-The change was made by adding an empty table with `No record revisions found` message in the record page builder
+The change was made by adding an empty table with the `No record revisions found` message in the record page builder
 ({CORTEZA_PULL_BASE}758[`758`]).
 * Changed the Record ID field in module connection settings being able to be disabled.
-The change was made to prevent users from disabling Record ID field on system field mapping and to not show system fields that are not available.
-Also to allow users to easily enable or disable system fields based on their configuration.
-The change was made by updating system view configurator and system field mapping logic to prevent Record ID from being disabled
+The change was made to prevent users from disabling the Record ID field on system field mapping and to not show system fields that are not available.
+Also, to allow users to easily enable or disable system fields based on their configuration.
+The change was made by updating the system view configurator and system field mapping logic to prevent Record ID from being disabled
 ({CORTEZA_PULL_BASE}523[`523`]).
 * Changed the name of a page when was copied multiply times was changed to show the copy and after that the name of the page and a counter in brackets.
-The change was made to improve user experience.
+The change was made to improve the user experience.
 If we copy a page 3-4 or more times, the naming gets confusing and too long.
-The change was made by filtering how many times a certain page with same name already exists and including 'copy of' prefix and number suffix
+The change was made by filtering how many times a certain page with the same name already exists and including 'copy of' prefix and number suffix
 Depending on the number of pages that match the same name, a counter is adjusted
 ({CORTEZA_PULL_BASE}644[`644`]).
 * Changed workflow iterators to treat limit 0 parameter as no limit set.
@@ -155,21 +155,21 @@ The change was made by changing the limit in the code
 ({CORTEZA_COMMIT_BASE}cc24e62[`cc24e62`]).
 * Changed the geometry multi-value map opening the default map location regardless which record location you press.
 Now the opened map changes according to the record's geo location.
-The change was made to prevent a confusion when different markers in multi-value fields were being opened on the map.
+The change was made to prevent confusion when different markers in multi-value fields were being opened on the map.
 This change aims to improve ux and usability of the geometry field.
-The change was made Leaflet map instance and zoom level was updated
+The change was made Leaflet map instance, and the zoom level was updated
 ({CORTEZA_PULL_BASE}940[`940`]).
 * Changed the rotate and metric label field configuration for pie and doughnut charts by hiding the configuration since it was not needed.
 The change was made to have consistency since they were shown but not needed.
 Now they are hidden since we don't need them.
-The change was made updating the chart configurations to adjust existing rotate logic for the above-mentioned charts
+The change was made by updating the chart configurations to adjust the existing rotate logic for the above-mentioned charts
 ({CORTEZA_PULL_BASE}992[`992`]).
 * Changed the output format to become hidden if output relative value is selected in date field.
-The change was made to prevent confusion since when you have relative value, the output format is not taken into account.
+The change was made to prevent confusion since when you have a relative value, the output format is not taken into account.
 The change was made by updating the date and time configuration
 ({CORTEZA_PULL_BASE}1019[`1019`]).
 * Changed the record toolbar back button to always bring you back to the page where you came from.
-The change was made to prevent users getting stuck in a loop and to allow them to go back to the previous page that they were onto
+The change was made to prevent users from getting stuck in a loop and to allow them to go back to the previous page that they were onto
 ({CORTEZA_PULL_BASE}1155[`1155`]).
 * Changed general ui/ux improvements:
 ** A configuration option on charts to disable or enable animation in order to allow users more control over chart configuration options
@@ -189,15 +189,15 @@ The change was made to prevent users getting stuck in a loop and to allow them t
 
 .[#2023_03_00-fixed]#<<2023_03_00-fixed,Fixed:>>#
 * Fixed discovery not displaying any search result when namespace with module filters was selected.
-The fix was made by adding minimum string match criteria to match exact string match for search results
+The fix was made by adding minimum string match criteria to match the exact string match for search results
 ({CORTEZA_COMMIT_BASE}e2c374c[`e2c374c`]).
 * Fixed {APP_NAME_COMPOSE} Gauge chart not displaying the correct results when post processing function was used because the post processing function was not taken into consideration.
-The fix was made by adding a post processing method to Gauge Chart {APP_NAME_COMPOSE} type
+The fix was made by adding a post-processing method to the Gauge Chart {APP_NAME_COMPOSE} type
 ({CORTEZA_PULL_BASE}865[`865`]).
 * Fixed the integration gateway route search filtering in administration area not returning any result if the whole name was not entered.
-The fix was made by fixing the way filtering works on integration routes search
+The fix was made by fixing the way filtering works on the integration routes search
 ({SERVER_COMMIT_BASE}e551b73[`e551b73`]).
 * Fixed the deleted status on application programming interface gateway route update getting preserved.
-Previously if you edited a deleted route, the route got restored, now this is improved.
-The fix was made by changing the part of application programming interface gateway service that handles route updates
+Previously, if you edited a deleted route, the route got restored; now this is improved.
+The fix was made by changing the part of the application programming interface gateway service that handles route updates
 ({CORTEZA_COMMIT_BASE}16257e9[`16257e9`]).

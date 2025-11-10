@@ -12,7 +12,7 @@ include::ROOT:partial$variables.adoc[]
 
 .[#2023_09_06-changed]#<<2023_09_06-changed,Changed:>>#
 * Changed the updating mechanism of charts to trigger when the user creates and updates a chart.
-The change was made to keep chart up to date with its latest configuration
+The change was made to keep the chart up to date with its latest configuration
 ({CORTEZA_COMMIT_BASE}ad95e6a[`ad95e6a`]).
 * Changed chart tooltip structure to be consistent in {APP_NAME_COMPOSE} and {APP_NAME_REPORTER}.
 The change was made to implement a standard across all web applications that use charts

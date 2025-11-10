@@ -39,10 +39,10 @@ To create a new namespace, navigate to your {PRODUCT_NAME} instance (for example
   },
   "view": {},
   "focus": {
-    "x": 400,
-    "y": 255,
-    "w": 266,
-    "h": 217
+    "x": 366,
+    "y": 283,
+    "w": 287,
+    "h": 235
   },
   "annotations": []
 }
@@ -50,7 +50,21 @@ To create a new namespace, navigate to your {PRODUCT_NAME} instance (for example
 
 A new screen with a list of all namespaces will appear.
 
-image::compose-configuration/ns-create.png[role="data-zoomable"]
+
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "compose-configuration/ns-create.png",
+    "alias": "compose-configuration-ns-create.png",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {},
+   "annotations": []
+}
+----
 
 .From there you can:
 * create a new namespace by clicking on the btn:[Create new namespace] button,
@@ -59,7 +73,19 @@ image::compose-configuration/ns-create.png[role="data-zoomable"]
 
 Click on the btn:[Create new namespace] button, insert the required parameters, and click on the btn:[Save] or the btn:[Save and close] button in the bottom right corner.
 
-image::compose-configuration/ns-edit.png[role="data-zoomable"]
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "compose-configuration/ns-edit.png",
+    "alias": "compose-configuration-ns-edit.png",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {},
+   "annotations": []
+}
+----
 
 .Available namespace parameters:
 [cols="2s,5a"]
@@ -121,7 +147,19 @@ When configuring a new namespace, you are presented with an onboarding screen fr
 
 If you wish to add additional modules, or are configuring an already existing namespace, navigate to menu:Admin panel[Modules], and click on the btn:[New Module] button.
 
-image::compose-configuration/module-create.png[role="data-zoomable"]
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "compose-configuration/module-create.png",
+    "alias": "compose-configuration-module-create.png",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {},
+   "annotations": []
+}
+----
 
 .From the module editor screen you can:
 * Edit the module metadata,
@@ -219,10 +257,10 @@ The record page can be created directly from the module edit screen by clicking 
     "h": 1080
   },
   "annotations": [{
-    "x": 1462,
-    "y": 98,
+    "x": 1458,
+    "y": 95,
     "w": 193,
-    "h": 42
+    "h": 43
   }]
 }
 ----
@@ -245,9 +283,9 @@ Alternatively, you can create missing record pages from the list of modules by c
     "h": 1080
   },
   "annotations": [{
-    "x": 1398,
-    "y": 372,
-    "w": 173,
+    "x": 1432,
+    "y": 259,
+    "w": 144,
     "h": 31
   }]
 }
@@ -268,7 +306,19 @@ If you're configuring a new namespace, you are presented with an onboarding scre
 
 If you wish to add additional charts or are configuring an already configured namespace, navigate to menu:Admin panel[Charts], then click on the btn:[New Chart] button.
 
-image::compose-configuration/chart-create.png[role="data-zoomable"]
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "compose-configuration/chart-create.png",
+    "alias": "compose-configuration-chart-create.png",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {},
+   "annotations": []
+}
+----
 
 .{PRODUCT_NAME} defines three chart categories:
 * <<chart-generic,Generic charts>> which include the usual line, bar, pie, and doughnut charts,
@@ -356,10 +406,10 @@ To always have sub-pages expanded, enable the checkbox under the `Other options`
     "h": 560
   },
   "annotations": [{
-    "x": 1125,
-    "y": 440,
-    "w": 270,
-    "h": 20
+    "x": 1136,
+    "y": 464,
+    "w": 266,
+    "h": 16
   }]
 }
 ----
@@ -465,7 +515,19 @@ Check the "field value expression" checkbox and insert the formula into the new 
 
 Refer to the <<field-expressions,field expressions>> for more details.
 
-image::compose-configuration/field-value-expr.png[role="data-zoomable"]
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "compose-configuration/field-value-expr.png",
+    "alias": "compose-configuration-field-value-expr.png",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {},
+   "annotations": []
+}
+----
 
 | [#module-field-validation]#<<module-field-validation,Field validation>>#
 |
@@ -482,7 +544,19 @@ Click on the btn:[settings icon] next to the field type and navigate to the "Val
 
 Refer to the <<field-expressions,field expressions>> for more details.
 
-image::compose-configuration/field-validation.png[role="data-zoomable"]
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "compose-configuration/field-validation.png",
+    "alias": "compose-configuration-field-validation.png",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {},
+   "annotations": []
+}
+----
 
 |===
 
@@ -667,35 +741,162 @@ image:compose-configuration/page-resize-view.png[width="49%"]
 The page builder is used to define the pages' structure using *page blocks* and a drag-and-drop interface.
 Each page has a grid of 12 columns and is not limited vertically.
 
-image::compose-configuration/page-builder-empty.png[role="data-zoomable"]
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "compose-configuration/page-builder-empty.png",
+    "alias": "compose-configuration-page-builder-empty.png",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {},
+   "annotations": []
+}
+----
 
 Click on the btn:[+ Add block] button to open the page block picker where you can configure and add a new page block.
 The entire page block reference is available xref:compose-configuration/page-blocks.adoc[here].
 
-image::compose-configuration/page-builder-block-picker.png[role="data-zoomable"]
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "compose-configuration/page-builder-block-picker.png",
+    "alias": "compose-configuration-page-builder-block-picker.png",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {},
+   "annotations": []
+}
+----
 
 When you configure and save a page block it is added to the page.
 
-image::compose-configuration/page-builder-block-base.png[role="data-zoomable"]
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "compose-configuration/page-builder-block-base.png",
+    "alias": "compose-configuration-page-builder-block-base.png",
+    "w": 1920,
+    "h": 1080
+  },
+    "view": {
+    "x": 321,
+    "y": 2,
+    "w": 1598,
+    "h": 1004
+  },
+   "annotations": []
+}
+----
 
 To reposition the page block, simply drag-and-drop it to the desired position.
 
 The page block may be placed anywhere on the x-axis, but its y-axis must connect with another page block or with the top of the page.
 If the position is not valid, or it overlays with another page block, the page builder may automatically adjust the surrounding page blocks to conform to the constraints.
 
-image::compose-configuration/page-builder-block-base.png[role="data-zoomable"]
-image::compose-configuration/page-builder-block-repos.png[role="data-zoomable"]
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "compose-configuration/page-builder-block-base.png",
+    "alias": "compose-configuration-page-builder-block-base-2.png",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {
+    "x": 321,
+    "y": 1,
+    "w": 1598,
+    "h": 1004
+  },
+   "annotations": []
+}
+----
+
+
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "compose-configuration/page-builder-block-repos.png",
+    "alias": "compose-configuration-page-builder-block-repos.png",
+    "w": 1920,
+    "h": 1080
+  },
+    "view": {
+    "x": 321,
+    "y": 1,
+    "w": 1598,
+    "h": 1004
+  },
+  "annotations": []
+}
+----
 
 To resize the page block, simply grab the arrow in the bottom-right corner and resize to your needs.
 The page block may not exceed the maximum width of 12 columns.
 The height is not limited.
 
-image::compose-configuration/page-builder-block-base.png[role="data-zoomable"]
-image::compose-configuration/page-builder-block-resize.png[role="data-zoomable"]
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "compose-configuration/page-builder-block-base.png",
+    "alias": "compose-configuration-page-builder-block-base-3.png",
+    "w": 1920,
+    "h": 1080
+  },
+    "view": {
+    "x": 321,
+    "y": 1,
+    "w": 1598,
+    "h": 1004
+  },
+  "annotations": []
+}
+----
+
+
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "compose-configuration/page-builder-block-resize.png",
+    "alias": "compose-configuration-page-builder-block-resize.png",
+    "w": 1920,
+    "h": 1080
+  },
+    "view": {
+    "x": 321,
+    "y": 1,
+    "w": 1598,
+    "h": 1005
+  },
+   "annotations": []
+}
+----
 
 By placing a few extra blocks and changing their layout, you can create interesting home pages and dashboards like the CRM's.
 
-image::compose-configuration/page-builder-example.png[role="data-zoomable"]
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "compose-configuration/page-builder-example.png",
+    "alias": "compose-configuration-page-builder-example.png",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {},
+   "annotations": []
+}
+----
 
 == Page Block Duplication
 
@@ -720,17 +921,17 @@ In the image below, the title of the pages have been highlighted to indicate tha
   },
   "annotations": [
     {
-      "x": 278,
-      "y": 19,
-      "w": 355,
-      "h": 31,
+      "x": 339,
+      "y": 21,
+      "w": 276,
+      "h": 29,
       "kind": "box"
     },
     {
-      "x": 115,
-      "y": 373,
-      "w": 15,
-      "h": 16,
+      "x": 433,
+      "y": 319,
+      "w": 16,
+      "h": 18,
       "kind": "box"
     }
   ]
@@ -750,10 +951,10 @@ You can then navigate to any other page to reuse this page block as many times a
   },
   "annotations": [
     {
-      "x": 276,
-      "y": 10,
-      "w": 380,
-      "h": 50,
+      "x": 340,
+      "y": 21,
+      "w": 274,
+      "h": 29,
       "kind": "box"
     }
   ]
@@ -779,18 +980,18 @@ All we have to do is click the clone button highlighted below.
   },
   "annotations": [
     {
-      "x": 278,
-      "y": 19,
-      "w": 355,
-      "h": 31,
+      "x": 340,
+      "y": 22,
+      "w": 275,
+      "h": 28,
       "kind": "box"
     },
 
     {
-      "x": 72,
-      "y": 372,
-      "w": 20,
-      "h": 20,
+      "x": 392,
+      "y": 320,
+      "w": 16,
+      "h": 17,
       "kind": "box"
     }
   ]
@@ -810,17 +1011,17 @@ After cloning the block, here is what the page now looks like with the cloned bl
   },
   "annotations": [
     {
-      "x": 278,
-      "y": 19,
-      "w": 355,
-      "h": 31,
+      "x": 340,
+      "y": 22,
+      "w": 275,
+      "h": 28,
       "kind": "box"
     },
     {
-      "x": 14,
-      "y": 410,
-      "w": 778,
-      "h": 137,
+      "x": 328,
+      "y": 358,
+      "w": 657,
+      "h": 144,
       "padding": "lg",
       "kind": "box"
     }
@@ -849,24 +1050,24 @@ To copy the contents of another list page, navigate to the page itself and click
     "w": 1920,
     "h": 1080
   },
-  "view": {
-    "x": 0,
-    "y": 535,
-    "w": 1920,
-    "h": 555
+   "view": {
+    "x": 322,
+    "y": 1,
+    "w": 1597,
+    "h": 1078
   },
-  "focus": {
-    "x": 0,
-    "y": 1000,
-    "w": 1920,
-    "h": 60
+    "focus": {
+    "x": 322,
+    "y": 1008,
+    "w": 1597,
+    "h": 71
   },
   "annotations": [{
     "kind": "box",
-    "x": 1440,
-    "y": 1017,
-    "w": 165,
-    "h": 45
+    "x": 1504,
+    "y": 1021,
+    "w": 155,
+    "h": 44
   }]
 }
 ----
@@ -924,10 +1125,10 @@ Find the page icon section under the page description and click on the btn:[edit
   },
   "annotations": [{
     "padding": "lg",
-    "x": 600,
-    "y": 400,
-    "w": 470,
-    "h": 60
+    "x": 590,
+    "y": 413,
+    "w": 513,
+    "h": 66
   }]
 }
 ----
@@ -1032,16 +1233,16 @@ The page icon will be shown in the page edit screen and the sidebar navigation n
     "h": 1080
   },
   "view": {
-    "x": 0,
-    "y": 0,
-    "w": 750,
-    "h": 700
+    "x": 1,
+    "y": 1,
+    "w": 784,
+    "h": 731
   },
   "annotations": [{
-    "x": 27,
-    "y": 280,
-    "w": 75,
-    "h": 30
+    "x": 21,
+    "y": 330,
+    "w": 144,
+    "h": 16
   }]
 }
 ----
@@ -1217,10 +1418,10 @@ When set, blocks that have this configuration will have a zoom-in icon in the to
   "annotations": [{
     "kind": "box",
     "padding": "lg",
-    "x": 1375,
-    "y": 87,
+    "x": 1115,
+    "y": 99,
     "w": 15,
-    "h": 15
+    "h": 14
   }]
 }
 ----
@@ -1303,10 +1504,10 @@ There you will find the refresh option.
   "view": {},
   "annotations": [
     {
-      "x": 965,
-      "y": 335,
-      "w": 550,
-      "h": 100,
+      "x": 407,
+      "y": 611,
+      "w": 530,
+      "h": 110,
       "kind": "box"
     }
   ]
@@ -1362,10 +1563,10 @@ allowing the user to manually refresh the page block.
   "view": {},
   "annotations": [
     {
-      "x": 1869,
-      "y": 83,
-      "w": 20,
-      "h": 20,
+      "x": 1115,
+      "y": 100,
+      "w": 14,
+      "h": 13,
       "kind": "box"
     }
   ]
@@ -1393,10 +1594,10 @@ Click on the btn:[Add] and input the expression that should be evaluated to cond
   "view": {},
   "annotations": [
     {
-      "x": 407,
-      "y": 797,
-      "w": 1090,
-      "h": 148,
+      "x": 391,
+      "y": 718,
+      "w": 1107,
+      "h": 227,
       "kind": "box"
     }
   ]

@@ -34,10 +34,10 @@ The connection management interface is available in the {PRODUCT_NAME} {APP_NAME
   "view": {},
   "annotations": [{
     "kind": "box",
-    "x": 16,
-    "y": 577,
-    "h": 37,
-    "w": 288
+    "x": 21,
+    "y": 575,
+    "h": 11,
+    "w": 171
   }]
 }
 ----
@@ -91,18 +91,18 @@ Data sensitivity levels are discussed in the data privacy sections.
     "w": 1920,
     "h": 1080
   },
-  "view": {
+  "view": {},
+    "focus": {
+    "x": 560,
+    "y": 81,
+    "w": 1107,
+    "h": 486
+  },
+    "view": {
     "x": 352,
     "y": 0,
     "w": 1568,
     "h": 1080
-  },
-  "focus": {
-    "padding": "xs",
-    "x": 535,
-    "y": 106,
-    "w": 1200,
-    "h": 409
   },
   "annotations": []
 }
@@ -175,11 +175,10 @@ These properties *do not* configure {PRODUCT_NAME} to perform anything outlined 
     "h": 1080
   },
   "focus": {
-    "padding": "xs",
-    "x": 535,
+    "x": 560,
     "y": 190,
-    "w": 1200,
-    "h": 733
+    "w": 1107,
+    "h": 763
   },
   "annotations": []
 }
@@ -201,24 +200,23 @@ Data encryption at rest helps mitigate damages in case of a breach.
     "w": 1920,
     "h": 1080
   },
-  "view": {
+    "view": {
     "x": 440,
     "y": 92,
     "h": 925,
     "w": 1397
   },
   "focus": {
-    "padding": "xs",
-    "x": 535,
-    "y": 190,
-    "w": 1200,
-    "h": 733
+    "x": 560,
+    "y": 189,
+    "w": 1106,
+    "h": 763
   },
   "annotations": [{
-    "x": 548,
-    "y": 247,
-    "h": 145,
-    "w": 1177
+    "x": 575,
+    "y": 268,
+    "h": 130,
+    "w": 1076
   }]
 }
 ----
@@ -237,24 +235,23 @@ Data protection helps reduce the chance of a data breach.
     "w": 1920,
     "h": 1080
   },
-  "view": {
+   "view": {
     "x": 440,
     "y": 92,
     "h": 925,
     "w": 1397
   },
   "focus": {
-    "padding": "xs",
-    "x": 535,
-    "y": 190,
-    "w": 1200,
-    "h": 733
+    "x": 559,
+    "y": 189,
+    "w": 1108,
+    "h": 764
   },
   "annotations": [{
-    "x": 548,
-    "y": 413,
-    "h": 145,
-    "w": 1177
+    "x": 576,
+    "y": 420,
+    "h": 129,
+    "w": 1075
   }]
 }
 ----
@@ -273,24 +270,23 @@ Data encryption at transit helps mitigate the risks of wiretapping attacks.
     "w": 1920,
     "h": 1080
   },
-  "view": {
+    "view": {
     "x": 440,
     "y": 92,
     "h": 925,
     "w": 1397
   },
   "focus": {
-    "padding": "xs",
-    "x": 535,
+    "x": 560,
     "y": 190,
-    "w": 1200,
-    "h": 733
+    "w": 1107,
+    "h": 761
   },
   "annotations": [{
-    "x": 548,
-    "y": 579,
-    "h": 145,
-    "w": 1177
+    "x": 575,
+    "y": 570,
+    "h": 131,
+    "w": 1076
   }]
 }
 ----
@@ -308,24 +304,23 @@ Data at rest backup and restoration indicates the data is backed up and can be r
     "w": 1920,
     "h": 1080
   },
-  "view": {
+    "view": {
     "x": 440,
     "y": 92,
     "h": 925,
     "w": 1397
   },
   "focus": {
-    "padding": "xs",
-    "x": 535,
+    "x": 560,
     "y": 190,
-    "w": 1200,
-    "h": 733
+    "w": 1107,
+    "h": 761
   },
   "annotations": [{
-    "x": 548,
-    "y": 747,
-    "h": 145,
-    "w": 1177
+    "x": 576,
+    "y": 723,
+    "h": 128,
+    "w": 1075
   }]
 }
 ----
@@ -348,18 +343,17 @@ Connection parameters also define some default values in regard to the internals
     "w": 1920,
     "h": 1080
   },
-  "view": {
+    "view": {
     "x": 352,
     "y": 0,
     "w": 1568,
     "h": 1080
   },
   "focus": {
-    "padding": "xs",
-    "x": 535,
-    "y": 480,
-    "w": 1200,
-    "h": 523
+    "x": 559,
+    "y": 493,
+    "w": 1108,
+    "h": 573
   },
   "annotations": []
 }

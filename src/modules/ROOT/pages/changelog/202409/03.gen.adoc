@@ -38,7 +38,7 @@ The change was made to improve user experience and navigation visibility
 The change was made to provide more flexibility in workflow user interactions
 ({CORTEZA_COMMIT_BASE}7fc9379[`7fc9379`]).
 * Changed workflow trigger resource and event type labels to be more human readable.
-The change was made to improve user experience in workflow configuration
+The change was made to improve the user experience in workflow configuration
 ({CORTEZA_COMMIT_BASE}39e940a[`39e940a`]).
 * Changed record import/export multi-value support implementation.
 The change was made to improve data handling for complex field types

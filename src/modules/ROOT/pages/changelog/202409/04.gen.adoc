@@ -14,7 +14,7 @@ include::ROOT:partial$variables.adoc[]
 * Added support for arbitrary environment variables for use in {APP_NAME_WORKFLOW}.
 Any variable prefixed with `CORTEZA_ENV_TEST` will be available in the `get ENV variable` workflow function.
 For example, `CORTEZA_ENV_TEST="Hello, World!"` can be accessed as `CORTEZA_ENV_TEST`
-The change was added to provide a better secret management and configuration flexibility
+The change was added to provide better secret management and configuration flexibility
 ({CORTEZA_COMMIT_BASE}c1a48f9[`c1a48f9`]).
 * Added support for configuring inline editable fields in record lists.
 The change was added to allow users to edit records directly from the list view
@@ -45,11 +45,11 @@ The change was made to standardize date/time inputs across the system
 The issue occurred due to invalid cache invalidation
 ({CORTEZA_COMMIT_BASE}8173533[`8173533`]).
 * Fixed precision and scale lapsus between configuration screen and database modification
-The user interface was configuring scale which was interpreted as precision on the back-end
+The user interface was configured to scale, which was interpreted as precision on the back-end
 The temporary solution fixes the precision to the maximum safe value of 15 and keeps the scale as configured
 ({CORTEZA_COMMIT_BASE}2f7974b[`2f7974b`], {CORTEZA_COMMIT_BASE}51e6320[`51e6320`]).
 * Fixed record export ignoring filtering parameters and including all records in the given module.
-The fix was made the query parameter was not provided to the data access layer and therefore everything was included
+The fix was made, the query parameter was not provided to the data access layer, and therefore everything was included
 ({CORTEZA_COMMIT_BASE}15793ad[`15793ad`]).
 * Fixed page layout roles input broken if value corrupted
 ({CORTEZA_COMMIT_BASE}475a98a[`475a98a`]).

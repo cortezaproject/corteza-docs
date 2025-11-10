@@ -10,18 +10,18 @@ The change was added to provide the same set of features on both chart configura
 ({CORTEZA_COMMIT_BASE}d8fa5be[`d8fa5be`]).
 * Added function INSTR that can be used in the compose pre-filters, used like INSTR('foobar', 'foo').
 It returns the position of the first occurrence of the second parameter in the first, starting with 1.
-Returns 0 if no match was found and the matching is case insensitive.
-The change was added to providing more flexibility for the compose pre-filters
+Returns 0 if no match was found, and the matching is case insensitive.
+The change was added to provide more flexibility for the compose pre-filters
 ({CORTEZA_COMMIT_BASE}36d8fc6[`36d8fc6`]).
 
 .[#2022_09_05-changed]#<<2022_09_05-changed,Changed:>>#
 * Changed disabled the field picker drag and drop while searching for a field when configuring module, chart and page fields.
-The change was made because reordering of fields while searching was causing issues.
+The change was made because the reordering of fields while searching was causing issues.
 The change was made by adding a computed property that tracks if a query parameter is added and if dragging is disabled
 ({CORTEZA_COMMIT_BASE}a0a7031[`a0a7031`]).
 * Changed the column selectors in reporter (pre-filter, label/primary/secondary column) now all show the label and name of the column, they can also now be searched except for the presort.
-The change was made to make it easier to differentiate between the different fields that have the same label, for example after using a Join.
-The change was made by replacing the default bootstrap select with the vue-select component
+The change was made to make it easier to differentiate between the different fields that have the same label, for example, after using a Join.
+The change was made by replacing the default Bootstrap Select with the Vue-Select component
 ({CORTEZA_COMMIT_BASE}e61cfde[`e61cfde`]).
 * Changed greater than and less than filter operators, they are now only available on number and date fields.
 Contains and Not contains filter operators are now only available for multi value fields.
@@ -31,7 +31,7 @@ The change was made by updating the operators list configuration in the record l
 
 .[#2022_09_05-fixed]#<<2022_09_05-fixed,Fixed:>>#
 * Fixed filtering for bool type for equal and not equal operator.
-The fix was made by adding custom val handler for bool type to convert it properly while parsing the query according to supported drivers
+The fix was made by adding a custom val handler for the bool type to convert it properly while parsing the query according to supported drivers
 ({CORTEZA_COMMIT_BASE}8e5d63c[`8e5d63c`]).
 * Fixed sensitivity level un-delete prompting a not found error due to an invalid HTTP request.
 The fix was made by properly handling the different sensitivity level states to call the correct endpoint
@@ -51,5 +51,5 @@ The fix was made by adding an updating function that re-fetches the list of reso
 The fix was made by using the same layout as on regular compose charts
 ({CORTEZA_COMMIT_BASE}c09e0f5[`c09e0f5`]).
 * Fixed permissions modal title being incorrect if the resource didn't have a title or handle defined.
-The fix was made by making sure the resourceID will show in the permissions modal title if no other identifiable information exists
+The fix was made by making sure the resource ID will show in the permissions modal title if no other identifiable information exists
 ({CORTEZA_COMMIT_BASE}fd76c8f[`fd76c8f`]).

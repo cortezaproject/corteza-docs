@@ -17,10 +17,47 @@ Over-engineering usually reduces clarity and introduces more failure points.
 To exemplify, instead of using a gateway to set a `Boolean` variable to the correct value, write an expression that evaluates the desired value.
 
 .The screenshot outlines an over-engineered version.
-image::automation/workflows/styleguide/simple-gateway.png[]
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "automation/workflows/styleguide/simple-gateway.png",
+    "alias": "automation-workflows-styleguide-simple-gateway.png",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {
+    "x": 164,
+    "y": 286,
+    "w": 691,
+    "h": 430
+  },
+   "annotations": []
+}
+----
 
 .The screenshot outlines a simplified version.
-image::automation/workflows/styleguide/simple-expression.png[]
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "automation/workflows/styleguide/simple-expression.png",
+    "alias": "automation-workflows-styleguide-simple-expression.png",
+    "w": 1920,
+    "h": 1080
+  },
+   "view": {
+    "x": 1030,
+    "y": 1,
+    "w": 889,
+    "h": 600
+  },
+
+   "annotations": []
+}
+----
 
 [CAUTION]
 ====
@@ -39,17 +76,71 @@ When working with larger workflows, crossing connectors may mislead and confuse 
 Workflow steps define many anchor points to help you achieve this.
 
 .An example of crossing connectors:
-image::automation/workflows/styleguide/connectors-nok.png[]
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "automation/workflows/styleguide/connectors-nok.png",
+    "alias": "automation-workflows-styleguide-connectors-nok.png",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {
+    "x": 78,
+    "y": 156,
+    "w": 1295,
+    "h": 389
+  },
+   "annotations": []
+}
+----
 
 .An example of corrected, non-crossing connectors:
-image::automation/workflows/styleguide/connectors-ok.png[]
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "automation/workflows/styleguide/connectors-ok.png",
+    "alias": "automation-workflows-styleguide-connectors-ok.png",
+    "w": 1920,
+    "h": 1080
+  },
+  "view": {
+    "x": 78,
+    "y": 155,
+    "w": 1295,
+    "h": 303
+  },
+   "annotations": []
+}
+----
 
 [TIP]
 ====
 A connector defines a series of anchor points that you may use to adjust the flow of the connector.
 The anchor points become available when you click on the connector.
 
-image::automation/workflows/styleguide/connector-anchors.png[]
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "automation/workflows/styleguide/connector-anchors.png",
+    "alias": "automation-workflows-styleguide-connector-anchors.png",
+    "w": 1920,
+    "h": 1080
+  },
+    "view": {
+    "x": 188,
+    "y": 290,
+    "w": 996,
+    "h": 373
+  },
+   "annotations": []
+}
+----
+
 ====
 
 == Step labels
@@ -60,16 +151,67 @@ To exemplify, an expression that calculates the sales commissions is best to be 
 A *trigger* label should state the resource and the trigger type.
 This allows the reader to understand when the trigger is executed without reading the configuration.
 
-image::automation/workflows/styleguide/label-trigger.png[]
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "automation/workflows/styleguide/label-trigger.png",
+    "alias": "automation-workflows-styleguide-label-trigger.png",
+    "w": 1920,
+    "h": 1080
+  },
+    "view": {
+    "x": 325,
+    "y": 335,
+    "w": 629,
+    "h": 360
+  },
+   "annotations": []
+}
+----
 
 A *gateway* label should state the question that determines the output.
 The output path labels should state the answer to the question of the corresponding gateway.
 
-image::automation/workflows/styleguide/label-gateway.png[]
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "automation/workflows/styleguide/label-gateway.png",
+    "alias": "automation-workflows-styleguide-label-gateway.png",
+    "w": 1920,
+    "h": 1080
+  },
+   "view": {
+    "x": 192,
+    "y": 228,
+    "w": 725,
+    "h": 517
+  },
+  "annotations": []
+}
+----
 
 The *function* label should contain the verb and the subject of the function.
 
-image::automation/workflows/styleguide/label-function.png[]
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "automation/workflows/styleguide/label-function.png",
+    "alias": "automation-workflows-styleguide-label-function.png",
+    "w": 1920,
+    "h": 1080
+  },
+   "view": {
+    "x": 193,
+    "y": 280,
+    "w": 361,
+    "h": 206
+  },
+   "annotations": []
+}
+----
 
 == Coherent layouts
 
@@ -91,5 +233,23 @@ In smaller workflows that perform simple, singular operations (such as notifying
 For larger projects however, swimlanes can be an orderly addition as they help you visually group smaller steps into larger operations and thus allow you to understand what a specific part of the workflow does.
 
 .The screenshot shows the refactored workflow with swimlanes to group operations.
-image::automation/workflows/styleguide/swimlane.png[role="data-zoomable"]
+
+[annotation,role="data-zoomable"]
+----
+{
+  "image": {
+    "rel": "automation/workflows/styleguide/swimlane.png",
+    "alias": "automation-workflows-styleguide-swimlane.png",
+    "w": 1920,
+    "h": 1080
+  },
+    "view": {
+    "x": 100,
+    "y": 86,
+    "w": 1026,
+    "h": 945
+  },
+  "annotations": []
+}
+----
 

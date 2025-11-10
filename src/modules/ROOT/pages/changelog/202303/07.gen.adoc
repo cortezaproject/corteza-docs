@@ -15,7 +15,7 @@ The change was added to make sorting/viewing data easier for the user
 .[#2023_03_07-changed]#<<2023_03_07-changed,Changed:>>#
 * Changed option to clone a page layout by adding two sub options - for cloning a page with page block reference and for cloning a page without page block reference.
 When cloning by reference, configuration changes that are made to the original page's blocks are also reflected to the copied page's page blocks.
-And when cloning without reference, the changes made to the original page's blocks are not reflected to the copied page's page blocks.
+And when cloning without reference, the changes made to the original page's blocks are not reflected in the copied page's page blocks.
 The change was made to provide the user with the option to choose whether the copied page's block configuration should be shared among pages
 ({CORTEZA_PULL_BASE}1444[`1444`]).
 * Changed the UI for uploading a namespace by showing a spinner while data is being processed and hiding the name and handle field of the namespace instead of showing the spinner and fields at the same time.

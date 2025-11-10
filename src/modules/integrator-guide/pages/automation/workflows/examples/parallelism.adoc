@@ -27,13 +27,13 @@ If any of the branches defines the *termination step* {ICON_WORKFLOW_TERMINATION
     "w": 1920,
     "h": 1080
   },
-  "view": {
-      "x": 105,
-      "y": 245,
-      "w": 720,
-      "h": 600
+    "view": {
+      "x": 244,
+      "y": 84,
+      "w": 683,
+      "h": 539
   },
-  "annotations": []
+    "annotations": []
 }
 ----
 
@@ -64,12 +64,12 @@ If any of the branches defines the *termination step* {ICON_WORKFLOW_TERMINATION
     "h": 1080
   },
   "view": {
-    "x": 372,
-    "y": 67,
-    "w": 720,
-    "h": 918
+      "x": 321,
+      "y": 77,
+      "w": 683,
+      "h": 897
   },
-  "annotations": []
+    "annotations": []
 }
 ----
 
@@ -96,13 +96,13 @@ If any of the branches defines the *termination step* {ICON_WORKFLOW_TERMINATION
     "w": 1920,
     "h": 1080
   },
-  "view": {
-    "x": 370,
-    "y": 169,
-    "w": 722,
+    "view": {
+    "x": 320,
+    "y": 76,
+    "w": 683,
     "h": 601
   },
-  "annotations": []
+   "annotations": []
 }
 ----
 
@@ -132,13 +132,13 @@ If any of the branches defines the *termination step* {ICON_WORKFLOW_TERMINATION
     "w": 1920,
     "h": 1080
   },
-  "view": {
-    "x": 250,
-    "y": 67,
-    "w": 920,
-    "h": 1000
+    "view": {
+    "x": 214,
+    "y": 57,
+    "w": 898,
+    "h": 870
   },
-  "annotations": []
+   "annotations": []
 }
 ----
 

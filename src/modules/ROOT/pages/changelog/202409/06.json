@@ -1,6 +1,6 @@
 {
   "meta": {
-    "releasedOn": "2025.10.01"
+    "releasedOn": "2025.11.11"
   },
 
   "important": [
@@ -19,10 +19,121 @@
   "added": [
     {
       "what": [
-        "user groups to support hierarchical access control"
+        "user groups to support hierarchical access control."
       ],
       "refs": [
         "https://github.com/cortezaproject/corteza/pull/2179"
+      ]
+    },
+    {
+      "what": [
+        "conditional required fields to page layouts."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/23120445ea2dda2f33df61570ba50d018e8f963c"
+      ]
+    },
+    {
+      "what": [
+        "icons for file types when file preview mode is gallery."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/906ec3bcaafa00af8d0034685681f3302f524c96"
+      ]
+    },
+    {
+      "what": [
+        "alternative geosearch provider setting."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/e82c36abc902699c2080a682b77f415818490ef8"
+      ]
+    },
+    {
+      "what": [
+        "option to clear conditional fields when they get hidden."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/76ffe80e8c976f039a8552cddf343167790d955d"
+      ]
+    },
+    {
+      "what": [
+        "option to open specific page layouts via URL query or navigation blocks."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/19ccd5d648195af2b411e131a71ff748e2bafe04"
+      ]
+    },
+    {
+      "what": [
+        "triggers and functions for reminders in workflows."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/f283252400204e20fec1ed6a577b6f22fc5e9ecd"
+      ]
+    }
+  ],
+
+  "changed": [
+    {
+      "what": [
+        "rich text editor to insert new lines with the Enter key."
+      ],
+      "why": [
+        "to align typing behaviour with common text editors."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/7e994065498d181f3f3b207d8d15d3cb56b9a18b"
+      ]
+    },
+    {
+      "what": [
+        "default TOTP secret name to include the user's email address."
+      ],
+      "why": [
+        "to make authenticator entries easier to identify."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/d4dfa8d70a634a19cd5a3574558800fadad56e1c"
+      ]
+    },
+    {
+      "what": [
+        "record inline editing to only show controls on field hover."
+      ],
+      "why": [
+        "to reduce visual noise when reviewing records."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/f7765aae2bc460f4db4763c5f8821558fc2f6492"
+      ]
+    },
+    {
+      "what": [
+        "tooltip boundary to body to avoid rendering issues."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/34fac59ffa998a7e8d02627c2609771719866910"
+      ]
+    },
+    {
+      "what": [
+        "stale data error message."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/fc9a8284a5a5da33acd3b12170ca2e107686ea3e"
+      ]
+    },
+    {
+      "what": [
+        "expression input to be resizable and suppress autocomplete suggestions when there are no matches."
+      ],
+      "why": [
+        "to improve the scripting experience."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/f7c46c2d3c320cca34203e3a5bbc3fb4f1c86f43"
       ]
     }
   ],
@@ -30,10 +141,138 @@
   "fixed": [
     {
       "what": [
+        "record list base prefilter alternative input not properly parsing filter queries."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/8e002062022f8a07429a7ab0ac8526f342d34802"
+      ]
+    },
+    {
+      "what": [
+        "record selector multiselect field not showing selected options."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/fd6f92ea2f370e4c76782ef0acc5e33765c70fde"
+      ]
+    },
+    {
+      "what": [
         "location field not importing during CSV import."
       ],
       "refs": [
-        "https://github.com/cortezaproject/corteza/commit/279e68541"
+        "https://github.com/cortezaproject/corteza/commit/279e6854181a414d0984a89e785ac62454e43bc7"
+      ]
+    },
+    {
+      "what": [
+        "reminder assignee field not visible."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/434605a830b076ee5048cfde01befeaeb94a7f11"
+      ]
+    },
+    {
+      "what": [
+        "record list filter being cleared when removing the last filter manually."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/db5ed11cf596e00f7ab2996d0436b7ffd9973115"
+      ]
+    },
+    {
+      "what": [
+        "special characters not being escaped for LIKE patterns in record filters."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/cb8f55149b3a9f4edb40f79a9f331819c830b71d"
+      ]
+    },
+    {
+      "what": [
+        "rich text editor toolbar styling differences in Firefox."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/4be03d9b1c605abb0997f046a01dd866142888df"
+      ]
+    },
+    {
+      "what": [
+        "record selector dropdown options not clickable for record selectors of record fields."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/e705dd1ad196a817f879752499ada7e911d2c688"
+      ]
+    },
+    {
+      "what": [
+        "null user selector values in charts causing errors."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/160c8d5e9cc9ca15c68f8fa11181f5c887cf689e"
+      ]
+    },
+    {
+      "what": [
+        "deleting saved user filter presets."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/1eb93a20334f49caffa85fcd17da3a4c9eec663c"
+      ]
+    },
+    {
+      "what": [
+        "tab order not being respected when more than twelve tabs are in a block."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/ac58aadd3d0b10d8d1b6f7ea35369cc4559fc028"
+      ]
+    },
+    {
+      "what": [
+        "optional and configured TOTP not prompting during login."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/f1dffc119d5c78bea194afaff316ab5fadc8a2e1"
+      ]
+    },
+    {
+      "what": [
+        "workflow length function failing for arrays."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/a8361ec181eaf1870068502d0261277008a0de02"
+      ]
+    },
+    {
+      "what": [
+        "workflow editor crashing when adding a constraint with an empty resource."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/292707421e3abd5f407d7cfbc552ce86c81aae4b"
+      ]
+    },
+    {
+      "what": [
+        "record list inline editor and filters overlapping inline actions."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/0193dbf76611739ca28a30ec988d9d6d66bc609f"
+      ]
+    },
+    {
+      "what": [
+        "page layout local key handling."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/1dc60f9abeb17d1aec238a20ef44cf599508d501"
+      ]
+    },
+    {
+      "what": [
+        "loop handler dividing a variable by itself."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/044f9719ec61b25b1fb81b6424d469cd77b87391"
       ]
     }
   ]

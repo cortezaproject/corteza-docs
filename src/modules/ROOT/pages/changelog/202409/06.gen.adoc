@@ -2,7 +2,7 @@ include::ROOT:partial$variables.adoc[]
 
 = `2024.9.6`
 
-*Released on*: `2025.10.01`
+*Released on*: `2025.11.11`
 
 [IMPORTANT]
 ====
@@ -13,7 +13,69 @@ include::ROOT:partial$variables.adoc[]
 .[#2024_09_06-added]#<<2024_09_06-added,Added:>>#
 * Added user groups to support hierarchical access control
 ({CORTEZA_PULL_BASE}2179[`2179`]).
+* Added conditional required fields to page layouts
+({CORTEZA_COMMIT_BASE}2312044[`2312044`]).
+* Added icons for file types when file preview mode is gallery
+({CORTEZA_COMMIT_BASE}906ec3b[`906ec3b`]).
+* Added alternative geosearch provider setting
+({CORTEZA_COMMIT_BASE}e82c36a[`e82c36a`]).
+* Added option to clear conditional fields when they get hidden
+({CORTEZA_COMMIT_BASE}76ffe80[`76ffe80`]).
+* Added option to open specific page layouts via URL query or navigation blocks
+({CORTEZA_COMMIT_BASE}19ccd5d[`19ccd5d`]).
+* Added triggers and functions for reminders in workflows
+({CORTEZA_COMMIT_BASE}f283252[`f283252`]).
+
+.[#2024_09_06-changed]#<<2024_09_06-changed,Changed:>>#
+* Changed rich text editor to insert new lines with the Enter key.
+The change was made to align typing behaviour with common text editors
+({CORTEZA_COMMIT_BASE}7e99406[`7e99406`]).
+* Changed default TOTP secret name to include the user's email address.
+The change was made to make authenticator entries easier to identify
+({CORTEZA_COMMIT_BASE}d4dfa8d[`d4dfa8d`]).
+* Changed record inline editing to only show controls on field hover.
+The change was made to reduce visual noise when reviewing records
+({CORTEZA_COMMIT_BASE}f7765aa[`f7765aa`]).
+* Changed tooltip boundary to body to avoid rendering issues
+({CORTEZA_COMMIT_BASE}34fac59[`34fac59`]).
+* Changed stale data error message
+({CORTEZA_COMMIT_BASE}fc9a828[`fc9a828`]).
+* Changed expression input to be resizable and suppress autocomplete suggestions when there are no matches.
+The change was made to improve the scripting experience
+({CORTEZA_COMMIT_BASE}f7c46c2[`f7c46c2`]).
 
 .[#2024_09_06-fixed]#<<2024_09_06-fixed,Fixed:>>#
+* Fixed record list base prefilter alternative input not properly parsing filter queries
+({CORTEZA_COMMIT_BASE}8e00206[`8e00206`]).
+* Fixed record selector multiselect field not showing selected options
+({CORTEZA_COMMIT_BASE}fd6f92e[`fd6f92e`]).
 * Fixed location field not importing during CSV import
 ({CORTEZA_COMMIT_BASE}279e685[`279e685`]).
+* Fixed reminder assignee field not visible
+({CORTEZA_COMMIT_BASE}434605a[`434605a`]).
+* Fixed record list filter being cleared when removing the last filter manually
+({CORTEZA_COMMIT_BASE}db5ed11[`db5ed11`]).
+* Fixed special characters not being escaped for LIKE patterns in record filters
+({CORTEZA_COMMIT_BASE}cb8f551[`cb8f551`]).
+* Fixed rich text editor toolbar styling differences in Firefox
+({CORTEZA_COMMIT_BASE}4be03d9[`4be03d9`]).
+* Fixed record selector dropdown options not clickable for record selectors of record fields
+({CORTEZA_COMMIT_BASE}e705dd1[`e705dd1`]).
+* Fixed null user selector values in charts causing errors
+({CORTEZA_COMMIT_BASE}160c8d5[`160c8d5`]).
+* Fixed deleting saved user filter presets
+({CORTEZA_COMMIT_BASE}1eb93a2[`1eb93a2`]).
+* Fixed tab order not being respected when more than twelve tabs are in a block
+({CORTEZA_COMMIT_BASE}ac58aad[`ac58aad`]).
+* Fixed optional and configured TOTP not prompting during login
+({CORTEZA_COMMIT_BASE}f1dffc1[`f1dffc1`]).
+* Fixed workflow length function failing for arrays
+({CORTEZA_COMMIT_BASE}a8361ec[`a8361ec`]).
+* Fixed workflow editor crashing when adding a constraint with an empty resource
+({CORTEZA_COMMIT_BASE}2927074[`2927074`]).
+* Fixed record list inline editor and filters overlapping inline actions
+({CORTEZA_COMMIT_BASE}0193dbf[`0193dbf`]).
+* Fixed page layout local key handling
+({CORTEZA_COMMIT_BASE}1dc60f9[`1dc60f9`]).
+* Fixed loop handler dividing a variable by itself
+({CORTEZA_COMMIT_BASE}044f971[`044f971`]).

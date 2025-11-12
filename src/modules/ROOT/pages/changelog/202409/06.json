@@ -89,7 +89,7 @@
     },
     {
       "what": [
-        "default TOTP secret name to include the user's email address."
+        "TOTP secret name to include the user's email address instead of handle."
       ],
       "why": [
         "to make authenticator entries easier to identify."
@@ -111,7 +111,10 @@
     },
     {
       "what": [
-        "tooltip boundary to body to avoid rendering issues."
+        "tooltip boundary to body."
+      ],
+      "why": [
+        "to avoid rendering issues when the tooltip has no space to be displayed."
       ],
       "refs": [
         "https://github.com/cortezaproject/corteza/commit/34fac59ffa998a7e8d02627c2609771719866910"
@@ -120,6 +123,9 @@
     {
       "what": [
         "stale data error message."
+      ],
+      "why": [
+        "to improve the user experience when editing resources."
       ],
       "refs": [
         "https://github.com/cortezaproject/corteza/commit/fc9a8284a5a5da33acd3b12170ca2e107686ea3e"
@@ -141,7 +147,7 @@
   "fixed": [
     {
       "what": [
-        "record list base prefilter alternative input not properly parsing filter queries."
+        "record list prefilter alternative input not properly parsing filter queries."
       ],
       "refs": [
         "https://github.com/cortezaproject/corteza/commit/8e002062022f8a07429a7ab0ac8526f342d34802"
@@ -197,7 +203,7 @@
     },
     {
       "what": [
-        "record selector dropdown options not clickable for record selectors of record fields."
+        "record selectors that include record fields not being clickable/selectable."
       ],
       "refs": [
         "https://github.com/cortezaproject/corteza/commit/e705dd1ad196a817f879752499ada7e911d2c688"
@@ -229,7 +235,7 @@
     },
     {
       "what": [
-        "optional and configured TOTP not prompting during login."
+        "optional TOTP not prompting during login."
       ],
       "refs": [
         "https://github.com/cortezaproject/corteza/commit/f1dffc119d5c78bea194afaff316ab5fadc8a2e1"
@@ -237,7 +243,7 @@
     },
     {
       "what": [
-        "workflow length function failing for arrays."
+        "workflow length function for Array types."
       ],
       "refs": [
         "https://github.com/cortezaproject/corteza/commit/a8361ec181eaf1870068502d0261277008a0de02"
@@ -245,7 +251,7 @@
     },
     {
       "what": [
-        "workflow editor crashing when adding a constraint with an empty resource."
+        "workflow editor crashing when having a trigger constraint with an empty resource."
       ],
       "refs": [
         "https://github.com/cortezaproject/corteza/commit/292707421e3abd5f407d7cfbc552ce86c81aae4b"
@@ -261,7 +267,7 @@
     },
     {
       "what": [
-        "page layout local key handling."
+        "page layout locale key in discovery types."
       ],
       "refs": [
         "https://github.com/cortezaproject/corteza/commit/1dc60f9abeb17d1aec238a20ef44cf599508d501"

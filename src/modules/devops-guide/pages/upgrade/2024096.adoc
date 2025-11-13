@@ -1,0 +1,82 @@
+include::ROOT:partial$variables.adoc[]
+
+= Upgrading to 2024.9.6
+:page-aliases: 2024.9@upgrade-guide:2024096.adoc
+
+The newly added user groups requires database schema modifications that may not be backwards compatible.
+The `role_members` table receives a new `rel_resource` column which is generated based on the `rel_user` column.
+After the upgrade, you need to either delete the `rel_user` column or drop the requirement the `rel_user` column is populated.
+
+== Before the Upgrade
+
+[CAUTION]
+====
+Since the database schema will be modified, we recommend you create a backup just in case.
+====
+
+Run the following commands based on your database:
+
+=== MySQL
+
+[source,sql]
+----
+ALTER TABLE role_members
+    ADD COLUMN rel_resource TEXT;
+
+ALTER TABLE role_members
+    DROP PRIMARY KEY;
+
+ALTER TABLE role_members
+    ADD PRIMARY KEY (rel_resource, rel_role);
+
+ALTER TABLE role_members
+    MODIFY rel_user BIGINT UNSIGNED NULL;
+
+----
+
+=== PostgreSQL
+
+[source,sql]
+----
+ALTER TABLE role_members
+    ADD COLUMN rel_resource text;
+
+ALTER TABLE role_members
+    DROP CONSTRAINT role_members_pkey;
+
+ALTER TABLE role_members
+    ADD CONSTRAINT role_members_pkey
+        PRIMARY KEY (rel_resource, rel_role);
+
+ALTER TABLE role_members
+    ALTER COLUMN rel_user DROP NOT NULL;
+
+----
+
+=== SQL Server
+
+[source,sql]
+----
+ALTER TABLE role_members
+    ADD rel_resource NVARCHAR(MAX) NULL;
+
+ALTER TABLE role_members
+    DROP CONSTRAINT role_members_pkey;
+
+ALTER TABLE role_members
+    ADD CONSTRAINT role_members_pkey
+        PRIMARY KEY (rel_resource, rel_role);
+
+ALTER TABLE role_members
+    ALTER COLUMN rel_user BIGINT NULL;
+
+----
+
+== After the Upgrade
+
+If you'll no longer require the column, you can safely delete it.
+
+[source,sql]
+----
+ALTER TABLE role_members DROP COLUMN rel_user;
+----

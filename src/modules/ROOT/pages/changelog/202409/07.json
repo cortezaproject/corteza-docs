@@ -1,0 +1,17 @@
+{
+  "meta": {
+    "releasedOn": "2025.11.11"
+  },
+
+  "fixed": [
+    {
+      "what": [
+        "OIDC authentication always using the same user regardless of the login parameters.",
+        "The issue was caused due to a missing claim in the response when using {PRODUCT_NAME} as the OIDC provider."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/37219f883"
+      ]
+    }
+  ]
+}

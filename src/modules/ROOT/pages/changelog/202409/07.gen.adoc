@@ -2,9 +2,46 @@ include::ROOT:partial$variables.adoc[]
 
 = `2024.9.7`
 
-*Released on*: `2025.11.11`
+*Released on*: `2025.12.24`
+
+.[#2024_09_07-added]#<<2024_09_07-added,Added:>>#
+* Added ability to assign namespaces and modules as workflow labels for filtering
+({CORTEZA_COMMIT_BASE}57f3983[`57f3983`]).
+* Added experimental record drafts feature
+({CORTEZA_COMMIT_BASE}6ceafa0[`6ceafa0`]).
+* Added option to resolve record references during export
+({CORTEZA_COMMIT_BASE}271f8d7[`271f8d7`]).
+* Added step option to number fields
+({CORTEZA_COMMIT_BASE}ffa1de9[`ffa1de9`]).
+* Added automatic comment input focus when replying
+({CORTEZA_COMMIT_BASE}03c1ad3[`03c1ad3`]).
+* Added sorting to record revisions
+({CORTEZA_COMMIT_BASE}5c2aa28[`5c2aa28`]).
+* Added multi-field support for record list parent field options
+({CORTEZA_COMMIT_BASE}31de4b7[`31de4b7`]).
+* Added ability to mark notifications as unread
+({CORTEZA_COMMIT_BASE}f07042f[`f07042f`]).
+
+.[#2024_09_07-changed]#<<2024_09_07-changed,Changed:>>#
+* Changed improved workflow canvas with scrollability and middle-mouse pan support
+({CORTEZA_COMMIT_BASE}3d4e077[`3d4e077`]).
+* Changed stay on the same record list page after bulk editing when using full-page navigation
+({CORTEZA_COMMIT_BASE}5791c24[`5791c24`]).
+* Changed OIDC authentication response to include the sub claim
+({CORTEZA_COMMIT_BASE}65da683[`65da683`]).
 
 .[#2024_09_07-fixed]#<<2024_09_07-fixed,Fixed:>>#
-* Fixed OIDC authentication always using the same user regardless of the login parameters
-The issue was caused due to a missing claim in the response when using {PRODUCT_NAME} as the OIDC provider
-({CORTEZA_COMMIT_BASE}37219f8[`37219f8`]).
+* Fixed inline record editor not refreshing when adding a new record during creation
+({CORTEZA_COMMIT_BASE}4978ae1[`4978ae1`]).
+* Fixed authentication handler methods to apply settings updates without requiring a server restart
+({CORTEZA_COMMIT_BASE}5e128e6[`5e128e6`]).
+* Fixed NULL filtering for multi-value record list filters
+({CORTEZA_COMMIT_BASE}7dc429d[`7dc429d`]).
+* Fixed record notification modals not opening when clicked on the same page
+({CORTEZA_COMMIT_BASE}84877e1[`84877e1`]).
+* Fixed rendering issues in the Calendar Agenda view
+({CORTEZA_COMMIT_BASE}a3a31d0[`a3a31d0`]).
+* Fixed hard break handling in rich text editors which was affecting bullet and numbered list behavior
+({CORTEZA_COMMIT_BASE}11c92af[`11c92af`]).
+* Fixed module issues tab color not displaying correctly
+({CORTEZA_COMMIT_BASE}b3ea6d2[`b3ea6d2`]).

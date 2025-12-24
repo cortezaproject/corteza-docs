@@ -1,16 +1,157 @@
 {
   "meta": {
-    "releasedOn": "2025.11.11"
+    "releasedOn": "2025.12.24"
   },
+
+  "added": [
+    {
+      "what": [
+        "ability to assign namespaces and modules as workflow labels for filtering."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/57f39831d"
+      ]
+    },
+    {
+      "what": [
+        "experimental record drafts feature."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/6ceafa01c"
+      ]
+    },
+    {
+      "what": [
+        "option to resolve record references during export."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/271f8d708"
+      ]
+    },
+    {
+      "what": [
+        "step option to number fields."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/ffa1de9b9"
+      ]
+    },
+    {
+      "what": [
+        "automatic comment input focus when replying."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/03c1ad3ab"
+      ]
+    },
+    {
+      "what": [
+        "sorting to record revisions."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/5c2aa285a"
+      ]
+    },
+    {
+      "what": [
+        "multi-field support for record list parent field options."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/31de4b797"
+      ]
+    },
+    {
+      "what": [
+        "ability to mark notifications as unread."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/f07042f59"
+      ]
+    }
+  ],
+
+  "changed": [
+    {
+      "what": [
+        "improved workflow canvas with scrollability and middle-mouse pan support."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/3d4e077f6"
+      ]
+    },
+    {
+      "what": [
+        "stay on the same record list page after bulk editing when using full-page navigation."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/5791c24f2"
+      ]
+    },
+    {
+      "what": [
+        "OIDC authentication response to include the sub claim."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/65da68319"
+      ]
+    }
+  ],
 
   "fixed": [
     {
       "what": [
-        "OIDC authentication always using the same user regardless of the login parameters.",
-        "The issue was caused due to a missing claim in the response when using {PRODUCT_NAME} as the OIDC provider."
+        "inline record editor not refreshing when adding a new record during creation."
       ],
       "refs": [
-        "https://github.com/cortezaproject/corteza/commit/37219f883"
+        "https://github.com/cortezaproject/corteza/commit/4978ae1e4"
+      ]
+    },
+    {
+      "what": [
+        "authentication handler methods to apply settings updates without requiring a server restart."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/5e128e6ee"
+      ]
+    },
+    {
+      "what": [
+        "NULL filtering for multi-value record list filters."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/7dc429dae"
+      ]
+    },
+    {
+      "what": [
+        "record notification modals not opening when clicked on the same page."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/84877e117"
+      ]
+    },
+    {
+      "what": [
+        "rendering issues in the Calendar Agenda view."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/a3a31d002"
+      ]
+    },
+    {
+      "what": [
+        "hard break handling in rich text editors which was affecting bullet and numbered list behavior."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/11c92afb0"
+      ]
+    },
+    {
+      "what": [
+        "module issues tab color not displaying correctly."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/b3ea6d2bc"
       ]
     }
   ]

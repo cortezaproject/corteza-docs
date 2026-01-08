@@ -156,7 +156,7 @@
     },
     {
       "what": [
-        "string to integer conversion not working correctly for numbers with leading zero"
+        "string to integer conversion not working correctly for workflow expression function"
       ],
       "refs": [
         "https://github.com/cortezaproject/corteza/commit/0fa1be6"

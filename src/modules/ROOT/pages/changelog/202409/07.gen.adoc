@@ -45,3 +45,7 @@ include::ROOT:partial$variables.adoc[]
 ({CORTEZA_COMMIT_BASE}11c92af[`11c92af`]).
 * Fixed module issues tab color not displaying correctly
 ({CORTEZA_COMMIT_BASE}b3ea6d2[`b3ea6d2`]).
+* Fixed string to integer conversion not working correctly for numbers with leading zero
+({CORTEZA_COMMIT_BASE}0fa1be6[`0fa1be6`]).
+* Fixed precision loss for uint64 values in revision changes
+({CORTEZA_COMMIT_BASE}8464083[`8464083`]).

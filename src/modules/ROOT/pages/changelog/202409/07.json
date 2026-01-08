@@ -8,64 +8,40 @@
       "what": [
         "ability to assign namespaces and modules as workflow labels for filtering."
       ],
-      "refs": [
-        "https://github.com/cortezaproject/corteza/commit/57f39831d"
-      ]
+      "refs": ["https://github.com/cortezaproject/corteza/commit/57f39831d"]
     },
     {
-      "what": [
-        "experimental record drafts feature."
-      ],
-      "refs": [
-        "https://github.com/cortezaproject/corteza/commit/6ceafa01c"
-      ]
+      "what": ["experimental record drafts feature."],
+      "refs": ["https://github.com/cortezaproject/corteza/commit/6ceafa01c"]
     },
     {
-      "what": [
-        "option to resolve record references during export."
-      ],
-      "refs": [
-        "https://github.com/cortezaproject/corteza/commit/271f8d708"
-      ]
+      "what": ["option to resolve record references during export."],
+      "refs": ["https://github.com/cortezaproject/corteza/commit/271f8d708"]
     },
     {
-      "what": [
-        "step option to number fields."
-      ],
-      "refs": [
-        "https://github.com/cortezaproject/corteza/commit/ffa1de9b9"
-      ]
+      "what": ["step option to number fields."],
+      "refs": ["https://github.com/cortezaproject/corteza/commit/ffa1de9b9"]
     },
     {
-      "what": [
-        "automatic comment input focus when replying."
-      ],
-      "refs": [
-        "https://github.com/cortezaproject/corteza/commit/03c1ad3ab"
-      ]
+      "what": ["automatic comment input focus when replying."],
+      "refs": ["https://github.com/cortezaproject/corteza/commit/03c1ad3ab"]
     },
     {
-      "what": [
-        "sorting to record revisions."
-      ],
-      "refs": [
-        "https://github.com/cortezaproject/corteza/commit/5c2aa285a"
-      ]
+      "what": ["sorting to record revisions."],
+      "refs": ["https://github.com/cortezaproject/corteza/commit/5c2aa285a"]
     },
     {
-      "what": [
-        "multi-field support for record list parent field options."
-      ],
-      "refs": [
-        "https://github.com/cortezaproject/corteza/commit/31de4b797"
-      ]
+      "what": ["multi-field support for record list parent field options."],
+      "refs": ["https://github.com/cortezaproject/corteza/commit/31de4b797"]
     },
     {
-      "what": [
-        "ability to mark notifications as unread."
-      ],
+      "what": ["ability to mark notifications as unread."],
+      "refs": ["https://github.com/cortezaproject/corteza/commit/f07042f59"]
+    },
+    {
+      "what": ["attachments to comments block."],
       "refs": [
-        "https://github.com/cortezaproject/corteza/commit/f07042f59"
+        "https://github.com/cortezaproject/corteza/commit/358d7a92a9390d17ecd2c893d2ad78718c2c0e0b"
       ]
     }
   ],
@@ -75,25 +51,17 @@
       "what": [
         "improved workflow canvas with scrollability and middle-mouse pan support."
       ],
-      "refs": [
-        "https://github.com/cortezaproject/corteza/commit/3d4e077f6"
-      ]
+      "refs": ["https://github.com/cortezaproject/corteza/commit/3d4e077f6"]
     },
     {
       "what": [
         "stay on the same record list page after bulk editing when using full-page navigation."
       ],
-      "refs": [
-        "https://github.com/cortezaproject/corteza/commit/5791c24f2"
-      ]
+      "refs": ["https://github.com/cortezaproject/corteza/commit/5791c24f2"]
     },
     {
-      "what": [
-        "OIDC authentication response to include the sub claim."
-      ],
-      "refs": [
-        "https://github.com/cortezaproject/corteza/commit/65da68319"
-      ]
+      "what": ["OIDC authentication response to include the sub claim."],
+      "refs": ["https://github.com/cortezaproject/corteza/commit/65da68319"]
     }
   ],
 
@@ -102,74 +70,67 @@
       "what": [
         "inline record editor not refreshing when adding a new record during creation."
       ],
-      "refs": [
-        "https://github.com/cortezaproject/corteza/commit/4978ae1e4"
-      ]
+      "refs": ["https://github.com/cortezaproject/corteza/commit/4978ae1e4"]
     },
     {
       "what": [
         "authentication handler methods to apply settings updates without requiring a server restart."
       ],
-      "refs": [
-        "https://github.com/cortezaproject/corteza/commit/5e128e6ee"
-      ]
+      "refs": ["https://github.com/cortezaproject/corteza/commit/5e128e6ee"]
     },
     {
-      "what": [
-        "NULL filtering for multi-value record list filters."
-      ],
-      "refs": [
-        "https://github.com/cortezaproject/corteza/commit/7dc429dae"
-      ]
+      "what": ["NULL filtering for multi-value record list filters."],
+      "refs": ["https://github.com/cortezaproject/corteza/commit/7dc429dae"]
     },
     {
       "what": [
         "record notification modals not opening when clicked on the same page."
       ],
-      "refs": [
-        "https://github.com/cortezaproject/corteza/commit/84877e117"
-      ]
+      "refs": ["https://github.com/cortezaproject/corteza/commit/84877e117"]
     },
     {
-      "what": [
-        "rendering issues in the Calendar Agenda view."
-      ],
-      "refs": [
-        "https://github.com/cortezaproject/corteza/commit/a3a31d002"
-      ]
+      "what": ["rendering issues in the Calendar Agenda view."],
+      "refs": ["https://github.com/cortezaproject/corteza/commit/a3a31d002"]
     },
     {
       "what": [
         "hard break handling in rich text editors which was affecting bullet and numbered list behavior."
       ],
-      "refs": [
-        "https://github.com/cortezaproject/corteza/commit/11c92afb0"
-      ]
+      "refs": ["https://github.com/cortezaproject/corteza/commit/11c92afb0"]
     },
     {
-      "what": [
-        "module issues tab color not displaying correctly."
-      ],
-      "refs": [
-        "https://github.com/cortezaproject/corteza/commit/b3ea6d2bc"
-      ]
+      "what": ["module issues tab color not displaying correctly."],
+      "refs": ["https://github.com/cortezaproject/corteza/commit/b3ea6d2bc"]
     },
     {
       "what": [
         "string to integer conversion not working correctly for workflow expression function"
       ],
-      "refs": [
-        "https://github.com/cortezaproject/corteza/commit/0fa1be6"
-      ]
+      "refs": ["https://github.com/cortezaproject/corteza/commit/0fa1be6"]
+    },
+    {
+      "what": ["precision loss for uint64 values in revision changes"],
+      "refs": ["https://github.com/cortezaproject/corteza/commit/8464083"]
     },
     {
       "what": [
-        "precision loss for uint64 values in revision changes"
+        "modal notification record not redirecting if on a different namespace."
       ],
       "refs": [
-        "https://github.com/cortezaproject/corteza/commit/8464083"
+        "https://github.com/cortezaproject/corteza/commit/2d2e8f2581d38ba29750421cd6951bb057466fbd"
+      ]
+    },
+    {
+      "what": ["primary database not displaying in admin"],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/c36d7162a94b659350e6fee4132307d932b9222a"
+      ]
+    },
+    {
+      "what": ["unfilterable fields showing inline filter button"],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/ae04730734afe8ccf18d5b1c523d359d7f54c5f6"
       ]
     }
-
   ]
 }

@@ -16,7 +16,10 @@
     },
     {
       "what": ["option to resolve record references during export."],
-      "refs": ["https://github.com/cortezaproject/corteza/commit/271f8d708"]
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/271f8d708",
+        "https://github.com/cortezaproject/corteza/commit/b4b42e238"
+      ]
     },
     {
       "what": ["step option to number fields."],

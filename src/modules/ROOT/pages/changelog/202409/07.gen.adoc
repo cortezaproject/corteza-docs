@@ -10,7 +10,7 @@ include::ROOT:partial$variables.adoc[]
 * Added experimental record drafts feature
 ({CORTEZA_COMMIT_BASE}6ceafa0[`6ceafa0`]).
 * Added option to resolve record references during export
-({CORTEZA_COMMIT_BASE}271f8d7[`271f8d7`]).
+({CORTEZA_COMMIT_BASE}271f8d7[`271f8d7`], {CORTEZA_COMMIT_BASE}b4b42e2[`b4b42e2`]).
 * Added step option to number fields
 ({CORTEZA_COMMIT_BASE}ffa1de9[`ffa1de9`]).
 * Added automatic comment input focus when replying
@@ -23,6 +23,12 @@ include::ROOT:partial$variables.adoc[]
 ({CORTEZA_COMMIT_BASE}f07042f[`f07042f`]).
 * Added attachments to comments block
 ({CORTEZA_COMMIT_BASE}358d7a9[`358d7a9`]).
+* Added setting for which fields will be searchable in record list
+({CORTEZA_COMMIT_BASE}dd8e7a2[`dd8e7a2`]).
+* Added option to hide delete button in record lists
+({CORTEZA_COMMIT_BASE}8be2627[`8be2627`]).
+* Added option to make record list record click do nothing
+({CORTEZA_COMMIT_BASE}3e3db08[`3e3db08`]).
 
 .[#2024_09_07-changed]#<<2024_09_07-changed,Changed:>>#
 * Changed improved workflow canvas with scrollability and middle-mouse pan support
@@ -31,6 +37,8 @@ include::ROOT:partial$variables.adoc[]
 ({CORTEZA_COMMIT_BASE}5791c24[`5791c24`]).
 * Changed OIDC authentication response to include the sub claim
 ({CORTEZA_COMMIT_BASE}65da683[`65da683`]).
+* Changed all shadows to black no matter the theme
+({CORTEZA_COMMIT_BASE}224e675[`224e675`]).
 
 .[#2024_09_07-fixed]#<<2024_09_07-fixed,Fixed:>>#
 * Fixed inline record editor not refreshing when adding a new record during creation
@@ -57,3 +65,7 @@ include::ROOT:partial$variables.adoc[]
 ({CORTEZA_COMMIT_BASE}c36d716[`c36d716`]).
 * Fixed unfilterable fields showing inline filter button
 ({CORTEZA_COMMIT_BASE}ae04730[`ae04730`]).
+* Fixed file field not triggering unsaved changes
+({CORTEZA_COMMIT_BASE}b26a7ba[`b26a7ba`]).
+* Fixed no visual gap on automation buttons in record list
+({CORTEZA_COMMIT_BASE}6f3ce3e[`6f3ce3e`]).

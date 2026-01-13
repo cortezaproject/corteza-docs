@@ -46,6 +46,18 @@
       "refs": [
         "https://github.com/cortezaproject/corteza/commit/358d7a92a9390d17ecd2c893d2ad78718c2c0e0b"
       ]
+    },
+    {
+      "what": ["setting for which fields will be searchable in record list."],
+      "refs": ["https://github.com/cortezaproject/corteza/commit/dd8e7a2"]
+    },
+    {
+      "what": ["option to hide delete button in record lists."],
+      "refs": ["https://github.com/cortezaproject/corteza/commit/8be2627"]
+    },
+    {
+      "what": ["option to make record list record click do nothing."],
+      "refs": ["https://github.com/cortezaproject/corteza/commit/3e3db08"]
     }
   ],
 
@@ -65,6 +77,10 @@
     {
       "what": ["OIDC authentication response to include the sub claim."],
       "refs": ["https://github.com/cortezaproject/corteza/commit/65da68319"]
+    },
+    {
+      "what": ["all shadows to black no matter the theme."],
+      "refs": ["https://github.com/cortezaproject/corteza/commit/224e675"]
     }
   ],
 
@@ -134,6 +150,14 @@
       "refs": [
         "https://github.com/cortezaproject/corteza/commit/ae04730734afe8ccf18d5b1c523d359d7f54c5f6"
       ]
+    },
+    {
+      "what": ["file field not triggering unsaved changes."],
+      "refs": ["https://github.com/cortezaproject/corteza/commit/b26a7ba"]
+    },
+    {
+      "what": ["no visual gap on automation buttons in record list."],
+      "refs": ["https://github.com/cortezaproject/corteza/commit/6f3ce3e"]
     }
   ]
 }

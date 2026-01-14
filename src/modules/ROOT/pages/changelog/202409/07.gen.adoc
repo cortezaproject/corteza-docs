@@ -2,7 +2,7 @@ include::ROOT:partial$variables.adoc[]
 
 = `2024.9.7`
 
-*Released on*: `2025.12.24`
+*Released on*: `2026.01.14`
 
 .[#2024_09_07-added]#<<2024_09_07-added,Added:>>#
 * Added ability to assign namespaces and modules as workflow labels for filtering

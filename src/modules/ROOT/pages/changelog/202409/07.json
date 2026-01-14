@@ -158,6 +158,12 @@
     {
       "what": ["no visual gap on automation buttons in record list."],
       "refs": ["https://github.com/cortezaproject/corteza/commit/6f3ce3e"]
+    },
+    {
+      "what": ["issues with scrolling blocks on mobile."],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/1eea6bc324b9065c0d6889fe53c7ae642e54b084"
+      ]
     }
   ]
 }

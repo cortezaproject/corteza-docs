@@ -1,0 +1,53 @@
+include::ROOT:partial$variables.adoc[]
+
+= `2024.9.8`
+
+*Released on*: `TBD`
+
+.[#2024_09_08-added]#<<2024_09_08-added,Added:>>#
+* Added record search to topbar in compose via discovery
+({CORTEZA_COMMIT_BASE}1bc7a19[`1bc7a19`]).
+* Added inline record editing support for record lists on non-record pages
+({CORTEZA_COMMIT_BASE}6fb5cf1[`6fb5cf1`]).
+* Added AND/OR condition toggle between record list filter groups
+({CORTEZA_COMMIT_BASE}74992d5[`74992d5`]).
+* Added lazy loading option for tab blocks to improve record reference resolution
+({CORTEZA_COMMIT_BASE}cd36b7f[`cd36b7f`]).
+* Added user properties (email, name, handle) to contextual role expressions
+({CORTEZA_COMMIT_BASE}fd5fdcc[`fd5fdcc`]).
+
+.[#2024_09_08-changed]#<<2024_09_08-changed,Changed:>>#
+* Changed page layout to automatically expand visible blocks into space left by hidden blocks
+({CORTEZA_COMMIT_BASE}e7df16a[`e7df16a`]).
+* Changed namespace sidebar to display the namespace-specific logo when available
+({CORTEZA_COMMIT_BASE}6faed67[`6faed67`]).
+* Changed mobile sidebar width to be consistent with notification, draft, and reminder panels
+({CORTEZA_COMMIT_BASE}a002f3f[`a002f3f`]).
+* Changed workflow delay step to display a corrected label and a duration format hint
+({CORTEZA_COMMIT_BASE}9789f58[`9789f58`]).
+* Changed comments toolbox to be sticky to top of comment if scrolling
+({CORTEZA_COMMIT_BASE}8851017[`8851017`]).
+
+.[#2024_09_08-fixed]#<<2024_09_08-fixed,Fixed:>>#
+* Fixed users being able to export and filter by fields they do not have read access to
+({CORTEZA_COMMIT_BASE}92cb0e1[`92cb0e1`]).
+* Fixed calendar and date picker ignoring user locale due to deprecated weekInfo API
+({CORTEZA_COMMIT_BASE}3f368b3[`3f368b3`]).
+* Fixed parallel gateway paths in workflows overwriting each other's scope changes
+({CORTEZA_COMMIT_BASE}7a57bba[`7a57bba`]).
+* Fixed incorrect column name in federation node sync query filter
+({CORTEZA_COMMIT_BASE}1e924df[`1e924df`]).
+* Fixed update-denied error showing a raw key instead of a translated message
+({CORTEZA_COMMIT_BASE}0b7f36d[`0b7f36d`]).
+* Fixed suspended and deleted users not resolving in member picker and comments block
+({CORTEZA_COMMIT_BASE}55f2aa0[`55f2aa0`]).
+* Fixed chart drill-down label not disappearing when zooming into a magnified chart
+({CORTEZA_COMMIT_BASE}d514122[`d514122`]).
+* Fixed tab block tabs not respecting visibility expressions
+({CORTEZA_COMMIT_BASE}ab95a22[`ab95a22`]).
+* Fixed missing translations on the permissions evaluation screen across all webapps
+({CORTEZA_COMMIT_BASE}3c0c4bc[`3c0c4bc`]).
+* Fixed namespace redirect failing when opening a specific namespace in a new browser tab
+({CORTEZA_COMMIT_BASE}404056c[`404056c`]).
+* Fixed Corredor gRPC connection failing due to incorrect dial options
+({CORTEZA_COMMIT_BASE}e252b02[`e252b02`]).

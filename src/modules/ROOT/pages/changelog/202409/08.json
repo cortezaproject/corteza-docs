@@ -5,6 +5,14 @@
 
   "added": [
     {
+      "what": ["reactions to comments block."],
+      "refs": ["https://github.com/cortezaproject/corteza/commit/74af3007d5a30cc81f602ffab6641234a69e181e"]
+    },
+    {
+      "what": ["emoji picker to rich text editors."],
+      "refs": ["https://github.com/cortezaproject/corteza/commit/74af3007d5a30cc81f602ffab6641234a69e181e"]
+    },
+    {
       "what": ["record search to topbar in compose via discovery."],
       "refs": ["https://github.com/cortezaproject/corteza/commit/1bc7a1913"]
     },

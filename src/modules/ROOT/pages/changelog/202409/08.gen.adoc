@@ -5,6 +5,10 @@ include::ROOT:partial$variables.adoc[]
 *Released on*: `TBD`
 
 .[#2024_09_08-added]#<<2024_09_08-added,Added:>>#
+* Added reactions to comments block
+({CORTEZA_COMMIT_BASE}74af300[`74af300`]).
+* Added emoji picker to rich text editors
+({CORTEZA_COMMIT_BASE}74af300[`74af300`]).
 * Added record search to topbar in compose via discovery
 ({CORTEZA_COMMIT_BASE}1bc7a19[`1bc7a19`]).
 * Added inline record editing support for record lists on non-record pages

@@ -7,18 +7,42 @@ include::ROOT:partial$variables.adoc[]
 [CAUTION]
 ====
 {PRODUCT_NAME} {APP_NAME_FEDERATION} is currently in experimental mode and the federation function is disabled by default.
-Set the `FEDERATION_ENABLED` `.env` variable to `true` if you wish to enable it.
 ====
-//Editor's note: check line 8 for accuracy.
 
 {PRODUCT_NAME} {APP_NAME_FEDERATION} enables different *{PRODUCT_NAME} instances* to establish a *federated network* to *freely and securely* exchange information.
 
-This document helps you through the process of *setting up your federated network* and *configuring data sharing*.
+This guide walks you through the process of *setting up your federated network* and *configuring data sharing*.
 
 .Quick access:
 * <<node-pairing,adding new federated nodes>>,
 * <<expose-module,configuring data sharing>>,
 * <<module-mapping,consuming shared data>>.
+
+== Environment Configuration
+
+Before pairing nodes in the administration interface, you must enable and configure the Federation feature in your `.env` file on all participating instances.
+
+Add the following variables to your environment configuration and restart your {PRODUCT_NAME} server:
+
+[source,env]
+----
+# Enable federation
+FEDERATION_ENABLED=true
+
+# Identify this specific node
+FEDERATION_HOST=node_origin:8084
+FEDERATION_LABEL=Federation origin host
+
+# Synchronization tuning
+FEDERATION_SYNC_STRUCTURE_MONITOR_INTERVAL=60s
+FEDERATION_SYNC_STRUCTURE_PAGE_SIZE=1
+FEDERATION_SYNC_DATA_MONITOR_INTERVAL=20s
+FEDERATION_SYNC_DATA_PAGE_SIZE=100
+----
+
+* `FEDERATION_HOST`: The resolvable address (and port) where this specific node can be reached.
+* `FEDERATION_LABEL`: A human-readable name for this node to easily identify it in the network.
+* **Sync tuning**: The structure and data monitor intervals control how frequently the system polls for changes.
 
 :leveloffset: +1
 

@@ -68,20 +68,44 @@ docker-compose exec server bash
 
 == Configuring {PRODUCT_NAME} {APP_NAME_DISCOVERY} Server
 
-Setup the following env variables:
+=== Search Engine Requirements
+{APP_NAME_DISCOVERY} requires a running instance of either **Elasticsearch** or **OpenSearch** to function.
+
+[NOTE]
+====
+**Important:** You will notice the configuration variables below use the `ES_` prefix (e.g., `ES_ADDRESS`, `ES_USERNAME`). This prefix is maintained for backward compatibility. You must use these `ES_` variables regardless of whether your search engine is Elasticsearch or OpenSearch.
+====
+
+=== Generating Auth Clients
+Before configuring your environment variables, you must generate Auth Clients within {PRODUCT_NAME} to securely connect the Discovery Indexer and Searcher to the main server.
+
+. Log into the {PRODUCT_NAME} **Admin Area**.
+. Navigate to **System** > **Auth Clients**.
+. Click **New** to create a client (e.g., name it "Discovery Indexer - Private").
+. Ensure the **Grant Type** is set to allow `client_credentials`.
+. Select a specific role that has the necessary read permissions for the data you wish to index.
+. Click **Submit**.
+. Securely copy the generated **Client ID** (used for the Key) and **Client Secret**.
+. Repeat this process for your Protected Indexer, Public Indexer, and Searcher.
+
+=== Environment Variables
+Setup the following `.env` variables, replacing the placeholder values with your search engine details and newly generated Auth Client credentials:
 
 [source,env]
-```
+----
 ES_ADDRESS=your-open-search-url
 ES_USERNAME=your-open-search-username
 ES_PASSWORD=your-open-search-password
 ES_SECURE=false
 ES_INDEX_INTERVAL=60
+
 CORTEZA_SERVER_BASE_URL=your-corteza-server-url
 CORTEZA_SERVER_AUTH_URL=your-corteza-server-url/auth
 
 DISCOVERY_INDEXER_ENABLED=true
 DISCOVERY_SEARCHER_ENABLED=true
+
+# Replace with your generated Auth Client credentials
 DISCOVERY_INDEXER_PRIVATE_INDEX_CLIENT_KEY=private-index-client-key
 DISCOVERY_INDEXER_PRIVATE_INDEX_CLIENT_SECRET=private-index-client-secret
 DISCOVERY_INDEXER_PROTECTED_INDEX_CLIENT_KEY=protected-index-client-key
@@ -91,4 +115,4 @@ DISCOVERY_INDEXER_PUBLIC_INDEX_CLIENT_SECRET=public-index-client-secret
 
 DISCOVERY_SEARCHER_CLIENT_KEY=your-searcher-client-key
 DISCOVERY_SEARCHER_CLIENT_SECRET=your-searcher-client-secret
-```
+----

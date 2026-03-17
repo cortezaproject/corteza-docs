@@ -49,7 +49,7 @@ The generated invite URL includes a secure OTT (One-Time Token), so ensure you s
 ====
 
 .[#node-pairing-accept-invite]#<<node-pairing-accept-invite,To accept the email invitation (Destination Node):>>#
-. click the btn:[Pair Federation Node] button in the email,
+. click the btn:[Pair Federation Node] link in the email to open the pairing page,
 . enter the received URL and confirm.
 
 .[#node-pairing-accept-invite-manual]#<<node-pairing-accept-invite-manual,To accept the invitation manually (Destination Node):>>#

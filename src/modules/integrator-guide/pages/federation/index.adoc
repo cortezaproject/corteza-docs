@@ -7,6 +7,7 @@ include::ROOT:partial$variables.adoc[]
 [CAUTION]
 ====
 {PRODUCT_NAME} {APP_NAME_FEDERATION} is currently in experimental mode and the federation function is disabled by default.
+See <<Environment Configuration>> below to enable it.
 ====
 
 {PRODUCT_NAME} {APP_NAME_FEDERATION} enables different *{PRODUCT_NAME} instances* to establish a *federated network* to *freely and securely* exchange information.
@@ -30,6 +31,7 @@ Add the following variables to your environment configuration and restart your {
 FEDERATION_ENABLED=true
 
 # Identify this specific node
+# Replace with your actual resolvable host address and port
 FEDERATION_HOST=node_origin:8084
 FEDERATION_LABEL=Federation origin host
 

@@ -96,7 +96,9 @@ Setup the following `.env` variables, replacing the placeholder values with your
 ES_ADDRESS=your-open-search-url
 ES_USERNAME=your-open-search-username
 ES_PASSWORD=your-open-search-password
+# Set to true if connecting over HTTPS
 ES_SECURE=false
+# Re-indexing interval in seconds
 ES_INDEX_INTERVAL=60
 
 CORTEZA_SERVER_BASE_URL=your-corteza-server-url
@@ -105,14 +107,17 @@ CORTEZA_SERVER_AUTH_URL=your-corteza-server-url/auth
 DISCOVERY_INDEXER_ENABLED=true
 DISCOVERY_SEARCHER_ENABLED=true
 
-# Replace with your generated Auth Client credentials
+# Private indexer — indexes data visible only to the owning user
 DISCOVERY_INDEXER_PRIVATE_INDEX_CLIENT_KEY=private-index-client-key
 DISCOVERY_INDEXER_PRIVATE_INDEX_CLIENT_SECRET=private-index-client-secret
+# Protected indexer — indexes data visible to authenticated users
 DISCOVERY_INDEXER_PROTECTED_INDEX_CLIENT_KEY=protected-index-client-key
 DISCOVERY_INDEXER_PROTECTED_INDEX_CLIENT_SECRET=protected-index-client-secret
+# Public indexer — indexes data visible to everyone
 DISCOVERY_INDEXER_PUBLIC_INDEX_CLIENT_KEY=public-index-client-key
 DISCOVERY_INDEXER_PUBLIC_INDEX_CLIENT_SECRET=public-index-client-secret
 
+# Searcher — used by the Discovery search interface
 DISCOVERY_SEARCHER_CLIENT_KEY=your-searcher-client-key
 DISCOVERY_SEARCHER_CLIENT_SECRET=your-searcher-client-secret
 ----

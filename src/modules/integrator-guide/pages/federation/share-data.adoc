@@ -42,7 +42,7 @@ To speed up configuration, you can duplicate settings from another node by selec
 {
   "image": {
     "rel": "federation/expose-module.png",
-    "alias": "federation-map-module",
+    "alias": "federation-expose-module",
     "w": 1920,
     "h": 1080
   },

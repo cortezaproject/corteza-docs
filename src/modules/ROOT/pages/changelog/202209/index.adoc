@@ -54,10 +54,6 @@ include::07.gen.adoc[]
 
 include::06.gen.adoc[]
 
-include::05.gen.adoc[]
-
-include::04.gen.adoc[]
-
 include::03.gen.adoc[]
 
 include::02.gen.adoc[]

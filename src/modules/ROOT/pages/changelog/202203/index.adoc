@@ -36,8 +36,6 @@ The web console is most useful for scenarios where you may not have (or want to 
 
 include::06.gen.adoc[]
 
-include::05.adoc[]
-
 include::04.adoc[]
 
 include::03.adoc[]

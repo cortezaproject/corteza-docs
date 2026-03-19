@@ -59,6 +59,14 @@
 
   "fixed": [
     {
+      "what": ["record export potentially leaking data regardless of access control settings."],
+      "refs": ["https://github.com/cortezaproject/corteza/commit/7dd578ce3"]
+    },
+    {
+      "what": ["filtering and sorting over fields the user has no access to."],
+      "refs": ["https://github.com/cortezaproject/corteza/commit/f3af10cd8"]
+    },
+    {
       "what": ["users being able to export and filter by fields they do not have read access to."],
       "refs": ["https://github.com/cortezaproject/corteza/commit/92cb0e15e"]
     },

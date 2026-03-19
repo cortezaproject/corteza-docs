@@ -33,6 +33,10 @@ include::ROOT:partial$variables.adoc[]
 ({CORTEZA_COMMIT_BASE}8851017[`8851017`]).
 
 .[#2024_09_08-fixed]#<<2024_09_08-fixed,Fixed:>>#
+* Fixed record export potentially leaking data regardless of access control settings
+({CORTEZA_COMMIT_BASE}7dd578c[`7dd578c`]).
+* Fixed filtering and sorting over fields the user has no access to
+({CORTEZA_COMMIT_BASE}f3af10c[`f3af10c`]).
 * Fixed users being able to export and filter by fields they do not have read access to
 ({CORTEZA_COMMIT_BASE}92cb0e1[`92cb0e1`]).
 * Fixed calendar and date picker ignoring user locale due to deprecated weekInfo API

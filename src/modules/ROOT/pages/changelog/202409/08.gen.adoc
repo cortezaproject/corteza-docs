@@ -2,7 +2,7 @@ include::ROOT:partial$variables.adoc[]
 
 = `2024.9.8`
 
-*Released on*: `TBD`
+*Released on*: `2026.3.19`
 
 .[#2024_09_08-added]#<<2024_09_08-added,Added:>>#
 * Added reactions to comments block

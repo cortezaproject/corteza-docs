@@ -1,0 +1,12 @@
+{
+  "meta": {
+    "releasedOn": "TBD"
+  },
+
+  "fixed": [
+    {
+      "what": ["user selector fields not returning any data when filtering by role membership due to invalid internal queries."],
+      "refs": ["https://github.com/cortezaproject/corteza/commit/7f5e04ba1"]
+    }
+  ]
+}

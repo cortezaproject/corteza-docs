@@ -2,11 +2,49 @@
   "meta": {
     "releasedOn": "TBD"
   },
-
+  "changed": [
+    {
+      "what": [
+        "default record export behavior to resolve refs to labels by default",
+        "New checkbox introduced to include the raw identifier next to the label"
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/26bc29379"
+      ]
+    }
+  ],
   "fixed": [
     {
-      "what": ["user selector fields not returning any data when filtering by role membership due to invalid internal queries."],
-      "refs": ["https://github.com/cortezaproject/corteza/commit/7f5e04ba1"]
+      "what": [
+        "user selector fields not returning any data when filtering by role membership due to invalid internal queries."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/7f5e04ba1"
+      ]
+    },
+    {
+      "what": [
+        "user and record references not resolving to labels in some edge cases"
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/95ed2bdf2"
+      ]
+    },
+    {
+      "what": [
+        "server crashing when exporting a larger set of records in a particular chunking scenario"
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/2df62736f"
+      ]
+    },
+    {
+      "what": [
+        "resolve suspended and deleted user labels when exporting a record list"
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/77da5bb5c"
+      ]
     }
   ]
 }

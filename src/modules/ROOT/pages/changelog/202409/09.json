@@ -1,50 +1,112 @@
 {
   "meta": {
-    "releasedOn": "TBD"
+    "releasedOn": "2026.5.26"
   },
+  "added": [
+    {
+      "what": ["more system fields to the admin system-fields display."],
+      "refs": ["https://github.com/cortezaproject/corteza/commit/f5b0471fe"]
+    },
+    {
+      "what": ["an option to trigger record list search on submit or while typing."],
+      "refs": ["https://github.com/cortezaproject/corteza/commit/3dd6a67a4"]
+    }
+  ],
   "changed": [
     {
-      "what": [
-        "default record export behavior to resolve refs to labels by default",
-        "New checkbox introduced to include the raw identifier next to the label"
-      ],
+      "what": ["default record export behavior to resolve refs to labels by default, with a new checkbox to include the raw identifier next to the label."],
       "refs": [
         "https://github.com/cortezaproject/corteza/commit/26bc29379"
       ]
+    },
+    {
+      "what": ["workflow labels to show the ID when a module or namespace cannot be resolved."],
+      "refs": ["https://github.com/cortezaproject/corteza/commit/d875ccf63"]
+    },
+    {
+      "what": ["the server to use embedded timezone data instead of relying on the host system."],
+      "refs": ["https://github.com/cortezaproject/corteza/commit/3b8cdb4ae"]
     }
   ],
   "fixed": [
     {
-      "what": [
-        "user selector fields not returning any data when filtering by role membership due to invalid internal queries."
-      ],
+      "what": ["user selector fields not returning any data when filtering by role membership due to invalid internal queries."],
+      "refs": ["https://github.com/cortezaproject/corteza/commit/0c3ce1d25"]
+    },
+    {
+      "what": ["user and record references not resolving to labels in some edge cases"],
+      "refs": ["https://github.com/cortezaproject/corteza/commit/95ed2bdf2"]
+    },
+    {
+      "what": ["server crashing when exporting a larger set of records in a particular chunking scenario"],
+      "refs": ["https://github.com/cortezaproject/corteza/commit/2df62736f"]
+    },
+    {
+      "what": ["resolve suspended and deleted user labels when exporting a record list"],
+      "refs": ["https://github.com/cortezaproject/corteza/commit/77da5bb5c"]
+    },
+    {
+      "what": ["record export failing on missing or deleted references."],
+      "refs": ["https://github.com/cortezaproject/corteza/commit/96f7f0e74"]
+    },
+    {
+      "what": ["ID fields not being properly matched to module fields during record import."],
+      "refs": ["https://github.com/cortezaproject/corteza/commit/b2dcd936d"]
+    },
+    {
+      "what": ["a race condition when opening a record in a new tab."],
+      "refs": ["https://github.com/cortezaproject/corteza/commit/1e3fc123d"]
+    },
+    {
+      "what": ["the open-in-modal action failing after switching layout."],
+      "refs": ["https://github.com/cortezaproject/corteza/commit/0a405dbd3"]
+    },
+    {
+      "what": ["suspended and deleted users not being selectable in the record list filter user field."],
+      "refs": ["https://github.com/cortezaproject/corteza/commit/903c704e5"]
+    },
+    {
+      "what": ["the total notification count when a notification is not part of the first page."],
+      "refs": ["https://github.com/cortezaproject/corteza/commit/7a1264e97"]
+    },
+    {
+      "what": ["revoking user sessions in the admin user editor."],
+      "refs": ["https://github.com/cortezaproject/corteza/commit/8d2b9d8ca"]
+    },
+    {
+      "what": ["the SMTP test failing against servers that do not advertise AUTH PLAIN."],
+      "refs": ["https://github.com/cortezaproject/corteza/commit/5ce99b1fa"]
+    },
+    {
+      "what": ["workflow labels not evaluating when the module or namespace is not in the initial list fetch."],
+      "refs": ["https://github.com/cortezaproject/corteza/commit/7afdc4c46"]
+    },
+    {
+      "what": ["record values not opening correctly in a modal when opened as a link."],
+      "refs": ["https://github.com/cortezaproject/corteza/commit/8a1eec1e6"]
+    },
+    {
+      "what": ["invalid paging cursors when generating the next page of records on dedicated DAL tables."],
+      "refs": ["https://github.com/cortezaproject/corteza/commit/32105e4ef"]
+    },
+    {
+      "what": ["timezone handling in record exports (custom timezone encoding and missing timezone formatting)."],
       "refs": [
-        "https://github.com/cortezaproject/corteza/commit/7f5e04ba1"
+        "https://github.com/cortezaproject/corteza/commit/4885bdcc0",
+        "https://github.com/cortezaproject/corteza/commit/3d5e23bf2"
       ]
     },
     {
-      "what": [
-        "user and record references not resolving to labels in some edge cases"
-      ],
-      "refs": [
-        "https://github.com/cortezaproject/corteza/commit/95ed2bdf2"
-      ]
+      "what": ["an error when exporting records with the unassigned checkbox enabled."],
+      "refs": ["https://github.com/cortezaproject/corteza/commit/eece94333"]
     },
     {
-      "what": [
-        "server crashing when exporting a larger set of records in a particular chunking scenario"
-      ],
-      "refs": [
-        "https://github.com/cortezaproject/corteza/commit/2df62736f"
-      ]
+      "what": ["the file name of a record export when using a date range."],
+      "refs": ["https://github.com/cortezaproject/corteza/commit/3f21da53d"]
     },
     {
-      "what": [
-        "resolve suspended and deleted user labels when exporting a record list"
-      ],
-      "refs": [
-        "https://github.com/cortezaproject/corteza/commit/77da5bb5c"
-      ]
+      "what": ["user resolution in record exports."],
+      "refs": ["https://github.com/cortezaproject/corteza/commit/fb08ac993"]
     }
   ]
 }

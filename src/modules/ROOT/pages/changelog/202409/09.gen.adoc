@@ -1,0 +1,59 @@
+include::ROOT:partial$variables.adoc[]
+
+= `2024.9.9`
+
+*Released on*: `2026.5.26`
+
+.[#2024_09_09-added]#<<2024_09_09-added,Added:>>#
+* Added more system fields to the admin system-fields display
+({CORTEZA_COMMIT_BASE}f5b0471[`f5b0471`]).
+* Added an option to trigger record list search on submit or while typing
+({CORTEZA_COMMIT_BASE}3dd6a67[`3dd6a67`]).
+
+.[#2024_09_09-changed]#<<2024_09_09-changed,Changed:>>#
+* Changed default record export behavior to resolve refs to labels by default, with a new checkbox to include the raw identifier next to the label
+({CORTEZA_COMMIT_BASE}26bc293[`26bc293`]).
+* Changed workflow labels to show the ID when a module or namespace cannot be resolved
+({CORTEZA_COMMIT_BASE}d875ccf[`d875ccf`]).
+* Changed the server to use embedded timezone data instead of relying on the host system
+({CORTEZA_COMMIT_BASE}3b8cdb4[`3b8cdb4`]).
+
+.[#2024_09_09-fixed]#<<2024_09_09-fixed,Fixed:>>#
+* Fixed user selector fields not returning any data when filtering by role membership due to invalid internal queries
+({CORTEZA_COMMIT_BASE}0c3ce1d[`0c3ce1d`]).
+* Fixed user and record references not resolving to labels in some edge cases
+({CORTEZA_COMMIT_BASE}95ed2bd[`95ed2bd`]).
+* Fixed server crashing when exporting a larger set of records in a particular chunking scenario
+({CORTEZA_COMMIT_BASE}2df6273[`2df6273`]).
+* Fixed resolve suspended and deleted user labels when exporting a record list
+({CORTEZA_COMMIT_BASE}77da5bb[`77da5bb`]).
+* Fixed record export failing on missing or deleted references
+({CORTEZA_COMMIT_BASE}96f7f0e[`96f7f0e`]).
+* Fixed ID fields not being properly matched to module fields during record import
+({CORTEZA_COMMIT_BASE}b2dcd93[`b2dcd93`]).
+* Fixed a race condition when opening a record in a new tab
+({CORTEZA_COMMIT_BASE}1e3fc12[`1e3fc12`]).
+* Fixed the open-in-modal action failing after switching layout
+({CORTEZA_COMMIT_BASE}0a405db[`0a405db`]).
+* Fixed suspended and deleted users not being selectable in the record list filter user field
+({CORTEZA_COMMIT_BASE}903c704[`903c704`]).
+* Fixed the total notification count when a notification is not part of the first page
+({CORTEZA_COMMIT_BASE}7a1264e[`7a1264e`]).
+* Fixed revoking user sessions in the admin user editor
+({CORTEZA_COMMIT_BASE}8d2b9d8[`8d2b9d8`]).
+* Fixed the SMTP test failing against servers that do not advertise AUTH PLAIN
+({CORTEZA_COMMIT_BASE}5ce99b1[`5ce99b1`]).
+* Fixed workflow labels not evaluating when the module or namespace is not in the initial list fetch
+({CORTEZA_COMMIT_BASE}7afdc4c[`7afdc4c`]).
+* Fixed record values not opening correctly in a modal when opened as a link
+({CORTEZA_COMMIT_BASE}8a1eec1[`8a1eec1`]).
+* Fixed invalid paging cursors when generating the next page of records on dedicated DAL tables
+({CORTEZA_COMMIT_BASE}32105e4[`32105e4`]).
+* Fixed timezone handling in record exports (custom timezone encoding and missing timezone formatting)
+({CORTEZA_COMMIT_BASE}4885bdc[`4885bdc`], {CORTEZA_COMMIT_BASE}3d5e23b[`3d5e23b`]).
+* Fixed an error when exporting records with the unassigned checkbox enabled
+({CORTEZA_COMMIT_BASE}eece943[`eece943`]).
+* Fixed the file name of a record export when using a date range
+({CORTEZA_COMMIT_BASE}3f21da5[`3f21da5`]).
+* Fixed user resolution in record exports
+({CORTEZA_COMMIT_BASE}fb08ac9[`fb08ac9`]).

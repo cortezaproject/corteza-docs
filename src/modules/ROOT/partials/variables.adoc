@@ -1,3 +1,9 @@
+// IMPORTANT: keep the blank line below.
+// This partial is re-included mid-document (e.g. every changelog version file
+// includes it). The blank line puts ':VERSION:' at a block boundary; without it
+// AsciiDoc renders ':VERSION: <value>' as literal text next to the preceding
+// content (e.g. glued onto the last changelog entry). Do not remove it.
+
 :VERSION: {PAGE-VERSION}.x
 
 :APP_NAME_SHELL: One

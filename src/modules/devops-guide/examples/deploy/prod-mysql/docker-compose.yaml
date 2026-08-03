@@ -7,7 +7,7 @@ services:
     env_file: [ .env ]
     depends_on: [ db ]
     networks: [ proxy, internal ]
-    # Uncomment to use local fs for data persistence
+    # Uses local filesystem paths for data persistence
     volumes: [ "./data/server:/data" ]
     environment:
       # These two are needed only if you are using NginX Lets-Encrypt companion

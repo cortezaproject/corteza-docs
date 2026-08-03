@@ -25,6 +25,7 @@ services:
     image: postgres:15
     networks: [ internal ]
     restart: always
+    volumes: [ "./data/db:/var/lib/postgresql/data" ]
     healthcheck: { test: ["CMD-SHELL", "pg_isready -U corteza"], interval: 10s, timeout: 5s, retries: 5 }
     environment:
       # Warning: these are values that are only used on 1st start

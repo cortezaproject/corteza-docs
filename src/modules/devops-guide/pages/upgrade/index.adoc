@@ -27,6 +27,16 @@ If you are upgrading multiple versions at the same time; for example from 2019.1
 . pull new images from docker hub with `docker-compose pull`,
 . recreate containers with `docker-compose up -d`.
 
+[CAUTION]
+====
+If you are also taking over a `docker-compose.yaml` change that adds a volume to a service which previously had none, that service starts against an *empty* directory.
+
+For the `db` service this means the database initialises a new, empty cluster on the next `docker-compose up -d`, while your existing data remains in the writable layer of the old container.
+Dump your database *before* recreating the containers and restore it afterwards.
+
+Refer to xref:devops-guide:maintenance/backups.adoc[devops guide on backup procedure] for details.
+====
+
 :leveloffset: +1
 
 include::2024096.adoc[]

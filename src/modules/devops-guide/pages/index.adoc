@@ -236,7 +236,7 @@ See xref:examples/deploy-offline/index.adoc[] for example offline deployment con
     📁 server <2>
     📁 db <3>
 ----
-<1> Make sure to change the owner to the Docker container (you can use `chown 1001:1001 data/db` and `chown 4242:4242 data/server`).
+<1> The images take care of the ownership of these directories on first start; you only need to `chown` them yourself if you run the containers as a non-root user.
 Omit if you won't use persistent storage.
 <2> Here is where all of the server data is stored, for example uploaded attachments.
 <3> Here is where the database data is stored.
@@ -332,7 +332,7 @@ See xref:examples/deploy-online/index.adoc[] for example online deployment confi
 ----
 <1> Omit this if you're not planning on using Nginx reverse proxy or if it's already setup.
 <2> `custom.conf` must be placed next to the `docker-compose.yaml` file.
-<3> Make sure to change the owner to the Docker container (you can use `chown 1001:1001 data/db` and `chown 4242:4242 data/server`).
+<3> The images take care of the ownership of these directories on first start; you only need to `chown` them yourself if you run the containers as a non-root user.
 Omit if you won't use persistent storage.
 <4> Here is where all of the server data is stored, such as uploaded attachments.
 <5> Here is where the database can store the data.

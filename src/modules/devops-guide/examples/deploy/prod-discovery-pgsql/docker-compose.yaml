@@ -8,14 +8,17 @@ services:
     environment:
       VIRTUAL_HOST:     ${DOMAIN}
       LETSENCRYPT_HOST: ${DOMAIN}
+    # Uses local filesystem paths for data persistence
     volumes:
-      - data:/data
+      - ./data/server:/data
     restart: on-failure
 
   db:
     image: postgres:13
     networks: [ internal ]
     restart: on-failure
+    volumes:
+      - ./data/db:/var/lib/postgresql/data
     healthcheck: { test: ["CMD-SHELL", "pg_isready -U corteza"], interval: 10s, timeout: 5s, retries: 5 }
     environment:
       POSTGRES_USER:     corteza
@@ -58,9 +61,6 @@ services:
       - plugins.security.allow_default_init_securityindex=true
       - plugins.security.disabled=false
       - OPENSEARCH_INITIAL_ADMIN_PASSWORD=supersecurepassword75@!1A
-
-volumes:
-  data:
 
 networks:
   internal:

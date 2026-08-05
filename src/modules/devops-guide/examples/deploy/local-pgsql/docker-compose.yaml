@@ -7,6 +7,8 @@ services:
     env_file: [ .env ]
     depends_on: [ db ]
     ports: [ "127.0.0.1:18080:80" ]
+    # Uses local filesystem paths for data persistence
+    volumes: [ "./data/server:/data" ]
 
   db:
     # PostgreSQL Database
@@ -16,14 +18,10 @@ services:
       #    networks: [ internal ]
     restart: always
     healthcheck: { test: ["CMD-SHELL", "pg_isready -U corteza"], interval: 10s, timeout: 5s, retries: 5 }
-    volumes:
-      - "dbdata:/var/lib/postgresql/data"
+    volumes: [ "./data/db:/var/lib/postgresql/data" ]
     environment:
       # Warning: these are values that are only used on 1st start
       #          if you want to change it later, you need to do that
       #          manually inside db container
       POSTGRES_USER:     corteza
       POSTGRES_PASSWORD: corteza
-
-volumes:
-  dbdata:

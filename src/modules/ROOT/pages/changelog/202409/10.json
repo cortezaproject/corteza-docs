@@ -1,0 +1,167 @@
+{
+  "meta": {
+    "releasedOn": "2026.8.20"
+  },
+
+  "added": [
+    {
+      "what": ["an OIDC userinfo endpoint, a complete discovery document and scope based ID token claims to the authentication server."],
+      "refs": ["https://github.com/cortezaproject/corteza/commit/d7a635f27"]
+    },
+    {
+      "what": ["header and footer template support to document rendering, configurable in the admin template editor and exposed as arguments of the workflow template render function."],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/0ad0ed21c",
+        "https://github.com/cortezaproject/corteza/commit/f54c18ea6",
+        "https://github.com/cortezaproject/corteza/commit/fc8094e15"
+      ]
+    },
+    {
+      "what": ["support for Gotenberg 7 and 8 PDF rendering endpoints."],
+      "refs": ["https://github.com/cortezaproject/corteza/commit/8e4f4e429"]
+    },
+    {
+      "what": ["a safeHTML template function for rendering unescaped HTML."],
+      "refs": ["https://github.com/cortezaproject/corteza/commit/22cb71a83"]
+    },
+    {
+      "what": ["a rich text editor to the notification description in the workflow builder, with notification descriptions now rendered as rich text."],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/c63275d3f",
+        "https://github.com/cortezaproject/corteza/commit/244b0ee0d"
+      ]
+    },
+    {
+      "what": ["human readable labels to workflow function and prompt parameters."],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/861f43a64",
+        "https://github.com/cortezaproject/corteza/commit/778c3af0c"
+      ]
+    },
+    {
+      "what": ["a red asterisk marking required workflow parameters."],
+      "refs": ["https://github.com/cortezaproject/corteza/commit/2285b9bed"]
+    }
+  ],
+
+  "changed": [
+    {
+      "what": ["workflow parameters to show the name once, in bold, beside its type."],
+      "refs": ["https://github.com/cortezaproject/corteza/commit/8d652ca79"]
+    },
+    {
+      "what": ["the admin template editor to move the header and footer selects into the content section, show the content section while creating a template and hide the preview until the template is saved."],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/28a5a3432",
+        "https://github.com/cortezaproject/corteza/commit/e446a5a43"
+      ]
+    },
+    {
+      "what": ["record list bulk editing to ignore the record field prefilter."],
+      "refs": ["https://github.com/cortezaproject/corteza/commit/7254eb1cd"]
+    },
+    {
+      "what": ["the duplicate detection configuration to state that all constraint fields must match."],
+      "refs": ["https://github.com/cortezaproject/corteza/commit/11f1baa26"]
+    },
+    {
+      "what": ["the KV and KVV expression types to set values with a flat key instead of interpreting the key as a JSON path."],
+      "refs": ["https://github.com/cortezaproject/corteza/commit/42dcf81a5"]
+    },
+    {
+      "what": ["the API Gateway proxy outbound timeout to be seeded from the server options into settings."],
+      "refs": ["https://github.com/cortezaproject/corteza/commit/ed5e12ae5"]
+    },
+    {
+      "what": ["Corredor script results to be logged as strings instead of base64."],
+      "refs": ["https://github.com/cortezaproject/corteza/commit/3b56260ea"]
+    },
+    {
+      "what": ["the compose record store to key records by module and record ID."],
+      "refs": ["https://github.com/cortezaproject/corteza/commit/2c5169ac4"]
+    }
+  ],
+
+  "fixed": [
+    {
+      "what": ["server panics when a websocket session disconnects, for example during unauthenticated visitor access and login redirects."],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/5d2c3079c",
+        "https://github.com/cortezaproject/corteza/commit/54dbca54d",
+        "https://github.com/cortezaproject/corteza/commit/c9d6080a2"
+      ]
+    },
+    {
+      "what": ["composite uniqueness constraints to require all constrained fields to match, to compare values against the constrained field only and to skip fields that were removed from the module."],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/e71c1a634",
+        "https://github.com/cortezaproject/corteza/commit/4a25c216e",
+        "https://github.com/cortezaproject/corteza/commit/b1a0de3e7"
+      ]
+    },
+    {
+      "what": ["an API Gateway proxy panic on nil gateway options."],
+      "refs": ["https://github.com/cortezaproject/corteza/commit/3add1b8e1"]
+    },
+    {
+      "what": ["external authentication provider buttons missing from the login form until the settings were saved twice."],
+      "refs": ["https://github.com/cortezaproject/corteza/commit/615080d9e"]
+    },
+    {
+      "what": ["provisioning failing after the default user group was deleted."],
+      "refs": ["https://github.com/cortezaproject/corteza/commit/890684f2e"]
+    },
+    {
+      "what": ["namespace import failing with a not unique error on duplicated resource translations."],
+      "refs": ["https://github.com/cortezaproject/corteza/commit/f69c508c2"]
+    },
+    {
+      "what": ["template meta fields silently not assigning in workflows."],
+      "refs": ["https://github.com/cortezaproject/corteza/commit/78cab0f4d"]
+    },
+    {
+      "what": ["Corredor script arguments being dropped when the script did not return them."],
+      "refs": ["https://github.com/cortezaproject/corteza/commit/d9fd1c2ba"]
+    },
+    {
+      "what": ["the shorten expression function for large counts and integer count types."],
+      "refs": ["https://github.com/cortezaproject/corteza/commit/35df8e3da"]
+    },
+    {
+      "what": ["CSV import of user and multi value location fields."],
+      "refs": ["https://github.com/cortezaproject/corteza/commit/5f5d7cd06"]
+    },
+    {
+      "what": ["the record list prefilter being bypassed by a top-level OR in the filter."],
+      "refs": ["https://github.com/cortezaproject/corteza/commit/dc260b993"]
+    },
+    {
+      "what": ["the record export date range not including the current date."],
+      "refs": ["https://github.com/cortezaproject/corteza/commit/6198834ba"]
+    },
+    {
+      "what": ["import and export buttons not showing when the inline record editor is enabled."],
+      "refs": ["https://github.com/cortezaproject/corteza/commit/c185dfb9d"]
+    },
+    {
+      "what": ["the record selector not resolving values that are missing from the paginated options."],
+      "refs": ["https://github.com/cortezaproject/corteza/commit/554b8853c"]
+    },
+    {
+      "what": ["the record organizer position field having no selectable options."],
+      "refs": ["https://github.com/cortezaproject/corteza/commit/625c99561"]
+    },
+    {
+      "what": ["record revisions not rendering for deleted records."],
+      "refs": ["https://github.com/cortezaproject/corteza/commit/d0533fe9f"]
+    },
+    {
+      "what": ["calendar reminders not being displayed without refreshing the page."],
+      "refs": ["https://github.com/cortezaproject/corteza/commit/fdb5e0f42"]
+    },
+    {
+      "what": ["the reminder sidebar buttons being hidden behind the record toolbar."],
+      "refs": ["https://github.com/cortezaproject/corteza/commit/1863dd684"]
+    }
+  ]
+}

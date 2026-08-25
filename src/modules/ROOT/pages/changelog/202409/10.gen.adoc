@@ -45,6 +45,8 @@ include::ROOT:partial$variables.adoc[]
 ({CORTEZA_COMMIT_BASE}5f6af6e[`5f6af6e`]).
 * Changed workflows to skip collecting execution trace data when tracing is turned off, which makes them run faster
 ({CORTEZA_COMMIT_BASE}49fb332[`49fb332`]).
+* Changed the workflow step dependency error to name every step that could not be resolved and the steps it is waiting for, in place of a single error reported against an arbitrary step
+({CORTEZA_COMMIT_BASE}eaaf715[`eaaf715`]).
 
 .[#2024_09_10-fixed]#<<2024_09_10-fixed,Fixed:>>#
 * Fixed the server crashing when a browser connection dropped, for example while a visitor was being sent to the login page
@@ -93,6 +95,12 @@ include::ROOT:partial$variables.adoc[]
 ({CORTEZA_COMMIT_BASE}5f89c35[`5f89c35`]).
 * Fixed select field options not showing when their label was left empty
 ({CORTEZA_COMMIT_BASE}7939ad1[`7939ad1`]).
+* Fixed workflows refusing to save or run, reporting a step dependency error, when an iterator was placed inside a parallel branch and its exit path led to the join
+({CORTEZA_COMMIT_BASE}5df0bfd[`5df0bfd`]).
+* Fixed error handler variables, such as the error message, being unavailable to later steps once any other step had run between the error handler and the step that failed
+({CORTEZA_COMMIT_BASE}3ff830f[`3ff830f`]).
+* Fixed variables changed inside a parallel branch being lost where the branches merge, leaving the value they held before the branches split
+({CORTEZA_COMMIT_BASE}ec04eee[`ec04eee`]).
 
 .[#2024_09_10-security]#<<2024_09_10-security,Security:>>#
 * Rejected search filter keys containing quotes, which could otherwise be used to interfere with the underlying database query

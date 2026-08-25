@@ -101,6 +101,10 @@
     {
       "what": ["workflows to skip collecting execution trace data when tracing is turned off, which makes them run faster."],
       "refs": ["https://github.com/cortezaproject/corteza/commit/49fb3325b"]
+    },
+    {
+      "what": ["the workflow step dependency error to name every step that could not be resolved and the steps it is waiting for, in place of a single error reported against an arbitrary step."],
+      "refs": ["https://github.com/cortezaproject/corteza/commit/eaaf7155f"]
     }
   ],
 
@@ -207,6 +211,18 @@
     {
       "what": ["select field options not showing when their label was left empty."],
       "refs": ["https://github.com/cortezaproject/corteza/commit/7939ad11b"]
+    },
+    {
+      "what": ["workflows refusing to save or run, reporting a step dependency error, when an iterator was placed inside a parallel branch and its exit path led to the join."],
+      "refs": ["https://github.com/cortezaproject/corteza/commit/5df0bfd0e"]
+    },
+    {
+      "what": ["error handler variables, such as the error message, being unavailable to later steps once any other step had run between the error handler and the step that failed."],
+      "refs": ["https://github.com/cortezaproject/corteza/commit/3ff830fa2"]
+    },
+    {
+      "what": ["variables changed inside a parallel branch being lost where the branches merge, leaving the value they held before the branches split."],
+      "refs": ["https://github.com/cortezaproject/corteza/commit/ec04eee48"]
     }
   ],
 

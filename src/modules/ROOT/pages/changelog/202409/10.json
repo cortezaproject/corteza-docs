@@ -1,15 +1,15 @@
 {
   "meta": {
-    "releasedOn": "2026.8.20"
+    "releasedOn": "2026.8.25"
   },
 
   "added": [
     {
-      "what": ["an OIDC userinfo endpoint, a complete discovery document and scope based ID token claims to the authentication server."],
+      "what": ["full OpenID Connect support to the authentication server, so other applications can look up its settings and read the signed in user's details on their own."],
       "refs": ["https://github.com/cortezaproject/corteza/commit/d7a635f27"]
     },
     {
-      "what": ["header and footer template support to document rendering, configurable in the admin template editor and exposed as arguments of the workflow template render function."],
+      "what": ["headers and footers to rendered documents, set up in the template editor and chosen when a workflow renders a document."],
       "refs": [
         "https://github.com/cortezaproject/corteza/commit/0ad0ed21c",
         "https://github.com/cortezaproject/corteza/commit/f54c18ea6",
@@ -17,74 +17,96 @@
       ]
     },
     {
-      "what": ["support for Gotenberg 7 and 8 PDF rendering endpoints."],
+      "what": ["support for Gotenberg 7 and 8, used to turn templates into PDF documents."],
       "refs": ["https://github.com/cortezaproject/corteza/commit/8e4f4e429"]
     },
     {
-      "what": ["a safeHTML template function for rendering unescaped HTML."],
+      "what": ["a safeHTML template function, for when a value should be rendered as HTML instead of shown as plain text."],
       "refs": ["https://github.com/cortezaproject/corteza/commit/22cb71a83"]
     },
     {
-      "what": ["a rich text editor to the notification description in the workflow builder, with notification descriptions now rendered as rich text."],
+      "what": ["a rich text editor for notification messages in the workflow builder, so notifications can be sent with formatting."],
       "refs": [
         "https://github.com/cortezaproject/corteza/commit/c63275d3f",
         "https://github.com/cortezaproject/corteza/commit/244b0ee0d"
       ]
     },
     {
-      "what": ["human readable labels to workflow function and prompt parameters."],
+      "what": ["readable names for workflow function and prompt parameters, in place of their internal identifiers."],
       "refs": [
         "https://github.com/cortezaproject/corteza/commit/861f43a64",
         "https://github.com/cortezaproject/corteza/commit/778c3af0c"
       ]
     },
     {
-      "what": ["a red asterisk marking required workflow parameters."],
+      "what": ["a red asterisk marking which workflow parameters are required."],
       "refs": ["https://github.com/cortezaproject/corteza/commit/2285b9bed"]
+    },
+    {
+      "what": ["an option to return the total number of matching reminders when a workflow searches or iterates them."],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/649d94903",
+        "https://github.com/cortezaproject/corteza/commit/ee36e0407"
+      ]
     }
   ],
 
   "changed": [
     {
-      "what": ["workflow parameters to show the name once, in bold, beside its type."],
+      "what": ["the workflow parameter list to show each name once, in bold, next to its type."],
       "refs": ["https://github.com/cortezaproject/corteza/commit/8d652ca79"]
     },
     {
-      "what": ["the admin template editor to move the header and footer selects into the content section, show the content section while creating a template and hide the preview until the template is saved."],
+      "what": ["the template editor to keep the header, footer and content settings together, show the content while a new template is being created, and only offer the preview once the template is saved."],
       "refs": [
         "https://github.com/cortezaproject/corteza/commit/28a5a3432",
         "https://github.com/cortezaproject/corteza/commit/e446a5a43"
       ]
     },
     {
-      "what": ["record list bulk editing to ignore the record field prefilter."],
+      "what": ["bulk editing to ignore record field prefilters, which otherwise left those fields with nothing to choose from."],
       "refs": ["https://github.com/cortezaproject/corteza/commit/7254eb1cd"]
     },
     {
-      "what": ["the duplicate detection configuration to state that all constraint fields must match."],
+      "what": ["the duplicate detection settings to spell out that a record only counts as a duplicate when every selected field matches."],
       "refs": ["https://github.com/cortezaproject/corteza/commit/11f1baa26"]
     },
     {
-      "what": ["the KV and KVV expression types to set values with a flat key instead of interpreting the key as a JSON path."],
+      "what": ["the KV and KVV expression types to keep a key exactly as written, so keys containing dots are no longer split into nested values."],
       "refs": ["https://github.com/cortezaproject/corteza/commit/42dcf81a5"]
     },
     {
-      "what": ["the API Gateway proxy outbound timeout to be seeded from the server options into settings."],
+      "what": ["the API Gateway proxy timeout to be taken from the server configuration, so it can then be adjusted in settings."],
       "refs": ["https://github.com/cortezaproject/corteza/commit/ed5e12ae5"]
     },
     {
-      "what": ["Corredor script results to be logged as strings instead of base64."],
+      "what": ["Corredor script results to be logged as readable text instead of base64."],
       "refs": ["https://github.com/cortezaproject/corteza/commit/3b56260ea"]
     },
     {
-      "what": ["the compose record store to key records by module and record ID."],
+      "what": ["the webapp to track records by module as well as by ID, so records sharing an ID across modules no longer overwrite one another."],
       "refs": ["https://github.com/cortezaproject/corteza/commit/2c5169ac4"]
+    },
+    {
+      "what": ["reminders so that users who may assign reminders to others can also open, dismiss, undismiss and snooze them."],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/8a3ae0c6a",
+        "https://github.com/cortezaproject/corteza/commit/76cffd54f"
+      ]
+    },
+    {
+      "what": ["searches to count their results in the database instead of loading every matching record, which keeps large lists responsive."],
+      "refs": ["https://github.com/cortezaproject/corteza/commit/5f6af6e14"]
+    },
+    {
+      "what": ["workflows to skip collecting execution trace data when tracing is turned off, which makes them run faster."],
+      "refs": ["https://github.com/cortezaproject/corteza/commit/49fb3325b"]
     }
   ],
 
   "fixed": [
     {
-      "what": ["server panics when a websocket session disconnects, for example during unauthenticated visitor access and login redirects."],
+      "what": ["the server crashing when a browser connection dropped, for example while a visitor was being sent to the login page."],
       "refs": [
         "https://github.com/cortezaproject/corteza/commit/5d2c3079c",
         "https://github.com/cortezaproject/corteza/commit/54dbca54d",
@@ -92,7 +114,7 @@
       ]
     },
     {
-      "what": ["composite uniqueness constraints to require all constrained fields to match, to compare values against the constrained field only and to skip fields that were removed from the module."],
+      "what": ["duplicate detection flagging records when only some of the configured fields matched, comparing a value against the wrong field, and tripping over fields that had been removed from the module."],
       "refs": [
         "https://github.com/cortezaproject/corteza/commit/e71c1a634",
         "https://github.com/cortezaproject/corteza/commit/4a25c216e",
@@ -100,7 +122,7 @@
       ]
     },
     {
-      "what": ["an API Gateway proxy panic on nil gateway options."],
+      "what": ["the API Gateway crashing when a proxy route had no settings of its own."],
       "refs": ["https://github.com/cortezaproject/corteza/commit/3add1b8e1"]
     },
     {
@@ -112,11 +134,11 @@
       "refs": ["https://github.com/cortezaproject/corteza/commit/890684f2e"]
     },
     {
-      "what": ["namespace import failing with a not unique error on duplicated resource translations."],
+      "what": ["namespace import failing with a not unique error when the same translation appeared twice."],
       "refs": ["https://github.com/cortezaproject/corteza/commit/f69c508c2"]
     },
     {
-      "what": ["template meta fields silently not assigning in workflows."],
+      "what": ["template meta fields being silently ignored when set from a workflow."],
       "refs": ["https://github.com/cortezaproject/corteza/commit/78cab0f4d"]
     },
     {
@@ -124,7 +146,7 @@
       "refs": ["https://github.com/cortezaproject/corteza/commit/d9fd1c2ba"]
     },
     {
-      "what": ["the shorten expression function for large counts and integer count types."],
+      "what": ["the shorten expression function returning nothing when the text was already shorter than the requested length."],
       "refs": ["https://github.com/cortezaproject/corteza/commit/35df8e3da"]
     },
     {
@@ -132,7 +154,7 @@
       "refs": ["https://github.com/cortezaproject/corteza/commit/5f5d7cd06"]
     },
     {
-      "what": ["the record list prefilter being bypassed by a top-level OR in the filter."],
+      "what": ["a record list prefilter being bypassed when the filter contained a top level OR."],
       "refs": ["https://github.com/cortezaproject/corteza/commit/dc260b993"]
     },
     {
@@ -144,7 +166,7 @@
       "refs": ["https://github.com/cortezaproject/corteza/commit/c185dfb9d"]
     },
     {
-      "what": ["the record selector not resolving values that are missing from the paginated options."],
+      "what": ["the record selector showing a blank value when the selected record was not among the loaded options."],
       "refs": ["https://github.com/cortezaproject/corteza/commit/554b8853c"]
     },
     {
@@ -152,16 +174,54 @@
       "refs": ["https://github.com/cortezaproject/corteza/commit/625c99561"]
     },
     {
-      "what": ["record revisions not rendering for deleted records."],
+      "what": ["record revisions not being shown for deleted records."],
       "refs": ["https://github.com/cortezaproject/corteza/commit/d0533fe9f"]
     },
     {
-      "what": ["calendar reminders not being displayed without refreshing the page."],
+      "what": ["calendar reminders not appearing until the page was refreshed."],
       "refs": ["https://github.com/cortezaproject/corteza/commit/fdb5e0f42"]
     },
     {
       "what": ["the reminder sidebar buttons being hidden behind the record toolbar."],
       "refs": ["https://github.com/cortezaproject/corteza/commit/1863dd684"]
+    },
+    {
+      "what": ["lists showing repeated or empty pages when some of the records were hidden by permissions."],
+      "refs": ["https://github.com/cortezaproject/corteza/commit/0e160998c"]
+    },
+    {
+      "what": ["workflows failing when a page cursor was passed to the user, role, template or reminder search and iterate steps."],
+      "refs": ["https://github.com/cortezaproject/corteza/commit/1c22e270b"]
+    },
+    {
+      "what": ["the total count reported by the user, role and template search and iterate workflow steps."],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/5c032180e",
+        "https://github.com/cortezaproject/corteza/commit/482f440a8"
+      ]
+    },
+    {
+      "what": ["the workflow execution trace not being shown after a dry run."],
+      "refs": ["https://github.com/cortezaproject/corteza/commit/5f89c35f2"]
+    },
+    {
+      "what": ["select field options not showing when their label was left empty."],
+      "refs": ["https://github.com/cortezaproject/corteza/commit/7939ad11b"]
+    }
+  ],
+
+  "security": [
+    {
+      "what": ["Rejected search filter keys containing quotes, which could otherwise be used to interfere with the underlying database query."],
+      "refs": ["https://github.com/cortezaproject/corteza/commit/380404b57"]
+    },
+    {
+      "what": ["Corrected how quotes and backslashes are handled when building database queries on MySQL, MSSQL, PostgreSQL and SQLite, addressing CVE-2026-6093."],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/848963dc5",
+        "https://github.com/cortezaproject/corteza/commit/861055ffb",
+        "https://github.com/cortezaproject/corteza/commit/64b58b9d7"
+      ]
     }
   ]
 }

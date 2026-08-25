@@ -2,76 +2,100 @@ include::ROOT:partial$variables.adoc[]
 
 = `2024.9.10`
 
-*Released on*: `2026.8.20`
+*Released on*: `2026.8.25`
 
 .[#2024_09_10-added]#<<2024_09_10-added,Added:>>#
-* Added an OIDC userinfo endpoint, a complete discovery document and scope based ID token claims to the authentication server
+* Added full OpenID Connect support to the authentication server, so other applications can look up its settings and read the signed in user's details on their own
 ({CORTEZA_COMMIT_BASE}d7a635f[`d7a635f`]).
-* Added header and footer template support to document rendering, configurable in the admin template editor and exposed as arguments of the workflow template render function
+* Added headers and footers to rendered documents, set up in the template editor and chosen when a workflow renders a document
 ({CORTEZA_COMMIT_BASE}0ad0ed2[`0ad0ed2`], {CORTEZA_COMMIT_BASE}f54c18e[`f54c18e`], {CORTEZA_COMMIT_BASE}fc8094e[`fc8094e`]).
-* Added support for Gotenberg 7 and 8 PDF rendering endpoints
+* Added support for Gotenberg 7 and 8, used to turn templates into PDF documents
 ({CORTEZA_COMMIT_BASE}8e4f4e4[`8e4f4e4`]).
-* Added a safeHTML template function for rendering unescaped HTML
+* Added a safeHTML template function, for when a value should be rendered as HTML instead of shown as plain text
 ({CORTEZA_COMMIT_BASE}22cb71a[`22cb71a`]).
-* Added a rich text editor to the notification description in the workflow builder, with notification descriptions now rendered as rich text
+* Added a rich text editor for notification messages in the workflow builder, so notifications can be sent with formatting
 ({CORTEZA_COMMIT_BASE}c63275d[`c63275d`], {CORTEZA_COMMIT_BASE}244b0ee[`244b0ee`]).
-* Added human readable labels to workflow function and prompt parameters
+* Added readable names for workflow function and prompt parameters, in place of their internal identifiers
 ({CORTEZA_COMMIT_BASE}861f43a[`861f43a`], {CORTEZA_COMMIT_BASE}778c3af[`778c3af`]).
-* Added a red asterisk marking required workflow parameters
+* Added a red asterisk marking which workflow parameters are required
 ({CORTEZA_COMMIT_BASE}2285b9b[`2285b9b`]).
+* Added an option to return the total number of matching reminders when a workflow searches or iterates them
+({CORTEZA_COMMIT_BASE}649d949[`649d949`], {CORTEZA_COMMIT_BASE}ee36e04[`ee36e04`]).
 
 .[#2024_09_10-changed]#<<2024_09_10-changed,Changed:>>#
-* Changed workflow parameters to show the name once, in bold, beside its type
+* Changed the workflow parameter list to show each name once, in bold, next to its type
 ({CORTEZA_COMMIT_BASE}8d652ca[`8d652ca`]).
-* Changed the admin template editor to move the header and footer selects into the content section, show the content section while creating a template and hide the preview until the template is saved
+* Changed the template editor to keep the header, footer and content settings together, show the content while a new template is being created, and only offer the preview once the template is saved
 ({CORTEZA_COMMIT_BASE}28a5a34[`28a5a34`], {CORTEZA_COMMIT_BASE}e446a5a[`e446a5a`]).
-* Changed record list bulk editing to ignore the record field prefilter
+* Changed bulk editing to ignore record field prefilters, which otherwise left those fields with nothing to choose from
 ({CORTEZA_COMMIT_BASE}7254eb1[`7254eb1`]).
-* Changed the duplicate detection configuration to state that all constraint fields must match
+* Changed the duplicate detection settings to spell out that a record only counts as a duplicate when every selected field matches
 ({CORTEZA_COMMIT_BASE}11f1baa[`11f1baa`]).
-* Changed the KV and KVV expression types to set values with a flat key instead of interpreting the key as a JSON path
+* Changed the KV and KVV expression types to keep a key exactly as written, so keys containing dots are no longer split into nested values
 ({CORTEZA_COMMIT_BASE}42dcf81[`42dcf81`]).
-* Changed the API Gateway proxy outbound timeout to be seeded from the server options into settings
+* Changed the API Gateway proxy timeout to be taken from the server configuration, so it can then be adjusted in settings
 ({CORTEZA_COMMIT_BASE}ed5e12a[`ed5e12a`]).
-* Changed Corredor script results to be logged as strings instead of base64
+* Changed Corredor script results to be logged as readable text instead of base64
 ({CORTEZA_COMMIT_BASE}3b56260[`3b56260`]).
-* Changed the compose record store to key records by module and record ID
+* Changed the webapp to track records by module as well as by ID, so records sharing an ID across modules no longer overwrite one another
 ({CORTEZA_COMMIT_BASE}2c5169a[`2c5169a`]).
+* Changed reminders so that users who may assign reminders to others can also open, dismiss, undismiss and snooze them
+({CORTEZA_COMMIT_BASE}8a3ae0c[`8a3ae0c`], {CORTEZA_COMMIT_BASE}76cffd5[`76cffd5`]).
+* Changed searches to count their results in the database instead of loading every matching record, which keeps large lists responsive
+({CORTEZA_COMMIT_BASE}5f6af6e[`5f6af6e`]).
+* Changed workflows to skip collecting execution trace data when tracing is turned off, which makes them run faster
+({CORTEZA_COMMIT_BASE}49fb332[`49fb332`]).
 
 .[#2024_09_10-fixed]#<<2024_09_10-fixed,Fixed:>>#
-* Fixed server panics when a websocket session disconnects, for example during unauthenticated visitor access and login redirects
+* Fixed the server crashing when a browser connection dropped, for example while a visitor was being sent to the login page
 ({CORTEZA_COMMIT_BASE}5d2c307[`5d2c307`], {CORTEZA_COMMIT_BASE}54dbca5[`54dbca5`], {CORTEZA_COMMIT_BASE}c9d6080[`c9d6080`]).
-* Fixed composite uniqueness constraints to require all constrained fields to match, to compare values against the constrained field only and to skip fields that were removed from the module
+* Fixed duplicate detection flagging records when only some of the configured fields matched, comparing a value against the wrong field, and tripping over fields that had been removed from the module
 ({CORTEZA_COMMIT_BASE}e71c1a6[`e71c1a6`], {CORTEZA_COMMIT_BASE}4a25c21[`4a25c21`], {CORTEZA_COMMIT_BASE}b1a0de3[`b1a0de3`]).
-* Fixed an API Gateway proxy panic on nil gateway options
+* Fixed the API Gateway crashing when a proxy route had no settings of its own
 ({CORTEZA_COMMIT_BASE}3add1b8[`3add1b8`]).
 * Fixed external authentication provider buttons missing from the login form until the settings were saved twice
 ({CORTEZA_COMMIT_BASE}615080d[`615080d`]).
 * Fixed provisioning failing after the default user group was deleted
 ({CORTEZA_COMMIT_BASE}890684f[`890684f`]).
-* Fixed namespace import failing with a not unique error on duplicated resource translations
+* Fixed namespace import failing with a not unique error when the same translation appeared twice
 ({CORTEZA_COMMIT_BASE}f69c508[`f69c508`]).
-* Fixed template meta fields silently not assigning in workflows
+* Fixed template meta fields being silently ignored when set from a workflow
 ({CORTEZA_COMMIT_BASE}78cab0f[`78cab0f`]).
 * Fixed Corredor script arguments being dropped when the script did not return them
 ({CORTEZA_COMMIT_BASE}d9fd1c2[`d9fd1c2`]).
-* Fixed the shorten expression function for large counts and integer count types
+* Fixed the shorten expression function returning nothing when the text was already shorter than the requested length
 ({CORTEZA_COMMIT_BASE}35df8e3[`35df8e3`]).
 * Fixed CSV import of user and multi value location fields
 ({CORTEZA_COMMIT_BASE}5f5d7cd[`5f5d7cd`]).
-* Fixed the record list prefilter being bypassed by a top-level OR in the filter
+* Fixed a record list prefilter being bypassed when the filter contained a top level OR
 ({CORTEZA_COMMIT_BASE}dc260b9[`dc260b9`]).
 * Fixed the record export date range not including the current date
 ({CORTEZA_COMMIT_BASE}6198834[`6198834`]).
 * Fixed import and export buttons not showing when the inline record editor is enabled
 ({CORTEZA_COMMIT_BASE}c185dfb[`c185dfb`]).
-* Fixed the record selector not resolving values that are missing from the paginated options
+* Fixed the record selector showing a blank value when the selected record was not among the loaded options
 ({CORTEZA_COMMIT_BASE}554b885[`554b885`]).
 * Fixed the record organizer position field having no selectable options
 ({CORTEZA_COMMIT_BASE}625c995[`625c995`]).
-* Fixed record revisions not rendering for deleted records
+* Fixed record revisions not being shown for deleted records
 ({CORTEZA_COMMIT_BASE}d0533fe[`d0533fe`]).
-* Fixed calendar reminders not being displayed without refreshing the page
+* Fixed calendar reminders not appearing until the page was refreshed
 ({CORTEZA_COMMIT_BASE}fdb5e0f[`fdb5e0f`]).
 * Fixed the reminder sidebar buttons being hidden behind the record toolbar
 ({CORTEZA_COMMIT_BASE}1863dd6[`1863dd6`]).
+* Fixed lists showing repeated or empty pages when some of the records were hidden by permissions
+({CORTEZA_COMMIT_BASE}0e16099[`0e16099`]).
+* Fixed workflows failing when a page cursor was passed to the user, role, template or reminder search and iterate steps
+({CORTEZA_COMMIT_BASE}1c22e27[`1c22e27`]).
+* Fixed the total count reported by the user, role and template search and iterate workflow steps
+({CORTEZA_COMMIT_BASE}5c03218[`5c03218`], {CORTEZA_COMMIT_BASE}482f440[`482f440`]).
+* Fixed the workflow execution trace not being shown after a dry run
+({CORTEZA_COMMIT_BASE}5f89c35[`5f89c35`]).
+* Fixed select field options not showing when their label was left empty
+({CORTEZA_COMMIT_BASE}7939ad1[`7939ad1`]).
+
+.[#2024_09_10-security]#<<2024_09_10-security,Security:>>#
+* Rejected search filter keys containing quotes, which could otherwise be used to interfere with the underlying database query
+({CORTEZA_COMMIT_BASE}380404b[`380404b`]).
+* Corrected how quotes and backslashes are handled when building database queries on MySQL, MSSQL, PostgreSQL and SQLite, addressing CVE-2026-6093
+({CORTEZA_COMMIT_BASE}848963d[`848963d`], {CORTEZA_COMMIT_BASE}861055f[`861055f`], {CORTEZA_COMMIT_BASE}64b58b9[`64b58b9`]).

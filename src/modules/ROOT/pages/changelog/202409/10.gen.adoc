@@ -47,6 +47,8 @@ include::ROOT:partial$variables.adoc[]
 ({CORTEZA_COMMIT_BASE}49fb332[`49fb332`]).
 * Changed the workflow step dependency error to name every step that could not be resolved and the steps it is waiting for, in place of a single error reported against an arbitrary step
 ({CORTEZA_COMMIT_BASE}eaaf715[`eaaf715`]).
+* Changed WORKFLOW_STACK_TRACE_FULL to be off by default, so a workflow keeps only the most recent part of its execution trace instead of a copy of every step it has run
+({CORTEZA_COMMIT_BASE}4564cd8[`4564cd8`]).
 
 .[#2024_09_10-fixed]#<<2024_09_10-fixed,Fixed:>>#
 * Fixed the server crashing when a browser connection dropped, for example while a visitor was being sent to the login page
@@ -101,6 +103,8 @@ include::ROOT:partial$variables.adoc[]
 ({CORTEZA_COMMIT_BASE}3ff830f[`3ff830f`]).
 * Fixed variables changed inside a parallel branch being lost where the branches merge, leaving the value they held before the branches split
 ({CORTEZA_COMMIT_BASE}ec04eee[`ec04eee`]).
+* Fixed workflows using more and more memory the longer they ran, because a copy of every variable was kept for each step that had been executed, which could exhaust the server before a workflow holding a few thousand records finished
+({CORTEZA_COMMIT_BASE}4564cd8[`4564cd8`]).
 
 .[#2024_09_10-security]#<<2024_09_10-security,Security:>>#
 * Rejected search filter keys containing quotes, which could otherwise be used to interfere with the underlying database query

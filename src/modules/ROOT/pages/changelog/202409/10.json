@@ -105,6 +105,10 @@
     {
       "what": ["the workflow step dependency error to name every step that could not be resolved and the steps it is waiting for, in place of a single error reported against an arbitrary step."],
       "refs": ["https://github.com/cortezaproject/corteza/commit/eaaf7155f"]
+    },
+    {
+      "what": ["WORKFLOW_STACK_TRACE_FULL to be off by default, so a workflow keeps only the most recent part of its execution trace instead of a copy of every step it has run."],
+      "refs": ["https://github.com/cortezaproject/corteza/commit/4564cd840"]
     }
   ],
 
@@ -223,6 +227,10 @@
     {
       "what": ["variables changed inside a parallel branch being lost where the branches merge, leaving the value they held before the branches split."],
       "refs": ["https://github.com/cortezaproject/corteza/commit/ec04eee48"]
+    },
+    {
+      "what": ["workflows using more and more memory the longer they ran, because a copy of every variable was kept for each step that had been executed, which could exhaust the server before a workflow holding a few thousand records finished."],
+      "refs": ["https://github.com/cortezaproject/corteza/commit/4564cd840"]
     }
   ],
 

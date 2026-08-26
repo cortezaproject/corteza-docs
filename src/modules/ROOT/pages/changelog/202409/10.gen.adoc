@@ -105,6 +105,8 @@ include::ROOT:partial$variables.adoc[]
 ({CORTEZA_COMMIT_BASE}ec04eee[`ec04eee`]).
 * Fixed workflows using more and more memory the longer they ran, because a copy of every variable was kept for each step that had been executed, which could exhaust the server before a workflow holding a few thousand records finished
 ({CORTEZA_COMMIT_BASE}4564cd8[`4564cd8`]).
+* Fixed a workflow run with tracing turned on occasionally returning no execution trace at all, because the run was reported as finished a moment before its trace had been recorded
+({CORTEZA_COMMIT_BASE}b999367[`b999367`]).
 
 .[#2024_09_10-security]#<<2024_09_10-security,Security:>>#
 * Rejected search filter keys containing quotes, which could otherwise be used to interfere with the underlying database query

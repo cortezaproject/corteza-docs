@@ -107,6 +107,8 @@ include::ROOT:partial$variables.adoc[]
 ({CORTEZA_COMMIT_BASE}4564cd8[`4564cd8`]).
 * Fixed a workflow run with tracing turned on occasionally returning no execution trace at all, because the run was reported as finished a moment before its trace had been recorded
 ({CORTEZA_COMMIT_BASE}b999367[`b999367`]).
+* Fixed the server log reporting every waiting workflow session as just started, because each session's age was measured backwards, which hid sessions that had been stuck for hours or days
+({CORTEZA_COMMIT_BASE}db8123e[`db8123e`]).
 
 .[#2024_09_10-security]#<<2024_09_10-security,Security:>>#
 * Rejected search filter keys containing quotes, which could otherwise be used to interfere with the underlying database query

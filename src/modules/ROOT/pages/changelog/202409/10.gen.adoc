@@ -49,6 +49,8 @@ include::ROOT:partial$variables.adoc[]
 ({CORTEZA_COMMIT_BASE}eaaf715[`eaaf715`]).
 * Changed WORKFLOW_STACK_TRACE_FULL to be off by default, so a workflow keeps only the most recent part of its execution trace instead of a copy of every step it has run
 ({CORTEZA_COMMIT_BASE}4564cd8[`4564cd8`]).
+* Changed workflows to keep a copy of the step variables only where they are actually read back — a run that asked to be traced, or the step a run failed on — which lowers memory use on every other run
+({CORTEZA_COMMIT_BASE}75d9b6b[`75d9b6b`]).
 
 .[#2024_09_10-fixed]#<<2024_09_10-fixed,Fixed:>>#
 * Fixed the server crashing when a browser connection dropped, for example while a visitor was being sent to the login page

@@ -109,6 +109,10 @@
     {
       "what": ["WORKFLOW_STACK_TRACE_FULL to be off by default, so a workflow keeps only the most recent part of its execution trace instead of a copy of every step it has run."],
       "refs": ["https://github.com/cortezaproject/corteza/commit/4564cd840"]
+    },
+    {
+      "what": ["workflows to keep a copy of the step variables only where they are actually read back \u2014 a run that asked to be traced, or the step a run failed on \u2014 which lowers memory use on every other run."],
+      "refs": ["https://github.com/cortezaproject/corteza/commit/75d9b6bde"]
     }
   ],
 

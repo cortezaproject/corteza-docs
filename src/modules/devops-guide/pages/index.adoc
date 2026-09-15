@@ -53,6 +53,16 @@ services:
 ----
 ====
 
+[#easypanel]
+=== Easypanel
+
+If you'd rather not manage Docker Compose files yourself, {PRODUCT_NAME} has a one-click deployment template on https://easypanel.io[Easypanel], a self-hosted Docker deployment platform:
+
+image::https://easypanel.io/img/deploy-on-easypanel-40.svg[Deploy on Easypanel,link=https://easypanel.io/templates/corteza]
+
+.{PRODUCT_NAME} running in the Easypanel dashboard after a one-click deploy
+image::easypanel-deploy.png[role="data-zoomable"]
+
 == Architecture and Repository Overview
 
 === {PRODUCT_NAME} Architecture

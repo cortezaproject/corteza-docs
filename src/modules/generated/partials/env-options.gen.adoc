@@ -22,6 +22,34 @@ sqlite3://file::memory:?cache=shared&mode=memory
 
 Database connection string.
 = HTTP Client
+== *HTTP_CLIENT_RESTRICTED_NETWORKS*
+
+=== Type
+
+`string`
+
+
+=== Default
+
+[source]
+----
+link-local
+----
+=== Description
+
+Networks that can not be reached by HTTP requests to destinations controlled by users
+(workflow HTTP request and OAuth2 functions, API gateway proxy).
+
+Supported values:
+ - link-local: blocks link-local addresses and well known cloud metadata endpoints (default)
+ - private: additionally blocks loopback, private and other non-public addresses
+ - none: requests can reach any address
+
+[NOTE]
+====
+Restrictions are checked against the resolved IP address when connecting.
+When outbound HTTP proxy is used, restrictions need to be enforced on the proxy.
+====
 
 == *HTTP_CLIENT_TIMEOUT*
 
@@ -895,6 +923,21 @@ Handle for OAuth2 client used for automatic redirect from /auth/oauth2/go endpoi
 
 This simplifies configuration for OAuth2 flow for Corteza Web applications as it removes
 the need to supply redirection URL and client ID (oauth2/go endpoint does that internally)
+
+== *AUTH_DEFAULT_REDIRECT_URIS*
+
+=== Type
+
+`string`
+
+
+=== Description
+
+Space separated list of redirect URIs allowed for auth clients that do not have their own redirect URIs set.
+Origins of AUTH_BASE_URL and webapp domain (DOMAIN_WEBAPP) are always allowed and do not need to be listed.
+
+Scheme, host and port must match exactly, path of the redirect URI must be under the listed path.
+Use * to allow redirection to any URI (not recommended).
 
 
 == *AUTH_DEVELOPMENT_MODE*

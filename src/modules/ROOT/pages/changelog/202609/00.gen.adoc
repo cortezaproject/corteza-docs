@@ -1,0 +1,9 @@
+include::ROOT:partial$variables.adoc[]
+
+= `2026.9.0`
+
+*Released on*: `TBD`
+
+.[#2026_09_00-fixed]#<<2026_09_00-fixed,Fixed:>>#
+* Fixed the comments block set to show older comments first opening with the newest comment at the top, and showing it a second time at the bottom a few seconds later, when the comments were posted on different days
+({CORTEZA_COMMIT_BASE}52301f9[`52301f9`]).

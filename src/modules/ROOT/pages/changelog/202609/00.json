@@ -1,0 +1,12 @@
+{
+  "meta": {
+    "releasedOn": "TBD"
+  },
+
+  "fixed": [
+    {
+      "what": ["the comments block set to show older comments first opening with the newest comment at the top, and showing it a second time at the bottom a few seconds later, when the comments were posted on different days."],
+      "refs": ["https://github.com/cortezaproject/corteza/commit/52301f9ea"]
+    }
+  ]
+}

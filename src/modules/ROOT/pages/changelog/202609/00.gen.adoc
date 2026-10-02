@@ -9,3 +9,5 @@ include::ROOT:partial$variables.adoc[]
 ({CORTEZA_COMMIT_BASE}52301f9[`52301f9`]).
 * Fixed the server crashing with a concurrent map access error when a module, DAL connection or sensitivity level was saved while records were being read or written
 ({CORTEZA_COMMIT_BASE}95a7709[`95a7709`]).
+* Fixed number fields stored as a column in MSSQL and MySQL being created as a plain DECIMAL column, which dropped the decimal places configured on the field
+({CORTEZA_COMMIT_BASE}a64f65d[`a64f65d`]).

@@ -10,6 +10,10 @@
     {
       "what": ["the server crashing with a concurrent map access error when a module, DAL connection or sensitivity level was saved while records were being read or written."],
       "refs": ["https://github.com/cortezaproject/corteza/commit/95a770960"]
+    },
+    {
+      "what": ["number fields stored as a column in MSSQL and MySQL being created as a plain DECIMAL column, which dropped the decimal places configured on the field."],
+      "refs": ["https://github.com/cortezaproject/corteza/commit/a64f65d11"]
     }
   ]
 }

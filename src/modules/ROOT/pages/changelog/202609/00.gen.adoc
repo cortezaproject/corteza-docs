@@ -4,6 +4,11 @@ include::ROOT:partial$variables.adoc[]
 
 *Released on*: `TBD`
 
+.[#2026_09_00-added]#<<2026_09_00-added,Added:>>#
+* Added a visibility condition to automation block buttons, so a button can be shown or hidden with an expression evaluated against the record, user and screen, the same way page blocks are.
+The change was added to let one automation block act as a context-aware action toolbar instead of splitting buttons across several blocks with their own visibility conditions
+({CORTEZA_COMMIT_BASE}7199966[`7199966`]).
+
 .[#2026_09_00-fixed]#<<2026_09_00-fixed,Fixed:>>#
 * Fixed the comments block set to show older comments first opening with the newest comment at the top, and showing it a second time at the bottom a few seconds later, when the comments were posted on different days
 ({CORTEZA_COMMIT_BASE}52301f9[`52301f9`]).

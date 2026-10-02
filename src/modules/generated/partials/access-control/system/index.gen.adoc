@@ -32,6 +32,8 @@ include::./resource.queue-message.gen.adoc[]
 
 include::./resource.reminder.gen.adoc[]
 
+include::./resource.notification.gen.adoc[]
+
 include::./resource.report.gen.adoc[]
 
 include::./resource.resource-translation.gen.adoc[]
@@ -39,6 +41,8 @@ include::./resource.resource-translation.gen.adoc[]
 include::./resource.role.gen.adoc[]
 
 include::./resource.role-member.gen.adoc[]
+
+include::./resource.user-group.gen.adoc[]
 
 include::./resource.settings.gen.adoc[]
 

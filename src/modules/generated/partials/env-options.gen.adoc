@@ -21,7 +21,21 @@ sqlite3://file::memory:?cache=shared&mode=memory
 === Description
 
 Database connection string.
+
+Connection pool and retry settings can be added to the query string of the DSN.
+They are read by the server and removed before the DSN is passed to the database driver,
+so they can be combined with the driver's own parameters (for example `postgres://user:pass@host/corteza?sslmode=disable&*connMaxOpen=50`).
+The same parameters work in the DSN of a DAL connection.
+
+* `*connMaxOpen` (default `256`): maximum number of open connections to the database. Keep it below the server's connection limit (PostgreSQL defaults to 100).
+* `*connMaxIdle` (default `32`): maximum number of idle connections kept in the pool.
+* `*connMaxLifetime` (default `10m`): maximum time a connection may be reused.
+* `*connTryTimeout` (default `30s`): timeout for a single connection attempt on startup.
+* `*connTryBackoffDelay` (default `10s`): delay between failed connection attempts.
+* `*connMaxTries` (default `99`): number of connection attempts before giving up.
+* `*connTryPatience` (default `0`): time window in which failed connection attempts are not logged as errors.
 = HTTP Client
+
 == *HTTP_CLIENT_RESTRICTED_NETWORKS*
 
 === Type
@@ -442,7 +456,7 @@ Webapp base URL is internally prefixed with baseUrl
 
 [source]
 ----
-admin,compose,workflow,reporter
+admin,compose,workflow,reporter,privacy
 ----
 = RBAC options
 
@@ -924,6 +938,7 @@ Handle for OAuth2 client used for automatic redirect from /auth/oauth2/go endpoi
 This simplifies configuration for OAuth2 flow for Corteza Web applications as it removes
 the need to supply redirection URL and client ID (oauth2/go endpoint does that internally)
 
+
 == *AUTH_DEFAULT_REDIRECT_URIS*
 
 === Type
@@ -939,6 +954,45 @@ Origins of AUTH_BASE_URL and webapp domain (DOMAIN_WEBAPP) are always allowed an
 Scheme, host and port must match exactly, path of the redirect URI must be under the listed path.
 Use * to allow redirection to any URI (not recommended).
 
+== *AUTH_DEFAULT_SUB_USER_GROUP*
+
+=== Type
+
+`string`
+
+
+=== Default
+
+[source]
+----
+default-sub-root
+----
+=== Description
+
+Default sub-user group.
+If default sub-user group is set, all users are assigned here.
+
+Each user must belong to a user group if it wishes to use the system.
+
+== *AUTH_DEFAULT_USER_GROUP*
+
+=== Type
+
+`string`
+
+
+=== Default
+
+[source]
+----
+default-root
+----
+=== Description
+
+Default user group.
+If default sub user group is not set, all users are assigned here.
+
+Each user must belong to a user group if it wishes to use the system.
 
 == *AUTH_DEVELOPMENT_MODE*
 
@@ -1569,6 +1623,17 @@ Delay in seconds for structure sync
 
 Bulk size in fetching for structure sync
 = Limits
+
+== *LIMIT_RECORD_COUNT_PER_MODULE*
+
+=== Type
+
+`int`
+
+
+=== Description
+
+Maximum number of records per module
 
 == *LIMIT_SYSTEM_USERS*
 
@@ -2290,7 +2355,7 @@ Enables execution stack trace construction
 
 === Description
 
-Forces the stack trace to record all steps
+Forces the stack trace to record all steps; intended for testing, memory use grows with every executed step
 = Discovery
 
 == *DISCOVERY_BASE_URL*
@@ -2326,6 +2391,28 @@ Indicates host of corteza compose webapp
 
 Enable discovery related activity info
 
+== *DISCOVERY_EMBEDDINGS_DIMENSION*
+
+=== Type
+
+`int`
+
+
+=== Description
+
+Embeddings dimension
+
+== *DISCOVERY_EMBEDDINGS_ENABLED*
+
+=== Type
+
+`bool`
+
+
+=== Description
+
+Enable discovery embeddings generation
+
 == *DISCOVERY_ENABLED*
 
 === Type
@@ -2336,6 +2423,28 @@ Enable discovery related activity info
 === Description
 
 Enable discovery endpoints
+
+== *DISCOVERY_HNSW_EF_CONSTRUCTION*
+
+=== Type
+
+`int`
+
+
+=== Description
+
+HNSW ef construction parameter
+
+== *DISCOVERY_HNSW_M*
+
+=== Type
+
+`int`
+
+
+=== Description
+
+HNSW m parameter
 = attachment
 
 == *AVATAR_INITIALS_BACKGROUND_COLOR*
@@ -2366,7 +2475,7 @@ Avatar initials background color
 
 [source]
 ----
-#162425
+#0B344E
 ----
 === Description
 

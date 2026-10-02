@@ -45,6 +45,16 @@
 | Deny
 
 
+| [#rbac-system-user-group.create]#<<rbac-system-user-group.create,user-group.create>>#
+| Create user groups
+| Deny
+
+
+| [#rbac-system-user-groups.search]#<<rbac-system-user-groups.search,user-groups.search>>#
+| List, search or filter user groups
+| Deny
+
+
 | [#rbac-system-user.create]#<<rbac-system-user.create,user.create>>#
 | Create users
 | Deny
@@ -152,6 +162,11 @@
 
 | [#rbac-system-data-privacy-requests.search]#<<rbac-system-data-privacy-requests.search,data-privacy-requests.search>>#
 | List, search or filter data privacy requests
+| Deny
+
+
+| [#rbac-system-notification.assign]#<<rbac-system-notification.assign,notification.assign>>#
+| Assign notifications to other users
 | Deny
 
 

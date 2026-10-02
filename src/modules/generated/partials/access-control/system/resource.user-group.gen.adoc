@@ -1,0 +1,28 @@
+= user-group
+
+[cols="1s,5a,5a"]
+|===
+| Operation| Description | Default
+
+
+| [#rbac-user-group-read]#<<rbac-user-group-read,read>>#
+| Read user group
+| Deny
+
+
+| [#rbac-user-group-update]#<<rbac-user-group-update,update>>#
+| Update user group
+| Deny
+
+
+| [#rbac-user-group-delete]#<<rbac-user-group-delete,delete>>#
+| Delete user group
+| Deny
+
+
+| [#rbac-user-group-members.manage]#<<rbac-user-group-members.manage,members.manage>>#
+| Manage members
+| Deny
+
+
+|===

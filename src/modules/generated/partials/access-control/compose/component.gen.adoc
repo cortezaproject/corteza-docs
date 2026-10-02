@@ -35,4 +35,9 @@
 | Deny
 
 
+| [#rbac-compose-email-notifications.send]#<<rbac-compose-email-notifications.send,email-notifications.send>>#
+| Send email notifications
+| Deny
+
+
 |===

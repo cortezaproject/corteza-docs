@@ -20,6 +20,11 @@
 | Deny
 
 
+| [#rbac-namespace-export]#<<rbac-namespace-export,export>>#
+| Access to export the entire namespace
+| Deny
+
+
 | [#rbac-namespace-manage]#<<rbac-namespace-manage,manage>>#
 | Access to namespace admin panel
 | Deny
@@ -35,6 +40,11 @@
 | Deny
 
 
+| [#rbac-namespace-modules.export]#<<rbac-namespace-modules.export,modules.export>>#
+| Export modules on namespace
+| Deny
+
+
 | [#rbac-namespace-chart.create]#<<rbac-namespace-chart.create,chart.create>>#
 | Create chart on namespace
 | Deny
@@ -42,6 +52,11 @@
 
 | [#rbac-namespace-charts.search]#<<rbac-namespace-charts.search,charts.search>>#
 | List, search or filter chart on namespace
+| Deny
+
+
+| [#rbac-namespace-charts.export]#<<rbac-namespace-charts.export,charts.export>>#
+| Export charts on namespace
 | Deny
 
 

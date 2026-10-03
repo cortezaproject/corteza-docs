@@ -2,25 +2,566 @@
   "meta": {
     "releasedOn": "TBD"
   },
+  "important": [
+    {
+      "note": [
+        "Security fixes in this release are not backported to `2024.9`. Upgrade to `2026.9.0` to receive them"
+      ]
+    },
+    {
+      "note": [
+        "Users can only change their own name, handle, language, theme and avatar. Changing own email, username, user group, kind or labels requires permission to update users; such changes are ignored and logged as a warning. Workflows that update these fields on the user who triggered them must run as a user with that permission (Run as)"
+      ]
+    },
+    {
+      "note": [
+        "Contextual role expressions can only use `user.email` (empty until the email is confirmed) and `user.labels`. Expressions using `user.name`, `user.handle` or `user.username` no longer match and need to be rewritten, for example with labels"
+      ]
+    },
+    {
+      "note": [
+        "Auth clients without redirect URIs only accept redirects to the address of the server (`AUTH_BASE_URL`) and the webapp domain (`DOMAIN_WEBAPP`). When web applications are served from another address, such as a separate domain or a local development server, list it in the new `AUTH_DEFAULT_REDIRECT_URIS` option or set redirect URIs on the auth client. Redirect URIs now need to match scheme, host and port exactly"
+      ]
+    },
+    {
+      "note": [
+        "Corredor scripts that define `security.allow` can only be listed and run by users with one of the allowed roles. Denied roles still take precedence and super administrators are not limited by the list"
+      ]
+    },
+    {
+      "note": [
+        "Making a workflow run as another user requires the impersonate permission on that user, this includes importing such workflows. Changing the owner of a workflow requires the grant permission on automation"
+      ]
+    },
+    {
+      "note": [
+        "Workflow HTTP request and OAuth2 functions and the API Gateway proxy can no longer reach link-local addresses, which includes cloud metadata endpoints. Use the new `HTTP_CLIENT_RESTRICTED_NETWORKS` option to also block private networks (`private`) or to lift the restriction (`none`)"
+      ]
+    },
+    {
+      "note": [
+        "Reading a Compose attachment over the API requires read permission on its namespace, removing it requires being its uploader or update permission on the namespace. Workflows removing attachments are subject to the same rule. Attachments, modules, pages and page layouts can only be accessed through the namespace they belong to"
+      ]
+    },
+    {
+      "note": [
+        "Removing system attachments over the API requires permission to manage settings. Avatars can be removed by their owner and by users with permission to update the owner"
+      ]
+    },
+    {
+      "note": [
+        "Sending email notifications over the API, which is what Corredor scripts use, requires the new Send email notifications permission on Compose. Fresh installations grant it to administrators; on existing installations grant it to the roles whose scripts send email. Workflows sending email are not affected"
+      ]
+    },
+    {
+      "note": [
+        "Creating or updating an auth client that impersonates another user requires the impersonate permission on that user, and every newly forced role requires permission to manage members of that role. Reading and regenerating the secret of an auth client requires permission to update it"
+      ]
+    },
+    {
+      "note": [
+        "Editing translations of Compose resources requires permission to update the resource or permission to manage resource translations, and only translations of the resource being edited are accepted"
+      ]
+    },
+    {
+      "note": [
+        "Reading a role over the API requires read permission on that role. Listing role membership of a user requires read permission on the user and only returns roles that can be read"
+      ]
+    },
+    {
+      "note": [
+        "SCIM endpoints are only available when `SCIM_SECRET` is set"
+      ]
+    },
+    {
+      "note": [
+        "Managing federation nodes requires the matching federation permissions and pairing requires a pairing token. Paired nodes can only synchronise data that is shared with them"
+      ]
+    },
+    {
+      "note": [
+        "Record reports are rejected when they use fields the user is not allowed to read. Reading workflow execution traces requires permission to update the workflow"
+      ]
+    }
+  ],
   "added": [
     {
-      "what": ["a visibility condition to automation block buttons, so a button can be shown or hidden with an expression evaluated against the record, user and screen, the same way page blocks are."],
-      "why": ["to let one automation block act as a context-aware action toolbar instead of splitting buttons across several blocks with their own visibility conditions."],
-      "refs": ["https://github.com/cortezaproject/corteza/commit/719996655"]
+      "what": [
+        "the HTTP_CORS_ALLOWED_ORIGINS option to restrict which origins are allowed to make cross-origin requests"
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/2ecf8e877"
+      ]
+    },
+    {
+      "what": [
+        "the Blocking option to workflow prompts that wait for an answer (alert, choice, input, options and record picker); a blocking prompt dims the rest of the screen, keeps keyboard focus inside the prompt and has no close button, so it can only be closed by answering it"
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/b21647f63",
+        "https://github.com/cortezaproject/corteza/commit/c57c35a3a"
+      ]
+    },
+    {
+      "what": [
+        "a visibility condition to automation block buttons, so a button can be shown or hidden with an expression evaluated against the record, user and screen, the same way page blocks are."
+      ],
+      "why": [
+        "to let one automation block act as a context-aware action toolbar instead of splitting buttons across several blocks with their own visibility conditions."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/719996655"
+      ]
+    }
+  ],
+  "changed": [
+    {
+      "what": [
+        "the Go toolchain and server libraries to current versions without known vulnerabilities"
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/0ec05c27b",
+        "https://github.com/cortezaproject/corteza/commit/027afbe7d",
+        "https://github.com/cortezaproject/corteza/commit/d5828a044",
+        "https://github.com/cortezaproject/corteza/commit/bcbbe6b60"
+      ]
+    },
+    {
+      "what": [
+        "web application libraries to versions without known vulnerabilities"
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/d073d8374",
+        "https://github.com/cortezaproject/corteza/commit/53690596d",
+        "https://github.com/cortezaproject/corteza/commit/16b17dd76",
+        "https://github.com/cortezaproject/corteza/commit/53690596d"
+      ]
+    },
+    {
+      "what": [
+        "the gRPC client library used for Corredor to a version without known vulnerabilities"
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/acd4ba36e"
+      ]
+    },
+    {
+      "what": [
+        "charts to ECharts 6, which fixes a cross-site scripting issue; chart colours and legend positions are kept as before"
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/0ee68520c",
+        "https://github.com/cortezaproject/corteza/commit/c535fc932"
+      ]
+    },
+    {
+      "what": [
+        "the rich text editor library to a version without known vulnerabilities"
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/5b54812d2"
+      ]
+    },
+    {
+      "what": [
+        "the server console build to Vite 6"
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/fe413a4e7"
+      ]
+    },
+    {
+      "what": ["Docker images are now also published under the latest tag when the released version is the highest stable one (no pre-release suffix), next to the version tag and the YYYY.MM alias; a patch to an older release line does not move latest."],
+      "refs": ["https://github.com/cortezaproject/corteza/commit/e53020aa0"]
     }
   ],
   "fixed": [
     {
-      "what": ["the comments block set to show older comments first opening with the newest comment at the top, and showing it a second time at the bottom a few seconds later, when the comments were posted on different days."],
-      "refs": ["https://github.com/cortezaproject/corteza/commit/52301f9ea"]
+      "what": [
+        "server scripts run from client scripts not returning their results to the client script, the returned values no longer need to be passed in as arguments first"
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/2d5992334",
+        "https://github.com/cortezaproject/corteza/commit/4b0b33268"
+      ]
     },
     {
-      "what": ["the server crashing with a concurrent map access error when a module, DAL connection or sensitivity level was saved while records were being read or written."],
-      "refs": ["https://github.com/cortezaproject/corteza/commit/95a770960"]
+      "what": [
+        "the comments block set to show older comments first opening with the newest comment at the top, and showing it a second time at the bottom a few seconds later, when the comments were posted on different days."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/52301f9ea"
+      ]
     },
     {
-      "what": ["number fields stored as a column in MSSQL and MySQL being created as a plain DECIMAL column, which dropped the decimal places configured on the field."],
-      "refs": ["https://github.com/cortezaproject/corteza/commit/a64f65d11"]
+      "what": [
+        "the server crashing with a concurrent map access error when a module, DAL connection or sensitivity level was saved while records were being read or written."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/95a770960"
+      ]
+    },
+    {
+      "what": [
+        "number fields stored as a column in MSSQL and MySQL being created as a plain DECIMAL column, which dropped the decimal places configured on the field."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/a64f65d11"
+      ]
+    },
+    {
+      "what": ["the integration gateway route create endpoint ignoring the meta options (debug, async, description), so they only took effect after a second update request."],
+      "refs": ["https://github.com/cortezaproject/corteza/commit/9dcdb4ee3"]
+    },
+    {
+      "what": ["updating a deleted sensitivity level failing with \"does not exist\", and the update silently undeleting it when it did go through."],
+      "refs": ["https://github.com/cortezaproject/corteza/commit/806fee1cc"]
+    },
+    {
+      "what": ["undeleting a sensitivity level creating a second active level with the same level value, which could then not be deleted."],
+      "refs": ["https://github.com/cortezaproject/corteza/commit/806fee1cc"]
+    },
+    {
+      "what": ["the connection pool and retry parameters of the database DSN (`*connMaxOpen`, `*connMaxIdle`, `*connMaxLifetime`, ...) being ignored, which left the pool at its 256 connection default and could exhaust PostgreSQL's connection limit."],
+      "refs": ["https://github.com/cortezaproject/corteza/commit/4993022f9"]
+    },
+    {
+      "what": ["namespace exports listing pages in database order instead of page tree order, so an import could end up with the pages reordered."],
+      "refs": ["https://github.com/cortezaproject/corteza/commit/9c55fdd73"]
+    },
+    {
+      "what": ["deleting a user group that still had members or child groups leaving it soft-deleted while the children still pointed at it, which made the server fail to start while rebuilding the org tree. The delete is now refused up front."],
+      "refs": ["https://github.com/cortezaproject/corteza/commit/a31698317"]
+    },
+    {
+      "what": ["a user group accepting itself or one of its descendants as parent, which created a cycle in the org tree."],
+      "refs": ["https://github.com/cortezaproject/corteza/commit/a31698317"]
+    },
+    {
+      "what": ["the progress page block showing NaN% when the module behind it had no records; it now shows the configured default value instead."],
+      "refs": ["https://github.com/cortezaproject/corteza/commit/a92df8992"]
+    },
+    {
+      "what": ["the record list bulk edit modal keeping the previously chosen fields and values when it was closed or after saving, so the next bulk edit started with stale data."],
+      "refs": ["https://github.com/cortezaproject/corteza/commit/61362fda1"]
+    },
+    {
+      "what": ["the \"Open builder\" button on a workflow in the admin area opening /workflow/... at the domain root, which broke installations served under a path prefix (HTTP_BASE_URL)."],
+      "refs": ["https://github.com/cortezaproject/corteza/commit/75786b3e2"]
+    },
+    {
+      "what": ["bulk record edit (and any record update) storing 0 when a number field was cleared; an empty value now clears the field instead of setting it to 0 or [0]."],
+      "refs": ["https://github.com/cortezaproject/corteza/commit/08fedeb2a"]
+    },
+    {
+      "what": ["a required Bool field rejecting records where it was false; false was stored as an empty value and reported as a missing required field, so such records could only be saved while the field was true."],
+      "refs": ["https://github.com/cortezaproject/corteza/commit/1e0995685"]
+    },
+    {
+      "what": ["record creation failing with a NOT NULL violation on the \"values\" column for modules stored in their own table once every field was moved to its own column. The JSON document column is now created nullable. Tables created before this fix keep the constraint; drop it manually if needed, for example on PostgreSQL: ALTER TABLE <table> ALTER COLUMN \"values\" DROP NOT NULL."],
+      "refs": ["https://github.com/cortezaproject/corteza/commit/e8e1eabe2"]
+    },
+    {
+      "what": ["the workflow list search in the admin area matching only the workflow handle; it now also matches the workflow name."],
+      "refs": ["https://github.com/cortezaproject/corteza/commit/9c33eeda7"]
+    },
+    {
+      "what": ["external (OpenID Connect) login failing with \"request Content-Type isn't multipart/form-data\" when the identity provider returned a long authorization code, as Microsoft Entra ID does for synced work accounts. The auth form size guard no longer applies to callback query parameters, and an oversized form now gets a proper 413 response."],
+      "refs": ["https://github.com/cortezaproject/corteza/commit/f2001fb3a"]
+    },
+    {
+      "what": ["a workflow or script on a beforeCreate/beforeUpdate trigger not being able to set a field the saving user is not allowed to update; the change was re-checked against the user's permissions and rejected with updateDenied. Fields the user changed are still checked against the user's permissions, while changes made by before-handlers are taken as the automation's own action."],
+      "refs": ["https://github.com/cortezaproject/corteza/commit/568de7cf6"]
+    },
+    {
+      "what": ["the MSSQL driver failing to upgrade the store (\"Invalid object name 'INSTANCENAME.information_schema.columns'\") when the DSN addresses a named server instance (sqlserver://user:pass@host/INSTANCE?database=corteza); the database name is now taken from the database parameter."],
+      "refs": ["https://github.com/cortezaproject/corteza/commit/f2e9ca03e"]
+    },
+    {
+      "what": ["error messages on the auth pages (login, sign-up, change password, profile, MFA) being shown untranslated; service errors are now translated for the user's language like they are in API responses, falling back to the original message when no translation exists."],
+      "refs": ["https://github.com/cortezaproject/corteza/commit/0524490bf"]
+    },
+    {
+      "what": ["a record list in inline-edit mode not warning about unsaved changes; leaving the page, navigating to another page or reloading now asks for confirmation while edited rows are not saved, like the record page does."],
+      "refs": ["https://github.com/cortezaproject/corteza/commit/77e68c5a3"]
+    },
+    {
+      "what": ["angle brackets and other markup being stripped from plain text fields (for example \"Name <mail@example.tld>\"). A String field now has an \"XSS Sanitization\" option that can be turned off for fields holding trusted plain text; it stays on by default and cannot be turned off for rich text fields, which are always sanitized. Plain text fields are also rendered as text instead of HTML in record views."],
+      "refs": ["https://github.com/cortezaproject/corteza/commit/f6c708a79", "https://github.com/cortezaproject/corteza/commit/c2ed5036e"]
+    },
+    {
+      "what": ["workflow errors not saying which parameter failed; an argument or result that cannot be evaluated is now reported with the function and parameter name (for example: function \"composeRecordLookup\", arguments: could not evaluate \"recordID\": ...)."],
+      "refs": ["https://github.com/cortezaproject/corteza/commit/c1b47cb81"]
+    },
+    {
+      "what": ["the message of a workflow error step being shown with a technical prefix (\"workflow N step M execution failed: ...\"); it is now shown exactly as configured. The error step also accepts an optional title, used as the heading of the error notification in the webapps instead of the generic one."],
+      "refs": ["https://github.com/cortezaproject/corteza/commit/51bdf5d47"]
+    },
+    {
+      "what": ["MSSQL storing non-Latin text (Arabic, Persian, Chinese, ...) as question marks; text, enum, JSON and geometry columns are now created as NVARCHAR. Columns created earlier keep their VARCHAR type; alter them to NVARCHAR manually where such text must be stored."],
+      "refs": ["https://github.com/cortezaproject/corteza/commit/43ed0e138"]
+    },
+    {
+      "what": ["a data race when a module was saved while its records were being read, which could crash the server"],
+      "refs": ["https://github.com/cortezaproject/corteza/commit/b0d950b1e"]
+    },
+    {
+      "what": ["updating resource translations crashing the request when no default language is loaded"],
+      "refs": ["https://github.com/cortezaproject/corteza/commit/f6fa696b9"]
+    }
+  ],
+  "security": [
+    {
+      "what": [
+        "Closed unauthenticated access to private record attachments, which could be downloaded by anyone who knew or guessed their ID, and added the missing permission checks for reading and removing Compose attachments, addressing GHSA-9qmq-7rfq-58cj and GHSA-jvjg-fj8j-x7qm"
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/3b68aa30c"
+      ]
+    },
+    {
+      "what": [
+        "Validated OAuth2 redirect addresses strictly, so a crafted login link can no longer send the authorization code of a signed in user to another site and take over their account, and limited auth clients without redirect addresses to the address of the server, addressing GHSA-x253-2jqf-vx2x"
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/01eacf5ae",
+        "https://github.com/cortezaproject/corteza/commit/453d5b31f"
+      ]
+    },
+    {
+      "what": [
+        "Stopped users from changing their own email, username, user group, kind and labels without permission to update users, which could be used to join any user group or to satisfy contextual role expressions, and limited those expressions to the confirmed email and labels of the user, addressing GHSA-6rpc-jwjp-vh82"
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/db5be5abd"
+      ]
+    },
+    {
+      "what": [
+        "Enforced the list of allowed roles on Corredor scripts, which was ignored and let any signed in user list and run restricted scripts, addressing GHSA-xq36-w6gr-q84q"
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/e71cbb79b"
+      ]
+    },
+    {
+      "what": [
+        "Required the impersonate permission to make a workflow run as another user and the grant permission to change its owner, addressing GHSA-7gqf-f657-r6c8"
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/015d4d4f1"
+      ]
+    },
+    {
+      "what": [
+        "Blocked workflow HTTP requests, workflow OAuth2 requests and API Gateway proxy requests from reaching cloud metadata and other link-local addresses, with the new HTTP_CLIENT_RESTRICTED_NETWORKS option to also block private networks, addressing GHSA-r6q3-f6xj-fpx7"
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/21bc18aeb",
+        "https://github.com/cortezaproject/corteza/commit/718704f93"
+      ]
+    },
+    {
+      "what": [
+        "Made module, page and page layout lookups check that the resource belongs to the requested namespace"
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/1b240f484"
+      ]
+    },
+    {
+      "what": [
+        "Required permission to manage settings, or to update the owner in case of avatars, for removing system attachments, which any signed in user could remove before"
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/323bd80be"
+      ]
+    },
+    {
+      "what": [
+        "Limited the length of language tags accepted from requests, which let anyone exhaust the CPU of the server with a crafted Accept-Language header or lng parameter, addressing GHSA-q83v-jvj7-jq9m"
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/24974bc4b"
+      ]
+    },
+    {
+      "what": [
+        "Generated password reset, invite and confirmation tokens, email OTP codes, TOTP secrets, auth client secrets, federation pairing tokens and session IDs from the OS random source instead of a predictable one, and compared tokens in constant time, addressing GHSA-5xr2-wfj4-8cq8"
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/9c15194b4"
+      ]
+    },
+    {
+      "what": [
+        "Stopped users from removing credentials of other users"
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/4f2726c28"
+      ]
+    },
+    {
+      "what": [
+        "Applied network restrictions to attachments downloaded for email notifications"
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/4d529c7fb"
+      ]
+    },
+    {
+      "what": [
+        "Limited personal page layouts to the users that own them"
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/ef65145ca"
+      ]
+    },
+    {
+      "what": [
+        "Required a permission for sending email notifications over the API, which any signed in user could use to send email through the server"
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/09ceefbb2"
+      ]
+    },
+    {
+      "what": [
+        "Required permissions for auth client impersonation, forced roles and access to the client secret"
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/176cba685"
+      ]
+    },
+    {
+      "what": [
+        "Required permissions for managing federation nodes and refused pairing with an empty token"
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/09248d051"
+      ]
+    },
+    {
+      "what": [
+        "Required permission to update the workflow for reading its execution traces"
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/039beffa1"
+      ]
+    },
+    {
+      "what": [
+        "Stopped users from taking over reminders of other users by assigning them to themselves"
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/7d6de8fa3"
+      ]
+    },
+    {
+      "what": [
+        "Limited data privacy request comments to users with access to the request"
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/90ec5f9cf"
+      ]
+    },
+    {
+      "what": [
+        "Required permission to update the resource for changing its translations"
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/4fb814d36"
+      ]
+    },
+    {
+      "what": [
+        "Stopped record scripts from being triggered on records that can not be read"
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/4a6725244"
+      ]
+    },
+    {
+      "what": [
+        "Required read permissions for reading roles and role membership of other users"
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/77ab7885d"
+      ]
+    },
+    {
+      "what": [
+        "Disabled SCIM when its secret is not set, which left it open to anyone"
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/25f89d2ec",
+        "https://github.com/cortezaproject/corteza/commit/07eab31cc"
+      ]
+    },
+    {
+      "what": [
+        "Refused record reports over fields that can not be read"
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/9b4da2702"
+      ]
+    },
+    {
+      "what": [
+        "Limited paired federation nodes to the data shared with them"
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/dd4359c58",
+        "https://github.com/cortezaproject/corteza/commit/ea2c440e3"
+      ]
+    },
+    {
+      "what": [
+        "Limited namespace import sessions to the users that created them"
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/12e7faea9"
+      ]
+    },
+    {
+      "what": ["SMTP host, user and sender address with surrounding whitespace being saved as typed, which made mail sending fail; the values are now trimmed by the server, the connection test and the settings form."],
+      "refs": ["https://github.com/cortezaproject/corteza/commit/3f9dcbd24"]
+    },
+    {
+      "what": ["Required the impersonate permission for changing the steps, paths or scope of a workflow that runs as another user; without it, permission to update the workflow was enough to run any code as that user"],
+      "refs": ["https://github.com/cortezaproject/corteza/commit/d9b22105d"]
+    },
+    {
+      "what": ["Applied network restrictions to remote resources inlined into rendered templates with inlineRemote, which could be pointed at cloud metadata and other internal addresses"],
+      "refs": ["https://github.com/cortezaproject/corteza/commit/1864cb394"]
+    },
+    {
+      "what": ["Refused record reports over fields that can not be read regardless of the letter case the field name is written in"],
+      "refs": ["https://github.com/cortezaproject/corteza/commit/53e15a424"]
+    },
+    {
+      "what": ["Guarded SCIM endpoints with the SCIM secret in development mode as well"],
+      "refs": ["https://github.com/cortezaproject/corteza/commit/1deab14f6"]
+    },
+    {
+      "what": ["Required read permission on a user for listing the roles they are a member of"],
+      "refs": ["https://github.com/cortezaproject/corteza/commit/3dfe22c54"]
+    },
+    {
+      "what": ["Required the impersonate permission for exposing or regenerating the secret of, or updating, an auth client that impersonates another user"],
+      "refs": ["https://github.com/cortezaproject/corteza/commit/4b4e47bd5"]
+    },
+    {
+      "what": ["Stopped page layout updates from moving the layout to another page or namespace"],
+      "refs": ["https://github.com/cortezaproject/corteza/commit/5ccce02ae"]
+    },
+    {
+      "what": ["Limited the length of language tags read from imported YAML the same way as tags from requests"],
+      "refs": ["https://github.com/cortezaproject/corteza/commit/590d0c5ea"]
+    },
+    {
+      "what": ["Cleared the federation pairing token once the nodes are paired, so a leaked pairing URI can not be used to start the handshake over"],
+      "refs": ["https://github.com/cortezaproject/corteza/commit/8ee143833"]
     }
   ]
 }

@@ -1,0 +1,15 @@
+include::ROOT:partial$variables.adoc[]
+
+[#2026-9-x]
+= `2026.9`
+
+With {PRODUCT_NAME} `2026.9`, we've focused on security.
+
+This release closes a series of privately reported vulnerabilities in authentication, access control, file attachments and automation.
+Some of the fixes change how {PRODUCT_NAME} behaves, so make sure to read the upgrade notes before upgrading.
+
+:leveloffset: +1
+
+include::00.gen.adoc[]
+
+:leveloffset: -1

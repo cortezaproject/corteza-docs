@@ -1,6 +1,6 @@
 include::partial$variables.adoc[]
-:MAJOR_FRIENDLY: 2024.9
-:MAJOR_FILENAME: 202409
+:MAJOR_FRIENDLY: 2026.9
+:MAJOR_FILENAME: 202609
 
 = Changelog
 

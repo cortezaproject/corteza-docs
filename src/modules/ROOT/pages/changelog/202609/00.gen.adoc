@@ -123,6 +123,8 @@ The change was added to let one automation block act as a context-aware action t
 ({CORTEZA_COMMIT_BASE}1a204cd[`1a204cd`]).
 * Fixed authentication pages (login, signup, profile, ) staying left to right in right-to-left languages such as Arabic and Hebrew; the page direction now follows the detected language
 ({CORTEZA_COMMIT_BASE}62c477d[`62c477d`]).
+* Fixed workflows triggered while the server was still starting (for example on a scheduled interval) failing with a missing record model; workflow triggers are now registered only after the compose models are loaded
+({CORTEZA_COMMIT_BASE}a2a8fd5[`a2a8fd5`]).
 
 .[#2026_09_00-security]#<<2026_09_00-security,Security:>>#
 * Closed unauthenticated access to private record attachments, which could be downloaded by anyone who knew or guessed their ID, and added the missing permission checks for reading and removing Compose attachments, addressing GHSA-9qmq-7rfq-58cj and GHSA-jvjg-fj8j-x7qm

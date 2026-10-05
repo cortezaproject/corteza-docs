@@ -179,9 +179,9 @@
       "refs": ["https://github.com/cortezaproject/corteza/commit/fee0e4f61"]
     },
     {
-      "what": ["the navigation block collapses into a menu button when its items do not fit in one row, and on small screens (narrower than 768px) vertical tabs switch to a tab selector above the content"],
+      "what": ["the navigation block collapses into a menu button when its items do not fit in one row, and the tabs block switches to a tab selector above the content when its tab titles do not fit (horizontal tabs in one row, vertical tabs in half of the block's width)"],
       "why": ["so all navigation items and tabs stay reachable on phones instead of wrapping out of the block or squeezing the tab content"],
-      "refs": ["https://github.com/cortezaproject/corteza/commit/89bacbd9e", "https://github.com/cortezaproject/corteza/commit/dddd6c661"]
+      "refs": ["https://github.com/cortezaproject/corteza/commit/89bacbd9e", "https://github.com/cortezaproject/corteza/commit/dddd6c661", "https://github.com/cortezaproject/corteza/commit/cb10f3e98"]
     }
   ],
   "fixed": [

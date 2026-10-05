@@ -173,6 +173,10 @@
     {
       "what": ["Docker images are now also published under the latest tag when the released version is the highest stable one (no pre-release suffix), next to the version tag and the YYYY.MM alias; a patch to an older release line does not move latest."],
       "refs": ["https://github.com/cortezaproject/corteza/commit/e53020aa0"]
+    },
+    {
+      "what": ["the sort button of record selector and user columns in a record list now explains in its tooltip that these columns sort by the referenced record or user ID, not by the displayed value"],
+      "refs": ["https://github.com/cortezaproject/corteza/commit/fee0e4f61"]
     }
   ],
   "fixed": [

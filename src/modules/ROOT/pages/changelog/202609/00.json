@@ -332,6 +332,10 @@
     {
       "what": ["saving a workflow failing for users who may update it but not manage its triggers; the editor now only sends triggers that were added or changed"],
       "refs": ["https://github.com/cortezaproject/corteza/commit/1a204cd25"]
+    },
+    {
+      "what": ["authentication pages (login, signup, profile, ...) staying left to right in right-to-left languages such as Arabic and Hebrew; the page direction now follows the detected language"],
+      "refs": ["https://github.com/cortezaproject/corteza/commit/62c477d4b"]
     }
   ],
   "security": [

@@ -121,6 +121,8 @@ The change was added to let one automation block act as a context-aware action t
 ({CORTEZA_COMMIT_BASE}6b136bc[`6b136bc`]).
 * Fixed saving a workflow failing for users who may update it but not manage its triggers; the editor now only sends triggers that were added or changed
 ({CORTEZA_COMMIT_BASE}1a204cd[`1a204cd`]).
+* Fixed authentication pages (login, signup, profile, ) staying left to right in right-to-left languages such as Arabic and Hebrew; the page direction now follows the detected language
+({CORTEZA_COMMIT_BASE}62c477d[`62c477d`]).
 
 .[#2026_09_00-security]#<<2026_09_00-security,Security:>>#
 * Closed unauthenticated access to private record attachments, which could be downloaded by anyone who knew or guessed their ID, and added the missing permission checks for reading and removing Compose attachments, addressing GHSA-9qmq-7rfq-58cj and GHSA-jvjg-fj8j-x7qm

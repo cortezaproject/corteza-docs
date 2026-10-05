@@ -328,6 +328,10 @@
     {
       "what": ["PostgreSQL connections using a schema other than public (search_path in the DSN) asking for the same schema alterations over and over and failing every record operation; table and index checks now look in the connection's current schema"],
       "refs": ["https://github.com/cortezaproject/corteza/commit/6b136bcbe"]
+    },
+    {
+      "what": ["saving a workflow failing for users who may update it but not manage its triggers; the editor now only sends triggers that were added or changed"],
+      "refs": ["https://github.com/cortezaproject/corteza/commit/1a204cd25"]
     }
   ],
   "security": [

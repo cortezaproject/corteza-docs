@@ -177,6 +177,11 @@
     {
       "what": ["the sort button of record selector and user columns in a record list now explains in its tooltip that these columns sort by the referenced record or user ID, not by the displayed value"],
       "refs": ["https://github.com/cortezaproject/corteza/commit/fee0e4f61"]
+    },
+    {
+      "what": ["on small screens (narrower than 768px) the navigation block collapses into a menu button and vertical tabs switch to a tab selector above the content"],
+      "why": ["so all navigation items and tabs stay reachable on phones instead of wrapping out of the block or squeezing the tab content"],
+      "refs": ["https://github.com/cortezaproject/corteza/commit/89bacbd9e"]
     }
   ],
   "fixed": [

@@ -51,6 +51,9 @@ The change was added to let one automation block act as a context-aware action t
 ({CORTEZA_COMMIT_BASE}e53020a[`e53020a`]).
 * Changed the sort button of record selector and user columns in a record list now explains in its tooltip that these columns sort by the referenced record or user ID, not by the displayed value
 ({CORTEZA_COMMIT_BASE}fee0e4f[`fee0e4f`]).
+* Changed on small screens (narrower than 768px) the navigation block collapses into a menu button and vertical tabs switch to a tab selector above the content
+The change was made so all navigation items and tabs stay reachable on phones instead of wrapping out of the block or squeezing the tab content
+({CORTEZA_COMMIT_BASE}89bacbd[`89bacbd`]).
 
 .[#2026_09_00-fixed]#<<2026_09_00-fixed,Fixed:>>#
 * Fixed server scripts run from client scripts not returning their results to the client script, the returned values no longer need to be passed in as arguments first

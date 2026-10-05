@@ -113,6 +113,8 @@ The change was added to let one automation block act as a context-aware action t
 ({CORTEZA_COMMIT_BASE}3529f4c[`3529f4c`]).
 * Fixed number values that can not be parsed (for example a decimal comma in a CSV import) being stored as 0; they are now rejected as invalid
 ({CORTEZA_COMMIT_BASE}56808a6[`56808a6`]).
+* Fixed the page title running under the sidebar and its toggle in right-to-left languages (Hebrew, Arabic, )
+({CORTEZA_COMMIT_BASE}fc88ddf[`fc88ddf`]).
 
 .[#2026_09_00-security]#<<2026_09_00-security,Security:>>#
 * Closed unauthenticated access to private record attachments, which could be downloaded by anyone who knew or guessed their ID, and added the missing permission checks for reading and removing Compose attachments, addressing GHSA-9qmq-7rfq-58cj and GHSA-jvjg-fj8j-x7qm

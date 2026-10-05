@@ -316,6 +316,10 @@
     {
       "what": ["number values that can not be parsed (for example a decimal comma in a CSV import) being stored as 0; they are now rejected as invalid"],
       "refs": ["https://github.com/cortezaproject/corteza/commit/56808a677"]
+    },
+    {
+      "what": ["the page title running under the sidebar and its toggle in right-to-left languages (Hebrew, Arabic, ...)"],
+      "refs": ["https://github.com/cortezaproject/corteza/commit/fc88ddf67"]
     }
   ],
   "security": [

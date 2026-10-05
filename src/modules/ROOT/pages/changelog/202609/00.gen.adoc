@@ -128,6 +128,8 @@ The change was made so all navigation items and tabs stay reachable on phones in
 ({CORTEZA_COMMIT_BASE}62c477d[`62c477d`]).
 * Fixed workflows triggered while the server was still starting (for example on a scheduled interval) failing with a missing record model; workflow triggers are now registered only after the compose models are loaded
 ({CORTEZA_COMMIT_BASE}a2a8fd5[`a2a8fd5`]).
+* Fixed the title of a workflow error step not being shown in production, where error details are masked; the step's title is now kept and only other details are hidden
+({CORTEZA_COMMIT_BASE}d5ca627[`d5ca627`]).
 
 .[#2026_09_00-security]#<<2026_09_00-security,Security:>>#
 * Closed unauthenticated access to private record attachments, which could be downloaded by anyone who knew or guessed their ID, and added the missing permission checks for reading and removing Compose attachments, addressing GHSA-9qmq-7rfq-58cj and GHSA-jvjg-fj8j-x7qm

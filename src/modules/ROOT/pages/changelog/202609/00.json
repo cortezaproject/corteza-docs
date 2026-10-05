@@ -345,6 +345,10 @@
     {
       "what": ["workflows triggered while the server was still starting (for example on a scheduled interval) failing with a missing record model; workflow triggers are now registered only after the compose models are loaded"],
       "refs": ["https://github.com/cortezaproject/corteza/commit/a2a8fd59c"]
+    },
+    {
+      "what": ["the title of a workflow error step not being shown in production, where error details are masked; the step's title is now kept and only other details are hidden"],
+      "refs": ["https://github.com/cortezaproject/corteza/commit/d5ca62783"]
     }
   ],
   "security": [

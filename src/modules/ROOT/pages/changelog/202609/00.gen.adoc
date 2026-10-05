@@ -109,6 +109,10 @@ The change was added to let one automation block act as a context-aware action t
 ({CORTEZA_COMMIT_BASE}b0d950b[`b0d950b`]).
 * Fixed updating resource translations crashing the request when no default language is loaded
 ({CORTEZA_COMMIT_BASE}f6fa696[`f6fa696`]).
+* Fixed CSV record import keeping only the first line of multi-line text and dropping values that contain quotes
+({CORTEZA_COMMIT_BASE}3529f4c[`3529f4c`]).
+* Fixed number values that can not be parsed (for example a decimal comma in a CSV import) being stored as 0; they are now rejected as invalid
+({CORTEZA_COMMIT_BASE}56808a6[`56808a6`]).
 
 .[#2026_09_00-security]#<<2026_09_00-security,Security:>>#
 * Closed unauthenticated access to private record attachments, which could be downloaded by anyone who knew or guessed their ID, and added the missing permission checks for reading and removing Compose attachments, addressing GHSA-9qmq-7rfq-58cj and GHSA-jvjg-fj8j-x7qm

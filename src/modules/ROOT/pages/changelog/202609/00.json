@@ -308,6 +308,14 @@
     {
       "what": ["updating resource translations crashing the request when no default language is loaded"],
       "refs": ["https://github.com/cortezaproject/corteza/commit/f6fa696b9"]
+    },
+    {
+      "what": ["CSV record import keeping only the first line of multi-line text and dropping values that contain quotes"],
+      "refs": ["https://github.com/cortezaproject/corteza/commit/3529f4cfb"]
+    },
+    {
+      "what": ["number values that can not be parsed (for example a decimal comma in a CSV import) being stored as 0; they are now rejected as invalid"],
+      "refs": ["https://github.com/cortezaproject/corteza/commit/56808a677"]
     }
   ],
   "security": [

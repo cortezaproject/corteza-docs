@@ -22,3 +22,23 @@ include::ROOT:partial$variables.adoc[]
 The exported namespace will exclude workflow references and access control permissions.
 Those need to be configured manually after the fact.
 ====
+
+[#csv-record-import]
+== Importing records from CSV
+
+Records can be imported into a module from a CSV file with the btn:[Import] button on the record list.
+The first row of the file must hold the column names, which are then mapped to module fields.
+
+.Cell values
+* Text that contains the delimiter, line breaks or quotes must be enclosed in double quotes, and a quote inside such a value is written twice (`"5"" pipe"`).
+Line breaks inside quoted text are kept.
+* Numbers use a period as the decimal separator (`1.5`) and no thousands separator.
+A value that is not a number, such as `1,5`, fails the row.
+* Dates are written as `YYYY-MM-DD` and date-times as `YYYY-MM-DDTHH:MM:SSZ` (RFC 3339), `YYYY-MM-DDTHH:MM:SS` or `YYYY-MM-DD HH:MM:SS`.
+Date-times without a timezone are read as UTC, and values in an unrecognised format are left empty.
+Time-only fields accept `HH:MM:SS` and `HH:MM`.
+* Record and user fields expect the ID of the referenced record or user.
+
+.Multi-value fields
+Values of a multi-value field are written into a single cell and separated by the delimiter selected in the import dialog (`;` by default), optionally enclosed in brackets (`[v1;v2]`).
+Pick a delimiter that does not appear inside the values; the selected delimiter is applied to every cell, so with `,` a text such as `Hello, world` is split as well.

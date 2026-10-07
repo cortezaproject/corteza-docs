@@ -208,3 +208,5 @@ The change was made so all navigation items and tabs stay reachable on phones in
 ({CORTEZA_COMMIT_BASE}590d0c5[`590d0c5`]).
 * Cleared the federation pairing token once the nodes are paired, so a leaked pairing URI can not be used to start the handshake over
 ({CORTEZA_COMMIT_BASE}8ee1438[`8ee1438`]).
+* Stopped rich text values encoded several times over from turning back into live markup when read, which let a stored value run script in record views; entities in rich text are now decoded without ever producing new tags
+({CORTEZA_COMMIT_BASE}4e8ecf4[`4e8ecf4`]).

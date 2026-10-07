@@ -130,6 +130,10 @@ The change was made so all navigation items and tabs stay reachable on phones in
 ({CORTEZA_COMMIT_BASE}a2a8fd5[`a2a8fd5`]).
 * Fixed the title of a workflow error step not being shown in production, where error details are masked; the step's title is now kept and only other details are hidden
 ({CORTEZA_COMMIT_BASE}d5ca627[`d5ca627`]).
+* Fixed record filters with a list of values, such as `industry IN ('Tech', 'Retail', 'Mining')`, using only the first two values, and a one-value list such as `industry IN ('Tech')` being rejected as an unsupported operator
+({CORTEZA_COMMIT_BASE}9ec8552[`9ec8552`]).
+* Fixed record filters written as `size BETWEEN 10 AND 20` failing with a server error; they now filter the same as `(size BETWEEN 10 20)`
+({CORTEZA_COMMIT_BASE}4b5f5e9[`4b5f5e9`]).
 
 .[#2026_09_00-security]#<<2026_09_00-security,Security:>>#
 * Closed unauthenticated access to private record attachments, which could be downloaded by anyone who knew or guessed their ID, and added the missing permission checks for reading and removing Compose attachments, addressing GHSA-9qmq-7rfq-58cj and GHSA-jvjg-fj8j-x7qm

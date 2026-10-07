@@ -349,6 +349,14 @@
     {
       "what": ["the title of a workflow error step not being shown in production, where error details are masked; the step's title is now kept and only other details are hidden"],
       "refs": ["https://github.com/cortezaproject/corteza/commit/d5ca62783"]
+    },
+    {
+      "what": ["record filters with a list of values, such as `industry IN ('Tech', 'Retail', 'Mining')`, using only the first two values, and a one-value list such as `industry IN ('Tech')` being rejected as an unsupported operator."],
+      "refs": ["https://github.com/cortezaproject/corteza/commit/9ec85529f"]
+    },
+    {
+      "what": ["record filters written as `size BETWEEN 10 AND 20` failing with a server error; they now filter the same as `(size BETWEEN 10 20)`."],
+      "refs": ["https://github.com/cortezaproject/corteza/commit/4b5f5e955"]
     }
   ],
   "security": [

@@ -143,7 +143,7 @@ The change was made so all navigation items and tabs stay reachable on phones in
 * Closed unauthenticated access to private record attachments, which could be downloaded by anyone who knew or guessed their ID, and added the missing permission checks for reading and removing Compose attachments, addressing GHSA-9qmq-7rfq-58cj and GHSA-jvjg-fj8j-x7qm
 ({CORTEZA_COMMIT_BASE}3b68aa3[`3b68aa3`]).
 * Validated OAuth2 redirect addresses strictly, so a crafted login link can no longer send the authorization code of a signed in user to another site and take over their account, and limited auth clients without redirect addresses to the address of the server, addressing GHSA-x253-2jqf-vx2x
-({CORTEZA_COMMIT_BASE}01eacf5[`01eacf5`], {CORTEZA_COMMIT_BASE}453d5b3[`453d5b3`]).
+({CORTEZA_COMMIT_BASE}01eacf5[`01eacf5`], {CORTEZA_COMMIT_BASE}453d5b3[`453d5b3`], {CORTEZA_COMMIT_BASE}854a481[`854a481`]).
 * Stopped users from changing their own email, username, user group, kind and labels without permission to update users, which could be used to join any user group or to satisfy contextual role expressions, and limited those expressions to the confirmed email and labels of the user, addressing GHSA-6rpc-jwjp-vh82
 ({CORTEZA_COMMIT_BASE}db5be5a[`db5be5a`]).
 * Enforced the list of allowed roles on Corredor scripts, which was ignored and let any signed in user list and run restricted scripts, addressing GHSA-xq36-w6gr-q84q

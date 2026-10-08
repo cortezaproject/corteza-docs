@@ -140,6 +140,8 @@ The change was made so all navigation items and tabs stay reachable on phones in
 ({CORTEZA_COMMIT_BASE}ba59f16[`ba59f16`]).
 * Fixed permission updates from the `200_federation` and `300_automation` provisioning folders not reaching an existing installation that has no auth client permissions; a provisioning folder that is missing is now reported and skipped instead of ending the import
 ({CORTEZA_COMMIT_BASE}c0647a6[`c0647a6`]).
+* Fixed a module's discovery settings keeping only their last language after each server restart; settings listed for several languages now keep all of them
+({CORTEZA_COMMIT_BASE}38a5b8a[`38a5b8a`]).
 
 .[#2026_09_00-security]#<<2026_09_00-security,Security:>>#
 * Closed unauthenticated access to private record attachments, which could be downloaded by anyone who knew or guessed their ID, and added the missing permission checks for reading and removing Compose attachments, addressing GHSA-9qmq-7rfq-58cj and GHSA-jvjg-fj8j-x7qm

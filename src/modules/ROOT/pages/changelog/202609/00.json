@@ -357,6 +357,13 @@
     {
       "what": ["record filters written as `size BETWEEN 10 AND 20` failing with a server error; they now filter the same as `(size BETWEEN 10 20)`."],
       "refs": ["https://github.com/cortezaproject/corteza/commit/4b5f5e955"]
+    },
+    {
+      "what": ["the API documentation at `/api/docs` missing endpoints added since 2022, such as the user group endpoints; the documents are now generated from the API definitions so they stay complete."],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/f6fd2b034",
+        "https://github.com/cortezaproject/corteza/commit/9f720200d"
+      ]
     }
   ],
   "security": [

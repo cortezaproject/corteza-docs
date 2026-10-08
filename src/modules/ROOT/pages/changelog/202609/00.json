@@ -626,6 +626,10 @@
     {
       "what": ["Stopped rich text values encoded several times over from turning back into live markup when read, which let a stored value run script in record views; entities in rich text are now decoded without ever producing new tags"],
       "refs": ["https://github.com/cortezaproject/corteza/commit/4e8ecf4d0"]
+    },
+    {
+      "what": ["Limited record reports, and with them charts and metric blocks, to the records the user may read, so a user who reads only some of a module's records, such as their own, no longer sees totals or grouped values of all of them"],
+      "refs": ["https://github.com/cortezaproject/corteza/commit/3285eb23c"]
     }
   ]
 }

@@ -214,3 +214,5 @@ The change was made so all navigation items and tabs stay reachable on phones in
 ({CORTEZA_COMMIT_BASE}8ee1438[`8ee1438`]).
 * Stopped rich text values encoded several times over from turning back into live markup when read, which let a stored value run script in record views; entities in rich text are now decoded without ever producing new tags
 ({CORTEZA_COMMIT_BASE}4e8ecf4[`4e8ecf4`]).
+* Limited record reports, and with them charts and metric blocks, to the records the user may read, so a user who reads only some of a module's records, such as their own, no longer sees totals or grouped values of all of them
+({CORTEZA_COMMIT_BASE}3285eb2[`3285eb2`]).

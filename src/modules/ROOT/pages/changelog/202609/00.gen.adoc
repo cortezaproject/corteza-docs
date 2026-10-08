@@ -142,6 +142,8 @@ The change was made so all navigation items and tabs stay reachable on phones in
 ({CORTEZA_COMMIT_BASE}c0647a6[`c0647a6`]).
 * Fixed a module's discovery settings keeping only their last language after each server restart; settings listed for several languages now keep all of them
 ({CORTEZA_COMMIT_BASE}38a5b8a[`38a5b8a`]).
+* Fixed a record filter with double-quoted or unclosed text failing with an unreadable `found an illegal token` error; it now says that text is quoted with single quotes
+({CORTEZA_COMMIT_BASE}62d6fe0[`62d6fe0`]).
 
 .[#2026_09_00-security]#<<2026_09_00-security,Security:>>#
 * Closed unauthenticated access to private record attachments, which could be downloaded by anyone who knew or guessed their ID, and added the missing permission checks for reading and removing Compose attachments, addressing GHSA-9qmq-7rfq-58cj and GHSA-jvjg-fj8j-x7qm

@@ -376,6 +376,10 @@
     {
       "what": ["a module's discovery settings keeping only their last language after each server restart; settings listed for several languages now keep all of them."],
       "refs": ["https://github.com/cortezaproject/corteza/commit/38a5b8a41"]
+    },
+    {
+      "what": ["a record filter with double-quoted or unclosed text failing with an unreadable `found an illegal token` error; it now says that text is quoted with single quotes."],
+      "refs": ["https://github.com/cortezaproject/corteza/commit/62d6fe00c"]
     }
   ],
   "security": [

@@ -364,6 +364,10 @@
         "https://github.com/cortezaproject/corteza/commit/f6fd2b034",
         "https://github.com/cortezaproject/corteza/commit/9f720200d"
       ]
+    },
+    {
+      "what": ["a failed record export opening a browser error page such as `ERR_INVALID_RESPONSE` instead of showing what went wrong."],
+      "refs": ["https://github.com/cortezaproject/corteza/commit/ba59f16e7"]
     }
   ],
   "security": [

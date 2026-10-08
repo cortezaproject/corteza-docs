@@ -136,6 +136,8 @@ The change was made so all navigation items and tabs stay reachable on phones in
 ({CORTEZA_COMMIT_BASE}4b5f5e9[`4b5f5e9`]).
 * Fixed the API documentation at `/api/docs` missing endpoints added since 2022, such as the user group endpoints; the documents are now generated from the API definitions so they stay complete
 ({CORTEZA_COMMIT_BASE}f6fd2b0[`f6fd2b0`], {CORTEZA_COMMIT_BASE}9f72020[`9f72020`]).
+* Fixed a failed record export opening a browser error page such as `ERR_INVALID_RESPONSE` instead of showing what went wrong
+({CORTEZA_COMMIT_BASE}ba59f16[`ba59f16`]).
 
 .[#2026_09_00-security]#<<2026_09_00-security,Security:>>#
 * Closed unauthenticated access to private record attachments, which could be downloaded by anyone who knew or guessed their ID, and added the missing permission checks for reading and removing Compose attachments, addressing GHSA-9qmq-7rfq-58cj and GHSA-jvjg-fj8j-x7qm

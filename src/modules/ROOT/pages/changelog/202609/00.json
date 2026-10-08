@@ -368,6 +368,10 @@
     {
       "what": ["a failed record export opening a browser error page such as `ERR_INVALID_RESPONSE` instead of showing what went wrong."],
       "refs": ["https://github.com/cortezaproject/corteza/commit/ba59f16e7"]
+    },
+    {
+      "what": ["permission updates from the `200_federation` and `300_automation` provisioning folders not reaching an existing installation that has no auth client permissions; a provisioning folder that is missing is now reported and skipped instead of ending the import."],
+      "refs": ["https://github.com/cortezaproject/corteza/commit/c0647a668"]
     }
   ],
   "security": [

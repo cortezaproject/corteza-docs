@@ -112,6 +112,14 @@
       "refs": [
         "https://github.com/cortezaproject/corteza/commit/719996655"
       ]
+    },
+    {
+      "what": [
+        "an option to the record organizer block to open records in edit mode, the same one the record list block has."
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/22051b98a"
+      ]
     }
   ],
   "changed": [

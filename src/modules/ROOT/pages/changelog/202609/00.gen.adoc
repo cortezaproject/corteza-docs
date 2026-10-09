@@ -33,6 +33,8 @@ include::ROOT:partial$variables.adoc[]
 * Added a visibility condition to automation block buttons, so a button can be shown or hidden with an expression evaluated against the record, user and screen, the same way page blocks are.
 The change was added to let one automation block act as a context-aware action toolbar instead of splitting buttons across several blocks with their own visibility conditions
 ({CORTEZA_COMMIT_BASE}7199966[`7199966`]).
+* Added an option to the record organizer block to open records in edit mode, the same one the record list block has
+({CORTEZA_COMMIT_BASE}22051b9[`22051b9`]).
 
 .[#2026_09_00-changed]#<<2026_09_00-changed,Changed:>>#
 * Changed the Go toolchain and server libraries to current versions without known vulnerabilities

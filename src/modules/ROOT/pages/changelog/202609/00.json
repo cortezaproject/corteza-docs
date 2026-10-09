@@ -380,6 +380,14 @@
     {
       "what": ["a record filter with double-quoted or unclosed text failing with an unreadable `found an illegal token` error; it now says that text is quoted with single quotes."],
       "refs": ["https://github.com/cortezaproject/corteza/commit/62d6fe00c"]
+    },
+    {
+      "what": ["listing a user's roles or a role's members on SQLite returning only one of them, or failing outright with `no such function: concat`."],
+      "refs": ["https://github.com/cortezaproject/corteza/commit/4577dfbb6"]
+    },
+    {
+      "what": ["filters matching a value against several values at once, such as a multi-value `IN` or a multi-value label filter, matching nothing on SQLite."],
+      "refs": ["https://github.com/cortezaproject/corteza/commit/0733b5dc0"]
     }
   ],
   "security": [

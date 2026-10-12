@@ -396,11 +396,14 @@
     {
       "what": ["filters matching a value against several values at once, such as a multi-value `IN` or a multi-value label filter, matching nothing on SQLite."],
       "refs": ["https://github.com/cortezaproject/corteza/commit/0733b5dc0"]
-    }
-,
+    },
     {
       "what": ["a record dropped in front of another in a record organizer landing behind it again; it now stays where it was dropped."],
       "refs": ["https://github.com/cortezaproject/corteza/commit/aae2d303e"]
+    },
+    {
+      "what": ["a record export with resolved references failing when a record field's referenced module is missing or not set; such a field now exports its record IDs."],
+      "refs": ["https://github.com/cortezaproject/corteza/commit/fef2fd514"]
     }
   ],
   "security": [

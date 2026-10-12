@@ -154,6 +154,8 @@ The change was made so all navigation items and tabs stay reachable on phones in
 ({CORTEZA_COMMIT_BASE}aae2d30[`aae2d30`]).
 * Fixed a record export with resolved references failing when a record field's referenced module is missing or not set; such a field now exports its record IDs
 ({CORTEZA_COMMIT_BASE}fef2fd5[`fef2fd5`]).
+* Fixed a fresh install on MySQL failing its database upgrade with "BLOB/TEXT column 'rel_resource' used in key specification without a key length" while creating the role members table
+({CORTEZA_COMMIT_BASE}6dfd592[`6dfd592`]).
 
 .[#2026_09_00-security]#<<2026_09_00-security,Security:>>#
 * Closed unauthenticated access to private record attachments, which could be downloaded by anyone who knew or guessed their ID, and added the missing permission checks for reading and removing Compose attachments, addressing GHSA-9qmq-7rfq-58cj and GHSA-jvjg-fj8j-x7qm

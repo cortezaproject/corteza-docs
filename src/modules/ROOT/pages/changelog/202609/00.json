@@ -404,6 +404,14 @@
     {
       "what": ["a record export with resolved references failing when a record field's referenced module is missing or not set; such a field now exports its record IDs."],
       "refs": ["https://github.com/cortezaproject/corteza/commit/fef2fd514"]
+    },
+    {
+      "what": [
+        "a fresh install on MySQL failing its database upgrade with \"BLOB/TEXT column 'rel_resource' used in key specification without a key length\" while creating the role members table"
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/6dfd59202"
+      ]
     }
   ],
   "security": [

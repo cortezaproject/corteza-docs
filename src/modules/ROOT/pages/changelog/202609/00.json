@@ -82,6 +82,9 @@
       "note": [
         "Record reports are rejected when they use fields the user is not allowed to read. Reading workflow execution traces requires permission to update the workflow"
       ]
+    },
+    {
+      "note": ["Exporting records now needs the permission to search the module's records, the same as listing them, and exports hold only the records the user may read"]
     }
   ],
   "added": [
@@ -190,6 +193,11 @@
       "what": ["the navigation block collapses into a menu button when its items do not fit in one row, and the tabs block switches to a tab selector above the content when its tab titles do not fit (horizontal tabs in one row, vertical tabs in half of the block's width)"],
       "why": ["so all navigation items and tabs stay reachable on phones instead of wrapping out of the block or squeezing the tab content"],
       "refs": ["https://github.com/cortezaproject/corteza/commit/89bacbd9e", "https://github.com/cortezaproject/corteza/commit/dddd6c661", "https://github.com/cortezaproject/corteza/commit/cb10f3e98"]
+    },
+    {
+      "what": ["record list summaries are refused together with a page cursor"],
+      "why": ["because they only ever counted from that page on; the record list block requests them with the first page only"],
+      "refs": ["https://github.com/cortezaproject/corteza/commit/3561186eb"]
     }
   ],
   "fixed": [
@@ -412,6 +420,46 @@
       "refs": [
         "https://github.com/cortezaproject/corteza/commit/6dfd59202"
       ]
+    },
+    {
+      "what": ["record lists returning a different number of records depending on the sort direction for users who may read only some of a module's records; a page is no longer cut short, and the total no longer stops counting, when a run of unreadable records follows it"],
+      "refs": ["https://github.com/cortezaproject/corteza/commit/128c829cc"]
+    },
+    {
+      "what": ["paging a record list sorted by a date field skipping or repeating records when stored values are in a different format (date only, with a positive UTC offset, or without a timezone); such values now also sort by the date they name instead of as empty"],
+      "refs": ["https://github.com/cortezaproject/corteza/commit/6ba362f16", "https://github.com/cortezaproject/corteza/commit/fcbf6d042"]
+    },
+    {
+      "what": ["bulk patch, delete and undelete by query only ever touching the first 500 matching records, patching them again on every pass until the request timed out"],
+      "refs": ["https://github.com/cortezaproject/corteza/commit/3f6a2280b"]
+    },
+    {
+      "what": ["system lists (users, roles and the like) on PostgreSQL losing rows when paged sorted by a column that is empty on some rows, and repeating the first page forever when sorted by a column name such as `created_at`"],
+      "refs": ["https://github.com/cortezaproject/corteza/commit/7c54dab4e", "https://github.com/cortezaproject/corteza/commit/7d9bbb2b0", "https://github.com/cortezaproject/corteza/commit/f5b59296d"]
+    },
+    {
+      "what": ["record list summaries reporting 0 for the minimum or maximum, a wrong unique count or an invalid average when several summaries are requested or when a field has no values"],
+      "refs": ["https://github.com/cortezaproject/corteza/commit/3561186eb"]
+    },
+    {
+      "what": ["the workflow records iterator reporting a total of 0 from the second page of records on"],
+      "refs": ["https://github.com/cortezaproject/corteza/commit/e1ad6be5e"]
+    },
+    {
+      "what": ["report runs that aggregate by several keys splitting equal groups, joins overwriting rows that share a right-side row, links skipping a row on each next page, and paging over empty values failing or skipping rows in the Reporter"],
+      "refs": ["https://github.com/cortezaproject/corteza/commit/30e5ef662", "https://github.com/cortezaproject/corteza/commit/798e23525", "https://github.com/cortezaproject/corteza/commit/2abc9f1b6", "https://github.com/cortezaproject/corteza/commit/18a4a163f", "https://github.com/cortezaproject/corteza/commit/5e1d96427"]
+    },
+    {
+      "what": ["a database query that fails midway being treated as the end of the results, which silently cut lists, exports and counts short"],
+      "refs": ["https://github.com/cortezaproject/corteza/commit/ccdba89f0"]
+    },
+    {
+      "what": ["the Corredor record iterator's `undelete` action never seeing deleted records"],
+      "refs": ["https://github.com/cortezaproject/corteza/commit/8de39a840"]
+    },
+    {
+      "what": ["sorting or filtering by a date, number or ID field failing on MySQL 8 with \"Character set 'utf8mb4_0900_ai_ci' cannot be used in conjunction with 'binary' in call to regexp_like\""],
+      "refs": ["https://github.com/cortezaproject/corteza/commit/d4963ebfd"]
     }
   ],
   "security": [
@@ -675,6 +723,22 @@
     {
       "what": ["Limited record reports, and with them charts and metric blocks, to the records the user may read, so a user who reads only some of a module's records, such as their own, no longer sees totals or grouped values of all of them"],
       "refs": ["https://github.com/cortezaproject/corteza/commit/3285eb23c"]
+    },
+    {
+      "what": ["Limited record export to the records the user may read, required the permission to search the module's records for it, and stopped resolving reference labels of records and fields the user may not read"],
+      "refs": ["https://github.com/cortezaproject/corteza/commit/f0dc505f2"]
+    },
+    {
+      "what": ["Refused record list summaries over fields the user may not read, which exposed their sums and extremes"],
+      "refs": ["https://github.com/cortezaproject/corteza/commit/d6cfeecf7"]
+    },
+    {
+      "what": ["Hid the old and new values of fields the user may not read from record revisions"],
+      "refs": ["https://github.com/cortezaproject/corteza/commit/7d4f36877"]
+    },
+    {
+      "what": ["Made the Corredor record iterator skip records the user may not read, instead of handing them to the script, and require the permission to search the module's records"],
+      "refs": ["https://github.com/cortezaproject/corteza/commit/8de39a840"]
     }
   ]
 }

@@ -23,6 +23,7 @@ include::ROOT:partial$variables.adoc[]
 * SCIM endpoints are only available when `SCIM_SECRET` is set.
 * Managing federation nodes requires the matching federation permissions and pairing requires a pairing token. Paired nodes can only synchronise data that is shared with them.
 * Record reports are rejected when they use fields the user is not allowed to read. Reading workflow execution traces requires permission to update the workflow.
+* Exporting records now needs the permission to search the module's records, the same as listing them, and exports hold only the records the user may read.
 ====
 
 .[#2026_09_00-added]#<<2026_09_00-added,Added:>>#
@@ -56,6 +57,9 @@ The change was added to let one automation block act as a context-aware action t
 * Changed the navigation block collapses into a menu button when its items do not fit in one row, and the tabs block switches to a tab selector above the content when its tab titles do not fit (horizontal tabs in one row, vertical tabs in half of the block's width)
 The change was made so all navigation items and tabs stay reachable on phones instead of wrapping out of the block or squeezing the tab content
 ({CORTEZA_COMMIT_BASE}89bacbd[`89bacbd`], {CORTEZA_COMMIT_BASE}dddd6c6[`dddd6c6`], {CORTEZA_COMMIT_BASE}cb10f3e[`cb10f3e`]).
+* Changed record list summaries are refused together with a page cursor
+The change was made because they only ever counted from that page on; the record list block requests them with the first page only
+({CORTEZA_COMMIT_BASE}3561186[`3561186`]).
 
 .[#2026_09_00-fixed]#<<2026_09_00-fixed,Fixed:>>#
 * Fixed server scripts run from client scripts not returning their results to the client script, the returned values no longer need to be passed in as arguments first
@@ -156,6 +160,26 @@ The change was made so all navigation items and tabs stay reachable on phones in
 ({CORTEZA_COMMIT_BASE}fef2fd5[`fef2fd5`]).
 * Fixed a fresh install on MySQL failing its database upgrade with "BLOB/TEXT column 'rel_resource' used in key specification without a key length" while creating the role members table
 ({CORTEZA_COMMIT_BASE}6dfd592[`6dfd592`]).
+* Fixed record lists returning a different number of records depending on the sort direction for users who may read only some of a module's records; a page is no longer cut short, and the total no longer stops counting, when a run of unreadable records follows it
+({CORTEZA_COMMIT_BASE}128c829[`128c829`]).
+* Fixed paging a record list sorted by a date field skipping or repeating records when stored values are in a different format (date only, with a positive UTC offset, or without a timezone); such values now also sort by the date they name instead of as empty
+({CORTEZA_COMMIT_BASE}6ba362f[`6ba362f`], {CORTEZA_COMMIT_BASE}fcbf6d0[`fcbf6d0`]).
+* Fixed bulk patch, delete and undelete by query only ever touching the first 500 matching records, patching them again on every pass until the request timed out
+({CORTEZA_COMMIT_BASE}3f6a228[`3f6a228`]).
+* Fixed system lists (users, roles and the like) on PostgreSQL losing rows when paged sorted by a column that is empty on some rows, and repeating the first page forever when sorted by a column name such as `created_at`
+({CORTEZA_COMMIT_BASE}7c54dab[`7c54dab`], {CORTEZA_COMMIT_BASE}7d9bbb2[`7d9bbb2`], {CORTEZA_COMMIT_BASE}f5b5929[`f5b5929`]).
+* Fixed record list summaries reporting 0 for the minimum or maximum, a wrong unique count or an invalid average when several summaries are requested or when a field has no values
+({CORTEZA_COMMIT_BASE}3561186[`3561186`]).
+* Fixed the workflow records iterator reporting a total of 0 from the second page of records on
+({CORTEZA_COMMIT_BASE}e1ad6be[`e1ad6be`]).
+* Fixed report runs that aggregate by several keys splitting equal groups, joins overwriting rows that share a right-side row, links skipping a row on each next page, and paging over empty values failing or skipping rows in the Reporter
+({CORTEZA_COMMIT_BASE}30e5ef6[`30e5ef6`], {CORTEZA_COMMIT_BASE}798e235[`798e235`], {CORTEZA_COMMIT_BASE}2abc9f1[`2abc9f1`], {CORTEZA_COMMIT_BASE}18a4a16[`18a4a16`], {CORTEZA_COMMIT_BASE}5e1d964[`5e1d964`]).
+* Fixed a database query that fails midway being treated as the end of the results, which silently cut lists, exports and counts short
+({CORTEZA_COMMIT_BASE}ccdba89[`ccdba89`]).
+* Fixed the Corredor record iterator's `undelete` action never seeing deleted records
+({CORTEZA_COMMIT_BASE}8de39a8[`8de39a8`]).
+* Fixed sorting or filtering by a date, number or ID field failing on MySQL 8 with "Character set 'utf8mb4_0900_ai_ci' cannot be used in conjunction with 'binary' in call to regexp_like"
+({CORTEZA_COMMIT_BASE}d4963eb[`d4963eb`]).
 
 .[#2026_09_00-security]#<<2026_09_00-security,Security:>>#
 * Closed unauthenticated access to private record attachments, which could be downloaded by anyone who knew or guessed their ID, and added the missing permission checks for reading and removing Compose attachments, addressing GHSA-9qmq-7rfq-58cj and GHSA-jvjg-fj8j-x7qm
@@ -234,3 +258,11 @@ The change was made so all navigation items and tabs stay reachable on phones in
 ({CORTEZA_COMMIT_BASE}4e8ecf4[`4e8ecf4`]).
 * Limited record reports, and with them charts and metric blocks, to the records the user may read, so a user who reads only some of a module's records, such as their own, no longer sees totals or grouped values of all of them
 ({CORTEZA_COMMIT_BASE}3285eb2[`3285eb2`]).
+* Limited record export to the records the user may read, required the permission to search the module's records for it, and stopped resolving reference labels of records and fields the user may not read
+({CORTEZA_COMMIT_BASE}f0dc505[`f0dc505`]).
+* Refused record list summaries over fields the user may not read, which exposed their sums and extremes
+({CORTEZA_COMMIT_BASE}d6cfeec[`d6cfeec`]).
+* Hid the old and new values of fields the user may not read from record revisions
+({CORTEZA_COMMIT_BASE}7d4f368[`7d4f368`]).
+* Made the Corredor record iterator skip records the user may not read, instead of handing them to the script, and require the permission to search the module's records
+({CORTEZA_COMMIT_BASE}8de39a8[`8de39a8`]).

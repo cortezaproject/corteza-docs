@@ -1,7 +1,6 @@
 include::ROOT:partial$variables.adoc[]
 
 = Upgrading to 2023.3
-:page-aliases: 2024.9@upgrade-guide:202303.adoc
 
 == After the Upgrade
 

@@ -1,7 +1,6 @@
 include::ROOT:partial$variables.adoc[]
 
 = Upgrading to 2024.9.6
-:page-aliases: 2024.9@upgrade-guide:2024096.adoc
 
 The newly added user groups requires database schema modifications that may not be backwards compatible.
 The `role_members` table receives a new `rel_resource` column which is generated based on the `rel_user` column.

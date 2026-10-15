@@ -2,7 +2,7 @@
 # General settings
 
 DOMAIN=corteza.mydomain.org
-VERSION=2024.9.3
+VERSION=2026.9
 
 DB_DSN=postgres://corteza:corteza@db:5432/corteza?sslmode=disable
 

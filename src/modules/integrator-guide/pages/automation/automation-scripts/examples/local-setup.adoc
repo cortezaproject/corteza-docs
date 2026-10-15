@@ -19,7 +19,7 @@ include::ROOT:partial$variables.adoc[]
 [source,env]
 ----
 DOMAIN=localhost:18091
-VERSION=2023.9.9
+VERSION=2026.9.0
 
 DB_DSN=postgres://corteza:corteza@db:5432/corteza?sslmode=disable
 

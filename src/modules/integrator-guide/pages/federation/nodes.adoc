@@ -1,7 +1,6 @@
 include::ROOT:partial$variables.adoc[]
 
 = Federated Nodes
-:page-aliases: 2024.9@administrator-guide:federation/nodes.adoc
 
 A *federated node* is an independent *{PRODUCT_NAME} instance* with the {APP_NAME_FEDERATION} feature enabled. In a federated network, each node operates autonomously but can connect with other nodes to securely exchange information.
 

@@ -39,7 +39,7 @@ The change was made to implement a standard across all web applications that use
 ({CORTEZA_PULL_BASE}1775[`1775`]).
 * Fixed record id shown instead of label by default
 ({CORTEZA_PULL_BASE}1776[`1776`]).
-* Fixed incorrect boolean labels and value shown in charts
+* Fixed incorrect boolean labels and value shown in charts.
 Fixed metric label in tooltips to show the field `title` instead of the field `name`
 ({CORTEZA_COMMIT_BASE}447e6fa[`447e6fa`]).
 * Fixed incorrect record shown when workflow function for fetching the first or the last record is used

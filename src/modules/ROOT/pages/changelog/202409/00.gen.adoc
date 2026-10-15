@@ -49,9 +49,9 @@ NOTE: Review and adjust permissions after upgrading..
 * Changed the user experience for record list filters
 ({CORTEZA_COMMIT_BASE}73b12d6[`73b12d6`]).
 * Changed general UI/UX enhancements:
-** Updated styles for simple lists (eg, module fields, select options)
-** Standardized cancel buttons in modals
-** Standardized restore and suspend button styles
+** Updated styles for simple lists (e.g., module fields, select options).
+** Standardized cancel buttons in modals.
+** Standardized restore and suspend button styles.
 ** Unified confirmation button components
 ({CORTEZA_COMMIT_BASE}38c145d[`38c145d`], {CORTEZA_COMMIT_BASE}57c2cd5[`57c2cd5`], {CORTEZA_COMMIT_BASE}a1d116b[`a1d116b`], {CORTEZA_COMMIT_BASE}97b966e[`97b966e`]).
 

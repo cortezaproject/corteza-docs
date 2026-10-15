@@ -11,7 +11,7 @@ The change was made to optimize the process of importing records by making it mo
 
 .[#2023_03_08-fixed]#<<2023_03_08-fixed,Fixed:>>#
 * Fixed record import not importing anything with no reported errors.
-The fix was made by fixing the file management to correctly report rows and counts
+The fix was made by fixing the file management to correctly report rows and counts.
 The issue was caused because the state wasn't reset correctly after performing a _preflight_ to analyze and count records
 ({CORTEZA_COMMIT_BASE}532e1ac[`532e1ac`]).
 * Fixed undefined property error in the developer console when removing a page block
@@ -20,6 +20,6 @@ The issue was caused because the state wasn't reset correctly after performing a
 ({CORTEZA_COMMIT_BASE}28d4d0d[`28d4d0d`]).
 * Fixed metric element not respecting its format configuration and displaying as default integer in {APP_NAME_REPORTER}
 ({CORTEZA_PULL_BASE}1421[`1421`]).
-* Fixed page layout expressions not being evaluated when switching from editing to viewing a record
+* Fixed page layout expressions not being evaluated when switching from editing to viewing a record.
 This fix also addressed the issue of record object not being present on initial load
 ({CORTEZA_PULL_BASE}1475[`1475`]).

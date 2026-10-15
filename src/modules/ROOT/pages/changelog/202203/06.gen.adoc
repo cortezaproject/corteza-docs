@@ -8,7 +8,7 @@ include::ROOT:partial$variables.adoc[]
 * Changed password constraints which saved their values as strings to save them as numbers.
 Additionally, the labels of the two fields were reworded to match the style of the other inputs in the password constraints section.
 The change was made because the password constraints were saved as strings; with this change, the constraints will be saved as numbers.
-The change was made 'number' was appended to the password constraint's input model
+The change was made '.number' was appended to the password constraint's input model
 ({LOCALE_COMMIT_BASE}1b8e02c[`1b8e02c`], {LOCALE_COMMIT_BASE}1d8eb4b[`1d8eb4b`], {WEBAPP_ADMIN_COMMIT_BASE}9fd49e1[`9fd49e1`], {WEBAPP_ADMIN_COMMIT_BASE}53d8619[`53d8619`], {SERVER_COMMIT_BASE}651993b[`651993b`], {SERVER_COMMIT_BASE}4c4f1df[`4c4f1df`]).
 
 .[#2022_03_06-fixed]#<<2022_03_06-fixed,Fixed:>>#

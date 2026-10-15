@@ -29,13 +29,13 @@ The change was made to reduce the amount of needless processing since the old re
 ({CORTEZA_COMMIT_BASE}6f6df66[`6f6df66`]).
 * Fixed drill-down option in the metric page block not working if the metric label wasn't provided
 ({CORTEZA_COMMIT_BASE}95ae09e[`95ae09e`]).
-* Fixed memory leak issue for {APP_NAME_COMPOSE} when switching between different pages
+* Fixed memory leak issue for {APP_NAME_COMPOSE} when switching between different pages.
 ({CORTEZA_COMMIT_BASE}95cf245[`95cf245`]).
 * Fixed not being able to save a page after removing a page block from a tabs page block
 ({CORTEZA_COMMIT_BASE}5addb87[`5addb87`]).
 * Fixed conditional fields being displayed when viewing records even though their condition evaluates to `false`
 ({CORTEZA_COMMIT_BASE}e081faa[`e081faa`]).
-* Fixed not being able to create a record in a modal because the view opens behind the modal
+* Fixed not being able to create a record in a modal because the view opens behind the modal.
 Now, the view opens in the modal and a record can be created in it
 ({CORTEZA_COMMIT_BASE}ac9bc74[`ac9bc74`]).
 * Fixed namespace sidebar not being hidden/show correctly when creating a new namespace because it was pinned

@@ -26,7 +26,7 @@ The change was added to provide the user with more customization and easier use 
 Now almost on every resource we show the total item count and we have the ability to go to the next page if there are items.
 The change was made because the look and feel of lists across {PRODUCT_NAME} needed to be unified.
 Also for better user experience and to always know the correct number of how many records/items we have.
-The change was made by updating and using the reusable CResourceList component in corteza-vue
+The change was made by updating and using the reusable CResourceList component in corteza-vue.
 That means we can control the look of all lists from one place
 ({VUE_COMMIT_BASE}030109b[`030109b`], {WEBAPP_ADMIN_COMMIT_BASE}229bf12[`229bf12`], {WEBAPP_COMPOSE_COMMIT_BASE}c67daa7[`c67daa7`], {WEBAPP_REPORTER_COMMIT_BASE}06c07d8[`06c07d8`], {WEBAPP_WORKFLOW_COMMIT_BASE}6033433[`6033433`]).
 * Changed the requirement to provide a handle when creating a resource is removed and handles are now optional.

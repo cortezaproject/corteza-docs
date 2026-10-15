@@ -12,7 +12,7 @@ The change was added to provide the user with the ability to add custom javascri
 .[#2023_09_08-fixed]#<<2023_09_08-fixed,Fixed:>>#
 * Fixed page blocks not respecting current position after being moved
 ({CORTEZA_PULL_BASE}1896[`1896`]).
-* Fixed importing an existing record as 'csv' creates a new record instead of updating the existing one
+* Fixed importing an existing record as '.csv' creates a new record instead of updating the existing one
 ({CORTEZA_PULL_BASE}1886[`1886`]).
 * Fixed user field values shown as 'undefined' instead of their original value
 ({CORTEZA_COMMIT_BASE}7c17708[`7c17708`]).

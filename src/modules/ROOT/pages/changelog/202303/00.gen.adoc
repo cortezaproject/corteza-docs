@@ -16,7 +16,7 @@ Namely, when you reference a deleted module from a page and try to export the na
 The change was added because this speeds up the development process of the project and allows users to copy/share content from one page to another
 ({WEBAPP_COMPOSE_PULL_BASE}450[`450`], {LOCALE_COMMIT_BASE}47e06eb[`47e06eb`]).
 * Added support for personalized auth screen.
-The change was added to simplify styles of the auth pages without the need to alter the source templates
+The change was added to simplify styles of the auth pages without the need to alter the source templates.
 Uploading the image will update the Auth background image, and the styles will supplement Auth screen's styles
 ({CORTEZA_PULL_BASE}446[`446`]).
 * Added support for opening a record in a new tab or in a modal.
@@ -48,7 +48,7 @@ The filters are grouped by roles, allowing more flexibility as to who sees what.
 The change was added to allow users to quickly apply filter to the record list
 ({CORTEZA_PULL_BASE}921[`921`], {CORTEZA_PULL_BASE}921[`921`], {CORTEZA_PULL_BASE}921[`921`]).
 * Added support for geo location capture and ability to set or prefill current location while on a map.
-The change was added to improve the user experience and the location accuracy of the users
+The change was added to improve the user experience and the location accuracy of the users.
 Now instead of manually entering their coordinates, they can just use the `find me` button and the coordinates will be updated
 ({CORTEZA_PULL_BASE}955[`955`], {CORTEZA_PULL_BASE}955[`955`], {CORTEZA_PULL_BASE}955[`955`], {CORTEZA_PULL_BASE}955[`955`]).
 * Added support for uploading an icon for specific page for the sidebar.
@@ -69,7 +69,7 @@ The change was added to allow the user to open the event source records without 
 * Added support for radar and scatter type charts.
 The change was added to give users more options when displaying data with charts
 ({CORTEZA_PULL_BASE}1148[`1148`], {CORTEZA_PULL_BASE}1148[`1148`], {CORTEZA_PULL_BASE}1148[`1148`]).
-* Added support for uploading ico files in record lists and file page blocks
+* Added support for uploading .ico files in record lists and file page blocks
 ({CORTEZA_PULL_BASE}1072[`1072`]).
 * Added the ability for users to disable the navigation sidebar within {APP_NAME_COMPOSE} namespace public pages.
 The option is available under the `hide sidebar on namespace public pages` checkbox in the namespace edit screen.
@@ -146,7 +146,7 @@ The change was made by updating system view configurator and system field mappin
 * Changed the name of a page when was copied multiply times was changed to show the copy and after that the name of the page and a counter in brackets.
 The change was made to improve user experience.
 If we copy a page 3-4 or more times, the naming gets confusing and too long.
-The change was made by filtering how many times a certain page with same name already exists and including 'copy of' prefix and number suffix
+The change was made by filtering how many times a certain page with same name already exists and including 'copy of' prefix and number suffix.
 Depending on the number of pages that match the same name, a counter is adjusted
 ({CORTEZA_PULL_BASE}644[`644`]).
 * Changed workflow iterators to treat limit 0 parameter as no limit set.
@@ -172,18 +172,18 @@ The change was made by updating the date and time configuration
 The change was made to prevent users getting stuck in a loop and to allow them to go back to the previous page that they were onto
 ({CORTEZA_PULL_BASE}1155[`1155`]).
 * Changed general ui/ux improvements:
-** A configuration option on charts to disable or enable animation in order to allow users more control over chart configuration options
-** The warning message for unsaved changes before navigating to another page in order to prevent losing unsaved changes by unintentionally navigating to another page
-** Support for inline editing in record lists in order to allow user to easily edit a record by just hovering on the field and pressing on the edit button
-** Option to allow duplicate values for single and multi value user, record and select fields, so that users can have more control over their selections and whether they will be allowing duplicate values or not
-** Support for managing namespace button on compose sidebar in order to allow the users the ability to go in namespace settings directly from the compose sidebar
-** The color of the button for confirming the action to accept a privacy request in order to match the same color pattern as the colors when confirming/denying the action to reject a privacy request
-** Long page titles being cut off
-** The location of the attachment modal in order to enable previewing of attachments in private pages
-** The overlapping between zoom button on the geometry page block with the page block edit group buttons so that the page block edit group button is clickable on geometry page blocks
-** Uninformative internal error error message on the user profile change password interface so that users can understand better of what and why the error was caused
-** The usage of chartjs on admin dashboard with e-charts so that all places where we used to use chartjs since we transitioned to apache e-charts can be removed
-** The description of handle/namespace slug so that we can have consistency across our system and to be more user friendly
+** A configuration option on charts to disable or enable animation in order to allow users more control over chart configuration options.
+** The warning message for unsaved changes before navigating to another page in order to prevent losing unsaved changes by unintentionally navigating to another page.
+** Support for inline editing in record lists in order to allow user to easily edit a record by just hovering on the field and pressing on the edit button.
+** Option to allow duplicate values for single and multi value user, record and select fields, so that users can have more control over their selections and whether they will be allowing duplicate values or not.
+** Support for managing namespace button on compose sidebar in order to allow the users the ability to go in namespace settings directly from the compose sidebar.
+** The color of the button for confirming the action to accept a privacy request in order to match the same color pattern as the colors when confirming/denying the action to reject a privacy request.
+** Long page titles being cut off.
+** The location of the attachment modal in order to enable previewing of attachments in private pages.
+** The overlapping between zoom button on the geometry page block with the page block edit group buttons so that the page block edit group button is clickable on geometry page blocks.
+** Uninformative internal error error message on the user profile change password interface so that users can understand better of what and why the error was caused.
+** The usage of chart.js on admin dashboard with e-charts so that all places where we used to use chart.js since we transitioned to apache e-charts can be removed.
+** The description of handle/namespace slug so that we can have consistency across our system and to be more user friendly.
 ** The `NaN items` with `0 items` when no resources are present so that we can have consistency, since on every other place when there are no items, we display them as zero
 ({CORTEZA_PULL_BASE}806[`806`], {CORTEZA_PULL_BASE}780[`780`], {CORTEZA_PULL_BASE}956[`956`], {CORTEZA_PULL_BASE}1136[`1136`], {CORTEZA_PULL_BASE}1129[`1129`], {CORTEZA_COMMIT_BASE}8379518[`8379518`], {CORTEZA_PULL_BASE}1069[`1069`], {CORTEZA_COMMIT_BASE}6ade044[`6ade044`], {CORTEZA_PULL_BASE}821[`821`], {CORTEZA_COMMIT_BASE}73a29b6[`73a29b6`], {CORTEZA_COMMIT_BASE}390a14e[`390a14e`], {CORTEZA_PULL_BASE}993[`993`], {CORTEZA_PULL_BASE}999[`999`]).
 

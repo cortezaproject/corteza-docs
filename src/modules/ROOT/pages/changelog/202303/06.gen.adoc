@@ -17,8 +17,8 @@ The change was added to provide the option of viewing permissions of a resource 
 
 .[#2023_03_06-changed]#<<2023_03_06-changed,Changed:>>#
 * Changed general ui/ux improvements:
-** Fixated the save button in {APP_NAME_ADMIN}'s permissions list so user doesn't have to scroll to the bottom to save their changes
-** Removed additional padding on the top of a record page block field when it is being edited and not aligned horizontally
+** Fixated the save button in {APP_NAME_ADMIN}'s permissions list so user doesn't have to scroll to the bottom to save their changes.
+** Removed additional padding on the top of a record page block field when it is being edited and not aligned horizontally.
 ** Hide the option to show time values in a generic chart if such value aren't used in the chart
 ({CORTEZA_COMMIT_BASE}d924903[`d924903`], {CORTEZA_COMMIT_BASE}65b6db3[`65b6db3`], {CORTEZA_COMMIT_BASE}fd5afbb[`fd5afbb`]).
 

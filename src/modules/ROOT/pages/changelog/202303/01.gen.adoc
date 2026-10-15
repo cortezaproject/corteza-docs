@@ -36,7 +36,7 @@ The fix was made by keeping aggregation on the application level until a few blo
 ({CORTEZA_COMMIT_BASE}f931275[`f931275`]).
 * Fixed failing provision step reporting a malformed SQL statement.
 The issue was caused by the provision function which utilized raw SQL with is not compatible with the sqlserver.
-The fix was made by skipping that provision on sqlserver because it does not need to exist for that driver
+The fix was made by skipping that provision on sqlserver because it does not need to exist for that driver.
 The driver was introduced with the structure change so it is unneeded
 ({CORTEZA_COMMIT_BASE}1d4ab0b[`1d4ab0b`]).
 * Fixed failing a fresh provision on an sqlserver database driver with an SQL typecasting error.

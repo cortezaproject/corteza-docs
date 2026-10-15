@@ -24,7 +24,7 @@ The removal was made because Nylass stopped using the functionality implemented 
 ({CORTEZA_COMMIT_BASE}77169cf[`77169cf`]).
 
 .[#2023_09_05-fixed]#<<2023_09_05-fixed,Fixed:>>#
-* Fixed not being able to upload `png` file to an application in {APP_NAME_ADMIN}
+* Fixed not being able to upload `.png` file to an application in {APP_NAME_ADMIN}
 ({CORTEZA_COMMIT_BASE}0456fe4[`0456fe4`]).
 * Fixed not being able to make a copy of predefined CRM namespace
 ({CORTEZA_COMMIT_BASE}55a827a[`55a827a`], {CORTEZA_PULL_BASE}1729[`1729`]).

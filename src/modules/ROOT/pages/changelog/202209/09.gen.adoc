@@ -20,7 +20,7 @@ The change was made to prevent users from getting a console error when fetching 
 
 .[#2022_09_09-fixed]#<<2022_09_09-fixed,Fixed:>>#
 * Fixed `Cannot read properties of undefined` error when trying to fetch workflow triggers without providing constraints.
-The fix was made by adding a check to determine if a constant has a name
+The fix was made by adding a check to determine if a constant has a name.
 Also, the automatic addition of constraints after an event type was selected is now removed
 ({CORTEZA_COMMIT_BASE}7a9802a[`7a9802a`]).
 * Fixed missing support for the STD aggregation function on MySQL databases.

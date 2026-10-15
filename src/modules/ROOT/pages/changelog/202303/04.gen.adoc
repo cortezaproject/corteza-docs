@@ -30,12 +30,12 @@ The change was made to improve the authentication user interface and experience
 ({CORTEZA_PULL_BASE}1284[`1284`]).
 
 .[#2023_03_04-fixed]#<<2023_03_04-fixed,Fixed:>>#
-* Fixed input parameter handling for the integration gateway proxy filter
+* Fixed input parameter handling for the integration gateway proxy filter.
 Now, the entire integration gateway pipeline scope can be used in the proxy filter
 ({CORTEZA_COMMIT_BASE}1e82fc0[`1e82fc0`]).
 * Fixed wrong condition priority when filtering the record list with the `Not equal` operator
 ({CORTEZA_PULL_BASE}1300[`1300`]).
-* Fixed the {APP_NAME_COMPOSE} namespace changed alert prompt only when we're leaving the page and unsaved changes are present
+* Fixed the {APP_NAME_COMPOSE} namespace changed alert prompt only when we're leaving the page and unsaved changes are present.
 Before, it the alert would prompt after saving changes when creating or updating a namespace
 ({CORTEZA_PULL_BASE}1298[`1298`]).
 * Fixed role members not showing when viewing or editing a role

@@ -24,8 +24,8 @@ The change was made to be consistent with the UI in {PRODUCT_NAME}
 * Changed the handle field for a user to not be required when updating the resource in {APP_NAME_ADMIN}
 ({CORTEZA_COMMIT_BASE}ed377a7[`ed377a7`]).
 * Changed general ui/ux improvements:
-** Added additional information on how to write conditions for hiding or showing for a page layout in the page layout configurator
-** Updated the edit icon in page tree to match the same edit icon used everywhere in {PRODUCT_NAME}
+** Added additional information on how to write conditions for hiding or showing for a page layout in the page layout configurator.
+** Updated the edit icon in page tree to match the same edit icon used everywhere in {PRODUCT_NAME}.
 ** Standardize permissions button in {APP_NAME_ADMIN} and {APP_NAME_COMPOSE}
 ({CORTEZA_COMMIT_BASE}d2cc2c8[`d2cc2c8`], {CORTEZA_COMMIT_BASE}d5f8faa[`d5f8faa`], {CORTEZA_COMMIT_BASE}86c12cc[`86c12cc`]).
 

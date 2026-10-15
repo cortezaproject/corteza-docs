@@ -21,7 +21,7 @@ The change was added to allow users to cancel workflows/prompts
 * Fixed {PRODUCT_NAME} refusing to start when upgrading with alterations to the default {APP_NAME_COMPOSE} records schema.
 The fix was made by allowing alterations to be logged for the default schema but continue blocking them from being applied
 ({CORTEZA_COMMIT_BASE}b389d50[`b389d50`]).
-* Fixed warning message for no matching layout after saving a record that conflicts with visibility condition of that layout
+* Fixed warning message for no matching layout after saving a record that conflicts with visibility condition of that layout.
 In some cases, the user wasn't able to access any layout or was redirected to the list of namespaces
 ({CORTEZA_COMMIT_BASE}57a307e[`57a307e`]).
 * Fixed select inputs that were using the api for search (User, Workflow) didn't work properly

@@ -37,7 +37,7 @@ The change was made by changing the translation message of a record in the creat
 
 .[#2022_09_02-fixed]#<<2022_09_02-fixed,Fixed:>>#
 * Fixed incorrect user count from the system metrics report due to system-defined users.
-The fix was made by excluding system users from the metric report
+The fix was made by excluding system users from the metric report.
 We didn't exclude them from the total, but they were excluded from the per-day aggregation
 ({SERVER_COMMIT_BASE}fd6465d[`fd6465d`]).
 * Fixed the timestamp in the details of an action log being different as the one in search results.
@@ -64,11 +64,11 @@ The bug told {PRODUCT_NAME} to look for the column with the field name which pro
 The fix was made By correctly defaulting the values
 ({WEBAPP_COMPOSE_COMMIT_BASE}580db32[`580db32`]).
 * Fixed DAL connection configuration displaying the default DSN connection parameters instead of the configured one.
-The fix was made by properly merging the default values and user-provided configurations, as well as fixing edge-cases where the configuration was made available after the page had loaded
+The fix was made by properly merging the default values and user-provided configurations, as well as fixing edge-cases where the configuration was made available after the page had loaded.
 In the later case, the user-provided configuration was never displayed instead of the default values
 ({WEBAPP_ADMIN_COMMIT_BASE}0b41074[`0b41074`], {JS_COMMIT_BASE}f9f7e92[`f9f7e92`]).
 * Fixed using `workflowID` parameter in workflowList not working because the returning value was getting corrupted in JavaScript due to unsupported `uint64`.
-The fix was made by replacing `[]uint64` with `[]string` for `filterworkflowID` that corrupted the input value for JavaScript (`uint64` vs `int64`)
+The fix was made by replacing `[]uint64` with `[]string` for `filter.workflowID` that corrupted the input value for JavaScript (`uint64` vs `int64`).
 In addition, the filtering was moved to the store level
 ({SERVER_COMMIT_BASE}ca7d4b0[`ca7d4b0`]).
 * Fixed DAL code ignoring module ID when doing record lookup.
@@ -88,7 +88,7 @@ The fix was made by renaming the file name for resources as per expected format 
 ({LOCALE_COMMIT_BASE}b2ad8c2[`b2ad8c2`]).
 * Fixed record search endpoints needlessly degrading performance by computing totals and paging cursors even when not required.
 The performance hit was noticeable on larger datasets.
-The fix was made by short-circuiting processing sooner when totals and page cursor navigation was not required
+The fix was made by short-circuiting processing sooner when totals and page cursor navigation was not required.
 This doesn't change external behavior as those parameters were not included even tho they were computed
 ({SERVER_COMMIT_BASE}24b5d7c[`24b5d7c`]).
 * Fixed data aggregation `count` function crashing the server when no arguments were provided (`count()`).
@@ -106,10 +106,10 @@ The fix was made by correctly detecting changes on the geometry value since it u
 The fix was made by adding evaluation to the record export filter to correctly evaluate and interpolate placeholders
 ({WEBAPP_COMPOSE_COMMIT_BASE}9e9898b[`9e9898b`]).
 * Fixed privacy web apps not being enabled in the default {PRODUCT_NAME} configuration.
-The fix was made by adding the privacy web applications to the `HTTP_WEBAPP_LIST` `env` variable
+The fix was made by adding the privacy web applications to the `HTTP_WEBAPP_LIST` `.env` variable
 ({SERVER_COMMIT_BASE}c8508f4[`c8508f4`]).
 * Fixed Data Privacy Officer role unable to see or review requests in the privacy web application due to invalid permission configuration.
-The fix was made by updating provision YAML files with search and read on `corteza::compose`, `corteza::compose:namespace`, `corteza::compose:module` and `corteza::system` resources
+The fix was made by updating provision YAML files with search and read on `corteza::compose`, `corteza::compose:namespace`, `corteza::compose:module` and `corteza::system` resources.
 Additionally, Data privacy officer permissions were changed to be able to view and edit a privacy request
 ({SERVER_COMMIT_BASE}1d390f9[`1d390f9`], {SERVER_COMMIT_BASE}69f33fa[`69f33fa`], {WEBAPP_PRIVACY_COMMIT_BASE}2b35b98[`2b35b98`], {SERVER_COMMIT_BASE}a5e192f[`a5e192f`], {SERVER_COMMIT_BASE}18a687a[`18a687a`]).
 * Fixed missing translations for gateway, auth, dal sensitivity, and data privacy.
@@ -122,7 +122,7 @@ The fix was made by properly capturing and displaying errors
 The fix was made by explicitly setting the nullable flag on all attributes when generating models where fields set the *required* flag
 ({SERVER_COMMIT_BASE}eb89992[`eb89992`]).
 * Fixed incorrect type encoding for {APP_NAME_COMPOSE} charts where numbers were represented as strings and references (IDs) as numbers instead of strings.
-The fix was made by adding a hotfix to assure that these exceptions are properly encoded and presented to {APP_NAME_COMPOSE} charts
+The fix was made by adding a hotfix to assure that these exceptions are properly encoded and presented to {APP_NAME_COMPOSE} charts.
 The initial issue is on the database level but the exact solution is still up for debate and will be addressed later
 ({SERVER_COMMIT_BASE}55702ec[`55702ec`]).
 * Fixed `Email`, `File`, `Number`, `String`, and `URL` fields not showing validation errors.
@@ -149,7 +149,7 @@ The fix was made by tweaking the configuration for the viewer (adding `'white-sp
 The fix was made by correctly validating the form and disabling the buttons as needed
 ({WEBAPP_ADMIN_COMMIT_BASE}0f5170d[`0f5170d`], {WEBAPP_ADMIN_COMMIT_BASE}b8a49fd[`b8a49fd`]).
 * Fixed ownership information not being displayed on the connection.
-The fix was made by using the correct value for the field ownership (by switching the value from `connectionownership` to `connectionmetaownership`)
+The fix was made by using the correct value for the field ownership (by switching the value from `connection.ownership` to `connection.meta.ownership`)
 ({JS_COMMIT_BASE}d585399[`d585399`], {WEBAPP_ADMIN_COMMIT_BASE}6e2e2b2[`6e2e2b2`]).
 * Fixed unable to save auth clients when setting either the valid from or expires at.
 The fix was made correctly parsing date-time values we get from the API
@@ -161,7 +161,7 @@ The fix was made Translations were added in locale and applied in admin
 The fix was made by correctly preserving the deleted state when updating the messaging queue
 ({SERVER_COMMIT_BASE}90b5414[`90b5414`]).
 * Fixed incorrectly passed translations to Results/Namespace, Record and User.
-The fix was made by correctly passing translations via props and interpolation
+The fix was made by correctly passing translations via props and interpolation.
 Previously, part of the translations were passed without using interpolation and the other translations were passed as attributes causing the texts to not be properly translated
 ({WEBAPP_DISCOVERY_COMMIT_BASE}bed2dfa[`bed2dfa`]).
 * Fixed the {PRODUCT_NAME} crashing when adding additional DAL connections.

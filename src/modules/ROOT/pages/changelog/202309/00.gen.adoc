@@ -57,17 +57,17 @@ The change was made to provide a better UI and UX for mobile users
 The change was made to keep all page blocks showing related data in sync
 ({CORTEZA_PULL_BASE}1435[`1435`]).
 * Changed general ui/ux improvements:
-** Improved header button layout for topbar navigation and resource list items
-** Adjusted position of btn:[x] button in search bar to always appear on the right side
-** Added a standardized submit button across all web applications to make UI consistent and code maintaining easier
-** Unnecessary vertical and horizontal scrolling of resource list parent component in {APP_NAME_ADMIN}
-** Header buttons in resource editing view were partially/completely hidden if more than two were displayed in {APP_NAME_ADMIN}
+** Improved header button layout for topbar navigation and resource list items.
+** Adjusted position of btn:[x] button in search bar to always appear on the right side.
+** Added a standardized submit button across all web applications to make UI consistent and code maintaining easier.
+** Unnecessary vertical and horizontal scrolling of resource list parent component in {APP_NAME_ADMIN}.
+** Header buttons in resource editing view were partially/completely hidden if more than two were displayed in {APP_NAME_ADMIN}.
 ** Longer labels in resource editing view appeared under their input fields in {APP_NAME_ADMIN}
 ({CORTEZA_PULL_BASE}1489[`1489`], {CORTEZA_COMMIT_BASE}dcc541d[`dcc541d`], {CORTEZA_PULL_BASE}1451[`1451`], {CORTEZA_PULL_BASE}1253[`1253`]).
 
 .[#2023_09_00-fixed]#<<2023_09_00-fixed,Fixed:>>#
 * Fixed namespace export erroring out with an invalid reference error whenever we're referring to deleted resources.
-The fix was made by ignoring missing references and exporting/importing regardless of missing references
+The fix was made by ignoring missing references and exporting/importing regardless of missing references.
 This should be expanded and improved upon in a future release
 ({CORTEZA_COMMIT_BASE}dc54b55[`dc54b55`]).
 * Fixed nothing happening when trying to copy a page block

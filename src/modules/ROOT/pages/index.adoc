@@ -69,11 +69,11 @@ There are also a bunch of copy-pastable examples, and miscellaneous bits such as
 
 [IMPORTANT]
 ====
-When upgrading, you should always firstly go over the xref:ROOT:changelog/index.adoc[] and the xref:upgrade-guide:index.adoc[].
+When upgrading, you should always firstly go over the xref:ROOT:changelog/index.adoc[] and the xref:devops-guide:upgrade/index.adoc[].
 
 Versions may *not be backwards compatible* and may need some additional work to get setup.
 ====
 
 To upgrade from `2024.9`, you can use xref:ROOT:changelog/202609/index.adoc[this changelog] and xref:devops-guide:upgrade/202609.adoc[this upgrade guide].
 
-You can find all of the changelogs xref:ROOT:changelog/index.adoc[here], and all of the upgrade guides xref:upgrade-guide:index.adoc[here].
+You can find all of the changelogs xref:ROOT:changelog/index.adoc[here], and all of the upgrade guides xref:devops-guide:upgrade/index.adoc[here].

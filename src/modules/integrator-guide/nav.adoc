@@ -76,7 +76,7 @@
 **** xref:automation/workflows/style-guide.adoc[]
 **** xref:automation/workflows/best-practices.adoc[]
 **** xref:automation/workflows/scope-in-depth.adoc[]
-**** xref:workflows/record-selection.adoc[]
+**** xref:automation/workflows/record-selection.adoc[]
 **** xref:automation/workflows/automation-scripts.adoc[]
 **** xref:automation/workflows/email-send.adoc[]
 **** xref:automation/workflows/testing-debugging.adoc[]

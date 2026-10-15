@@ -1095,7 +1095,7 @@ You can define multiple timestamps under the same trigger.
 .The sub-sections under menu:Low-Code Platform Developer Guide[Automation,Workflows] go into more details regarding specific topics, such as:
 * the xref:automation/workflows/style-guide.adoc[style guide] and xref:automation/workflows/best-practices.adoc[best practices],
 * an introduction into our xref:automation/workflows/testing-debugging.adoc[testing and debugging facility],
-* how to xref:automation/workflows/organizing-workflows.adoc[manage and organize larger workflows],
+* how to xref:automation/workflows/style-guide.adoc[manage and organize larger workflows],
 * how to xref:automation/workflows/automation-scripts.adoc[execute automation scripts] available in the {APP_AUTOMATION} server,
 * how to xref:api-gw/workflow-processing.adoc[process requests] via Integration gateway.
 

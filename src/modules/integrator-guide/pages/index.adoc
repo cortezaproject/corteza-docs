@@ -14,7 +14,7 @@ In case you haven't yet setup your {PRODUCT_NAME} instance, refer to the xref:de
 For *authentication*, {PRODUCT_NAME} implements the OAuth2 protocol, where {PRODUCT_NAME} can act both as an OAuth2 client or as a server.
 Refer to the xref:authentication/index.adoc[authentication] section for details.
 The login screen can be completely personalized to match your brand and to give your users a piece of mind when entering their credentials.
-Refer to the xref:personalization/auth.adoc[menu:personalization[authentication]] section for details.
+Refer to the xref:authentication/personalization.adoc[menu:personalization[authentication]] section for details.
 
 [TIP]
 ====

@@ -39,6 +39,8 @@ Refer to xref:devops-guide:maintenance/backups.adoc[devops guide on backup proce
 
 :leveloffset: +1
 
+include::202609.adoc[]
+
 include::2024096.adoc[]
 
 :leveloffset: -1

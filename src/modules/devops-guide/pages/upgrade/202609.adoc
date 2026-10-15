@@ -1,0 +1,103 @@
+include::ROOT:partial$variables.adoc[]
+
+= Upgrading to 2026.9
+
+The database schema is upgraded automatically when the server starts.
+A few changes need your attention before or after the upgrade; see the xref:ROOT:changelog/202609/index.adoc[2026.9 changelog] for the full list of important upgrade notes.
+
+== Before the Upgrade
+
+[CAUTION]
+====
+Back up your database before you upgrade.
+Security fixes in 2026.9 are not backported to 2024.9; upgrade to receive them.
+====
+
+=== Pin the image version
+
+The `latest` Docker image tag now follows the newest stable release.
+Installations that run `cortezaproject/corteza:latest` move to 2026.9 on their next pull.
+Set the version explicitly in your `.env` (for example `VERSION=2026.9`, or `VERSION=2024.9` to stay on the previous release) so you choose when to upgrade.
+
+=== Set a JWT secret
+
+When `AUTH_JWT_SECRET` is not set, the server derives it from `DB_DSN` and the `HOSTNAME` of the container.
+A new image means a new container with a new hostname, so every user is logged out after the upgrade.
+Set `AUTH_JWT_SECRET` to a long random value to keep sessions across upgrades and container restarts.
+
+=== Check redirect URIs of auth clients
+
+Auth clients without redirect URIs only accept redirects to the address of the server (`AUTH_BASE_URL`) and the webapp domain (`DOMAIN_WEBAPP`), and redirect URIs need to match scheme, host and port exactly.
+If web applications are served from another address, list it in `AUTH_DEFAULT_REDIRECT_URIS` or set redirect URIs on the auth client, otherwise logging in fails.
+
+=== Review new options
+
+`HTTP_CLIENT_RESTRICTED_NETWORKS`::
+Workflow HTTP and OAuth2 requests, the API Gateway proxy and remote resources inlined into templates can no longer reach link-local addresses, such as cloud metadata endpoints.
+Set it to `private` to also block private networks, or to `none` to lift the restriction.
+
+`SCIM_SECRET`::
+SCIM endpoints are only available when the secret is set, also in development mode.
+
+`HTTP_CORS_ALLOWED_ORIGINS`::
+Restricts which origins may make cross-origin requests; the default allows all, as before.
+
+=== Building from source
+
+The server needs Go 1.25 to build; web applications still build with Node 22.
+
+== After the Upgrade
+
+=== Permissions
+
+Several endpoints now require permissions they did not check before; see the important upgrade notes in the changelog.
+Most likely to need attention:
+
+* Corredor scripts that send email need the new *Send email notifications* permission on Compose.
+Fresh installations grant it to administrators; on existing installations grant it to the roles whose scripts send email.
+* Users can no longer change their own email, username, user group, kind or labels.
+Workflows that change these on the triggering user must run as a user with permission to update users.
+* Contextual role expressions can only use `user.email` (once confirmed) and `user.labels`; rewrite expressions that use `user.name`, `user.handle` or `user.username`.
+* Making a workflow run as another user, or changing a workflow that does, requires the impersonate permission on that user.
+
+=== Workflow triggers
+
+Triggers with an invalid interval, timestamp or constraint are now refused when a workflow is saved.
+If saving an existing workflow fails, the editor shows which trigger to fix.
+
+=== Modules stored in their own table
+
+Record creation fails with a NOT NULL violation on the `values` column when a module is stored in its own table and every field has its own column.
+New tables are created with a nullable `values` column; drop the constraint on tables created before the upgrade.
+Replace `<table>` with the table name of the module.
+
+PostgreSQL::
++
+[source,sql]
+----
+ALTER TABLE <table> ALTER COLUMN "values" DROP NOT NULL;
+----
+
+MySQL::
++
+[source,sql]
+----
+ALTER TABLE <table> MODIFY `values` JSON NULL;
+----
+
+SQL Server::
++
+[source,sql]
+----
+ALTER TABLE <table> ALTER COLUMN [values] NVARCHAR(MAX) NULL;
+----
+
+=== Non-Latin text on SQL Server
+
+Text, enum, JSON and geometry columns are now created as `NVARCHAR` on SQL Server, so non-Latin text is no longer stored as question marks.
+Columns created before the upgrade keep their `VARCHAR` type; change the ones that must hold such text, for example:
+
+[source,sql]
+----
+ALTER TABLE <table> ALTER COLUMN <column> NVARCHAR(MAX) NULL;
+----

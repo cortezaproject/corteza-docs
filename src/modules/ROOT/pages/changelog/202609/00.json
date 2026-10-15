@@ -1,6 +1,6 @@
 {
   "meta": {
-    "releasedOn": "TBD"
+    "releasedOn": "2026.10.15"
   },
   "important": [
     {
@@ -85,6 +85,21 @@
     },
     {
       "note": ["Exporting records now needs the permission to search the module's records, the same as listing them, and exports hold only the records the user may read"]
+    },
+    {
+      "note": ["The `latest` Docker image tag now follows the newest stable release. Installations that run `cortezaproject/corteza:latest` move to `2026.9` on their next pull; pin the version (for example `2024.9`) to stay on the previous release"]
+    },
+    {
+      "note": ["Record reports, and with them charts and metric blocks, only count records the user may read. Users who can read only some of a module's records see lower totals than before"]
+    },
+    {
+      "note": ["Workflow triggers are refused on save when their interval is not a valid crontab expression, their timestamp can not be parsed or their constraints can not be registered. Fix such triggers when saving an existing workflow fails"]
+    },
+    {
+      "note": ["Record values after an empty value are validated again, so records with invalid values that used to save can now be rejected"]
+    },
+    {
+      "note": ["Some fixes need a manual database change on existing installations: dropping NOT NULL from the `values` column of modules stored in their own table, and changing MSSQL text columns to NVARCHAR for non-Latin text. See the 2026.9 upgrade guide in the DevOps guide"]
     }
   ],
   "added": [
@@ -144,8 +159,7 @@
       "refs": [
         "https://github.com/cortezaproject/corteza/commit/d073d8374",
         "https://github.com/cortezaproject/corteza/commit/53690596d",
-        "https://github.com/cortezaproject/corteza/commit/16b17dd76",
-        "https://github.com/cortezaproject/corteza/commit/53690596d"
+        "https://github.com/cortezaproject/corteza/commit/16b17dd76"
       ]
     },
     {
@@ -182,22 +196,27 @@
       ]
     },
     {
-      "what": ["Docker images are now also published under the latest tag when the released version is the highest stable one (no pre-release suffix), next to the version tag and the YYYY.MM alias; a patch to an older release line does not move latest."],
+      "what": ["Docker image publishing to also tag `latest` when the released version is the highest stable one (no pre-release suffix), next to the version tag and the `YYYY.MM` alias; a patch to an older release line does not move `latest`."],
       "refs": ["https://github.com/cortezaproject/corteza/commit/e53020aa0"]
     },
     {
-      "what": ["the sort button of record selector and user columns in a record list now explains in its tooltip that these columns sort by the referenced record or user ID, not by the displayed value"],
+      "what": ["the tooltip of the sort button on record selector and user columns in a record list to explain that these columns sort by the referenced record or user ID, not by the displayed value"],
       "refs": ["https://github.com/cortezaproject/corteza/commit/fee0e4f61"]
     },
     {
-      "what": ["the navigation block collapses into a menu button when its items do not fit in one row, and the tabs block switches to a tab selector above the content when its tab titles do not fit (horizontal tabs in one row, vertical tabs in half of the block's width)"],
+      "what": ["the navigation block to fold the items that do not fit into a More menu on small screens, and the tabs block to switch to a tab selector above the content when its tab titles do not fit (horizontal tabs in one row, vertical tabs in half of the block's width)"],
       "why": ["so all navigation items and tabs stay reachable on phones instead of wrapping out of the block or squeezing the tab content"],
-      "refs": ["https://github.com/cortezaproject/corteza/commit/89bacbd9e", "https://github.com/cortezaproject/corteza/commit/dddd6c661", "https://github.com/cortezaproject/corteza/commit/cb10f3e98"]
+      "refs": ["https://github.com/cortezaproject/corteza/commit/89bacbd9e", "https://github.com/cortezaproject/corteza/commit/dddd6c661", "https://github.com/cortezaproject/corteza/commit/cb10f3e98", "https://github.com/cortezaproject/corteza/commit/99502f6f8", "https://github.com/cortezaproject/corteza/commit/987040c68"]
     },
     {
-      "what": ["record list summaries are refused together with a page cursor"],
+      "what": ["record list summaries to be refused when they are requested together with a page cursor"],
       "why": ["because they only ever counted from that page on; the record list block requests them with the first page only"],
       "refs": ["https://github.com/cortezaproject/corteza/commit/3561186eb"]
+    },
+    {
+      "what": ["workflow triggers to be refused on save when their interval is not a valid crontab expression, their timestamp can not be parsed or their constraints can not be registered"],
+      "why": ["because such triggers were saved but never fired, or fired more broadly than configured"],
+      "refs": ["https://github.com/cortezaproject/corteza/commit/8747a807b", "https://github.com/cortezaproject/corteza/commit/c04a83f75"]
     }
   ],
   "fixed": [
@@ -223,7 +242,8 @@
         "the server crashing with a concurrent map access error when a module, DAL connection or sensitivity level was saved while records were being read or written."
       ],
       "refs": [
-        "https://github.com/cortezaproject/corteza/commit/95a770960"
+        "https://github.com/cortezaproject/corteza/commit/95a770960",
+        "https://github.com/cortezaproject/corteza/commit/b0d950b1e"
       ]
     },
     {
@@ -311,7 +331,7 @@
       "refs": ["https://github.com/cortezaproject/corteza/commit/77e68c5a3"]
     },
     {
-      "what": ["angle brackets and other markup being stripped from plain text fields (for example \"Name <mail@example.tld>\"). A String field now has an \"XSS Sanitization\" option that can be turned off for fields holding trusted plain text; it stays on by default and cannot be turned off for rich text fields, which are always sanitized. Plain text fields are also rendered as text instead of HTML in record views."],
+      "what": ["angle brackets and other markup being stripped from plain text fields (for example `Name <mail@example.tld>`). A String field now has an \"XSS Sanitization\" option that can be turned off for fields holding trusted plain text; it stays on by default and cannot be turned off for rich text fields, which are always sanitized. Plain text fields are also rendered as text instead of HTML in record views."],
       "refs": ["https://github.com/cortezaproject/corteza/commit/f6c708a79", "https://github.com/cortezaproject/corteza/commit/c2ed5036e"]
     },
     {
@@ -319,16 +339,12 @@
       "refs": ["https://github.com/cortezaproject/corteza/commit/c1b47cb81"]
     },
     {
-      "what": ["the message of a workflow error step being shown with a technical prefix (\"workflow N step M execution failed: ...\"); it is now shown exactly as configured. The error step also accepts an optional title, used as the heading of the error notification in the webapps instead of the generic one."],
-      "refs": ["https://github.com/cortezaproject/corteza/commit/51bdf5d47"]
+      "what": ["the message of a workflow error step being shown with a technical prefix (\"workflow N step M execution failed: ...\"); it is now shown exactly as configured. The error step also accepts an optional title, used as the heading of the error notification in the webapps instead of the generic one, also in production where other error details are hidden."],
+      "refs": ["https://github.com/cortezaproject/corteza/commit/51bdf5d47", "https://github.com/cortezaproject/corteza/commit/d5ca62783"]
     },
     {
       "what": ["MSSQL storing non-Latin text (Arabic, Persian, Chinese, ...) as question marks; text, enum, JSON and geometry columns are now created as NVARCHAR. Columns created earlier keep their VARCHAR type; alter them to NVARCHAR manually where such text must be stored."],
       "refs": ["https://github.com/cortezaproject/corteza/commit/43ed0e138"]
-    },
-    {
-      "what": ["a data race when a module was saved while its records were being read, which could crash the server"],
-      "refs": ["https://github.com/cortezaproject/corteza/commit/b0d950b1e"]
     },
     {
       "what": ["updating resource translations crashing the request when no default language is loaded"],
@@ -363,10 +379,6 @@
       "refs": ["https://github.com/cortezaproject/corteza/commit/a2a8fd59c"]
     },
     {
-      "what": ["the title of a workflow error step not being shown in production, where error details are masked; the step's title is now kept and only other details are hidden"],
-      "refs": ["https://github.com/cortezaproject/corteza/commit/d5ca62783"]
-    },
-    {
       "what": ["record filters with a list of values, such as `industry IN ('Tech', 'Retail', 'Mining')`, using only the first two values, and a one-value list such as `industry IN ('Tech')` being rejected as an unsupported operator."],
       "refs": ["https://github.com/cortezaproject/corteza/commit/9ec85529f"]
     },
@@ -387,7 +399,7 @@
     },
     {
       "what": ["permission updates from the `200_federation` and `300_automation` provisioning folders not reaching an existing installation that has no auth client permissions; a provisioning folder that is missing is now reported and skipped instead of ending the import."],
-      "refs": ["https://github.com/cortezaproject/corteza/commit/c0647a668"]
+      "refs": ["https://github.com/cortezaproject/corteza/commit/a3b2e29bb"]
     },
     {
       "what": ["a module's discovery settings keeping only their last language after each server restart; settings listed for several languages now keep all of them."],
@@ -460,6 +472,62 @@
     {
       "what": ["sorting or filtering by a date, number or ID field failing on MySQL 8 with \"Character set 'utf8mb4_0900_ai_ci' cannot be used in conjunction with 'binary' in call to regexp_like\""],
       "refs": ["https://github.com/cortezaproject/corteza/commit/d4963ebfd"]
+    },
+    {
+      "what": ["record export failing when a record reference field holds an empty or invalid value; such values are now skipped."],
+      "refs": ["https://github.com/cortezaproject/corteza/commit/408d7b2a7"]
+    },
+    {
+      "what": ["record value validation stopping at the first empty value, so the values and fields after it were saved without being validated."],
+      "refs": ["https://github.com/cortezaproject/corteza/commit/4ec489fa3"]
+    },
+    {
+      "what": ["a record import whose rows carry no record IDs loading every record of the module to look for existing ones."],
+      "refs": ["https://github.com/cortezaproject/corteza/commit/cd08aa87d"]
+    },
+    {
+      "what": ["saving a record with a value in a unique Record or User field failing with a server error."],
+      "refs": ["https://github.com/cortezaproject/corteza/commit/80df42b82"]
+    },
+    {
+      "what": ["a failing scheduled workflow stopping the other workflows scheduled for the same time from running."],
+      "refs": ["https://github.com/cortezaproject/corteza/commit/add52fd55"]
+    },
+    {
+      "what": ["scheduled workflows silently stopping to fire on servers whose clock drifts, as it does on some virtual machines; the scheduler now re-aligns to the clock on every cycle."],
+      "refs": ["https://github.com/cortezaproject/corteza/commit/75f49ac6c"]
+    },
+    {
+      "what": ["interval triggers with several intervals firing only on the first one."],
+      "refs": ["https://github.com/cortezaproject/corteza/commit/8747a807b"]
+    },
+    {
+      "what": ["a failing after-save workflow or script stopping the remaining after-save handlers, and handlers that trigger events of their own, such as afterUpdate workflows on a bulk edit, blocking other events while they ran."],
+      "refs": ["https://github.com/cortezaproject/corteza/commit/680c6643a"]
+    },
+    {
+      "what": ["an event handler that crashed being treated as successful, so a crashing before-save workflow or script let the save go through; the crash is now logged and reported as the handler's error."],
+      "refs": ["https://github.com/cortezaproject/corteza/commit/7e0720aae"]
+    },
+    {
+      "what": ["a crash while starting or cleaning up a workflow session stopping the session watcher, after which no workflow could start until the server was restarted."],
+      "refs": ["https://github.com/cortezaproject/corteza/commit/047ba2970"]
+    },
+    {
+      "what": ["the workflow editor not saying why a trigger failed to save; the trigger configurator now also shows the expected interval format."],
+      "refs": ["https://github.com/cortezaproject/corteza/commit/5d01259c8", "https://github.com/cortezaproject/corteza/commit/e32c220ea"]
+    },
+    {
+      "what": ["the page builder freezing after a block was pasted twice or a Tabs block was pasted from another page, and pasted Tabs blocks taking over blocks with the same number on other pages."],
+      "refs": ["https://github.com/cortezaproject/corteza/commit/663f450ba", "https://github.com/cortezaproject/corteza/commit/e6f5a4dc4"]
+    },
+    {
+      "what": ["a tall Tabs block growing past its own height instead of scrolling inside it, which hid the scrollbar of a record list inside the tabs."],
+      "refs": ["https://github.com/cortezaproject/corteza/commit/72e34c252"]
+    },
+    {
+      "what": ["SMTP host, user and sender address with surrounding whitespace being saved as typed, which made mail sending fail; the values are now trimmed by the server, the connection test and the settings form."],
+      "refs": ["https://github.com/cortezaproject/corteza/commit/3f9dcbd24"]
     }
   ],
   "security": [
@@ -478,7 +546,7 @@
       "refs": [
         "https://github.com/cortezaproject/corteza/commit/01eacf5ae",
         "https://github.com/cortezaproject/corteza/commit/453d5b31f",
-        "https://github.com/cortezaproject/corteza/commit/854a4815f"
+        "https://github.com/cortezaproject/corteza/commit/209f7aa22"
       ]
     },
     {
@@ -532,10 +600,11 @@
     },
     {
       "what": [
-        "Limited the length of language tags accepted from requests, which let anyone exhaust the CPU of the server with a crafted Accept-Language header or lng parameter, addressing GHSA-q83v-jvj7-jq9m"
+        "Limited the length of language tags accepted from requests and imported YAML, which let anyone exhaust the CPU of the server with a crafted Accept-Language header or lng parameter, addressing GHSA-q83v-jvj7-jq9m"
       ],
       "refs": [
-        "https://github.com/cortezaproject/corteza/commit/24974bc4b"
+        "https://github.com/cortezaproject/corteza/commit/24974bc4b",
+        "https://github.com/cortezaproject/corteza/commit/590d0c5ea"
       ]
     },
     {
@@ -580,10 +649,11 @@
     },
     {
       "what": [
-        "Required permissions for auth client impersonation, forced roles and access to the client secret"
+        "Required permissions for auth client impersonation, forced roles and access to the client secret, including the impersonate permission for updating an auth client that impersonates another user or for reading and regenerating its secret"
       ],
       "refs": [
-        "https://github.com/cortezaproject/corteza/commit/176cba685"
+        "https://github.com/cortezaproject/corteza/commit/176cba685",
+        "https://github.com/cortezaproject/corteza/commit/4b4e47bd5"
       ]
     },
     {
@@ -639,24 +709,27 @@
         "Required read permissions for reading roles and role membership of other users"
       ],
       "refs": [
-        "https://github.com/cortezaproject/corteza/commit/77ab7885d"
+        "https://github.com/cortezaproject/corteza/commit/77ab7885d",
+        "https://github.com/cortezaproject/corteza/commit/3dfe22c54"
       ]
     },
     {
       "what": [
-        "Disabled SCIM when its secret is not set, which left it open to anyone"
+        "Disabled SCIM when its secret is not set, which left it open to anyone, and required the secret in development mode as well"
       ],
       "refs": [
         "https://github.com/cortezaproject/corteza/commit/25f89d2ec",
-        "https://github.com/cortezaproject/corteza/commit/07eab31cc"
+        "https://github.com/cortezaproject/corteza/commit/07eab31cc",
+        "https://github.com/cortezaproject/corteza/commit/1deab14f6"
       ]
     },
     {
       "what": [
-        "Refused record reports over fields that can not be read"
+        "Refused record reports over fields that can not be read, whatever letter case the field name is written in"
       ],
       "refs": [
-        "https://github.com/cortezaproject/corteza/commit/9b4da2702"
+        "https://github.com/cortezaproject/corteza/commit/9b4da2702",
+        "https://github.com/cortezaproject/corteza/commit/53e15a424"
       ]
     },
     {
@@ -677,10 +750,6 @@
       ]
     },
     {
-      "what": ["SMTP host, user and sender address with surrounding whitespace being saved as typed, which made mail sending fail; the values are now trimmed by the server, the connection test and the settings form."],
-      "refs": ["https://github.com/cortezaproject/corteza/commit/3f9dcbd24"]
-    },
-    {
       "what": ["Required the impersonate permission for changing the steps, paths or scope of a workflow that runs as another user; without it, permission to update the workflow was enough to run any code as that user"],
       "refs": ["https://github.com/cortezaproject/corteza/commit/d9b22105d"]
     },
@@ -689,28 +758,8 @@
       "refs": ["https://github.com/cortezaproject/corteza/commit/1864cb394"]
     },
     {
-      "what": ["Refused record reports over fields that can not be read regardless of the letter case the field name is written in"],
-      "refs": ["https://github.com/cortezaproject/corteza/commit/53e15a424"]
-    },
-    {
-      "what": ["Guarded SCIM endpoints with the SCIM secret in development mode as well"],
-      "refs": ["https://github.com/cortezaproject/corteza/commit/1deab14f6"]
-    },
-    {
-      "what": ["Required read permission on a user for listing the roles they are a member of"],
-      "refs": ["https://github.com/cortezaproject/corteza/commit/3dfe22c54"]
-    },
-    {
-      "what": ["Required the impersonate permission for exposing or regenerating the secret of, or updating, an auth client that impersonates another user"],
-      "refs": ["https://github.com/cortezaproject/corteza/commit/4b4e47bd5"]
-    },
-    {
       "what": ["Stopped page layout updates from moving the layout to another page or namespace"],
       "refs": ["https://github.com/cortezaproject/corteza/commit/5ccce02ae"]
-    },
-    {
-      "what": ["Limited the length of language tags read from imported YAML the same way as tags from requests"],
-      "refs": ["https://github.com/cortezaproject/corteza/commit/590d0c5ea"]
     },
     {
       "what": ["Cleared the federation pairing token once the nodes are paired, so a leaked pairing URI can not be used to start the handshake over"],
@@ -722,7 +771,7 @@
     },
     {
       "what": ["Limited record reports, and with them charts and metric blocks, to the records the user may read, so a user who reads only some of a module's records, such as their own, no longer sees totals or grouped values of all of them"],
-      "refs": ["https://github.com/cortezaproject/corteza/commit/3285eb23c"]
+      "refs": ["https://github.com/cortezaproject/corteza/commit/62d626e95"]
     },
     {
       "what": ["Limited record export to the records the user may read, required the permission to search the module's records for it, and stopped resolving reference labels of records and fields the user may not read"],
@@ -739,6 +788,10 @@
     {
       "what": ["Made the Corredor record iterator skip records the user may not read, instead of handing them to the script, and require the permission to search the module's records"],
       "refs": ["https://github.com/cortezaproject/corteza/commit/8de39a840"]
+    },
+    {
+      "what": ["Checked the run-as user of a workflow on each execution instead of once when the workflow was loaded, so a workflow no longer keeps running as a user that was suspended or deleted, or with roles the user no longer has"],
+      "refs": ["https://github.com/cortezaproject/corteza/commit/71ae99238"]
     }
   ]
 }

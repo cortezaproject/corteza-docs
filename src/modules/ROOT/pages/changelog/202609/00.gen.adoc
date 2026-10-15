@@ -27,8 +27,8 @@ include::ROOT:partial$variables.adoc[]
 * The `latest` Docker image tag now follows the newest stable release. Installations that run `cortezaproject/corteza:latest` move to `2026.9` on their next pull; pin the version (for example `2024.9`) to stay on the previous release.
 * Record reports, and with them charts and metric blocks, only count records the user may read. Users who can read only some of a module's records see lower totals than before.
 * Workflow triggers are refused on save when their interval is not a valid crontab expression, their timestamp can not be parsed or their constraints can not be registered. Fix such triggers when saving an existing workflow fails.
-* Record values after an empty value are validated again, so records with invalid values that used to save can now be rejected.
-* Some fixes need a manual database change on existing installations: dropping NOT NULL from the `values` column of modules stored in their own table, and changing MSSQL text columns to NVARCHAR for non-Latin text. See the 2026.9 upgrade guide in the DevOps guide.
+* Record values that follow an empty value are now validated too, so records with invalid values that used to save can now be rejected.
+* Some fixes need a manual database change on existing installations: dropping NOT NULL from the `values` column of modules stored in their own table, and changing MSSQL text columns to NVARCHAR for non-Latin text. See the xref:devops-guide:upgrade/202609.adoc[2026.9 upgrade guide].
 ====
 
 .[#2026_09_00-added]#<<2026_09_00-added,Added:>>#
@@ -59,13 +59,13 @@ The change was added to let one automation block act as a context-aware action t
 ({CORTEZA_COMMIT_BASE}e53020a[`e53020a`]).
 * Changed the tooltip of the sort button on record selector and user columns in a record list to explain that these columns sort by the referenced record or user ID, not by the displayed value
 ({CORTEZA_COMMIT_BASE}fee0e4f[`fee0e4f`]).
-* Changed the navigation block to fold the items that do not fit into a More menu on small screens, and the tabs block to switch to a tab selector above the content when its tab titles do not fit (horizontal tabs in one row, vertical tabs in half of the block's width)
+* Changed the navigation block to fold the items that do not fit into a More menu on small screens, and the tabs block to switch to a tab selector above the content when its tab titles do not fit (horizontal tabs in one row, vertical tabs in half of the block's width).
 The change was made so all navigation items and tabs stay reachable on phones instead of wrapping out of the block or squeezing the tab content
 ({CORTEZA_COMMIT_BASE}89bacbd[`89bacbd`], {CORTEZA_COMMIT_BASE}dddd6c6[`dddd6c6`], {CORTEZA_COMMIT_BASE}cb10f3e[`cb10f3e`], {CORTEZA_COMMIT_BASE}99502f6[`99502f6`], {CORTEZA_COMMIT_BASE}987040c[`987040c`]).
-* Changed record list summaries to be refused when they are requested together with a page cursor
+* Changed record list summaries to be refused when they are requested together with a page cursor.
 The change was made because they only ever counted from that page on; the record list block requests them with the first page only
 ({CORTEZA_COMMIT_BASE}3561186[`3561186`]).
-* Changed workflow triggers to be refused on save when their interval is not a valid crontab expression, their timestamp can not be parsed or their constraints can not be registered
+* Changed workflow triggers to be refused on save when their interval is not a valid crontab expression, their timestamp can not be parsed or their constraints can not be registered.
 The change was made because such triggers were saved but never fired, or fired more broadly than configured
 ({CORTEZA_COMMIT_BASE}8747a80[`8747a80`], {CORTEZA_COMMIT_BASE}c04a83f[`c04a83f`]).
 
@@ -194,7 +194,7 @@ The change was made because such triggers were saved but never fired, or fired m
 ({CORTEZA_COMMIT_BASE}80df42b[`80df42b`]).
 * Fixed a failing scheduled workflow stopping the other workflows scheduled for the same time from running
 ({CORTEZA_COMMIT_BASE}add52fd[`add52fd`]).
-* Fixed scheduled workflows silently stopping to fire on servers whose clock drifts, as it does on some virtual machines; the scheduler now re-aligns to the clock on every cycle
+* Fixed scheduled workflows silently no longer firing on servers whose clock drifts, as it does on some virtual machines; the scheduler now re-aligns to the clock on every cycle
 ({CORTEZA_COMMIT_BASE}75f49ac[`75f49ac`]).
 * Fixed interval triggers with several intervals firing only on the first one
 ({CORTEZA_COMMIT_BASE}8747a80[`8747a80`]).

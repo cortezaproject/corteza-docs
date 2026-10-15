@@ -96,10 +96,10 @@
       "note": ["Workflow triggers are refused on save when their interval is not a valid crontab expression, their timestamp can not be parsed or their constraints can not be registered. Fix such triggers when saving an existing workflow fails"]
     },
     {
-      "note": ["Record values after an empty value are validated again, so records with invalid values that used to save can now be rejected"]
+      "note": ["Record values that follow an empty value are now validated too, so records with invalid values that used to save can now be rejected"]
     },
     {
-      "note": ["Some fixes need a manual database change on existing installations: dropping NOT NULL from the `values` column of modules stored in their own table, and changing MSSQL text columns to NVARCHAR for non-Latin text. See the 2026.9 upgrade guide in the DevOps guide"]
+      "note": ["Some fixes need a manual database change on existing installations: dropping NOT NULL from the `values` column of modules stored in their own table, and changing MSSQL text columns to NVARCHAR for non-Latin text. See the xref:devops-guide:upgrade/202609.adoc[2026.9 upgrade guide]"]
     }
   ],
   "added": [
@@ -204,17 +204,17 @@
       "refs": ["https://github.com/cortezaproject/corteza/commit/fee0e4f61"]
     },
     {
-      "what": ["the navigation block to fold the items that do not fit into a More menu on small screens, and the tabs block to switch to a tab selector above the content when its tab titles do not fit (horizontal tabs in one row, vertical tabs in half of the block's width)"],
+      "what": ["the navigation block to fold the items that do not fit into a More menu on small screens, and the tabs block to switch to a tab selector above the content when its tab titles do not fit (horizontal tabs in one row, vertical tabs in half of the block's width)."],
       "why": ["so all navigation items and tabs stay reachable on phones instead of wrapping out of the block or squeezing the tab content"],
       "refs": ["https://github.com/cortezaproject/corteza/commit/89bacbd9e", "https://github.com/cortezaproject/corteza/commit/dddd6c661", "https://github.com/cortezaproject/corteza/commit/cb10f3e98", "https://github.com/cortezaproject/corteza/commit/99502f6f8", "https://github.com/cortezaproject/corteza/commit/987040c68"]
     },
     {
-      "what": ["record list summaries to be refused when they are requested together with a page cursor"],
+      "what": ["record list summaries to be refused when they are requested together with a page cursor."],
       "why": ["because they only ever counted from that page on; the record list block requests them with the first page only"],
       "refs": ["https://github.com/cortezaproject/corteza/commit/3561186eb"]
     },
     {
-      "what": ["workflow triggers to be refused on save when their interval is not a valid crontab expression, their timestamp can not be parsed or their constraints can not be registered"],
+      "what": ["workflow triggers to be refused on save when their interval is not a valid crontab expression, their timestamp can not be parsed or their constraints can not be registered."],
       "why": ["because such triggers were saved but never fired, or fired more broadly than configured"],
       "refs": ["https://github.com/cortezaproject/corteza/commit/8747a807b", "https://github.com/cortezaproject/corteza/commit/c04a83f75"]
     }
@@ -494,7 +494,7 @@
       "refs": ["https://github.com/cortezaproject/corteza/commit/add52fd55"]
     },
     {
-      "what": ["scheduled workflows silently stopping to fire on servers whose clock drifts, as it does on some virtual machines; the scheduler now re-aligns to the clock on every cycle."],
+      "what": ["scheduled workflows silently no longer firing on servers whose clock drifts, as it does on some virtual machines; the scheduler now re-aligns to the clock on every cycle."],
       "refs": ["https://github.com/cortezaproject/corteza/commit/75f49ac6c"]
     },
     {

@@ -26,51 +26,35 @@ jobs:
         with:
           repository: cortezaproject/corteza
           path: corteza
+          # all tags are needed to build the API docs of each release
+          fetch-depth: 0
       - uses: docker/login-action@v1
         if: ${{ !env.ACT }}
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
+      # API docs of each version are built from its newest stable tag
+      # (no pre-release suffix); 2022.3 predates lib/js and server/docs here
       - name: Build corteza-js api docs
         run: |
           cd corteza/lib/js
           yarn add typescript@4.7.4
           yarn add typedoc@0.23.17
-          LATEST=$(git tag -l | grep 2024.9 | sort | tail -n 1) && \
-            git checkout ${LATEST} && \
-            npx typedoc --name "Corteza JS 2024.9" --hideGenerator --skipErrorChecking --out corteza-api-docs/corteza-js/2024.9 src/api-clients/index.ts
-          LATEST=$(git tag -l | grep 2023.9 | sort | tail -n 1) && \
-            git checkout ${LATEST} && \
-            npx typedoc --name "Corteza JS 2023.9" --hideGenerator --skipErrorChecking --out corteza-api-docs/corteza-js/2023.9 src/api-clients/index.ts
-          LATEST=$(git tag -l | grep 2023.3 | sort | tail -n 1) && \
-            git checkout ${LATEST} && \
-            npx typedoc --name "Corteza JS 2023.3" --hideGenerator --skipErrorChecking --out corteza-api-docs/corteza-js/2023.3 src/api-clients/index.ts
-          LATEST=$(git tag -l | grep 2022.9 | sort | tail -n 1) && \
-            git checkout ${LATEST} && \
-            npx typedoc --name "Corteza JS 2022.9" --hideGenerator --skipErrorChecking --out corteza-api-docs/corteza-js/2022.9 src/api-clients/index.ts
-          LATEST=$(git tag -l | grep 2022.3 | sort | tail -n 1) && \
-            git checkout ${LATEST} && \
-            npx typedoc --name "Corteza JS 2022.3" --hideGenerator --skipErrorChecking --out corteza-api-docs/corteza-js/2022.3 src/api-clients/index.ts
+          for V in 2026.9 2024.9 2023.9 2023.3 2022.9; do
+            LATEST=$(git tag -l "${V}.*" | grep -v -- '-' | sort -V | tail -n 1)
+            git checkout -f "refs/tags/${LATEST}"
+            npx typedoc --name "Corteza JS ${V}" --hideGenerator --skipErrorChecking --out corteza-api-docs/corteza-js/${V} src/api-clients/index.ts
+          done
 
       - name: Build corteza-server api docs
         run: |
           cd corteza/server
-          mkdir -p ../lib/js/corteza-api-docs/corteza-server/{2024.9,2023.9,2023.3,2022.9,2022.3}
-          LATEST=$(git tag -l | grep 2024.9 | sort | tail -n 1) && \
-            git checkout ${LATEST} && \
-            cp -r docs/* ../lib/js/corteza-api-docs/corteza-server/2024.9
-          LATEST=$(git tag -l | grep 2023.9 | sort | tail -n 1) && \
-            git checkout ${LATEST} && \
-            cp -r docs/* ../lib/js/corteza-api-docs/corteza-server/2023.9
-          LATEST=$(git tag -l | grep 2023.3 | sort | tail -n 1) && \
-            git checkout ${LATEST} && \
-            cp -r docs/* ../lib/js/corteza-api-docs/corteza-server/2023.3
-          LATEST=$(git tag -l | grep 2022.9 | sort | tail -n 1) && \
-            git checkout ${LATEST} && \
-            cp -r docs/* ../lib/js/corteza-api-docs/corteza-server/2022.9
-          LATEST=$(git tag -l | grep 2022.3 | sort | tail -n 1) && \
-            git checkout ${LATEST} && \
-            cp -r docs/* ../lib/js/corteza-api-docs/corteza-server/2022.3
+          for V in 2026.9 2024.9 2023.9 2023.3 2022.9; do
+            LATEST=$(git tag -l "${V}.*" | grep -v -- '-' | sort -V | tail -n 1)
+            git checkout -f "refs/tags/${LATEST}"
+            mkdir -p ../lib/js/corteza-api-docs/corteza-server/${V}
+            cp -r docs/* ../lib/js/corteza-api-docs/corteza-server/${V}
+          done
 
       - run: docker build --build-arg ALGOLIA_APP_ID="$ALGOLIA_APP_ID" --build-arg ALGOLIA_API_KEY="$ALGOLIA_API_KEY" --build-arg ALGOLIA_INDEX_NAME="$ALGOLIA_INDEX_NAME" -t cortezaproject/corteza-docs:${{ env.BUILD_VERSION }} .
       - run: docker push cortezaproject/corteza-docs:${{ env.BUILD_VERSION }}

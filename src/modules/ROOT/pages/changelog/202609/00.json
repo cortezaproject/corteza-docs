@@ -771,7 +771,7 @@
     },
     {
       "what": ["Limited record reports, and with them charts and metric blocks, to the records the user may read, so a user who reads only some of a module's records, such as their own, no longer sees totals or grouped values of all of them"],
-      "refs": ["https://github.com/cortezaproject/corteza/commit/62d626e95", "https://github.com/cortezaproject/corteza/commit/c0c43dff7"]
+      "refs": ["https://github.com/cortezaproject/corteza/commit/62d626e95", "https://github.com/cortezaproject/corteza/commit/c0c43dff7", "https://github.com/cortezaproject/corteza/commit/86bb51740"]
     },
     {
       "what": ["Limited record export to the records the user may read, required the permission to search the module's records for it, and stopped resolving reference labels of records and fields the user may not read"],

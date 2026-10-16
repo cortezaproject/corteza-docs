@@ -231,6 +231,18 @@
   ],
   "fixed": [
     {
+      "what": ["MSSQL installations failing to start after the first restart in the labels migration (\"Incorrect syntax near 'JSON_OBJECT'\"), and the migration turning the label value column into NVARCHAR, which made labels written afterwards unreadable; plain text label values are now wrapped as JSON with STRING_ESCAPE and the column stays VARCHAR"],
+      "refs": ["https://github.com/cortezaproject/corteza/commit/507c71704"]
+    },
+    {
+      "what": ["filtering by label value on MSSQL failing with \"Incorrect syntax near 'OPENJSON'\", and other checks whether a JSON array holds a value"],
+      "refs": ["https://github.com/cortezaproject/corteza/commit/74b89a1f0"]
+    },
+    {
+      "what": ["charts on MSSQL becoming unreadable once their configuration was saved in a Unicode (NVARCHAR) column; chart configuration is now written as text"],
+      "refs": ["https://github.com/cortezaproject/corteza/commit/8b0a3e10c"]
+    },
+    {
       "what": ["workflow steps that allow, deny or inherit a permission crashing with \"slice bounds out of range\" for users who are not super administrators; they now check the user may grant on the component, as the permission editor does"],
       "refs": ["https://github.com/cortezaproject/corteza/commit/a9a0af4cb", "https://github.com/cortezaproject/corteza/commit/d07df59b3"]
     },
@@ -357,8 +369,8 @@
       "refs": ["https://github.com/cortezaproject/corteza/commit/51bdf5d47", "https://github.com/cortezaproject/corteza/commit/d5ca62783"]
     },
     {
-      "what": ["MSSQL storing non-Latin text (Arabic, Persian, Chinese, ...) as question marks; text, enum, JSON and geometry columns are now created as NVARCHAR. Columns created earlier keep their VARCHAR type; alter them to NVARCHAR manually where such text must be stored."],
-      "refs": ["https://github.com/cortezaproject/corteza/commit/43ed0e138"]
+      "what": ["MSSQL storing non-Latin text (Arabic, Persian, Chinese, ...) as question marks; text and enum columns are now created as NVARCHAR. Columns created earlier keep their VARCHAR type; alter text columns to NVARCHAR manually where such text must be stored. JSON columns stay VARCHAR; non-Latin text inside them needs a UTF-8 collation."],
+      "refs": ["https://github.com/cortezaproject/corteza/commit/43ed0e138", "https://github.com/cortezaproject/corteza/commit/fdfe836b1"]
     },
     {
       "what": ["updating resource translations crashing the request when no default language is loaded"],

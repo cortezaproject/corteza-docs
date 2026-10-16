@@ -76,6 +76,12 @@ The change was made because the total was counted by reading and checking every 
 ({CORTEZA_COMMIT_BASE}9a1be74[`9a1be74`]).
 
 .[#2026_09_00-fixed]#<<2026_09_00-fixed,Fixed:>>#
+* Fixed MSSQL installations failing to start after the first restart in the labels migration ("Incorrect syntax near 'JSON_OBJECT'"), and the migration turning the label value column into NVARCHAR, which made labels written afterwards unreadable; plain text label values are now wrapped as JSON with STRING_ESCAPE and the column stays VARCHAR
+({CORTEZA_COMMIT_BASE}507c717[`507c717`]).
+* Fixed filtering by label value on MSSQL failing with "Incorrect syntax near 'OPENJSON'", and other checks whether a JSON array holds a value
+({CORTEZA_COMMIT_BASE}74b89a1[`74b89a1`]).
+* Fixed charts on MSSQL becoming unreadable once their configuration was saved in a Unicode (NVARCHAR) column; chart configuration is now written as text
+({CORTEZA_COMMIT_BASE}8b0a3e1[`8b0a3e1`]).
 * Fixed workflow steps that allow, deny or inherit a permission crashing with "slice bounds out of range" for users who are not super administrators; they now check the user may grant on the component, as the permission editor does
 ({CORTEZA_COMMIT_BASE}a9a0af4[`a9a0af4`], {CORTEZA_COMMIT_BASE}d07df59[`d07df59`]).
 * Fixed server scripts run from client scripts not returning their results to the client script, the returned values no longer need to be passed in as arguments first
@@ -130,8 +136,8 @@ The change was made because the total was counted by reading and checking every 
 ({CORTEZA_COMMIT_BASE}c1b47cb[`c1b47cb`]).
 * Fixed the message of a workflow error step being shown with a technical prefix ("workflow N step M execution failed: ..."); it is now shown exactly as configured. The error step also accepts an optional title, used as the heading of the error notification in the webapps instead of the generic one, also in production where other error details are hidden
 ({CORTEZA_COMMIT_BASE}51bdf5d[`51bdf5d`], {CORTEZA_COMMIT_BASE}d5ca627[`d5ca627`]).
-* Fixed MSSQL storing non-Latin text (Arabic, Persian, Chinese, ...) as question marks; text, enum, JSON and geometry columns are now created as NVARCHAR. Columns created earlier keep their VARCHAR type; alter them to NVARCHAR manually where such text must be stored
-({CORTEZA_COMMIT_BASE}43ed0e1[`43ed0e1`]).
+* Fixed MSSQL storing non-Latin text (Arabic, Persian, Chinese, ...) as question marks; text and enum columns are now created as NVARCHAR. Columns created earlier keep their VARCHAR type; alter text columns to NVARCHAR manually where such text must be stored. JSON columns stay VARCHAR; non-Latin text inside them needs a UTF-8 collation
+({CORTEZA_COMMIT_BASE}43ed0e1[`43ed0e1`], {CORTEZA_COMMIT_BASE}fdfe836[`fdfe836`]).
 * Fixed updating resource translations crashing the request when no default language is loaded
 ({CORTEZA_COMMIT_BASE}f6fa696[`f6fa696`]).
 * Fixed CSV record import keeping only the first line of multi-line text and dropping values that contain quotes

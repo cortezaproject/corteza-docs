@@ -76,6 +76,10 @@ The change was made because the total was counted by reading and checking every 
 ({CORTEZA_COMMIT_BASE}9a1be74[`9a1be74`]).
 
 .[#2026_09_00-fixed]#<<2026_09_00-fixed,Fixed:>>#
+* Fixed record filters using TIME(), such as `TIME(start) = TIME('02:00:00')`, matching nothing on MySQL 8, which read the bound time as midnight
+({CORTEZA_COMMIT_BASE}6a0a45c[`6a0a45c`]).
+* Fixed opening a notification on MSSQL hanging the request for good; its configuration is now read whether the database returns it as bytes or as text
+({CORTEZA_COMMIT_BASE}969cce8[`969cce8`]).
 * Fixed modules on MSSQL with number fields stored in their own columns reporting schema changes that never go away; the precision of existing decimal columns is now read
 ({CORTEZA_COMMIT_BASE}63f6ab3[`63f6ab3`]).
 * Fixed listing records by a meta key without a value (records that have the key) failing on MSSQL with a syntax error

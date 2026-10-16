@@ -318,3 +318,5 @@ The change was made because the total was counted by reading and checking every 
 ({CORTEZA_COMMIT_BASE}8de39a8[`8de39a8`]).
 * Checked the run-as user of a workflow on each execution instead of once when the workflow was loaded, so a workflow no longer keeps running as a user that was suspended or deleted, or with roles the user no longer has
 ({CORTEZA_COMMIT_BASE}71ae992[`71ae992`]).
+* Saved a granted permission rule again when an earlier save of it failed and the same rule was granted again, instead of keeping it only in memory until the server restarted
+({CORTEZA_COMMIT_BASE}c1bd6cb[`c1bd6cb`]).

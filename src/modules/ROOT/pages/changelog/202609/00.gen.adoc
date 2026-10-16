@@ -71,6 +71,9 @@ The change was made because such triggers were saved but never fired, or fired m
 * Changed permission checks to look up user group permissions only when the user's own roles neither allow nor deny, instead of on every check
 The change was made because every user is in a user group, so each check on a running server also walked the group tree; record lists with totals, reports and exports that check each record took about twice as long
 ({CORTEZA_COMMIT_BASE}0794278[`0794278`]).
+* Changed granting permissions to update the permission index in place and save only the changed rules, instead of rebuilding the index and copying every rule on each grant
+The change was made because a grant slowed down with every rule already stored (8 ms at 20,000 rules, now 0.2 ms) and held up every other permission check while it ran; workflows that grant permissions per record ran about 3 times faster
+({CORTEZA_COMMIT_BASE}7c59455[`7c59455`]).
 * Changed permission checks with contextual roles (Owner, Creator, ...) to prepare the record for their expressions once per check instead of once per role
 The change was made because record lists, totals and reports for users who may read only some records check every record; their server time drops by about a quarter to a third
 ({CORTEZA_COMMIT_BASE}84a73fe[`84a73fe`]).

@@ -89,15 +89,21 @@ SQL Server::
 +
 [source,sql]
 ----
-ALTER TABLE <table> ALTER COLUMN [values] NVARCHAR(MAX) NULL;
+ALTER TABLE <table> ALTER COLUMN [values] VARCHAR(MAX) NULL;
 ----
 
 === Non-Latin text on SQL Server
 
-Text, enum, JSON and geometry columns are now created as `NVARCHAR` on SQL Server, so non-Latin text is no longer stored as question marks.
-Columns created before the upgrade keep their `VARCHAR` type; change the ones that must hold such text, for example:
+Text and enum columns are now created as `NVARCHAR` on SQL Server, so non-Latin text is no longer stored as question marks.
+Columns created before the upgrade keep their `VARCHAR` type; change the text columns that must hold such text, for example:
 
 [source,sql]
 ----
 ALTER TABLE <table> ALTER COLUMN <column> NVARCHAR(MAX) NULL;
 ----
+
+JSON columns, such as the record `values` and the `meta`, `config` and label `value` columns, must stay `VARCHAR(MAX)`.
+Corteza writes JSON as bytes, which SQL Server reads as UTF-16 when it stores them in an `NVARCHAR` column, so the JSON can no longer be read.
+If such a column was changed to `NVARCHAR`, change it back to `VARCHAR(MAX)`; values written while it was `NVARCHAR` are not recoverable.
+
+Non-Latin text inside JSON, such as record values of modules that keep their values in the `values` column, needs a database with a UTF-8 collation (SQL Server 2019 and later, for example `Latin1_General_100_CI_AS_SC_UTF8`); with other collations it is stored garbled.

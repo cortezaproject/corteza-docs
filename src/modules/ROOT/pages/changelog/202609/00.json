@@ -224,6 +224,11 @@
       "refs": ["https://github.com/cortezaproject/corteza/commit/079427863"]
     },
     {
+      "what": ["permission checks with contextual roles (Owner, Creator, ...) to prepare the record for their expressions once per check instead of once per role"],
+      "why": ["because record lists, totals and reports for users who may read only some records check every record; their server time drops by about a quarter to a third"],
+      "refs": ["https://github.com/cortezaproject/corteza/commit/84a73fe4f"]
+    },
+    {
       "what": ["record lists with a total count to have the database count the records for users who may read every record of the module, and to skip checking those records one by one"],
       "why": ["because the total was counted by reading and checking every record; on a module with 50,000 records a list with the total shown took about 3 seconds, now under 0.1 second, and with page navigation about half as long as before"],
       "refs": ["https://github.com/cortezaproject/corteza/commit/9a1be744f"]

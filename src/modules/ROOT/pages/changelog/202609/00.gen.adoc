@@ -71,6 +71,9 @@ The change was made because such triggers were saved but never fired, or fired m
 * Changed permission checks to look up user group permissions only when the user's own roles neither allow nor deny, instead of on every check
 The change was made because every user is in a user group, so each check on a running server also walked the group tree; record lists with totals, reports and exports that check each record took about twice as long
 ({CORTEZA_COMMIT_BASE}0794278[`0794278`]).
+* Changed permission checks with contextual roles (Owner, Creator, ...) to prepare the record for their expressions once per check instead of once per role
+The change was made because record lists, totals and reports for users who may read only some records check every record; their server time drops by about a quarter to a third
+({CORTEZA_COMMIT_BASE}84a73fe[`84a73fe`]).
 * Changed record lists with a total count to have the database count the records for users who may read every record of the module, and to skip checking those records one by one
 The change was made because the total was counted by reading and checking every record; on a module with 50,000 records a list with the total shown took about 3 seconds, now under 0.1 second, and with page navigation about half as long as before
 ({CORTEZA_COMMIT_BASE}9a1be74[`9a1be74`]).

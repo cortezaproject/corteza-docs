@@ -226,6 +226,10 @@
   ],
   "fixed": [
     {
+      "what": ["workflow steps that allow, deny or inherit a permission crashing with \"slice bounds out of range\" for users who are not super administrators; they now check the user may grant on the component, as the permission editor does"],
+      "refs": ["https://github.com/cortezaproject/corteza/commit/a9a0af4cb", "https://github.com/cortezaproject/corteza/commit/d07df59b3"]
+    },
+    {
       "what": [
         "server scripts run from client scripts not returning their results to the client script, the returned values no longer need to be passed in as arguments first"
       ],

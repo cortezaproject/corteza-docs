@@ -217,6 +217,11 @@
       "what": ["workflow triggers to be refused on save when their interval is not a valid crontab expression, their timestamp can not be parsed or their constraints can not be registered."],
       "why": ["because such triggers were saved but never fired, or fired more broadly than configured"],
       "refs": ["https://github.com/cortezaproject/corteza/commit/8747a807b", "https://github.com/cortezaproject/corteza/commit/c04a83f75"]
+    },
+    {
+      "what": ["permission checks to look up user group permissions only when the user's own roles neither allow nor deny, instead of on every check"],
+      "why": ["because every user is in a user group, so each check on a running server also walked the group tree; record lists with totals, reports and exports that check each record took about twice as long"],
+      "refs": ["https://github.com/cortezaproject/corteza/commit/079427863"]
     }
   ],
   "fixed": [

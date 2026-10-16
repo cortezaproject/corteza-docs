@@ -231,6 +231,14 @@
   ],
   "fixed": [
     {
+      "what": ["modules on MSSQL with number fields stored in their own columns reporting schema changes that never go away; the precision of existing decimal columns is now read"],
+      "refs": ["https://github.com/cortezaproject/corteza/commit/63f6ab3d1"]
+    },
+    {
+      "what": ["listing records by a meta key without a value (records that have the key) failing on MSSQL with a syntax error"],
+      "refs": ["https://github.com/cortezaproject/corteza/commit/1910c7441"]
+    },
+    {
       "what": ["MSSQL installations failing to start after the first restart in the labels migration (\"Incorrect syntax near 'JSON_OBJECT'\"), and the migration turning the label value column into NVARCHAR, which made labels written afterwards unreadable; plain text label values are now wrapped as JSON with STRING_ESCAPE and the column stays VARCHAR"],
       "refs": ["https://github.com/cortezaproject/corteza/commit/507c71704"]
     },

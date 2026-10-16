@@ -76,6 +76,10 @@ The change was made because the total was counted by reading and checking every 
 ({CORTEZA_COMMIT_BASE}9a1be74[`9a1be74`]).
 
 .[#2026_09_00-fixed]#<<2026_09_00-fixed,Fixed:>>#
+* Fixed modules on MSSQL with number fields stored in their own columns reporting schema changes that never go away; the precision of existing decimal columns is now read
+({CORTEZA_COMMIT_BASE}63f6ab3[`63f6ab3`]).
+* Fixed listing records by a meta key without a value (records that have the key) failing on MSSQL with a syntax error
+({CORTEZA_COMMIT_BASE}1910c74[`1910c74`]).
 * Fixed MSSQL installations failing to start after the first restart in the labels migration ("Incorrect syntax near 'JSON_OBJECT'"), and the migration turning the label value column into NVARCHAR, which made labels written afterwards unreadable; plain text label values are now wrapped as JSON with STRING_ESCAPE and the column stays VARCHAR
 ({CORTEZA_COMMIT_BASE}507c717[`507c717`]).
 * Fixed filtering by label value on MSSQL failing with "Incorrect syntax near 'OPENJSON'", and other checks whether a JSON array holds a value

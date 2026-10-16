@@ -231,6 +231,10 @@
   ],
   "fixed": [
     {
+      "what": ["roles, users, modules, pages and other resources imported without timestamps (for example from YAML or by the user import) being stored with the creation date 0001-01-01, or failing to import on MSSQL; they now get the time of the import"],
+      "refs": ["https://github.com/cortezaproject/corteza/commit/a6c2be058"]
+    },
+    {
       "what": ["record filters using TIME(), such as `TIME(start) = TIME('02:00:00')`, matching nothing on MySQL 8, which read the bound time as midnight"],
       "refs": ["https://github.com/cortezaproject/corteza/commit/6a0a45c82"]
     },

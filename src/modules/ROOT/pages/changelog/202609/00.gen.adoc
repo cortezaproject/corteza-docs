@@ -91,6 +91,8 @@ The change was made because those checks made up three quarters of a short run: 
 ({CORTEZA_COMMIT_BASE}0dc3d71[`0dc3d71`], {CORTEZA_COMMIT_BASE}068f032[`068f032`]).
 
 .[#2026_09_00-fixed]#<<2026_09_00-fixed,Fixed:>>#
+* Fixed a failed workflow run reporting back to whatever waited for it (a record save, a subworkflow step, a run started by hand) before its failure was recorded, so the stacktrace returned with the error could miss the failing step
+({CORTEZA_COMMIT_BASE}cfde39f[`cfde39f`]).
 * Fixed creating a workflow through the API without `meta` failing with an empty server error; it is now refused with the missing name error
 ({CORTEZA_COMMIT_BASE}db962f3[`db962f3`]).
 * Fixed roles, users, modules, pages and other resources imported without timestamps (for example from YAML or by the user import) being stored with the creation date 0001-01-01, or failing to import on MSSQL; they now get the time of the import

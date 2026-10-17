@@ -237,6 +237,11 @@
       "what": ["record lists with a total count to have the database count the records for users who may read every record of the module, and to skip checking those records one by one"],
       "why": ["because the total was counted by reading and checking every record; on a module with 50,000 records a list with the total shown took about 3 seconds, now under 0.1 second, and with page navigation about half as long as before"],
       "refs": ["https://github.com/cortezaproject/corteza/commit/9a1be744f", "https://github.com/cortezaproject/corteza/commit/6875fc526"]
+    },
+    {
+      "what": ["workflow runs to look up each namespace and module (with its fields and labels) once and reuse it for up to 10 seconds, also in the subworkflows and record triggers they start, instead of reading them from the database on every record step"],
+      "why": ["because a loop over records repeated these lookups for every record; a run over 428 records sent about 6,150 queries, of which about 5,400 were these lookups, and now sends about 750, which halves its time on SQLite and saves a database round trip for each of those queries elsewhere"],
+      "refs": ["https://github.com/cortezaproject/corteza/commit/f0ad7518e"]
     }
   ],
   "fixed": [

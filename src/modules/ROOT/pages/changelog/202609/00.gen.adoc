@@ -83,6 +83,12 @@ The change was made because the total was counted by reading and checking every 
 * Changed workflow runs to look up each namespace and module (with its fields and labels) once and reuse it for up to 10 seconds, also in the subworkflows and record triggers they start, instead of reading them from the database on every record step
 The change was made because a loop over records repeated these lookups for every record; a run over 428 records sent about 6,150 queries, of which about 5,400 were these lookups, and now sends about 750, which halves its time on SQLite and saves a database round trip for each of those queries elsewhere
 ({CORTEZA_COMMIT_BASE}f0ad751[`f0ad751`]).
+* Changed workflow steps to be numbered by a counter of their own instead of each taking an ID from the server's ID generator
+The change was made because the generator issues at most about 25,000 IDs a second for the whole server; a loop of a few thousand iterations used them up, ran about 3 times slower than it could, and made every other request that needed an ID, such as saving a record, wait for one (about 5 ms per record save while a large loop ran)
+({CORTEZA_COMMIT_BASE}1610d0d[`1610d0d`]).
+* Changed workflow runs that something waits for (record triggers that run before a save, subworkflows, runs started by hand) to report that they finished as soon as their last step does, instead of on the next check, done every millisecond
+The change was made because those checks made up three quarters of a short run: a two-step workflow took 2 ms, now 0.5 ms, and a loop calling a subworkflow for each of 428 records went from 0.68 to 0.26 seconds together with the other workflow changes
+({CORTEZA_COMMIT_BASE}0dc3d71[`0dc3d71`]).
 
 .[#2026_09_00-fixed]#<<2026_09_00-fixed,Fixed:>>#
 * Fixed roles, users, modules, pages and other resources imported without timestamps (for example from YAML or by the user import) being stored with the creation date 0001-01-01, or failing to import on MSSQL; they now get the time of the import

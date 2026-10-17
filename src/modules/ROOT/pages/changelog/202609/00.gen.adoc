@@ -91,6 +91,8 @@ The change was made because those checks made up three quarters of a short run: 
 ({CORTEZA_COMMIT_BASE}0dc3d71[`0dc3d71`], {CORTEZA_COMMIT_BASE}068f032[`068f032`]).
 
 .[#2026_09_00-fixed]#<<2026_09_00-fixed,Fixed:>>#
+* Fixed the integration gateway changing its routes and settings while serving requests, without any locking, when routes or gateway settings were saved and at server start; a route that was deleted or disabled now also stays gone when another route is saved
+({CORTEZA_COMMIT_BASE}ea9cd6c[`ea9cd6c`], {CORTEZA_COMMIT_BASE}49d1a17[`49d1a17`], {CORTEZA_COMMIT_BASE}7695c24[`7695c24`]).
 * Fixed a failed workflow run reporting back to whatever waited for it (a record save, a subworkflow step, a run started by hand) before its failure was recorded, so the stacktrace returned with the error could miss the failing step
 ({CORTEZA_COMMIT_BASE}cfde39f[`cfde39f`]).
 * Fixed creating a workflow through the API without `meta` failing with an empty server error; it is now refused with the missing name error

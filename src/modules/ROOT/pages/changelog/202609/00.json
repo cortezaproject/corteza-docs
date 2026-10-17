@@ -256,6 +256,10 @@
   ],
   "fixed": [
     {
+      "what": ["the integration gateway changing its routes and settings while serving requests, without any locking, when routes or gateway settings were saved and at server start; a route that was deleted or disabled now also stays gone when another route is saved"],
+      "refs": ["https://github.com/cortezaproject/corteza/commit/ea9cd6c55", "https://github.com/cortezaproject/corteza/commit/49d1a1727", "https://github.com/cortezaproject/corteza/commit/7695c243d"]
+    },
+    {
       "what": ["a failed workflow run reporting back to whatever waited for it (a record save, a subworkflow step, a run started by hand) before its failure was recorded, so the stacktrace returned with the error could miss the failing step"],
       "refs": ["https://github.com/cortezaproject/corteza/commit/cfde39fb6"]
     },

@@ -251,7 +251,7 @@
     {
       "what": ["workflow runs that something waits for (record triggers that run before a save, subworkflows, runs started by hand) to report that they finished as soon as their last step does, instead of on the next check, done every millisecond"],
       "why": ["because those checks made up three quarters of a short run: a two-step workflow took 2 ms, now 0.5 ms, and a loop calling a subworkflow for each of 428 records went from 0.68 to 0.26 seconds together with the other workflow changes"],
-      "refs": ["https://github.com/cortezaproject/corteza/commit/0dc3d715e"]
+      "refs": ["https://github.com/cortezaproject/corteza/commit/0dc3d715e", "https://github.com/cortezaproject/corteza/commit/068f0329a"]
     }
   ],
   "fixed": [

@@ -88,7 +88,7 @@ The change was made because the generator issues at most about 25,000 IDs a seco
 ({CORTEZA_COMMIT_BASE}1610d0d[`1610d0d`]).
 * Changed workflow runs that something waits for (record triggers that run before a save, subworkflows, runs started by hand) to report that they finished as soon as their last step does, instead of on the next check, done every millisecond
 The change was made because those checks made up three quarters of a short run: a two-step workflow took 2 ms, now 0.5 ms, and a loop calling a subworkflow for each of 428 records went from 0.68 to 0.26 seconds together with the other workflow changes
-({CORTEZA_COMMIT_BASE}0dc3d71[`0dc3d71`]).
+({CORTEZA_COMMIT_BASE}0dc3d71[`0dc3d71`], {CORTEZA_COMMIT_BASE}068f032[`068f032`]).
 
 .[#2026_09_00-fixed]#<<2026_09_00-fixed,Fixed:>>#
 * Fixed creating a workflow through the API without `meta` failing with an empty server error; it is now refused with the missing name error

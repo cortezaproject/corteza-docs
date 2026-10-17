@@ -256,6 +256,10 @@
   ],
   "fixed": [
     {
+      "what": ["creating a workflow through the API without `meta` failing with an empty server error; it is now refused with the missing name error"],
+      "refs": ["https://github.com/cortezaproject/corteza/commit/db962f39e"]
+    },
+    {
       "what": ["roles, users, modules, pages and other resources imported without timestamps (for example from YAML or by the user import) being stored with the creation date 0001-01-01, or failing to import on MSSQL; they now get the time of the import"],
       "refs": ["https://github.com/cortezaproject/corteza/commit/a6c2be058"]
     },

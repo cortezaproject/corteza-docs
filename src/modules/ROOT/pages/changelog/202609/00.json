@@ -757,7 +757,7 @@
     },
     {
       "what": [
-        "Stopped users from taking over reminders of other users by assigning them to themselves"
+        "Stopped users and unauthenticated requests from taking over or wiping reminders of other users, addressing GHSA-j5p6-w4x8-532q"
       ],
       "refs": [
         "https://github.com/cortezaproject/corteza/commit/7d6de8fa3"
@@ -849,7 +849,7 @@
       "refs": ["https://github.com/cortezaproject/corteza/commit/8ee143833"]
     },
     {
-      "what": ["Stopped rich text values encoded several times over from turning back into live markup when read, which let a stored value run script in record views; entities in rich text are now decoded without ever producing new tags"],
+      "what": ["Stopped rich text values encoded several times over from turning back into live markup when read, which let a stored value run script in record views and calendar blocks; entities in rich text are now decoded without ever producing new tags, addressing GHSA-j8cx-q7xw-8r7f"],
       "refs": ["https://github.com/cortezaproject/corteza/commit/4e8ecf4d0"]
     },
     {

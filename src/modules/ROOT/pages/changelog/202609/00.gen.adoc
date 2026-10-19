@@ -293,7 +293,7 @@ The change was made because those checks made up three quarters of a short run: 
 ({CORTEZA_COMMIT_BASE}09248d0[`09248d0`]).
 * Required permission to update the workflow for reading its execution traces
 ({CORTEZA_COMMIT_BASE}039beff[`039beff`]).
-* Stopped users from taking over reminders of other users by assigning them to themselves
+* Stopped users and unauthenticated requests from taking over or wiping reminders of other users, addressing GHSA-j5p6-w4x8-532q
 ({CORTEZA_COMMIT_BASE}7d6de8f[`7d6de8f`]).
 * Limited data privacy request comments to users with access to the request
 ({CORTEZA_COMMIT_BASE}90ec5f9[`90ec5f9`]).
@@ -319,7 +319,7 @@ The change was made because those checks made up three quarters of a short run: 
 ({CORTEZA_COMMIT_BASE}5ccce02[`5ccce02`]).
 * Cleared the federation pairing token once the nodes are paired, so a leaked pairing URI can not be used to start the handshake over
 ({CORTEZA_COMMIT_BASE}8ee1438[`8ee1438`]).
-* Stopped rich text values encoded several times over from turning back into live markup when read, which let a stored value run script in record views; entities in rich text are now decoded without ever producing new tags
+* Stopped rich text values encoded several times over from turning back into live markup when read, which let a stored value run script in record views and calendar blocks; entities in rich text are now decoded without ever producing new tags, addressing GHSA-j8cx-q7xw-8r7f
 ({CORTEZA_COMMIT_BASE}4e8ecf4[`4e8ecf4`]).
 * Limited record reports, and with them charts and metric blocks, to the records the user may read, so a user who reads only some of a module's records, such as their own, no longer sees totals or grouped values of all of them
 ({CORTEZA_COMMIT_BASE}62d626e[`62d626e`], {CORTEZA_COMMIT_BASE}c0c43df[`c0c43df`], {CORTEZA_COMMIT_BASE}86bb517[`86bb517`]).

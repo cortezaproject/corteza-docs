@@ -335,3 +335,5 @@ The change was made because those checks made up three quarters of a short run: 
 ({CORTEZA_COMMIT_BASE}71ae992[`71ae992`]).
 * Saved a granted permission rule again when an earlier save of it failed and the same rule was granted again, instead of keeping it only in memory until the server restarted
 ({CORTEZA_COMMIT_BASE}c1bd6cb[`c1bd6cb`]).
+* Refused record filters, sorts and summaries that name a field the user may not read in any letter case, not only the exact one; a differently cased name skipped the check but still matched and ordered records by the hidden value, which let an authenticated user read it out one character at a time, addressing GHSA-vjj6-4qjr-qqm7
+({CORTEZA_COMMIT_BASE}65cb598[`65cb598`]).

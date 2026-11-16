@@ -100,7 +100,6 @@
 
 *** xref:automation/automation-scripts/index.adoc[]
 **** xref:automation/automation-scripts/node-modules.adoc[]
-**** xref:automation/automation-scripts/edit-built-in-scripts.adoc[]
 **** xref:automation/automation-scripts/testing.adoc[]
 **** xref:automation/automation-scripts/deploying.adoc[]
 **** xref:automation/automation-scripts/debugging.adoc[]

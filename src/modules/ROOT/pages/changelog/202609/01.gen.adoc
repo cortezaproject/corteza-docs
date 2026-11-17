@@ -7,3 +7,5 @@ include::ROOT:partial$variables.adoc[]
 .[#2026_09_01-fixed]#<<2026_09_01-fixed,Fixed:>>#
 * Fixed triggers of a workflow that was disabled or deleted while it had issues staying active until the server restarted, failing every matching record save with "invalid ID"
 ({CORTEZA_COMMIT_BASE}ca44b99[`ca44b99`]).
+* Fixed the misleading "invalid ID" error shown when a disabled or deleted workflow was run, it now says the workflow cannot run
+({CORTEZA_COMMIT_BASE}712a4ee[`712a4ee`]).

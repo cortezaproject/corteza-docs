@@ -11,6 +11,14 @@
       "refs": [
         "https://github.com/cortezaproject/corteza/commit/ca44b9989"
       ]
+    },
+    {
+      "what": [
+        "the misleading \"invalid ID\" error shown when a disabled or deleted workflow was run, it now says the workflow cannot run"
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/712a4eea4"
+      ]
     }
   ]
 }

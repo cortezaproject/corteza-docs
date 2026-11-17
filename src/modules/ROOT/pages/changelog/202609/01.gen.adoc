@@ -1,0 +1,9 @@
+include::ROOT:partial$variables.adoc[]
+
+= `2026.9.1`
+
+*Released on*: `TBD`
+
+.[#2026_09_01-fixed]#<<2026_09_01-fixed,Fixed:>>#
+* Fixed triggers of a workflow that was disabled or deleted while it had issues staying active until the server restarted, failing every matching record save with "invalid ID"
+({CORTEZA_COMMIT_BASE}ca44b99[`ca44b99`]).

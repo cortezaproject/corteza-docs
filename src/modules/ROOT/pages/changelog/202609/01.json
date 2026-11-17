@@ -1,0 +1,16 @@
+{
+  "meta": {
+    "releasedOn": "TBD"
+  },
+
+  "fixed": [
+    {
+      "what": [
+        "triggers of a workflow that was disabled or deleted while it had issues staying active until the server restarted, failing every matching record save with \"invalid ID\""
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/ca44b9989"
+      ]
+    }
+  ]
+}

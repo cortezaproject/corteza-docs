@@ -10,6 +10,7 @@ Some of the fixes change how {PRODUCT_NAME} behaves, so make sure to read the up
 
 :leveloffset: +1
 
+include::01.gen.adoc[]
 include::00.gen.adoc[]
 
 :leveloffset: -1

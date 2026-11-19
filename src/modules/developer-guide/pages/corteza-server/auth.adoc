@@ -149,12 +149,15 @@ The scope is defined as a series of role memberships that are either *permitted*
 [cols="2s,5a"]
 |===
 | [#auth-scope-permitted]#<<auth-scope-permitted,Permitted roles>>#
+|
 Permitted roles allow you to specify what roles the user is *allowed to have* when accessing the {PRODUCT_NAME} API resources from a specific client.
 
 | [#auth-scope-prohibited]#<<auth-scope-prohibited,Prohibited roles>>#
+|
 Prohibited roles allow you to specify what roles the user is *not allowed to have* when accessing the {PRODUCT_NAME} API resources from a specific client.
 
 | [#auth-scope-forced]#<<auth-scope-forced,Forced roles>>#
+|
 Forced roles allow you to specify what roles the user *must have* when accessing the {PRODUCT_NAME} API resources from a specific client.
 If the user does not have a forced role, it will be automatically added.
 |===

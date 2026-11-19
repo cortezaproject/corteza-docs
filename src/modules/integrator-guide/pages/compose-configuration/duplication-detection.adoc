@@ -84,7 +84,6 @@ When Soft duplicate value validation is applied, the pop-up warning message is d
   } 
 }
 ----
-|
 |===
 
 == Enabling duplication detection validation rules

@@ -9,3 +9,5 @@ include::ROOT:partial$variables.adoc[]
 ({CORTEZA_COMMIT_BASE}ca44b99[`ca44b99`]).
 * Fixed the misleading "invalid ID" error shown when a disabled or deleted workflow was run, it now says the workflow cannot run
 ({CORTEZA_COMMIT_BASE}712a4ee[`712a4ee`]).
+* Fixed records failing to save, with "model 0 does not exist", in a module with record revisions enabled after its namespace was cloned or imported, until the server restarted; the import now registers the module's revisions model too
+({CORTEZA_COMMIT_BASE}4bd851b[`4bd851b`]).

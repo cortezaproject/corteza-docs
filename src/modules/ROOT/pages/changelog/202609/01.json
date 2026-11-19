@@ -19,6 +19,14 @@
       "refs": [
         "https://github.com/cortezaproject/corteza/commit/712a4eea4"
       ]
+    },
+    {
+      "what": [
+        "records failing to save, with \"model 0 does not exist\", in a module with record revisions enabled after its namespace was cloned or imported, until the server restarted; the import now registers the module's revisions model too"
+      ],
+      "refs": [
+        "https://github.com/cortezaproject/corteza/commit/4bd851be5"
+      ]
     }
   ]
 }

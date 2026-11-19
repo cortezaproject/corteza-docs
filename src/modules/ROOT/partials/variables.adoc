@@ -14,6 +14,7 @@
 :APP_NAME_WORKFLOW: Workflow
 :APP_NAME_FEDERATION: Federation
 :APP_NAME_DISCOVERY: Discovery
+:APP_NAME_PRIVACY: Privacy
 :APP_AUTOMATION: Corredor
 :PRODUCT_NAME: Corteza
 :DOMAIN: cortezaproject.org

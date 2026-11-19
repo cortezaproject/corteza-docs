@@ -111,14 +111,20 @@ Table locks might cause issues when running in production, so do keep this in mi
 # This dumps the entire database and place it in the dump.sql file.
 docker-compose exec -T \
     --env MYSQL_PWD=your-password db \
-    mysqldump your-db-name --add-drop-database -u your-username > dump.sql
+    mysqldump your-db-name --no-tablespaces --add-drop-database -u your-username > dump.sql
 
 # This dumps the database without actionlog, automation sessions, and resource activity log
 # These are generally the largest and can safely be omitted.
 docker-compose exec -T \
     --env MYSQL_PWD=your-password db \
-    mysqldump your-db-name --add-drop-database --ignore-table=dbname.actionlog --ignore-table=dbname.automation_sessions --ignore-table=dbname.resource_activity_log -u your-username > dump.sql
+    mysqldump your-db-name --no-tablespaces --add-drop-database --ignore-table=dbname.actionlog --ignore-table=dbname.automation_sessions --ignore-table=dbname.resource_activity_log -u your-username > dump.sql
 ----
+
+[NOTE]
+====
+The `--no-tablespaces` flag is required since MySQL `8.0.21`.
+Without it, `mysqldump` needs the `PROCESS` privilege to dump tablespace information, and the export fails with an `Access denied` error for a regular database user.
+====
 
 [CAUTION]
 ====
